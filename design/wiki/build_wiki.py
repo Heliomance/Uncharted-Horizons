@@ -640,14 +640,7 @@ class Wiki:
         out, pos = [], 0
         for m in re.finditer(r'(`+)(.+?)\1', text):
             out.append(self.prose(text[pos:m.start()], here, self_id, focus_cells))
-            content = m.group(2)
-            if '[[' in content:
-                esc = html.escape(content, quote=False)
-                for ch, ent in (('[', '&#91;'), (']', '&#93;'), ('*', '&#42;'), ('_', '&#95;')):
-                    esc = esc.replace(ch, ent)
-                out.append(f'<code>{esc}</code>')
-            else:
-                out.append(m.group(0))
+            out.append(m.group(1) + self.break_wiki_links(m.group(2)) + m.group(1))
             pos = m.end()
         out.append(self.prose(text[pos:], here, self_id, focus_cells))
         return ''.join(out)
@@ -715,7 +708,13 @@ class Wiki:
         t = self.outside_links(t, re.compile(r'\b(' + '|'.join(TOKEN_TARGETS) + r')\b'), token)
 
         t = self.link_focus_names(t, here, focus_cells)
-        return re.sub(r'\[(?=\[)', '&#91;', t)   # "[[" would start a wiki link
+        return self.break_wiki_links(t)
+
+    @staticmethod
+    def break_wiki_links(text: str) -> str:
+        """GitHub's wiki turns "[[…]]" into a link to a page, even when the first bracket is written as an
+        entity or sits in code, so an invisible word joiner (U+2060) goes between adjacent brackets."""
+        return re.sub(r'\[(?=\[)', '[\u2060', text)
 
     def focus_page_for(self, name: str) -> str | None:
         name = name.strip()
@@ -1392,10 +1391,10 @@ class Wiki:
             elif anchor and anchor not in anchors[page]:
                 errors.append(f'{here}: link to missing anchor {page}#{anchor}')
         for name, text in files.items():
+            if '[[' in html.unescape(text):
+                errors.append(f'{name}: contains "[[", which the wiki would read as a link to a page')
             stripped = re.sub(r'```.*?```', '', text, flags=re.S)
             stripped = re.sub(r'`[^`\n]*`', '', stripped)
-            if '[[' in stripped:
-                errors.append(f'{name}: contains "[[", which the wiki would read as a wiki link')
             for tag in re.findall(r'<(/?[A-Za-z][A-Za-z0-9-]*)', stripped):
                 if tag.lstrip('/') not in ('sub', 'code', 'br', 'details', 'summary'):
                     errors.append(f'{name}: unexpected HTML tag <{tag}>')
