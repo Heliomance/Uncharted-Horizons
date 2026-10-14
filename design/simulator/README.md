@@ -12,7 +12,7 @@ Everything used to measure the tech tree's research pacing and the FTL endgame: 
 | Folder | What's in it |
 |---|---|
 | `outputs/` | The built tree viewer, `tech_tree_viewer.html`. |
-| `power/` | Every tool and measurement script (88 Python scripts), with their data files. |
+| `power/` | Every tool and measurement script (89 Python scripts), with their data files. |
 | `power/results/` | Every saved measurement (504 files, about 67 MB unpacked). The standard runs need it: they load their rival-civilisation pools from here. |
 | `unciv/` | Unciv's Gods & Kings and Vanilla rulesets, its uniques documentation and the derived reference files. |
 | `unciv_src/` | Extracts of Unciv's engine source (unit movement, capture, combat, the unique types), used when designing engine-dependent rows. |
@@ -53,6 +53,7 @@ The standard run is 60 games of one FTL method in one world, played by the exper
 | `generator.py` | The Insight-threshold generator of the original discovery design, run per civilisation at world creation. |
 | `balance_*.py`, `theory_phase.py`, `ftl_timing.py`, `victory_total.py` | Summaries of the measurement runs. |
 | `trace_table.py` | Formats a traced game as a readable table. |
+| `missed_ideas.py` | How much of the tree missed ideas lock under the agreed settings, isolated and connected (`results/missed_ideas_<world>.txt`). |
 | `ledger.py`, `ledger2.py` – `ledger6.py` | The power ledgers: per-city building power by era, which the era model reads. |
 | `defaults.py` | Where the tree is, and the finalised design's switches. |
 | `v112_stage1.py` – `v112_stage5.py`, `v112_tachyonic_fix.py`, `thin_batch*.py`, `stage*.py` and the other scripts that edit `tt.md` | The scripts that made past tree versions. They're a record, tied to the versions they edited and to the old workspace's `tt.md` and numbered copies, not something to re-run. |

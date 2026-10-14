@@ -1,0 +1,30 @@
+familiar: 495 rows, 100 games per setting (balanced player, no Endeavours; games end at the end of the tree)
+
+bare       discovered 290; lost ideas later recovered by diffusion 0.0
+           before the Space era: STANDARD ideas lost for good mean 17.8 (median 18, p90 21, max 27); of them glimpsed 0.0
+           before the Space era: rows locked behind lost STANDARD ideas mean 24.6 (median 24, p90 34, max 56)
+           ... and still locked after an Endeavour for every glimpsed one mean 24.6 (median 24, p90 34, max 56)
+           lost STANDARD ideas by era (mean a game): Primitive 1.1, Ancient 2.4, Classical 1.7, Medieval 1.6, Early Modern 2.9, Modern 4.6, Atomic 3.4, Space 6.9
+           other tiers lost (missable by design): UNCOMMON 26.0, RARE 23.8, UNIQUE 46.0
+           biggest gateways (lost in % of games; rows it alone guards when lost, mean):
+             MA09 Statistics 15%, 29; MA06 Probability Theory 13%, 30; FA03 Selective Breeding 18%, 20; TH02 Refrigeration 16%, 15; CO11 Reinforced Concrete 16%, 12; TH05 Carnot Efficiency 21%, 7; GN02 DNA Structure 14%, 11; SF05 Trireme/Galley Construction 18%, 8; GN03 Genetic Engineering 15%, 9; CP07 Artificial Intelligence (Narrow) 9%, 16; MC11 Assembly Line 15%, 8; EN06 Semiconductor Mastery 16%, 7
+
+isolated   discovered 290; lost ideas later recovered by diffusion 0.0
+           before the Space era: STANDARD ideas lost for good mean 17.8 (median 18, p90 21, max 27); of them glimpsed 15.3
+           before the Space era: rows locked behind lost STANDARD ideas mean 24.6 (median 24, p90 34, max 56)
+           ... and still locked after an Endeavour for every glimpsed one mean 3.9 (median 2, p90 10, max 33)
+           lost STANDARD ideas by era (mean a game): Primitive 1.1, Ancient 2.4, Classical 1.7, Medieval 1.6, Early Modern 2.9, Modern 4.6, Atomic 3.4, Space 6.9
+           lost ideas glimpsed (Revealed, so an Endeavour can take them), by tier: STANDARD 84% of 24.7, UNCOMMON 93% of 26.0, RARE 84% of 23.8, UNIQUE 80% of 46.0
+           other tiers lost (missable by design): UNCOMMON 26.0, RARE 23.8, UNIQUE 46.0
+           biggest gateways (lost in % of games; rows it alone guards when lost, mean):
+             MA09 Statistics 15%, 29; MA06 Probability Theory 13%, 30; FA03 Selective Breeding 18%, 20; TH02 Refrigeration 16%, 15; CO11 Reinforced Concrete 16%, 12; TH05 Carnot Efficiency 21%, 7; GN02 DNA Structure 14%, 11; SF05 Trireme/Galley Construction 18%, 8; GN03 Genetic Engineering 15%, 9; CP07 Artificial Intelligence (Narrow) 9%, 16; MC11 Assembly Line 15%, 8; EN06 Semiconductor Mastery 16%, 7
+
+connected  discovered 338; lost ideas later recovered by diffusion 19.2
+           before the Space era: STANDARD ideas lost for good mean 4.2 (median 4, p90 6, max 9); of them glimpsed 3.7
+           before the Space era: rows locked behind lost STANDARD ideas mean 3.8 (median 3, p90 9, max 13)
+           ... and still locked after an Endeavour for every glimpsed one mean 0.4 (median 0, p90 1, max 8)
+           lost STANDARD ideas by era (mean a game): Primitive 0.0, Ancient 0.1, Classical 0.1, Medieval 0.2, Early Modern 0.5, Modern 1.0, Atomic 2.3, Space 6.5
+           lost ideas glimpsed (Revealed, so an Endeavour can take them), by tier: STANDARD 82% of 10.7, UNCOMMON 88% of 24.2, RARE 85% of 26.9, UNIQUE 76% of 49.1
+           other tiers lost (missable by design): UNCOMMON 24.2, RARE 26.9, UNIQUE 49.1
+           biggest gateways (lost in % of games; rows it alone guards when lost, mean):
+             MA09 Statistics 6%, 34; CP16 Planetary Data Networks 12%, 7; MS10 Structural Nanomaterials 14%, 5; MA06 Probability Theory 2%, 34; AE14 Aerospace Industry 14%, 5; CP07 Artificial Intelligence (Narrow) 3%, 21; TH15 Waste-Heat Recovery 10%, 6; NP04 Nuclear Fusion 14%, 4; MA15 Optimisation Theory 7%, 8; SF11 Ship of the Line 14%, 4; SE02 Orbital Assembly 6%, 9; EL11 Superconductivity 4%, 12

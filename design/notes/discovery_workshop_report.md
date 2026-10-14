@@ -140,6 +140,38 @@ Mycological Knowledge's rewiring (Antibiotics, Nitrogen Fixation, Biogas and Vac
 
 **Era entry** (v3.97): a small count of breakthroughs from the era or later — 5, 3, 3, 5, 7, 6, 4 from the Ancient to the Space era — replacing the first draft's 8–20, which left entry up to an era behind development. Base Civ V's one-technology rule was measured and set aside: here a Mathematics specialist would enter the Early Modern to Atomic eras 0.8–1.1 eras early. Marked provisional in §2 and recorded as a playtesting lever, since the counts depend on the discovery model's pace.
 
+## Where it stands (14 October 2026)
+
+The workshop stopped when the FTL endgame redesign took over (from 2 October). Every measurement since has run on the candidate configuration above (`design/simulator/power/w7c_cfg.json`: momentum, spill-over, the spread only to foci with something live, ×4 premium per era, STANDARD windows half an era, compression ×4 behind history, calibration ×0.83): the era-entry counts (v3.97), the era redraw (v3.108) and the whole FTL balance (v3.112). So it is the model in practice, while §1.2 still describes the threshold design.
+
+- **Agreed since, to write in with it** (FTL work, 13 October): Grand Endeavours at 2× the price; proximity revelation as a 10% chance, each turn an eligible idea fails to occur, that it is glimpsed (Revealed) instead, so a lost idea can still be pursued as an Endeavour; observational revelation only of what can be seen; and W16's rule that a Space-era idea's moment stays open while its focus is funded.
+- **Done since:** Mycological Knowledge's rewiring, its Mushroom Cellar and the Biogas Plant fix (v3.98). Only its accelerator wording waits, on decision 3.
+- **Stale in the document:** §1.2's example of a multiplier below 1 still cites Loop Quantum Gravity and Bio-Quantum Coherence speeding Tunnelling, removed in v3.112; QM-E23 Current Sail still makes "the final research of the Plenum Drive" cost ×0.5, a clause of the same older kind that v3.112 removed from Tunnelling.
+
+**Missed ideas, re-measured** (`design/simulator/power/missed_ideas.py`; `results/missed_ideas_<world>.txt`). 100 games per setting and world, the workshop's balanced player without Endeavours, played to the end of the tree; figures for the eras before the Space era, where W16 does not reach. The three worlds agree within a row or two; atomic figures:
+
+| Setting | STANDARD ideas lost for good | Rows they alone lock | Still locked if every glimpsed one were Endeavoured |
+|---|---|---|---|
+| Bare: no glimpse, no contacts (the 2 October sweep's setting) | 17.8 | 24.6 (p90 34, max 56) | 24.6 |
+| Isolated, 10% glimpse | 17.8, 15.3 of them glimpsed | 24.6 | 3.9 (p90 10, max 33) |
+| Connected: 10% glimpse, five rivals met in the Early Modern era | 4.2, 3.7 glimpsed | 3.8 (p90 9, max 13) | 0.4 (p90 1, max 8) |
+
+- Knowledge diffusion brings back about 19 lost ideas a game for a connected civilisation, nearly all the early ones among them. The harness does not model theoretical revelation (*Reveals* lists), which would give more lost ideas a way back, so these figures are conservative.
+- FA03 Selective Breeding is now lost in 18% of bare games (35% on 2 October), in line with STANDARD's 15%. The biggest single gateways: MA09 Statistics and MA06 Probability Theory (about 30 rows each when lost), FA03 (20), CP07 Artificial Intelligence (Narrow) (16–21), TH02 Refrigeration (15), CO11 Reinforced Concrete (12).
+- **The glimpse reaches every tier.** 84% of lost STANDARD ideas are glimpsed, but so are 93% of UNCOMMON, 84% of RARE and 80% of UNIQUE ones (isolated, atomic; the harness ignores environmental prerequisites, so it overstates the UNIQUEs). That makes about 20 RARE and 37 UNIQUE breakthroughs a game visible and open to an Endeavour, against §1.4 ("RARE and UNIQUE breakthroughs are almost never revealed by theory: the surprises remain surprises") and §1.5's guards. FTL timings would not move if RARE and UNIQUE ideas could not be glimpsed: every row an FTL method requires is CORE or STANDARD.
+
+**Open decisions** (the five above, with the two the FTL work raised). Proposals, pending Tamsin's decisions:
+
+1. **Direction:** confirm the candidate. Everything since 1 October rests on it.
+2. **The spread:** only to foci with something under study, weighted as measured (by what each has under study, favouring overdue work), with §1.3's environment modifiers multiplying that weight (not measured: the harness has no environment). §1.2's "every qualifying focus is always rolling" goes.
+3. **Accelerators as head starts:** restate the five multipliers below 1 and Mycological Knowledge's three as head starts; remove QM-E23's Plenum clause.
+4. **Modern-era clumps:** accept, and judge in play. Damping the spill-over would change pacing that every FTL timing was measured with.
+5. **The Primitive start:** accept, and rewrite *Front-loaded CORE* to describe the Ancient flurry. CORE ideas occur at once, so the Primitive cadence is set by Insight, not by ideas occurring; only cheaper Primitive prices would quicken it.
+6. **Missed ideas (new):** keep the bounded window, which gives the tiers their meaning; rely on the glimpse, Endeavours and diffusion to recover missed ideas; reword §1.2's promise that tiers never decide whether discovery is possible. Treat the big single gateways as tree content (the deferred entry's option 1), apart from the model.
+7. **The glimpse by tier (new):** glimpse STANDARD and UNCOMMON ideas only, or RARE and UNIQUE ones far more rarely, so the surprises stay surprises.
+
+**The write-up must also translate** the threshold design's remaining terms. Thresholds, rolls and excess Insight become prices, meters and occurrence. The tier table's columns become each tier's chance of occurring in its moment and the moment's length. The UNIQUE penalty becomes a lower chance of occurring for each UNIQUE held; the harness's flat 6.5% stands in for it. Diffusion's "bonus to discovery rolls" needs a meaning (proposal: the idea occurs to you, or comes back if lost; the larger bonuses add a head start; only the automatic arrivals are measured). Necessity's roll bonus becomes Insight alone. The per-city modifier applies to the price. *Serendipitous accidents* are the spread itself. The RARE and UNIQUE Endeavour prices need revisiting. §2's prices per discovery should carry the ×0.83 calibration the model applies to them.
+
 ## Files
 
-`power_tools/harness2.py` — the harness (models, routings, options, accounting); `harness2_results.json`, `efficiency_tests.json`, `catchup_tests.json`, `premium_sweep.json`, `candidate_summary.json` — the results above; `eramodel.py` — the calibrated era model.
+`design/simulator/power/harness2.py` — the harness (models, routings, options, accounting); `harness2_results.json`, `efficiency_tests.json`, `catchup_tests.json`, `premium_sweep.json`, `candidate_summary.json` — the results above; `eramodel.py` — the calibrated era model.
