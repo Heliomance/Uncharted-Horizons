@@ -1,0 +1,256 @@
+{
+ "world": "familiar",
+ "setting": "isolated",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.69,
+  "fade": 1.0,
+  "fade_clock": "era",
+  "fade_tiers": [
+   "STANDARD"
+  ]
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.92,
+   "Ancient": 0.98,
+   "Classical": 0.87,
+   "Medieval": 0.87,
+   "Early Modern": 0.84,
+   "Modern": 1.05,
+   "Atomic": 0.99,
+   "Space": 1.38
+  },
+  "clump%": {
+   "Primitive": 6.6,
+   "Ancient": 9.9,
+   "Classical": 6.1,
+   "Medieval": 7.5,
+   "Early Modern": 4.8,
+   "Modern": 6.9,
+   "Atomic": 7.1,
+   "Space": 15.5
+  },
+  "drought": {
+   "Primitive": 3.1,
+   "Ancient": 5.2,
+   "Classical": 4,
+   "Medieval": 5.1,
+   "Early Modern": 4.8,
+   "Modern": 3.1,
+   "Atomic": 3.8,
+   "Space": 2.2
+  },
+  "lateness": 0.51,
+  "outside own era %": 29.4,
+  ">=1 era early %": 0.02,
+  "earliest": -1.52,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.89,
+   "UNCOMMON": 0.32,
+   "RARE": 0.06,
+   "UNIQUE": 0.06
+  },
+  "insight": {
+   "became progress": 0.989,
+   "premium share of progress": 0.141,
+   "net lost": 0.002
+  },
+  "diffusion arrivals a game": 0,
+  "missed STANDARD before Space": [
+   3.1,
+   5
+  ],
+  "rows they lock": [
+   3.4,
+   7,
+   10
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.1,
+   0,
+   2
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 93,
+   "UNCOMMON": 63,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 3.1,
+   "UNCOMMON": 26.3,
+   "RARE": 23.2,
+   "UNIQUE": 48.3
+  },
+  "gateways": [
+   [
+    "MC12",
+    "Robotics",
+    40,
+    10
+   ],
+   [
+    "GN03",
+    "Genetic Engineering",
+    30,
+    12
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    37,
+    2
+   ],
+   [
+    "MD11",
+    "Gene Therapy",
+    40,
+    2
+   ],
+   [
+    "GN02",
+    "DNA Structure",
+    3,
+    16
+   ],
+   [
+    "EN06",
+    "Semiconductor Mastery",
+    7,
+    7
+   ],
+   [
+    "SF13",
+    "Submarine",
+    23,
+    1
+   ],
+   [
+    "CP07",
+    "Artificial Intelligence (Narrow)",
+    2,
+    13
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.13,
+   "Classical": 0.42,
+   "Medieval": 0.03,
+   "Early Modern": 0.08,
+   "Modern": 0.05,
+   "Atomic": -0.07,
+   "Space": -0.41
+  }
+ },
+ "catchup": {
+  "unblock at development": 5.0,
+  "Caravel turns after the coast (median)": 11.5,
+  "games without a Caravel %": 0,
+  "old Seafaring foundations within 10 turns %": 72
+ },
+ "accel": {
+  "MA05 Calculus (balanced), head start 1/2": [
+   16.0,
+   0.4
+  ],
+  "MA05 Calculus (balanced), price x0.5": [
+   13.0,
+   0.32
+  ],
+  "MA05 Calculus (specialist), head start 1/2": [
+   4.0,
+   0.11
+  ],
+  "MA05 Calculus (specialist), price x0.5": [
+   3.5,
+   0.09
+  ],
+  "MC19 Crank and Connecting Rod (balanced), head start 1/2": [
+   6.5,
+   0.19
+  ],
+  "MC19 Crank and Connecting Rod (balanced), price x0.5": [
+   4.0,
+   0.11
+  ],
+  "ME18 Plate Armour (balanced), head start 1/2": [
+   9.0,
+   0.24
+  ],
+  "ME18 Plate Armour (balanced), price x0.5": [
+   5.5,
+   0.15
+  ],
+  "CH09-W Bio-Organic Synthesis (balanced), head start 1/2": [
+   2.0,
+   0.03
+  ],
+  "CH09-W Bio-Organic Synthesis (balanced), price x0.5": [
+   1.0,
+   0.02
+  ],
+  "SF09 Caravel/Deep Ocean Ship (balanced), head start 1/2": [
+   6.5,
+   0.15
+  ],
+  "SF09 Caravel/Deep Ocean Ship (balanced), price x0.5": [
+   6.5,
+   0.15
+  ]
+ },
+ "premium": {
+  "x2": {
+   "scale": 0.731,
+   "outside own era %": 31.6,
+   ">=1 era early %": 0.14,
+   "earliest": -1.51,
+   "Calculus, balanced / specialist (median eras from its era)": [
+    -0.0,
+    -0.62
+   ]
+  },
+  "x4": {
+   "scale": 0.69,
+   "outside own era %": 29.4,
+   ">=1 era early %": 0.02,
+   "earliest": -1.52,
+   "Calculus, balanced / specialist (median eras from its era)": [
+    -0.01,
+    -0.51
+   ]
+  },
+  "x8": {
+   "scale": 0.662,
+   "outside own era %": 28.2,
+   ">=1 era early %": 0.0,
+   "earliest": -0.93,
+   "Calculus, balanced / specialist (median eras from its era)": [
+    0.06,
+    -0.35
+   ]
+  }
+ },
+ "calib": {
+  "scale": 0.69,
+  "in use": 0.69
+ }
+}

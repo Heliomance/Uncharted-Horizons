@@ -158,7 +158,7 @@ The workshop stopped when the FTL endgame redesign took over (from 2 October). E
 
 - Knowledge diffusion brings back about 19 lost ideas a game for a connected civilisation, nearly all the early ones among them. The harness does not model theoretical revelation (*Reveals* lists), which would give more lost ideas a way back, so these figures are conservative.
 - FA03 Selective Breeding is now lost in 18% of bare games (35% on 2 October), in line with STANDARD's 15%. The biggest single gateways: MA09 Statistics and MA06 Probability Theory (about 30 rows each when lost), FA03 (20), CP07 Artificial Intelligence (Narrow) (16–21), TH02 Refrigeration (15), CO11 Reinforced Concrete (12).
-- **The glimpse reaches every tier.** 84% of lost STANDARD ideas are glimpsed, but so are 93% of UNCOMMON, 84% of RARE and 80% of UNIQUE ones (isolated, atomic; the harness ignores environmental prerequisites, so it overstates the UNIQUEs). That makes about 20 RARE and 37 UNIQUE breakthroughs a game visible and open to an Endeavour, against §1.4 ("RARE and UNIQUE breakthroughs are almost never revealed by theory: the surprises remain surprises") and §1.5's guards. FTL timings would not move if RARE and UNIQUE ideas could not be glimpsed: every row an FTL method requires is CORE or STANDARD.
+- **The glimpse reaches every tier** (settled by decision 7: no glimpses of RARE or UNIQUE ideas, fewer of UNCOMMON ones). 84% of lost STANDARD ideas are glimpsed, but so are 93% of UNCOMMON, 84% of RARE and 80% of UNIQUE ones (isolated, atomic; the harness ignores environmental prerequisites, so it overstates the UNIQUEs). That makes about 20 RARE and 37 UNIQUE breakthroughs a game visible and open to an Endeavour, against §1.4 ("RARE and UNIQUE breakthroughs are almost never revealed by theory: the surprises remain surprises") and §1.5's guards. FTL timings would not move if RARE and UNIQUE ideas could not be glimpsed: every row an FTL method requires is CORE or STANDARD.
 
 **Open decisions** (the five above, with the two the FTL work raised). Proposals, pending Tamsin's decisions:
 
@@ -173,6 +173,98 @@ The workshop stopped when the FTL endgame redesign took over (from 2 October). E
 **Decided (14 October 2026, Tamsin):** proposals 1–5 as written above. On 7, UNCOMMON ideas are glimpsed less often than STANDARD ones, and RARE and UNIQUE ideas are never glimpsed. 6 stays open: Tamsin proposes modelling the closing window as fading attention instead of a closing chance. A breakthrough gets a smaller and smaller share of Insight as it recedes into the past; if it fills, it is still discovered, so missing the window means never filling. Also asked for: the workshop's figures recalculated now that the harness models rivals and diffusion, and a fuller account of the momentum calculation.
 
 **The write-up must also translate** the threshold design's remaining terms. Thresholds, rolls and excess Insight become prices, meters and occurrence. The tier table's columns become each tier's chance of occurring in its moment and the moment's length. The UNIQUE penalty becomes a lower chance of occurring for each UNIQUE held; the harness's flat 6.5% stands in for it. Diffusion's "bonus to discovery rolls" needs a meaning (proposal: the idea occurs to you, or comes back if lost; the larger bonuses add a head start; only the automatic arrivals are measured). Necessity's roll bonus becomes Insight alone. The per-city modifier applies to the price. *Serendipitous accidents* are the spread itself. The RARE and UNIQUE Endeavour prices need revisiting. §2's prices per discovery should carry the ×0.83 calibration the model applies to them.
+
+## Recalculated (14 October 2026): the current tree, rivals and diffusion
+
+Measured with `design/simulator/power/workshop_measures.py`, which rebuilds the workshop's measures (its own scripts were lost) on the harness that models rivals and knowledge diffusion. The setup:
+- the current tree (v3.112), atomic world, 60 games per figure;
+- the agreed settings: prices as the FTL runs have them (`prices.py`), and the glimpse by tier (STANDARD 10% a turn, UNCOMMON 3% provisionally, RARE and UNIQUE never);
+- the workshop's balanced player, played to the end of the tree.
+
+*Isolated* means no contacts. *Connected* means five rivals replayed from the FTL benchmark pools, met in the Early Modern era, as in the FTL benchmarks. Results: `results/workshop_familiar_<isolated|connected>_agreed.json`.
+
+| | 1 October | Isolated | Connected |
+|---|---|---|---|
+| Price calibration for mid-era arrivals (in use: ×0.83) | ×0.83 | ×0.78 | ×0.80 |
+| Median lateness at the prices in use | 0.5 | 0.54 | 0.51 |
+| Arrivals outside their own era | 27% | 30% | 37% |
+| Arrivals a full era early; the earliest | 0%; 0.74 era early | 0.01%; 1.1 eras early | 0.01%; 1.2 eras early |
+| Share of progress paying the premium; Insight unused | 3–9%; 3% | 12%; 0.5% | 16%; 0.2% |
+| Lifetime rates among discoverable rows (CORE / STANDARD / UNCOMMON / RARE / UNIQUE) | 1 / 0.86 / 0.32 / 0.07 / 0.05 | 1 / 0.80 / 0.34 / 0.05 / 0.06 | 1 / 0.89 / 0.44 / 0.05 / 0.05 |
+| Breakthroughs arriving by diffusion | — | — | 60 a game |
+| Landlocked civilisation: Caravel after reaching the coast | 6 turns | 6 turns; never, in 18% of games | 6.5 turns; never, 0% |
+| … old Seafaring foundations within 10 turns | 76% | 76% | 79% |
+
+(Reaching the coast as development enters the Modern era reproduces the workshop's 6 turns, the shortest the chain allows at one link a turn. *Old foundations* are the CORE and STANDARD Seafaring rows of earlier eras.)
+
+**The pace by era** (discoveries a turn; turns with three or more; longest dry spell):
+
+| Era | 1 October | Isolated | Connected |
+|---|---|---|---|
+| Primitive | 0.77; 4%; 3.2 | 0.79; 5%; 3.5 | 0.79; 5%; 3.5 |
+| Ancient | 2.08; 37%; 1.7 | 0.94; 9%; 6.1 | 0.94; 9%; 6.1 |
+| Classical | 0.92; 6%; 3.3 | 0.80; 6%; 4.2 | 0.80; 6%; 4.2 |
+| Medieval | 0.91; 6%; 4.8 | 0.79; 5%; 5.0 | 0.84; 5%; 5.0 |
+| Early Modern | 0.87; 5%; 3.8 | 0.74; 3%; 5.1 | 0.97; 8%; 4.9 |
+| Modern | 1.55; 17%; 1.8 | 0.92; 5%; 3.4 | 1.08; 8%; 3.0 |
+| Atomic | 1.24; 13%; 2.4 | 0.90; 6%; 3.8 | 1.21; 11%; 3.2 |
+| Space | 0.38; 3%; 22 | 1.07; 9%; 3.1 | 1.10; 10%; 2.7 |
+
+The era redraw (v3.108) did what it set out to: about 0.8 discoveries a turn in every era. So decisions 4 and 5, taken on the 1 October figures, addressed problems that have since gone. There is no Ancient flurry left to rewrite *Front-loaded CORE* around, and the Modern era's clumps are down from a sixth of turns to a twentieth. With contacts, diffusion adds a fifth to a third more discoveries from the Early Modern era on, and an eleventh of Atomic-era turns bring three or more.
+
+**Accelerators** (median turns and eras earlier, paired by seed; head start ½ against price ×0.5):
+
+| Breakthrough | 1 October, head start | Isolated | Connected |
+|---|---|---|---|
+| Calculus, balanced player | +16 / 0.45 | +12.5 / 0.32 against +10 / 0.25 | +12 / 0.29 against +9.5 / 0.23 |
+| Calculus, Mathematics specialist | +5 / 0.15 | +4 / 0.11 against +4 / 0.11 | +4 / 0.11 against +4 / 0.11 |
+| Crank and Connecting Rod | +7 / 0.20 | +7.5 / 0.21 against +3 / 0.09 | +7.5 / 0.21 against +3 / 0.09 |
+| Plate Armour | +6 / 0.16 | +8 / 0.21 against +6.5 / 0.16 | +8 / 0.20 against +6 / 0.15 |
+| Bio-Organic Synthesis | +3 / 0.07 | +2 / 0.03 against +1 / 0.02 | +1 / 0.02 against +1 / 0.02 |
+| Caravel | +10 / 0.18 | +6 / 0.14 against +6 / 0.13 | +5.5 / 0.13 against +5.5 / 0.12 |
+
+Still nothing era-breaking. **Why a head start beats a halved price:** both save exactly the same Insight, but the momentum rule gives a breakthrough attention in proportion to its progress (+0.1). A half-filled meter therefore draws about six times a fresh line's share from its first turn, and jumps the queue in its focus. A halved price starts from nothing. The two differ only where a breakthrough competes with its siblings; with momentum switched off (attention by tier alone) they come out identical: Crank and Connecting Rod +2.5 both ways, Plate Armour +5, Calculus +9.5, the Caravel +7. To make them equivalent, momentum could count only progress earned, not progress granted.
+
+**The premium's steepness** (each at its own calibration):
+
+| Premium per era | 1 October | Isolated | Connected |
+|---|---|---|---|
+| ×2 | ×0.85; 30% outside own era; 0.08% an era early; earliest −1.73; Calculus +0.02 / −0.68 | ×0.84; 32%; 0.08%; −1.37; +0.16 / −0.54 | ×0.84; 38%; 0.08%; −1.23; +0.08 / −0.53 |
+| ×4 | ×0.83; 27%; 0%; −0.74; −0.15 / −0.45 | ×0.78; 30%; 0.01%; −1.0; +0.03 / −0.49 | ×0.80; 36%; 0.01%; −1.04; +0.04 / −0.43 |
+| ×8 | ×0.77; 26%; 0%; −0.62; +0.03 / −0.33 | ×0.74; 28%; 0%; −0.89; +0.01 / −0.27 | ×0.78; 35%; 0%; −0.89; +0.03 / −0.30 |
+
+(Calculus: median eras from the start of its own era, for the balanced player and the Mathematics specialist.) ×4 stays the right steepness.
+
+**Era entry** (development on entering the era by §2's counts, minus the era; positive is late):
+
+| | Ancient | Classical | Medieval | Early Modern | Modern | Atomic | Space |
+|---|---|---|---|---|---|---|---|
+| Isolated | +0.19 | +0.48 | +0.06 | +0.12 | +0.10 | +0.03 | −0.35 |
+| Connected | +0.19 | +0.48 | +0.06 | +0.12 | +0.04 | −0.14 | −0.54 |
+
+§2 says entry falls within about 0.15 era of development, the Classical era about a third of an era late. Now the Classical era enters half an era late and the Space era a third to a half early, sooner with contacts. The parked era-entry task suggested 2 for the Classical era; the Space era would want more than 4.
+
+**Missed ideas under the agreed glimpse:** isolated, 17.6 STANDARD ideas lost before the Space era, locking 24 rows (p90 34, worst 55), or 3.8 if every glimpsed one were Endeavoured. Connected: 4.1, locking 4.3 (p90 10), or 0.3. Of the missed ideas, 85% of STANDARD and about 60% of UNCOMMON ones are glimpsed.
+
+## How the momentum model shares Insight
+
+From the harness (`design/simulator/power/harness_ftl_e.py`, `run()` and its `use()`). Each turn the active focus receives 80% of the civilisation's Insight (50% before Specialisation of Labour), and the rest is spread over the other foci that have something under study, in proportion to what each has waiting. Inside a focus:
+
+1. **What is under study:** every breakthrough whose prerequisites are met and whose idea has occurred (a CORE breakthrough's occurs at once), and which is not yet discovered.
+2. **A hidden meter for each.** When a breakthrough first comes under study, the work it will take is drawn once: on average its price, varying from game to game (a Gamma distribution with shape 4: mean 1, standard deviation 0.5). The middle half need 0.63–1.28 of the price; one in ten less than 0.44, one in ten more than 1.67. The player never sees it.
+3. **The price:** the era's price per discovery (§2) × the model's calibration (0.83) × any cost multiplier × 4 for each era the breakthrough lies ahead of the civilisation's development. Insight counts against the price in force when it is spent, so work done early, at a premium, counts for less.
+4. **Attention.** Each breakthrough's weight is its tier's odds × (its progress + 0.1), with progress as a fraction of its average cost and the odds CORE 1, STANDARD 0.85, UNCOMMON 0.4, RARE 0.1, UNIQUE 0.065. A breakthrough just begun weighs 0.1 × its odds; one half done weighs 0.6 × its odds, six times as much. That is the momentum: work under way draws attention, so a focus tends to finish one line before the next rather than bringing everything to maturity together. The 0.1 sets how much a fresh line gets: lower would approach one line at a time (the workshop's *one line* model), higher would approach sharing by tier alone (*pure rate*). How 0.1 was chosen is not recorded.
+5. **Sharing.** The focus's Insight is divided in proportion to weight. A breakthrough whose share would fill its meter takes only what it needs and is discovered; what is left over is shared again among the rest in the same turn. So one turn can bring several discoveries.
+6. **Spill-over.** Insight a focus cannot use goes the same turn to the foci that can, in proportion to what each has waiting; about 0.2–0.5% of income ends up unused.
+
+**A worked example.** A focus receives 100 Insight a turn. It has three STANDARD breakthroughs priced at 200 with meters of exactly 1: A is 60% done, B 10%, C new.
+
+| Turn | Weights (A / B / C) | Shares of 100 | After the turn |
+|---|---|---|---|
+| 1 | 0.595 / 0.17 / 0.085 | 70 / 20 / 10 | A 95%, B 20%, C 5% |
+| 2 | 0.89 / 0.255 / 0.13 | 70 / 20 / 10, but A needs only 10 and is discovered; the 60 left over is shared between B and C (weights 0.34 / 0.17): 40 / 20 | A discovered; B 50%, C 20% |
+
+So B, already under way, becomes the leading line; C keeps a small share and grows into the next one.
 
 ## Files
 

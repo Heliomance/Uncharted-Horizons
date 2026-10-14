@@ -99,17 +99,7 @@ def hint_pick(reqs, have):
     """the novice's choice: the hinted field serving the most requirements (no idea of cost)"""
     cnt = collections.Counter(f for f in (hint_focus(r, have) for r in reqs) if f)
     return max(cnt, key=lambda f: (cnt[f], f)) if cnt else None
-SIG = ('CP16', 'CP21', 'CP10', 'AE14', 'AE20', 'MS08', 'QM-E23', 'ES22', 'ES18', 'ES14', 'ES08', 'MA15', 'MA19', 'NP11', 'NP15', 'TH20')
-HF.COSTMULT = {k: 2.5 for k in SIG}
-if 'z' in os.environ.get('LEVERS', ''):   # assumed non-FTL pools: 2.5x, capstones 4x
-    for k in _rows:
-        if k.startswith('ZZ'): HF.COSTMULT[k] = 4.0 if k.endswith('C') else 2.5
-if 'q' in os.environ.get('LEVERS', ''):   # W18 pool prices: entry and pool rows 2.5x, capstones 4x (round-two overrides apply later)
-    for k in ('CP17','CP18','CP19','CP20','CP15','CP09','ES17','ES19','ES20','ES11','MS10','MS11','MS12','MS13','MS16','MA16','MA17','MA18','MA22','MA23','MA20',
-              'NP12','NP13','NP16','NP-F03','TH15','TH16','TH17','TH18','TH21','AE15','AE16','AE17','AE18'): HF.COSTMULT[k] = 2.5
-    for k in ('CP22','CP12','ES21','ES12','QM-E07','MS15','MS07','MA21','NP17','NP09','NP-F04','TH22','AE19'): HF.COSTMULT[k] = 4.0
-if 'a' in os.environ.get('LEVERS', ''):
-    for k in ('CP21', 'MS08', 'AE20'): HF.COSTMULT[k] = 1.0      # lever a: rows that host a condition cost as deciders do
+import prices; prices.apply(HF, _rows)   # the agreed design's prices: Space-era price and row multipliers (prices.py)
 if world is None:
     BUILD = {'Warp': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['ES06', 'ES07', 'ES14', 'ES08'], ['ES18']], 'Wormhole': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['RC04'], ['QP12'], ['MA13']],
              'Hyperspace': [['QP08'], ['MA13'], ['ES06', 'ES07', 'ES14', 'ES08'], ['MA19']], 'Tunnelling': [['QP02'], ['CP10'], ['MS02', 'GN05'], ['QP14'], ['CP21']],
@@ -119,7 +109,6 @@ else:
              'Hyperspace': [['QM-E27'], ['MA13'], ['ES07', 'ES15', 'QM-E05'], ['MA19']], 'Tachyonic': [['QM-E17'], ['QM-E27'], ['ES07', 'ES15', 'QM-E05'], ['SE02'], ['TH20']],
              'Plenum': [['QM-E27'], ['MS02'], ['QM-E19'], ['QM-E23'], ['AE20']]}
 import os
-if 'a' in os.environ.get('LEVERS', ''): HF.COSTMULT.update({k: 1.0 for k in ('CP21', 'MS08', 'AE20')})   # lever a: rows hosting a condition cost 1x
 INSTR_D = int(os.environ['INSTR_D']) if os.environ.get('INSTR_D') else None   # instruments: construction turns after the test's breakthrough
 INSTR = {'coherence': ['CP21'], 'leak': ['RC11'], 'dark': ['RC05', 'RC06'], 'tachDE': ['RC05', 'RC06'], 'superlum': ['RC05', 'RC06'], 'tachyon': ['QP15'], 'catalogue': ['QM-E28']}   # + the Very Large Particle Collider / Boundary Furnace   # the Survey Telescope serves dark matter and dark energy
 def ready_turn(c, have):
@@ -144,7 +133,10 @@ def status(have, m, a):
 HF.POLICY = 'cheapest' if os.environ.get('DET') == 'smart' else 'waiting'
 HF.END_MULT = float(os.environ['END']) if os.environ.get('END') else None
 HF.END_FROM = HF.EO.index('Space')
-HF.OBS = os.environ.get('OBS', '1') == '1'; HF.GLIMPSE = float(os.environ.get('GLIMPSE', '0'))
+HF.OBS = os.environ.get('OBS', '1') == '1'
+_g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)
+HF.GLIMPSE = {t: _g for t in ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')} if os.environ.get('GLIMPSEALL') == '1' else \
+    {'STANDARD': _g, 'UNCOMMON': float(os.environ.get('GLIMPSEU', '0')), 'RARE': 0.0, 'UNIQUE': 0.0}   # GLIMPSEALL=1: the old rule, one chance for every tier
 HF.END_AFTER = CLOSE if os.environ.get('ENDFROM') == 'theory' else None   # Endeavours only once the unified theory is known
 ENDRULE = os.environ.get('ENDRULE', 'naive'); HF.END_RULE = 'active' if ENDRULE in ('active', 'last') else 'naive'   # naive: vs observed rate; active: vs activating the row's focus; last: active, on the last missing piece only   # Endeavours chase FTL requirements once the Space era opens
 ATT = 't' in os.environ.get('LEVERS', '')
@@ -154,17 +146,14 @@ _L = os.environ.get('LEVERS', '')
 PARALLEL = os.environ.get('PARALLEL') == '1'
 HF.ECON = float(os.environ.get('ECON', '1'))
 HF.EXPCAP = float(os.environ['EXPCAP']) if os.environ.get('EXPCAP') else None; HF.EXPCAP_ERA = HF.EO.index(os.environ['EXPCAP_ERA']) if os.environ.get('EXPCAP_ERA') else None
-if os.environ.get('SPACEPRICE'): HF.PRICE['Space'] *= float(os.environ['SPACEPRICE'])   # the Space era's base research price, scaled (every Space-era row's cost derives from it)
-if 'w' in _L: BUILD['Wormhole'].append(['MS17']); HF.COSTMULT['MS17'] = float(os.environ.get('WROWX', '2.5'))   # Wormhole's engineering row outside its tests
+if 'w' in _L: BUILD['Wormhole'].append(['MS17'])   # Wormhole's engineering row outside its tests (its price: prices.py)
 if 'y' in _L and world is None: BUILD['Tachyonic'] = [g for g in BUILD['Tachyonic'] if g != ['NP11']]   # scenario: atomic Tachyonic without NP11 in its build
-if 'x' in _L: HF.COSTMULT['ES18'] = 1.0
-if 'p' in _L: HF.COSTMULT['AE14'] = 1.0
-if 'h' in _L: HF.COSTMULT['MA19'] = 1.0                                          # round 2: Hyperspace's Higher-Dimensional Geometry at 1x
-if 'u' in _L: HF.COSTMULT['CP16'] = 1.0                                          # round 2: Tunnelling's Planetary Data Networks at 1x
-if 'k' in _L: HF.COSTMULT['TH20'] = 4.0
-if 'm' in _L: HF.COSTMULT['CP10'] = 2.0                                          # agreed nudge: Tunnelling's Quantum Computing at 2x                                          # round 2: elemental Tachyonic's Boundary Ring at 4x                                          # scenario: Plenum's entry row, Aerospace Industry, at 1x                                          # scenario: Superconducting Energy Storage at 1x
 SEED0 = int(os.environ.get('SEED0', '17000'))
 POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool.json")) if os.environ.get('DIFF') == '1' else None
+CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))   # the discovery model (the workshop's candidate)
+if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its price calibration
+if os.environ.get('FADE'):   # fading attention instead of the closing window (harness_ftl_e.P.fade), for the tiers in FADETIERS
+    CFG.update(fade=float(os.environ['FADE']), fade_clock=os.environ.get('FADECLOCK', 'later'), fade_tiers=tuple(os.environ.get('FADETIERS', 'STANDARD').split('+')))
 for s in range(N * len(COND)):
     m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m]); state = {'cert': None, 'srng': random.Random(SEED0 + s + 7919)}
     if METHODS and m not in METHODS: continue          # skip after the draw, so every game keeps its truth and seed
@@ -229,7 +218,7 @@ for s in range(N * len(COND)):
         HF.DIFF = dict(rivals=[{k: v / HF.ECON for k, v in pm[(j0 + j) % len(pm)]['t'].items()} for j in range(5)], contact_era=HF.EO.index('Early Modern'))   # rivals at the player's own pace
     HF.DIFF_LOG.clear(); BLOCK.clear(); HF.END_REQUEST = None
     HF.TRACE = [] if os.environ.get('TRACE') else None
-    HF.END_LOG.clear(); have, log = HF.run(HF.P(**json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))), SEED0 + s, max_turns=int(os.environ.get('MAXT', '450'))); t = {k: tt for k, (tt, d) in have.items()}
+    HF.END_LOG.clear(); have, log = HF.run(HF.P(**CFG), SEED0 + s, max_turns=int(os.environ.get('MAXT', '450'))); t = {k: tt for k, (tt, d) in have.items()}
     space = min((t[k] for k in t if _rows[k]['era'] == 'Space'), default=None)
     if os.environ.get('TRACE'):   # turn-by-turn trace of this one game: the expert's view of which methods remain, each turn
         _alive = {}

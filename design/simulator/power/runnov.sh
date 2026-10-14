@@ -6,5 +6,5 @@ if [ $# -lt 3 ] || { [ -n "$4" ] && [[ "$4" != *=* ]]; }; then
   echo "usage: $(basename "$0") <world> <method> <suffix> [VAR=value ...]  (the finalised levers and Space price are now the defaults; override with LEVERS=..., SPACEPRICE=...)" >&2; exit 2
 fi
 W=$1; M=$2; S=$3; shift 3
-env PLAYER=novice RUNON=1 DIFF=1 INSTR_D=5 END=2 ENDRULE=request NOVEND=10 NOVFOCUS=1 GLIMPSE=0.1 OBS=0 METHODS=$M "$@" \
+env PLAYER=novice RUNON=1 DIFF=1 INSTR_D=5 END=2 ENDRULE=request NOVEND=10 NOVFOCUS=1 GLIMPSE=0.1 GLIMPSEU=0.03 OBS=0 METHODS=$M "$@" \
   bash /home/user/Uncharted-Horizons/design/simulator/power/scratch_run.sh bash -c "cd /home/user/Uncharted-Horizons/design/simulator/power && timeout 115 python3 w7f.py $W 60 $S" 2>&1 | grep -v "scratch redesign" | grep "done\|WARNING\|Error" | sed "s/^/$W $M $S: /"

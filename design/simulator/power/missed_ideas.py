@@ -1,24 +1,26 @@
 """How much of the tree missed ideas lock, on the discovery model every measurement since 1 October uses (the workshop's
-candidate, w7c_cfg.json) with what has been agreed since: the 10% glimpse (proximity revelation) and knowledge diffusion
-from five contacted rivals. The workshop's balanced player funds the focus with the most waiting; it has no FTL agenda and
+candidate, w7c_cfg.json) with what has been agreed since: the glimpse (proximity revelation: STANDARD ideas 10% a turn,
+UNCOMMON 3% provisionally, RARE and UNIQUE never) and knowledge diffusion from five contacted rivals. The workshop's balanced player funds the focus with the most waiting; it has no FTL agenda and
 commissions no Endeavours, so a lost idea it glimpsed stays lost here, counted as one an Endeavour could still bring.
 A game ends when the civilisation's development passes the end of the tree. Space-era figures leave out the FTL pricing
-levers and W16's funded-focus rule (this player has no agenda), so read the eras before it.
+levers' effect on an agenda and W16's funded-focus rule (this player has no agenda), so read the eras before it.
+workshop_measures.py measures the same and more (pace, tiers, catch-up, accelerators); this script adds the bare setting
+and runs any world quickly.
 
 Usage: python3 missed_ideas.py <world> <games> [bare] [isolated] [connected]
   bare       the 2 October sweep's setting: no glimpse, no diffusion
-  isolated   the 10% glimpse, no contacts
-  connected  the 10% glimpse, and five rivals replayed from results/w7f_<world>_pool.json, met in the Early Modern era
+  isolated   the glimpse, no contacts
+  connected  the glimpse, and five rivals replayed from results/w7f_<world>_pool.json, met in the Early Modern era
 """
 import sys, os, re, json, statistics as st, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import defaults   # noqa: F401  (the tree, and the finalised switches)
-import harness_ftl_e as HF, worlds as W, harness as H
+import harness_ftl_e as HF, worlds as W, harness as H, prices
 
 NAME = sys.argv[1]; N = int(sys.argv[2]); MODES = sys.argv[3:] or ['bare', 'isolated', 'connected']
 ROWS = W.set_world(None if NAME == 'familiar' else NAME)
 HF.ROWS = ROWS; HF.IDS = sorted(ROWS); HF.FOCUS = {k: ROWS[k]['focus'] for k in HF.IDS}; HF.ERA_I = {k: HF.EO.index(ROWS[k]['era']) for k in HF.IDS}
-HF.PRICE['Space'] *= float(os.environ['SPACEPRICE'])
+prices.apply(HF, ROWS)
 CFG = json.load(open(os.path.join(HERE, 'w7c_cfg.json')))
 POOL = json.load(open(os.path.join(HERE, 'results', f'w7f_{NAME}_pool.json')))
 NAMES = dict(re.findall(r'^\| ([A-Z][A-Z0-9-]*[0-9][A-Z]?(?:-W)?|ME-B) \| \*\*(.+?)\*\* \|', open(defaults.TREE, encoding='utf-8').read(), re.M))
@@ -34,7 +36,7 @@ def closure(base, allowed):
     return cur
 
 def game(mode, j):
-    HF.GLIMPSE = 0.0 if mode == 'bare' else 0.1; HF.OBS = False
+    HF.GLIMPSE = 0.0 if mode == 'bare' else {'STANDARD': 0.1, 'UNCOMMON': 0.03, 'RARE': 0.0, 'UNIQUE': 0.0}; HF.OBS = False
     HF.DIFF = dict(rivals=[POOL[(5 * j + i) % len(POOL)]['t'] for i in range(5)], contact_era=HF.EO.index('Early Modern')) if mode == 'connected' else None
     HF.TARGET_FN = None; HF.END_MULT = None; HF.RUN_ON = False; HF.STOP_FN = None; HF.DIFF_LOG.clear()
     have, _ = HF.run(HF.P(**CFG), 40000 + j)

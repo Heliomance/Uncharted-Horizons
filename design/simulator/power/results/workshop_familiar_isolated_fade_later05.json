@@ -1,0 +1,170 @@
+{
+ "world": "familiar",
+ "setting": "isolated",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.678,
+  "fade": 0.5,
+  "fade_clock": "later",
+  "fade_tiers": [
+   "STANDARD"
+  ]
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.94,
+   "Ancient": 0.96,
+   "Classical": 0.86,
+   "Medieval": 0.88,
+   "Early Modern": 0.83,
+   "Modern": 1.06,
+   "Atomic": 1.01,
+   "Space": 1.32
+  },
+  "clump%": {
+   "Primitive": 7.0,
+   "Ancient": 10.9,
+   "Classical": 6.5,
+   "Medieval": 6.8,
+   "Early Modern": 5.0,
+   "Modern": 6.5,
+   "Atomic": 7.6,
+   "Space": 15.8
+  },
+  "drought": {
+   "Primitive": 3.2,
+   "Ancient": 5.9,
+   "Classical": 3.9,
+   "Medieval": 4.8,
+   "Early Modern": 4.7,
+   "Modern": 2.9,
+   "Atomic": 3.8,
+   "Space": 2.1
+  },
+  "lateness": 0.5,
+  "outside own era %": 29.3,
+  ">=1 era early %": 0.02,
+  "earliest": -1.07,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.89,
+   "UNCOMMON": 0.33,
+   "RARE": 0.06,
+   "UNIQUE": 0.05
+  },
+  "insight": {
+   "became progress": 0.989,
+   "premium share of progress": 0.146,
+   "net lost": 0.002
+  },
+  "diffusion arrivals a game": 0,
+  "missed STANDARD before Space": [
+   4.1,
+   6
+  ],
+  "rows they lock": [
+   4.7,
+   9,
+   12
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.1,
+   0,
+   3
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 97,
+   "UNCOMMON": 62,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 4.1,
+   "UNCOMMON": 25.8,
+   "RARE": 22.9,
+   "UNIQUE": 48.6
+  },
+  "gateways": [
+   [
+    "GN03",
+    "Genetic Engineering",
+    45,
+    12
+   ],
+   [
+    "MC12",
+    "Robotics",
+    33,
+    9
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    48,
+    3
+   ],
+   [
+    "CO11",
+    "Reinforced Concrete",
+    7,
+    14
+   ],
+   [
+    "MD11",
+    "Gene Therapy",
+    30,
+    2
+   ],
+   [
+    "EN06",
+    "Semiconductor Mastery",
+    5,
+    6
+   ],
+   [
+    "SF09",
+    "Caravel/Deep Ocean Ship",
+    5,
+    6
+   ],
+   [
+    "CP08",
+    "Machine Learning",
+    10,
+    3
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.13,
+   "Classical": 0.42,
+   "Medieval": 0.03,
+   "Early Modern": 0.08,
+   "Modern": 0.05,
+   "Atomic": -0.1,
+   "Space": -0.46
+  }
+ },
+ "catchup": {
+  "unblock at development": 5.0,
+  "Caravel turns after the coast (median)": 6.0,
+  "games without a Caravel %": 0,
+  "old Seafaring foundations within 10 turns %": 83
+ }
+}
