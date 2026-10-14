@@ -1,4 +1,5 @@
 import asyncio, os
+from defaults import CANONICAL   # the design document, design/tech_tree.md
 os.environ['PLAYWRIGHT_BROWSERS_PATH']='/opt/pw-browsers'
 from playwright.async_api import async_playwright
 async def main():
@@ -6,7 +7,7 @@ async def main():
         b=await p.chromium.launch(); pg=await b.new_page(viewport={'width':1440,'height':900}); errs=[]
         pg.on('pageerror', lambda e: errs.append(str(e)))
         await pg.goto('file:///home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_viewer.html'); await pg.wait_for_timeout(300)
-        await pg.set_input_files('#file2','/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v109.md'); await pg.wait_for_timeout(700)
+        await pg.set_input_files('#file2',CANONICAL); await pg.wait_for_timeout(700)
         await pg.fill('#search','FA03'); await pg.keyboard.press('Enter'); await pg.wait_for_timeout(700)
         e=pg.locator('.echo-node[data-key="echo:FA03:Animal Husbandry"]'); home=pg.locator('.node[data-key="FA03"]'); link=pg.locator('path.echo.on')
         bb=await e.bounding_box(); vp=pg.viewport_size

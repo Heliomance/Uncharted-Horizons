@@ -4,7 +4,8 @@ import ledger as Lg, ledger2 as L2, ledger3 as L3, re
 from collections import defaultdict
 CAT=L2.CAT
 def buildable(b): return Lg.regular(b) and not any('Unbuildable' in u or 'Can only be purchased' in u for u in b.get('uniques',[]))
-t=open('/home/user/Uncharted-Horizons/design/simulator/tt.md',encoding='utf-8').read(); body=t[:t.index('\n## 4.')]
+from defaults import TREE   # the design document, or a run's patched copy
+t=open(TREE,encoding='utf-8').read(); body=t[:t.index('\n## 4.')]
 GROUP={}
 for l in body.split('\n'):
     for bm in re.finditer(r'\*\*([^*]+)\*\*ⁿ\s*\[((?:[^\[\]]|\[[^\]]*\])*)\]',l):

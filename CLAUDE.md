@@ -28,8 +28,8 @@ Follow the document's own rules, in §7.0 (*Notation in the Prerequisites column
 
 ## Simulator
 
-- **Which tree it measures.** The highest-numbered `design/simulator/outputs/tech_tree_vNNN.md`. Copy `design/tech_tree.md` there under the new number before measuring a new version.
-- **Standard run:** `bash design/simulator/power/runcell.sh <world> <method> abcrwgpnyhukqvVm <suffix> EXPFIX=1 ENDFROM=theory WROWX=4 SPACEPRICE=0.8`. Keep each tool call to one or two runs, about 2 minutes: a run killed by a timeout can't restore the working tree. The conventions and switches are in `design/simulator/docs/WORKSPACE.md`. Its advice about `/mnt/user-data/outputs` dates from the previous environment; here, commit what's worth keeping.
+- **Which tree it measures.** The design document itself, `design/tech_tree.md`, as it stands in the checkout. Runs patch a private temporary copy (`scratch_run.sh`) and never touch the document.
+- **Standard run:** `bash design/simulator/power/runcell.sh <world> <method> <suffix>`: 60 games by the expert player on the finalised design. The agreed levers, `WROWX=4` and `SPACEPRICE=0.8` are defaults (`design/simulator/power/defaults.py`), so pass `VAR=value` after the suffix only to try a variant (`LEVERS=` switches every lever off). `runnov.sh` and `runavg.sh` take the same arguments for the novice and average players. Keep each tool call to one or two runs, about 2 minutes, or run longer batches in the background. The conventions and switches are in `design/simulator/docs/WORKSPACE.md`.
 - **Paths.** The scripts use absolute paths under `/home/user/Uncharted-Horizons/design/simulator`. Anywhere else, run `python3 design/simulator/relocate.py` first.
 - **Results** go in `design/simulator/power/results/`. Report how many games failed to finish whenever you report engineering or victory times.
 
@@ -37,4 +37,4 @@ Follow the document's own rules, in §7.0 (*Notation in the Prerequisites column
 
 `.claude/hooks/session-start.sh` installs `json5` in cloud sessions.
 
-The tree viewer's browser tests (`design/simulator/power/test_*.py`) also need `pip install playwright==1.56.0`, the version that matches the Chromium preinstalled at `/opt/pw-browsers`. They load tree versions v108, v109 and v111, which aren't in `design/simulator/outputs/`; point them at the current document first.
+The tree viewer's browser tests (`design/simulator/power/test_*.py`) also need `pip install playwright==1.56.0`, the version that matches the Chromium preinstalled at `/opt/pw-browsers`. They load the design document; `test_stored.py` also reads `/tmp/layout_v3.109.json`, so copy `design/simulator/power/layout_v3.109.json` there first.

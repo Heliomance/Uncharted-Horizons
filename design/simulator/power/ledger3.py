@@ -18,7 +18,8 @@ def extra(uniques,era):
             for amt,st in re.findall(r'([+-]\d+) (\w+)',m.group(1)): out[st]+=int(amt)*n
     return out
 # canonical buildings: base-game availability and fork availability (ungated counted from the start)
-t=open('/home/user/Uncharted-Horizons/design/simulator/tt.md',encoding='utf-8').read()
+from defaults import TREE   # the design document, or a run's patched copy
+t=open(TREE,encoding='utf-8').read()
 s=t.index('## 7. BASE-GAME OBJECT ASSIGNMENTS'); e=t.index('\n## 8.',s)
 ungated=set(); mode=False
 for l in t[s:e].split('\n'):

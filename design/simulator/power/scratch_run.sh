@@ -1,13 +1,14 @@
 #!/bin/bash
-# Run a command against the scratch redesign. The working tree is always restored from the CANONICAL saved version
-# (the highest tech_tree_vNNN.md in outputs), never from itself, so a contaminated working copy cannot persist.
-# If the working tree differs from canonical at the start, the odd copy is kept in results/ as evidence first.
-CANON=$(ls /home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v*.md | sed -E 's/.*_v([0-9]+)\.md/\1 &/' | sort -n | tail -1 | cut -d' ' -f2)
-if ! cmp -s /home/user/Uncharted-Horizons/design/simulator/tt.md "$CANON"; then
-  ODD=/home/user/Uncharted-Horizons/design/simulator/power/results/tt_unexpected_$(date +%Y%m%d_%H%M%S).md
-  cp /home/user/Uncharted-Horizons/design/simulator/tt.md "$ODD"; echo "WARNING: working tree differed from $(basename $CANON); kept as $(basename $ODD), restoring canonical"
-  cp "$CANON" /home/user/Uncharted-Horizons/design/simulator/tt.md
-fi
-trap 'cp "$CANON" /home/user/Uncharted-Horizons/design/simulator/tt.md; echo "document restored from $(basename $CANON): $(sha256sum /home/user/Uncharted-Horizons/design/simulator/tt.md | cut -c1-16)"' EXIT
-python3 /home/user/Uncharted-Horizons/design/simulator/power/scratch_patch.py || exit 1
+# scratch_run.sh <command ...>: run a command against the scratch redesign. The design document (design/tech_tree.md)
+# is copied to a private temporary file, scratch_patch.py applies the agreed redesign's switches to the copy, and the
+# command runs with UH_TREE pointing at it; the copy is deleted when the command ends, however it ends. The document
+# itself is never modified, and parallel runs never share a copy. Switches that aren't set take the finalised
+# design's values (defaults.py).
+P=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+eval "$(python3 "$P/defaults.py")"
+UH_TREE=$(mktemp --suffix=.md) || exit 1
+export UH_TREE
+trap 'rm -f "$UH_TREE"' EXIT
+cp "$CANONICAL" "$UH_TREE" || exit 1
+python3 "$P/scratch_patch.py" || exit 1
 "$@"

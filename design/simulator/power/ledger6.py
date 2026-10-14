@@ -29,7 +29,8 @@ def ledger(level,side):
     return L5.ledger(level,side)
 # folds whose target is a converted building stop counting once it converts
 FOLD_TARGET={}
-for l in open('/home/user/Uncharted-Horizons/design/simulator/tt.md',encoding='utf-8').read().split('\n'):
+from defaults import TREE   # the design document, or a run's patched copy
+for l in open(TREE,encoding='utf-8').read().split('\n'):
     m=re.match(r'^\| ([A-Z]{1,3}(?:-[A-Z])?\d+[A-Z]?(?:-W|-V\d+)?|ME-B) \|',l)
     if m:
         for tg in re.findall(r'⟨\[\+\d+ \w+\] from all \[([^\]]+)\] buildings⟩',l): FOLD_TARGET.setdefault(m.group(1),[]).append(tg)

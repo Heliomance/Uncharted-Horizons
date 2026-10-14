@@ -1,4 +1,5 @@
 import asyncio, os, re
+from defaults import CANONICAL   # the design document, design/tech_tree.md
 os.environ['PLAYWRIGHT_BROWSERS_PATH']='/opt/pw-browsers'
 from playwright.async_api import async_playwright
 async def main():
@@ -7,7 +8,7 @@ async def main():
         pg.on('pageerror', lambda e: errs.append(str(e)))
         await pg.goto('file:///home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_viewer.html'); await pg.wait_for_timeout(300)
         t=await pg.evaluate("performance.now()")
-        await pg.set_input_files('#file2','/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v109.md')
+        await pg.set_input_files('#file2',CANONICAL)
         await pg.wait_for_function("document.querySelector('#status').textContent.includes('crossings')", timeout=20000)
         print("loaded in", round(await pg.evaluate("performance.now()")-t), "ms")
         print("status:", await pg.text_content('#status'))

@@ -29,7 +29,8 @@ def base_cat(level):
         m+=b.get('maintenance',0)
     return f,p,m
 canon={b['name']:b for b in Lg.B}
-t=open('/home/user/Uncharted-Horizons/design/simulator/tt.md',encoding='utf-8').read(); body=t[:t.index('\n## 4.')]
+from defaults import TREE   # the design document, or a run's patched copy
+t=open(TREE,encoding='utf-8').read(); body=t[:t.index('\n## 4.')]
 s=t.index('## 7. BASE-GAME OBJECT ASSIGNMENTS'); e=t.index('\n## 8.',s)
 assign={}; kind=None; wonders=set()
 for l in t[s:e].split('\n'):

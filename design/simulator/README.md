@@ -1,41 +1,40 @@
 # Uncharted Horizons — research simulator and tools
 
-Everything used to measure the tech tree's research pacing and the FTL endgame: the simulation harnesses, the measurement scripts, every saved result, the Unciv reference data, the tree viewer's sources and the current tree. Packaged on 14 October 2026 from the design chats' workspace. The verification battery is packaged separately, in `verification-battery.zip`.
+Everything used to measure the tech tree's research pacing and the FTL endgame: the simulation harnesses, the measurement scripts, every saved result, the Unciv reference data and the tree viewer's sources. Packaged on 14 October 2026 from the design chats' workspace, and now kept in the repository beside the verification battery (`design/verification-battery/`). It simulates the design document itself, `design/tech_tree.md`.
 
 ## Setting up
 
-1. Unpack this folder anywhere.
-2. Run `python3 relocate.py` once. The scripts were written for one particular machine's layout, which this package reproduces; this rewrites their paths to wherever you unpacked it. (`python3 relocate.py --check` lists the 175 paths in 89 files it will change, without changing anything.)
-3. Python 3.10 or later. `json5` is needed by some data loaders: `pip install json5`.
-
-Tested on 14 October 2026: unpacked into a fresh folder, relocated, then a three-game standard Hyperspace run. All three games reached certainty, the result was written inside the folder, and nothing outside it was touched.
+1. Python 3.10 or later, and `json5` (`pip install json5`; cloud sessions install it at start-up).
+2. The scripts hold absolute paths, kept pointing at `/home/user/Uncharted-Horizons/design/simulator`, where cloud sessions check out the repository. In a checkout anywhere else, run `python3 relocate.py` once; it rewrites them to the folder it's in (`--check` lists the changes without making them).
 
 ## Layout
 
 | Folder | What's in it |
 |---|---|
-| `tt.md` | The working copy of the tree, which the harness reads (v3.112). |
-| `outputs/` | The canonical saved tree, `tech_tree_v112.md`, and the built viewer, `tech_tree_viewer.html`. |
-| `power/` | Every tool and measurement script (87 Python scripts), with their data files. |
+| `outputs/` | The built tree viewer, `tech_tree_viewer.html`. |
+| `power/` | Every tool and measurement script (88 Python scripts), with their data files. |
 | `power/results/` | Every saved measurement (504 files, about 67 MB unpacked). The standard runs need it: they load their rival-civilisation pools from here. |
 | `unciv/` | Unciv's Gods & Kings and Vanilla rulesets, its uniques documentation and the derived reference files. |
 | `unciv_src/` | Extracts of Unciv's engine source (unit movement, capture, combat, the unique types), used when designing engine-dependent rows. |
 | `viewer/` | The tree viewer's sources. `power/build.py` builds them into `outputs/tech_tree_viewer.html`. |
-| `docs/` | `WORKSPACE.md`, the full working guide: conventions, the standard settings, what each run measures, and the harness switches. Also the discovery-model workshop report and an example traced game. |
+| `docs/` | `WORKSPACE.md`, the full working guide: conventions, the standard settings, what each run measures, and the harness switches. Also an example traced game. The discovery-model workshop report is in `design/notes/`. |
 
 ## Running a measurement
 
-The standard run is 60 games of one FTL method in one world type, with every agreed design lever switched on:
+The standard run is 60 games of one FTL method in one world, played by the expert benchmark player on the finalised design:
 
-    bash power/runcell.sh <world> <method> abcrwgpnyhukqvVm <suffix> EXPFIX=1 ENDFROM=theory WROWX=4 SPACEPRICE=0.8
+    bash power/runcell.sh <world> <method> <suffix>
 
-- **Worlds:** `familiar` is the atomic world. Elemental runs (the Substance and Process worlds) pass that world's name instead, which the runner hands to the harness. I couldn't confirm the exact names from the saved results, which are all atomic runs, so check `worlds.py` and `harness_ftl_e.py` first.
+- **The finalised design is the default.** Every agreed lever (`LEVERS=abcrwgpnyhukqvVm`), Wormhole's MS17 row at 4× (`WROWX=4`) and the Space era's price at 0.8 (`SPACEPRICE=0.8`) apply wherever a switch isn't set: `power/defaults.py` holds them. To try a variant, pass the switch: `bash power/runcell.sh familiar Warp _test SPACEPRICE=1`, or `LEVERS=` to switch every lever off.
+- **Players:** `runcell.sh` is the expert, `runnov.sh` the novice and `runavg.sh` the average player (the novice with a weaker economy); all three take `<world> <method> <suffix>`, and `runall.sh <world> <games> <suffix>` runs every method with the expert. Each wrapper builds in its player's settings: the expert's theory-first beeline (`EXPFIX=1 ENDFROM=theory`), the novice's Endeavours on request (`END=2 ENDRULE=request NOVEND=10 NOVFOCUS=1`), and for every player the 10% glimpse with observational revelation off (`GLIMPSE=0.1 OBS=0`).
+- **Worlds:** `familiar` (the atomic world), `Substance` and `Process` (the two elemental worlds). Each has a rival-civilisation pool in `power/results/w7f_<world>_pool.json`, which knowledge diffusion needs.
 - **Methods:** `Warp`, `Wormhole`, `Hyperspace` and `Tachyonic` in both world types, plus `Tunnelling` in atomic worlds or its mirror, `Plenum`, in elemental ones.
 - **Results** are saved as `power/results/w7f_<world><suffix>.json`.
-- **A shorter run:** call `power/w7f.py <world> <games> <suffix>` directly, inside `power/scratch_run.sh`, with the same environment variables. `docs/WORKSPACE.md` lists every variable and what it switches.
+- **A shorter run:** call `power/w7f.py <world> <games> <suffix>` inside `power/scratch_run.sh`, with the player's environment variables (copy them from the wrapper). `docs/WORKSPACE.md` lists every variable and what it switches.
+- **Repeatability:** the expert's runs are deterministic. The novice's and the average player's vary slightly between identical runs (Python randomises string hashing per process, which changes its tie-breaks); set `PYTHONHASHSEED=0` to repeat a run exactly.
 - **One game, turn by turn:** add `TRACE=<path.json>`, then format the record with `power/trace_table.py`.
 
-`scratch_run.sh` restores `tt.md` from the highest-numbered `outputs/tech_tree_vNNN.md` before every run, so a damaged working copy can't persist. To measure a newer tree, save it there as the next number. Once the design lives in the wiki, assemble the wiki's pages back into one document in the original order first.
+**Which tree it reads.** Every tool reads the design document, `design/tech_tree.md`, so a run always measures the document as it stands in your checkout. `scratch_run.sh` copies it to a private temporary file, applies `scratch_patch.py` (the redesign's variant switches; under the finalised switches it leaves the tree's rows and prerequisites as the document has them), runs the command with `UH_TREE` pointing at the copy, and deletes the copy afterwards. The document itself is never modified, and runs in parallel never share a copy. To measure an older version, check it out from git.
 
 ## The main scripts
 
@@ -43,7 +42,7 @@ The standard run is 60 games of one FTL method in one world type, with every agr
 |---|---|
 | `w7f.py` | The runner: plays N games per method, applying the levers and players. |
 | `harness_ftl_e.py` | The simulation engine for the FTL endgame: discovery, focus choice, Endeavours, the theory phase, tests and building. |
-| `harness2.py` | The discovery-model workshop's harness, where the candidate model was developed (results in `harness2_results.json`; report in `docs/`). |
+| `harness2.py` | The discovery-model workshop's harness, where the candidate model was developed (results in `harness2_results.json`; report in `design/notes/discovery_workshop_report.md`). |
 | `harness.py`, `harness_ftl.py` | The earlier discovery-model comparison harnesses (threshold against rate models), kept for the record. |
 | `eramodel.py` | Era model: calibrated era lengths, city Production and per-era building loads, the fork against base Civ V. |
 | `era_prices.json` | The price per discovery in each era. |
@@ -54,8 +53,10 @@ The standard run is 60 games of one FTL method in one world type, with every agr
 | `generator.py` | The Insight-threshold generator of the original discovery design, run per civilisation at world creation. |
 | `balance_*.py`, `theory_phase.py`, `ftl_timing.py`, `victory_total.py` | Summaries of the measurement runs. |
 | `trace_table.py` | Formats a traced game as a readable table. |
-| `v112_stage1.py` – `v112_stage5.py`, `v112_tachyonic_fix.py`, `thin_batch*.py`, `stage*.py`, `ledger*.py` | The scripts that made past tree versions. They're a record, tied to the versions they edited, not something to re-run. |
+| `ledger.py`, `ledger2.py` – `ledger6.py` | The power ledgers: per-city building power by era, which the era model reads. |
+| `defaults.py` | Where the tree is, and the finalised design's switches. |
+| `v112_stage1.py` – `v112_stage5.py`, `v112_tachyonic_fix.py`, `thin_batch*.py`, `stage*.py` and the other scripts that edit `tt.md` | The scripts that made past tree versions. They're a record, tied to the versions they edited and to the old workspace's `tt.md` and numbered copies, not something to re-run. |
 
 ## What the simulator can't tell you
 
-Its income depends only on cumulative Insight, never on what has been discovered, and it models no production or military pressure. So it measures the research structure well, but it overrates beelining: an expert who starves its economy loses nothing here. The decisions digest (`ftl_decisions_digest.md`) records this, and the plan to check the benchmarks with bot games once the fork is playable.
+Its income depends only on cumulative Insight, never on what has been discovered, and it models no production or military pressure. So it measures the research structure well, but it overrates beelining: an expert who starves its economy loses nothing here. The decisions digest (`design/notes/ftl_decisions_digest.md`) records this, and the plan to check the benchmarks with bot games once the fork is playable.

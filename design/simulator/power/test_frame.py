@@ -1,4 +1,5 @@
 import asyncio, os
+from defaults import CANONICAL   # the design document, design/tech_tree.md
 os.environ['PLAYWRIGHT_BROWSERS_PATH']='/opt/pw-browsers'
 from playwright.async_api import async_playwright
 STUB = """
@@ -19,7 +20,7 @@ async def main():
         # 2) top level with a viewer-like window.claude, serving the blob path
         pg2=await b.new_page(viewport={'width':1220,'height':880}); errs2=[]
         pg2.on('console', lambda m: errs2.append((m.type,m.text))); pg2.on('pageerror', lambda e: errs2.append(('pageerror',str(e))))
-        await pg2.route('**/_blob/X', lambda r: r.fulfill(path='/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v108.md', content_type='text/markdown'))
+        await pg2.route('**/_blob/X', lambda r: r.fulfill(path=CANONICAL, content_type='text/markdown'))
         await pg2.add_init_script(STUB)
         await pg2.goto('http://localhost:8765/index.html'); await pg2.wait_for_timeout(2500)
         print("viewer stub — status:", repr(await pg2.text_content('#status')), "| version:", repr(await pg2.text_content('#version')), "| nodes:", await pg2.locator('.node').count())

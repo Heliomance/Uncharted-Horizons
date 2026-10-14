@@ -1,6 +1,7 @@
 """W7f (from W7d): detectives and design levers. Env: DET=simple|smart, END=<Endeavour cost multiplier>, LEVERS letters a,b,c (W14), r (RC06 sibling of RC05, in the patch), t (open questions draw 3x attention). W7d (from W7c): theory, then the true method's engineering. W7c: time to certainty under the final condition sets (three per method), for a detective that funds only the tests
 that can still matter. Runs on the scratch redesign (via scratch_run.sh). Writes results to power_tools/results/."""
 import sys, json, itertools, random, statistics as st; sys.path.insert(0, '/home/user/Uncharted-Horizons/design/simulator/power')
+import defaults   # the finalised design's switches (LEVERS, WROWX, SPACEPRICE), wherever they aren't set
 import harness_ftl_e as HF, worlds as W, gen_data as G
 world = None if sys.argv[1] == 'familiar' else sys.argv[1]; N = int(sys.argv[2])
 _rows = W.set_world(world); HF.ROWS = _rows; HF.IDS = sorted(_rows); HF.FOCUS = {k: _rows[k]['focus'] for k in HF.IDS}; HF.ERA_I = {k: HF.EO.index(_rows[k]['era']) for k in HF.IDS}

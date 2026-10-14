@@ -2,7 +2,8 @@
 and grid plants grouped by name as well as by tag."""
 import ledger as Lg, ledger2 as L2, ledger3 as L3, ledger4 as L4, re
 from collections import defaultdict
-t=open('/home/user/Uncharted-Horizons/design/simulator/tt.md',encoding='utf-8').read(); body=t[:t.index('\n## 4.')]
+from defaults import TREE   # the design document, or a run's patched copy
+t=open(TREE,encoding='utf-8').read(); body=t[:t.index('\n## 4.')]
 PLANTS=set()
 for l in body.split('\n'):
     if '⟨Power Plant⟩' in l:

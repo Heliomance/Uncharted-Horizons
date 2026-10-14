@@ -1,4 +1,5 @@
 import asyncio, os, json
+from defaults import CANONICAL   # the design document, design/tech_tree.md
 os.environ['PLAYWRIGHT_BROWSERS_PATH']='/opt/pw-browsers'
 from playwright.async_api import async_playwright
 URL='file:///home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_viewer.html'
@@ -10,7 +11,7 @@ async def main():
         await pg.goto(URL); await pg.wait_for_timeout(600)
         print("empty state visible:", await pg.is_visible('#empty'), "| status:", await pg.text_content('#status'))
         await pg.screenshot(path='/tmp/v0_empty.png')
-        await pg.set_input_files('#file2','/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v109.md'); await pg.wait_for_timeout(800)
+        await pg.set_input_files('#file2',CANONICAL); await pg.wait_for_timeout(800)
         print("after load — status:", await pg.text_content('#status'), "| version:", await pg.text_content('#version'))
         print("nodes:", await pg.locator('.node').count(), "| edges:", await pg.locator('.edge').count(), "| ribbon eras:", await pg.locator('.era').count(), "| lanes:", await pg.locator('.lane').count())
         await pg.screenshot(path='/tmp/v1_fit.png')
@@ -44,11 +45,11 @@ async def main():
         await pg.screenshot(path='/tmp/v5_substance.png')
         await pg.click('#legend-toggle'); await pg.wait_for_timeout(150); await pg.screenshot(path='/tmp/v6_legend.png')
         # reload keeps the moved node
-        await pg.reload(); await pg.wait_for_timeout(300); await pg.set_input_files('#file2','/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v109.md'); await pg.wait_for_timeout(600)
+        await pg.reload(); await pg.wait_for_timeout(300); await pg.set_input_files('#file2',CANONICAL); await pg.wait_for_timeout(600)
         print("after reload, CH04 at:", await pg.locator('.node[data-id="CH04"]').get_attribute('transform'))
         # dark mode and a phone
         d=await b.new_page(viewport={'width':390,'height':800}, color_scheme='dark'); await d.goto(URL); await d.wait_for_timeout(300)
-        await d.set_input_files('#file2','/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v109.md'); await d.wait_for_timeout(600)
+        await d.set_input_files('#file2',CANONICAL); await d.wait_for_timeout(600)
         await d.fill('#search','QM-E04'); await d.keyboard.press('Enter'); await d.wait_for_timeout(700); await d.screenshot(path='/tmp/v7_phone_dark.png')
         print("console errors:", errs or 'none')
         await b.close()

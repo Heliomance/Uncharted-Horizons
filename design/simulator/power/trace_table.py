@@ -1,9 +1,12 @@
 """Turn-by-turn table of one traced game (w7f.py with TRACE=...). Usage: python3 trace_table.py <trace.json> <out.md> <seeds text>"""
 import json, re, sys
+from defaults import TREE   # the design document (or a run's patched copy)
 T = json.load(open(sys.argv[1])); OUT = sys.argv[2]; SEEDS = sys.argv[3] if len(sys.argv) > 3 else ''
 NAME = {}; ERA = {}
 THRESH = {'Ancient': 5, 'Classical': 3, 'Medieval': 3, 'Early Modern': 5, 'Modern': 7, 'Atomic': 6, 'Space': 4}   # §2: N breakthroughs from that era or later
-for l in open('/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v112.md', encoding='utf-8'):
+VERSION = ''   # the newest changelog entry, which names the document's version
+for l in open(TREE, encoding='utf-8'):
+    if not VERSION and (v := re.match(r'^### (v\d+\.\d+) ', l)): VERSION = v.group(1)
     m = re.match(r'^\| ([A-Z]{1,3}\d+[A-Z]?(?:-W)?|ME-B|NP-F\d+|QM-E\d+|MI05B|MI06B|[A-Z]{2}-[A-Z]\d+) \| \*\*(.+?)\*\* \| \S+ \| ([^|]+?) \|', l)
     if m: NAME[m.group(1)] = m.group(2); ERA[m.group(1)] = m.group(3).strip()
 nm = lambda k: NAME.get(k, k)
@@ -80,7 +83,7 @@ def first(pred): return next((r['turn'] for r in recs if pred(r)), None)
 space1 = first(lambda r: any(k for k in r['found'] if k in NAME and EO[min(int(r['d']), 7)] == 'Space'))
 answers = sorted({int(t_) for t_, a in T['alive'].items() if a['known']})
 md = [f"# Turn-by-turn game: atomic world, Hyperspace viable (expert player)", "",
-      f"Simulated by the FTL-endgame harness on `tech_tree_v112.md` with the agreed full design; seeds {SEEDS}. "
+      f"Simulated by the FTL-endgame harness on the design document ({VERSION}) with the agreed full design; seeds {SEEDS}. "
       f"**World truth** (the FTL conditions, drawn at random under the generation rules with Hyperspace viable): holds — {'; '.join(holds)}. Fails — {'; '.join(fails)}. "
       "Frontier truths outside the FTL puzzle (fusion, vacuum energy, fossil fuels and the like) are not modelled by the harness, so they take their familiar values.", "",
       "**Player and world:** the expert (knows every method's conditions and builds; beelines the unified theory; hedges engineering across the methods still possible; uses Grand Endeavours at 2× by the fair rule; builds instruments at once, 5 turns each); a connected civilisation with five rivals replayed from other games of the same world, met in the Early Modern era (knowledge diffusion); proximity revelation at 10%; observational revelation off.", "",

@@ -23,9 +23,11 @@ The battery's output on v3.112 is in `verification-battery/RESULTS_v3.112.txt`: 
 
 See `simulator/README.md`, and `simulator/docs/WORKSPACE.md` for the conventions, switches and benchmark players.
 
-- **Which tree it measures.** The simulator measures the highest-numbered `simulator/outputs/tech_tree_vNNN.md`. To measure a new version of the design document, first copy `tech_tree.md` there under the next number.
+    bash design/simulator/power/runcell.sh familiar Hyperspace _mytest    # 60 expert games, finalised design
+
+- **Which tree it measures.** `tech_tree.md` itself, as it stands in the checkout, so a run after an edit measures the edit. The document is never modified: each run patches a private temporary copy.
+- **The finalised design is the default.** The agreed levers and prices apply unless a run sets them; see `simulator/power/defaults.py`.
 - **Paths.** Its scripts hold absolute paths, kept pointing at `/home/user/Uncharted-Horizons/design/simulator`, where cloud sessions check out the repository. After cloning the repository anywhere else, run `python3 design/simulator/relocate.py` once.
-- **Outdated advice in WORKSPACE.md.** It was written for the previous environment, where only `/mnt/user-data/outputs` survived a reset. Here the checkout is the workspace: `restore_workspace.sh` isn't needed, and anything worth keeping is committed.
 
 ## The wiki
 

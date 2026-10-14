@@ -2,9 +2,10 @@
 reconstructing when each FTL answer arrives (instruments included), how many methods remain possible, the rhythm of discoveries,
 and where Endeavours, diffusion and the build fall. Usage: endgame_story.py <tag> <instrument turns>"""
 import sys, json, re, statistics as st, collections
+from defaults import TREE   # the design document (or a run's patched copy)
 R = '/home/user/Uncharted-Horizons/design/simulator/power/results/'; TAG = sys.argv[1]; D = int(sys.argv[2])
 ERA = {}
-for l in open('/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v111.md', encoding='utf-8'):
+for l in open(TREE, encoding='utf-8'):
     m = re.match(r'^\| ([A-Z]{2,3}(?:-[A-Z]+)?\d+[A-Z]?) \| \*\*[^*]+\*\* \| [A-Z]+ \| ([A-Za-z ]+) \|', l)
     if m: ERA.setdefault(m.group(1), m.group(2).strip())
 for k in ('RC11', 'CP16', 'CP21', 'AE14', 'AE20', 'ES22', 'ES18', 'MA15', 'MA19', 'NP15', 'TH20'): ERA[k] = 'Space'

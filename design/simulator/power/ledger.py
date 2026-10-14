@@ -20,7 +20,8 @@ regular=lambda b: not b.get('isWonder') and not b.get('isNationalWonder') and no
 # ---- base Civ V: a building is available once its tech's column is researched
 base=[(colcum[tcol[b['requiredTech']]] if b.get('requiredTech') in tcol else 0,)+bpower(b)+(b['name'],) for b in B if regular(b)]
 # ---- the fork: canonical buildings at their §7 breakthrough, plus the fork's own new buildings
-t=open('/home/user/Uncharted-Horizons/design/simulator/tt.md',encoding='utf-8').read()
+from defaults import TREE   # the design document, or a run's patched copy
+t=open(TREE,encoding='utf-8').read()
 body=t[:t.index('\n## 4.')]
 BASE_END={'Primitive':160,'Ancient':545,'Classical':1820,'Medieval':5720,'Early Modern':24970,'Modern':66270,'Atomic':112270,'Space':202470}   # base Civ V's eras: its tech-column costs
 ERA_END={'Primitive':149,'Ancient':721,'Classical':2259,'Medieval':6528,'Early Modern':23569,'Modern':75161,'Atomic':143768,'Space':195610}   # the fork's eras, redrawn in v3.108 for an even pace

@@ -1,6 +1,11 @@
-"""Apply the agreed FTL redesign (as it affects the evidence) to tt.md for measurement; scratch_run.sh restores it."""
-import os
-p='/home/user/Uncharted-Horizons/design/simulator/tt.md'; L=open(p,encoding='utf-8').read().split('\n')
+"""Apply the agreed FTL redesign (as it affects the evidence) to a run's private copy of the tree, $UH_TREE, for
+measurement. scratch_run.sh makes the copy from the design document and deletes it afterwards."""
+import os, sys
+import defaults   # the finalised design's switches, wherever they aren't set
+p = os.environ.get('UH_TREE', '')
+if not p or os.path.realpath(p) == os.path.realpath(defaults.CANONICAL):
+    sys.exit('scratch_patch.py edits a copy of the design document, never the document: run it through scratch_run.sh')
+L=open(p,encoding='utf-8').read().split('\n')
 LEAK=os.environ.get('LEAK','SE02')   # the leakage survey's Space-era prerequisite (variant switch)
 def row(rid):
     (i,)=[n for n,l in enumerate(L) if l.startswith(f'| {rid} |')]; return i

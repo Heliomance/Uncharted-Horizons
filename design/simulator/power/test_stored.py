@@ -1,4 +1,5 @@
 import asyncio, os, json
+from defaults import CANONICAL   # the design document, design/tech_tree.md
 os.environ['PLAYWRIGHT_BROWSERS_PATH']='/opt/pw-browsers'
 from playwright.async_api import async_playwright
 LAY=open('/tmp/layout_v3.109.json').read()
@@ -13,7 +14,7 @@ async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch(); pg=await b.new_page(viewport={'width':1440,'height':900}); errs=[]
         pg.on('pageerror', lambda e: errs.append(str(e)))
-        await pg.route('**/_blob/X', lambda r: r.fulfill(path='/home/user/Uncharted-Horizons/design/simulator/outputs/tech_tree_v109.md', content_type='text/markdown'))
+        await pg.route('**/_blob/X', lambda r: r.fulfill(path=CANONICAL, content_type='text/markdown'))
         await pg.add_init_script(STUB)
         t=0; await pg.goto('http://localhost:8765/index.html')
         await pg.wait_for_function("document.querySelector('#status').textContent.includes('crossings')", timeout=20000)

@@ -1,6 +1,7 @@
 """Guaranteed ancestry: is row P certain to be discovered before row K can be? (every OR branch of K's prerequisites leads through P)"""
 import re, functools
-t = open('/home/user/Uncharted-Horizons/design/simulator/tt.md', encoding='utf-8').read(); body = t[:t.index('\n## 4.')]
+from defaults import TREE   # the design document, or a run's patched copy; also applies the finalised switches
+t = open(TREE, encoding='utf-8').read(); body = t[:t.index('\n## 4.')]
 IDRX = r'\b([A-Z]{1,3}-?[A-Z]?\d{1,2}[A-Z]?(?:-W|-V\d+)?|ME-B)\b'
 rows = {}
 for l in body.split('\n'):

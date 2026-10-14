@@ -3,6 +3,7 @@ discovery completed certainty, then walk back through its prerequisites, at each
 last, and within it the latest row of the option that satisfied it), until the chain reaches rows discovered before the unified theory.
 Run inside scratch_run.sh with the same LEVERS, so prerequisites match the games. Usage: critical_path.py <world>"""
 import sys, json, collections, statistics as st; sys.path.insert(0, '/home/user/Uncharted-Horizons/design/simulator/power')
+from defaults import TREE   # the design document (or a run's patched copy)
 import worlds as W, gen_data as G
 wname = sys.argv[1]; world = None if wname == 'familiar' else wname
 _rows = W.set_world(world); groups = {k: G.prereq_groups(k) for k in _rows}
@@ -25,7 +26,7 @@ def chain(k, t, K):
         if p is None or tr < K: return path
         path.append(p); k = p
 import re
-NAMES = {m.group(1): m.group(2) for m in re.finditer(r'^\| ([A-Z]{2,3}(?:-[A-Z]+)?\d+) \| \*\*([^*]+)\*\*', open('/home/user/Uncharted-Horizons/design/simulator/tt.md', encoding='utf-8').read(), re.M)}
+NAMES = {m.group(1): m.group(2) for m in re.finditer(r'^\| ([A-Z]{2,3}(?:-[A-Z]+)?\d+) \| \*\*([^*]+)\*\*', open(TREE, encoding='utf-8').read(), re.M)}
 name = lambda k: NAMES.get(k, k)
 trig, on_chain, wait, arrive, chains, depth = collections.Counter(), collections.Counter(), collections.defaultdict(list), collections.defaultdict(list), collections.Counter(), []
 theory = collections.defaultdict(list); n = 0
