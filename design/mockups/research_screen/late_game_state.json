@@ -175,10 +175,47 @@
  ],
  "counts": {
   "owned": 193,
-  "studying": 35,
+  "studying": 26,
   "waiting": 3,
-  "closed": 24
+  "closed": 24,
+  "not_taken": 0
  },
+ "hidden_under_study": 9,
+ "foci_entered": [
+  "Aeronautics",
+  "Animal Husbandry",
+  "Chemistry",
+  "Computing",
+  "Construction",
+  "Electricity",
+  "Electronics",
+  "Energy Systems",
+  "Farming",
+  "Fire",
+  "Foraging",
+  "Genetics",
+  "Materials Science",
+  "Mathematics",
+  "Mechanics",
+  "Medicine",
+  "Metallurgy",
+  "Mining",
+  "Nuclear Physics",
+  "Observation",
+  "Optics",
+  "Philosophy And The Arts",
+  "Quantum Physics",
+  "Relativity & Cosmology",
+  "Rocketry",
+  "Seafaring",
+  "Social Organization",
+  "Stonework",
+  "Textiles & Materials",
+  "Thermodynamics",
+  "Trade",
+  "Warfare",
+  "Water Management"
+ ],
  "rows": [
   {
    "id": "AE01",
@@ -192,6 +229,8 @@
     "Observation Balloon"
    ],
    "turn": 202,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -206,6 +245,7 @@
     "Airship",
     "airship chain"
    ],
+   "ahead": false,
    "progress": 0.02,
    "since": 223,
    "target": false
@@ -224,6 +264,7 @@
     "Oil",
     "Carrier"
    ],
+   "ahead": false,
    "progress": 0.03,
    "since": null,
    "target": false
@@ -240,6 +281,8 @@
     "Ornithopter"
    ],
    "turn": 191,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -252,6 +295,8 @@
    "prereq": "O03",
    "unlocks": [],
    "turn": 28,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -266,6 +311,8 @@
     "Pasture"
    ],
    "turn": 15,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -282,6 +329,8 @@
     "Circus Maximus"
    ],
    "turn": 72,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -295,6 +344,7 @@
    "unlocks": [
     "Camel Train"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 39,
    "target": false
@@ -311,6 +361,7 @@
     "Elephant Cavalry",
     "Ivory"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 39,
    "target": false
@@ -327,6 +378,8 @@
     "Veterinary College"
    ],
    "turn": 129,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -339,6 +392,8 @@
    "prereq": "ME01 + O06 (Natural Philosophy)",
    "unlocks": [],
    "turn": 63,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -354,6 +409,8 @@
     "Whisky"
    ],
    "turn": 89,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -366,6 +423,8 @@
    "prereq": "PH04 (Scientific Method) + CH04 (Distillation — acids)",
    "unlocks": [],
    "turn": 139,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -381,6 +440,8 @@
     "Frontier Question FQ9:"
    ],
    "turn": 157,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -397,6 +458,8 @@
     "Fork point for FQ11 (resolved at CH25):"
    ],
    "turn": 199,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -411,6 +474,8 @@
     "Artillery"
    ],
    "turn": 216,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -426,6 +491,8 @@
     "Oil"
    ],
    "turn": 213,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -441,6 +508,8 @@
     "Competing Solution"
    ],
    "turn": 211,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -456,6 +525,8 @@
     "Materials Science"
    ],
    "turn": 223,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -468,6 +539,8 @@
    "prereq": "CH06",
    "unlocks": [],
    "turn": 203,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -485,6 +558,8 @@
     "Mobile SAM"
    ],
    "turn": 194,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -498,6 +573,7 @@
    "unlocks": [
     "Photography Studio"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 219,
    "target": false
@@ -514,6 +590,8 @@
     "Alchemist's Guild"
    ],
    "turn": 82,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -529,6 +607,8 @@
     "The decisive experiment for FQ9"
    ],
    "turn": 139,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -544,6 +624,8 @@
     "The decisive experiment for FQ11"
    ],
    "turn": 211,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -557,6 +639,7 @@
    "unlocks": [
     "Ends the Airship Disaster"
    ],
+   "ahead": false,
    "progress": 0.55,
    "since": 199,
    "target": false
@@ -573,6 +656,8 @@
     "Granary"
    ],
    "turn": 33,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -589,6 +674,8 @@
     "Moai"
    ],
    "turn": 37,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -604,6 +691,8 @@
     "Post Office"
    ],
    "turn": 38,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -618,6 +707,8 @@
     "Concrete Works"
    ],
    "turn": 103,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -633,6 +724,8 @@
     "Competing Solution"
    ],
    "turn": 151,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -649,6 +742,8 @@
     "Porcelain Tower"
    ],
    "turn": 123,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -662,6 +757,7 @@
    "unlocks": [
     "Timber-Frame Hall"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 70,
    "target": false
@@ -675,6 +771,7 @@
    "status": "closed",
    "prereq": "CO03 + (ME05 (Steel) or TX01 (Weaving — rope-making))",
    "unlocks": [],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 77,
    "target": false
@@ -691,6 +788,8 @@
     "Factory"
    ],
    "turn": 129,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -703,6 +802,8 @@
    "prereq": "(CO04 or CH05) + ME12 — Roman Concrete, or the chemistry of Portland cement; and Bessemer steel",
    "unlocks": [],
    "turn": 210,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -714,6 +815,7 @@
    "status": "waiting",
    "prereq": "CO11 + MA03 (Basic Algebra — trigonometry)",
    "unlocks": [],
+   "ahead": true,
    "source": "glimpse",
    "target": false
   },
@@ -726,6 +828,7 @@
    "status": "waiting",
    "prereq": "CO11 + CH05 (Oxygen Theory) + OP01 (Glassmaking)",
    "unlocks": [],
+   "ahead": false,
    "source": "glimpse",
    "target": false
   },
@@ -743,6 +846,8 @@
     "Neuschwanstein"
    ],
    "turn": 198,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -759,6 +864,8 @@
     "Alhambra"
    ],
    "turn": 122,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -774,6 +881,8 @@
     "Kremlin"
    ],
    "turn": 195,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -789,6 +898,7 @@
     "Bunker",
     "Military Base"
    ],
+   "ahead": false,
    "source": "glimpse",
    "target": false
   },
@@ -803,6 +913,7 @@
    "unlocks": [
     "Competing Solution"
    ],
+   "ahead": false,
    "progress": 0.21,
    "since": 200,
    "target": false
@@ -822,6 +933,8 @@
     "Stonehenge"
    ],
    "turn": 64,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -834,6 +947,8 @@
    "prereq": "SO02 + any luxury resource",
    "unlocks": [],
    "turn": 54,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -846,6 +961,8 @@
    "prereq": "SO02 + S01 (Tool Making)",
    "unlocks": [],
    "turn": 27,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -860,6 +977,8 @@
     "Amphitheater"
    ],
    "turn": 65,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -877,6 +996,8 @@
     "Oxford University"
    ],
    "turn": 148,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -894,6 +1015,8 @@
     "Theatre"
    ],
    "turn": 198,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -908,6 +1031,8 @@
     "National Epic"
    ],
    "turn": 110,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -924,6 +1049,8 @@
     "Grand Temple"
    ],
    "turn": 130,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -936,6 +1063,8 @@
    "prereq": "O06 (Natural Philosophy) + CH04 (Distillation — acids) + ME01",
    "unlocks": [],
    "turn": 120,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -948,6 +1077,8 @@
    "prereq": "EL02 + MA05 (Calculus)",
    "unlocks": [],
    "turn": 136,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -962,6 +1093,8 @@
     "Telegraph Office"
    ],
    "turn": 167,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -976,6 +1109,8 @@
     "Electronics"
    ],
    "turn": 194,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -988,6 +1123,8 @@
    "prereq": "EL06 + CO10 (Iron-Frame Construction)",
    "unlocks": [],
    "turn": 196,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1003,6 +1140,8 @@
     "Telephone Exchange"
    ],
    "turn": 193,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1016,6 +1155,7 @@
    "unlocks": [
     "Sonar"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 219,
    "target": false
@@ -1029,27 +1169,10 @@
    "status": "closed",
    "prereq": "TH02 (Refrigeration — cryogenics) + EL03",
    "unlocks": [],
+   "ahead": true,
    "source": "glimpse",
    "closed_turn": 216,
    "target": true
-  },
-  {
-   "id": "EL14",
-   "name": "Direct-Current Stations",
-   "focus": "Electricity",
-   "era": "Modern",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "EL06 (Electric Generator) + EL02 (Voltaic Pile)",
-   "unlocks": [
-    "Generating Station",
-    "Factory",
-    "Competing Solution",
-    "The War of the Currents"
-   ],
-   "progress": 0.19,
-   "since": 205,
-   "target": false
   },
   {
    "id": "EN01",
@@ -1061,6 +1184,8 @@
    "prereq": "EL03 + OP01 (Glassmaking)",
    "unlocks": [],
    "turn": 187,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1074,6 +1199,7 @@
    "unlocks": [
     "Computing"
    ],
+   "ahead": true,
    "progress": 0.07,
    "since": null,
    "target": true
@@ -1092,6 +1218,7 @@
     "Bomber",
     "Paratrooper"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 225,
    "target": false
@@ -1110,6 +1237,7 @@
     "National Intelligence Agency",
     "Sydney Opera House"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 225,
    "target": true
@@ -1127,6 +1255,7 @@
     "Factory",
     "Coal"
    ],
+   "ahead": false,
    "progress": 0.05,
    "since": 216,
    "target": false
@@ -1144,43 +1273,11 @@
     "Factory",
     "Competing Solution"
    ],
+   "ahead": false,
    "progress": 0.06,
    "since": 210,
-   "target": false
-  },
-  {
-   "id": "ES05",
-   "name": "Oil Power Plant",
-   "focus": "Energy Systems",
-   "era": "Modern",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "TH03 + (MI07 or MC09) — petroleum, or the engine that distils it",
-   "unlocks": [
-    "Oil Plant",
-    "Factory",
-    "Oil"
-   ],
-   "progress": 0.39,
-   "since": 194,
-   "target": false
-  },
-  {
-   "id": "ES05-W",
-   "name": "Alcohol/Biogas Power Plant",
-   "focus": "Energy Systems",
-   "era": "Modern",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "(MC09 (Internal Combustion Engine) or ES13 (Biomass/Biogas)) + TH03",
-   "unlocks": [
-    "Bio-Fuel Plant",
-    "Factory",
-    "Competing Solution"
-   ],
-   "progress": 0.02,
-   "since": 221,
-   "target": false
+   "target": false,
+   "competes_with": "Coal Power Plant"
   },
   {
    "id": "ES09",
@@ -1194,6 +1291,7 @@
     "Geothermal Plant",
     "Factory"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 208,
    "target": false
@@ -1210,6 +1308,7 @@
     "Tidal Plant",
     "Factory"
    ],
+   "ahead": true,
    "progress": 0.03,
    "since": 214,
    "target": false
@@ -1227,6 +1326,7 @@
     "Factory",
     "Recycling Center"
    ],
+   "ahead": false,
    "progress": 0.04,
    "since": 218,
    "target": false
@@ -1241,6 +1341,8 @@
    "prereq": "None",
    "unlocks": [],
    "turn": 2,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1256,6 +1358,8 @@
     "Pyramid"
    ],
    "turn": 11,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1268,6 +1372,8 @@
    "prereq": "F01",
    "unlocks": [],
    "turn": 10,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1282,6 +1388,8 @@
     "Metallurgy"
    ],
    "turn": 15,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1296,6 +1404,8 @@
     "Signal Fire"
    ],
    "turn": 57,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1311,6 +1421,8 @@
     "Saltpeter"
    ],
    "turn": 140,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1325,6 +1437,8 @@
     "Peat Cutting"
    ],
    "turn": 151,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1339,6 +1453,8 @@
     "Water Management"
    ],
    "turn": 17,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1351,6 +1467,8 @@
    "prereq": "G02",
    "unlocks": [],
    "turn": 82,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1365,6 +1483,8 @@
     "War Dog"
    ],
    "turn": 95,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1379,6 +1499,8 @@
     "Hydroponics Lab"
    ],
    "turn": 223,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1393,6 +1515,8 @@
     "Competing Solution"
    ],
    "turn": 187,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1407,6 +1531,8 @@
     "Forager's Hut"
    ],
    "turn": 3,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1422,6 +1548,8 @@
     "Farming"
    ],
    "turn": 14,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1436,6 +1564,8 @@
     "Herbalist"
    ],
    "turn": 14,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1448,6 +1578,8 @@
    "prereq": "G01 + F01",
    "unlocks": [],
    "turn": 21,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1460,6 +1592,8 @@
    "prereq": "G01",
    "unlocks": [],
    "turn": 33,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1473,6 +1607,7 @@
    "unlocks": [
     "Mushroom Cellar"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 36,
    "target": false
@@ -1490,6 +1625,8 @@
     "Plantation"
    ],
    "turn": 128,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1501,6 +1638,7 @@
    "status": "closed",
    "prereq": "G01",
    "unlocks": [],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 31,
    "target": false
@@ -1514,6 +1652,7 @@
    "status": "closed",
    "prereq": "MD05 (Germ Theory) + FA03 (Selective Breeding) + CH07 + OP03 (Telescope — the microscope)",
    "unlocks": [],
+   "ahead": true,
    "source": "rival",
    "closed_turn": 225,
    "target": false
@@ -1528,6 +1667,8 @@
    "prereq": "SO01 + O05",
    "unlocks": [],
    "turn": 36,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1540,6 +1681,8 @@
    "prereq": "MA01 (Geometry — place value)",
    "unlocks": [],
    "turn": 57,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1554,6 +1697,8 @@
     "Mechanics"
    ],
    "turn": 114,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1566,6 +1711,8 @@
    "prereq": "MA03",
    "unlocks": [],
    "turn": 141,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1580,6 +1727,8 @@
     "Cipher Office"
    ],
    "turn": 141,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1592,6 +1741,8 @@
    "prereq": "MA01 + MA05",
    "unlocks": [],
    "turn": 143,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1604,6 +1755,8 @@
    "prereq": "MA06",
    "unlocks": [],
    "turn": 160,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1615,6 +1768,7 @@
    "status": "closed",
    "prereq": "MA05 + MA08",
    "unlocks": [],
+   "ahead": true,
    "source": "glimpse",
    "closed_turn": 193,
    "target": false
@@ -1629,20 +1783,9 @@
    "prereq": "MA08 + MA03 (Basic Algebra) + PH01 (Formal Logic)",
    "unlocks": [],
    "turn": 164,
+   "new": false,
+   "ahead": false,
    "target": false
-  },
-  {
-   "id": "MA15",
-   "name": "Optimisation Theory",
-   "focus": "Mathematics",
-   "era": "Space",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "MA13 + MA09 — **cost ×2.5**",
-   "unlocks": [],
-   "progress": 0.01,
-   "since": null,
-   "target": true
   },
   {
    "id": "MC01",
@@ -1654,6 +1797,8 @@
    "prereq": "S01 (Tool Knapping)",
    "unlocks": [],
    "turn": 16,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1666,6 +1811,8 @@
    "prereq": "MC01 + MA01 (Geometry)",
    "unlocks": [],
    "turn": 40,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1680,6 +1827,8 @@
     "Windmill"
    ],
    "turn": 136,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1692,6 +1841,8 @@
    "prereq": "MC03 + ME05 (Steel)",
    "unlocks": [],
    "turn": 140,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1706,6 +1857,8 @@
     "Leaning Tower of Pisa"
    ],
    "turn": 140,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1723,6 +1876,8 @@
     "Thermodynamics"
    ],
    "turn": 140,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1740,6 +1895,8 @@
     "Oil"
    ],
    "turn": 220,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1755,6 +1912,8 @@
     "Statue of Liberty"
    ],
    "turn": 151,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1769,6 +1928,8 @@
     "Machine Gun"
    ],
    "turn": 200,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1784,6 +1945,8 @@
     "Longhouse"
    ],
    "turn": 140,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1799,6 +1962,8 @@
     "Herbalist"
    ],
    "turn": 72,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1814,6 +1979,8 @@
     "Library"
    ],
    "turn": 136,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1826,6 +1993,8 @@
    "prereq": "MD03 + AH02 (Herd Animal Domestication — the milkmaid observation)",
    "unlocks": [],
    "turn": 191,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1841,6 +2010,8 @@
     "Frontier Question FQ10:"
    ],
    "turn": 199,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1855,6 +2026,7 @@
     "Medical Lab",
     "Germ-exclusive."
    ],
+   "ahead": true,
    "progress": 0.03,
    "since": 207,
    "target": false
@@ -1868,6 +2040,7 @@
    "status": "studying",
    "prereq": "MD01 + CH04 (Distillation)",
    "unlocks": [],
+   "ahead": false,
    "progress": 0.71,
    "since": 96,
    "target": false
@@ -1881,6 +2054,7 @@
    "status": "closed",
    "prereq": "MD03 + MC03 (Gearing)",
    "unlocks": [],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 198,
    "target": false
@@ -1898,24 +2072,8 @@
     "The decisive experiment for FQ10"
    ],
    "turn": 180,
-   "target": false
-  },
-  {
-   "id": "MD20",
-   "name": "Phage Therapy",
-   "focus": "Medicine",
-   "era": "Modern",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "MD05 (Germ Theory validated) + OP03 (Telescope — the microscope)",
-   "unlocks": [
-    "Phage Institute",
-    "Hospital",
-    "The trade:",
-    "Competing Solution"
-   ],
-   "progress": 0.15,
-   "since": 200,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1930,6 +2088,8 @@
     "Forge"
    ],
    "turn": 34,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1945,6 +2105,8 @@
     "Copper"
    ],
    "turn": 19,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1960,6 +2122,8 @@
     "Copper"
    ],
    "turn": 40,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1975,6 +2139,8 @@
     "Colossus"
    ],
    "turn": 41,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -1989,6 +2155,8 @@
     "Pikeman"
    ],
    "turn": 75,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2005,6 +2173,8 @@
     "Charcoal Kiln"
    ],
    "turn": 81,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2017,6 +2187,8 @@
    "prereq": "ME05 + CH01 (Alchemy)",
    "unlocks": [],
    "turn": 156,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2031,6 +2203,8 @@
     "Battleship"
    ],
    "turn": 180,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2045,21 +2219,8 @@
     "Aluminum"
    ],
    "turn": 176,
-   "target": false
-  },
-  {
-   "id": "ME14",
-   "name": "Titanium Working",
-   "focus": "Metallurgy",
-   "era": "Atomic",
-   "tier": "UNCOMMON",
-   "status": "studying",
-   "prereq": "ME12 + CH06 (Periodic Table)",
-   "unlocks": [
-    "Modern Armor"
-   ],
-   "progress": 0.05,
-   "since": 182,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2074,6 +2235,8 @@
     "Mint"
    ],
    "turn": 81,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2089,6 +2252,8 @@
     "Armory"
    ],
    "turn": 140,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2104,6 +2269,8 @@
     "Salt"
    ],
    "turn": 63,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2119,6 +2286,8 @@
     "Absent in FOSSIL_FUELS_ABSENT worlds"
    ],
    "turn": 146,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2133,6 +2302,8 @@
     "Pozzolana Works"
    ],
    "turn": 47,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2150,6 +2321,8 @@
     "Absent in FOSSIL_FUELS_ABSENT worlds"
    ],
    "turn": 151,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2165,6 +2338,8 @@
     "The gunpowder strategic — consumed by"
    ],
    "turn": 135,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2178,6 +2353,7 @@
    "unlocks": [
     "Uranium"
    ],
+   "ahead": false,
    "progress": 0.57,
    "since": null,
    "target": true
@@ -2194,6 +2370,7 @@
     "Rare Earths",
     "consumed by"
    ],
+   "ahead": true,
    "progress": 0.07,
    "since": null,
    "target": false
@@ -2208,6 +2385,8 @@
    "prereq": "F03 (Charcoal) + CH05 (Oxygen Theory)",
    "unlocks": [],
    "turn": 191,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2219,6 +2398,7 @@
    "status": "studying",
    "prereq": "HIGH_ENERGY_PHYSICS (QP02 atomic, or QM-E04 elemental) + CH07",
    "unlocks": [],
+   "ahead": true,
    "progress": 0.09,
    "since": null,
    "target": true
@@ -2233,6 +2413,8 @@
    "prereq": "CH06 (Periodic Table) + OP08 (Spectroscopy)",
    "unlocks": [],
    "turn": 187,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2248,6 +2430,8 @@
     "Research Lab"
    ],
    "turn": 191,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2259,6 +2443,7 @@
    "status": "studying",
    "prereq": "NP02 + QP04 — **cost ×2.5**",
    "unlocks": [],
+   "ahead": true,
    "progress": 0.0,
    "since": 210,
    "target": false
@@ -2273,6 +2458,8 @@
    "prereq": "None",
    "unlocks": [],
    "turn": 7,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2285,6 +2472,8 @@
    "prereq": "O01",
    "unlocks": [],
    "turn": 21,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2300,6 +2489,8 @@
     "Camp"
    ],
    "turn": 6,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2314,6 +2505,8 @@
     "Tidal Weir"
    ],
    "turn": 21,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2328,6 +2521,8 @@
     "Mathematics"
    ],
    "turn": 29,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2343,6 +2538,8 @@
     "National College"
    ],
    "turn": 51,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2357,6 +2554,8 @@
     "Medicine"
    ],
    "turn": 120,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2369,6 +2568,8 @@
    "prereq": "S04 (Ore Identification)",
    "unlocks": [],
    "turn": 26,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2382,6 +2583,7 @@
    "unlocks": [
     "Circus"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 32,
    "target": false
@@ -2395,6 +2597,7 @@
    "status": "studying",
    "prereq": "O02 + CH05 (Oxygen Theory) + MA05 (Calculus)",
    "unlocks": [],
+   "ahead": false,
    "progress": 0.35,
    "since": 149,
    "target": false
@@ -2409,6 +2612,8 @@
    "prereq": "F02 (Kiln Construction) + Desert or Coast tile in territory",
    "unlocks": [],
    "turn": 32,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2421,6 +2626,8 @@
    "prereq": "OP01 + MA01 (Geometry)",
    "unlocks": [],
    "turn": 73,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2435,6 +2642,8 @@
     "Observatory"
    ],
    "turn": 117,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2446,6 +2655,7 @@
    "status": "studying",
    "prereq": "OP02 + (QP02 Quantum Mechanics, or QM-E03 Resonant-State Computing)",
    "unlocks": [],
+   "ahead": true,
    "progress": 0.13,
    "since": null,
    "target": true
@@ -2460,6 +2670,8 @@
    "prereq": "OP03 + CH06 (Periodic Table)",
    "unlocks": [],
    "turn": 184,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2474,6 +2686,8 @@
     "Semaphore Tower"
    ],
    "turn": 181,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2486,6 +2700,8 @@
    "prereq": "O06",
    "unlocks": [],
    "turn": 66,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2501,6 +2717,8 @@
     "Experimental Laboratory"
    ],
    "turn": 134,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2515,6 +2733,8 @@
     "Synthesis"
    ],
    "turn": 134,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2526,6 +2746,7 @@
    "status": "closed",
    "prereq": "PH01 (Formal Logic — epistemology)",
    "unlocks": [],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 128,
    "target": false
@@ -2539,6 +2760,7 @@
    "status": "studying",
    "prereq": "PH01 + MA07 (Binary Math)",
    "unlocks": [],
+   "ahead": true,
    "progress": 0.07,
    "since": null,
    "target": true
@@ -2552,6 +2774,7 @@
    "status": "studying",
    "prereq": "PH04 + (MA14 (Chaos Theory) or MA09)",
    "unlocks": [],
+   "ahead": true,
    "progress": 0.04,
    "since": 182,
    "target": false
@@ -2569,6 +2792,8 @@
     "The Louvre"
    ],
    "turn": 226,
+   "new": true,
+   "ahead": false,
    "target": false
   },
   {
@@ -2581,6 +2806,8 @@
    "prereq": "NP02 + OP03 (Telescope)",
    "unlocks": [],
    "turn": 195,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2593,6 +2820,8 @@
    "prereq": "QP01 + MA05 + MA13 (Topology — set theory)",
    "unlocks": [],
    "turn": 200,
+   "new": false,
+   "ahead": true,
    "target": false
   },
   {
@@ -2605,6 +2834,8 @@
    "prereq": "QP02 + EL03",
    "unlocks": [],
    "turn": 207,
+   "new": false,
+   "ahead": true,
    "target": false
   },
   {
@@ -2619,6 +2850,8 @@
     "Particle Accelerator"
    ],
    "turn": 206,
+   "new": false,
+   "ahead": true,
    "target": false
   },
   {
@@ -2631,6 +2864,8 @@
    "prereq": "QP03 + MA13 (Topology)",
    "unlocks": [],
    "turn": 210,
+   "new": false,
+   "ahead": true,
    "target": false
   },
   {
@@ -2644,6 +2879,7 @@
    "unlocks": [
     "Standard Model Institute"
    ],
+   "ahead": true,
    "progress": 0.54,
    "since": 221,
    "target": true
@@ -2657,6 +2893,7 @@
    "status": "studying",
    "prereq": "QP05 + RC02 (General Relativity) + QP04 (Particle Accelerator)",
    "unlocks": [],
+   "ahead": true,
    "progress": 0.85,
    "since": null,
    "target": true
@@ -2671,6 +2908,8 @@
    "prereq": "QP05 + MC10 (Precision Machining)",
    "unlocks": [],
    "turn": 224,
+   "new": false,
+   "ahead": true,
    "target": false
   },
   {
@@ -2683,6 +2922,8 @@
    "prereq": "MA08 + EL03",
    "unlocks": [],
    "turn": 169,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2695,6 +2936,8 @@
    "prereq": "RC01 + MA08",
    "unlocks": [],
    "turn": 186,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2708,6 +2951,7 @@
    "unlocks": [
     "dark star"
    ],
+   "ahead": true,
    "progress": 0.01,
    "since": 221,
    "target": true
@@ -2724,6 +2968,8 @@
     "Guided Missile"
    ],
    "turn": 222,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2738,22 +2984,10 @@
     "SS Booster",
     "Aluminum"
    ],
+   "ahead": true,
    "progress": 0.01,
    "since": null,
    "target": true
-  },
-  {
-   "id": "RK09",
-   "name": "Ion Drive",
-   "focus": "Rocketry",
-   "era": "Space",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "RK02 + EL06 (Electric Generator — the motor) + (QP03 Quantum Electrodynamics, or QM-E15 Aetheric Electrodynamics)",
-   "unlocks": [],
-   "progress": 0.0,
-   "since": 223,
-   "target": false
   },
   {
    "id": "S01",
@@ -2770,6 +3004,8 @@
     "Remove Jungle"
    ],
    "turn": 4,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2782,6 +3018,8 @@
    "prereq": "S01",
    "unlocks": [],
    "turn": 31,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2799,6 +3037,8 @@
     "Quarry"
    ],
    "turn": 33,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2816,6 +3056,8 @@
     "Iron"
    ],
    "turn": 9,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2831,6 +3073,7 @@
     "Obsidian Warrior",
     "Obsidian"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 32,
    "target": false
@@ -2844,6 +3087,7 @@
    "status": "closed",
    "prereq": "S01",
    "unlocks": [],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 32,
    "target": false
@@ -2860,6 +3104,8 @@
     "Jeweler"
    ],
    "turn": 60,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2875,6 +3121,8 @@
     "Work Boats"
    ],
    "turn": 5,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2887,6 +3135,8 @@
    "prereq": "SF01 + S01 (Tool Knapping)",
    "unlocks": [],
    "turn": 36,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2903,6 +3153,8 @@
     "Port"
    ],
    "turn": 64,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2917,6 +3169,8 @@
     "Work Boats"
    ],
    "turn": 89,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2931,6 +3185,8 @@
     "Trireme"
    ],
    "turn": 123,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2945,6 +3201,8 @@
     "Harbor"
    ],
    "turn": 146,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2960,6 +3218,8 @@
     "Galleass"
    ],
    "turn": 169,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2975,6 +3235,8 @@
     "Harbor"
    ],
    "turn": 152,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -2990,6 +3252,8 @@
     "Privateer"
    ],
    "turn": 194,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3004,6 +3268,7 @@
     "Ironclad",
     "Destroyer"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 226,
    "target": false
@@ -3020,6 +3285,8 @@
     "Seaport"
    ],
    "turn": 200,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3032,6 +3299,8 @@
    "prereq": "None",
    "unlocks": [],
    "turn": 6,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3047,6 +3316,8 @@
     "Stele"
    ],
    "turn": 8,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3059,6 +3330,8 @@
    "prereq": "SO01 + SO02",
    "unlocks": [],
    "turn": 17,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3075,6 +3348,8 @@
     "Trade"
    ],
    "turn": 31,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3087,6 +3362,8 @@
    "prereq": "SO03 + any city with population ≥ 5",
    "unlocks": [],
    "turn": 35,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3101,6 +3378,8 @@
     "Courthouse"
    ],
    "turn": 63,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3113,6 +3392,8 @@
    "prereq": "SO04 + SO01",
    "unlocks": [],
    "turn": 124,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3128,6 +3409,8 @@
     "Guild Hall"
    ],
    "turn": 167,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3145,6 +3428,8 @@
     "Forbidden Palace"
    ],
    "turn": 130,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3161,6 +3446,8 @@
     "Police Station"
    ],
    "turn": 188,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3175,6 +3462,8 @@
     "Frontier Question FQ12:"
    ],
    "turn": 146,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3189,6 +3478,8 @@
     "Stadium"
    ],
    "turn": 190,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3201,6 +3492,8 @@
    "prereq": "TH01 + MC03 (Gearing) + ME12 (Bessemer)",
    "unlocks": [],
    "turn": 190,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3213,6 +3506,8 @@
    "prereq": "TH01 + MA05 (Calculus)",
    "unlocks": [],
    "turn": 188,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3229,6 +3524,8 @@
     "Competing Solution"
    ],
    "turn": 188,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3243,6 +3540,8 @@
     "FQ12:"
    ],
    "turn": 187,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3258,6 +3557,8 @@
     "The decisive experiment for FQ12"
    ],
    "turn": 188,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3269,6 +3570,7 @@
    "status": "closed",
    "prereq": "TH03 + TH05 — **cost ×2.5**",
    "unlocks": [],
+   "ahead": true,
    "source": "glimpse",
    "closed_turn": 206,
    "target": false
@@ -3283,6 +3585,8 @@
    "prereq": "SO01 (Basic Counting)",
    "unlocks": [],
    "turn": 31,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3298,6 +3602,8 @@
     "Bazaar"
    ],
    "turn": 70,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3312,6 +3618,8 @@
     "Caravansary"
    ],
    "turn": 91,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3324,6 +3632,8 @@
    "prereq": "TR02 + SO04",
    "unlocks": [],
    "turn": 153,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3339,21 +3649,8 @@
     "Bank"
    ],
    "turn": 198,
-   "target": false
-  },
-  {
-   "id": "TR09",
-   "name": "Free Trade Agreements",
-   "focus": "Trade",
-   "era": "Modern",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "TR06 + SO06 (Codified Law)",
-   "unlocks": [
-    "Stock Exchange"
-   ],
-   "progress": 0.1,
-   "since": 206,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3368,6 +3665,7 @@
     "Commodity Exchange",
     "Bank"
    ],
+   "ahead": false,
    "progress": 0.35,
    "since": 183,
    "target": false
@@ -3384,6 +3682,7 @@
     "Petra",
     "Trading post"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 101,
    "target": false
@@ -3400,6 +3699,8 @@
     "Weaver"
    ],
    "turn": 12,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3414,6 +3715,8 @@
     "Dye Works"
    ],
    "turn": 63,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3429,6 +3732,8 @@
     "Weaver"
    ],
    "turn": 200,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3442,6 +3747,7 @@
    "unlocks": [
     "Flak Jacket"
    ],
+   "ahead": true,
    "progress": 0.01,
    "since": null,
    "target": false
@@ -3456,6 +3762,8 @@
    "prereq": "TX01 + (WM01 (Canal — water processing) or F02 (Kiln Construction — bark processing))",
    "unlocks": [],
    "turn": 67,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3472,6 +3780,8 @@
     "Krepost"
    ],
    "turn": 73,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3487,6 +3797,8 @@
     "Temple of Artemis"
    ],
    "turn": 21,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3501,6 +3813,8 @@
     "Composite Bowman"
    ],
    "turn": 63,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3515,6 +3829,8 @@
     "Catapult"
    ],
    "turn": 112,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3530,6 +3846,8 @@
     "Great Wall"
    ],
    "turn": 93,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3544,6 +3862,8 @@
     "Horseman"
    ],
    "turn": 89,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3559,6 +3879,8 @@
     "Competing Solution"
    ],
    "turn": 94,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3573,6 +3895,8 @@
     "Crossbowman"
    ],
    "turn": 129,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3590,6 +3914,8 @@
     "Removed by GUNPOWDER_ABSENT."
    ],
    "turn": 151,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3604,6 +3930,8 @@
     "Trebuchet"
    ],
    "turn": 155,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3617,6 +3945,7 @@
    "unlocks": [
     "Guerrilla"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 98,
    "target": false
@@ -3634,6 +3963,8 @@
     "Gatling Gun"
    ],
    "turn": 188,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3649,6 +3980,8 @@
     "Saltpeter"
    ],
    "turn": 162,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3664,6 +3997,8 @@
     "Heroic Epic"
    ],
    "turn": 139,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3678,6 +4013,8 @@
     "Knight"
    ],
    "turn": 135,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3695,6 +4032,8 @@
     "Lancer"
    ],
    "turn": 186,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3707,6 +4046,8 @@
    "prereq": "FA01 + S03 (Quarrying)",
    "unlocks": [],
    "turn": 39,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3724,6 +4065,8 @@
     "Polder"
    ],
    "turn": 58,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3738,6 +4081,8 @@
     "Water Mill"
    ],
    "turn": 60,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3752,23 +4097,9 @@
     "Hydro Plant",
     "Aluminum"
    ],
+   "ahead": false,
    "progress": 0.03,
    "since": 222,
-   "target": false
-  },
-  {
-   "id": "WM07",
-   "name": "Desalination",
-   "focus": "Water Management",
-   "era": "Atomic",
-   "tier": "STANDARD",
-   "status": "studying",
-   "prereq": "CH06 (Periodic Table) + WM02",
-   "unlocks": [
-    "Desalination Plant"
-   ],
-   "progress": 0.11,
-   "since": 164,
    "target": false
   },
   {
@@ -3784,6 +4115,8 @@
     "Rice Granary"
    ],
    "turn": 58,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3799,6 +4132,8 @@
     "Competing Solution"
    ],
    "turn": 194,
+   "new": false,
+   "ahead": false,
    "target": false
   },
   {
@@ -3812,6 +4147,7 @@
    "unlocks": [
     "Tidal Mill"
    ],
+   "ahead": false,
    "source": "glimpse",
    "closed_turn": 99,
    "target": false

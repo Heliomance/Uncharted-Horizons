@@ -1,0 +1,4158 @@
+{
+ "turn": 231,
+ "research_ends": 282,
+ "method": "Warp",
+ "era": "Modern",
+ "development": 5.78,
+ "insight_per_turn": 853.3,
+ "funded_focus": null,
+ "endeavour": "EL11",
+ "endeavour_progress": 0.64,
+ "flow": {
+  "Energy Systems": 33.0,
+  "Medicine": 15.2,
+  "Aeronautics": 11.9,
+  "Trade": 11.9,
+  "Quantum Physics": 10.0,
+  "Relativity & Cosmology": 10.0,
+  "Mining": 9.3,
+  "Water Management": 9.3,
+  "Rocketry": 6.7,
+  "Chemistry": 5.9,
+  "Computing": 5.9,
+  "Electricity": 5.9,
+  "Observation": 5.9,
+  "Construction": 3.3,
+  "Electronics": 3.3,
+  "Materials Science": 3.3,
+  "Mathematics": 3.3,
+  "Metallurgy": 3.3,
+  "Nuclear Physics": 3.3,
+  "Optics": 3.3,
+  "Philosophy And The Arts": 3.3,
+  "Textiles & Materials": 3.3
+ },
+ "foci": [
+  {
+   "name": "Fire",
+   "icon": "🔥"
+  },
+  {
+   "name": "Foraging",
+   "icon": "🌿"
+  },
+  {
+   "name": "Stonework",
+   "icon": "⛏️"
+  },
+  {
+   "name": "Observation",
+   "icon": "🔭"
+  },
+  {
+   "name": "Social Organization",
+   "icon": "👥"
+  },
+  {
+   "name": "Farming",
+   "icon": "🌾"
+  },
+  {
+   "name": "Animal Husbandry",
+   "icon": "🐎"
+  },
+  {
+   "name": "Mining",
+   "icon": "⛰️"
+  },
+  {
+   "name": "Metallurgy",
+   "icon": "⚒️"
+  },
+  {
+   "name": "Construction",
+   "icon": "🏗️"
+  },
+  {
+   "name": "Seafaring",
+   "icon": "⚓"
+  },
+  {
+   "name": "Warfare",
+   "icon": "⚔️"
+  },
+  {
+   "name": "Mathematics",
+   "icon": "📐"
+  },
+  {
+   "name": "Philosophy and The Arts",
+   "icon": "🎭"
+  },
+  {
+   "name": "Medicine",
+   "icon": "💊"
+  },
+  {
+   "name": "Trade",
+   "icon": "💰"
+  },
+  {
+   "name": "Textiles & Materials",
+   "icon": "🧵"
+  },
+  {
+   "name": "Water Management",
+   "icon": "💧"
+  },
+  {
+   "name": "Mechanics",
+   "icon": "⚙️"
+  },
+  {
+   "name": "Thermodynamics",
+   "icon": "🌡️"
+  },
+  {
+   "name": "Chemistry",
+   "icon": "🧪"
+  },
+  {
+   "name": "Optics",
+   "icon": "🔍"
+  },
+  {
+   "name": "Electricity",
+   "icon": "⚡"
+  },
+  {
+   "name": "Electronics",
+   "icon": "💻"
+  },
+  {
+   "name": "Computing",
+   "icon": "🖥️"
+  },
+  {
+   "name": "Nuclear Physics",
+   "icon": "☢️"
+  },
+  {
+   "name": "Quintessic Physics",
+   "icon": "✦"
+  },
+  {
+   "name": "Quantum Physics",
+   "icon": "🔬"
+  },
+  {
+   "name": "Relativity & Cosmology",
+   "icon": "🌌"
+  },
+  {
+   "name": "Rocketry",
+   "icon": "🚀"
+  },
+  {
+   "name": "Materials Science",
+   "icon": "🔬"
+  },
+  {
+   "name": "Genetics",
+   "icon": "🧬"
+  },
+  {
+   "name": "Aeronautics",
+   "icon": "✈️"
+  },
+  {
+   "name": "Space Engineering",
+   "icon": "🛰️"
+  },
+  {
+   "name": "Energy Systems",
+   "icon": "⚡"
+  }
+ ],
+ "counts": {
+  "owned": 196,
+  "studying": 24,
+  "waiting": 2,
+  "closed": 24,
+  "not_taken": 0
+ },
+ "hidden_under_study": 14,
+ "foci_entered": [
+  "Aeronautics",
+  "Animal Husbandry",
+  "Chemistry",
+  "Computing",
+  "Construction",
+  "Electricity",
+  "Electronics",
+  "Energy Systems",
+  "Farming",
+  "Fire",
+  "Foraging",
+  "Genetics",
+  "Materials Science",
+  "Mathematics",
+  "Mechanics",
+  "Medicine",
+  "Metallurgy",
+  "Mining",
+  "Nuclear Physics",
+  "Observation",
+  "Optics",
+  "Philosophy And The Arts",
+  "Quantum Physics",
+  "Relativity & Cosmology",
+  "Rocketry",
+  "Seafaring",
+  "Social Organization",
+  "Stonework",
+  "Textiles & Materials",
+  "Thermodynamics",
+  "Trade",
+  "Warfare",
+  "Water Management"
+ ],
+ "rows": [
+  {
+   "id": "AE01",
+   "name": "Hot Air Balloon",
+   "focus": "Aeronautics",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "F01 + TX01 + PH04 (Scientific Method)",
+   "unlocks": [
+    "Observation Balloon"
+   ],
+   "turn": 202,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "AE02",
+   "name": "Dirigible/Airship",
+   "focus": "Aeronautics",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "AE01 + (MC09 or EL06 (Electric Generator — the motor))",
+   "unlocks": [
+    "Airship",
+    "airship chain"
+   ],
+   "ahead": false,
+   "progress": 0.05,
+   "since": 223,
+   "target": false
+  },
+  {
+   "id": "AE03",
+   "name": "Heavier-Than-Air Flight",
+   "focus": "Aeronautics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "MC09 + MA03 (Basic Algebra — trigonometry)",
+   "unlocks": [
+    "Triplane",
+    "Great War Bomber",
+    "Oil",
+    "Carrier"
+   ],
+   "ahead": false,
+   "progress": 0.06,
+   "since": null,
+   "target": false
+  },
+  {
+   "id": "AE09",
+   "name": "Ornithopter",
+   "focus": "Aeronautics",
+   "era": "Early Modern",
+   "tier": "RARE",
+   "status": "owned",
+   "prereq": "O03 + MC03 + TX01",
+   "unlocks": [
+    "Ornithopter"
+   ],
+   "turn": 191,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "AH01",
+   "name": "Dog Domestication",
+   "focus": "Animal Husbandry",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "O03",
+   "unlocks": [],
+   "turn": 28,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "AH02",
+   "name": "Herd Animal Domestication",
+   "focus": "Animal Husbandry",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O03",
+   "unlocks": [
+    "Pasture"
+   ],
+   "turn": 15,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "AH03",
+   "name": "Horse Domestication",
+   "focus": "Animal Husbandry",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O03 + Grassland/steppe access",
+   "unlocks": [
+    "Horses",
+    "Stable",
+    "Circus Maximus"
+   ],
+   "turn": 72,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "AH05",
+   "name": "Camel Domestication",
+   "focus": "Animal Husbandry",
+   "era": "Ancient",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "O03 + Desert biome",
+   "unlocks": [
+    "Camel Train"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 39,
+   "target": false
+  },
+  {
+   "id": "AH06",
+   "name": "Elephant Domestication",
+   "focus": "Animal Husbandry",
+   "era": "Ancient",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "O03 + Tropical biome",
+   "unlocks": [
+    "Elephant Cavalry",
+    "Ivory"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 39,
+   "target": false
+  },
+  {
+   "id": "AH11",
+   "name": "Veterinary Medicine",
+   "focus": "Animal Husbandry",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "FA03 (Selective Breeding) + MD01 (Surgical Techniques)",
+   "unlocks": [
+    "Veterinary College"
+   ],
+   "turn": 129,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH01",
+   "name": "Alchemy",
+   "focus": "Chemistry",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME01 + O06 (Natural Philosophy)",
+   "unlocks": [],
+   "turn": 63,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH04",
+   "name": "Distillation",
+   "focus": "Chemistry",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH01 (Alchemy) + F01",
+   "unlocks": [
+    "Distillery",
+    "Whisky"
+   ],
+   "turn": 89,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH05",
+   "name": "Oxygen Theory",
+   "focus": "Chemistry",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "PH04 (Scientific Method) + CH04 (Distillation — acids)",
+   "unlocks": [],
+   "turn": 139,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH06",
+   "name": "Periodic Table",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH05 + MA03 (Basic Algebra)",
+   "unlocks": [
+    "Research Lab",
+    "Frontier Question FQ9:"
+   ],
+   "turn": 157,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH07",
+   "name": "Organic Chemistry",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH06",
+   "unlocks": [
+    "Pharmaceutical Works",
+    "Cristo Redentor",
+    "Fork point for FQ11 (resolved at CH25):"
+   ],
+   "turn": 199,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH08",
+   "name": "Explosives (non-gunpowder)",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CH07 + CH04 (Distillation — acids)",
+   "unlocks": [
+    "Artillery"
+   ],
+   "turn": 216,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH09",
+   "name": "Petrochemistry",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CH07 + MI07 (Petroleum)",
+   "unlocks": [
+    "Refinery",
+    "Oil"
+   ],
+   "turn": 213,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH09-W",
+   "name": "Bio-Organic Synthesis",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CH07 + FA03 (Selective Breeding)",
+   "unlocks": [
+    "Bio-Refinery",
+    "Competing Solution"
+   ],
+   "turn": 211,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH11",
+   "name": "Polymer Science",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH07 + (CH09 or CH09-W)",
+   "unlocks": [
+    "Infantry",
+    "Materials Science"
+   ],
+   "turn": 223,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH12",
+   "name": "Catalysis",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CH06",
+   "unlocks": [],
+   "turn": 203,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH13",
+   "name": "Rocket Propellant",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "(CH08 (Explosives) or WA10 (Gunpowder)) + TH01 (Thermodynamics)",
+   "unlocks": [
+    "Rocketry",
+    "Propellant Works",
+    "Rocket Artillery",
+    "Mobile SAM"
+   ],
+   "turn": 194,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH14",
+   "name": "Photochemistry",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "CH06 + OP03 (Telescope — optics)",
+   "unlocks": [
+    "Photography Studio"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 219,
+   "target": false
+  },
+  {
+   "id": "CH15",
+   "name": "Greek Alchemical Tradition",
+   "focus": "Chemistry",
+   "era": "Classical",
+   "tier": "RARE",
+   "status": "owned",
+   "prereq": "CH01 + PH01 (Formal Logic) + CU02 (Monumental Architecture)",
+   "unlocks": [
+    "Alchemist's Guild"
+   ],
+   "turn": 82,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH19",
+   "name": "Systematic Element Analysis",
+   "focus": "Chemistry",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH04 (Distillation) + PH04 (Scientific Method)",
+   "unlocks": [
+    "Analytical Laboratory",
+    "The decisive experiment for FQ9"
+   ],
+   "turn": 139,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH25",
+   "name": "Organic Synthesis Attempt",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH07 (Organic Chemistry)",
+   "unlocks": [
+    "Synthesis Laboratory",
+    "The decisive experiment for FQ11"
+   ],
+   "turn": 211,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CH28",
+   "name": "Helium Extraction",
+   "focus": "Chemistry",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "CH06 (Periodic Table) + OP08 (Spectroscopy)",
+   "unlocks": [
+    "Ends the Airship Disaster"
+   ],
+   "ahead": false,
+   "progress": 0.61,
+   "since": 199,
+   "target": false
+  },
+  {
+   "id": "CO01",
+   "name": "Mud Brick Construction",
+   "focus": "Construction",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "G02 (Seed Saving)",
+   "unlocks": [
+    "Granary"
+   ],
+   "turn": 33,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO02",
+   "name": "Post and Lintel",
+   "focus": "Construction",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S03",
+   "unlocks": [
+    "Colosseum",
+    "Lumber mill",
+    "Moai"
+   ],
+   "turn": 37,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO03",
+   "name": "Arch Construction",
+   "focus": "Construction",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S03 + MA01 (Geometry)",
+   "unlocks": [
+    "Road",
+    "Post Office"
+   ],
+   "turn": 38,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO04",
+   "name": "Roman Concrete",
+   "focus": "Construction",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CO03 + MI06B (Volcanic Ash)",
+   "unlocks": [
+    "Concrete Works"
+   ],
+   "turn": 103,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO05",
+   "name": "Corbel Arch/Vault",
+   "focus": "Construction",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "S03",
+   "unlocks": [
+    "Corbel Vault",
+    "Competing Solution"
+   ],
+   "turn": 151,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO06",
+   "name": "Flying Buttress",
+   "focus": "Construction",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CO03 + MA03 (Basic Algebra — trigonometry)",
+   "unlocks": [
+    "Notre Dame",
+    "Taj Mahal",
+    "Porcelain Tower"
+   ],
+   "turn": 123,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO07",
+   "name": "Earthquake-Resistant Design",
+   "focus": "Construction",
+   "era": "Classical",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "CO02 + Earthquake-prone region",
+   "unlocks": [
+    "Timber-Frame Hall"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 70,
+   "target": false
+  },
+  {
+   "id": "CO09",
+   "name": "Suspension Bridge",
+   "focus": "Construction",
+   "era": "Medieval",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "CO03 + (ME05 (Steel) or TX01 (Weaving — rope-making))",
+   "unlocks": [],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 77,
+   "target": false
+  },
+  {
+   "id": "CO10",
+   "name": "Iron-Frame Construction",
+   "focus": "Construction",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME08 + CO03",
+   "unlocks": [
+    "Factory"
+   ],
+   "turn": 129,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO11",
+   "name": "Reinforced Concrete",
+   "focus": "Construction",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "(CO04 or CH05) + ME12 — Roman Concrete, or the chemistry of Portland cement; and Bessemer steel",
+   "unlocks": [],
+   "turn": 210,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO13",
+   "name": "Geodesic Structures",
+   "focus": "Construction",
+   "era": "Atomic",
+   "tier": "UNCOMMON",
+   "status": "studying",
+   "prereq": "CO11 + MA03 (Basic Algebra — trigonometry)",
+   "unlocks": [],
+   "ahead": true,
+   "progress": 0.0,
+   "since": 231,
+   "target": false
+  },
+  {
+   "id": "CO17",
+   "name": "Sealed Environments",
+   "focus": "Construction",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "waiting",
+   "prereq": "CO11 + CH05 (Oxygen Theory) + OP01 (Glassmaking)",
+   "unlocks": [],
+   "ahead": false,
+   "source": "glimpse",
+   "target": false
+  },
+  {
+   "id": "CO23",
+   "name": "Railway Network",
+   "focus": "Construction",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC08 (Steam Engine) + CO03 (Arch Construction — roads) + ME08 (Blast Furnace)",
+   "unlocks": [
+    "Railroad",
+    "Railway Station",
+    "Neuschwanstein"
+   ],
+   "turn": 198,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO24",
+   "name": "Concentric Fortification",
+   "focus": "Construction",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "WA06 (Fortification Design) + CO03 (Arch)",
+   "unlocks": [
+    "Castle",
+    "Mughal Fort",
+    "Alhambra"
+   ],
+   "turn": 122,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO25",
+   "name": "Star Fort",
+   "focus": "Construction",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA06 + (WA22 Cannons or WA11 Trebuchet)",
+   "unlocks": [
+    "Arsenal",
+    "Kremlin"
+   ],
+   "turn": 195,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CO26",
+   "name": "Ring Fortress",
+   "focus": "Construction",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "waiting",
+   "prereq": "CO25 (Star Fort) + CO11 (Reinforced Concrete)",
+   "unlocks": [
+    "Military Base",
+    "Bunker",
+    "Military Base"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "target": false
+  },
+  {
+   "id": "CP13",
+   "name": "Analog Computing Mastery",
+   "focus": "Computing",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "(MC14 (Babbage) or EN01) + MA05",
+   "unlocks": [
+    "Competing Solution"
+   ],
+   "ahead": false,
+   "progress": 0.24,
+   "since": 200,
+   "target": false
+  },
+  {
+   "id": "CU02",
+   "name": "Monumental Architecture",
+   "focus": "Philosophy And The Arts",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CO02 + SO05",
+   "unlocks": [
+    "Temple",
+    "Burial Tomb",
+    "Mud Pyramid Mosque",
+    "Stonehenge"
+   ],
+   "turn": 64,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU03",
+   "name": "Artistic Tradition",
+   "focus": "Philosophy And The Arts",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO02 + any luxury resource",
+   "unlocks": [],
+   "turn": 54,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU04",
+   "name": "Musical Instruments",
+   "focus": "Philosophy And The Arts",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO02 + S01 (Tool Making)",
+   "unlocks": [],
+   "turn": 27,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU05",
+   "name": "Theater",
+   "focus": "Philosophy And The Arts",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO04 + CU03",
+   "unlocks": [
+    "Amphitheater"
+   ],
+   "turn": 65,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU06",
+   "name": "University",
+   "focus": "Philosophy And The Arts",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO04 + PH01 (Formal Logic — epistemology) + MC06 (Printing Press)",
+   "unlocks": [
+    "University",
+    "Wat",
+    "Angkor Wat",
+    "Oxford University"
+   ],
+   "turn": 148,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU07",
+   "name": "Renaissance",
+   "focus": "Philosophy And The Arts",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CU06 + PH01 (Formal Logic — epistemology) + TR05",
+   "unlocks": [
+    "Hermitage",
+    "Opera House",
+    "Ceilidh Hall",
+    "Theatre"
+   ],
+   "turn": 198,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU14",
+   "name": "Historiography",
+   "focus": "Philosophy And The Arts",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO04 (Writing) + CU03 (Artistic Tradition)",
+   "unlocks": [
+    "National Epic"
+   ],
+   "turn": 110,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "CU15",
+   "name": "Scholastic Theology",
+   "focus": "Philosophy And The Arts",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "CU02 (Monumental Architecture) + PH01 (Formal Logic)",
+   "unlocks": [
+    "Hagia Sophia",
+    "Great Mosque of Djenne",
+    "Grand Temple"
+   ],
+   "turn": 130,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL02",
+   "name": "Voltaic Pile (Battery)",
+   "focus": "Electricity",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O06 (Natural Philosophy) + CH04 (Distillation — acids) + ME01",
+   "unlocks": [],
+   "turn": 120,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL03",
+   "name": "Electromagnetism",
+   "focus": "Electricity",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "EL02 + MA05 (Calculus)",
+   "unlocks": [],
+   "turn": 136,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL04",
+   "name": "Telegraph",
+   "focus": "Electricity",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "EL02 + SO04 (Writing)",
+   "unlocks": [
+    "Telegraph Office"
+   ],
+   "turn": 167,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL06",
+   "name": "Electric Generator",
+   "focus": "Electricity",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "EL03 + TH03 (Turbine)",
+   "unlocks": [
+    "Electronics"
+   ],
+   "turn": 194,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL07",
+   "name": "Power Grid",
+   "focus": "Electricity",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "EL06 + CO10 (Iron-Frame Construction)",
+   "unlocks": [],
+   "turn": 196,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL09",
+   "name": "Wireless Transmission",
+   "focus": "Electricity",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "EL03 + MA05 (Calculus) + MC10 (Precision Machining)",
+   "unlocks": [
+    "Radio Transmitter",
+    "Telephone Exchange"
+   ],
+   "turn": 193,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EL10",
+   "name": "Piezoelectricity",
+   "focus": "Electricity",
+   "era": "Modern",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "EL03 + CH06 (Periodic Table — crystallography)",
+   "unlocks": [
+    "Sonar"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 219,
+   "target": false
+  },
+  {
+   "id": "EL11",
+   "name": "Superconductivity",
+   "focus": "Electricity",
+   "era": "Atomic",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "TH02 (Refrigeration — cryogenics) + EL03",
+   "unlocks": [],
+   "ahead": true,
+   "source": "glimpse",
+   "closed_turn": 216,
+   "target": true
+  },
+  {
+   "id": "EN01",
+   "name": "Vacuum Tube",
+   "focus": "Electronics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "EL03 + OP01 (Glassmaking)",
+   "unlocks": [],
+   "turn": 187,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "EN02",
+   "name": "Transistor",
+   "focus": "Electronics",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "EN01 + QP01 (Wave-Particle Duality)",
+   "unlocks": [
+    "Computing"
+   ],
+   "ahead": true,
+   "progress": 0.08,
+   "since": null,
+   "target": true
+  },
+  {
+   "id": "EN04",
+   "name": "Radar",
+   "focus": "Electronics",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "EN01 + EL09 (Wireless)",
+   "unlocks": [
+    "Anti-Aircraft Gun",
+    "Fighter",
+    "Bomber",
+    "Paratrooper"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 225,
+   "target": false
+  },
+  {
+   "id": "EN11",
+   "name": "Radio",
+   "focus": "Electronics",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "EN01 + EL09 + OP02 (Lens Grinding)",
+   "unlocks": [
+    "Broadcast Tower",
+    "Eiffel Tower",
+    "National Intelligence Agency",
+    "Sydney Opera House"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 225,
+   "target": true
+  },
+  {
+   "id": "ES03",
+   "name": "Coal Power Plant",
+   "focus": "Energy Systems",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "TH03 + ME08 (Blast Furnace — coal or charcoal)",
+   "unlocks": [
+    "Coal Plant",
+    "Factory",
+    "Coal"
+   ],
+   "ahead": false,
+   "progress": 0.08,
+   "since": 216,
+   "target": false
+  },
+  {
+   "id": "ES03-W",
+   "name": "Biomass Power Plant",
+   "focus": "Energy Systems",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "TH03 + MI13 (Wood Gas) + FA03 (Selective Breeding)",
+   "unlocks": [
+    "Biomass Plant",
+    "Factory",
+    "Competing Solution"
+   ],
+   "ahead": false,
+   "progress": 0.08,
+   "since": 210,
+   "target": false,
+   "competes_with": "Coal Power Plant"
+  },
+  {
+   "id": "ES09",
+   "name": "Geothermal Power",
+   "focus": "Energy Systems",
+   "era": "Modern",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "MI05 + TH01",
+   "unlocks": [
+    "Geothermal Plant",
+    "Factory"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 208,
+   "target": false
+  },
+  {
+   "id": "ES10",
+   "name": "Tidal Power",
+   "focus": "Energy Systems",
+   "era": "Atomic",
+   "tier": "UNCOMMON",
+   "status": "studying",
+   "prereq": "O04 (Tidal Patterns) + TH03",
+   "unlocks": [
+    "Tidal Plant",
+    "Factory"
+   ],
+   "ahead": true,
+   "progress": 0.04,
+   "since": 214,
+   "target": false
+  },
+  {
+   "id": "ES13",
+   "name": "Biomass/Biogas",
+   "focus": "Energy Systems",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "CH04 (Distillation) + CH07 (Organic Chemistry)",
+   "unlocks": [
+    "Biogas Plant",
+    "Factory",
+    "Recycling Center"
+   ],
+   "ahead": false,
+   "progress": 0.07,
+   "since": 218,
+   "target": false
+  },
+  {
+   "id": "F01",
+   "name": "Controlled Fire",
+   "focus": "Fire",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [],
+   "turn": 2,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "F02",
+   "name": "Kiln Construction",
+   "focus": "Fire",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F01",
+   "unlocks": [
+    "Shrine",
+    "Pyramid"
+   ],
+   "turn": 11,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "F03",
+   "name": "Charcoal Production",
+   "focus": "Fire",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F01",
+   "unlocks": [],
+   "turn": 10,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "F04",
+   "name": "Smelting Discovery",
+   "focus": "Fire",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F03 + S04 (Ore Identification)",
+   "unlocks": [
+    "Metallurgy"
+   ],
+   "turn": 15,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "F05",
+   "name": "Signal Fires",
+   "focus": "Fire",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "F01 + SO03 (Tribal Law)",
+   "unlocks": [
+    "Signal Fire"
+   ],
+   "turn": 57,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "F07",
+   "name": "Advanced Pyrotechnics",
+   "focus": "Fire",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F03 + O08 (Geological Observation — sulphur)",
+   "unlocks": [
+    "Fireworks Ground",
+    "Saltpeter"
+   ],
+   "turn": 140,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "F16",
+   "name": "Turbary",
+   "focus": "Fire",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "F03 (Charcoal Production) + Marsh in territory",
+   "unlocks": [
+    "Peat Cutting"
+   ],
+   "turn": 151,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "FA01",
+   "name": "Irrigation",
+   "focus": "Farming",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "G02 + River or Water source",
+   "unlocks": [
+    "Water Management"
+   ],
+   "turn": 17,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "FA02",
+   "name": "Crop Rotation",
+   "focus": "Farming",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "G02",
+   "unlocks": [],
+   "turn": 82,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "FA03",
+   "name": "Selective Breeding",
+   "focus": "Farming",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "G02 + AH02 + (G07 or (FA01 + FA02)) — Seed Saving and Herd Animal Domestication; then Botanical Classification, or Irrigation with Crop Rotation",
+   "unlocks": [
+    "War Dog"
+   ],
+   "turn": 95,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "FA10",
+   "name": "Hydroponics",
+   "focus": "Farming",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "FA01 + CH06 (Periodic Table)",
+   "unlocks": [
+    "Hydroponics Lab"
+   ],
+   "turn": 223,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "FA16",
+   "name": "Nitrate Fertiliser",
+   "focus": "Farming",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MI08 (Saltpeter Mining) + FA02 (Crop Rotation)",
+   "unlocks": [
+    "Competing Solution"
+   ],
+   "turn": 187,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G01",
+   "name": "Plant Identification",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [
+    "Forager's Hut"
+   ],
+   "turn": 3,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G02",
+   "name": "Seed Saving",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "G01",
+   "unlocks": [
+    "Farm",
+    "Farming"
+   ],
+   "turn": 14,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G03",
+   "name": "Herbal Medicine",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "G01",
+   "unlocks": [
+    "Herbalist"
+   ],
+   "turn": 14,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G04",
+   "name": "Fermentation",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "G01 + F01",
+   "unlocks": [],
+   "turn": 21,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G05",
+   "name": "Insect Cultivation",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "UNCOMMON",
+   "status": "owned",
+   "prereq": "G01",
+   "unlocks": [],
+   "turn": 33,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G06",
+   "name": "Mycological Knowledge",
+   "focus": "Foraging",
+   "era": "Ancient",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "G01",
+   "unlocks": [
+    "Mushroom Cellar"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 36,
+   "target": false
+  },
+  {
+   "id": "G07",
+   "name": "Botanical Classification",
+   "focus": "Foraging",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "G01 + SO04 (Writing)",
+   "unlocks": [
+    "Garden",
+    "Plantation"
+   ],
+   "turn": 128,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "G10",
+   "name": "Psychoactive Plant Knowledge",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "G01",
+   "unlocks": [],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 31,
+   "target": false
+  },
+  {
+   "id": "GN02",
+   "name": "DNA Structure",
+   "focus": "Genetics",
+   "era": "Atomic",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "MD05 (Germ Theory) + FA03 (Selective Breeding) + CH07 + OP03 (Telescope — the microscope)",
+   "unlocks": [],
+   "ahead": true,
+   "source": "rival",
+   "closed_turn": 225,
+   "target": false
+  },
+  {
+   "id": "MA01",
+   "name": "Geometry",
+   "focus": "Mathematics",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO01 + O05",
+   "unlocks": [],
+   "turn": 36,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA03",
+   "name": "Basic Algebra",
+   "focus": "Mathematics",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MA01 (Geometry — place value)",
+   "unlocks": [],
+   "turn": 57,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA05",
+   "name": "Calculus",
+   "focus": "Mathematics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MA03 + O06 (Natural Philosophy)",
+   "unlocks": [
+    "Mechanics"
+   ],
+   "turn": 114,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA06",
+   "name": "Probability Theory",
+   "focus": "Mathematics",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MA03",
+   "unlocks": [],
+   "turn": 141,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA07",
+   "name": "Binary Mathematics",
+   "focus": "Mathematics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MA01 (Geometry — place value) + PH01 (Formal Logic)",
+   "unlocks": [
+    "Cipher Office"
+   ],
+   "turn": 141,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA08",
+   "name": "Non-Euclidean Geometry",
+   "focus": "Mathematics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MA01 + MA05",
+   "unlocks": [],
+   "turn": 143,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA09",
+   "name": "Statistics",
+   "focus": "Mathematics",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MA06",
+   "unlocks": [],
+   "turn": 160,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MA11",
+   "name": "Fractal Mathematics",
+   "focus": "Mathematics",
+   "era": "Atomic",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "MA05 + MA08",
+   "unlocks": [],
+   "ahead": true,
+   "source": "glimpse",
+   "closed_turn": 193,
+   "target": false
+  },
+  {
+   "id": "MA13",
+   "name": "Topology",
+   "focus": "Mathematics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MA08 + MA03 (Basic Algebra) + PH01 (Formal Logic)",
+   "unlocks": [],
+   "turn": 164,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC01",
+   "name": "Wheel",
+   "focus": "Mechanics",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S01 (Tool Knapping)",
+   "unlocks": [],
+   "turn": 16,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC03",
+   "name": "Gearing",
+   "focus": "Mechanics",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC01 + MA01 (Geometry)",
+   "unlocks": [],
+   "turn": 40,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC04",
+   "name": "Windmill",
+   "focus": "Mechanics",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MC03 + SF03 (Sail — wind/fabric knowledge)",
+   "unlocks": [
+    "Windmill"
+   ],
+   "turn": 136,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC05",
+   "name": "Clockwork",
+   "focus": "Mechanics",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC03 + ME05 (Steel)",
+   "unlocks": [],
+   "turn": 140,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC06",
+   "name": "Printing Press",
+   "focus": "Mechanics",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC03 + TX10 (Paper Making) + SO04 (Writing)",
+   "unlocks": [
+    "Leaning Tower of Pisa"
+   ],
+   "turn": 140,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC08",
+   "name": "Steam Engine",
+   "focus": "Mechanics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME08 (Blast Furnace — coal or charcoal) + WM05 (Water Mill) + PH04 (Scientific Method — the air-pump physics of Boyle and Papin)",
+   "unlocks": [
+    "Steam Works",
+    "Workshop",
+    "Big Ben",
+    "Thermodynamics"
+   ],
+   "turn": 140,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC09",
+   "name": "Internal Combustion Engine",
+   "focus": "Mechanics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC08 + ((MI07 + CH09) or (CH04 + CH07))",
+   "unlocks": [
+    "Landship",
+    "Tank",
+    "Anti-Tank Gun",
+    "Oil"
+   ],
+   "turn": 220,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC10",
+   "name": "Precision Machining",
+   "focus": "Mechanics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC05 + ME05 (Steel)",
+   "unlocks": [
+    "Great War Infantry",
+    "Statue of Liberty"
+   ],
+   "turn": 151,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC11",
+   "name": "Assembly Line",
+   "focus": "Mechanics",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MC10 + SO05 (Specialization)",
+   "unlocks": [
+    "Machine Gun"
+   ],
+   "turn": 200,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MC19",
+   "name": "Crank and Connecting Rod",
+   "focus": "Mechanics",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC03 (Gearing) + WM05 (Water Mill)",
+   "unlocks": [
+    "Workshop",
+    "Longhouse"
+   ],
+   "turn": 140,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MD01",
+   "name": "Surgical Techniques",
+   "focus": "Medicine",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "G03 (Herbal Medicine)",
+   "unlocks": [
+    "Surgery",
+    "Herbalist"
+   ],
+   "turn": 72,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MD03",
+   "name": "Anatomy Study",
+   "focus": "Medicine",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O07 + SO04 (Writing)",
+   "unlocks": [
+    "Medical School",
+    "Library"
+   ],
+   "turn": 136,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MD04",
+   "name": "Vaccination",
+   "focus": "Medicine",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MD03 + AH02 (Herd Animal Domestication — the milkmaid observation)",
+   "unlocks": [],
+   "turn": 191,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MD05",
+   "name": "Germ Theory",
+   "focus": "Medicine",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MD03 + PH04 (Scientific Method) + OP03 (Telescope — the microscope)",
+   "unlocks": [
+    "Hospital",
+    "Frontier Question FQ10:"
+   ],
+   "turn": 199,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MD06",
+   "name": "Antibiotics",
+   "focus": "Medicine",
+   "era": "Atomic",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "MD05 (Germ Theory validated) + CH07 (Organic Chemistry)",
+   "unlocks": [
+    "Medical Lab",
+    "Germ-exclusive."
+   ],
+   "ahead": true,
+   "progress": 0.04,
+   "since": 207,
+   "target": false
+  },
+  {
+   "id": "MD07",
+   "name": "Anaesthesia",
+   "focus": "Medicine",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "MD01 + CH04 (Distillation)",
+   "unlocks": [],
+   "ahead": false,
+   "progress": 0.78,
+   "since": 96,
+   "target": false
+  },
+  {
+   "id": "MD08",
+   "name": "Prosthetics",
+   "focus": "Medicine",
+   "era": "Modern",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "MD03 + MC03 (Gearing)",
+   "unlocks": [],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 198,
+   "target": false
+  },
+  {
+   "id": "MD15",
+   "name": "Contagion Experiments",
+   "focus": "Medicine",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MD03 (Anatomy) + PH04 (Scientific Method)",
+   "unlocks": [
+    "Contagion Laboratory",
+    "The decisive experiment for FQ10"
+   ],
+   "turn": 180,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME-B",
+   "name": "Bellows",
+   "focus": "Metallurgy",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME01 + TX01 (Weaving — leather working)",
+   "unlocks": [
+    "Forge"
+   ],
+   "turn": 34,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME01",
+   "name": "Copper Working",
+   "focus": "Metallurgy",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F04 (Smelting)",
+   "unlocks": [
+    "Copper Warrior",
+    "Copper"
+   ],
+   "turn": 19,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME02",
+   "name": "Bronze Alloy",
+   "focus": "Metallurgy",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "ME01 + Copper in territory (extracted, traded or captured)",
+   "unlocks": [
+    "Statue of Zeus",
+    "Copper"
+   ],
+   "turn": 40,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME04",
+   "name": "Iron Smelting",
+   "focus": "Metallurgy",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F03 (Charcoal) + ME-B (Bellows) + iron deposits in territory",
+   "unlocks": [
+    "Swordsman",
+    "Colossus"
+   ],
+   "turn": 41,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME05",
+   "name": "Steel Production",
+   "focus": "Metallurgy",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME04 + (MI06 (Coal) or F03 (Charcoal)) + ME-B (Bellows)",
+   "unlocks": [
+    "Pikeman"
+   ],
+   "turn": 75,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME08",
+   "name": "Blast Furnace",
+   "focus": "Metallurgy",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME04 + CO02 (Post and Lintel) + (MI06 or F03) — Coal Discovery, or Charcoal Production",
+   "unlocks": [
+    "Ironworks",
+    "Coal",
+    "Charcoal Kiln"
+   ],
+   "turn": 81,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME09",
+   "name": "Crucible Steel",
+   "focus": "Metallurgy",
+   "era": "Medieval",
+   "tier": "UNCOMMON",
+   "status": "owned",
+   "prereq": "ME05 + CH01 (Alchemy)",
+   "unlocks": [],
+   "turn": 156,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME12",
+   "name": "Bessemer Process",
+   "focus": "Metallurgy",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME08 + CH05 (Oxygen Theory)",
+   "unlocks": [
+    "Battleship"
+   ],
+   "turn": 180,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME13",
+   "name": "Aluminium Extraction",
+   "focus": "Metallurgy",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "EL03 (Electromagnetism) + CH06 (Periodic Table)",
+   "unlocks": [
+    "Aluminum"
+   ],
+   "turn": 176,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME17",
+   "name": "Assaying",
+   "focus": "Metallurgy",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TR02 (Currency) + O06 (Natural Philosophy)",
+   "unlocks": [
+    "Mint"
+   ],
+   "turn": 81,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "ME18",
+   "name": "Plate Armour",
+   "focus": "Metallurgy",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "ME05 (Steel) + WM05 (Water Mill)",
+   "unlocks": [
+    "Longswordsman",
+    "Armory"
+   ],
+   "turn": 140,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MI05",
+   "name": "Deep Shaft Mining",
+   "focus": "Mining",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S04 + CO01 (Mud Brick — shaft support)",
+   "unlocks": [
+    "Silver",
+    "Salt"
+   ],
+   "turn": 63,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MI06",
+   "name": "Coal Discovery",
+   "focus": "Mining",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MI05",
+   "unlocks": [
+    "Coal",
+    "Absent in FOSSIL_FUELS_ABSENT worlds"
+   ],
+   "turn": 146,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MI06B",
+   "name": "Volcanic Ash Processing",
+   "focus": "Mining",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "S04 + Volcanic region",
+   "unlocks": [
+    "Pozzolana Works"
+   ],
+   "turn": 47,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MI07",
+   "name": "Petroleum Discovery",
+   "focus": "Mining",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MI05 + O08 (Geological Observation)",
+   "unlocks": [
+    "Oil",
+    "Oil well",
+    "Offshore Platform",
+    "Absent in FOSSIL_FUELS_ABSENT worlds"
+   ],
+   "turn": 151,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MI08",
+   "name": "Saltpeter Mining",
+   "focus": "Mining",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MI05",
+   "unlocks": [
+    "Saltpeter",
+    "The gunpowder strategic — consumed by"
+   ],
+   "turn": 135,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MI10",
+   "name": "Uranium Discovery",
+   "focus": "Mining",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "MI05 + NP01 (Radioactivity)",
+   "unlocks": [
+    "Uranium"
+   ],
+   "ahead": false,
+   "progress": 0.63,
+   "since": null,
+   "target": true
+  },
+  {
+   "id": "MI11",
+   "name": "Rare Earth Extraction",
+   "focus": "Mining",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "MI05 + CH06 (Periodic Table)",
+   "unlocks": [
+    "Rare Earths",
+    "consumed by"
+   ],
+   "ahead": true,
+   "progress": 0.07,
+   "since": null,
+   "target": false
+  },
+  {
+   "id": "MI13",
+   "name": "Wood Gas Production",
+   "focus": "Mining",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "F03 (Charcoal) + CH05 (Oxygen Theory)",
+   "unlocks": [],
+   "turn": 191,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "MS02",
+   "name": "Nanotechnology / Fine Structuring",
+   "focus": "Materials Science",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "HIGH_ENERGY_PHYSICS (QP02 atomic, or QM-E04 elemental) + CH07",
+   "unlocks": [],
+   "ahead": true,
+   "progress": 0.11,
+   "since": null,
+   "target": true
+  },
+  {
+   "id": "NP01",
+   "name": "Radioactivity",
+   "focus": "Nuclear Physics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH06 (Periodic Table) + OP08 (Spectroscopy)",
+   "unlocks": [],
+   "turn": 187,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "NP02",
+   "name": "Atomic Model",
+   "focus": "Nuclear Physics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "NP01 + MA05 + EL03",
+   "unlocks": [
+    "Nuclear Physics Lab",
+    "Research Lab"
+   ],
+   "turn": 191,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "NP12",
+   "name": "Particle Laboratories",
+   "focus": "Nuclear Physics",
+   "era": "Space",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "NP02 + QP04 — **cost ×2.5**",
+   "unlocks": [],
+   "ahead": true,
+   "progress": 0.0,
+   "since": 210,
+   "target": false
+  },
+  {
+   "id": "O01",
+   "name": "Star Tracking",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [],
+   "turn": 7,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O02",
+   "name": "Weather Prediction",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "O01",
+   "unlocks": [],
+   "turn": 21,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O03",
+   "name": "Animal Behavior Study",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [
+    "Animal Husbandry",
+    "Camp"
+   ],
+   "turn": 6,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O04",
+   "name": "Tidal Patterns",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "O01 + Coastal location",
+   "unlocks": [
+    "Tidal Weir"
+   ],
+   "turn": 21,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O05",
+   "name": "Celestial Mathematics",
+   "focus": "Observation",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O01 + SO01 (Basic Counting)",
+   "unlocks": [
+    "Mathematics"
+   ],
+   "turn": 29,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O06",
+   "name": "Natural Philosophy",
+   "focus": "Observation",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O01 + SO04 (Writing)",
+   "unlocks": [
+    "The Oracle",
+    "National College"
+   ],
+   "turn": 51,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O07",
+   "name": "Comparative Anatomy",
+   "focus": "Observation",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O03 + G03 (Herbal Medicine)",
+   "unlocks": [
+    "Medicine"
+   ],
+   "turn": 120,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O08",
+   "name": "Geological Observation",
+   "focus": "Observation",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S04 (Ore Identification)",
+   "unlocks": [],
+   "turn": 26,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "O09",
+   "name": "Migratory Pattern Mapping",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "O03",
+   "unlocks": [
+    "Circus"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 32,
+   "target": false
+  },
+  {
+   "id": "O12",
+   "name": "Atmospheric Science",
+   "focus": "Observation",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "O02 + CH05 (Oxygen Theory) + MA05 (Calculus)",
+   "unlocks": [],
+   "ahead": false,
+   "progress": 0.37,
+   "since": 149,
+   "target": false
+  },
+  {
+   "id": "OP01",
+   "name": "Glassmaking",
+   "focus": "Optics",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F02 (Kiln Construction) + Desert or Coast tile in territory",
+   "unlocks": [],
+   "turn": 32,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "OP02",
+   "name": "Lens Grinding",
+   "focus": "Optics",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "OP01 + MA01 (Geometry)",
+   "unlocks": [],
+   "turn": 73,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "OP03",
+   "name": "Telescope",
+   "focus": "Optics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "OP02",
+   "unlocks": [
+    "Observatory"
+   ],
+   "turn": 117,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "OP07",
+   "name": "Laser",
+   "focus": "Optics",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "OP02 + (QP02 Quantum Mechanics, or QM-E03 Resonant-State Computing)",
+   "unlocks": [],
+   "ahead": true,
+   "progress": 0.16,
+   "since": null,
+   "target": true
+  },
+  {
+   "id": "OP08",
+   "name": "Spectroscopy",
+   "focus": "Optics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "OP03 + CH06 (Periodic Table)",
+   "unlocks": [],
+   "turn": 184,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "OP10",
+   "name": "Semaphore",
+   "focus": "Optics",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "OP03 (Telescope) + SO04",
+   "unlocks": [
+    "Semaphore Tower"
+   ],
+   "turn": 181,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "PH01",
+   "name": "Formal Logic",
+   "focus": "Philosophy And The Arts",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O06",
+   "unlocks": [],
+   "turn": 66,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "PH04",
+   "name": "Scientific Method",
+   "focus": "Philosophy And The Arts",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "PH01",
+   "unlocks": [
+    "Experiment",
+    "Experimental Laboratory"
+   ],
+   "turn": 134,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "PH08",
+   "name": "Dialectical Thinking",
+   "focus": "Philosophy And The Arts",
+   "era": "Early Modern",
+   "tier": "UNCOMMON",
+   "status": "owned",
+   "prereq": "PH01",
+   "unlocks": [
+    "Synthesis"
+   ],
+   "turn": 134,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "PH09",
+   "name": "Existentialism",
+   "focus": "Philosophy And The Arts",
+   "era": "Modern",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "PH01 (Formal Logic — epistemology)",
+   "unlocks": [],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 128,
+   "target": false
+  },
+  {
+   "id": "PH10",
+   "name": "Information Theory",
+   "focus": "Philosophy And The Arts",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "PH01 + MA07 (Binary Math)",
+   "unlocks": [],
+   "turn": 229,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "PH11",
+   "name": "Systems Thinking",
+   "focus": "Philosophy And The Arts",
+   "era": "Atomic",
+   "tier": "UNCOMMON",
+   "status": "studying",
+   "prereq": "PH04 + (MA14 (Chaos Theory) or MA09)",
+   "unlocks": [],
+   "ahead": true,
+   "progress": 0.05,
+   "since": 182,
+   "target": false
+  },
+  {
+   "id": "PH14",
+   "name": "The Enlightenment",
+   "focus": "Philosophy And The Arts",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "PH04 (Scientific Method) + CU07 (Renaissance)",
+   "unlocks": [
+    "Museum",
+    "The Louvre"
+   ],
+   "turn": 226,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "QP01",
+   "name": "Wave-Particle Duality",
+   "focus": "Quantum Physics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "NP02 + OP03 (Telescope)",
+   "unlocks": [],
+   "turn": 195,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "QP02",
+   "name": "Quantum Mechanics Formalism",
+   "focus": "Quantum Physics",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "QP01 + MA05 + MA13 (Topology — set theory)",
+   "unlocks": [],
+   "turn": 200,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "QP03",
+   "name": "Quantum Electrodynamics",
+   "focus": "Quantum Physics",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "QP02 + EL03",
+   "unlocks": [],
+   "turn": 207,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "QP04",
+   "name": "Particle Accelerator",
+   "focus": "Quantum Physics",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "QP02 + EL03 + EL07 (Power Grid)",
+   "unlocks": [
+    "Particle Accelerator"
+   ],
+   "turn": 206,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "QP05",
+   "name": "Quantum Field Theory",
+   "focus": "Quantum Physics",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "QP03 + MA13 (Topology)",
+   "unlocks": [],
+   "turn": 210,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "QP06",
+   "name": "Standard Model Completion",
+   "focus": "Quantum Physics",
+   "era": "Atomic",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "QP05 + QP04",
+   "unlocks": [
+    "Standard Model Institute"
+   ],
+   "turn": 228,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "QP08",
+   "name": "Quantum Gravity Theory",
+   "focus": "Quantum Physics",
+   "era": "Space",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "QP05 + RC02 (General Relativity) + QP04 (Particle Accelerator)",
+   "unlocks": [],
+   "turn": 228,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "QP12",
+   "name": "Casimir Effect Amplification",
+   "focus": "Quantum Physics",
+   "era": "Space",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "QP05 + MC10 (Precision Machining)",
+   "unlocks": [],
+   "turn": 224,
+   "new": false,
+   "ahead": true,
+   "target": false
+  },
+  {
+   "id": "RC01",
+   "name": "Special Relativity",
+   "focus": "Relativity & Cosmology",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MA08 + EL03",
+   "unlocks": [],
+   "turn": 169,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "RC02",
+   "name": "General Relativity",
+   "focus": "Relativity & Cosmology",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "RC01 + MA08",
+   "unlocks": [],
+   "turn": 186,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "RC04",
+   "name": "Black Hole Thermodynamics",
+   "focus": "Relativity & Cosmology",
+   "era": "Atomic",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "RC02 + (QP05 or QM-E04) + TH01",
+   "unlocks": [
+    "dark star"
+   ],
+   "ahead": true,
+   "progress": 0.02,
+   "since": 221,
+   "target": true
+  },
+  {
+   "id": "RK02",
+   "name": "Liquid Fuel Rocket",
+   "focus": "Rocketry",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CH13 (Rocket Propellant — solid-fuel rockets) + TH01 + (CH09 or CH09-W)",
+   "unlocks": [
+    "Guided Missile"
+   ],
+   "turn": 222,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "RK03",
+   "name": "Multi-Stage Rocket",
+   "focus": "Rocketry",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "RK02",
+   "unlocks": [
+    "SS Booster",
+    "Aluminum"
+   ],
+   "ahead": true,
+   "progress": 0.03,
+   "since": null,
+   "target": true
+  },
+  {
+   "id": "S01",
+   "name": "Tool Knapping",
+   "focus": "Stonework",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [
+    "Warrior",
+    "Scout",
+    "Remove Forest",
+    "Remove Jungle"
+   ],
+   "turn": 4,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "S02",
+   "name": "Grinding & Polishing",
+   "focus": "Stonework",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "S01",
+   "unlocks": [],
+   "turn": 31,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "S03",
+   "name": "Quarrying",
+   "focus": "Stonework",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S01",
+   "unlocks": [
+    "Walls",
+    "Stone Works",
+    "Walls of Babylon",
+    "Quarry"
+   ],
+   "turn": 33,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "S04",
+   "name": "Ore Identification",
+   "focus": "Stonework",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S01",
+   "unlocks": [
+    "Copper",
+    "Gold Ore",
+    "Gems",
+    "Iron"
+   ],
+   "turn": 9,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "S05",
+   "name": "Obsidian Working",
+   "focus": "Stonework",
+   "era": "Primitive",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "S01 + Volcanic region",
+   "unlocks": [
+    "Obsidian",
+    "Obsidian Warrior",
+    "Obsidian"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 32,
+   "target": false
+  },
+  {
+   "id": "S07",
+   "name": "Flint Knapping Mastery",
+   "focus": "Stonework",
+   "era": "Primitive",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "S01",
+   "unlocks": [],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 32,
+   "target": false
+  },
+  {
+   "id": "S08",
+   "name": "Jade/Gemstone Working",
+   "focus": "Stonework",
+   "era": "Ancient",
+   "tier": "UNCOMMON",
+   "status": "owned",
+   "prereq": "S02",
+   "unlocks": [
+    "Jeweler"
+   ],
+   "turn": 60,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF01",
+   "name": "Reed/Log Raft",
+   "focus": "Seafaring",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "Coastal or River location",
+   "unlocks": [
+    "Fishing Boats",
+    "Work Boats"
+   ],
+   "turn": 5,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF02",
+   "name": "Dugout Canoe",
+   "focus": "Seafaring",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SF01 + S01 (Tool Knapping)",
+   "unlocks": [],
+   "turn": 36,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF03",
+   "name": "Sail Invention",
+   "focus": "Seafaring",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SF02 + TX01 (Weaving)",
+   "unlocks": [
+    "Lighthouse",
+    "The Great Lighthouse",
+    "Port"
+   ],
+   "turn": 64,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF04",
+   "name": "Celestial Navigation",
+   "focus": "Seafaring",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SF03 + O01 (Star Tracking)",
+   "unlocks": [
+    "Work Boats"
+   ],
+   "turn": 89,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF05",
+   "name": "Trireme/Galley Construction",
+   "focus": "Seafaring",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SF03 + CO02",
+   "unlocks": [
+    "Trireme"
+   ],
+   "turn": 123,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF08",
+   "name": "Compass",
+   "focus": "Seafaring",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "O08 (Geological Observation — the lodestone) + SF04",
+   "unlocks": [
+    "Harbor"
+   ],
+   "turn": 146,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF09",
+   "name": "Caravel/Deep Ocean Ship",
+   "focus": "Seafaring",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SF08 + SF05 (Trireme/Galley) + ME04 (Iron Smelting)",
+   "unlocks": [
+    "Caravel",
+    "Galleass"
+   ],
+   "turn": 169,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF10",
+   "name": "Drydock",
+   "focus": "Seafaring",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SF05 + CO03 (Arch)",
+   "unlocks": [
+    "Drydock",
+    "Harbor"
+   ],
+   "turn": 152,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF11",
+   "name": "Ship of the Line",
+   "focus": "Seafaring",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SF09 + WA22 (Cannons)",
+   "unlocks": [
+    "Frigate",
+    "Privateer"
+   ],
+   "turn": 194,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SF12",
+   "name": "Ironclad",
+   "focus": "Seafaring",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "SF11 + ME08",
+   "unlocks": [
+    "Ironclad",
+    "Destroyer"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 226,
+   "target": false
+  },
+  {
+   "id": "SF19",
+   "name": "Longitude",
+   "focus": "Seafaring",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SF09 (Caravel) + MC05 (Clockwork)",
+   "unlocks": [
+    "Seaport"
+   ],
+   "turn": 200,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO01",
+   "name": "Basic Counting",
+   "focus": "Social Organization",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [],
+   "turn": 6,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO02",
+   "name": "Storytelling",
+   "focus": "Social Organization",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "None",
+   "unlocks": [
+    "Monument",
+    "Stele"
+   ],
+   "turn": 8,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO03",
+   "name": "Tribal Law",
+   "focus": "Social Organization",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO01 + SO02",
+   "unlocks": [],
+   "turn": 17,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO04",
+   "name": "Writing",
+   "focus": "Social Organization",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO01 + SO02",
+   "unlocks": [
+    "Library",
+    "The Great Library",
+    "Trade"
+   ],
+   "turn": 31,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO05",
+   "name": "Specialization of Labor",
+   "focus": "Social Organization",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO03 + any city with population ≥ 5",
+   "unlocks": [],
+   "turn": 35,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO06",
+   "name": "Codified Law",
+   "focus": "Social Organization",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO04 + SO03",
+   "unlocks": [
+    "Courthouse"
+   ],
+   "turn": 63,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO08",
+   "name": "Census",
+   "focus": "Social Organization",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO04 + SO01",
+   "unlocks": [],
+   "turn": 124,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO10",
+   "name": "Guilds",
+   "focus": "Social Organization",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO05 + SO06",
+   "unlocks": [
+    "Machu Picchu",
+    "Guild Hall"
+   ],
+   "turn": 167,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO11",
+   "name": "Banking",
+   "focus": "Social Organization",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO04 + TR02 (Currency)",
+   "unlocks": [
+    "Bank",
+    "Satrap's Court",
+    "Coffee House",
+    "Forbidden Palace"
+   ],
+   "turn": 130,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "SO16",
+   "name": "Public Education",
+   "focus": "Social Organization",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "PH04 (Scientific Method) + MC06 (Printing Press)",
+   "unlocks": [
+    "Public School",
+    "Constabulary",
+    "Police Station"
+   ],
+   "turn": 188,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH01",
+   "name": "Laws of Thermodynamics",
+   "focus": "Thermodynamics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "MC08 + PH04 (Scientific Method)",
+   "unlocks": [
+    "Frontier Question FQ12:"
+   ],
+   "turn": 146,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH02",
+   "name": "Refrigeration",
+   "focus": "Thermodynamics",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TH01 + CH04 (Distillation — acids) + CH06 (Periodic Table)",
+   "unlocks": [
+    "Stadium"
+   ],
+   "turn": 190,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH03",
+   "name": "Turbine Design",
+   "focus": "Thermodynamics",
+   "era": "Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "TH01 + MC03 (Gearing) + ME12 (Bessemer)",
+   "unlocks": [],
+   "turn": 190,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH05",
+   "name": "Carnot Efficiency",
+   "focus": "Thermodynamics",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TH01 + MA05 (Calculus)",
+   "unlocks": [],
+   "turn": 188,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH08",
+   "name": "Stirling Engine Mastery",
+   "focus": "Thermodynamics",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TH01 + MC08",
+   "unlocks": [
+    "Stirling Works",
+    "Factory",
+    "Competing Solution"
+   ],
+   "turn": 188,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH09",
+   "name": "Caloric Theory",
+   "focus": "Thermodynamics",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "MC08 + O06 (Natural Philosophy)",
+   "unlocks": [
+    "FQ12:"
+   ],
+   "turn": 187,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH10",
+   "name": "Mechanical Equivalent of Heat",
+   "focus": "Thermodynamics",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "(TH01 or TH09) + MA03 (Basic Algebra)",
+   "unlocks": [
+    "Joule Laboratory",
+    "The decisive experiment for FQ12"
+   ],
+   "turn": 188,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TH15",
+   "name": "Waste-Heat Recovery",
+   "focus": "Thermodynamics",
+   "era": "Space",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "TH03 + TH05 — **cost ×2.5**",
+   "unlocks": [],
+   "ahead": true,
+   "source": "glimpse",
+   "closed_turn": 206,
+   "target": false
+  },
+  {
+   "id": "TR01",
+   "name": "Barter System",
+   "focus": "Trade",
+   "era": "Primitive",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "SO01 (Basic Counting)",
+   "unlocks": [],
+   "turn": 31,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TR02",
+   "name": "Currency",
+   "focus": "Trade",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO04 + ME01 (Copper Working)",
+   "unlocks": [
+    "Market",
+    "Bazaar"
+   ],
+   "turn": 70,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TR03",
+   "name": "Caravansary",
+   "focus": "Trade",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TR02 + (AH02 or AH05)",
+   "unlocks": [
+    "Caravansary"
+   ],
+   "turn": 91,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TR05",
+   "name": "Letter of Credit",
+   "focus": "Trade",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TR02 + SO04",
+   "unlocks": [],
+   "turn": 153,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TR06",
+   "name": "Joint Stock Company",
+   "focus": "Trade",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TR05 + SO11 (Banking)",
+   "unlocks": [
+    "Trading Company",
+    "Bank"
+   ],
+   "turn": 198,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TR10",
+   "name": "Futures Market",
+   "focus": "Trade",
+   "era": "Modern",
+   "tier": "UNCOMMON",
+   "status": "studying",
+   "prereq": "TR05 + MA06 (Probability Theory — insurance) + MA09 (Statistics)",
+   "unlocks": [
+    "Commodity Exchange",
+    "Bank"
+   ],
+   "ahead": false,
+   "progress": 0.39,
+   "since": 183,
+   "target": false
+  },
+  {
+   "id": "TR17",
+   "name": "Long-Distance Trade",
+   "focus": "Trade",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "closed",
+   "prereq": "TR03 (Caravansary) + TR02 (Currency)",
+   "unlocks": [
+    "Petra",
+    "Trading post"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 101,
+   "target": false
+  },
+  {
+   "id": "TX01",
+   "name": "Weaving",
+   "focus": "Textiles & Materials",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "G01 or AH02",
+   "unlocks": [
+    "Weaver"
+   ],
+   "turn": 12,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TX02",
+   "name": "Dyeing",
+   "focus": "Textiles & Materials",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TX01 + G01",
+   "unlocks": [
+    "Dye Works"
+   ],
+   "turn": 63,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TX05",
+   "name": "Cotton Gin",
+   "focus": "Textiles & Materials",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "TX01 + MC03 (Gearing)",
+   "unlocks": [
+    "Textile Mill",
+    "Weaver"
+   ],
+   "turn": 200,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "TX08",
+   "name": "Carbon Fiber",
+   "focus": "Textiles & Materials",
+   "era": "Atomic",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "CH07 + CH11 (Polymer Science)",
+   "unlocks": [
+    "Flak Jacket"
+   ],
+   "ahead": true,
+   "progress": 0.03,
+   "since": null,
+   "target": false
+  },
+  {
+   "id": "TX10",
+   "name": "Paper Making",
+   "focus": "Textiles & Materials",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "TX01 + (WM01 (Canal — water processing) or F02 (Kiln Construction — bark processing))",
+   "unlocks": [],
+   "turn": 67,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA01",
+   "name": "Formation Fighting",
+   "focus": "Warfare",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "SO03 (Tribal Law)",
+   "unlocks": [
+    "Spearman",
+    "Barracks",
+    "Krepost"
+   ],
+   "turn": 73,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA03",
+   "name": "Archery",
+   "focus": "Warfare",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "S01 (Tool Knapping)",
+   "unlocks": [
+    "Archer",
+    "Temple of Artemis"
+   ],
+   "turn": 21,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA04",
+   "name": "Composite Bow",
+   "focus": "Warfare",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA03 + AH02 (Herd Animals — sinew/horn)",
+   "unlocks": [
+    "Composite Bowman"
+   ],
+   "turn": 63,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA05",
+   "name": "Siege Warfare",
+   "focus": "Warfare",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA01 + CO02 (Post and Lintel)",
+   "unlocks": [
+    "Catapult"
+   ],
+   "turn": 112,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA06",
+   "name": "Fortification Design",
+   "focus": "Warfare",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "CO03 (Arch) + WA01",
+   "unlocks": [
+    "Fort",
+    "Great Wall"
+   ],
+   "turn": 93,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA07",
+   "name": "Cavalry Tactics",
+   "focus": "Warfare",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA01 + AH03 (Horse)",
+   "unlocks": [
+    "Horseman"
+   ],
+   "turn": 89,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA08",
+   "name": "Chariot Warfare",
+   "focus": "Warfare",
+   "era": "Ancient",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "AH03 (Horse) + MC01 (Wheel)",
+   "unlocks": [
+    "Chariot Archer",
+    "Competing Solution"
+   ],
+   "turn": 94,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA09",
+   "name": "Crossbow",
+   "focus": "Warfare",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA04 + MC03 (Gearing)",
+   "unlocks": [
+    "Crossbowman"
+   ],
+   "turn": 129,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA10",
+   "name": "Gunpowder",
+   "focus": "Warfare",
+   "era": "Medieval",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "F07 (Pyrotechnics) + MI08 (Saltpeter) + O08 (Geological Observation — sulphur)",
+   "unlocks": [
+    "Musketman",
+    "Saltpeter",
+    "Himeji Castle",
+    "Removed by GUNPOWDER_ABSENT."
+   ],
+   "turn": 151,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA11",
+   "name": "Trebuchet",
+   "focus": "Warfare",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA05 + MA01 (Geometry)",
+   "unlocks": [
+    "Trebuchet"
+   ],
+   "turn": 155,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA13",
+   "name": "Guerrilla Tactics",
+   "focus": "Warfare",
+   "era": "Classical",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "WA01 + Forest/jungle/mountain terrain",
+   "unlocks": [
+    "Guerrilla"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 98,
+   "target": false
+  },
+  {
+   "id": "WA16",
+   "name": "Rifling",
+   "focus": "Warfare",
+   "era": "Early Modern",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "WA10 + ME05 (Steel)",
+   "unlocks": [
+    "Rifleman",
+    "Gatling Gun"
+   ],
+   "turn": 188,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA22",
+   "name": "Cannons",
+   "focus": "Warfare",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA10 (Gunpowder) + (ME05 (Steel Production — cast iron) or ME08 (Blast Furnace))",
+   "unlocks": [
+    "Cannon",
+    "Saltpeter"
+   ],
+   "turn": 162,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA26",
+   "name": "Professional Army",
+   "focus": "Warfare",
+   "era": "Classical",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA01 + ME04 (Iron Smelting) + SO08 (Census)",
+   "unlocks": [
+    "Terracotta Army",
+    "Heroic Epic"
+   ],
+   "turn": 139,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA27",
+   "name": "Stirrup",
+   "focus": "Warfare",
+   "era": "Medieval",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA07 (Cavalry Tactics) + ME04 (Iron Smelting)",
+   "unlocks": [
+    "Knight"
+   ],
+   "turn": 135,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WA28",
+   "name": "Drill and Discipline",
+   "focus": "Warfare",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WA01 + PH04 (Scientific Method)",
+   "unlocks": [
+    "Military Academy",
+    "Brandenburg Gate",
+    "Cavalry",
+    "Lancer"
+   ],
+   "turn": 186,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WM01",
+   "name": "Canal Building",
+   "focus": "Water Management",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "FA01 + S03 (Quarrying)",
+   "unlocks": [],
+   "turn": 39,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WM02",
+   "name": "Aqueduct",
+   "focus": "Water Management",
+   "era": "Ancient",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "WM01 + CO03 (Arch)",
+   "unlocks": [
+    "Aqueduct",
+    "Hanging Gardens",
+    "Remove Marsh",
+    "Polder"
+   ],
+   "turn": 58,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WM05",
+   "name": "Water Mill",
+   "focus": "Water Management",
+   "era": "Classical",
+   "tier": "CORE",
+   "status": "owned",
+   "prereq": "WM01 + MC03 (Gearing)",
+   "unlocks": [
+    "Water Mill"
+   ],
+   "turn": 60,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WM06",
+   "name": "Dam Construction",
+   "focus": "Water Management",
+   "era": "Modern",
+   "tier": "STANDARD",
+   "status": "studying",
+   "prereq": "WM02 (Aqueduct — flood control) + CO11 (Reinforced Concrete) + EL06 (Electric Generator)",
+   "unlocks": [
+    "Hydro Plant",
+    "Aluminum"
+   ],
+   "ahead": false,
+   "progress": 0.06,
+   "since": 222,
+   "target": false
+  },
+  {
+   "id": "WM09",
+   "name": "Rice Paddy Mastery",
+   "focus": "Water Management",
+   "era": "Ancient",
+   "tier": "UNIQUE",
+   "status": "owned",
+   "prereq": "FA01 + WM01 + River biome + Tropical or Temperate biome",
+   "unlocks": [
+    "Paddy Field",
+    "Rice Granary"
+   ],
+   "turn": 58,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WM11",
+   "name": "Industrial Canal Network",
+   "focus": "Water Management",
+   "era": "Early Modern",
+   "tier": "STANDARD",
+   "status": "owned",
+   "prereq": "WM01 (Canal Building) + CO03 (Arch Construction) + TR03 (Caravansary) + River biome",
+   "unlocks": [
+    "Pound Lock",
+    "Competing Solution"
+   ],
+   "turn": 194,
+   "new": false,
+   "ahead": false,
+   "target": false
+  },
+  {
+   "id": "WM12",
+   "name": "Tidal Mill",
+   "focus": "Water Management",
+   "era": "Medieval",
+   "tier": "UNCOMMON",
+   "status": "closed",
+   "prereq": "WM05 (Water Mill) + O04 (Tidal Patterns)",
+   "unlocks": [
+    "Tidal Mill"
+   ],
+   "ahead": false,
+   "source": "glimpse",
+   "closed_turn": 99,
+   "target": false
+  }
+ ]
+}

@@ -1,0 +1,1631 @@
+{
+ "merged": {
+  "requirements": [
+   {
+    "id": "R1",
+    "category": "foci",
+    "priority": "must",
+    "text": "Organise the screen around Focus Areas. The player's research decision is which Focus Area to fund. The screen never lets the player pick a specific breakthrough to research, except by committing to a Grand Endeavour.",
+    "sources": "tech_tree.md §1.1 l.6 ('Players do not research specific technologies. Instead, they assign research effort to Focus Areas'); §1.2 l.11; workshop report l.461 ('The player's choice: an active focus or a Grand Endeavour')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R2",
+    "category": "foci",
+    "priority": "must",
+    "text": "List every Focus Area the civilisation has entered as a distinct, named, selectable entry. None may be left off, because every one can receive Insight. Late in the game that is up to 34 foci in an atomic world (33 in an elemental one), and the list must stay legible at that size.",
+    "sources": "§1.2 l.19 ('all of them roll every turn'), l.29 ('twenty-plus late-game foci'); §5 l.1356; workshop report l.387 ('Only one focus of 34 is funded at a time'); digest §8 l.73-84",
+    "hidden_info": "Foci of the other ontology must never appear (see R38)."
+   },
+   {
+    "id": "R3",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Fire. Icon 🔥. Eras Primitive to Medieval. 12 breakthroughs: fire, kilns, charcoal and smelting, signal fires, Greek fire, pyrotechnics. Gateway to Metallurgy (F04). Open from game start. No Space-era content.",
+    "sources": "§3 FOCUS: FIRE l.238-254; digest §8 (no Space content)",
+    "hidden_info": ""
+   },
+   {
+    "id": "R4",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Foraging. Icon 🌿. Eras Primitive to Classical. 13 breakthroughs: edible plants, seed saving, herbal medicine, fermentation, fungi. Gateway to Farming (G02). Open from game start. No Space-era content.",
+    "sources": "§3 FOCUS: FORAGING l.258-275; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R5",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Stonework. Icon ⛏️. Eras Primitive to Ancient. 10 breakthroughs: stone tools, quarrying, ore identification, obsidian, geopolymer. Gateway to Construction (S03) and Mining (S04). Open from game start. No Space-era content.",
+    "sources": "§3 FOCUS: STONEWORK l.279-293; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R6",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Observation. Icon 🔭. Eras Primitive to Modern. 15 breakthroughs: stars, weather, animal behaviour, natural philosophy, geology, the Antikythera chain. Gateway to Animal Husbandry, Mathematics and Medicine. Open from game start. No Space-era content.",
+    "sources": "§3 FOCUS: OBSERVATION l.297-316; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R7",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Social Organization. Icon 👥. Eras Primitive to Early Modern. 13 breakthroughs: counting, storytelling, law, writing, specialisation of labour (switches the research routing), banking, public education. Gateway to Trade. Open from game start.",
+    "sources": "§3 FOCUS: SOCIAL ORGANIZATION l.320-337",
+    "hidden_info": ""
+   },
+   {
+    "id": "R8",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Farming. Icon 🌾. Eras Primitive to Space. 12 breakthroughs: irrigation, crop rotation, selective breeding, greenhouses, hydroponics, nitrate fertiliser. Opens with G02 (Seed Saving).",
+    "sources": "§3 FOCUS: FARMING l.341-359",
+    "hidden_info": ""
+   },
+   {
+    "id": "R9",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Animal Husbandry. Icon 🐎. Eras Primitive to Medieval. 12 breakthroughs: domestication of dog, herd animals, horse, camel, elephant and llama, falconry, pigeons, veterinary medicine. Opens with O03 (Animal Behavior Study). No Space-era content.",
+    "sources": "§3 FOCUS: ANIMAL HUSBANDRY l.363-381; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R10",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Mining. Icon ⛰️. Eras Ancient to Space. 10 breakthroughs: deep shafts, reveals of strategic resources (coal, oil, saltpeter, uranium, rare earths), wood gas, asteroid prospecting. Opens with S04 (Ore Identification).",
+    "sources": "§3 FOCUS: MINING l.385-403",
+    "hidden_info": "MI06 Coal Discovery and MI07 Petroleum Discovery do not exist in FOSSIL_FUELS_ABSENT worlds. The focus must not show them as missing, or in any other way that implies the Removal Truth."
+   },
+   {
+    "id": "R11",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Metallurgy. Icon ⚒️. Eras Primitive to Atomic. 15 breakthroughs: copper, bellows, bronze, iron, steel, blast furnace and charcoal kiln, Bessemer, aluminium, titanium, memory alloys. Opens with F04 (Smelting Discovery). No Space-era content.",
+    "sources": "§3 FOCUS: METALLURGY l.407-426; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R12",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Construction. Icon 🏗️. Eras Primitive to Space. 24 breakthroughs: mud brick, post and lintel, arch and roads, concrete, fortification, iron frame, railways, orbital construction. Opens with S03 (Quarrying).",
+    "sources": "§3 FOCUS: CONSTRUCTION l.430-458",
+    "hidden_info": ""
+   },
+   {
+    "id": "R13",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Seafaring. Icon ⚓. Eras Primitive to Atomic. 18 breakthroughs: rafts, canoes, sail, celestial navigation, compass, galleys through to nuclear submarines. Opens with a coastal or river location, or with S03 + O01 for inland civilisations.",
+    "sources": "§3 FOCUS: SEAFARING l.462-486",
+    "hidden_info": ""
+   },
+   {
+    "id": "R14",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Warfare. Icon ⚔️. Eras Primitive to Atomic. 26 breakthroughs (the largest focus): formations, archery, cavalry, siege, gunpowder, rifling, drones, powered armour. Opens with SO03 + S01, or with any military conflict event.",
+    "sources": "§3 FOCUS: WARFARE l.490-522",
+    "hidden_info": "WA10 Gunpowder is 'Removed by GUNPOWDER_ABSENT'. The screen must not name that Removal Truth or show that WA10 is absent."
+   },
+   {
+    "id": "R15",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Mathematics. Icon 📐. Eras Ancient to Space. 20 breakthroughs: geometry, algebra, calculus, probability, binary, topology, and the Space-era optimisation pool (W18). Opens with O05, or with SO01 + SO04. A Space-era signature field (Hyperspace).",
+    "sources": "§3 FOCUS: MATHEMATICS l.526-550; §4 l.1202",
+    "hidden_info": "Must not be labelled as a given FTL method's signature field (see R47)."
+   },
+   {
+    "id": "R16",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Philosophy and the Arts. Icon 🎭. Eras Primitive to Atomic. 20 breakthroughs on faith, learning and art: temples, formal logic, the university, Scientific Method (the Experiment ability), Dialectical Thinking (the Synthesis ability), the Renaissance. Breakthrough IDs keep their PH and CU prefixes. Opens with SO02 + SO03.",
+    "sources": "§3 FOCUS: PHILOSOPHY AND THE ARTS l.554-580",
+    "hidden_info": ""
+   },
+   {
+    "id": "R17",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Medicine. Icon 💊. Eras Ancient to Space. 22 breakthroughs: surgery, anatomy, then the disease fork (Germ, Miasma or Humoral, decided by MD15), antibiotics against phage therapy, gene therapy. Opens with O07, or with G03 + SO04.",
+    "sources": "§3 FOCUS: MEDICINE l.584-610",
+    "hidden_info": "Which disease paradigm holds (FQ10: Germ ~60%, Miasma ~20%, Humoral ~20%) stays hidden until MD15's experiment reports. Rows that exist only in Miasma, Humoral or Germ worlds must not betray it."
+   },
+   {
+    "id": "R18",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Trade. Icon 💰. Eras Primitive to Space. 14 breakthroughs: barter, currency, caravansaries, letters of credit, joint-stock companies, futures, post-scarcity. Opens with SO04 or SO09.",
+    "sources": "§3 FOCUS: TRADE l.614-632",
+    "hidden_info": "TR16 Phase Exchange exists only in Process worlds."
+   },
+   {
+    "id": "R19",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Textiles & Materials. Icon 🧵. Eras Primitive to Atomic. 8 breakthroughs: weaving, dyeing, silk, cotton gin, paper making, carbon fibre. Opens with AH02 or G01. No Space-era content.",
+    "sources": "§3 FOCUS: TEXTILES & MATERIALS l.637-649; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R20",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Water Management. Icon 💧. Eras Ancient to Atomic. 11 breakthroughs: canals, aqueducts, qanats, water and tidal mills, dams, desalination. Opens with FA01 (Irrigation).",
+    "sources": "§3 FOCUS: WATER MANAGEMENT l.653-668",
+    "hidden_info": ""
+   },
+   {
+    "id": "R21",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Mechanics. Icon ⚙️. Eras Primitive to Atomic. 18 breakthroughs: the wheel, gearing, clockwork and springs, the printing press, steam and internal-combustion engines, precision machining, robotics, Babbage and clockwork computing. Opens with MA01 + S03.",
+    "sources": "§3 FOCUS: MECHANICS l.672-696",
+    "hidden_info": "The 'In ENHANCED_SPRINGS worlds…' text on MC15 and MC17 names a World Truth and must not be shown."
+   },
+   {
+    "id": "R22",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Thermodynamics. Icon 🌡️. Eras Classical to Space. 19 breakthroughs: the heat laws against caloric theory (decided by TH10), turbines, refrigeration, the Early Steam chain, the Space-era heat pool. Opens with MC08 or MC07. In elemental worlds, the Tachyonic signature field.",
+    "sources": "§3 FOCUS: THERMODYNAMICS l.700-723; §5 l.1408; §4 l.1202",
+    "hidden_info": "Whether heat is kinetic or caloric (FQ12: ~70/~30) stays hidden until TH10's experiment. TH11 and TH12 are Caloric-only and TH20 is elemental-only."
+   },
+   {
+    "id": "R23",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Chemistry. Icon 🧪. Eras Classical to Modern. 23 breakthroughs: alchemy, distillation, oxygen, then the matter fork (Periodic Table, Transmutation or Five Phases, decided by CH19), organic chemistry, petrochemistry against bio-synthesis, rocket propellant, helium. Opens with ME01 + O06, or with F03 + ME04. No Space-era content.",
+    "sources": "§3 FOCUS: CHEMISTRY l.727-756; digest §8",
+    "hidden_info": "What matter is (FQ9: Corpuscular ~55%, Substance ~25%, Process ~20%) and what life is (FQ11, at CH25) stay hidden until the decisive experiments. Substance-only and Process-only rows must not appear before them."
+   },
+   {
+    "id": "R24",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Optics. Icon 🔍. Eras Ancient to Atomic. 7 breakthroughs (the smallest focus): glassmaking, lens grinding, telescope and microscope, spectroscopy, laser, semaphore. Opens with OP01 + MA01.",
+    "sources": "§3 FOCUS: OPTICS l.760-771",
+    "hidden_info": ""
+   },
+   {
+    "id": "R25",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Electricity. Icon ⚡. Eras Classical to Atomic. 11 breakthroughs: voltaic pile, electromagnetism, telegraph, generator, power grid against direct-current stations, superconductivity. Theory-agnostic. Opens with O06 + CH04. No Space-era content.",
+    "sources": "§3 FOCUS: ELECTRICITY l.775-792; digest §8",
+    "hidden_info": "The Edison/Tesla 'War of the Currents' effect on EL14's roll is an easter egg inside the hidden roll mechanics, and must not be shown."
+   },
+   {
+    "id": "R26",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Electronics. Icon 💻. Eras Modern to Atomic. 9 breakthroughs: vacuum tube, transistor, integrated circuit, radar, semiconductors (a resonant crystal in elemental worlds), miniaturisation, radio. Opens with EL06 + EL03. No Space-era content.",
+    "sources": "§3 FOCUS: ELECTRONICS l.796-811; digest §8",
+    "hidden_info": ""
+   },
+   {
+    "id": "R27",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Computing. Icon 🖥️. Eras Modern to Space. 19 breakthroughs: programmable computer, internet, cryptography, AI and its analogue and perceptron alternatives, AGI, quantum computing, sentient AI. Opens with EN02 + MA07, with MC14, or with QM-E03 (§5 also names MC18). A Space-era signature field (Tunnelling).",
+    "sources": "§3 FOCUS: COMPUTING l.815-840; §5 l.1416; §4 l.1202",
+    "hidden_info": "CP09's AGI 'hidden trust stockpile' must not be displayed."
+   },
+   {
+    "id": "R28",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Nuclear Physics. Icon ☢️. Eras Modern to Space. 20 breakthroughs (16, plus 4 in the Fission Deep Path sub-table): radioactivity, fission, fusion (which can dead-end), weapons, thorium, the deep fission path. Atomic worlds only. Opens with CH06 + MA05. In atomic worlds, the Tachyonic signature field.",
+    "sources": "§3 FOCUS: NUCLEAR PHYSICS l.844-875; §5 l.1356; §4 l.1202",
+    "hidden_info": "In elemental worlds this focus 'never coheres': it stays Unknown and cannot be entered. Whether fusion works (FQ2: Impossible ~25%, Marginal ~15%) stays hidden."
+   },
+   {
+    "id": "R29",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Quintessic Physics. Icon ✦. Eras Modern to Space. 25 breakthroughs: the elemental-world counterpart of Nuclear and Quantum Physics, every row carrying a Substance name and a Process name. Elemental worlds only. Opens with CH19 (elemental validated) + MA05. An evidence field in elemental worlds.",
+    "sources": "§3 FOCUS: QUINTESSIC PHYSICS l.881-914 ('so that nothing betrays the world before its decisive experiment'); §5 l.1346, l.1356; §4 l.1202",
+    "hidden_info": "Must not appear or be hinted at before CH19 reveals an elemental world. It never exists in atomic worlds."
+   },
+   {
+    "id": "R30",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Quantum Physics. Icon 🔬. Eras Modern to Space. 15 breakthroughs: wave-particle duality, quantum mechanics, QED, particle accelerator, field theory, quantum gravity, string against loop gravity, exotic matter, hidden variables. Atomic worlds only. Opens with NP02 + MA08. An evidence field.",
+    "sources": "§3 FOCUS: QUANTUM PHYSICS l.918-937; §5 l.1356; §4 l.1202",
+    "hidden_info": "Stays Unknown and cannot be entered in elemental worlds. QP09 and QP10 are mutually exclusive, and which one validates is hidden."
+   },
+   {
+    "id": "R31",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Relativity & Cosmology. Icon 🌌. Eras Modern to Space. 11 breakthroughs: special and general relativity, gravitational waves, black holes, dark matter and dark energy, closed timelike curves, the gravitic chain (FQ7). Theory-agnostic. Opens with MA08 + EL03. An evidence field. RC01 opens the FTL puzzle.",
+    "sources": "§3 FOCUS: RELATIVITY & COSMOLOGY l.941-958; §4 l.1136, l.1202",
+    "hidden_info": "Whether the world is Gravitic (FQ7 ~15%) stays hidden until RC08 reports. RC09 and RC10 exist only in Gravitic worlds."
+   },
+   {
+    "id": "R32",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Rocketry. Icon 🚀. Eras Modern to Space. 16 breakthroughs: liquid fuel, multi-stage rockets, orbital mechanics, satellites, propulsion-tagged drives, launch complexes, space elevator. Opens with CH13 (Rocket Propellant). A ship field.",
+    "sources": "§3 FOCUS: ROCKETRY l.962-984; §4 l.1202",
+    "hidden_info": ""
+   },
+   {
+    "id": "R33",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Materials Science. Icon 🔬. Eras Atomic to Space. 13 breakthroughs: composites, nanotechnology (fine structuring), metamaterials, self-healing and programmable matter, exotic-matter engineering, transformation media, the Space-era pool. Opens with CH11 + ME12. A Space-era signature field (Wormhole).",
+    "sources": "§3 FOCUS: MATERIALS SCIENCE l.988-1009; §4 l.1202",
+    "hidden_info": ""
+   },
+   {
+    "id": "R34",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Genetics. Icon 🧬. Eras Modern to Space. 13 breakthroughs: DNA, genetic engineering, cloning, synthetic biology, bio-computing, the vitalist chain (FQ11). Opens with MD05 + CH07.",
+    "sources": "§3 FOCUS: GENETICS l.1013-1032",
+    "hidden_info": "GN12 to GN14 exist only in Vitalist worlds. GN10's FQ6 outcome stays hidden."
+   },
+   {
+    "id": "R35",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Aeronautics. Icon ✈️. Eras Early Modern to Space. 20 breakthroughs: balloons, the airship chain (the Airship Disaster and the confidence ladder), heavier-than-air flight, jets, helicopters, the Space-era air pool, current rigging and sail (elemental). Opens with MC09 or AE01. A Space-era signature field (Plenum).",
+    "sources": "§3 FOCUS: AERONAUTICS l.1036-1062; §4 l.1202",
+    "hidden_info": "The airship confidence-ladder state is not displayed. AE20 and QM-E23 are elemental-only."
+   },
+   {
+    "id": "R36",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Space Engineering. Icon 🛰️. Eras Atomic to Space. 10 breakthroughs: life support, orbital assembly, radiation shielding, closed-loop ecology, O'Neill cylinder, generation ship, planetary defence. Opens with RK03 + MS01. A ship field.",
+    "sources": "§3 FOCUS: SPACE ENGINEERING l.1066-1082; §4 l.1202",
+    "hidden_info": ""
+   },
+   {
+    "id": "R37",
+    "category": "foci",
+    "priority": "must",
+    "text": "FOCUS: Energy Systems. Icon ⚡. Eras Modern to Space. 22 breakthroughs: grid power plants (one per city), fuel alternatives (biomass, bio-fuel), fission, fusion and advanced fission, zero-point energy or aether tension, the supergrid pool. Opens with WM01 + MC03, or with TH01 + EL03. A Space-era signature field (Warp).",
+    "sources": "§3 FOCUS: ENERGY SYSTEMS l.1086-1117; §4 l.1202",
+    "hidden_info": "ES15 (elemental), ES16 (Caloric) and QM-E07 (elemental) are world-specific. The FQ4 and FQ2 outcomes stay hidden."
+   },
+   {
+    "id": "R38",
+    "category": "foci",
+    "priority": "must",
+    "text": "The set of foci depends on the world and grows with discovery. §3 defines 35 foci, but Nuclear Physics and Quantum Physics (atomic) and Quintessic Physics (elemental) are mutually exclusive: a civilisation enters one side or the other, so a game has at most 34 foci (atomic) or 33 (elemental). Five foci are open from game start: Fire, Foraging, Stonework, Observation and Social Organization. Each of the others opens when its 'Available from' condition is met. Most conditions are breakthroughs; Seafaring can also open for a coastal or river location, and Warfare for any military conflict event. The screen shows every focus this civilisation has entered, and should show each focus's availability state.",
+    "sources": "§3 each focus's 'Available from' line (e.g. l.239, 463, 491); §5 l.1356 ('a civilisation enters one or the other, never both'); workshop report l.387",
+    "hidden_info": "Which world-exclusive foci will ever open. Foci of the other ontology must never appear."
+   },
+   {
+    "id": "R39",
+    "category": "foci",
+    "priority": "must",
+    "text": "A focus that cannot cohere in this world stays 'Unknown and unenterable'. If the screen shows unopened foci at all, their state must look identical whether the focus will open later or never, or the focus list betrays the world type. Quintessic Physics in particular must not appear or be hinted at before CH19 reports an elemental world.",
+    "sources": "§3 Quintessic Physics note l.884 ('those focuses stay Unknown and unenterable'), l.886 ('so that nothing betrays the world before its decisive experiment')",
+    "hidden_info": "Whether an unopened focus is impossible in this world (atomic or elemental)."
+   },
+   {
+    "id": "R40",
+    "category": "foci",
+    "priority": "must",
+    "text": "Focus icons are not unique: ⚡ is used by both Electricity and Energy Systems, and 🔬 by both Quantum Physics and Materials Science. Every focus must be labelled by name, never by icon alone.",
+    "sources": "§3 headings l.775 and l.1086 (⚡), l.918 and l.988 (🔬)",
+    "hidden_info": ""
+   },
+   {
+    "id": "R41",
+    "category": "foci",
+    "priority": "should",
+    "text": "A breakthrough that opens a focus says so on its row ('Opens the X focus'), and a newly opened focus is flagged in the focus list. The openers are: F04 Metallurgy; G02 Farming; S03 Construction; S04 Mining; O03 Animal Husbandry; O05 Mathematics; O07 Medicine; SO04 and SO09 Trade; FA01 Water Management; MA05 Mechanics ('advanced'); MC07 and MC08 Thermodynamics; MC14, MC18, EN02 and QM-E03 Computing; CH11 (with ME12) Materials Science; CH13 Rocketry; EL06 Electronics; CH19 (elemental result) Quintessic Physics.",
+    "sources": "§1.1 l.6 ('Some Breakthroughs unlock new Focus Areas'); §1.2 l.60 (CORE criterion 'unlocks a focus'); §3 Unlocks column '*Unlocks* **X** focus', e.g. l.246, 264, 286, 287, 305, 306, 308, 328, 332, 348, 533, 684, 685, 691, 695, 742, 744, 785, 804, 892; §5 l.1346, l.1408, l.1416",
+    "hidden_info": "CH19's Quintessic opening appears only after CH19 reports an elemental world."
+   },
+   {
+    "id": "R42",
+    "category": "foci",
+    "priority": "should",
+    "text": "Some foci are opened by a breakthrough from their own table: Optics by OP01 Glassmaking, Aeronautics by AE01 Hot Air Balloon. An owned or revealed breakthrough can therefore belong to a focus that cannot yet be funded. The screen must still show it, under its own focus or under the focus through which it was reached.",
+    "sources": "§3 Optics l.761 with OP01 at l.765; Aeronautics l.1037 with AE01 at l.1043",
+    "hidden_info": ""
+   },
+   {
+    "id": "R43",
+    "category": "foci",
+    "priority": "must",
+    "text": "Show every Revealed or Discovered breakthrough under (or tagged with) its Focus Area, so the player knows which focus to fund to aim at a revealed target. A breakthrough's progress comes only from its own focus's Insight (the funded share, the spread or spill-over), and the player picks a focus by the work already revealed or under study in it.",
+    "sources": "§1.2 l.14 ('Each Breakthrough has a minimum Insight threshold in its Focus Area'); §1.4 l.180 ('sees the University waiting in Philosophy and the Arts, and can choose to fund it'); workshop report l.388, l.464, l.489",
+    "hidden_info": ""
+   },
+   {
+    "id": "R44",
+    "category": "foci",
+    "priority": "must",
+    "text": "W19: each focus says, deliberately vaguely, what it tends to help with, for example two or three benefit kinds derived from tags on its undiscovered rows within reach. This complements the FTL screen's hints. It never names a breakthrough, never ranks the foci and never recommends one. The design states that this text exists; its mechanism and wording are open.",
+    "sources": "§4 l.1145 ('each focus says, vaguely, what it tends to help with (W19; mechanism and wording open)'); digest §2 l.19 ('derived benefit tags'); deferred_tasks l.103 ('never names breakthroughs, ranks foci or recommends one')",
+    "hidden_info": "Names of unrevealed rows within reach; the distance to any answer; odds; any ranking or recommendation between foci. Tags must not leak a World Truth or the FTL method (see R137)."
+   },
+   {
+    "id": "R45",
+    "category": "foci",
+    "priority": "should",
+    "text": "Focus names on the research screen must match those used by the FTL screen's hints, which point the player to a focus ('names that step's focus'). Every focus a hint can name must be visible and fundable on the research screen.",
+    "sources": "§4 l.1145 ('names that step's focus — each focus where several steps can be worked on at once, each route's foci where there are alternatives')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R46",
+    "category": "foci",
+    "priority": "could",
+    "text": "A per-focus panel could show the Insight put in, what the focus has produced, what is revealed in it, and its 'almost-discovered' murmurs.",
+    "sources": "[candidate] deferred_tasks l.102 (research interface starting points)",
+    "hidden_info": "Murmurs must not name unrevealed breakthroughs or betray hidden occurrence (see open questions)."
+   },
+   {
+    "id": "R47",
+    "category": "foci",
+    "priority": "should",
+    "text": "Accommodate the late-game (Space-era) foci and keep their pools visible during the race: the signature fields (Energy Systems, Materials Science, Mathematics, Computing, Nuclear Physics or Thermodynamics, Aeronautics), the evidence fields (Quantum or Quintessic Physics; Relativity & Cosmology) and the ship fields (Rocketry, Space Engineering).",
+    "sources": "§4 l.1202 (signature, evidence and ship fields); digest §8 l.73-84",
+    "hidden_info": "No field may be labelled as a given FTL method's signature field, since that hints at which method is viable."
+   },
+   {
+    "id": "R48",
+    "category": "funding",
+    "priority": "must",
+    "text": "Funding is a single choice. There is exactly one funding target at a time: either one active focus or one Grand Endeavour (an FTL prototype counts as an Endeavour). The player changes it with a deliberate select action, like a radio button, not with per-focus sliders or percentages. The current target must be unambiguous.",
+    "sources": "§1.2 l.11 ('one Focus Area at a time — the active focus ... not a per-turn slider allocation'); §3 CP17 l.835 ('the funded focus'); workshop report l.461, l.493; digest §7 l.63",
+    "hidden_info": ""
+   },
+   {
+    "id": "R49",
+    "category": "funding",
+    "priority": "must",
+    "text": "Show the active/spread split: 50% to the active focus before SO05 (Specialization of Labor), 80% after it, the rest spread. Update the display when SO05 is owned, and credit SO05 as the reason. A late-game mockup shows 80/20.",
+    "sources": "§1.2 l.31; §3 SO05 l.329 ('switches the research routing from 50/50 to 80/20'); §4 l.1216; workshop report l.3, l.486",
+    "hidden_info": ""
+   },
+   {
+    "id": "R50",
+    "category": "funding",
+    "priority": "must",
+    "text": "Show that the spread share keeps flowing to other foci, so unfunded areas still creep forward and the player sees that funding is a priority, not an exclusive allocation.",
+    "sources": "§1.2 l.11 ('a fixed share is always spread across every other Focus Area ... so unfunded areas still creep forward'), l.27; §4 l.1216 ('the spread still rolls every other focus'); workshop report l.486",
+    "hidden_info": "Under the agreed routing (decision 2), only foci with something under study draw on the spread. Which foci receive spread therefore reveals hidden occurrence (see R56 and open questions)."
+   },
+   {
+    "id": "R51",
+    "category": "funding",
+    "priority": "must",
+    "text": "Provide a focus queue. The player sets an order of Focus Areas, and the active focus auto-advances to the next when the current one stalls (nothing eligible is making progress). Show the queue order and the current entry, and let the player reorder, add and remove entries.",
+    "sources": "§1.2 l.35 ('A focus queue UX affordance ... auto-advances when the active focus stalls (nothing eligible is making progress)')",
+    "hidden_info": "A stall can depend on unrevealed work under study. Neither a stall indicator nor a visible auto-advance may betray the existence, or absence, of Unknown eligible or occurred ideas."
+   },
+   {
+    "id": "R52",
+    "category": "funding",
+    "priority": "must",
+    "text": "While a Grand Endeavour (or an FTL prototype) runs, it occupies the focus slot: the screen shows it in place of the active focus, and the player cannot also select a focus. It takes only the active share (80%, or 50% before SO05), and the spread keeps flowing to the other foci. It neither takes all the Insight nor adds to the spread.",
+    "sources": "§1.2 l.11 ('A Grand Endeavour ..., while active, is the civilisation's focus'); §1.5 l.191; §4 l.1216; workshop report l.493, l.495 (the 180% fault, adopted by Tamsin on 14 October); digest §9 l.91",
+    "hidden_info": "For a prototype, whether its method is viable. The research screen shows no verification status."
+   },
+   {
+    "id": "R53",
+    "category": "funding",
+    "priority": "should",
+    "text": "The funding control can show one-off Insight pushes delivered to the funded focus, such as CP17 AI Advisory Council's research push.",
+    "sources": "§3 CP17 l.835 ('a research push (Insight for the funded focus)')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R54",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Show the civilisation's total Insight per turn, which equals its science output 1:1, and how much of it reaches the funded focus. Breakthroughs that raise Science raise Insight: PH04 +25%, MC06 +10%, CP04 +10%, and MA19, MA21, RK06, SE08, QP13 and others.",
+    "sources": "§1.2 l.39; §3 PH04 l.572 ('Insight *is* science'), MC06 l.683, CP04 l.823; workshop report l.445",
+    "hidden_info": ""
+   },
+   {
+    "id": "R55",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Insight is tracked per Focus Area. Show what each focus is receiving and has accumulated ('Insight put in'). It is stored as a float, so round sensibly while still letting small spread shares be seen building up.",
+    "sources": "§1.2 l.14 ('Insight is tracked separately per Focus Area'), l.43 (float); deferred_tasks l.102 ('Insight put in')",
+    "hidden_info": "Under the agreed routing, a per-focus spread or spill-over figure reveals whether the focus has unrevealed work under study (workshop report l.487). See open questions."
+   },
+   {
+    "id": "R56",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Any display of where the spread goes must follow the routing in force. Under agreed decision 2, the spread reaches only foci with something under study, weighted by 'waiting' (ideas under study × (1 + how far development is past their era's start), so overdue work is favoured), with §1.3's environmental modifiers multiplying that weight. Foci with nothing under study get none, Insight a focus cannot use spills to foci that can, and tier no longer weights the draw. §1.2 l.27 (spread weighted by environmental modifiers across every qualifying focus) predates the decision.",
+    "sources": "§1.2 l.27; [agreed] workshop report l.22, l.166 (decision 2: '§1.2's \"every qualifying focus is always rolling\" goes'), l.487, l.492, l.497",
+    "hidden_info": "Which foci hold unrevealed ideas under study."
+   },
+   {
+    "id": "R57",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Each focus shows its environmental and circumstantial Insight modifiers, for example 'Coastal start +30%' on Seafaring and Trade and 'Island +50%' on Seafaring. It also shows any temporary Necessity bonuses ('At war: bonus Insight in Warfare', 'Famine: bonus Insight in Farming'), which apply whichever focus is active.",
+    "sources": "§1.3 table l.138-152, l.154; §1.2 l.27 ('your geography shapes your research')",
+    "hidden_info": "The roll-bonus part of a Necessity modifier is an odd and stays hidden. Only the extra Insight may be shown."
+   },
+   {
+    "id": "R58",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Show each focus's Insight modifiers from owned breakthroughs and buildings, with their sources, so the player can compare where funding goes furthest. From breakthroughs: O06 +5% to all foci; G07 +10% Farming and Medicine; O10 +15% Mathematics and Observation; MA05 +15% to the physical foci; MD10 +25% Medicine; OP09 +15% Optics; MC13 +15% Thermodynamics and Energy; QM-E01 +10% Quintessic Physics; QP03 and QM-E15 +10% Electronics; RC01 +10% Nuclear and Quintessic Physics; RC06 +10% to every FTL-prerequisite breakthrough; GN08 +15% Medicine and Chemistry; TH09 +10% energy research 'while held'. From buildings: Standing Stones (S11) +10% Observation and Mathematics; Long Count Observatory (MA12) +10% Observation; Mining Temple (MI14) +5% Mining.",
+    "sources": "§3 l.269, 293, 306, 311, 403, 533, 539, 598, 690, 718, 770, 890, 903, 925, 948, 953, 1026; §7.0 l.1592 ('+X% Insight to Focus')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R59",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Wherever a cost, price or threshold is shown (for example an Endeavour price), it already includes the per-city multiplier, the era price and row multiplier (Space-era deciding rows 1×, signature engineering rows 2.5×, capstones 4×, W18 rows ×2, ×2.5 or ×4), and the prematurity premium. It names the discounts that apply and their sources: MC08 ×0.5 if TH14 is known; G06 halves MD06, CH09-W and ES13; CH28 ×0.8 on TH02 and EL11; TH13 ×0.9 on Thermodynamics; MC14 halved by an Antikythera or Clockwork row, and by MC16; QM-E23 halves the Plenum Drive's final research.",
+    "sources": "§1.2 l.44 (per-city multiplier on threshold); §3 MA15-MA23 l.542-550, MC08 l.685, G06 l.268, CH28 l.756, TH13 l.722, MC14 l.691, MC16 l.693, QM-E23 l.1062; §4 Prices l.1183, l.1212; workshop report l.450",
+    "hidden_info": "World-Truth cost multipliers (e.g. EN10 ×2.5 in elemental worlds, Miniaturisation ×2.5) and dropped detour margins must not be visible (see R134)."
+   },
+   {
+    "id": "R60",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "State accelerators as head starts ('a head start of half its study', 'starts half-studied'), never as a size in eras or as 'arrives sooner'. A head-started row opens part-filled.",
+    "sources": "[agreed] workshop report decision 3 l.167 (decided l.175), l.23, l.87, l.228; §3 G06 l.268 (still says the form 'awaits the discovery-model decision')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R61",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "Exact yield figures arrive with SO01 Basic Counting ('the yield display shows exact figures'). Before SO01, displayed figures should be approximate, and this may include the research screen's Insight numbers. A late-game mockup is unaffected.",
+    "sources": "§3 SO01 l.325",
+    "hidden_info": "Exact yield figures before SO01."
+   },
+   {
+    "id": "R62",
+    "category": "insight-economy",
+    "priority": "should",
+    "text": "'Almost discovered' signal: when a focus passes 80% of an Insight threshold, the player gets the report 'Your scholars report promising developments in [Focus Area]...'. The research screen should surface this per focus, as a murmur.",
+    "sources": "§6 'Almost Discovered' mechanic l.1497; deferred_tasks l.102 ('the almost-discovered murmurs')",
+    "hidden_info": "The report names only the focus: not which breakthrough is near, not the threshold, and not whether the near work is an unrevealed idea under study (see open questions)."
+   },
+   {
+    "id": "R63",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Breakthroughs are per civilisation and in one of three knowledge states: Unknown, Revealed or Discovered. The screen shows only this civilisation's Revealed and Discovered breakthroughs. Unknown breakthroughs are completely invisible: no card, placeholder, '?' slot, link, count or per-focus total hints at them, on this screen or any other.",
+    "sources": "§1.4 l.160, l.162 ('Invisible: not on any screen, not hinted at'); §4 l.1146; deferred_tasks l.100-102; digest §2 l.17",
+    "hidden_info": "Every Unknown breakthrough: its existence, name, number, focus, position, prerequisites and links."
+   },
+   {
+    "id": "R64",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Status 1, Owned (Discovered): the breakthrough grants its effects. It must be marked distinctly from every Revealed status and stay legible at late-game scale: hundreds of rows, about 260 discoveries over a game at about 0.8 a turn, about 60 of them arriving by diffusion for a connected civilisation. Owned rows include those obtained by diffusion, trade, theft or reverse engineering, not only by the civilisation's own discovery.",
+    "sources": "user request (status 1); §1.4 l.166; §2 l.217; §4 l.1181; workshop report l.3, l.196; digest §8 l.71, §12 l.112",
+    "hidden_info": ""
+   },
+   {
+    "id": "R65",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Status 2, Revealed and being studied: the idea has occurred, so the row takes a share of its focus's Insight every turn until it is discovered, and it is never lost. Every discoverable CORE row is in this state, because CORE ideas occur and reveal themselves the turn they become discoverable.",
+    "sources": "user request (status 2); [agreed model] workshop report l.464-465; §1.2 l.60; §1.4 l.180",
+    "hidden_info": "The row's hidden meter size, and so the Insight remaining or the turns to discovery (see R93)."
+   },
+   {
+    "id": "R66",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Status 3, Revealed but not yet occurred: the prerequisites are met and the idea's window is open, so it may still occur by chance. Until it does, the row gets no Insight however hard its focus is funded, and the screen must say so plainly. These rows arise mostly from glimpses (STANDARD, and less often UNCOMMON) and from theoretical or observational revelation.",
+    "sources": "user request (status 3); [agreed model] workshop report l.460, l.464; deferred_tasks l.177 ('glimpsed (Revealed, not found)'); §4 l.1123",
+    "hidden_info": "The per-turn chance of occurring; tier odds; the window's length and closing time."
+   },
+   {
+    "id": "R67",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Status 4, Revealed with its window closed: the moment passed before the idea occurred, so ordinary research will not bring it, and a Grand Endeavour is the deliberate route back. It needs a clear 'this moment passed' presentation. The rules: STANDARD windows last half their era and others the whole era; UNCOMMON, RARE and UNIQUE ideas are also lost once development is more than half an era past their era's end; windows shrink behind history (÷ (1 + 4 × eras since the era ended)). CORE rows never show a window state, since CORE ideas cannot be lost. Under §4 as written, a Space-era row's window stays open for a civilisation funding its focus, so such a row must not show as closed. Incidental research keeps the usual windows.",
+    "sources": "user request (status 4); [agreed] workshop report l.291, l.294, l.466-468; §4 l.1206; §6 rule 12 l.1487; §3 EL07 Notes l.786 ('a CORE unified theory never waits on an idea that can be lost')",
+    "hidden_info": "Window lengths and when a window will close (tier-dependent)."
+   },
+   {
+    "id": "R68",
+    "category": "breakthrough-status",
+    "priority": "should",
+    "text": "Every status label must be true (W3, applied by extension). 'Window closed' must not promise more than holds: a lost idea can still arrive by diffusion (CORE and STANDARD after the Printing Press, UNCOMMON after the Internet). So 'will not be discovered without an Endeavour' needs wording that stays true, such as 'its moment passed' or 'only an Endeavour is certain'.",
+    "sources": "digest §1 l.7 ('Every report is true (W3)'); workshop report l.470 ('A lost idea can still arrive by diffusion, or be completed by an Endeavour if it was Revealed')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R69",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Distinguish a Revealed row whose prerequisite breakthroughs are all Discovered (it can be pursued and committed to as an Endeavour) from one whose prerequisites are only partly Revealed (visible but not yet reachable, and not Endeavour-eligible). Show the missing prerequisites by name, which the One-Step Horizon guarantees are Revealed or Discovered. Eligibility includes environmental prerequisites: a civilisation that cannot meet one 'never becomes eligible' (e.g. TH19 without tundra).",
+    "sources": "§1.4 l.178; §1.5 l.188; §1.2 l.17; §3 QP13 l.935, TH19 l.713",
+    "hidden_info": "Unrevealed prerequisites are never named (see open questions on concept reveals)."
+   },
+   {
+    "id": "R70",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "No revealed breakthrough may be left stuck without an explanation. Every revealed row shows why it is or is not progressing and which route is open: under study in focus X; awaiting the idea; moment passed (Endeavour available); prerequisites not yet discovered; closed by a negative prerequisite; or locked out (Path Not Taken).",
+    "sources": "workshop report l.338 (Tamsin's gameplay brief: 'no revealed breakthrough left stuck with no explanation')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R71",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Competing Solutions. If the primary is discovered first, the alternative 'is never developed': it is locked out, a Path Not Taken, and stays visible as a faded entry ('a thing your civilisation glimpsed and let slip'). It must look distinct from active Revealed rows and must never appear as merely not yet occurred. If the alternative is owned and the primary arrives later, the owned row is marked Superseded (its objects become unavailable) or Persists (a normal owned entry). The 16 pairs (alternative → primary): FA16→CH12, CO05→CO03, WA08→WA07, WM11→CO23, MD20→MD06, NP08→ES06, NP-F01→NP04, ES03-W→ES03, ES05-W→ES05, ES14→ES08, TH08→MC09, TH14→MC08, CH09-W→CH09, CP13→CP01, CP14→CP07, EL14→EL07.",
+    "sources": "§1.2 l.84; §1.4 l.184; §3 l.359, 439, 503, 608, 667, 717, 723, 741, 792, 831, 832, 856, 872, 1097, 1099, 1108; §6 Competing Solutions Reference l.1508-1529; notes: not yet modelled (workshop report l.127, l.499)",
+    "hidden_info": "The detour margin (×1.5) and whether the primary exists in this world. An alternative whose primary is removed, foreclosed or dead-ended 'can never be locked out' (§6 l.1529), so any lock-out risk shown would leak a Removal Truth or axis value."
+   },
+   {
+    "id": "R72",
+    "category": "breakthrough-status",
+    "priority": "must",
+    "text": "Dead-ended breakthroughs. Some theories grant their token only 'if validated' and fail in some worlds: MD05 in Miasma and Humoral worlds, CH06 in elemental worlds, TH01 in Caloric worlds, NP04 in fusion-Impossible worlds. Others give 'a clear negative report': RC08, QM-E07, ES12, whichever of QP09 and QP10 loses, and GN10. Before the decisive experiment, rival theories coexist, each grants partial benefits, and they are shown side by side with no hint of which will validate. Once the dead end is reported, the losing row is shown as owned but dead-ended, distinct from validated rows, with its consolation Insight and its unambiguous negative Science Advisor report. It obsoletes nothing.",
+    "sources": "§1.2 l.74; §3 MD05 l.593, CH06 l.737, TH01 l.705, NP04 l.852, RC08 l.955, QM-E07 l.1115, QP09/QP10 l.931-932, GN10 l.1028; §5 l.1295, l.1340, l.1428",
+    "hidden_info": "Which rival is true, and whether a frontier breakthrough will ignite, until the decisive experiment or the breakthrough itself reports. A row must never be marked dead-ended before then."
+   },
+   {
+    "id": "R73",
+    "category": "breakthrough-status",
+    "priority": "should",
+    "text": "Negative prerequisites can close a breakthrough for good: SO09 Quipu needs 'SO01 (but NOT SO04)', and SO14 Oral Epic Tradition needs 'no SO04 (Writing) yet'. Owning Writing closes both permanently. If either has been revealed, show it as closed, unreachable by normal discovery, rather than as pending.",
+    "sources": "§3 SO09 l.332, SO14 l.336",
+    "hidden_info": ""
+   },
+   {
+    "id": "R74",
+    "category": "breakthrough-status",
+    "priority": "could",
+    "text": "Several breakthroughs can be discovered in one turn. The screen and its notifications should handle a burst, for example by marking everything new this turn.",
+    "sources": "§1.2 l.33 ('flurries of discovery')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R75",
+    "category": "breakthrough-status",
+    "priority": "should",
+    "text": "Provide, or link to, an end-of-game codex listing everything Revealed but never Discovered.",
+    "sources": "§1.4 l.184",
+    "hidden_info": ""
+   },
+   {
+    "id": "R76",
+    "category": "breakthrough-status",
+    "priority": "could",
+    "text": "A UNIQUE breakthrough is claimed by the first civilisation to discover it, and every other civilisation is locked out permanently. If a UNIQUE Revealed to this civilisation is claimed by another, show it as claimed and unavailable.",
+    "sources": "§1.2 l.58; notes: not modelled (workshop report l.127)",
+    "hidden_info": ""
+   },
+   {
+    "id": "R77",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Show each Revealed breakthrough as a named goal with a speculative description written as conjecture (e.g. 'our physicists believe the atom's energy could be harnessed'), not as the effects it grants.",
+    "sources": "§1.4 l.164",
+    "hidden_info": ""
+   },
+   {
+    "id": "R78",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Show each owned (Discovered) breakthrough with the effects it grants: technologies, units, buildings, abilities, and any Focus Area it opens.",
+    "sources": "§1.1 l.6; §1.4 l.166",
+    "hidden_info": ""
+   },
+   {
+    "id": "R79",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Each owned or revealed row shows at least its name, era and status, plus a readable summary of its effects. Its prerequisites are one click away, and the Notes column's historical flavour can be shown in its detail. (The design table's columns are #, Breakthrough, Cat., Era, Prerequisites, Unlocks and Notes.)",
+    "sources": "§3 table header, e.g. l.241",
+    "hidden_info": ""
+   },
+   {
+    "id": "R80",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Render the Unlocks notation for the player as readable object names and effects in Unciv's usual unique wording. The notation to convert: **Name** (base object), **Name**ⁿ with a [cost; stats; uniques] spec, ⟨…⟩ uniques, *Reveals* **X**, *Unlocks* **Focus**, and '+X% Insight to Focus'. Raw spec brackets, the ⁿ marker and code (revealedBy, Events.json, function names) must not appear.",
+    "sources": "§7.0 'Notation in the Unlocks column' l.1592; §3 e.g. F05 l.247, ME08 l.418",
+    "hidden_info": ""
+   },
+   {
+    "id": "R81",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Unlocks cells vary enormously in length: most are one line, but CH20, CH23, ME08, TH11 and EL14 run to hundreds of words. Rows show a short summary (for example the objects unlocked), with the full effects on expansion or in a detail panel, so the late-game list stays legible.",
+    "sources": "§3 CH20 l.748, CH23 l.751, ME08 l.418, TH11 l.720, EL14 l.792",
+    "hidden_info": ""
+   },
+   {
+    "id": "R82",
+    "category": "breakthrough-info",
+    "priority": "should",
+    "text": "Render prerequisites in the design's notation, using names rather than bare IDs: '+' means all are required and 'or' means alternatives; groups; plain-text environmental conditions (biome, terrain, start type, resource in territory, population ≥ 5, city count ≤ 2); negative conditions ('but NOT SO04'); conditional ones ('MD05 (Germ Theory validated)'); 'WA-any'. Understanding tokens (MATTER_THEORY, DISEASE_THEORY, MASS_MEDICINE, LIFE_THEORY, THERMO_THEORY, HIGH_ENERGY_PHYSICS, EXOTIC_MATTER) are shown as met by whichever provider the civilisation owns. Mark each part met or unmet.",
+    "sources": "§7.0 'Notation in the Prerequisites column' l.1594; §3 FA03 l.350, SO09 l.332, FA14 l.357, MD06 l.594, MD11 l.599, QM-E20 l.908, MS02 l.998; §5 Understanding Tokens l.1351-1355",
+    "hidden_info": "Unresolved 'validated' conditions; unrevealed alternative providers of a token, and token routes that would reveal the world's fork."
+   },
+   {
+    "id": "R83",
+    "category": "breakthrough-info",
+    "priority": "should",
+    "text": "For a Revealed row, show its non-breakthrough prerequisites (strategic resources, environmental conditions) and whether each is currently met. A resource requirement can be met by extraction, trade or conquest. Resources imported under an active trade agreement count as 'in territory', and access is lost when the agreement ends.",
+    "sources": "§1.2 l.17, l.128-134; §6 l.1504",
+    "hidden_info": ""
+   },
+   {
+    "id": "R84",
+    "category": "breakthrough-info",
+    "priority": "should",
+    "text": "The Notes column mixes flavour with designer metadata: W18 pool tags ('W18 — Pool', 'Capstone A (the reliable one)', 'priced as a decider'), merge history ('merged here in v3.100'), 'Relocated from the former Communications focus', 'Speculative:', 'fork engine work'. Player-facing text shows only the flavour.",
+    "sources": "§3 Notes column e.g. l.245, 251, 253, 542-550, 984",
+    "hidden_info": "Designer metadata."
+   },
+   {
+    "id": "R85",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Dual-path breakthroughs can be reached by funding more than one focus, but are discovered only once and are owned everywhere once discovered. Show each under every focus that can reach it with its home focus marked, or once with a clear cross-reference, but never as two different breakthroughs. Farming reaches CH12, ES13 and ES03-W; Animal Husbandry reaches MD04 and FA03; Mining reaches CH08; Seafaring and Warfare reach F06; Mechanics reaches O15 and TH08; Chemistry reaches MI13, MC09, ES13, WA10 and TR16; Computing reaches GN08, GN09, GN11 and GN14; Materials Science and Electronics reach EL12; Genetics reaches MD-V01; Aeronautics reaches SF15; Energy Systems reaches WM05, MC04 and TH08.",
+    "sources": "§3 'Also reachable in this focus (dual-path)' l.344, 366, 388, 465, 493, 675, 730, 799, 818, 991, 1016, 1039, 1091, and row notes 'Also discoverable through…' (e.g. l.248, 315, 505, 791); §6 Dual-Path Discovery l.1532",
+    "hidden_info": "Dual-path rows that do not exist in this world (e.g. WA10, TR16) must not appear."
+   },
+   {
+    "id": "R86",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "text": "Progress shown on a row under study must not reveal its hidden meter. The meter's size is price × a random factor (Gamma, mean 1, middle half 0.63–1.28) × any multiplier, drawn when the row comes under study.",
+    "sources": "[agreed model] workshop report l.488",
+    "hidden_info": "The meter size, and so the exact Insight remaining or the exact turns to discovery."
+   },
+   {
+    "id": "R87",
+    "category": "breakthrough-info",
+    "priority": "could",
+    "text": "Within a focus, attention concentrates on lines already under way (momentum, weight = progress + 0.1). If progress is shown, the leading line in each focus could be recognisable. This is an inference, not a stated UI requirement.",
+    "sources": "[agreed model] workshop report l.19, l.489, worked example l.501-508",
+    "hidden_info": "Exact shares and meters."
+   },
+   {
+    "id": "R88",
+    "category": "breakthrough-info",
+    "priority": "could",
+    "text": "Discoveries in foci that were not funded (serendipity) could be attributed as accidents, or as coming from the spread, in notifications or history.",
+    "sources": "§1.4 l.182 ('Penicillin was not the funded programme')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R89",
+    "category": "breakthrough-info",
+    "priority": "could",
+    "text": "Named chains could be shown as linked rows: the Antikythera chain (O10 seeds O13, O14, O15), Early Steam (MC07 seeds TH13 and TH14), the Clockwork path (MC15, MC16, MC17, MC14, MC18), Bio-Computing (GN08), the airship chain (AE02, AE13, AE12, AE18) and the fission deep path (NP-F01 to NP-F04).",
+    "sources": "§3 O10 l.311, MC07 l.684, TH13/TH14 l.722-723, GN08 l.1026, AE02 l.1044, l.866",
+    "hidden_info": "Only owned and revealed links may be drawn; unrevealed chain members and chain lengths stay hidden (R96)."
+   },
+   {
+    "id": "R90",
+    "category": "breakthrough-info",
+    "priority": "could",
+    "text": "Breakthrough tags with gameplay effect could be shown, such as ⟨Propulsion⟩ on RK08, RK09, RK10, RK11, RK13, RK14, NP-F03 and QM-E23. Each adds +10% Booster production, up to three, through Orbital Mechanics, so the screen could show how many the civilisation holds.",
+    "sources": "§3 RK04 l.971, RK08-RK14 l.975-981; §4 l.1268",
+    "hidden_info": ""
+   },
+   {
+    "id": "R91",
+    "category": "breakthrough-info",
+    "priority": "could",
+    "text": "Write effect text as knowledge, capability or infrastructure ('reveals, enables, lets you build, counters, exploits'). Science Advisor reports for different axes must be worded distinctly, so that a definitive signal on one axis cannot be mistaken for another (for example, gravitic-positive evidence against Warp evidence).",
+    "sources": "§5 l.1289, l.1451",
+    "hidden_info": ""
+   },
+   {
+    "id": "R92",
+    "category": "revelation",
+    "priority": "must",
+    "text": "CORE breakthroughs reveal themselves automatically once all their prerequisites are discovered and their environmental prerequisites are met. They then appear in their focus as aimable targets, which is the purpose of the tier.",
+    "sources": "§1.2 l.60 ('CORE means visible and aimable'); §1.4 l.180; workshop report l.465",
+    "hidden_info": "No ETA or odds for when they are discovered."
+   },
+   {
+    "id": "R93",
+    "category": "revelation",
+    "priority": "must",
+    "text": "Respect the One-Step Horizon: revelation reaches only one step past the frontier. Theory reveals direct applications only, never their descendants. The screen must not draw or list Unknown descendants, chains beyond Revealed entries, or what a Revealed breakthrough will in turn reveal.",
+    "sources": "§1.4 l.178 ('the far side is always dark'); §4 l.1146",
+    "hidden_info": "Every breakthrough beyond the horizon, including chain lengths and the distance to any answer."
+   },
+   {
+    "id": "R94",
+    "category": "revelation",
+    "priority": "must",
+    "text": "Do not pre-announce RARE or UNIQUE breakthroughs. They are almost never revealed by theory and never glimpsed, so a revealed RARE or UNIQUE comes only from theory, observation or the Determinist Institute. Otherwise they appear only when discovered ('the surprises remain surprises').",
+    "sources": "§1.4 l.170; §1.5 l.197; [agreed] workshop report decision 7, l.171, l.173, l.175",
+    "hidden_info": "Unrevealed RARE and UNIQUE breakthroughs."
+   },
+   {
+    "id": "R95",
+    "category": "revelation",
+    "priority": "must",
+    "text": "Proximity revelation (glimpses): each turn an eligible idea fails to occur, it may be glimpsed: STANDARD 10% a turn, UNCOMMON 3% (provisional), RARE and UNIQUE never. A glimpsed row becomes Revealed but not found. It appears as 'not yet occurred', or as 'window closed' once its window passes, and remains Endeavour-eligible if its prerequisites are discovered.",
+    "sources": "§4 l.1123; §6 rule 12 l.1487; §1.4 ('our scholars glimpse what they are circling'); [agreed] digest §10 l.97; deferred_tasks l.177; workshop report l.173, l.175, l.460",
+    "hidden_info": "The glimpse chance."
+   },
+   {
+    "id": "R96",
+    "category": "revelation",
+    "priority": "must",
+    "text": "Handle the §3 sources that reveal a breakthrough before it occurs, sometimes eras early, and show such rows as 'Revealed, not yet occurred', including rows from a later era. (1) Decisive-experiment wonders reveal one of several paths: MD15 reveals MD05, MD16 or MD17; CH19 reveals CH06, CH20 or CH22; TH10 reveals TH03 or TH11; CH25 reveals CH11 or GN12; RC08 reveals RC09 if it validates. (2) Concept reveals: CH15 reveals CH04 'centuries early', EL08 reveals EL02 'a millennium early', OP09 reveals PH04. (3) CH22 reveals CH23 and CH24, and CH26 reveals CH23. (4) QP13's Determinist Institute (RARE, Deterministic worlds only) reveals every breakthrough as soon as the civilisation becomes eligible for it, so the screen must stay legible with many 'not yet occurred' rows.",
+    "sources": "§3 MD15 l.603, CH19 l.747, TH10 l.719, CH25 l.753, RC08 l.955, CH15 l.746, EL08 l.787, OP09 l.770, CH22 l.750, CH26 l.754, QP13 l.935; §5 l.1334, l.1428; digest §8 l.81; deferred_tasks l.159",
+    "hidden_info": "Which path a decisive experiment will reveal, until it completes. The FQ5 (Deterministic) value is never stated: owning QP13 implies it, so QP13 appears only in such a world."
+   },
+   {
+    "id": "R97",
+    "category": "revelation",
+    "priority": "must",
+    "text": "Occurrence of an unrevealed idea is hidden and does not reveal it. Unrevealed rows under study are never named, and an unrevealed idea whose window passes is lost silently.",
+    "sources": "[agreed model] workshop report l.388, l.464; deferred_tasks l.137",
+    "hidden_info": "Whether any unrevealed idea has occurred or been lost, and in which focus."
+   },
+   {
+    "id": "R98",
+    "category": "revelation",
+    "priority": "should",
+    "text": "Mark newly revealed breakthroughs prominently. Revelation is itself an event with fanfare: a popup or notification that leads to the screen.",
+    "sources": "§1.4 l.164",
+    "hidden_info": ""
+   },
+   {
+    "id": "R99",
+    "category": "revelation",
+    "priority": "could",
+    "text": "Optionally show how each Revealed row was revealed: by theory ('revealed by Atomic Model'), proximity ('our scholars glimpse what they are circling'), observation ('seen in use by <civ>'; only what can be seen, such as a unit or possibly a city's buildings), espionage ('concept stolen by spies'), a decisive experiment, a concept reveal, CORE self-revelation, or the Determinist Institute.",
+    "sources": "§1.4 l.168-176; workshop report l.147, l.465; deferred_tasks l.177",
+    "hidden_info": ""
+   },
+   {
+    "id": "R100",
+    "category": "revelation",
+    "priority": "could",
+    "text": "An owned theory breakthrough could list the direct applications it revealed (its Reveals list), and only those.",
+    "sources": "§1.4 l.170 ('Discovering Atomic Model (NP02) reveals Nuclear Fission and Nuclear Weapons')",
+    "hidden_info": "Reveals-list entries not yet triggered for this civilisation, and transitive applications."
+   },
+   {
+    "id": "R101",
+    "category": "revelation",
+    "priority": "should",
+    "text": "Do not confuse breakthrough revelation with resource reveals. '*Reveals* **Copper**' in the Unlocks column (S04, MI05, MI06, MI07, MI08, MI10, MI11, ME13, AH03, S05, QM-E16) makes a map resource visible and is not a breakthrough status. Word these differently, e.g. 'Shows Copper on the map'.",
+    "sources": "§3 S04 l.287; §7.0 l.1592",
+    "hidden_info": ""
+   },
+   {
+    "id": "R102",
+    "category": "abilities",
+    "priority": "must",
+    "text": "Experiment ability (from PH04 Scientific Method): spend Gold to boost one Revealed breakthrough's roll. Once PH04 is owned, offer an Experiment action on a Revealed, not-yet-owned row, showing its Gold cost and its target.",
+    "sources": "§3 PH04 l.572",
+    "hidden_info": "The odds, before and after the boost."
+   },
+   {
+    "id": "R103",
+    "category": "abilities",
+    "priority": "must",
+    "text": "Synthesis ability (from PH08 Dialectical Thinking): once per era, re-roll one failed breakthrough. Once PH08 is owned, offer Synthesis, let the player pick the failed breakthrough, and show whether it has been used this era.",
+    "sources": "§3 PH08 l.573",
+    "hidden_info": "The odds of the re-roll."
+   },
+   {
+    "id": "R104",
+    "category": "endeavours",
+    "priority": "must",
+    "text": "Offer 'commit as Grand Endeavour' only on Revealed rows whose prerequisite breakthroughs are all Discovered, from the row or its detail. Disable it elsewhere, showing the reason. This is the 'insurance' route back to a glimpsed idea whose window has closed: what was luck becomes calculation.",
+    "sources": "§1.5 l.188; §3 QP13 l.935; §4 l.1206; §6 rule 12 l.1487; digest §8 l.81; workshop report l.470",
+    "hidden_info": "Unrevealed prerequisites of a revealed row."
+   },
+   {
+    "id": "R105",
+    "category": "endeavours",
+    "priority": "must",
+    "text": "Before commitment, show the Endeavour's price: 2× the breakthrough's price at the moment of commitment, compared with the normal pace. Because that price includes the prematurity premium (×4 for each era ahead of development), the Endeavour price falls as development catches up.",
+    "sources": "§1.5 l.192 ('Agreed in v3.112: 2×'); §4 l.1123, l.1206; digest §10 l.97; workshop report l.450, l.493",
+    "hidden_info": "World-Truth cost multipliers inside the price (see R134). Whether RARE (4×) and UNIQUE multipliers still apply is open."
+   },
+   {
+    "id": "R106",
+    "category": "endeavours",
+    "priority": "must",
+    "text": "An active Endeavour shows visible, accumulating progress, like a wonder under construction: a progress bar and percentage ('the fusion programme is 60% complete'), its total cost, and its remaining turns. These can be exact, since it takes the active share each turn until it holds 2× the price fixed at commitment.",
+    "sources": "§1.5 l.188; workshop report l.493",
+    "hidden_info": ""
+   },
+   {
+    "id": "R107",
+    "category": "endeavours",
+    "priority": "must",
+    "text": "One Endeavour at a time. While one is active, the commit action on other rows is disabled, or states that it will replace or abandon the current one.",
+    "sources": "§1.5 l.191",
+    "hidden_info": ""
+   },
+   {
+    "id": "R108",
+    "category": "endeavours",
+    "priority": "should",
+    "text": "State that an Endeavour cannot fail. If its target is a Competing Solutions alternative, show that its lock-out is suspended while the Endeavour runs.",
+    "sources": "§1.5 l.193; §1.2 l.87",
+    "hidden_info": ""
+   },
+   {
+    "id": "R109",
+    "category": "endeavours",
+    "priority": "should",
+    "text": "Show abandoned Endeavours with their remaining, slowly decaying progress, and let the player resume one.",
+    "sources": "§1.5 l.195",
+    "hidden_info": ""
+   },
+   {
+    "id": "R110",
+    "category": "endeavours",
+    "priority": "could",
+    "text": "Mark spin-off milestones at 25%, 50% and 75% on the Endeavour progress bar, and attribute breakthroughs revealed or discovered as spin-offs.",
+    "sources": "§1.5 l.194",
+    "hidden_info": "The spin-off chance."
+   },
+   {
+    "id": "R111",
+    "category": "endeavours",
+    "priority": "should",
+    "text": "Endeavours must not look like the default way to research. Funding a focus stays the primary action, and the Endeavour is a secondary, deliberate commitment within its guards: one slot, the cost premium, Revealed rows only.",
+    "sources": "§1.5 l.197; §4 l.1206 ('insurance, not a shortcut')",
+    "hidden_info": ""
+   },
+   {
+    "id": "R112",
+    "category": "endeavours",
+    "priority": "must",
+    "text": "The six FTL prototype Endeavours (one per method), and the FTL hypotheses that proposing rows reveal, are not listed among the research screen's breakthroughs or Endeavours. They live on the FTL screen.",
+    "sources": "§4 l.1137, l.1215 ('live on the FTL screen, not in the research tree'); digest §7 l.63",
+    "hidden_info": ""
+   },
+   {
+    "id": "R113",
+    "category": "endeavours",
+    "priority": "should",
+    "text": "While an FTL prototype is being built (committed on the FTL screen at 5× the Space price, once its hypothesis is Revealed and its build prerequisites are discovered), the research screen shows it as the current funding target in the active slot (R52). If an experiment disproves its method mid-build, it halts, its progress is lost, and the slot is freed.",
+    "sources": "§4 l.1216, l.1218; digest §7 l.63-64",
+    "hidden_info": "Whether the method is viable. The commitment is private from rivals."
+   },
+   {
+    "id": "R114",
+    "category": "endeavours",
+    "priority": "could",
+    "text": "Revealed airship-chain rows (AE02, AE13, AE12) stay Endeavour-eligible after an Airship Disaster lowers their tier ('a Grand Endeavour can still push a civilisation on').",
+    "sources": "§1.2 l.96",
+    "hidden_info": "The confidence ladder is hidden (R146). Whether a lowered tier may be shown is open."
+   },
+   {
+    "id": "R115",
+    "category": "endeavours",
+    "priority": "could",
+    "text": "Guidance idea: note, or offer, a Grand Endeavour for a glimpsed idea that will not arrive by itself, to help less experienced players without speeding up experts. Guidance, not price cuts, is the lever for the average player's victory gap.",
+    "sources": "[candidate, playtest guidance] deferred_tasks l.58 (places it on the FTL screen); digest §9 l.90, §11 l.108",
+    "hidden_info": "Must state facts, not advice (R144)."
+   },
+   {
+    "id": "R116",
+    "category": "tiers",
+    "priority": "should",
+    "text": "Show the civilisation's UNIQUE breakthroughs prominently as its cultural identity, with a count, since each further UNIQUE is harder to get. Mark them as exclusive: they cannot be traded or stolen and are exempt from diffusion.",
+    "sources": "§1.2 l.58, l.62; §6 l.1494, l.1503",
+    "hidden_info": "The size of the cumulative UNIQUE penalty."
+   },
+   {
+    "id": "R117",
+    "category": "tiers",
+    "priority": "could",
+    "text": "Owned rows could show their tier (CORE, STANDARD, UNCOMMON, RARE, UNIQUE), so that a RARE or UNIQUE find stands out as lucky ('An exciting discovery when it appears').",
+    "sources": "§1.2 l.52-58, l.72; §3 Cat. column, WA17 l.511; §7.0 l.1590",
+    "hidden_info": "Tier on unoccurred rows acts as a proxy for odds (see open questions)."
+   },
+   {
+    "id": "R118",
+    "category": "tiers",
+    "priority": "should",
+    "text": "Enabling Truths make certain RARE gateways (MC07, MC15, O10) roll at UNCOMMON difficulty. If tier or difficulty is displayed, it must not reveal this easing.",
+    "sources": "§6 Enabling Truths l.1467-1471; §5 l.1279",
+    "hidden_info": "Whether an Enabling Truth is set, and the gateway's effective difficulty."
+   },
+   {
+    "id": "R119",
+    "category": "tiers",
+    "priority": "could",
+    "text": "Once an idea has occurred, every tier is studied at the same speed: rarity is paid only at occurrence. The screen must not suggest that rarer rows study more slowly.",
+    "sources": "[agreed] workshop report l.497; digest §9 l.92",
+    "hidden_info": ""
+   },
+   {
+    "id": "R120",
+    "category": "tiers",
+    "priority": "should",
+    "text": "Mockup content follows the tier rules. CORE rows appear only as under study or owned, never as not yet occurred or window closed. UNCOMMON rows are glimpsed less often than STANDARD ones. RARE and UNIQUE rows appear as revealed only through theory, observation or the Determinist Institute.",
+    "sources": "[agreed] workshop report decision 7 l.171, l.173, l.175, l.465; §1.4 l.170",
+    "hidden_info": ""
+   },
+   {
+    "id": "R121",
+    "category": "eras",
+    "priority": "must",
+    "text": "Every breakthrough belongs to one of eight eras: Primitive, Ancient, Classical, Medieval, Early Modern, Modern, Atomic, Space. Label each row with its era, and let rows be ordered or grouped by era, as base Unciv lays out its tree in era columns. A late-game screen spans all eight. The current era must be visible: Synthesis is once per era, and era entry counts breakthroughs 'from that era or later'.",
+    "sources": "§3 Era column (e.g. F01 l.243 to MA15 l.542); §2 l.215; PH08 l.573",
+    "hidden_info": ""
+   },
+   {
+    "id": "R122",
+    "category": "eras",
+    "priority": "should",
+    "text": "Show the current era and progress towards the next. A civilisation enters an era when it holds the required number of breakthroughs from that era or later: 5, 3, 3, 5, 7, 6 and 4 for Ancient through Space (provisional). The era table has nine eras, the last being Interstellar ('FTL and Beyond').",
+    "sources": "§2 table l.203-215; workshop report l.141; deferred_tasks l.72-77",
+    "hidden_info": "Development (cumulative Insight on the era curve), which sets the prematurity premium, is not stated to be shown."
+   },
+   {
+    "id": "R123",
+    "category": "eras",
+    "priority": "could",
+    "text": "The late-game mockup sits in the Atomic or Space era. Over 90% of a game's 28–35 Space-era STANDARD rows open while the civilisation is still Atomic, bought early at the premium, so expect Space-era rows to be revealed or under study during the Atomic era.",
+    "sources": "§2 table; [agreed measurement] workshop report l.396",
+    "hidden_info": ""
+   },
+   {
+    "id": "R124",
+    "category": "world-truths",
+    "priority": "must",
+    "text": "Breakthroughs absent from this world must never appear: those a Removal Truth deletes (MI06 and MI07 in FOSSIL_FUELS_ABSENT worlds, WA10 in GUNPOWDER_ABSENT worlds), and every row tied to an axis value the world did not draw (atomic-only, elemental-only, Substance-, Process-, Germ-, Miasma-, Humoral-, Vitalist-, Caloric- or Gravitic-only). They do not appear even as greyed 'absent' entries, and their absence must not be implied by gaps, counts, 'not available in this world' entries or per-focus totals.",
+    "sources": "§1.2 l.74; §3 MI06 l.395, MI07 l.397 ('a discovery with nothing to find does not exist'), WA10 l.505, MD16 l.604, CH20 l.748, RC09 l.956; §5 l.1322; §6 l.1458",
+    "hidden_info": "Removal Truths (FOSSIL_FUELS_ABSENT, GUNPOWDER_ABSENT, ENHANCED_SPRINGS), the world's FQ outcomes, and the set of rows they remove."
+   },
+   {
+    "id": "R125",
+    "category": "world-truths",
+    "priority": "must",
+    "text": "World Truths are never told to the player, and the screen must not become a 'diagnostic tell' for an unresolved axis. Nothing that is listed, counted, greyed, reordered or tagged may leak a Truth or the FTL method: not rows, not focus benefit tags, not empty foci, not the number of remaining rows.",
+    "sources": "§5 l.1279 ('Players are never told which Truths are set'), l.1289; deferred_tasks l.102; digest §1 l.6",
+    "hidden_info": "All World Truth values (FQ1–FQ12, Removal and Enabling Truths) and the viable FTL method."
+   },
+   {
+    "id": "R126",
+    "category": "world-truths",
+    "priority": "must",
+    "text": "Strip from all player-facing text any design text that names World Truths or their odds: the probabilities (~60%, ~20%, ~45%, ~30%, ~15%, ~25%), the FQ codes, and phrases such as 'In Germ worlds…', 'Absent in FOSSIL_FUELS_ABSENT worlds', 'Strategically critical in FOSSIL_FUELS_ABSENT worlds' and 'In ENHANCED_SPRINGS worlds…'.",
+    "sources": "§3 l.886; MD05 l.593, MD15 l.603, CH06 l.737, CH19 l.747, TH10 l.719, NP04 l.852, MI13 l.402, MC15 l.692",
+    "hidden_info": "World Truth outcomes and their prior probabilities."
+   },
+   {
+    "id": "R127",
+    "category": "world-truths",
+    "priority": "must",
+    "text": "Any cost, threshold or Endeavour price shown must not reveal World-Truth multipliers (e.g. Miniaturisation ×2.5 or EN10 ×2.5 in elemental worlds). Nor may it reveal a Competing Solutions alternative's dropped detour margin or promoted tier, since dropping the margin shows that the primary cannot exist in this world.",
+    "sources": "§1.2 l.77, l.86; §3 EN10 l.810",
+    "hidden_info": "Truth values inferred from cost multipliers, dropped margins or tier promotion."
+   },
+   {
+    "id": "R128",
+    "category": "world-truths",
+    "priority": "must",
+    "text": "Show each breakthrough under the name its world gives it, but never use a world-specific name before the player legitimately knows the world type. Rows with alternative names include SF14 (Quintessic or Overcycle Submarine), RK08, RK13, EN06 ('Resonant Crystal Mastery' in elemental worlds), ES15 (Overcycle Plant in Process worlds), OP07, QM-E20, AE12, and every QM-E row, each with a Substance and a Process name (e.g. QM-E01 'Quintessence Theory' or 'Unified Cycle Theory').",
+    "sources": "§3 SF14 l.482, RK08 l.975, RK13 l.980, EN06 l.807, ES15 l.1116, OP07 l.768, QM-E20 l.908, AE12 l.1054, QM-E01 l.890; Quintessic note l.884",
+    "hidden_info": "The world-specific name, until the world type is known."
+   },
+   {
+    "id": "R129",
+    "category": "world-truths",
+    "priority": "could",
+    "text": "Each decisive experiment gives a clear report either way, and each dead end a stated negative report (e.g. RC08 'gravity resists every attempt at local control'; QM-E07 'the medium's tension yields only traces'; QM-E04 'the medium is not still — it has structure'). Once reported, the screen could show the settled result and its report next to the relevant breakthroughs.",
+    "sources": "§3 MD15 l.603, RC08 l.955, QM-E07 l.1115, QM-E04 l.893",
+    "hidden_info": "Everything, before the report."
+   },
+   {
+    "id": "R130",
+    "category": "diffusion-rivals",
+    "priority": "should",
+    "text": "Show which Knowledge Diffusion phase is in force (before the press; after the press, from MC06 Printing Press; the Internet phase, from CP04) and the breakthrough that switched it.",
+    "sources": "§1.2 l.114-126; §3 MC06 l.683, CP04 l.823; §6 l.1489-1494",
+    "hidden_info": ""
+   },
+   {
+    "id": "R131",
+    "category": "diffusion-rivals",
+    "priority": "could",
+    "text": "Optionally indicate breakthroughs diffusing to the civilisation. After the press, CORE and STANDARD rows arrive 10 turns after half the contacted civilisations hold them; after the Internet, the delay is 5 turns and UNCOMMON rows are included. RARE and UNIQUE rows never diffuse. Diffusion can also return a lost idea.",
+    "sources": "§1.2 l.114-126; §6 l.1489-1494; digest §10 l.98; workshop report l.457-459, l.470",
+    "hidden_info": "Diffusion roll bonuses; diffusion of rows still Unknown to this civilisation; which rivals hold what."
+   },
+   {
+    "id": "R132",
+    "category": "diffusion-rivals",
+    "priority": "should",
+    "text": "Mark owned breakthroughs that operate at reduced effectiveness: traded ones at 75% until the recipient accumulates matching Insight through its own research (show progress towards full understanding), stolen ones at 50%.",
+    "sources": "§6 l.1500-1501",
+    "hidden_info": ""
+   },
+   {
+    "id": "R133",
+    "category": "diffusion-rivals",
+    "priority": "should",
+    "text": "Rivals' prototype commitments are private. Only the completion of a prototype, and later of the SS FTL Drive, is announced to every civilisation.",
+    "sources": "§4 l.1219, l.1270; digest §7 l.66",
+    "hidden_info": "Rivals' prototype commitments."
+   },
+   {
+    "id": "R134",
+    "category": "ftl",
+    "priority": "must",
+    "text": "The FTL puzzle (hypotheses, running results, hints of where to look, the disproved list, prototype commitment) lives on its own screen. The research screen links to that screen rather than duplicating it. The FTL screen opens with RC01 Special Relativity, so a late-game mockup shows the link as available.",
+    "sources": "§4 l.1135-1136; digest §2 l.13-16",
+    "hidden_info": "Before RC01, nothing may hint that FTL is a question at all."
+   },
+   {
+    "id": "R135",
+    "category": "ftl",
+    "priority": "must",
+    "text": "Never reveal which FTL method is viable. Hypotheses may be named, and their number given, only on the FTL screen.",
+    "sources": "§4 l.1127, l.1138; digest §2 l.16",
+    "hidden_info": "The world's viable FTL method (FQ1), and the hold or fail value of every condition until it is tested."
+   },
+   {
+    "id": "R136",
+    "category": "ftl",
+    "priority": "must",
+    "text": "Power capacity for the brute-force methods (grid plants owned against the requirement) is shown only on the FTL screen, never on the research screen.",
+    "sources": "§4 l.1200; digest §5 l.53",
+    "hidden_info": "The power requirement and the count of plants."
+   },
+   {
+    "id": "R137",
+    "category": "ftl",
+    "priority": "should",
+    "text": "A discovery that changes the FTL screen carries a line in its notification, such as 'This bears on the question of how to exceed the speed of light.' Where the research screen shows the discovery (a recent-discoveries log, the row's card or a history timeline), it carries the same marker, ideally with a link. It says only that something changed.",
+    "sources": "§4 l.1140; digest §2 l.13",
+    "hidden_info": "What the change means: which condition, which hypothesis, confirmed or disproved."
+   },
+   {
+    "id": "R138",
+    "category": "ftl",
+    "priority": "should",
+    "text": "Apply the FTL screen's guidance principles to all guidance on the research screen: show facts, not advice; never rate likelihood, recommend a test, or call anything promising or likely; say nothing about which option to pursue; use the player's vocabulary; make negatives clearer than positives; need no outside knowledge.",
+    "sources": "§4 l.1147-1149; digest §2 l.18",
+    "hidden_info": "Likelihoods and recommendations."
+   },
+   {
+    "id": "R139",
+    "category": "ftl",
+    "priority": "should",
+    "text": "A test breakthrough that unlocks an instrument (a national wonder: Orbital Quantum Laboratory, Space Interferometer, Survey Telescope, Very Large Particle Collider or Very Large Boundary Furnace) shows that unlock like any other. The statement that the building will settle an FTL question belongs to the FTL screen.",
+    "sources": "§4 l.1169-1179 ('the FTL screen says so'); §3 CP21 l.840, QP15 l.937, QM-E28 l.914, RC05-RC07 l.952-954, RC11 l.958, MS08 l.1002",
+    "hidden_info": "Which FTL condition a breakthrough hosts or an instrument settles, and its truth (see open questions on §3's 'Hosts' notation)."
+   },
+   {
+    "id": "R140",
+    "category": "other",
+    "priority": "must",
+    "text": "Never show odds anywhere: no discovery or roll percentages, no bonus from excess Insight, no base chances per tier, no cumulative UNIQUE penalty, no occurrence chances or tier odds (STANDARD 85%, UNCOMMON 40%, RARE 10%, UNIQUE 6.5% within the window), no glimpse or spin-off chances, no Necessity or diffusion roll bonuses. Explain luck without numbers.",
+    "sources": "§1.2 l.16, l.21, l.35; §1.4 l.162; §4 l.1147; digest §2 l.17; deferred_tasks l.102; workshop report l.466",
+    "hidden_info": "Every chance and odds value listed."
+   },
+   {
+    "id": "R141",
+    "category": "other",
+    "priority": "must",
+    "text": "Per-civilisation state that affects discovery must not be displayed: CP09's AGI 'hidden trust stockpile'; the airship chain's confidence ladder, where confidence can be lost and Helium does not restore it; and the Edison/Tesla 'War of the Currents' effect, by which the roll reads which Great Engineers the civilisation has had.",
+    "sources": "§3 CP09 l.827, AE02 l.1044, AE18 l.1059, CH28 l.756, EL14 l.792",
+    "hidden_info": "The trust stockpile, airship confidence, and the Edison/Tesla modifier."
+   },
+   {
+    "id": "R142",
+    "category": "other",
+    "priority": "must",
+    "text": "The late-game screen must stay legible at scale. §3 has 546 rows across 35 foci (7 to 26 per focus); a world's tree has about 503–544 rows; a game sees about 260 discoveries; and there are revealed and faded entries on top. Group by focus, make sections collapsible or scrollable, and offer filters or counts by status, era and focus.",
+    "sources": "§2 l.217; §1.2 l.29; §3 tables l.238-1117; §7.0 l.1590; workshop report l.3; digest §12 l.112",
+    "hidden_info": "Counts may cover only rows shown (owned or revealed), never totals that imply Unknown or absent rows."
+   },
+   {
+    "id": "R143",
+    "category": "other",
+    "priority": "must",
+    "text": "Base the styling on the base Unciv research screen. Make the mockup late-game, so that it shows a large number of breakthroughs, and make it good-looking and easy to read. Show all available foci clearly and unambiguously, with a mechanism for choosing which to fund, and show every owned and revealed breakthrough clearly marked with its status.",
+    "sources": "user request",
+    "hidden_info": ""
+   },
+   {
+    "id": "R144",
+    "category": "other",
+    "priority": "should",
+    "text": "Fit phone screens, where cards and lists suit better than a graph. This sits in tension with Unciv's graph-shaped research screen (R143).",
+    "sources": "[candidate] deferred_tasks l.102",
+    "hidden_info": ""
+   },
+   {
+    "id": "R145",
+    "category": "other",
+    "priority": "could",
+    "text": "Provide a history-of-discovery timeline, and a known-tree view limited to Discovered and Revealed rows.",
+    "sources": "[candidate] deferred_tasks l.102",
+    "hidden_info": "Undiscovered and unrevealed rows and their links."
+   },
+   {
+    "id": "R146",
+    "category": "other",
+    "priority": "must",
+    "text": "The mockup depicts one consistent world. It picks an ontology (atomic: Nuclear Physics and Quantum Physics; elemental: Quintessic Physics) and shows only that world's foci, rows and names. World-dependent rows such as QP13's Determinist Institute appear only if the world allows them and the depicted civilisation would legitimately know it.",
+    "sources": "§5 l.1356; §3 l.884-886; derived from R124-R128",
+    "hidden_info": "Rows, foci and names belonging to world values not drawn, or not yet legitimately known."
+   }
+  ],
+  "open_questions": [
+   "DISCOVERY MODEL CONFLICT. The user's four statuses (Owned; being studied; not yet occurred; window closed) use the workshop's candidate model, in which ideas occur within a bounded window. §1.2, §1.4 and §1.5 still describe the threshold-and-roll model, with no 'occurred' or 'window'. §1.2 l.74 promises a player who meets every prerequisite 'will eventually have a chance at any breakthrough', and §1.5 l.193 says every permitted breakthrough 'remains reachable indefinitely'; both contradict 'window closed'. Resolution taken: the user request wins, so R64-R67 follow the workshop model; rewriting §1.2 and §1.5 is a deferred task. Confirm.",
+   "The reading of 'Revealed' is not formally decided. It could mean the goal is known to be possible (separate from the idea having occurred), or that the idea has occurred. Tamsin also called a glimpse of an unoccurred idea 'illogical' (workshop report l.298, l.334). The user's statuses assume the first reading.",
+   "Retiring glimpses (open, workshop report l.439): glimpses of ideas that have not occurred may be dropped, keeping proximity revelation ('your scholars are onto something') only for ideas under study. That would sharply cut the 'not yet occurred' and 'window closed' rows in a late-game mockup. Which rule should the mockup assume?",
+   "Status 4 wording. 'Will not be discovered without an Endeavour' is not strictly true: STANDARD and UNCOMMON rows can still arrive by diffusion (workshop report l.470), and under the rediscovery proposal a lost STANDARD row that other work waits on can come back. W3 says every report is true. Should the label say 'its moment passed', or 'only an Endeavour is certain'?",
+   "Rediscovery on demand (open, workshop report l.303-307, l.348, l.439; deferred_tasks l.138). A lost STANDARD idea comes back with chance 1 − 0.9ⁿ a turn, where n counts what is ready but for it. If adopted, 'window closed' rows that other work waits on are not Endeavour-only. A 'may yet return' hint would leak n, which counts unrevealed dependent rows.",
+   "ERA-HOLD CLOCK (the user asked for it to be tested; open, workshop report l.405-409, l.424, with a STANDARD-only variant at l.437 that avoids raising UNCOMMON rates). Windows would start at the later of the row opening and its era beginning, so a revealed row ahead of its era could still occur early but could not show 'window closed' before its era. Suggestion: the mockup's 'window closed' examples should be rows whose own era has already passed, so they stay valid under either rule.",
+   "W16 form. §4 l.1206 states that a Space-era row's window stays open for a civilisation funding its focus, and R67 keeps it, preferring the design document. But digest §5 l.55 and workshop report l.392 and l.439 record the form as open: as written, as simulated (a pursued Space-era STANDARD idea occurs at once), funded windows game-long, the era-hold clock, or none. Does 'funding its focus' mean the active focus only, or any focus receiving spread? If the written form is kept, the screen must show which focus holds a revealed idea's window open, and none of the four statuses expresses that.",
+   "SPREAD ROUTING CONFLICT. §1.2 l.11, l.19 and l.27 say every qualifying focus rolls every turn and unfunded areas creep forward. Agreed decision 2 (workshop report l.166, l.487) sends spread only to foci with something under study. Any per-focus spread or spill-over figure, or a warning that the funded focus has nothing under study, would leak hidden occurrence. Show these amounts, round them, or hide them? (§1.2 is due for rewrite.)",
+   "How should progress on a 'being studied' row be shown, when the meter is hidden (workshop report l.488), percentages are ruled out (deferred_tasks l.102), and §1.5 reserves visible progress for Endeavours? Options: qualitative stages, Insight spent without a total, or the leading line per focus.",
+   "Should a revealed row show its price or threshold, or whether its focus has passed it? §1.2 never says thresholds are secret, but showing them risks leaking World-Truth multipliers (§1.2 l.77), dropped detour margins (l.86) and the prematurity premium. The Endeavour price (2× at commitment) reveals the price anyway for eligible rows.",
+   "Should a 'not yet occurred' row show anything about its window ('still possible' against 'closing soon', or turns left)? Turns left would reveal the tier-dependent window length.",
+   "Should tiers be shown? On owned rows they make a RARE feel lucky (§1.2 l.72). On revealed or unoccurred rows they act as a proxy for odds. Enabling Truths change effective difficulty (§6 l.1467). The Airship Disaster visibly lowers tiers (§1.2 l.96), yet the confidence ladder is meant to stay hidden (§3 AE02, AE18).",
+   "Is unrevealed work under study visible at all, for example as murmurs? §6 l.1497 fires 'promising developments in [Focus]' at more than 80% of a threshold, deferred_tasks l.102 lists 'almost-discovered murmurs', and workshop report l.388 says the player picks a focus 'by the work already under study'. But the agreed model says occurrence is hidden (l.464).",
+   "The focus queue auto-advances when 'nothing eligible is making progress' (§1.2 l.35). A visible stall or advance could reveal whether unrevealed ideas are under study in that focus. Should the stall rule count only revealed rows, or should the stall stay invisible?",
+   "Exhausted foci. By the late game, Fire, Foraging, Stonework, Observation, Animal Husbandry, Metallurgy, Textiles & Materials, Chemistry, Electricity and Electronics have no Space-era content (digest §8). Should they still be listed and fundable, given their Insight would spill? Marking them 'exhausted' may leak hidden rows or hidden occurrence.",
+   "ENDEAVOUR PREMIUM. 2× is agreed (§1.5 l.192 'Agreed in v3.112'; digest §10), but §1.5 keeps the old text (2.5–3×, 4× for RARE, plus the UNIQUE multiplier), and digest §11 l.101 says RARE and UNIQUE prices have not been revisited. Do those multipliers still apply on top of 2×? Note: the document header says v3.111, while the changelog's newest entry is v3.112.",
+   "Endeavour eligibility (open, workshop report l.334-338). Under the ENDUNOCC package, Endeavours are offered only for revealed ideas that have not occurred (not yet occurred, or window closed), never for rows under study. Under the current rules and the simulated expert, any revealed row with discovered prerequisites is eligible. Which should the mockup show?",
+   "Spread during an Endeavour: resolved for R52 in favour of the decision adopted on 14 October (workshop report l.495) and §4 l.1216 (the spread continues; the Endeavour takes only the active share). §1.5 l.191 still says it 'occupies the civilisation's research focus entirely', and needs rewriting.",
+   "Can a Path Not Taken (a locked-out Competing Solutions alternative) still be committed to as an Endeavour? §1.2 l.87 says 'Grand Endeavours suspend lock-out ... on purpose'; §1.5 l.193 says lock-out is suspended only 'while the Endeavour runs'. If a locked-out row cannot be pursued, it needs a status visually distinct from 'window closed'. Also: should Competing Solutions membership ('competes with X') be shown on revealed rows, given that the detour margin and lock-out risk can leak Truths (§6 l.1529)?",
+   "Statuses beyond the four requested. Owned but dead-ended (§1.2 l.74, §5 l.1428); owned but superseded; revealed but locked out (Path Not Taken); owned at reduced effectiveness by trade (75%) or theft (50%) (§6 l.1500-1501); a UNIQUE claimed by a rival (§1.2 l.58; not modelled); closed by a negative prerequisite (SO09, SO14). Should these be extra statuses, or badges on Owned and Revealed? When does the player learn that a theory failed? TH09's '+10% … while held' suggests something can stop being held.",
+   "Experiment (PH04, 'boost one Revealed breakthrough's roll') and Synthesis (PH08, 're-roll one failed breakthrough') are written for the roll model. What do they act on under the workshop model: a revealed unoccurred idea's chance to occur, a closed window, a dead-ended theory? May the screen show the size of the boost without the odds?",
+   "Unknown-prerequisite placeholders. deferred_tasks l.102 (candidate) proposes showing unknown prerequisites as 'something not yet understood in <focus>', but §1.4 l.162 says Unknown rows are 'not hinted at'. The design document wins, so R69 names prerequisites only. The One-Step Horizon (l.178) should make placeholders unnecessary, but concept reveals eras early (CH15 reveals CH04 'centuries early', EL08 reveals EL02 'a millennium early', OP09 reveals PH04) may produce revealed rows whose prerequisites are unrevealed. Can that happen, and can such rows occur before their prerequisites are owned? Does 'not yet occurred' cover revealed rows whose prerequisites are not yet discovered, or do they need their own state?",
+   "Accelerators: §3 G06 l.268 says the form (cost factor or head start) 'awaits the discovery-model decision'. Agreed decision 3 (workshop report l.167, l.175) chose head starts, and R60 follows it. G06's text should be updated.",
+   "Unopened foci: list them uniformly as 'not yet open', or list only foci entered? Listing named unopened foci (e.g. Quintessic Physics) could hint at world types even with a uniform state (§3 l.886).",
+   "W19 focus descriptions: the mechanism and wording are open (§4 l.1145; digest §2 l.19 'derived benefit tags'). May they mention FTL questions at all without breaking 'show facts, not advice'?",
+   "FTL-hosted conditions. §3 rows say 'Hosts *extra dimensions exist*', and some instruments 'on completion … settle the condition' (CP21, QP15, QM-E28, RC05/RC06, RC11). §4 l.1169-1179 places that statement on the FTL screen, and R139 follows §4. Should the research screen mark FTL-bearing breakthroughs (which the FTL screen may name once revealed, §4 l.1146) beyond the 'This bears on…' line?",
+   "Prototypes and the research screen: how is a prototype in the active slot shown, and can the player cancel it or switch away from the research screen? Is a completed prototype listed among owned breakthroughs (the Drive's requirement counts it as a 'Researched [P] Technology', §4 l.1263)? Do Revealed hypotheses count among the research screen's revealed items?",
+   "Diffusion display: a countdown ('arrives by diffusion in N turns') or a 'known to rivals' marker would reveal which, and how many, contacted civilisations hold a breakthrough. Is that acceptable? Also open (workshop report l.177): what diffusion's 'bonus to discovery rolls' becomes. The proposal is that the idea occurs to you, or returns if lost, with a head start from the larger bonuses.",
+   "Era display: show the era entered (by breakthrough count), the development era (by cumulative Insight span, §2 l.217-230), or both? They can differ by a fraction of an era.",
+   "After a decisive experiment resolves an axis (Frontier Questions are posed 'silently', §5 l.1441), does the research screen record the learned truth ('matter is corpuscular'), or only the breakthroughs and their reports?",
+   "Dual-path presentation: list the row under every focus that can reach it, or once under its home focus with cross-references? When it is owned, which focus is credited?",
+   "Should breakthrough IDs (F01, CH09-W, QM-E23) be shown to the player, or kept as designer cross-references? The Prerequisites column is written in IDs.",
+   "Before SO01 (Basic Counting), are the research screen's Insight figures approximate as well, or only the city yield display?",
+   "What does a breakthrough's 'cost' mean in the discovery model (§3's ×2, ×2.5 and ×4, and the ×0.5, ×0.8 and ×0.9 discounts)? Is it the study price after occurrence, a weight on occurrence, or the Endeavour price? This decides what a row can show.",
+   "The guidance idea of noting or offering an Endeavour for a glimpsed idea that will not arrive by itself (deferred_tasks l.58, R115) sits uneasily with 'never say which to pursue' (digest §2), and its source places it on the FTL screen. How can it be worded as a fact rather than advice?",
+   "Should the codex of things Revealed but never Discovered (§1.4 l.184) be a tab of the research screen, or a separate end-game screen?",
+   "Phone fit (cards and lists) against the user's request to base the styling on Unciv's graph-shaped research screen: how should they be reconciled, for example era columns of cards that collapse into a list on narrow screens?",
+   "Which ontology should the mockup depict? Atomic shows Nuclear and Quantum Physics; elemental shows Quintessic Physics, with different signature fields (the Tachyonic field is in Nuclear Physics or Thermodynamics). When does the player legitimately learn the ontology, and do focus names themselves expose it?",
+   "§1.2 l.11 refers to 'the research-screen concept', but no such section exists in tech_tree.md. It is a dangling reference.",
+   "Lines 25 and 29 of §1.2 disagree on the number of starting foci: 'five starting Focus Areas' against 'a 20% spread over four early foci'. §3 lists five. This matters only for an early-game view.",
+   "Text inconsistencies that affect labels: Seafaring's condition cites 'O01 (Star Observation)', but O01 is named Star Tracking. MA05 unlocks the 'Mechanics focus (advanced)', though Mechanics opens with MA01 + S03. SO11 unlocks 'Economics-tier trade breakthroughs', but no Economics focus exists. Computing's openers differ between §3 (EN02 + MA07, MC14, QM-E03) and §5 (MC18).",
+   "The task brief's two-state display, 'under study' against 'no one knows how yet', does not appear in the deferred tasks, the digest or the workshop report. The closest material is workshop report l.334 (goal known against insight) and l.439 ('your scholars are onto something'). Where was it proposed?"
+  ]
+ },
+ "critic": {
+  "additions": [
+   {
+    "text": "Strip forward references to other breakthroughs from the Unlocks and Notes text, unless the breakthrough named is Revealed or Discovered for this civilisation and exists in this world. Several owned rows' cells name breakthroughs that may still be Unknown, or that may not exist here. Examples: F07 'Prerequisite for Gunpowder (WA10) unless GUNPOWDER_ABSENT'; WA10 'Unlocks Cannons (WA22)'; NP04 'prerequisite for the Fusion Reactor (ES08)'; WA17 'Dominant ranged unit of a GUNPOWDER_ABSENT world'. R80 covers only the notation and R93 only Reveals lists, so neither catches these.",
+    "category": "breakthrough-info",
+    "priority": "must",
+    "source": "§1.4 l.162 ('not hinted at'), l.178 (One-Step Horizon); §3 F07 l.249, WA10 l.505, WA17 l.511, NP04 l.852"
+   },
+   {
+    "text": "The mockup's late-game state, if taken from the simulator, must be corrected before it is drawn. The simulator does not model Reveals lists (theoretical revelation), environmental prerequisites, Competing Solutions lock-outs (so there are no Paths Not Taken), the UNIQUE first-come rule and penalty, necessity, the per-city modifier, or §1.3's weighting of the spread. Its expert also Endeavours ideas under study whether they are revealed or not. And its W16 makes a pursued Space-era STANDARD idea occur at once, so it will show almost no Space-era 'not yet occurred' rows, which W16 as written would allow. Add the theory-revealed rows and faded Paths Not Taken, apply environmental gating, and show no Endeavour on an unrevealed row.",
+    "category": "other",
+    "priority": "must",
+    "source": "workshop report l.499 and l.127 (not modelled), l.334 (the expert Endeavours ideas under study, revealed or not), l.392 and l.469 (W16 as simulated)"
+   },
+   {
+    "text": "The §1.3 modifier table names foci that do not exist: Woodworking (dense forest start) and Diplomacy (many neighbours). It also uses the short form 'Textiles' for Textiles & Materials. A per-focus modifier display can attach a modifier only to a real focus, so these entries must be mapped to real foci or dropped. This is a design inconsistency to record.",
+    "category": "insight-economy",
+    "priority": "should",
+    "source": "§1.3 l.143, l.146, l.150; §3 focus headings l.238-1086 (no Woodworking or Diplomacy focus)"
+   },
+   {
+    "text": "Make clear that switching the funded focus loses nothing: progress stays on each row under study, and discovering one thing never sets another back. An abandoned Endeavour is different, since its progress decays slowly. Switching is frequent in normal play (the simulated players change focus every 2 to 4 turns), so the funding control must take a single action.",
+    "category": "funding",
+    "priority": "should",
+    "source": "workshop report l.19 ('Progress persists'), l.489-491, l.389; §1.5 l.195"
+   },
+   {
+    "text": "Mark the row that is the current Endeavour's target in the breakthrough list, and mark rows with abandoned, decaying Endeavour progress. These states override the four requested statuses: a 'not yet occurred' or 'window closed' row under an Endeavour is now certain to be completed, and an alternative under one is protected from lock-out.",
+    "category": "endeavours",
+    "priority": "should",
+    "source": "§1.5 l.188, l.193, l.195"
+   },
+   {
+    "text": "Announce every status change of a revealed row, not only its revelation: its idea occurring (not yet occurred to being studied), its moment passing (to window closed), its lock-out as a Path Not Taken, its claim by a rival (UNIQUE), and its dead end. Otherwise a row changes state silently, which breaks the brief that no revealed breakthrough is left stuck without an explanation.",
+    "category": "breakthrough-status",
+    "priority": "should",
+    "source": "workshop report l.338 (Tamsin's brief), l.291 ('this moment passed'); §1.4 l.164 (revelation fanfare)"
+   },
+   {
+    "text": "A missing status: a rival theory that is Revealed but not owned when its decisive experiment reports against it, or a frontier row once its axis has refused it. It can still be researched for its consolation ('A dead-ended breakthrough yields its consolation and its report'), but W3 means the screen must not go on presenting it as an ordinary target. It needs a 'known dead end' badge or status, distinct from 'owned but dead-ended' (R72).",
+    "category": "breakthrough-status",
+    "priority": "should",
+    "source": "§1.2 l.74; digest W3 ('every report is true'), §4 l.1127"
+   },
+   {
+    "text": "Open question: what status does a revealed row have when its strategic-resource prerequisite is lost mid-game, for example when a trade agreement ends ('losing access until they secure an alternative source')? Does a row under study stop taking Insight, and does a 'not yet occurred' row's window keep running? None of the four statuses expresses 'paused for want of a resource'.",
+    "category": "breakthrough-status",
+    "priority": "could",
+    "source": "§1.2 l.128-134; §6 l.1504; workshop report l.499 (environmental prerequisites not modelled)"
+   },
+   {
+    "text": "A row from a later era than the civilisation's development costs ×4 for each era it is ahead, falling as development catches up. The screen could mark such a row 'ahead of its time', which explains its slow progress and its falling Endeavour price without exposing the hidden meter.",
+    "category": "insight-economy",
+    "priority": "could",
+    "source": "workshop report l.20, l.450, l.490 ('Insight becomes progress at the price in force when it is spent')"
+   },
+   {
+    "text": "Credit PH04 Scientific Method with the change in revelation: before it, theoretical revelation is rare; after it, theoretical CORE and STANDARD breakthroughs reveal their applications as the norm. This is a milestone of the same kind as SO05's routing switch and the diffusion phases (R49, R130).",
+    "category": "revelation",
+    "priority": "could",
+    "source": "§1.4 l.170"
+   }
+  ],
+  "corrections": [
+   {
+    "id": "R67",
+    "problem": "R67 says that under §4 a Space-era row's window stays open for a civilisation funding its focus, 'so such a row must not show as closed'. That overstates W16. The hold applies only while the row's focus is the funded one, and only to STANDARD rows: UNCOMMON, RARE and UNIQUE keep their odds, and incidental research keeps the usual windows.",
+    "fix": "A Space-era STANDARD row's window cannot close while its focus is the funded focus. While the focus is unfunded, the window runs and can close, and the row then shows as 'window closed' and does not reopen. UNCOMMON, RARE and UNIQUE Space-era rows keep their normal windows.",
+    "source": "§4 l.1206 ('Incidental research keeps the usual windows ... UNCOMMON, RARE and UNIQUE alternatives keep their odds'); workshop report l.392"
+   },
+   {
+    "id": "R65",
+    "problem": "R65 says a row under study 'is never lost'. That holds only for the workshop's occurrence model. A Competing Solutions alternative under study is still locked out if its primary is discovered first, and a UNIQUE under study is lost permanently when a rival discovers it first. The harness models neither, which is why the report says 'never lost'.",
+    "fix": "Add these exceptions. A Revealed alternative under study becomes a Path Not Taken if its primary arrives first, unless an Endeavour is running on it. A Revealed UNIQUE under study becomes 'claimed by <civ>' if a rival discovers it first. Both are transitions out of status 2.",
+    "source": "§1.2 l.58, l.84, l.87; §1.4 l.184; workshop report l.464, l.499 (lock-outs and the UNIQUE first-come rule not modelled)"
+   },
+   {
+    "id": "R95",
+    "problem": "R95 says a glimpsed row appears as 'not yet occurred' or as 'window closed', and stays Endeavour-eligible 'if its prerequisites are discovered'. It leaves out the transition to 'being studied': a glimpsed idea keeps its chance of occurring every turn its window is open. And the condition is redundant: a glimpse can happen only to a discoverable row inside its window, so a glimpsed row's prerequisites are always discovered.",
+    "fix": "A glimpsed row starts as 'not yet occurred'. It then either occurs and goes under study (status 2), or its window closes (status 4). It can also be completed by an Endeavour or arrive by diffusion. It is always Endeavour-eligible.",
+    "source": "workshop report l.460 (glimpse each turn a discoverable idea fails to occur), l.466; §4 l.1123"
+   },
+   {
+    "id": "R131",
+    "problem": "R131 says 'RARE and UNIQUE rows never diffuse'. That is the simulator's simplification (l.459), not the design. §1.2 gives RARE rows a moderate diffusion roll bonus after the Printing Press and a large one after the Internet, and gives UNCOMMON rows a large bonus after the press. Only UNIQUE rows are exempt.",
+    "fix": "Only UNIQUE rows are exempt from diffusion. UNCOMMON rows (before the Internet) and RARE rows get a bonus rather than automatic arrival. Under the proposed translation, a bonus means the idea occurs to you, or returns if lost, with a head start from the larger bonuses (a proposal, not decided). The pre-press roll bonus also applies to every non-UNIQUE tier.",
+    "source": "§1.2 l.115-126; §6 l.1491-1494; workshop report l.177, l.459"
+   },
+   {
+    "id": "R71",
+    "problem": "R71 says a locked-out alternative 'stays visible as a faded entry'. That is true only if it had been Revealed. An alternative locked out while still Unknown must stay invisible; otherwise the screen shows a breakthrough that was never revealed.",
+    "fix": "Only a Revealed alternative locked out before it is discovered becomes a faded Path Not Taken. An Unknown alternative that is locked out leaves no trace.",
+    "source": "§1.4 l.184 ('When a Revealed alternative ... is locked out'), l.162"
+   },
+   {
+    "id": "R124",
+    "problem": "R124, R10 and R14 list only MI06 and MI07 (FOSSIL_FUELS_ABSENT) and WA10 (GUNPOWDER_ABSENT) as removed. That is incomplete. FOSSIL_FUELS_ABSENT also removes CH09 Petrochemistry, and GUNPOWDER_ABSENT removes WA10 'and all gunpowder-dependent breakthroughs', for example WA22 Cannons, which requires WA10.",
+    "fix": "Add CH09 to the fossil-fuel removals, and 'every row depending on WA10 (e.g. WA22)' to the gunpowder removals. The screen must show none of them, and nothing may imply their absence.",
+    "source": "§6 l.1462-1463; §3 WA22 l.516"
+   },
+   {
+    "id": "R82",
+    "problem": "R82's hidden-info list covers only token providers. But any 'or' option in a prerequisite, and any alternative in a focus's 'Available from' line, can name an Unknown breakthrough or one that does not exist in this world. Computing's line names MC14 (RARE, 'rare early access') and 'QM-E03 ... the elemental-world route'. MC09 has '(MI07 + CH09) or (CH04 + CH07)', and ES05 has '(MI07 or MC09)', where MI07 and CH09 are absent in fossil-fuel-absent worlds. R27 and R41 repeat QM-E03 as a Computing opener with no hiding rule.",
+    "fix": "Render prerequisites and focus-opening conditions from the world-derived ruleset, so that options removed by a Truth or an axis are never listed. Show an option only if it is Revealed or Discovered. Never use the design text's world labels ('elemental-world route'). The same applies to the conditions of unopened foci (R38, R39).",
+    "source": "§1.4 l.162, l.178; §1.2 l.74; §3 Computing l.816, MC09 l.686, ES05 l.1098"
+   },
+   {
+    "id": "R55",
+    "problem": "R55 rests on §1.2's threshold model ('Insight is tracked per Focus Area', the float storage). In the candidate model a focus has no Insight pool or threshold. Its Insight goes straight into the hidden meters of its rows under study, converted at the price in force when spent, and Insight it cannot use spills to other foci. 'Accumulated Insight' per focus is therefore only a historical tally, not progress toward anything.",
+    "fix": "Any per-focus figure is labelled as Insight received or spent, a history, and never as a balance or progress toward a threshold. Note that Insight spent on a row ahead of its era buys less progress than its face value.",
+    "source": "workshop report l.488-492 (l.490 'at the price in force when it is spent'); §1.2 l.14, l.43"
+   },
+   {
+    "id": "R62",
+    "problem": "R62 treats §6's trigger ('at >80% Insight threshold') as directly usable. In the candidate model there is no focus threshold. The nearest equivalent, a row's meter past 80%, would leak the hidden meter for a revealed row, or hidden occurrence for an unrevealed one.",
+    "fix": "Mark R62 as a threshold-model rule awaiting translation, not a requirement as stated. Any murmur must be defined without meter fractions or unrevealed occurrence (see the open question on murmurs).",
+    "source": "§6 l.1497; workshop report l.464 (occurrence hidden), l.488 (hidden meter)"
+   },
+   {
+    "id": "R59",
+    "problem": "R59 asks the screen to name price discounts: 'MC14 halved by an Antikythera or Clockwork row', 'QM-E23 halves the Plenum Drive's final research', G06's halvings and similar. Agreed decision 3 restates the multipliers below 1 (and Mycological Knowledge's) as head starts, and removes QM-E23's Plenum clause. R59 therefore conflicts with R60.",
+    "fix": "Show the multipliers below 1 as head starts ('starts half-studied'), not as cost discounts. Drop QM-E23's Plenum clause. Keep only true multipliers (per-city, era price, the W18 row multipliers, prematurity) as parts of a displayed price.",
+    "source": "workshop report l.167 and l.175 (decision 3 agreed), l.149 (stale clauses)"
+   },
+   {
+    "id": "R52",
+    "problem": "R52 says that while an Endeavour runs 'the player cannot also select a focus'. That reads as a lock. Each turn the player chooses either an active focus or an Endeavour, and choosing a focus stops the Endeavour, whose progress then decays slowly.",
+    "fix": "Selecting a focus during an Endeavour is allowed, but the control states that this abandons the Endeavour, its progress decaying slowly and resumable later (R109).",
+    "source": "§1.5 l.191, l.195; workshop report l.461"
+   },
+   {
+    "id": "R106",
+    "problem": "R106 says the Endeavour's remaining turns 'can be exact'. The target (2× the price at commitment) is fixed, but Insight income follows the civilisation's science output and varies from turn to turn. A prototype can also halt mid-build.",
+    "fix": "Show the progress percentage and the Insight total exactly, and the remaining turns as an estimate at current income.",
+    "source": "§1.2 l.39 (Insight is science output); workshop report l.493; §4 l.1218"
+   },
+   {
+    "id": "R94",
+    "problem": "R94 and R120 say a revealed RARE or UNIQUE comes 'only from theory, observation or the Determinist Institute', and R99's list of sources also leaves some out. They miss Endeavour spin-offs, which 'reveal or discover an unrelated qualifying breakthrough', and espionage, by which spies steal concepts (UNIQUE rows cannot be stolen).",
+    "fix": "Add Endeavour spin-offs (any tier) and espionage (any tier but UNIQUE) to the sources of revelation in R94, R99 and R120.",
+    "source": "§1.5 l.194; §1.4 l.176; §6 l.1503"
+   },
+   {
+    "id": "R57",
+    "problem": "R57's hidden info says 'the roll-bonus part of a Necessity modifier is an odd and stays hidden'. Under the agreed translation of the threshold terms, Necessity's roll bonus becomes Insight alone, so there is no hidden roll part.",
+    "fix": "A Necessity modifier is extra Insight to its focus, shown in full. No roll component exists.",
+    "source": "workshop report l.177 ('Necessity's roll bonus becomes Insight alone'); §1.3 l.154"
+   }
+  ]
+ },
+ "style": {
+  "composition": "What the player sees (TechPickerScreen extends PickerScreen; all sizes are in Unciv virtual pixels. The stage is ExtendViewport(h, h) with h = settings.screenSize.virtualHeight (BaseScreen.kt:75-79). The default ScreenSize is Small, 900x600 (GameSettings.kt:34, 333-338). On a 16:9 window that is about 1067x600 virtual px.)\n\n1. THERE IS NO TOP BAR. PickerPane is a single vertical SplitPane: scrollPane(topTable) above bottomTable (PickerPane.kt:41-47, 65). The split is at least 0.85 (PickerPane.kt:34, 71), and the bottom bar is at most 150 px tall (PickerPane.kt:35, 70). On Small that leaves about 510 px of tree and about 90 px of bottom bar. In the upstream screenshot extraImages/Screenshots/TechTree.png (1847x1013 physical, about 1.175 physical px per virtual px), the bar is about 122 virtual px tall.\n\n2. TREE AREA (top 85%). The tree is one big Table (techTable) centred inside topTable on a solid navy #000033 background (TechPickerScreen.kt:63-68, 100-101).\n   - It scrolls in both directions in an AutoScrollPane with overscroll off (TechPickerScreen.kt:86). Input is mouse wheel when hovered (AutoScrollPane.kt:54-74), or drag and fling. That pane is built with an empty ScrollPaneStyle (PickerPane.kt:45, AutoScrollPane.kt:45), so the tree has NO visible scrollbars.\n   - Layout is a grid: columns = tech.column.columnNumber (left to right), rows = tech.row 1..N (top to bottom) (TechPickerScreen.kt:155-161, 197-223). G&K has 18 columns, 10 rows, 80 techs and 9 eras (Techs.json). Empty grid slots are empty cells.\n   - Row 0 is the era header strip. Each era gets one header cell spanning its columns (colspan) (TechPickerScreen.kt:163-195).\n   - Each tech cell pads its button 20 px left, 60 px right and 2 px top and bottom, plus 7 px extra on top for the first row (TechPickerScreen.kt:204-206). That gives an 80 px horizontal gutter between buttons, which carries the prerequisite lines, and 4 px between rows. The cell pitch is about 345 px per column and about 62 px per row (screenshot: 402 and 73 physical px), so the full G&K tree is about 6,200 x 650 px.\n   - Every cell in the current era's columns is filled dark teal #072E2B, giving a vertical band behind the current era (TechPickerScreen.kt:208-209). All other cells show the navy behind them.\n   - A 1 px vertical era divider (grey at 60% alpha) drops 1000 px from the bottom-left of each era header (TechPickerScreen.kt:261-269).\n   - Prerequisite lines run from the right-middle of the prerequisite button to the left-middle of the dependent tech. The elbows sit halfway across the gutter (TechPickerScreen.kt:271-372).\n   - When the queue holds more than one tech, numbered queue-order discs are drawn on the queued buttons (TechPickerScreen.kt:374-392).\n\n3. BOTTOM BAR (bottom ~15%). Solid #000033 (TechPickerScreen.kt:102), with a 3 px blue divider handle above it. The bar is one row of three cells (PickerPane.kt:49-61):\n   - Left: a \"Close\" text button, pad 10. It closes the screen; Esc/Back is bound to it (PickerScreen.kt:48-53).\n   - Middle: the description, growing to fill. It is a wrapping white 18 px Label with 10 px padding in its own small scroll pane, which does have 10 px scrollbar knobs (PickerPane.kt:52-56). It shows the selected tech's description: lines like \"Buildings enabled:\", \" • Stock Exchange (+3 Gold; …)\", \"Reveals Aluminum on the map\", with inline stat glyphs (TechnologyDescriptions.kt:30-75). Clicking it or pressing F1 opens the Civilopedia entry (TechPickerScreen.kt:88-92).\n   - Right: the action button, pad 10, right-aligned. It starts disabled and reads \"Pick a tech\" (\"Pick a free tech\" in free-tech mode) (TechPickerScreen.kt:104).\n\n4. OPENING. The screen opens from the top-bar science stat, the world-screen tech button (F6), a notification or the next-turn action. It scrolls to centre on the current tech, or on the tech named by the notification. It also selects that tech, so its description shows, if the tech is researched or the queue holds 1 or fewer techs. With no current tech, it centres on the first researchable tech (TechPickerScreen.kt:107-122, 474-481).\n\n5. SELECTION\n   - Left-click a tech: shows its description. If it is not researched and the game state allows it, the queue is replaced by the full path of unresearched prerequisites ending at that tech. The action button becomes enabled with two centred lines: \"Research [first tech in path]\" and \"(progress/total cost of path)\", e.g. \"Research Printing Press / (537/7845)\" (TechPickerScreen.kt:394-472).\n   - Right-click: appends the path to the existing queue (TechPickerScreen.kt:445-450).\n   - Double-click: confirms and exits, playing the Paper sound (TechPickerScreen.kt:219).\n   - Clicking an already-researched tech: the button reads \"Pick a tech\" and is disabled (TechPickerScreen.kt:420-425).\n   - If a unique on the path makes it unavailable, the button shows that unique's text, disabled (TechPickerScreen.kt:432-443).\n   - Every selection recolours all buttons and redraws the lines and order discs (TechPickerScreen.kt:226-253).\n   - Tech buttons are plain Tables: no hover state, no tooltip, no click sound on a single click.\n   - Confirming writes the queue and pops the screen (TechPickerScreen.kt:129-143).",
+  "colors": [
+   {
+    "name": "Screen / tree background (clearColor)",
+    "value": "#000033 (Color 0x000033ff; BaseScreen fallback 0,0,0.2)",
+    "usage": "Background of techTable and of the bottom bar. Both are skin paths with no image in the Minimal skin, so they render as a solid fill tinted clearColor.",
+    "source": "SkinConfig.kt:8; BaseScreen.kt:169, 209; TechPickerScreen.kt:101-102; docs/Modders/Creating-a-UI-skin.md:129-130"
+   },
+   {
+    "name": "Current-era column band",
+    "value": "#072E2B (queuedTechColor.darken(0.5) = 7,46,43)",
+    "usage": "Fill of every grid cell in the current era's columns, giving a vertical dark-teal band. Also used for the world-screen 'Pick a tech' button.",
+    "source": "TechPickerScreen.kt:208-209; TechPolicyDiplomacyButtons.kt:70; confirmed in TechTree.png"
+   },
+   {
+    "name": "ResearchedTechColor",
+    "value": "#FFD700 (255,215,0)",
+    "usage": "Fill of researched tech buttons.",
+    "source": "TechPickerScreen.kt:75, 230"
+   },
+   {
+    "name": "Researched tech name text",
+    "value": "#9A6210 (154,98,16)",
+    "usage": "Name label on researched (gold) buttons. Other names are white.",
+    "source": "TechPickerScreen.kt:239-241"
+   },
+   {
+    "name": "CurrentTechColor",
+    "value": "#4893AF (72,147,175)",
+    "usage": "Fill of the first tech in the queue, the one being researched. Also the colour of prerequisite lines into queued techs.",
+    "source": "TechPickerScreen.kt:74, 233, 294"
+   },
+   {
+    "name": "ResearchableTechColor",
+    "value": "#1CAA00 (28,170,0)",
+    "usage": "Fill of techs whose prerequisites are all met. Also the colour of lines from a researched prerequisite to an unresearched tech.",
+    "source": "TechPickerScreen.kt:76, 234, 293"
+   },
+   {
+    "name": "QueuedTechColor",
+    "value": "#0E5C56 (7*2,46*2,43*2 = 14,92,86)",
+    "usage": "Fill of queued techs that are not yet researchable. Also the fill of the current era's header.",
+    "source": "TechPickerScreen.kt:77, 173, 235"
+   },
+   {
+    "name": "ResearchedFutureTechColor",
+    "value": "#7F3200 (127,50,0)",
+    "usage": "Fill of Future Tech once researched; it is repeatable.",
+    "source": "TechPickerScreen.kt:78, 231"
+   },
+   {
+    "name": "Unavailable / default tech fill (CHARCOAL)",
+    "value": "#111111 (Color 0x111111FF)",
+    "usage": "Fill of techs that are not researchable and not queued, and of future-era headers. The older upstream screenshot shows pure #000000 here.",
+    "source": "ImageGetter.kt:43; TechPickerScreen.kt:175, 236"
+   },
+   {
+    "name": "Tech button outer border",
+    "value": "#B3B3B3 (Color.WHITE.darken(0.3) = 0.7 grey; measured #B2B2B2)",
+    "usage": "Outline ring of every tech button: the rounded shape tinted grey, with the coloured fill inset 1.5 px.",
+    "source": "TechButton.kt:50, 90-92"
+   },
+   {
+    "name": "Unlock-icon strip",
+    "value": "rgba(17,17,17,0.70) (CHARCOAL, alpha 0.7)",
+    "usage": "Rounded strip behind the unlock icons on each button. It reads as a darkened version of the button fill (e.g. #083300 on green in the screenshot).",
+    "source": "TechButton.kt:107-111"
+   },
+   {
+    "name": "Past-era header",
+    "value": "#FFAF00 (255,175,0), label #782E10 (120,46,16)",
+    "usage": "Header fill and label colour for eras before the player's current era.",
+    "source": "TechPickerScreen.kt:174, 186-187"
+   },
+   {
+    "name": "Current-era header",
+    "value": "#0E5C56 with white label",
+    "usage": "Header for the era the player is in.",
+    "source": "TechPickerScreen.kt:173"
+   },
+   {
+    "name": "Future-era header",
+    "value": "#111111 with white label",
+    "usage": "Header for eras not yet reached.",
+    "source": "TechPickerScreen.kt:175"
+   },
+   {
+    "name": "Era header border",
+    "value": "#FFFFFF, 1 px",
+    "usage": "Outer table pad(1) with a white fill, around each header.",
+    "source": "TechPickerScreen.kt:178-182"
+   },
+   {
+    "name": "Era divider line",
+    "value": "rgba(127,127,127,0.6) (Color.GRAY at alpha 0.6; renders #4C4C61 over navy)",
+    "usage": "1 px vertical line at each era's left edge, 1000 px long.",
+    "source": "TechPickerScreen.kt:265-266"
+   },
+   {
+    "name": "Prerequisite line, default",
+    "value": "#FFFFFF",
+    "usage": "Into researched techs, and between techs whose prerequisites are unresearched and which are not queued.",
+    "source": "TechPickerScreen.kt:291-296"
+   },
+   {
+    "name": "Queue-order disc",
+    "value": "fill rgba(0,64,133,0.75) (skinConfig.baseColor 0x004085bf), ring #FFFFFF",
+    "usage": "Numbered disc on queued techs when the queue has more than one entry (renders about #32659D to #4070A4).",
+    "source": "SkinConfig.kt:7; TechPickerScreen.kt:382-385"
+   },
+   {
+    "name": "Text button, up",
+    "value": "#334D80 (skin color 0.2,0.3,0.5)",
+    "usage": "Close and action buttons (TextButtonStyle 'default' up = button-c). Measured #334C7F.",
+    "source": "Skin.json:14-19, 148-151, 364-373"
+   },
+   {
+    "name": "Text button, hover",
+    "value": "#65DC72 (highlight 0.396,0.863,0.447), font #404040",
+    "usage": "Hover state of text buttons; overFontColor is dark-gray.",
+    "source": "Skin.json:26-31, 38-43, 156-159, 369-372"
+   },
+   {
+    "name": "Text button, pressed",
+    "value": "#409955 (pressed 0.253,0.6,0.333)",
+    "usage": "Pressed state of text buttons.",
+    "source": "Skin.json:44-49, 152-155"
+   },
+   {
+    "name": "Text button, disabled",
+    "value": "#252B3E (disabled 0.145,0.169,0.243), font white",
+    "usage": "The action button before a valid pick, or when it is not your turn.",
+    "source": "Skin.json:32-37, 160-163, 392-400; Scene2dExtensions.kt:63-72"
+   },
+   {
+    "name": "SplitPane divider",
+    "value": "#334D80 centre over 1 px edges at half intensity (~#19263F to #283C64 measured)",
+    "usage": "3 px horizontal handle between the tree and the bottom bar (RectangleWithOutline 3x3 tinted 'color').",
+    "source": "Skin.json:248-255; Skin.atlas:23-30; rectangleWithOutline.9.png (grey 127 ring around a white centre)"
+   },
+   {
+    "name": "Scrollbar knob (description only)",
+    "value": "#334D80, minimum 10x10",
+    "usage": "Knobs in the description scroll pane. The tree scroll pane has none.",
+    "source": "Skin.json:200-203, 312-316; BaseScreen.kt:186"
+   },
+   {
+    "name": "Selection colour (skin)",
+    "value": "#3A98DB (0.227,0.596,0.859)",
+    "usage": "Skin-wide selection colour, for lists and sliders. Not used on this screen, but part of the palette.",
+    "source": "Skin.json:50-55"
+   },
+   {
+    "name": "Era colours (iconRGB), applied x0.4 to tech icons",
+    "value": "Ancient 255,87,35 -> #66230E; Classical 233,31,99 -> #5D0C28; Medieval 157,39,176 -> #3F1046; Renaissance 104,58,183 -> #2A1749; Industrial 63,81,182 -> #192049; Modern 33,150,243 -> #0D3C61; Atomic 0,150,136 -> #003C36; Information/Future 76,176,81 -> #1E4620",
+    "usage": "Tech icon glyph and the 2 px portrait ring use the era colour darkened by 0.6, i.e. 40% of the raw RGB. Measured Renaissance glyph: #2A184A.",
+    "source": "Eras.json:17,33,54,74,94,120,147,176,206; Era.kt:105-108; Portrait.kt:174-181"
+   },
+   {
+    "name": "Resource-type portrait inner discs",
+    "value": "Luxury #FFD800, Strategic #C14D00, Bonus #A8C3C9",
+    "usage": "Inner disc of revealed-resource icons in the unlock strip.",
+    "source": "ResourceType.kt:5-8; Portrait.kt:166-169"
+   },
+   {
+    "name": "Built-elsewhere wonder ring",
+    "value": "Color.RED (#FF0000)",
+    "usage": "Outer ring of a wonder icon when another civ has already built it.",
+    "source": "Portrait.kt:195-197; TechnologyDescriptions.kt:114-126"
+   },
+   {
+    "name": "World-screen progress bar (not on this screen)",
+    "value": "background white; next-turn Color.BLUE brightened 0.3; done Color.BLUE darkened 0.5 (#000080); 1 px grey border",
+    "usage": "Vertical 2x48 bar, drawn only when TechButton is built for the world screen.",
+    "source": "TechButton.kt:59-71"
+   }
+  ],
+  "components": [
+   {
+    "name": "PickerPane / PickerScreen frame",
+    "description": "Vertical SplitPane: the tree scroll pane on top, the bottom bar below. No top bar, no title. The bottom bar is a single row: Close | description | action button.",
+    "metrics": "Split at least 0.85; bottom bar at most 150 px. Close cell pad 10; description inner pad 10, grows; right group pad 10, right-aligned.",
+    "source": "PickerPane.kt:24-72; PickerScreen.kt:8-63"
+   },
+   {
+    "name": "Tech button (TechButton)",
+    "description": "Pill-like rounded rectangle. The Table.background is the shape tinted grey #B3B3B3 (the border). An inner Image of the same shape, 3 px smaller and centred, carries the state colour. On the left sits the tech portrait. On the right are two rows: the name (left, ellipsised) with the turns (right) on top, and the dark unlock-icon strip below.",
+    "metrics": "Table pad top 5, left 5, bottom 5, right 0. Portrait 46 px + 2 px ring = 48 px, padLeft 2, padRight 5. Name cell width 140, padRight 15. Turns cell width 40, padRight 10. Icon strip width fixed at 195 (min=pref=max). Computed width 5+2+48+5+205 = 265 px. Height about 58 px (measured 68 physical / 1.175). Fill inset 1.5 px per side (width-3, height-3). Shape roundedEdgeRectangle-mid: 38x38 nine-patch, split 17/17/15/15, corner radius about 15 px.",
+    "source": "TechButton.kt:28-95; Skin.atlas:40-48"
+   },
+   {
+    "name": "Unlock-icon strip",
+    "description": "Rounded strip below the name holding up to 5 unlock portraits, in this order: units, buildings and wonders, obsoleted items, revealed resources, improvements, unique-param improvements, then uniques (Fallback star icon).",
+    "metrics": "Background roundedEdgeRectangle-small (24x24, split 10, corner radius about 10 px) tinted rgba(17,17,17,0.7). Pad top 2, left 10, bottom 2, right 0. Icons 30 px (+2 ring = 32 px), padRight 5, at most 5 (.take(5)). Strip height about 36 px.",
+    "source": "TechButton.kt:102-130; TechnologyDescriptions.kt:99-168; Skin.atlas:57-65"
+   },
+   {
+    "name": "Tech portrait",
+    "description": "Circle portrait. The outer disc is the 2 px ring and the inner disc is white. The tech glyph is a white silhouette tinted with the era colour x0.4, at 75% of the disc size. The ring uses the same tint.",
+    "metrics": "Disc 46 px; ring borderSize 2 (group 48 px); glyph 34.5 px. Source art TechIcons/<name>.png, 100x100 white silhouettes; circle TechIcons/Circle.png, 178x178.",
+    "source": "TechButton.kt:56-57; ImageGetter.kt:296; Portrait.kt:33, 76, 113-131, 174-181"
+   },
+   {
+    "name": "Unlock portraits",
+    "description": "Same portrait construction at 30 px. Units and buildings: black glyph on a white disc with a black ring. Uniques: CHARCOAL glyph, or an 8-point star Fallback. Resources: inner disc in the resource-type colour. Improvements: inner disc in the colour of their top stat. A wonder built by another civ gets a red ring.",
+    "metrics": "30 px disc + 2 px ring, glyph 22.5 px",
+    "source": "Portrait.kt:148-243; ImageGetter.kt:274-300"
+   },
+   {
+    "name": "Turns label",
+    "description": "Turns to research, followed by the hourglass glyph U+23F3, which renders from EmojiIcons/Turn. Right-aligned on the name row. Empty for researched techs, except Future Tech.",
+    "metrics": "14 px font, cell width 40, padRight 10",
+    "source": "TechButton.kt:35-38, 78; TechPickerScreen.kt:243-245; Fonts.kt:139"
+   },
+   {
+    "name": "Era header",
+    "description": "One cell per era, spanning that era's columns, in the top row of the grid. A white 1 px frame (outer table pad 1 on a white fill) around a coloured fill with a centred 18 px label. Past eras are amber with a brown label, the current era teal with a white label, future eras charcoal with a white label.",
+    "metrics": "Height = one 18 px text line + 2 px border (about 21-23 px physical in the screenshot). The first tech row gets a 7 px top pad below it.",
+    "source": "TechPickerScreen.kt:170-195, 205-206"
+   },
+   {
+    "name": "Era band and dividers",
+    "description": "The current era's columns get a dark-teal cell fill (#072E2B). Every era also gets a 1 px grey (alpha 0.6) vertical line, starting at its header's lower-left corner and running 1000 px down.",
+    "metrics": "Line width 1, x = label.x - 1, length 1000",
+    "source": "TechPickerScreen.kt:208-209, 261-269"
+   },
+   {
+    "name": "Prerequisite connector lines",
+    "description": "Each link runs from the right-middle of the prerequisite to the left-middle of the dependent tech. Same row: a straight horizontal bar. Different rows: a horizontal stub to the midpoint of the gutter, a vertical run, and a horizontal stub into the tech, with 45-degree chamfer segments at both elbows (radius r = 6 px). Colour: white, or green #1CAA00 when the prerequisite is researched and the tech is not, or blue #4893AF when the tech is queued. Blue lines are raised to the front.",
+    "metrics": "Thickness 2 px; 4 px when the tech is queued and the prerequisite unresearched. Elbow at halfLength = deltaX/2 across the 80 px gutter. Chamfer r = 6.",
+    "source": "TechPickerScreen.kt:271-372; ImageGetter.kt:475-499"
+   },
+   {
+    "name": "Queue-order indicator",
+    "description": "A white number in a semi-transparent base-blue disc with a white ring, drawn at the left edge of each queued button, vertically centred. In the screenshot it overlaps the portrait's upper-left. Shown only when the queue has 2 or more techs.",
+    "metrics": "Number font 18; inner disc 28 px (baseColor, alpha 0.75); outer white disc 30 px",
+    "source": "TechPickerScreen.kt:374-392"
+   },
+   {
+    "name": "Text buttons (Close, action)",
+    "description": "Skin TextButton 'default' on the RoundedEdgeRectangle nine-patch: white 18 px text, blue fill, green on hover with dark-grey text, darker green when pressed, slate when disabled. The action button carries two centred lines, e.g. 'Research Printing Press' and '(537/7845)'.",
+    "metrics": "roundedEdgeRectangle: 52x50 nine-patch, split 19/20/19/21 (corner radius about 20 px), content pad left 12, right 13, top 7, bottom 7. The drawable's minimum size of 52x50 makes the buttons about 50 px tall (screenshot Close about 60 physical px, about 51 virtual).",
+    "source": "Skin.json:147-175, 364-400; Skin.atlas:31-39; PickerPane.kt:24, 32, 50, 61"
+   },
+   {
+    "name": "Description pane",
+    "description": "A wrapping, left-aligned white label in its own auto-scroll pane, top-aligned with the Close button. Clicking it opens the Civilopedia (F1).",
+    "metrics": "Font 18; padding 10 on every side; scroll is reset when the text changes (scrollY clamped to 0..8).",
+    "source": "PickerPane.kt:52-56, 92-99; TechPickerScreen.kt:88-92"
+   },
+   {
+    "name": "World-screen tech button (for reference)",
+    "description": "The same TechButton shown on the world screen, with a vertical progress bar between the portrait and the text. Before anything is queued, a 'Pick a tech' pill on a #072E2B roundedEdgeRectangle with 20 px padding appears instead.",
+    "metrics": "Progress bar 2x48 with a 1 px grey border, padRight 5",
+    "source": "TechButton.kt:59-71; TechPolicyDiplomacyButtons.kt:70-72"
+   }
+  ],
+  "typography": "Font: the platform's default font. Fonts.DEFAULT_FONT_FAMILY is \"\" (Fonts.kt:42), which gives Java's default \"Dialog\" sans on desktop (DesktopFont.kt:56) and the default Typeface on Android (AndroidFont.kt:82). The upstream screenshot shows a DejaVu-Sans-like humanist sans. Glyphs are rasterised at ORIGINAL_FONT_SIZE = 100 px (Fonts.kt:41) and scaled down: by default 18/100 (NativeBitmapFontData.kt:74), and per label setFontScale(size/100) (Scene2dExtensions.kt:350-367, 392-398). There is one weight, regular; no bold or italic anywhere. Markup colours are enabled (Fonts.kt:55).\n\nSizes, as virtual px of font height:\n- Default label size 18 (Constants.kt:136): era header names, the description text, text-button labels and the queue-order numbers (TechPickerScreen.kt:382).\n- Heading size 24 (Constants.kt:137) is not used on this screen.\n- Tech name and turns are 14 px (TechButton.kt:30, 36). The name is left-aligned, does not wrap and ellipsises at 140 px; the turns are right-aligned in a 40 px cell.\n- The settings fontSizeMultiplier (default 1.0) scales the raster size (GameSettings.kt:155, 239-241).\n\nColours:\n- The default label colour is white (BaseScreen.kt:200-203; Skin.json:297-302 defines 'color' but code overrides it to white).\n- Researched tech names are #9A6210; past-era header labels are #782E10.\n- Text buttons use white text, or dark-gray #404040 on hover (Skin.json:364-373).\n\nInline glyphs: Unicode stand-ins are replaced by atlas icons inside text. Examples: ⏳ for turns (EmojiIcons/Turn), ⍾ for science, ⚙ for production, ¤ for gold (Fonts.kt:139-150). The description text and turn counts therefore show small icons inline.",
+  "iconography": "All icons are flat silhouettes tinted at runtime and set inside 'portraits', which are layered circles:\n- An outer circle of size + borderSize (2 px) as the ring.\n- An inner circle of the full size.\n- A glyph at 75% of the size.\nDefaults are a white inner disc, a black ring and a white glyph (Portrait.kt:33-144). Circle art is OtherIcons/Circle.png or TechIcons/Circle.png (178x178, white). Each icon family has its own circle copy to avoid texture swaps (Portrait.kt:100-101, 179).\n\nTech portrait (46 px on the tree): TechIcons/<Tech>.png is a 100x100 white silhouette. The glyph and the ring are tinted with the tech's era iconRGB darkened by 0.6, i.e. multiplied by 0.4, over a white disc (Portrait.kt:174-181). A Renaissance tech looks like a deep purple glyph on a white coin.\n\nUnlock icons (30 px):\n- Units and buildings: black glyph, white disc, black ring (Portrait.kt:183-193).\n- Uniques: CHARCOAL glyph, or UniqueIcons/Fallback, a black 8-point star, when there is no specific icon (Portrait.kt:199-201). These stars are the most common icon in the strips.\n- Resources: inner disc in the resource-type colour (Portrait.kt:148-172).\n- Improvements: inner disc in the colour of their top stat (Portrait.kt:211-243).\n- Wonders already built by another civ: red ring (Portrait.kt:195-197).\n- Stat-based items: stat icon in a circle with a thin charcoal ring (ImageGetter.kt:284).\n- At most 5 icons per tech (TechButton.kt:118-120).\n\nShapes come from the Minimal skin nine-patches in android/Images.Skin/Skins/Minimal (Skin.atlas). All are white and tinted in code:\n- roundedEdgeRectangle: 52x50, corner radius about 20, used for buttons.\n- roundedEdgeRectangle-mid: 38x38, radius about 15, used for tech buttons.\n- roundedEdgeRectangle-small: 24x24, radius about 10, used for the icon strip.\n- rectangleWithOutline: 3x3, a 50%-grey 1 px ring around a white centre.\nSkin paths with no image fall back to a stretched 1x1 whiteDot tinted, so they render as solid rectangles with no rounding and zero minimum size (ImageGetter.kt:242-252). This applies to TechPickerScreen/Background, TechPickerScreen/BottomTable and General/Border (docs/Modders/Creating-a-UI-skin.md:62, 129-130).\n\nThe world screen's queue-order disc and the close/round buttons use OtherIcons/Circle via surroundWithCircle (Scene2dExtensions.kt:139-148).",
+  "states": "Each button's state is shown only by the fill colour of the inner rounded shape (TechPickerScreen.kt:226-248). The grey #B3B3B3 border ring, the white portrait disc and the dark unlock strip (rgba(17,17,17,0.7)) are identical in every state. Because the strip is translucent black over the fill, it shows as a darker shade of the state colour. Precedence is evaluated top to bottom:\n\n1. RESEARCHED: gold fill #FFD700, name in brown #9A6210, no turns shown. A researched Future Tech, which is repeatable, is #7F3200 instead, keeps its turns and has a white name.\n2. CURRENT (first in the temporary queue; skipped in free-tech mode): steel blue #4893AF, white name, turns shown.\n3. RESEARCHABLE (all prerequisites met): green #1CAA00, white name, turns shown. This outranks QUEUED, so a researchable tech later in the queue still shows green.\n4. QUEUED (on the path but not yet researchable): teal #0E5C56, white name, turns shown. With a queue of 2 or more, each queued tech also gets a numbered disc (28 px base-blue at 75% alpha inside a 30 px white ring) at its left edge.\n5. OTHER / not yet available: CHARCOAL #111111 (pure black in the older screenshot), white name, turns shown.\n\nThere is no separate 'unavailable/locked' visual. A tech blocked by an OnlyAvailable or Unavailable unique looks like a normal non-researchable tech; only the bottom-right action button shows the unique's text, disabled (TechPickerScreen.kt:432-443). There is no hover state, no 'selected' highlight ring, and no dimming. Selecting a tech changes only the colours and the queue numbers.\n\nLines carry state too (TechPickerScreen.kt:291-301):\n- White 2 px into researched techs.\n- Green 2 px from a researched prerequisite to an unresearched tech.\n- Blue #4893AF into queued techs: 4 px where the prerequisite is still unresearched (the path still to travel), otherwise 2 px. Blue lines are drawn on top.\n- White 2 px otherwise.\n\nEra headers show era state:\n- Past: amber #FFAF00 with a brown #782E10 label.\n- Current: teal #0E5C56 with a white label, plus the #072E2B column band.\n- Future: charcoal #111111 with a white label.\nAll headers have a 1 px white frame.\n\nThe action button reflects the selection:\n- Disabled #252B3E 'Pick a tech' / 'Pick a free tech' initially, or when a researched tech is selected.\n- Enabled #334D80 'Research [X]' with '(progress/cost)' on a second line (TechPickerScreen.kt:456-463).\n- Free-tech mode: 'Pick [X] as free tech' (TechPickerScreen.kt:483-492).\n- 'Unavailable', disabled, when the path is empty.",
+  "notes": "1. Reference image: extraImages/Screenshots/TechTree.png (1847x1013) is an upstream screenshot. Sampled pixels match the code: navy #000033, era band #072E2B, headers #FFAF00 / #0E5C56, buttons #1CAA00 / #FFD700 / #4893AF / #0E5C56, border #B2B2B2, era divider #4C4C61, Close fill #334C7F. It predates CHARCOAL: unavailable buttons, future-era headers and the strip overlay are pure black there, where the current code uses #111111. Treat the code values as authoritative. The tutorial crop android/assets/ExtraImages/Tutorials/Pick technology.png (528x105) also exists.\n\n2. Units: every number above is in Unciv virtual px. Scale is screen height / virtualHeight (Small 600, Medium 700, Large 800, Huge 1000). The screenshot works out at about 1.175 physical px per virtual px. A browser mockup at 1:1 CSS px should look right at around 1000-1100 x 600-700 px, or be scaled up uniformly.\n\n3. Skin system: colours can be overridden per skin through jsons/Skins/<skin>.json, via skinVariants keyed by path (TechPickerScreen/CurrentTechColor etc.; SkinStrings.kt:50-103). The base game ships no such json (android/assets/jsons/Skins does not exist), so the SkinConfig defaults and code defaults above apply. The skin is 'Minimal' (Constants.kt:125-126). The full list of skinnable keys for this screen is in docs/Modders/Creating-a-UI-skin.md:129-136, plus General/Border at line 62.\n\n4. CSS translation hints:\n   - Tech button: about 265x58 px, border-radius about 15 px, 1.5 px solid #B3B3B3 border, state-colour fill, padding 5 5 5 0.\n   - Portrait: a 48 px circle with a 2 px ring in the era colour x0.4, a white face, and an era-tinted glyph of about 34 px.\n   - Name row: 14 px, 140 px wide, ellipsis, plus a 40 px right-aligned turns cell with an hourglass.\n   - Strip: 195x36 px, radius 10, rgba(17,17,17,.7), padding 2 0 2 10, five 32 px icons with 5 px gaps.\n   - Gutters: 20 px left and 60 px right of each button; 4 px between rows.\n   - Lines: 2 or 4 px with 6 px chamfered elbows at the gutter midpoint.\n   - Era header: about 22 px tall with a 1 px white frame.\n   - Buttons: min-height 50 px, radius about 20 px, padding 7 13 7 12, #334D80; hover #65DC72 with #404040 text; pressed #409955; disabled #252B3E.\n   - Body font: 18 px sans, white, on #000033.\n\n5. Behaviour gaps worth knowing for the redesign:\n   - The tree has no scrollbars and no minimap; the player scrolls by drag or wheel.\n   - Era divider lines are a fixed 1000 px long.\n   - Buttons have no hover or tooltip.\n   - Selection is shown only through recolouring and the bottom description and action button.\n   - The bottom bar is capped at 150 px, so long descriptions scroll inside it.\n   - Right-click queues extra techs, and double-click confirms.\n\n6. Line citations for PickerScreen.kt, PickerPane.kt and SkinConfig.kt are to the files themselves; I read them concatenated and re-based the numbers. No files were edited."
+ }
+}

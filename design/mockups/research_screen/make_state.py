@@ -63,10 +63,11 @@ for line in tree.split('\n'):
 
 R = mod.ROWS; EO = mod.EO
 def status(k):
+    """the player's view: an idea occurring does not reveal it (workshop report, the candidate model)"""
     if k in S['have']: return 'owned'
-    if k in S['occurred']: return 'studying'
-    revealed = k in S['glimpsed'] or k in S['diff'] or k in S['diff_unc']
+    revealed = R[k]['tier'] == 'CORE' and k in S['occurred'] or k in S['glimpsed'] or k in S['diff'] or k in S['diff_unc']
     if not revealed: return None
+    if k in S['occurred']: return 'studying'
     return 'closed' if k in S['lost'] else 'waiting'
 rows = []
 for k in sorted(R):
@@ -74,7 +75,8 @@ for k in sorted(R):
     if st is None: continue
     r = dict(id=k, name=ROWINFO.get(k, {}).get('name', k), focus=R[k]['focus'], era=R[k]['era'], tier=R[k]['tier'], status=st,
              prereq=ROWINFO.get(k, {}).get('prereq', ''), unlocks=ROWINFO.get(k, {}).get('unlocks', []))
-    if st == 'owned': r['turn'] = S['have'][k][0]
+    if st == 'owned': r['turn'] = S['have'][k][0]; r['new'] = S['have'][k][0] == turn
+    r['ahead'] = EO.index(R[k]['era']) > int(S['d'])   # from a later era than the civilisation's development: costs the premium
     if st == 'studying':
         r['progress'] = round(min(S['progress'].get(k, 0.0) / S['need'][k], 0.99), 2) if S['need'].get(k) else 0.0
         r['since'] = S['occ_turn'].get(k)
@@ -82,11 +84,24 @@ for k in sorted(R):
     if st == 'closed': r['source'] = 'rival' if (k in S['diff'] or k in S['diff_unc']) else 'glimpse'; r['closed_turn'] = S['lost_at'].get(k, [None])[0]
     r['target'] = k in S['funded']
     rows.append(r)
+# Competing Solutions (design §6), which the engine does not model: a revealed alternative whose primary is owned is
+# locked out, a Path Not Taken; one whose primary is not yet owned is marked as competing
+PAIRS = [('FA16', 'CH12'), ('CO05', 'CO03'), ('WA08', 'WA07'), ('WM11', 'CO23'), ('MD20', 'MD06'), ('NP08', 'ES06'), ('NP-F01', 'NP04'),
+         ('ES03-W', 'ES03'), ('ES05-W', 'ES05'), ('ES14', 'ES08'), ('TH08', 'MC09'), ('TH14', 'MC08'), ('CH09-W', 'CH09'), ('CP13', 'CP01'),
+         ('CP14', 'CP07'), ('EL14', 'EL07')]
+byid = {r['id']: r for r in rows}
+for alt, prim in PAIRS:
+    r = byid.get(alt)
+    if not r or r['status'] == 'owned': continue
+    if prim in S['have']: r['status'] = 'not_taken'; r['instead'] = ROWINFO.get(prim, {}).get('name', prim)
+    elif prim in byid: r['competes_with'] = byid[prim]['name']
 out = dict(turn=turn, research_ends=end, method=g['m'], era=EO[min(int(S['d']), len(EO) - 1)], development=round(S['d'], 2),
            insight_per_turn=round(S['inc'], 1), funded_focus=S['active'], endeavour=S['end_k'],
            endeavour_progress=round(S['end_prog'] / S['end_cost'], 2) if S['end_k'] and S['end_cost'] else None,
            flow={f: round(v, 1) for f, v in sorted(S['flow'].items(), key=lambda kv: -kv[1])}, foci=FOCI,
-           counts={s: sum(1 for r in rows if r['status'] == s) for s in ('owned', 'studying', 'waiting', 'closed')}, rows=rows)
-json.dump(out, open(os.path.join(HERE, 'late_game_state.json'), 'w'), indent=1, ensure_ascii=False)
+           counts={s: sum(1 for r in rows if r['status'] == s) for s in ('owned', 'studying', 'waiting', 'closed', 'not_taken')},
+           hidden_under_study=sum(1 for k in S['occurred'] if k not in S['have'] and status(k) is None),
+           foci_entered=sorted({R[k]['focus'] for k in R if k in S['have'] or k in S['disc']}), rows=rows)
+json.dump(out, open(os.path.join(HERE, os.environ.get('OUT', 'late_game_state.json')), 'w'), indent=1, ensure_ascii=False)
 print(f"turn {turn} (research ends {end}), era {out['era']} ({out['development']}), funded {out['funded_focus']}, "
       f"Insight {out['insight_per_turn']}/turn; {out['counts']}")
