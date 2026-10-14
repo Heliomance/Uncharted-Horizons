@@ -333,6 +333,18 @@ The cost is pace for an isolated civilisation: it now researches the chains it u
 
 **Revealing and Endeavours (Tamsin, 14 October):** if revealing an idea means it has occurred, everything visible is already under study and Grand Endeavours lose their main purpose, which in this model is to bypass occurrence. A reconciling reading, in §1.4's own terms ("Fusion has been a visible target since the 1950s"): *Revealed* means the goal is known to be possible (from theory, a rival's example, or scholars seeing what must be possible); *occurring* means someone has the insight that lets ordinary research progress; an Endeavour is the only route to a revealed goal without the insight. Then occurrence is the luck, rediscovery on demand the automatic safety net, and revealing with Endeavours the deliberate route, and a glimpse reveals the goal, not the solution. The simpler alternative: revealed means occurred, and Endeavours become a timing tool (2× to finish something already under study now) besides Competing Solutions and the FTL prototype. Note: the simulated expert can Endeavour any idea under study that it targets, revealed or not, standing in for theory revealing applications, so the measurements change little between the two readings.
 
+**What Endeavours are worth (measured 14 October, with the Endeavour fault fixed; atomic, 300 games a player).** The simulated players start 8–11 Endeavours a game in the FTL endgame, 85–90% of them on ideas already under study, which is reordering. Against the same games without Endeavours, that costs 3.8 turns (expert), 7.8 (novice) and 9.3 (average) in games that finish either way. Endeavours only pay by rescuing games: without them, 19 / 23 / 22 of 300 cannot finish. The fault had hidden the cost by giving every Endeavour 80% extra Insight, which is why the FTL work found them nearly free. Tamsin's instinct holds: an Endeavour is never worth it just to change the order things arrive in.
+
+**The package that follows** (Tamsin's gameplay brief: control at a price, and no revealed breakthrough left stuck with no explanation): rediscovery on demand (10% a waiting item, FTL prototypes included); Grand Endeavours only for revealed ideas that have not occurred (`ENDUNOCC=1`), never for reordering; glimpses as now.
+
+| Victory median (unfinished of 300) | Expert | Novice | Average |
+|---|---|---|---|
+| Contacts, as now | 298 (0) | 308 (4) | 382 (0) |
+| Contacts, no Endeavours | 293 (19) | 300 (23) | 373 (22) |
+| Contacts, package | 296 (0) | 303 (0) | 377 (0) |
+| Isolated, as now | 311 (17) | 332 (30) | 412 (16) |
+| Isolated, package | 303 (0) | 325 (0) | 404 (0) |
+
 **Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes counted as waiting? At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")? And is W16's funded-focus rule still needed alongside it?
 
 ## The candidate model, exactly (as the simulator runs it)
