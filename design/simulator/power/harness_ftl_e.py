@@ -62,6 +62,8 @@ STATE = {}   # live references to lost, glimpsed and diffusing ideas
 END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE 'request')
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
+END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
+                              # never one already under study (Tamsin, 14 Oct 2026: reordering is never worth an Endeavour)
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
                      # one row of each needed), e.g. the FTL prototypes of the hypotheses still standing
 SPREAD_FIX = True    # while an Endeavour runs, the spread keeps only its own share (20%, or 50% before SO05). False reproduces the fault in
@@ -193,10 +195,11 @@ def run(prm, seed, max_turns=450):
         sh = 0.8 if 'SO05' in have else 0.5
         if end_k is not None and (end_k in have or (END_RULE != 'request' and end_k not in FUNDED)): END_LOG.append((turn, end_k, 'dropped')); end_k = None
         if END_MULT and end_k is None and (END_FROM is None or any(ERA_I[k] >= END_FROM for k in have)) and (END_AFTER is None or END_AFTER in have):   # gate: first discovery of era END_FROM            # Grand Endeavour: commit to the targeted live row it saves most time on (at least a turn)
-            if END_RULE == 'request' and END_REQUEST and END_REQUEST not in have and prereqs_met(END_REQUEST, have):
+            if END_RULE == 'request' and END_REQUEST and END_REQUEST not in have and prereqs_met(END_REQUEST, have) and not (END_UNOCCURRED_ONLY and END_REQUEST in occurred):
                 end_k, end_cost, end_prog = END_REQUEST, END_MULT * COSTMULT.get(END_REQUEST, 1.0) * est_price(END_REQUEST), 0.0; END_LOG.append((turn, END_REQUEST, 'start'))
+                _ek = 'end_on_occurred' if end_k in occurred else 'end_on_unoccurred'; acct[_ek] = acct.get(_ek, 0) + 1   # (accounting only)
             best = None
-            for k in ([] if END_RULE == 'request' else live) + [x for x in (obs | glimpsed) if END_RULE != 'request' and x not in occurred and x not in have and prereqs_met(x, have) and (x in lost or x in diff_since or x in diff_unc)]:
+            for k in ([] if (END_RULE == 'request' or END_UNOCCURRED_ONLY) else live) + [x for x in (obs | glimpsed) if END_RULE != 'request' and x not in occurred and x not in have and prereqs_met(x, have) and (x in lost or x in diff_since or x in diff_unc)]:
                 if k not in FUNDED or k in have: continue
                 if END_ONLY is not None and k not in END_ONLY: continue   # 'last' rule: only the last missing piece and its chain
                 if k in occurred:
@@ -212,7 +215,9 @@ def run(prm, seed, max_turns=450):
                     t_norm = max(0, (5 if cp04_turn is not None else 10) - (turn - s0)) if s0 is not None else float('inf')
                 cost = END_MULT * COSTMULT.get(k, 1.0) * est_price(k); t_end = cost / max(inc * sh, 1e-9)
                 if t_norm - t_end >= 1.0 and (best is None or t_norm - t_end > best[0]): best = (t_norm - t_end, k, cost)
-            if best: end_k, end_cost, end_prog = best[1], best[2], 0.0; END_LOG.append((turn, end_k, 'start'))
+            if best:
+                end_k, end_cost, end_prog = best[1], best[2], 0.0; END_LOG.append((turn, end_k, 'start'))
+                _ek = 'end_on_occurred' if end_k in occurred else 'end_on_unoccurred'; acct[_ek] = acct.get(_ek, 0) + 1   # (accounting only)
         if end_k is not None:                     # the Endeavour is the focus: it takes the active share; the spread still rolls
             end_prog += inc * sh + bank; bank = 0.0; active = None
             if end_prog >= end_cost: end_done = end_k; END_LOG.append((turn, end_k, 'done')); end_k = None
