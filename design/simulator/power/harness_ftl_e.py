@@ -76,6 +76,8 @@ def _ftl_active(waiting, pool, have):
     if fw: return max(fw, key=fw.get)
     return max(waiting, key=waiting.get) if waiting else None
 
+SPACE_I = EO.index('Space')   # development at which the Space era begins (era i spans development i to i + 1)
+
 def run(prm, seed, max_turns=450):
     rng = random.Random(seed); m = prm.model
     have = {}; cum = 0.0; turn = 0; bank = 0.0
@@ -98,11 +100,13 @@ def run(prm, seed, max_turns=450):
     glimpsed = set(); lost = set(); grng = random.Random(seed * 7919 + 13)   # its own stream: glimpses never perturb the game
     rrng = random.Random(seed * 104729 + 7); rediscovered = {}                  # rediscovery's own stream, and when each lost idea came back
     held = set()                                                               # (accounting only) ideas the funded focus kept open past their window
+    lost_at = {}                                                               # (accounting only) when each idea was lost: turn, its window, whether it was a target
     STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}
     while turn < max_turns and len(have) < len(IDS):
         turn += 1; inc = income(cum) * ECON; cum += inc; d = dev(cum); acct['income'] += inc   # ECON: the player's economy against the calibrated good player's
         CLOCK['turn'] = turn
+        if d >= SPACE_I and 'space_entry_turn' not in acct: acct['space_entry_turn'] = turn   # (accounting only) development reaches the Space era
         if d >= SPAN_E and not RUN_ON: break                           # past the end of the tree (RUN_ON: carry on at the last era's income)
         if STOP_FN and STOP_FN(have): break                            # the measurement has what it needs
         blocked = prm.blocked_focus if (prm.blocked_focus and d < prm.unblock_dev) else None
@@ -147,8 +151,8 @@ def run(prm, seed, max_turns=450):
                 W = max(W, 1.0)
                 if prm.funded_windows and t == 'STANDARD' and turn - opened[k] > W and FOCUS[k] == funded: held.add(k)   # (accounting only)
                 if turn - opened[k] > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
-                    lost.add(k); continue                                              # the moment has passed: the idea is lost
-                if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); continue
+                    lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue   # the moment has passed: the idea is lost
+                if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue
                 if rng.random() < 1 - (1 - min(TARGET[t], 0.999)) ** (1 / W): occurred.add(k); occ_turn[k] = turn
                 else:                                                                # proximity revelation: glimpsed, not found
                     g = GLIMPSE.get(t, 0.0) if isinstance(GLIMPSE, dict) else GLIMPSE   # a chance for every tier, or one per tier
@@ -317,7 +321,7 @@ def run(prm, seed, max_turns=450):
                               glim=sorted(glimpsed - _gl0), fund=_fund))
     acct.update(held_open=len(held), held_occurred=len(held & occurred), held_lost=len(held & lost),
                 lost_standard=sum(1 for k in lost if ROWS[k]['tier'] == 'STANDARD'))   # (accounting only)
-    acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered
+    acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered; run.lost_at = lost_at
     return have, log
 
 def lateness(prm, n=6, seed0=100):

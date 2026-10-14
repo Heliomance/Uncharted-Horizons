@@ -393,6 +393,15 @@ Every difference is within the noise, and the pace (tier rates, lateness, era en
 
 **Not modelled:** the simulated players never fund a focus to protect an idea that has not occurred. A human might, when the FTL screen names a goal; that is the case W16's "whoever commits to a field gets there" has in mind. Even then the idea arrives by dice, at about 12% a turn in the Space era. That is close to what rediscovery already gives an idea a prototype is waiting on (10% a turn for each waiting item).
 
+**Do Space-era windows close before the race is won?** (Tamsin, 14 October; `space_windows.py`, 300 games a player.) The Space *era* barely figures. With W16, the expert finishes its research before its development reaches the Space era in 91% of games; the novice and average player finish about 5 turns into it. But a window opens when a row's prerequisites are met, not when its era begins, and the FTL programme buys Space-era rows early, at the premium. 28–35 Space-era STANDARD rows open a game, over 90% of them while the civilisation is still in the Atomic era. They open a median 27 (expert), 31 (novice) and 39 (average) turns before research ends, about two windows of 14.5 turns. So windows do close:
+
+| Space-era STANDARD ideas lost before research ends, a game (of them targets; games losing a target) | Expert | Novice | Average |
+|---|---|---|---|
+| W16 (as simulated) | 1.5 (0; 0%) | 2.3 (0; 0%) | 2.4 (0; 0%) |
+| No W16 | 3.2 (1.2; 66%) | 3.2 (0.4; 31%) | 3.5 (0.7; 49%) |
+
+Without W16, most games that lose a target still finish, and 14 / 9 / 3 of 300 do not. A lost target may belong to a method later ruled out (the expert targets every method still possible). It may also come back by a glimpse and an Endeavour, or by diffusion; that breakdown has not been measured. With rediscovery every game finishes. *Not measured:* a window that cannot close before its row's era has begun. An idea could still occur early, but could not be lost ahead of its time. That would leave Space-era windows almost no chance to close before the win, which is the situation Tamsin's question pictured.
+
 **Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Which W16, if any? There are three choices. The rule as written (a funded focus keeps its windows open) measured as no rule at all for the simulated players, and game-long it barely changes the missed ideas. The simulated rule (an idea the player pursues occurs at once) is a speed rule, worth 6 turns to the expert. Or no W16, with the expert re-tuned back towards ≈295. At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
 
 ## The candidate model, exactly (as the simulator runs it)

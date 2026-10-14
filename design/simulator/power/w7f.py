@@ -282,7 +282,8 @@ def play(s, m, a):
             if not any(o in have for o in g): roots |= set().union(*[root(o) for o in g])
         why['_roots'] = sorted(f"{r} [{_rows[r]['tier']}, {_rows[r]['era']}]: " + ('occurred, not found' if (r in occ or _rows[r]['tier'] == 'CORE') else 'idea never occurred') for r in roots)
         why['_end'] = f"stopped turn {log[-1][0] if log else '?'}, development {log[-1][1]:.2f}" if log else ''
-    if os.environ.get('ACCT'): diag = dict(diag or {}, _acct=dict(HF.run.acct))   # ACCT=<path>: the engine's accounts, written separately below
+    if os.environ.get('ACCT'):                    # ACCT=<path>: the engine's accounts, written separately below
+        diag = dict(diag or {}, _acct=dict(HF.run.acct, lost_at=HF.run.lost_at, opened=HF.run.opened, occ=HF.run.occ, cert=state['cert'][0] if state['cert'] else None, built=built))
     return dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
 WORKERS = int(os.environ.get('WORKERS') or os.cpu_count() or 1)   # games played in parallel, one process each (WORKERS=1: one after another)
 if WORKERS > 1 and len(DRAWS) > 1 and not os.environ.get('TRACE'):
