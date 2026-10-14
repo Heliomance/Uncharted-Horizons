@@ -4,7 +4,9 @@ A fork of Unciv (Kotlin/libGDX) that replaces the technology tree with a discove
 
 ## The repository is the only memory
 
-Each cloud session starts in a fresh container with a fresh clone of the repository. Anything not committed and pushed is lost when the session ends: tools, results, notes, parked tasks. Commit and push as you go. New sessions clone `master`, so work left on a `claude/*` branch is invisible to them until it's merged.
+Each cloud session starts in a fresh container with a fresh clone of the repository. Anything not committed and pushed is lost when the session ends: tools, results, notes, parked tasks. Commit and push as you go.
+
+**Work goes straight onto `master`.** It's a one-person project, nowhere near release, and Tamsin is happy to work directly on `master` for now, so no pull requests are needed. New sessions clone `master`, so work left only on another branch is invisible to them. If a session is set up on a `claude/*` branch, push its work to `master` as well: fast-forward it, or merge if `master` has moved.
 
 ## Where things are
 
@@ -20,7 +22,7 @@ Each cloud session starts in a fresh container with a fresh clone of the reposit
 1. Edit `design/tech_tree.md` and add a changelog entry with the next version number. The wiki takes its version from the newest entry, and refuses to publish an older one.
 2. Run the battery: `python3 design/verification-battery/battery.py design/tech_tree.md`. A change is done only when the battery is clean apart from known, recorded failures. Compare its tier tally before and after.
 3. Run `python3 design/wiki/build_wiki.py --check`. It fails on a broken link, or on a section it has no page for.
-4. Commit and push. The *Publish design wiki* workflow updates the wiki, if Actions are enabled for the repository.
+4. Commit and push to `master`. The *Publish design wiki* workflow updates the wiki within a minute or two; check its run in the Actions tab if a change doesn't appear.
 
 Follow the document's own rules, in §7.0 (*Notation in the Prerequisites column*, *Filter discipline*) and §1.2.
 
