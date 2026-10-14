@@ -402,7 +402,41 @@ Every difference is within the noise, and the pace (tier rates, lateness, era en
 
 Without W16, most games that lose a target still finish, and 14 / 9 / 3 of 300 do not. A lost target may belong to a method later ruled out (the expert targets every method still possible). It may also come back by a glimpse and an Endeavour, or by diffusion; that breakdown has not been measured. With rediscovery every game finishes. *Not measured:* a window that cannot close before its row's era has begun. An idea could still occur early, but could not be lost ahead of its time. That would leave Space-era windows almost no chance to close before the win, which is the situation Tamsin's question pictured.
 
-**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Which W16, if any? There are three choices. The rule as written (a funded focus keeps its windows open) measured as no rule at all for the simulated players, and game-long it barely changes the missed ideas. The simulated rule (an idea the player pursues occurs at once) is a speed rule, worth 6 turns to the expert. Or no W16, with the expert re-tuned back towards ≈295. At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
+**Windows that cannot close before their era** (Tamsin, 14 October; `ERAHOLD=start|clock` in `w7f.py`, `erahold=` in `workshop_measures.py`; every tier unless limited by `ERAHOLDTIERS`). Two readings:
+- *start*: no window closes while the civilisation's development is short of the row's era; an overdue window closes as soon as the era arrives.
+- *clock*: the window's clock starts at the later of the row opening and its era beginning, so the row gets a whole window from then.
+
+In both readings an idea can still occur early.
+
+| Atomic, 300 games a player, no W16 | Expert | Novice | Average |
+|---|---|---|---|
+| Space-era STANDARD ideas lost before research ends, a game: no hold | 3.2 | 3.2 | 3.5 |
+| … start | 0.41 | 0.60 | 0.49 |
+| … clock | 0.02 | 0.08 | 0.10 |
+| Victory median (unfinished of 300): today's rules, W16 | 298 (0) | 308 (4) | 382 (0) |
+| … no W16 | 303 (14) | 308 (9) | 383 (3) |
+| … no W16, start | 304 (1) | 308 (0) | 382 (4) |
+| … no W16, clock | 303 (1) | 308 (4) | 383 (3) |
+| … package, W16 | 296 (0) | 303 (0) | 377 (0) |
+| … package, no W16 | 302 (0) | 304 (0) | 379 (0) |
+| … package, no W16, clock | 303 (0) | 303 (0) | 377 (0) |
+
+With the clock reading, Space-era windows practically never close before the race is won, as Tamsin expected. As a safety net it then matches W16 (1 / 4 / 3 unfinished against 0 / 4 / 0). The games that still fail lose an earlier era's row, which the hold does not reach. It is not a speed rule: victory times are those of no W16, so the expert stays 6–7 turns slower than with W16. With rediscovery it adds nothing to finishing.
+
+Across the whole game (workshop player, 60 games), the hold matters only for rows that open ahead of their era, and most missed rows open in their own era.
+
+| | Missed STANDARD a game | Rows locked (p90; worst) | UNCOMMON rate |
+|---|---|---|---|
+| With contacts | 4.0 | 3.8 (7; 13) | 0.45 |
+| With contacts, clock | 4.4 | 3.2 (7; 10) | 0.53 |
+| With contacts, clock for STANDARD only | 3.8 | 2.5 (5; 10) | 0.45 |
+| Isolated | 17.2 | 23.3 (38; 55) | 0.36 |
+| Isolated, clock | 14.8 | 17.0 (28; 33) | 0.43 |
+| Isolated, start | 17.1 | 22.5 (32; 62) | 0.37 |
+
+The start reading changes nothing before the Space era. The clock reading helps an isolated civilisation somewhat, and with contacts the change is within the noise. Applied to UNCOMMON, it makes UNCOMMON ideas more common (0.45 → 0.53 of those that open), since early-opening rows get extra time; STANDARD only avoids that. RARE and UNIQUE are unaffected: their moments also end a grace period after their era. With rediscovery, the hold adds nothing (rows locked 0.8 against 0.4 with contacts, 2.2 against 1.4 isolated, within the noise).
+
+**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Which W16, if any? The clock hold (no window closes before its era, measured above) is a candidate safety net that needs no Space-era special case; W16 as simulated adds speed. Beyond that, there are three choices. The rule as written (a funded focus keeps its windows open) measured as no rule at all for the simulated players, and game-long it barely changes the missed ideas. The simulated rule (an idea the player pursues occurs at once) is a speed rule, worth 6 turns to the expert. Or no W16, with the expert re-tuned back towards ≈295. At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
 
 ## The candidate model, exactly (as the simulator runs it)
 
