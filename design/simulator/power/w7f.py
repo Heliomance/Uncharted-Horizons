@@ -126,6 +126,12 @@ def knowledge(have, a):
         rt = ready_turn(c, have) if any(h in have for h in hosts) else None
         if rt is not None and rt <= HF.CLOCK['turn'] and not (hosts == ['MS08'] and not a['exotic']): kn[c] = a[c]
     return kn
+def ftl_goals(have, m, a):
+    """rediscovery: once the FTL screen opens, the goals that wait on ideas: the prototype of each hypothesis still standing
+    (its build requirements) and each open question (any of its test rows)"""
+    if 'RC01' not in have: return []
+    kn, alive, _ = status(have, m, a)
+    return [BUILD[o] for o in alive] + [[HOST[c]] for c in sorted({c for o in alive for c in COND[o] if c not in kn})]
 def status(have, m, a):
     kn = knowledge(have, a)
     alive = [o for o in COND if not any(c in kn and not kn[c] for c in COND[o])]
@@ -135,6 +141,7 @@ HF.POLICY = 'cheapest' if os.environ.get('DET') == 'smart' else 'waiting'
 HF.END_MULT = float(os.environ['END']) if os.environ.get('END') else None
 HF.END_FROM = HF.EO.index('Space')
 HF.OBS = os.environ.get('OBS', '1') == '1'
+HF.W16 = os.environ.get('W16', '1') == '1'   # W16=0 switches off the Space era's funded-focus rule
 HF.END_UNOCCURRED_ONLY = os.environ.get('ENDUNOCC') == '1'   # Endeavours only on ideas that have not occurred
 HF.SPREAD_FIX = os.environ.get('SPREADFIX', '1') == '1'   # while an Endeavour runs, the spread keeps only its own share; SPREADFIX=0 reproduces the fault in results before 14 Oct 2026
 _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)
@@ -215,7 +222,7 @@ def play(s, m, a):
             return tests | smart_targets([g for o in alive for g in BUILD[o] if not any(x in have for x in g)], have)
         return with_anc(hosts + ([] if CLOSE in have else [CLOSE]))
     HF.TARGET_FN = target
-    HF.GOALS_FN = lambda have, m=m, a=a: [BUILD[o] for o in status(have, m, a)[1]] if 'RC01' in have else []   # rediscovery: the prototypes of the hypotheses still standing, once the FTL screen opens
+    HF.GOALS_FN = lambda have, m=m, a=a: ftl_goals(have, m, a)   # rediscovery: what the FTL screen is waiting on
     if os.environ.get('PLAYER') == 'generalist': HF.TARGET_FN = None   # no FTL agenda: fund the field with the most work waiting
     if os.environ.get('PLAYER') == 'aspirant':   # no FTL agenda: pursue the Space-era content of chosen fields (ASPIRE=all or field names joined by ';')
         _asp = os.environ.get('ASPIRE', 'all'); _fs = None if _asp == 'all' else set(_asp.split(';'))

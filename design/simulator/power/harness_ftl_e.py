@@ -62,6 +62,7 @@ STATE = {}   # live references to lost, glimpsed and diffusing ideas
 END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE 'request')
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
+W16 = True           # W16: a Space-era STANDARD idea the player is pursuing (in FUNDED) occurs at once; False switches the rule off
 END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
                               # never one already under study (Tamsin, 14 Oct 2026: reordering is never worth an Endeavour)
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
@@ -145,7 +146,7 @@ def run(prm, seed, max_turns=450):
             for k in disc:
                 if k in occurred: continue
                 t = ROWS[k]['tier']
-                if t == 'CORE' or (k in FUNDED and t == 'STANDARD' and ROWS[k]['era'] == 'Space'): occurred.add(k); continue   # W16: a funded focus never loses an idea
+                if t == 'CORE' or (W16 and k in FUNDED and t == 'STANDARD' and ROWS[k]['era'] == 'Space'): occurred.add(k); continue   # W16: a funded focus never loses an idea
                 W = TURNS[ROWS[k]['era']] * prm.window[t] * prm.accel_occ.get(k, 1.0)
                 behind = d - (ERA_I[k] + 1)
                 if prm.compress and behind > 0: W = W / (1 + prm.compress * behind)

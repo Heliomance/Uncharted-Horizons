@@ -26,6 +26,7 @@
 - **Suggested fix:** a small baseline diffusion that does not need contact.
 - **Measured (2026-10-13):** on the candidate model, an isolated civilisation can win its FTL race in only 60–63% of games, against 92–97% for one with five contacts; observational revelation also lets a connected civilisation Endeavour rows only a minority of rivals found, which removes its remaining unwinnable games, while an isolated one has nothing to reveal (`power_tools/results/diffusion_effect.txt`).
 - **Tamsin's view (2026-10-13):** an isolated civilisation struggling to reach a tech victory is appropriate, since one society is unlikely to find every piece alone; true isolation is rare, and diffusion counts the share of *contacted* civilisations, so a single contact passes on everything it holds. Whether a floor is still wanted, for other reasons, is open.
+- **Tamsin, 2026-10-14:** full isolation by the Space era is practically impossible in Civ (it would take something like a custom map walled in by mountains), so isolated measurements are a stress test, not a design target.
 
 ## 2026-09-24: Make the enabling truths reveal their gateways
 - **Surfaced during:** design review

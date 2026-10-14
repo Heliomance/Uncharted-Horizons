@@ -345,7 +345,18 @@ The cost is pace for an isolated civilisation: it now researches the chains it u
 | Isolated, as now | 311 (17) | 332 (30) | 412 (16) |
 | Isolated, package | 303 (0) | 325 (0) | 404 (0) |
 
-**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes counted as waiting? At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")? And is W16's funded-focus rule still needed alongside it?
+**Does rediscovery make W16 unnecessary?** (Tamsin's question; atomic, 300 games a player, `W16=0` switches the rule off.) The FTL screen's open questions now also count as waiting on their test rows, the same principle as the prototypes; that cleared the isolated stress test's stalls on tests (QP09, QP10, RC11, QP15).
+
+| Victory median (unfinished of 300), with contacts | Expert | Novice | Average |
+|---|---|---|---|
+| Today's rules | 298 (0) | 308 (4) | 382 (0) |
+| Today's rules, no W16 | 303 (14) | 308 (9) | 383 (3) |
+| Package, with W16 | 296 (0) | 303 (0) | 377 (0) |
+| Package, no W16 | 302 (0) | 304 (0) | 379 (0) |
+
+As a safety net W16 is no longer needed: with rediscovery every game finishes either way. It remains a speed rule. A funded Space-era idea occurs at once instead of at about 12% a turn, which is worth 6 turns to the expert, 1 to the novice and 2 to the average player. Isolated (a stress test only: Tamsin judges full isolation by the Space era practically impossible), the package without W16 is 311 / 334 / 410 with 0 / 0 / 2 unfinished.
+
+**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Keep W16 as an endgame speed rule, or drop it and re-tune the expert back towards ≈295? At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
 
 ## The candidate model, exactly (as the simulator runs it)
 
