@@ -1,0 +1,163 @@
+{
+ "world": "familiar",
+ "setting": "isolated",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "era_hold": "clock"
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.0,
+   "Classical": 0.85,
+   "Medieval": 0.8,
+   "Early Modern": 0.74,
+   "Modern": 0.95,
+   "Atomic": 0.91,
+   "Space": 1.18
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 10.7,
+   "Classical": 6.4,
+   "Medieval": 4.6,
+   "Early Modern": 3.8,
+   "Modern": 5.0,
+   "Atomic": 5.6,
+   "Space": 12.0
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.9,
+   "Classical": 4.0,
+   "Medieval": 5.3,
+   "Early Modern": 4.7,
+   "Modern": 2.9,
+   "Atomic": 3.8,
+   "Space": 2.4
+  },
+  "lateness": 0.59,
+  "outside own era %": 30.7,
+  ">=1 era early %": 0.0,
+  "earliest": -0.97,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.8,
+   "UNCOMMON": 0.43,
+   "RARE": 0.06,
+   "UNIQUE": 0.06
+  },
+  "insight": {
+   "became progress": 0.989,
+   "premium share of progress": 0.108,
+   "net lost": 0.002
+  },
+  "diffusion arrivals a game": 0,
+  "missed STANDARD before Space": [
+   14.8,
+   19
+  ],
+  "of them guarding nothing": 6.9,
+  "ideas rediscovered a game": 0,
+  "rows they lock": [
+   17.0,
+   28,
+   33
+  ],
+  "still locked with Endeavours on glimpsed": [
+   3.2,
+   7,
+   18
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 82,
+   "UNCOMMON": 63,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 14.8,
+   "UNCOMMON": 21.6,
+   "RARE": 22.8,
+   "UNIQUE": 45.9
+  },
+  "gateways": [
+   [
+    "GN03",
+    "Genetic Engineering",
+    33,
+    11
+   ],
+   [
+    "CO11",
+    "Reinforced Concrete",
+    13,
+    14
+   ],
+   [
+    "CP07",
+    "Artificial Intelligence (Narrow)",
+    12,
+    15
+   ],
+   [
+    "MC12",
+    "Robotics",
+    20,
+    9
+   ],
+   [
+    "FA03",
+    "Selective Breeding",
+    10,
+    17
+   ],
+   [
+    "TH02",
+    "Refrigeration",
+    8,
+    17
+   ],
+   [
+    "SF05",
+    "Trireme/Galley Construction",
+    13,
+    10
+   ],
+   [
+    "AE04",
+    "Jet Engine",
+    17,
+    7
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.48,
+   "Medieval": 0.11,
+   "Early Modern": 0.13,
+   "Modern": 0.12,
+   "Atomic": 0.05,
+   "Space": -0.3
+  }
+ }
+}

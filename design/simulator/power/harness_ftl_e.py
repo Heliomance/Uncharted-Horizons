@@ -40,6 +40,9 @@ class P:
         self.accel_head = {}         # {row: fraction} — accelerator as a head start on the meter (P forms)
         self.spread_floor = 0.1
         self.linear = False          # R: chance = min(1, attention ÷ price) instead of 1 − e^(−attention ÷ price)
+        self.era_hold = None         # 'start': a window cannot close before its row's era has begun (an overdue one closes when it does);
+                                     # 'clock': its clock starts no earlier than the era's start, so it gets a whole window from then
+        self.era_hold_tiers = ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')   # the tiers era_hold covers
         self.funded_windows = False  # True: a STANDARD idea's window does not close while its focus is the funded (active) focus; a window
                                      # already closed is not reopened (Tamsin's alternative to W16, 14 Oct 2026)
         self.rediscover = 0.0        # >0: a lost idea of a tier in rediscover_tiers gets a new chance each turn, `rediscover` for every undiscovered
@@ -100,6 +103,7 @@ def run(prm, seed, max_turns=450):
     glimpsed = set(); lost = set(); grng = random.Random(seed * 7919 + 13)   # its own stream: glimpses never perturb the game
     rrng = random.Random(seed * 104729 + 7); rediscovered = {}                  # rediscovery's own stream, and when each lost idea came back
     held = set()                                                               # (accounting only) ideas the funded focus kept open past their window
+    era_start = []                                                             # era_start[i]: the turn development reached era i
     lost_at = {}                                                               # (accounting only) when each idea was lost: turn, its window, whether it was a target
     STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}
@@ -107,6 +111,7 @@ def run(prm, seed, max_turns=450):
         turn += 1; inc = income(cum) * ECON; cum += inc; d = dev(cum); acct['income'] += inc   # ECON: the player's economy against the calibrated good player's
         CLOCK['turn'] = turn
         if d >= SPACE_I and 'space_entry_turn' not in acct: acct['space_entry_turn'] = turn   # (accounting only) development reaches the Space era
+        while len(era_start) < len(EO) and d >= len(era_start): era_start.append(turn)       # the turn development reached each era
         if d >= SPAN_E and not RUN_ON: break                           # past the end of the tree (RUN_ON: carry on at the last era's income)
         if STOP_FN and STOP_FN(have): break                            # the measurement has what it needs
         blocked = prm.blocked_focus if (prm.blocked_focus and d < prm.unblock_dev) else None
@@ -149,8 +154,12 @@ def run(prm, seed, max_turns=450):
                 behind = d - (ERA_I[k] + 1)
                 if prm.compress and behind > 0: W = W / (1 + prm.compress * behind)
                 W = max(W, 1.0)
-                if prm.funded_windows and t == 'STANDARD' and turn - opened[k] > W and FOCUS[k] == funded: held.add(k)   # (accounting only)
-                if turn - opened[k] > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
+                t0 = opened[k]                                                       # when the window's clock started
+                if prm.era_hold and t in prm.era_hold_tiers:                         # era hold: no window closes before its row's era has begun
+                    if ERA_I[k] >= len(era_start): t0 = turn                         # the era has not begun: the clock has not run out
+                    elif prm.era_hold == 'clock': t0 = max(t0, era_start[ERA_I[k]])
+                if prm.funded_windows and t == 'STANDARD' and turn - t0 > W and FOCUS[k] == funded: held.add(k)   # (accounting only)
+                if turn - t0 > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
                     lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue   # the moment has passed: the idea is lost
                 if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue
                 if rng.random() < 1 - (1 - min(TARGET[t], 0.999)) ** (1 / W): occurred.add(k); occ_turn[k] = turn

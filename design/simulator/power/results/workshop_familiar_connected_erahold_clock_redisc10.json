@@ -1,0 +1,164 @@
+{
+ "world": "familiar",
+ "setting": "connected",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "era_hold": "clock",
+  "rediscover": 0.1
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.02,
+   "Classical": 0.89,
+   "Medieval": 0.85,
+   "Early Modern": 0.9,
+   "Modern": 1.11,
+   "Atomic": 1.23,
+   "Space": 1.11
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 10.9,
+   "Classical": 7.2,
+   "Medieval": 5.0,
+   "Early Modern": 6.6,
+   "Modern": 8.8,
+   "Atomic": 12.7,
+   "Space": 9.7
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 5.1,
+   "Classical": 3.8,
+   "Medieval": 4.6,
+   "Early Modern": 4.5,
+   "Modern": 2.9,
+   "Atomic": 2.9,
+   "Space": 2.6
+  },
+  "lateness": 0.53,
+  "outside own era %": 35.7,
+  ">=1 era early %": 0.0,
+  "earliest": -0.99,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.88,
+   "UNCOMMON": 0.52,
+   "RARE": 0.07,
+   "UNIQUE": 0.06
+  },
+  "insight": {
+   "became progress": 0.99,
+   "premium share of progress": 0.143,
+   "net lost": 0.001
+  },
+  "diffusion arrivals a game": 56.1,
+  "missed STANDARD before Space": [
+   3.0,
+   5
+  ],
+  "of them guarding nothing": 1.9,
+  "ideas rediscovered a game": 6.3,
+  "rows they lock": [
+   0.8,
+   3,
+   5
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.2,
+   0,
+   3
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 74,
+   "UNCOMMON": 60,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 3.0,
+   "UNCOMMON": 18.8,
+   "RARE": 24.3,
+   "UNIQUE": 48.8
+  },
+  "gateways": [
+   [
+    "GN03",
+    "Genetic Engineering",
+    7,
+    12
+   ],
+   [
+    "MD11",
+    "Gene Therapy",
+    40,
+    2
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    22,
+    3
+   ],
+   [
+    "MC12",
+    "Robotics",
+    2,
+    13
+   ],
+   [
+    "AE12",
+    "Grand Aerostat",
+    18,
+    1
+   ],
+   [
+    "CP08",
+    "Machine Learning",
+    3,
+    3
+   ],
+   [
+    "ES07",
+    "Solar Panel",
+    8,
+    1
+   ],
+   [
+    "NP-F02",
+    "Micro-Fission Reactors",
+    8,
+    1
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.48,
+   "Medieval": 0.11,
+   "Early Modern": 0.12,
+   "Modern": 0.05,
+   "Atomic": -0.12,
+   "Space": -0.52
+  }
+ }
+}

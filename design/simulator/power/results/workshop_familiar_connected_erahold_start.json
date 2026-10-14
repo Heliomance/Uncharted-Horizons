@@ -1,0 +1,163 @@
+{
+ "world": "familiar",
+ "setting": "connected",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "era_hold": "start"
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.01,
+   "Classical": 0.78,
+   "Medieval": 0.84,
+   "Early Modern": 0.94,
+   "Modern": 1.1,
+   "Atomic": 1.21,
+   "Space": 1.14
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 11.5,
+   "Classical": 5.1,
+   "Medieval": 6.0,
+   "Early Modern": 6.4,
+   "Modern": 8.3,
+   "Atomic": 11.6,
+   "Space": 11.0
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.8,
+   "Classical": 4.5,
+   "Medieval": 4.7,
+   "Early Modern": 4.9,
+   "Modern": 2.7,
+   "Atomic": 3.3,
+   "Space": 2.5
+  },
+  "lateness": 0.51,
+  "outside own era %": 36.2,
+  ">=1 era early %": 0.01,
+  "earliest": -1.04,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.89,
+   "UNCOMMON": 0.48,
+   "RARE": 0.07,
+   "UNIQUE": 0.05
+  },
+  "insight": {
+   "became progress": 0.989,
+   "premium share of progress": 0.15,
+   "net lost": 0.001
+  },
+  "diffusion arrivals a game": 62.1,
+  "missed STANDARD before Space": [
+   3.8,
+   6
+  ],
+  "of them guarding nothing": 1.2,
+  "ideas rediscovered a game": 0,
+  "rows they lock": [
+   4.2,
+   8,
+   14
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.6,
+   3,
+   5
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 80,
+   "UNCOMMON": 61,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 3.8,
+   "UNCOMMON": 20.3,
+   "RARE": 23.4,
+   "UNIQUE": 48.9
+  },
+  "gateways": [
+   [
+    "MA09",
+    "Statistics",
+    5,
+    35
+   ],
+   [
+    "CP07",
+    "Artificial Intelligence (Narrow)",
+    8,
+    18
+   ],
+   [
+    "GN03",
+    "Genetic Engineering",
+    8,
+    14
+   ],
+   [
+    "MA06",
+    "Probability Theory",
+    3,
+    34
+   ],
+   [
+    "SF11",
+    "Ship of the Line",
+    20,
+    4
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    28,
+    3
+   ],
+   [
+    "MD11",
+    "Gene Therapy",
+    30,
+    2
+   ],
+   [
+    "NP04",
+    "Nuclear Fusion",
+    12,
+    4
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.45,
+   "Medieval": 0.06,
+   "Early Modern": 0.1,
+   "Modern": 0.04,
+   "Atomic": -0.14,
+   "Space": -0.52
+  }
+ }
+}

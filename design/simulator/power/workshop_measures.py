@@ -11,6 +11,8 @@ Usage: python3 workshop_measures.py <world> <setting> [key=value ...]
   glimpse=0.1  STANDARD's chance a turn of being glimpsed; gu=<p> UNCOMMON's (default 0.03); RARE and UNIQUE never
   gall=<p>     the old rule instead: the same glimpse chance for every tier
   scale=<x>    the model's price calibration (default: w7c_cfg.json's)
+  erahold=start|clock  no window closes before its row's era has begun (eraholdtiers=STANDARD;UNCOMMON to limit it)
+  fundedwin=1  a STANDARD window stays open while its focus is funded; rediscover=<r> rediscovery on demand
   workers=<n>  games played in parallel (default: every core; also the WORKERS variable)
   only=a,b     run only some measures: pace (with tiers, Insight, missed ideas and era entry), catchup, accel, premium, calib
   label=<name> results/workshop_<world>_<setting>_<label>.json (default: the settings)
@@ -28,6 +30,8 @@ HF.ROWS = ROWS; HF.IDS = sorted(ROWS); HF.FOCUS = {k: ROWS[k]['focus'] for k in 
 prices.apply(HF, ROWS)
 CFG = json.load(open(os.path.join(HERE, 'w7c_cfg.json')))
 if 'scale' in OPT: CFG['scale'] = float(OPT['scale'])
+if OPT.get('erahold'): CFG['era_hold'] = OPT['erahold']              # start|clock: no window closes before its row's era has begun
+if OPT.get('eraholdtiers'): CFG['era_hold_tiers'] = tuple(OPT['eraholdtiers'].split(';'))
 if OPT.get('fundedwin') == '1': CFG['funded_windows'] = True          # a STANDARD window stays open while its focus is funded
 if 'rediscover' in OPT: CFG['rediscover'] = float(OPT['rediscover'])  # rediscovery on demand: chance a turn per breakthrough waiting on a lost idea
 if 'tieratt' in OPT: CFG['tier_attention'] = OPT['tieratt'] == '1'        # tieratt=0: once occurred, every tier is studied alike

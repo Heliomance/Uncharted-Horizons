@@ -162,6 +162,8 @@ SEED0 = int(os.environ.get('SEED0', '17000'))
 POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool.json")) if os.environ.get('DIFF') == '1' else None
 CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))   # the discovery model (the workshop's candidate)
 if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its price calibration
+if os.environ.get('ERAHOLD'): CFG['era_hold'] = os.environ['ERAHOLD']   # start|clock: no window closes before its row's era has begun
+if os.environ.get('ERAHOLDTIERS'): CFG['era_hold_tiers'] = tuple(os.environ['ERAHOLDTIERS'].split(','))
 if os.environ.get('FUNDEDWIN') == '1': CFG['funded_windows'] = True   # a STANDARD window stays open while its focus is funded
 if os.environ.get('REDISCOVER'): CFG['rediscover'] = float(os.environ['REDISCOVER'])   # rediscovery on demand (harness_ftl_e.P.rediscover)
 if os.environ.get('TIERATT'): CFG['tier_attention'] = os.environ['TIERATT'] == '1'   # tier odds weighting attention once an idea has occurred

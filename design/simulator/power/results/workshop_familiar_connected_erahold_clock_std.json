@@ -1,0 +1,166 @@
+{
+ "world": "familiar",
+ "setting": "connected",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "era_hold": "clock",
+  "era_hold_tiers": [
+   "STANDARD"
+  ]
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 0.99,
+   "Classical": 0.86,
+   "Medieval": 0.81,
+   "Early Modern": 0.95,
+   "Modern": 1.09,
+   "Atomic": 1.2,
+   "Space": 1.09
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 11.2,
+   "Classical": 5.7,
+   "Medieval": 5.3,
+   "Early Modern": 6.5,
+   "Modern": 8.1,
+   "Atomic": 11.6,
+   "Space": 9.2
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.7,
+   "Classical": 3.9,
+   "Medieval": 5.5,
+   "Early Modern": 4.4,
+   "Modern": 2.9,
+   "Atomic": 3.1,
+   "Space": 2.5
+  },
+  "lateness": 0.52,
+  "outside own era %": 35.7,
+  ">=1 era early %": 0.01,
+  "earliest": -1.04,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.89,
+   "UNCOMMON": 0.45,
+   "RARE": 0.07,
+   "UNIQUE": 0.05
+  },
+  "insight": {
+   "became progress": 0.99,
+   "premium share of progress": 0.147,
+   "net lost": 0.001
+  },
+  "diffusion arrivals a game": 60.0,
+  "missed STANDARD before Space": [
+   3.8,
+   6
+  ],
+  "of them guarding nothing": 1.2,
+  "ideas rediscovered a game": 0,
+  "rows they lock": [
+   2.5,
+   5,
+   10
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.4,
+   1,
+   6
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 79,
+   "UNCOMMON": 57,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 3.8,
+   "UNCOMMON": 21.3,
+   "RARE": 24.0,
+   "UNIQUE": 49.0
+  },
+  "gateways": [
+   [
+    "GN03",
+    "Genetic Engineering",
+    13,
+    14
+   ],
+   [
+    "MD11",
+    "Gene Therapy",
+    40,
+    2
+   ],
+   [
+    "TH02",
+    "Refrigeration",
+    3,
+    18
+   ],
+   [
+    "NP04",
+    "Nuclear Fusion",
+    12,
+    4
+   ],
+   [
+    "CP08",
+    "Machine Learning",
+    12,
+    3
+   ],
+   [
+    "CP07",
+    "Artificial Intelligence (Narrow)",
+    2,
+    20
+   ],
+   [
+    "AE13",
+    "Rigid Airship",
+    17,
+    2
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    13,
+    2
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.45,
+   "Medieval": 0.07,
+   "Early Modern": 0.1,
+   "Modern": 0.04,
+   "Atomic": -0.12,
+   "Space": -0.52
+  }
+ }
+}
