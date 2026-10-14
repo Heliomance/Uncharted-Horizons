@@ -1,0 +1,171 @@
+{
+ "world": "familiar",
+ "setting": "connected",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "funded_windows": true,
+  "rediscover": 0.1
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.03,
+   "Classical": 0.87,
+   "Medieval": 0.81,
+   "Early Modern": 0.89,
+   "Modern": 1.1,
+   "Atomic": 1.24,
+   "Space": 1.11
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 10.9,
+   "Classical": 6.8,
+   "Medieval": 5.9,
+   "Early Modern": 6.2,
+   "Modern": 8.3,
+   "Atomic": 11.7,
+   "Space": 9.9
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.4,
+   "Classical": 4.1,
+   "Medieval": 4.7,
+   "Early Modern": 4.5,
+   "Modern": 2.9,
+   "Atomic": 2.8,
+   "Space": 2.7
+  },
+  "lateness": 0.52,
+  "outside own era %": 35.9,
+  ">=1 era early %": 0.01,
+  "earliest": -1.09,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.88,
+   "UNCOMMON": 0.45,
+   "RARE": 0.07,
+   "UNIQUE": 0.06
+  },
+  "insight": {
+   "became progress": 0.99,
+   "premium share of progress": 0.146,
+   "net lost": 0.001
+  },
+  "diffusion arrivals a game": 57.9,
+  "missed STANDARD before Space": [
+   2.9,
+   5
+  ],
+  "of them guarding nothing": 1.9,
+  "ideas rediscovered a game": 11.0,
+  "rows they lock": [
+   0.5,
+   2,
+   6
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.2,
+   1,
+   3
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 75,
+   "UNCOMMON": 60,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 2.9,
+   "UNCOMMON": 21.4,
+   "RARE": 23.9,
+   "UNIQUE": 48.8
+  },
+  "gateways": [
+   [
+    "MD11",
+    "Gene Therapy",
+    35,
+    2
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    13,
+    3
+   ],
+   [
+    "NP-F01",
+    "Advanced Fuel Cycles",
+    7,
+    4
+   ],
+   [
+    "MC12",
+    "Robotics",
+    2,
+    13
+   ],
+   [
+    "EL11",
+    "Superconductivity",
+    2,
+    13
+   ],
+   [
+    "SE01",
+    "Life Support Systems",
+    7,
+    3
+   ],
+   [
+    "ES07",
+    "Solar Panel",
+    15,
+    1
+   ],
+   [
+    "NP04",
+    "Nuclear Fusion",
+    3,
+    4
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.39,
+   "Medieval": 0.09,
+   "Early Modern": 0.12,
+   "Modern": 0.05,
+   "Atomic": -0.12,
+   "Space": -0.54
+  },
+  "funded windows, a game": {
+   "STANDARD ideas lost": 12.5,
+   "held open while funded": 1.6,
+   "then occurred": 0.73,
+   "then closed when the focus moved on": 0.8,
+   "turns a focus stays funded": 2.0
+  }
+ }
+}

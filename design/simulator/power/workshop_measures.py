@@ -103,7 +103,8 @@ def pace_game(j):
     return dict(by=dict(by), offs=[have[k][1] - HF.ERA_I[k] for k in have], rate=rate, ndiff=ndiff, gl=gl, entry=entry, guards=guards,
                 acct={key: acct.get(key, 0.0) for key in ('income', 'attention', 'premium_dilution', 'lost_empty', 'lost_cap', 'recovered')},
                 miss=(len(m_std), len(locked), len(hard)), rec=acct.get('recovered_ideas', 0),
-                leaves=sum(1 for k in m_std if not guards[k]))
+                leaves=sum(1 for k in m_std if not guards[k]),
+                held=[acct.get(key, 0) for key in ('lost_standard', 'held_open', 'held_occurred', 'held_lost', 'focus_turns', 'focus_changes')])
 
 
 def pace():
@@ -111,9 +112,9 @@ def pace():
     per = collections.defaultdict(list); clumps = collections.defaultdict(list); drought = collections.defaultdict(list)
     offs = []; rate = {t: [0, 0] for t in TIERS}; acc = collections.Counter(); diffused = []
     miss = collections.defaultdict(list); gl = {t: [0, 0] for t in TIERS}; gate = collections.defaultdict(list)
-    entry = collections.defaultdict(list); rec = []; leaves = []
+    entry = collections.defaultdict(list); rec = []; leaves = []; held = []
     for g in pmap(pace_game, [(j,) for j in range(N)]):
-        rec.append(g['rec']); leaves.append(g['leaves'])
+        rec.append(g['rec']); leaves.append(g['leaves']); held.append(g['held'])
         for e, cs in g['by'].items():
             per[e].append(st.mean(cs)); clumps[e].append(sum(c >= 3 for c in cs) / len(cs))
             best = cur = 0
@@ -144,6 +145,10 @@ def pace():
            'missed a game by tier': {t: round(b / N, 1) for t, (a, b) in gl.items() if t != 'CORE'},
            'gateways': [(k, NAMES.get(k, ''), round(100 * len(v) / N), round(st.mean(v))) for k, v in sorted(gate.items(), key=lambda kv: -sum(kv[1]))[:8]],
            'era entry, development minus era (median)': {e: round(st.median(v), 2) for e, v in entry.items() if v}}
+    if CFG.get('funded_windows'):              # what the funded-window rule did: windows it held open, and what became of those ideas
+        h = [sum(x[i] for x in held) / N for i in range(6)]
+        out['funded windows, a game'] = {'STANDARD ideas lost': round(h[0], 1), 'held open while funded': round(h[1], 2), 'then occurred': round(h[2], 2),
+                                         'then closed when the focus moved on': round(h[3], 2), 'turns a focus stays funded': round(h[4] / max(h[5], 1e-9), 1)}
     return out
 
 

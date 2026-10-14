@@ -144,7 +144,7 @@ Mycological Knowledge's rewiring (Antibiotics, Nitrogen Fixation, Biogas and Vac
 
 The workshop stopped when the FTL endgame redesign took over (from 2 October). Every measurement since has run on the candidate configuration above (`design/simulator/power/w7c_cfg.json`: momentum, spill-over, the spread only to foci with something live, ×4 premium per era, STANDARD windows half an era, compression ×4 behind history, calibration ×0.83): the era-entry counts (v3.97), the era redraw (v3.108) and the whole FTL balance (v3.112). So it is the model in practice, while §1.2 still describes the threshold design.
 
-- **Agreed since, to write in with it** (FTL work, 13 October): Grand Endeavours at 2× the price; proximity revelation as a 10% chance, each turn an eligible idea fails to occur, that it is glimpsed (Revealed) instead, so a lost idea can still be pursued as an Endeavour; observational revelation only of what can be seen; and W16's rule that a Space-era idea's moment stays open while its focus is funded.
+- **Agreed since, to write in with it** (FTL work, 13 October): Grand Endeavours at 2× the price; proximity revelation as a 10% chance, each turn an eligible idea fails to occur, that it is glimpsed (Revealed) instead, so a lost idea can still be pursued as an Endeavour; observational revelation only of what can be seen; and W16's rule that a Space-era idea's moment stays open while its focus is funded (the simulator runs a stronger form; see *Funded windows instead of W16*).
 - **Done since:** Mycological Knowledge's rewiring, its Mushroom Cellar and the Biogas Plant fix (v3.98). Only its accelerator wording waits, on decision 3.
 - **Stale in the document:** §1.2's example of a multiplier below 1 still cites Loop Quantum Gravity and Bio-Quantum Coherence speeding Tunnelling, removed in v3.112; QM-E23 Current Sail still makes "the final research of the Plenum Drive" cost ×0.5, a clause of the same older kind that v3.112 removed from Tunnelling.
 
@@ -356,7 +356,44 @@ The cost is pace for an isolated civilisation: it now researches the chains it u
 
 As a safety net W16 is no longer needed: with rediscovery every game finishes either way. It remains a speed rule. A funded Space-era idea occurs at once instead of at about 12% a turn, which is worth 6 turns to the expert, 1 to the novice and 2 to the average player. Isolated (a stress test only: Tamsin judges full isolation by the Space era practically impossible), the package without W16 is 311 / 334 / 410 with 0 / 0 / 2 unfinished.
 
-**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Keep W16 as an endgame speed rule, or drop it and re-tune the expert back towards ≈295? At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
+**Funded windows instead of W16** (Tamsin's proposal, 14 October). For the whole game, a STANDARD idea's window does not close while its focus is the funded focus. A window that has already closed stays closed (`FUNDEDWIN=1` with `W16=0`; `workshop_measures.py <world> <setting> fundedwin=1`). Atomic, 300 games a player:
+
+| Victory median (unfinished of 300), with contacts | Expert | Novice | Average |
+|---|---|---|---|
+| Today's rules | 298 (0) | 308 (4) | 382 (0) |
+| Today's rules, no W16 | 303 (14) | 308 (9) | 383 (3) |
+| Today's rules, funded windows instead of W16 | 302 (14) | 308 (7) | 383 (6) |
+| Package, with W16 | 296 (0) | 303 (0) | 377 (0) |
+| Package, no W16 | 302 (0) | 304 (0) | 379 (0) |
+| Package, funded windows instead of W16 | 302 (0) | 304 (0) | 378 (0) |
+
+The workshop's balanced player, 60 games (`results/workshop_familiar_<setting>_fundedwin.json` and `_redisc10_fundedwin.json`):
+
+| | Missed STANDARD a game (of them, guarding nothing) | Rows locked behind them (p90; worst) |
+|---|---|---|
+| With contacts | 4.0 (1.4) | 3.8 (7; 13) |
+| With contacts, funded windows | 3.9 (1.3) | 4.2 (8; 14) |
+| With contacts, rediscovery 10% | 2.6 (1.7) | 0.4 (2; 4) |
+| With contacts, rediscovery and funded windows | 2.9 (1.9) | 0.5 (2; 6) |
+| Isolated | 17.2 (7.7) | 23.3 (38; 55) |
+| Isolated, funded windows | 17.3 (7.7) | 24.1 (37; 44) |
+| Isolated, rediscovery 10% | 11.0 (8.9) | 1.4 (5; 7) |
+| Isolated, rediscovery and funded windows | 10.8 (8.7) | 1.9 (6; 9) |
+
+Every difference is within the noise, and the pace (tier rates, lateness, era entry) does not move.
+
+**Why so little.** Taken from the engine's accounts (`run.acct`; `ACCT=<path>` in `w7f.py`, and the `funded windows, a game` entry in the workshop's pace measure); the expert over 300 games, the balanced player over 60 with contacts:
+- The window runs out on about 19 STANDARD ideas a game for the expert and 22 for the balanced player. With contacts, most of these come back later by diffusion.
+- Only one focus of 34 is funded at a time, and no focus holds more than 14 of the 219 STANDARD rows. When a window runs out, its focus is the funded one for 0.6 ideas a game (expert) or 1.4 (balanced player).
+- Funding cannot be aimed at the ideas at risk. An idea that has not occurred is unknown, so the player chooses its focus by the work already under study.
+- The hold lasts only while the focus stays funded. The simulated players change focus every 4 turns (expert) or 2 (balanced player), and a held idea closes as soon as they move on. Of those held, 0.19 a game then occur for the expert and 0.37 for the balanced player; the rest close.
+- A held idea still needs its roll, about 12% a turn in the Space era. W16 as simulated skips the roll.
+
+**W16 as simulated is stronger than W16 as written.** §4 (*Building and Proving*) says a Space-era row's "occurrence window stays open for a civilisation funding its focus". Since the FTL work, the simulator has instead made a Space-era STANDARD row occur the moment it is discoverable, if it is among the player's research targets, whichever focus is funded. So every W16 figure in this report measures the stronger rule: the 6 turns of victory it is worth to the expert, and the 14 / 9 / 3 unfinished games without it. The written rule is the Space-era part of the rule tested above, which did nothing measurable for these players.
+
+**Not modelled:** the simulated players never fund a focus to protect an idea that has not occurred. A human might, when the FTL screen names a goal; that is the case W16's "whoever commits to a field gets there" has in mind. Even then the idea arrives by dice, at about 12% a turn in the Space era. That is close to what rediscovery already gives an idea a prototype is waiting on (10% a turn for each waiting item).
+
+**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Which W16, if any? There are three choices. The rule as written (a funded focus keeps its windows open) measured as no rule at all for the simulated players, and game-long it barely changes the missed ideas. The simulated rule (an idea the player pursues occurs at once) is a speed rule, worth 6 turns to the expert. Or no W16, with the expert re-tuned back towards ≈295. At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
 
 ## The candidate model, exactly (as the simulator runs it)
 

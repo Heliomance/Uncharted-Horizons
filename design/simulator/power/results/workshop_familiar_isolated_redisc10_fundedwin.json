@@ -1,0 +1,171 @@
+{
+ "world": "familiar",
+ "setting": "isolated",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "funded_windows": true,
+  "rediscover": 0.1
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.03,
+   "Classical": 0.87,
+   "Medieval": 0.8,
+   "Early Modern": 0.76,
+   "Modern": 0.97,
+   "Atomic": 0.94,
+   "Space": 1.24
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 10.9,
+   "Classical": 6.8,
+   "Medieval": 5.7,
+   "Early Modern": 3.6,
+   "Modern": 5.9,
+   "Atomic": 5.3,
+   "Space": 11.3
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.4,
+   "Classical": 4.1,
+   "Medieval": 4.8,
+   "Early Modern": 5.1,
+   "Modern": 3.2,
+   "Atomic": 3.8,
+   "Space": 2.4
+  },
+  "lateness": 0.61,
+  "outside own era %": 32.4,
+  ">=1 era early %": 0.0,
+  "earliest": -0.93,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.82,
+   "UNCOMMON": 0.32,
+   "RARE": 0.07,
+   "UNIQUE": 0.06
+  },
+  "insight": {
+   "became progress": 0.989,
+   "premium share of progress": 0.1,
+   "net lost": 0.002
+  },
+  "diffusion arrivals a game": 0,
+  "missed STANDARD before Space": [
+   10.8,
+   14
+  ],
+  "of them guarding nothing": 8.7,
+  "ideas rediscovered a game": 12.1,
+  "rows they lock": [
+   1.9,
+   6,
+   9
+  ],
+  "still locked with Endeavours on glimpsed": [
+   0.9,
+   4,
+   8
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 78,
+   "UNCOMMON": 59,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 10.8,
+   "UNCOMMON": 26.8,
+   "RARE": 23.2,
+   "UNIQUE": 48.3
+  },
+  "gateways": [
+   [
+    "GN03",
+    "Genetic Engineering",
+    20,
+    12
+   ],
+   [
+    "MC12",
+    "Robotics",
+    22,
+    10
+   ],
+   [
+    "MD11",
+    "Gene Therapy",
+    42,
+    2
+   ],
+   [
+    "EN10",
+    "Miniaturization",
+    22,
+    3
+   ],
+   [
+    "EN06",
+    "Semiconductor Mastery",
+    7,
+    7
+   ],
+   [
+    "CP08",
+    "Machine Learning",
+    12,
+    3
+   ],
+   [
+    "GN02",
+    "DNA Structure",
+    2,
+    16
+   ],
+   [
+    "O12",
+    "Atmospheric Science",
+    17,
+    1
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.39,
+   "Medieval": 0.09,
+   "Early Modern": 0.14,
+   "Modern": 0.14,
+   "Atomic": 0.07,
+   "Space": -0.27
+  },
+  "funded windows, a game": {
+   "STANDARD ideas lost": 12.2,
+   "held open while funded": 1.32,
+   "then occurred": 0.65,
+   "then closed when the focus moved on": 0.67,
+   "turns a focus stays funded": 1.9
+  }
+ }
+}

@@ -1,0 +1,170 @@
+{
+ "world": "familiar",
+ "setting": "isolated",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false,
+  "funded_windows": true
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.02,
+   "Classical": 0.79,
+   "Medieval": 0.77,
+   "Early Modern": 0.72,
+   "Modern": 0.93,
+   "Atomic": 0.9,
+   "Space": 1.06
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 11.2,
+   "Classical": 5.2,
+   "Medieval": 5.0,
+   "Early Modern": 3.4,
+   "Modern": 4.9,
+   "Atomic": 5.6,
+   "Space": 9.8
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.5,
+   "Classical": 4.6,
+   "Medieval": 5.5,
+   "Early Modern": 5.0,
+   "Modern": 3.0,
+   "Atomic": 3.9,
+   "Space": 3.1
+  },
+  "lateness": 0.54,
+  "outside own era %": 29.8,
+  ">=1 era early %": 0.0,
+  "earliest": -0.91,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.81,
+   "UNCOMMON": 0.35,
+   "RARE": 0.07,
+   "UNIQUE": 0.05
+  },
+  "insight": {
+   "became progress": 0.973,
+   "premium share of progress": 0.119,
+   "net lost": 0.005
+  },
+  "diffusion arrivals a game": 0,
+  "missed STANDARD before Space": [
+   17.3,
+   22
+  ],
+  "of them guarding nothing": 7.7,
+  "ideas rediscovered a game": 0,
+  "rows they lock": [
+   24.1,
+   37,
+   44
+  ],
+  "still locked with Endeavours on glimpsed": [
+   4.1,
+   12,
+   21
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 85,
+   "UNCOMMON": 63,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 17.3,
+   "UNCOMMON": 23.9,
+   "RARE": 21.3,
+   "UNIQUE": 45.4
+  },
+  "gateways": [
+   [
+    "MA06",
+    "Probability Theory",
+    13,
+    31
+   ],
+   [
+    "CP07",
+    "Artificial Intelligence (Narrow)",
+    22,
+    15
+   ],
+   [
+    "CO11",
+    "Reinforced Concrete",
+    20,
+    15
+   ],
+   [
+    "TH02",
+    "Refrigeration",
+    18,
+    15
+   ],
+   [
+    "MA09",
+    "Statistics",
+    8,
+    30
+   ],
+   [
+    "FA03",
+    "Selective Breeding",
+    15,
+    15
+   ],
+   [
+    "GN02",
+    "DNA Structure",
+    18,
+    9
+   ],
+   [
+    "GN03",
+    "Genetic Engineering",
+    18,
+    9
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.39,
+   "Medieval": 0.06,
+   "Early Modern": 0.12,
+   "Modern": 0.1,
+   "Atomic": 0.03,
+   "Space": -0.37
+  },
+  "funded windows, a game": {
+   "STANDARD ideas lost": 22.0,
+   "held open while funded": 1.55,
+   "then occurred": 0.3,
+   "then closed when the focus moved on": 1.22,
+   "turns a focus stays funded": 2.0
+  }
+ }
+}

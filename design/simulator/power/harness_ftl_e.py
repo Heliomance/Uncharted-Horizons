@@ -97,6 +97,7 @@ def run(prm, seed, max_turns=450):
     diff_since = {}; diff_unc = {}; contact_turn = None; cp04_turn = None
     glimpsed = set(); lost = set(); grng = random.Random(seed * 7919 + 13)   # its own stream: glimpses never perturb the game
     rrng = random.Random(seed * 104729 + 7); rediscovered = {}                  # rediscovery's own stream, and when each lost idea came back
+    held = set()                                                               # (accounting only) ideas the funded focus kept open past their window
     STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}
     while turn < max_turns and len(have) < len(IDS):
@@ -144,6 +145,7 @@ def run(prm, seed, max_turns=450):
                 behind = d - (ERA_I[k] + 1)
                 if prm.compress and behind > 0: W = W / (1 + prm.compress * behind)
                 W = max(W, 1.0)
+                if prm.funded_windows and t == 'STANDARD' and turn - opened[k] > W and FOCUS[k] == funded: held.add(k)   # (accounting only)
                 if turn - opened[k] > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
                     lost.add(k); continue                                              # the moment has passed: the idea is lost
                 if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); continue
@@ -209,6 +211,9 @@ def run(prm, seed, max_turns=450):
         if end_k is not None:                     # the Endeavour is the focus: it takes the active share; the spread still rolls
             end_prog += inc * sh + bank; bank = 0.0; active = None
             if end_prog >= end_cost: end_done = end_k; END_LOG.append((turn, end_k, 'done')); end_k = None
+        if active is not None:                    # (accounting only) turns a focus was funded, and how often the funded focus changed
+            acct['focus_turns'] = acct.get('focus_turns', 0) + 1
+            if active != funded: acct['focus_changes'] = acct.get('focus_changes', 0) + 1
         if TRACE is not None: _fund = ('END', end_done or end_k) if (end_done or end_k is not None) else ('FOCUS', active)
         open_foci = sorted(set(pool) | set(FOCUS[k] for k in have if FOCUS[k] != blocked))
         share = 0.8 if 'SO05' in have else 0.5
@@ -310,6 +315,8 @@ def run(prm, seed, max_turns=450):
             TRACE.append(dict(turn=turn, d=d, found=list(found), diff=[k for k in found if k in diff_due], endv=[end_done] if end_done else [],
                               occ=[(k, 'core' if ROWS[k]['tier'] == 'CORE' else ('funded' if (k in _fund0 and ROWS[k]['tier'] == 'STANDARD' and ROWS[k]['era'] == 'Space') else 'chance')) for k in _new],
                               glim=sorted(glimpsed - _gl0), fund=_fund))
+    acct.update(held_open=len(held), held_occurred=len(held & occurred), held_lost=len(held & lost),
+                lost_standard=sum(1 for k in lost if ROWS[k]['tier'] == 'STANDARD'))   # (accounting only)
     acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered
     return have, log
 

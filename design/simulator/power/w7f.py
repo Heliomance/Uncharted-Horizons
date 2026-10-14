@@ -282,6 +282,7 @@ def play(s, m, a):
             if not any(o in have for o in g): roots |= set().union(*[root(o) for o in g])
         why['_roots'] = sorted(f"{r} [{_rows[r]['tier']}, {_rows[r]['era']}]: " + ('occurred, not found' if (r in occ or _rows[r]['tier'] == 'CORE') else 'idea never occurred') for r in roots)
         why['_end'] = f"stopped turn {log[-1][0] if log else '?'}, development {log[-1][1]:.2f}" if log else ''
+    if os.environ.get('ACCT'): diag = dict(diag or {}, _acct=dict(HF.run.acct))   # ACCT=<path>: the engine's accounts, written separately below
     return dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
 WORKERS = int(os.environ.get('WORKERS') or os.cpu_count() or 1)   # games played in parallel, one process each (WORKERS=1: one after another)
 if WORKERS > 1 and len(DRAWS) > 1 and not os.environ.get('TRACE'):
@@ -289,4 +290,8 @@ if WORKERS > 1 and len(DRAWS) > 1 and not os.environ.get('TRACE'):
     with multiprocessing.get_context('fork').Pool(min(WORKERS, len(DRAWS))) as _pool: out = _pool.starmap(play, DRAWS, chunksize=1)
 else:
     out = [play(*g) for g in DRAWS]
+if os.environ.get('ACCT'):                    # one dict of accounts a game, in their own file; the results file is unchanged
+    accts = [r['diag'].pop('_acct') for r in out]
+    for r in out: r['diag'] = r['diag'] or None
+    json.dump(accts, open(os.environ['ACCT'], 'w'))
 json.dump(out, open(f'/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}{sys.argv[3] if len(sys.argv) > 3 else ""}.json', 'w')); print(sys.argv[1], 'done:', sum(1 for r in out if r['cert']), 'of', len(out), 'games reached certainty')
