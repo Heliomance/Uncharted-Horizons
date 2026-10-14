@@ -1,0 +1,48 @@
+name: Publish design wiki
+
+# Rebuilds the GitHub wiki from design/tech_tree.md and pushes it to the wiki repository, whenever the
+# design changes on master or on a Claude branch. Pages added to the wiki by hand are left alone, and a
+# branch holding an older version of the document never replaces a newer wiki (see design/README.md).
+
+on:
+  push:
+    branches: [master, 'claude/**']
+    paths:
+      - 'design/tech_tree.md'
+      - 'design/wiki/**'
+      - '.github/workflows/publishDesignWiki.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: design-wiki
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Check out the wiki
+        env:
+          TOKEN: ${{ github.token }}
+        run: git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git" "$RUNNER_TEMP/wiki"
+
+      - name: Build the pages
+        run: python3 design/wiki/build_wiki.py --sync-into "$RUNNER_TEMP/wiki"
+
+      - name: Push to the wiki
+        working-directory: ${{ runner.temp }}/wiki
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The wiki is already up to date."
+            exit 0
+          fi
+          git commit -m "Rebuild from ${GITHUB_REF_NAME} at ${GITHUB_SHA::7}"
+          git push

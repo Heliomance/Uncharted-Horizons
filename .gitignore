@@ -188,7 +188,10 @@ detekt/reports.html
 
 /buildSrc/.kotlin/errors/*
 /buildSrc/.kotlin/sessions/*
-/.claude/
+# Claude Code: the fork's shared settings and session-start hook are kept; personal settings are not
+/.claude/*
+!/.claude/settings.json
+!/.claude/hooks/
 
 # Used by the desktop:packr<platform> tasks and intentionally not included in a 'clean':
 /desktop/.jre-cache/
