@@ -4,7 +4,7 @@ for a good economy (expert, novice), 6 and 5 for the average player; the Drive o
 
 Usage: python3 victory_table.py <world> <label>=<suffix pattern> ...
   each pattern names result files results/w7f_<world><suffix>.json, with {p} for the player code (X, N, A) and {m} for the method,
-  e.g.  python3 victory_table.py familiar window=_cmpW{p}_{m} fade=_cmpF{p}_{m}
+  e.g.  python3 victory_table.py familiar w16=_cmpPkgQ{p}_{m} fundedwin=_cmpPkgFW{p}_{m}
 """
 import sys, os, json, statistics as st
 HERE = os.path.dirname(os.path.abspath(__file__))

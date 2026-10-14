@@ -162,10 +162,9 @@ SEED0 = int(os.environ.get('SEED0', '17000'))
 POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool.json")) if os.environ.get('DIFF') == '1' else None
 CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))   # the discovery model (the workshop's candidate)
 if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its price calibration
+if os.environ.get('FUNDEDWIN') == '1': CFG['funded_windows'] = True   # a STANDARD window stays open while its focus is funded
 if os.environ.get('REDISCOVER'): CFG['rediscover'] = float(os.environ['REDISCOVER'])   # rediscovery on demand (harness_ftl_e.P.rediscover)
 if os.environ.get('TIERATT'): CFG['tier_attention'] = os.environ['TIERATT'] == '1'   # tier odds weighting attention once an idea has occurred
-if os.environ.get('FADE'):   # fading attention instead of the closing window (harness_ftl_e.P.fade), for the tiers in FADETIERS
-    CFG.update(fade=float(os.environ['FADE']), fade_clock=os.environ.get('FADECLOCK', 'later'), fade_tiers=tuple(os.environ.get('FADETIERS', 'STANDARD').split('+')))
 DRAWS = []   # each game's method and truth, drawn in order before any game is played, so that games can run in any order
 for s in range(N * len(COND)):
     m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m])

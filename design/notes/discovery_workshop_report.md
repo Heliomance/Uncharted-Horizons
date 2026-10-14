@@ -250,7 +250,7 @@ Still nothing era-breaking. **Why a head start beats a halved price:** both save
 
 ## Fading attention (Tamsin's proposal, 14 October 2026)
 
-**The proposal.** Instead of an idea's moment closing, a breakthrough gets a smaller and smaller share of Insight as it recedes into the past. If it fills, it is still discovered; missing the window means never filling. Implemented as `harness_ftl_e.P.fade`, with a choice of clock and of the tiers that fade.
+**The proposal.** Instead of an idea's moment closing, a breakthrough gets a smaller and smaller share of Insight as it recedes into the past. If it fills, it is still discovered; missing the window means never filling. Implemented as `harness_ftl_e.P.fade`, with a choice of clock and of the tiers that fade (removed from the simulator once rejected; the results below are kept).
 
 **What the first forms showed** (atomic, isolated):
 - **Every tier fading** makes the rarer tiers common: RARE 0.26–0.51 and UNIQUE 0.24–0.95 of those that open, against 0.05 and 0.06. Without a closing moment their ideas keep arriving, and an old breakthrough is cheap next to a later era's income, so even a small share fills it. Whatever the clock, the rarer tiers need their moments: their rarity is luck. The proposal belongs to STANDARD, the tier the closing window was hurting.
@@ -291,7 +291,7 @@ Decision 7 leaves the victory turns where they were. Fading attention, at today'
 - *Fading attention* makes missing depend on what the civilisation attends to, and nothing is ever locked for good: a stalled question can fill later when nothing fresher competes, arrive by diffusion, or be Endeavoured. Missed STANDARD ideas almost disappear, even in isolation; rediscovering an old question could be a good moment in play; and the FTL balance holds at today's prices. Against it: it applies to STANDARD only, so there are two mechanisms. Insight sinks into stalled half-done questions and more STANDARD rows get found, so keeping the same pace needs research 4% (connected) to 13% (isolated) cheaper. And a stalled-but-recoverable state is harder to show on a research screen than "this moment passed".
 - *Not yet modelled:* a tapering chance (the occurrence chance falling gradually instead of stopping), which softens the cliff but keeps ideas lost by dice; and funding a field reviving its stalled questions (`fade_funded=False`).
 
-**Decided (14 October): rejected.** Tamsin prefers not to adopt it; the closing window stays. The open questions it raised were: adopt fading attention for STANDARD? Its half-life (1 era; half an era behaves much the same)? Keep today's prices, as the FTL check supports, or recalibrate for mid-era arrivals? Should funding a field revive its stalled questions?
+**Decided (14 October): rejected.** Tamsin prefers not to adopt it; the closing window stays. The fading code has been removed from the simulator (games without it are unchanged, checked byte for byte); its results files stay in `results/`. The open questions it raised were: adopt fading attention for STANDARD? Its half-life (1 era; half an era behaves much the same)? Keep today's prices, as the FTL check supports, or recalibrate for mid-era arrivals? Should funding a field revive its stalled questions?
 
 ## Recovery: rediscovery on demand (14 October 2026)
 

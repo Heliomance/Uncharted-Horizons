@@ -40,12 +40,8 @@ class P:
         self.accel_head = {}         # {row: fraction} — accelerator as a head start on the meter (P forms)
         self.spread_floor = 0.1
         self.linear = False          # R: chance = min(1, attention ÷ price) instead of 1 − e^(−attention ÷ price)
-        self.fade = None             # None: an idea's moment closes (the window). A number: no window; instead attention to an open question
-                                     # fades, halving every `fade` eras of development since it opened (Tamsin's proposal, 14 Oct 2026)
-        self.fade_funded = True      # fade: whether the active focus fades too (False: funding a field revives its stale questions)
-        self.fade_clock = 'opened'   # fade: staleness counted from when the question opened; 'era': from the end of its own era;
-                                     # 'later': from whichever comes later (on-time rows stay fresh through their era, late openers start fresh)
-        self.fade_tiers = ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')   # the tiers that fade; the others keep the closing window
+        self.funded_windows = False  # True: a STANDARD idea's window does not close while its focus is the funded (active) focus; a window
+                                     # already closed is not reopened (Tamsin's alternative to W16, 14 Oct 2026)
         self.rediscover = 0.0        # >0: a lost idea of a tier in rediscover_tiers gets a new chance each turn, `rediscover` for every undiscovered
                                      # breakthrough ready but for it (all its other prerequisites discovered): rediscovery on demand (14 Oct 2026)
         self.rediscover_tiers = ('STANDARD',)
@@ -89,7 +85,7 @@ def run(prm, seed, max_turns=450):
             for opt in grp:
                 for p in opt: dependents.setdefault(p, []).append(k)
     met = {k for k in IDS if prereqs_met(k, have)}; new_rows = []         # rows whose prerequisites are met: only grows, as `have` does
-    focus_ins = {}; progress = {}; need = {}; line = {}; opened = {}; d_open = {}; occurred = set(); elig_since = {}; occ_turn = {}
+    focus_ins = {}; progress = {}; need = {}; line = {}; opened = {}; occurred = set(); elig_since = {}; occ_turn = {}
     acct = {'income': 0.0, 'lost_empty': 0.0, 'lost_cap': 0.0, 'banked_end': 0.0, 'premium_dilution': 0.0, 'attention': 0.0, 'saturation': 0.0, 'linear': 0.0}
     if m == 'T':
         pos, _, focus_thr, _ = GN.generate(ROWS, prm.spill, rng, slack=0.0)
@@ -134,35 +130,27 @@ def run(prm, seed, max_turns=450):
                     elif tk == 'UNCOMMON' and cp04_turn is not None:
                         s0 = diff_unc.setdefault(k, turn)
                         if turn - s0 >= 5: diff_due.append(k)
-        for k in disc: opened.setdefault(k, turn); d_open.setdefault(k, d)
-        def fresh(k):
-            """fade: the share of attention an open question still draws (CORE never fades, nor W16's funded Space-era rows)"""
-            if not prm.fade or ROWS[k]['tier'] not in prm.fade_tiers or (k in FUNDED and ROWS[k]['tier'] == 'STANDARD' and ROWS[k]['era'] == 'Space'): return 1.0
-            past = {'era': d - (ERA_I[k] + 1), 'later': d - max(ERA_I[k] + 1, d_open[k])}.get(prm.fade_clock, d - d_open[k])
-            return 0.5 ** (max(0.0, past) / prm.fade)
+        for k in disc: opened.setdefault(k, turn)
         if TRACE is not None: _occ0, _gl0, _fund0 = set(occurred), set(glimpsed), set(FUNDED)
         # the moment: a non-CORE idea occurs to the civilisation with a small chance each turn while it lasts
+        funded = active                                                    # the focus funded last turn (None while an Endeavour ran)
         if m != 'T':
             for k in disc:
                 if k in occurred: continue
                 t = ROWS[k]['tier']
                 if t == 'CORE' or (W16 and k in FUNDED and t == 'STANDARD' and ROWS[k]['era'] == 'Space'): occurred.add(k); continue   # W16: a funded focus never loses an idea
+                if k in lost: continue                                                 # its window closed on an earlier turn: it stays closed
                 W = TURNS[ROWS[k]['era']] * prm.window[t] * prm.accel_occ.get(k, 1.0)
                 behind = d - (ERA_I[k] + 1)
                 if prm.compress and behind > 0: W = W / (1 + prm.compress * behind)
                 W = max(W, 1.0)
-                if not (prm.fade and t in prm.fade_tiers):                           # (a fading tier's moment never closes; attention fades instead)
-                    if turn - opened[k] > W: lost.add(k); continue                     # the moment has passed: the idea is lost
-                    if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); continue
+                if turn - opened[k] > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
+                    lost.add(k); continue                                              # the moment has passed: the idea is lost
+                if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); continue
                 if rng.random() < 1 - (1 - min(TARGET[t], 0.999)) ** (1 / W): occurred.add(k); occ_turn[k] = turn
                 else:                                                                # proximity revelation: glimpsed, not found
                     g = GLIMPSE.get(t, 0.0) if isinstance(GLIMPSE, dict) else GLIMPSE   # a chance for every tier, or one per tier
                     if g and k not in glimpsed and grng.random() < g: glimpsed.add(k)
-            if prm.fade:                                                         # fade: an open question that goes undiscovered can be glimpsed too
-                for k in disc:
-                    if k in occurred and k not in glimpsed and ROWS[k]['tier'] in prm.fade_tiers:
-                        g = GLIMPSE.get(ROWS[k]['tier'], 0.0) if isinstance(GLIMPSE, dict) else GLIMPSE
-                        if g and grng.random() < g: glimpsed.add(k)
             if prm.rediscover:                                                   # rediscovery on demand: a lost idea that other work is waiting on comes back
                 goals = GOALS_FN(have) if GOALS_FN else []
                 for k in disc:
@@ -176,10 +164,9 @@ def run(prm, seed, max_turns=450):
             live = disc
         pool = {}
         for k in live: pool.setdefault(FOCUS[k], []).append(k)
-        fresh_top = max((fresh(k) for k in live), default=1.0) or 1.0
-        waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) * fresh(k) for k in ks) for f, ks in pool.items()}   # the simulated player's sense of where work waits
+        waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the simulated player's sense of where work waits
         def aw(k): return TARGET[ROWS[k]['tier']] if prm.tier_attention else 1.0   # attention weight of an idea under study
-        pull = waiting if prm.tier_attention else {f: sum((1 + max(0.0, d - ERA_I[k])) * fresh(k) for k in ks) for f, ks in pool.items()}   # the rule: each focus's draw on the spread
+        pull = waiting if prm.tier_attention else {f: sum((1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the rule: each focus's draw on the spread
         if prm.player == 'specialist' and 'Mathematics' in pool: active = 'Mathematics'
         else: active = _ftl_active(waiting, pool, have)
         def est_price(k): return PRICE[ROWS[k]['era']] * prm.scale * prm.premium ** max(0.0, ERA_I[k] - d)
@@ -208,7 +195,7 @@ def run(prm, seed, max_turns=450):
                     rate = sum(att_hist[k][-2:]) / 2; t_norm = est_rem(k) / rate if rate > 1e-9 else float('inf')
                     if END_RULE == 'active':      # the real alternative: make k's focus active, where k gets its automatic share of that focus
                         ks = [j for j in pool.get(FOCUS[k], []) if j not in have]
-                        wj = {j: aw(j) * (progress.get(j, 0) + prm.momentum) * ATTN.get(j, 1.0) * fresh(j) for j in ks}
+                        wj = {j: aw(j) * (progress.get(j, 0) + prm.momentum) * ATTN.get(j, 1.0) for j in ks}
                         phi = wj[k] / sum(wj.values()) if k in wj and sum(wj.values()) > 0 else 1.0
                         t_norm = min(t_norm, est_rem(k) / max(inc * sh * phi, 1e-9))
                 else:                             # Revealed by a rival, but the idea never occurred here: only diffusion or an Endeavour brings it
@@ -274,11 +261,7 @@ def run(prm, seed, max_turns=450):
                 if k not in need:
                     need[k] = rng.gammavariate(prm.shape, 1 / prm.shape) * COSTMULT.get(k, 1.0)
                     if k in prm.accel_head: progress[k] = need[k] * prm.accel_head[k]
-            held = 0.0
-            if prm.fade and not (f == active and not prm.fade_funded):
-                eng = max(fresh(k) for k in cands) / fresh_top             # the rest spills to fields with fresher questions
-                held = ins * (1 - eng)
-            left = ins - held
+            left = ins
             for _ in range(len(cands) + 1):
                 cands = [k for k in cands if k not in found]
                 if not cands or left <= 1e-9: break
@@ -289,7 +272,7 @@ def run(prm, seed, max_turns=450):
                     if left >= room: progress[k] = need[k]; found.append(k); left -= room; line[f] = None; acct['attention'] += room; acct['premium_dilution'] += room * (1 - 1 / prem(k))
                     else: progress[k] = progress.get(k, 0) + left / pk; acct['attention'] += left; acct['premium_dilution'] += left * (1 - 1 / prem(k)); left = 0.0
                 else:
-                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) * fresh(k) for k in cands}; tot = sum(ws.values())
+                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) for k in cands}; tot = sum(ws.values())
                     spent = 0.0; done = []
                     for k in cands:
                         att = left * ws[k] / tot; pk = price(k); room = (need[k] - progress.get(k, 0)) * pk; att_turn[k] = att_turn.get(k, 0.0) + att
@@ -297,7 +280,7 @@ def run(prm, seed, max_turns=450):
                         else: progress[k] = progress.get(k, 0) + att / pk; spent += att; acct['attention'] += att; acct['premium_dilution'] += att * (1 - 1 / prem(k))
                     found.extend(done); left -= spent
                     if not done: left = 0.0; break
-            return left + held
+            return left
         unused = {}
         for f, ins in flow.items():
             had = [k for k in pool.get(f, []) if k not in have and k not in found]

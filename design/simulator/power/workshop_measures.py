@@ -10,9 +10,6 @@ Usage: python3 workshop_measures.py <world> <setting> [key=value ...]
   games=60     games per measure
   glimpse=0.1  STANDARD's chance a turn of being glimpsed; gu=<p> UNCOMMON's (default 0.03); RARE and UNIQUE never
   gall=<p>     the old rule instead: the same glimpse chance for every tier
-  fade=<h>     Tamsin's fading attention instead of the closing window: attention to an open question halves every h eras
-               of development since it opened (harness_ftl_e.P.fade)
-  fade_funded=0  with fade, the funded focus does not fade
   scale=<x>    the model's price calibration (default: w7c_cfg.json's)
   workers=<n>  games played in parallel (default: every core; also the WORKERS variable)
   only=a,b     run only some measures: pace (with tiers, Insight, missed ideas and era entry), catchup, accel, premium, calib
@@ -31,12 +28,9 @@ HF.ROWS = ROWS; HF.IDS = sorted(ROWS); HF.FOCUS = {k: ROWS[k]['focus'] for k in 
 prices.apply(HF, ROWS)
 CFG = json.load(open(os.path.join(HERE, 'w7c_cfg.json')))
 if 'scale' in OPT: CFG['scale'] = float(OPT['scale'])
-if 'fade' in OPT: CFG['fade'] = float(OPT['fade'])
-if OPT.get('fade_funded') == '0': CFG['fade_funded'] = False
-if 'clock' in OPT: CFG['fade_clock'] = OPT['clock']                      # clock=era: staleness from the end of the row's own era
+if OPT.get('fundedwin') == '1': CFG['funded_windows'] = True          # a STANDARD window stays open while its focus is funded
 if 'rediscover' in OPT: CFG['rediscover'] = float(OPT['rediscover'])  # rediscovery on demand: chance a turn per breakthrough waiting on a lost idea
 if 'tieratt' in OPT: CFG['tier_attention'] = OPT['tieratt'] == '1'        # tieratt=0: once occurred, every tier is studied alike
-if 'ftiers' in OPT: CFG['fade_tiers'] = tuple(OPT['ftiers'].split('+'))   # ftiers=STANDARD: only STANDARD fades; the rest keep the window
 POOL = json.load(open(os.path.join(HERE, 'results', f'w7f_{NAME}_pool.json')))
 GL = ({t: float(OPT['gall']) for t in ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')} if 'gall' in OPT else
       {'STANDARD': float(OPT.get('glimpse', 0.1)), 'UNCOMMON': float(OPT.get('gu', 0.03)), 'RARE': 0.0, 'UNIQUE': 0.0})
