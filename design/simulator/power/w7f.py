@@ -34,13 +34,13 @@ def smart_targets(reqs, have):
     """The undiscovered rows a thoughtful player would pursue for a list of requirements, each a list of alternative rows.
     For every either-or choice, down the whole tree: an option already met settles it; options that cannot exist in this
     world are ignored; otherwise the option whose undiscovered rows cost least in total is chosen."""
-    memo = {}
+    memo = {}; cost = COST.__getitem__
+    S_ = HF.STATE; lost = S_.get('lost', ()); gl = S_.get('glimpsed', ()); dif = S_.get('diff', {}); dun = S_.get('diff_unc', {})
     def need(k):
+        if k in memo: return memo[k]                                     # (only rows that passed the checks below are ever memoised)
         if k in have: return frozenset()
         if k not in _rows: return None
-        S_ = HF.STATE
-        if k in S_.get('lost', ()) and k not in S_.get('glimpsed', ()) and k not in S_.get('diff', {}) and k not in S_.get('diff_unc', {}): return None   # an idea that isn't coming
-        if k in memo: return memo[k]
+        if k in lost and k not in gl and k not in dif and k not in dun: return None   # an idea that isn't coming
         memo[k] = frozenset([k]); req = {k}
         for grp in _rows[k]['pre']:
             best = None
@@ -52,7 +52,7 @@ def smart_targets(reqs, have):
                     s |= q
                 if not ok: continue
                 if not s: best = (0, set()); break
-                c = sum(_cost(x) for x in s)
+                c = sum(map(cost, s))
                 if best is None or c < best[0]: best = (c, s)
             if best is None: memo[k] = None; return None
             req |= best[1]
@@ -61,7 +61,7 @@ def smart_targets(reqs, have):
     for alts in reqs:
         opts = [q for q in (need(a) for a in alts) if q is not None]
         if not opts or any(len(q) == 0 for q in opts): continue
-        out |= min(opts, key=lambda q: sum(_cost(x) for x in q))
+        out |= min(opts, key=lambda q: sum(map(cost, q)))
     return out
 import os, collections
 ORSMART = os.environ.get('ORSMART') == '1'
@@ -100,6 +100,7 @@ def hint_pick(reqs, have):
     cnt = collections.Counter(f for f in (hint_focus(r, have) for r in reqs) if f)
     return max(cnt, key=lambda f: (cnt[f], f)) if cnt else None
 import prices; prices.apply(HF, _rows)   # the agreed design's prices: Space-era price and row multipliers (prices.py)
+COST = {k: _cost(k) for k in _rows}      # each row's price, fixed for the run (smart_targets sums these millions of times)
 if world is None:
     BUILD = {'Warp': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['ES06', 'ES07', 'ES14', 'ES08'], ['ES18']], 'Wormhole': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['RC04'], ['QP12'], ['MA13']],
              'Hyperspace': [['QP08'], ['MA13'], ['ES06', 'ES07', 'ES14', 'ES08'], ['MA19']], 'Tunnelling': [['QP02'], ['CP10'], ['MS02', 'GN05'], ['QP14'], ['CP21']],
@@ -154,9 +155,14 @@ CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_c
 if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its price calibration
 if os.environ.get('FADE'):   # fading attention instead of the closing window (harness_ftl_e.P.fade), for the tiers in FADETIERS
     CFG.update(fade=float(os.environ['FADE']), fade_clock=os.environ.get('FADECLOCK', 'later'), fade_tiers=tuple(os.environ.get('FADETIERS', 'STANDARD').split('+')))
+DRAWS = []   # each game's method and truth, drawn in order before any game is played, so that games can run in any order
 for s in range(N * len(COND)):
-    m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m]); state = {'cert': None, 'srng': random.Random(SEED0 + s + 7919)}
+    m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m])
     if METHODS and m not in METHODS: continue          # skip after the draw, so every game keeps its truth and seed
+    DRAWS.append((s, m, a))
+def play(s, m, a):
+    """one game: its record for the results file"""
+    state = {'cert': None, 'srng': random.Random(SEED0 + s + 7919)}
     def target(have, m=m, a=a, state=state):
         if SPEC: return spec_target(have, state)
         kn, alive, certain = status(have, m, a)
@@ -265,5 +271,11 @@ for s in range(N * len(COND)):
             if not any(o in have for o in g): roots |= set().union(*[root(o) for o in g])
         why['_roots'] = sorted(f"{r} [{_rows[r]['tier']}, {_rows[r]['era']}]: " + ('occurred, not found' if (r in occ or _rows[r]['tier'] == 'CORE') else 'idea never occurred') for r in roots)
         why['_end'] = f"stopped turn {log[-1][0] if log else '?'}, development {log[-1][1]:.2f}" if log else ''
-    out.append(dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag))
+    return dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
+WORKERS = int(os.environ.get('WORKERS') or os.cpu_count() or 1)   # games played in parallel, one process each (WORKERS=1: one after another)
+if WORKERS > 1 and len(DRAWS) > 1 and not os.environ.get('TRACE'):
+    import multiprocessing
+    with multiprocessing.get_context('fork').Pool(min(WORKERS, len(DRAWS))) as _pool: out = _pool.starmap(play, DRAWS, chunksize=1)
+else:
+    out = [play(*g) for g in DRAWS]
 json.dump(out, open(f'/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}{sys.argv[3] if len(sys.argv) > 3 else ""}.json', 'w')); print(sys.argv[1], 'done:', sum(1 for r in out if r['cert']), 'of', len(out), 'games reached certainty')

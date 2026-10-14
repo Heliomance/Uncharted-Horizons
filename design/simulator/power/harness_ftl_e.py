@@ -17,7 +17,7 @@ Routings
 """
 import sys, math, random, statistics as st, json
 sys.path.insert(0, '/home/user/Uncharted-Horizons/design/simulator/power')
-import gen_data as G, generator as GN, eramodel as M, ledger as Lg
+import gen_data as G, generator as GN, eramodel as M, ledger as Lg, harness as H0
 from harness import ROWS, IDS, FOCUS, PRICE, TARGET, ERA_I, EO, TURNS, income, dev, prereqs_met
 
 SPAN_E = len(EO)
@@ -71,6 +71,12 @@ def _ftl_active(waiting, pool, have):
 def run(prm, seed, max_turns=450):
     rng = random.Random(seed); m = prm.model
     have = {}; cum = 0.0; turn = 0; bank = 0.0
+    dependents = {}                                                       # row -> the rows that name it as a prerequisite
+    for k in IDS:
+        for grp in H0.ROWS[k]['pre']:
+            for opt in grp:
+                for p in opt: dependents.setdefault(p, []).append(k)
+    met = {k for k in IDS if prereqs_met(k, have)}; new_rows = []         # rows whose prerequisites are met: only grows, as `have` does
     focus_ins = {}; progress = {}; need = {}; line = {}; opened = {}; d_open = {}; occurred = set(); elig_since = {}; occ_turn = {}
     acct = {'income': 0.0, 'lost_empty': 0.0, 'lost_cap': 0.0, 'banked_end': 0.0, 'premium_dilution': 0.0, 'attention': 0.0, 'saturation': 0.0, 'linear': 0.0}
     if m == 'T':
@@ -91,7 +97,11 @@ def run(prm, seed, max_turns=450):
         if STOP_FN and STOP_FN(have): break                            # the measurement has what it needs
         blocked = prm.blocked_focus if (prm.blocked_focus and d < prm.unblock_dev) else None
         att_turn = {}; end_done = None
-        disc = [k for k in IDS if k not in have and FOCUS[k] != blocked and prereqs_met(k, have)]
+        for p in new_rows:                                                 # recheck only the rows that depend on last turn's discoveries
+            for k in dependents.get(p, ()):
+                if k not in met and prereqs_met(k, have): met.add(k)
+        new_rows = []
+        disc = [k for k in IDS if k not in have and k in met and FOCUS[k] != blocked]
         diff_due = []; obs = set()
         if DIFF:                                   # knowledge diffusion (section 1.2): contacted rivals, Printing Press, Internet
             if contact_turn is None and any(ERA_I[k] >= DIFF['contact_era'] for k in have): contact_turn = turn
@@ -280,7 +290,7 @@ def run(prm, seed, max_turns=450):
         elif prm.routing == 'bank':
             emptied = [f for f, u in unused.items() if u > 1e-9 and not [k for k in pool.get(f, []) if k not in have and k not in found]]
             bank += sum(unused[f] for f in emptied); acct['recovered'] = acct.get('recovered', 0) + sum(unused[f] for f in emptied)
-        for k in found: have[k] = (turn, d)
+        for k in found: have[k] = (turn, d); new_rows.append(k)
         if m != 'T':
             for k in live: att_hist[k] = (att_hist.get(k, []) + [att_turn.get(k, 0.0)])[-3:]
         log.append((turn, d, len(found)))

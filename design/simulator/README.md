@@ -12,7 +12,7 @@ Everything used to measure the tech tree's research pacing and the FTL endgame: 
 | Folder | What's in it |
 |---|---|
 | `outputs/` | The built tree viewer, `tech_tree_viewer.html`. |
-| `power/` | Every tool and measurement script (89 Python scripts), with their data files. |
+| `power/` | Every tool and measurement script (92 Python scripts), with their data files. |
 | `power/results/` | Every saved measurement (504 files, about 67 MB unpacked). The standard runs need it: they load their rival-civilisation pools from here. |
 | `unciv/` | Unciv's Gods & Kings and Vanilla rulesets, its uniques documentation and the derived reference files. |
 | `unciv_src/` | Extracts of Unciv's engine source (unit movement, capture, combat, the unique types), used when designing engine-dependent rows. |
@@ -30,6 +30,7 @@ The standard run is 60 games of one FTL method in one world, played by the exper
 - **Worlds:** `familiar` (the atomic world), `Substance` and `Process` (the two elemental worlds). Each has a rival-civilisation pool in `power/results/w7f_<world>_pool.json`, which knowledge diffusion needs.
 - **Methods:** `Warp`, `Wormhole`, `Hyperspace` and `Tachyonic` in both world types, plus `Tunnelling` in atomic worlds or its mirror, `Plenum`, in elemental ones.
 - **Results** are saved as `power/results/w7f_<world><suffix>.json`.
+- **Speed:** a cell's games run in parallel on every core (`WORKERS=<n>` to choose, `WORKERS=1` for one after another; the results are the same). On four cores an expert cell takes about 7 seconds, a novice or average cell 2–3. To compare settings, `power/compare_settings.sh <world> <label> [VAR=value ...]` runs all three players on every method of a world (about a minute), and `power/victory_table.py` tabulates victory turns side by side.
 - **A shorter run:** call `power/w7f.py <world> <games> <suffix>` inside `power/scratch_run.sh`, with the player's environment variables (copy them from the wrapper). `docs/WORKSPACE.md` lists every variable and what it switches.
 - **Repeatability:** identical runs can differ slightly, because Python randomises string hashing in each process, which changes some tie-breaks: more often for the novice and the average player, rarely for the expert (one game in 60 in one check, with the medians unchanged). Set `PYTHONHASHSEED=0` to repeat a run exactly, and always when comparing two settings.
 - **One game, turn by turn:** add `TRACE=<path.json>`, then format the record with `power/trace_table.py`.
@@ -54,6 +55,9 @@ The standard run is 60 games of one FTL method in one world, played by the exper
 | `balance_*.py`, `theory_phase.py`, `ftl_timing.py`, `victory_total.py` | Summaries of the measurement runs. |
 | `trace_table.py` | Formats a traced game as a readable table. |
 | `missed_ideas.py` | How much of the tree missed ideas lock under the agreed settings, isolated and connected (`results/missed_ideas_<world>.txt`). |
+| `workshop_measures.py` | The discovery-model workshop's measures, rebuilt with rivals and diffusion: pace, tier rates, Insight, missed ideas, era entry, catch-up, accelerators, the premium's steepness, calibration (`results/workshop_<world>_<setting>_<label>.json`). |
+| `prices.py` | The agreed design's prices (Space-era price and row multipliers), shared by every script that runs the harness. |
+| `compare_settings.sh`, `victory_table.py` | Setting-against-setting FTL checks, and their victory table. |
 | `ledger.py`, `ledger2.py` – `ledger6.py` | The power ledgers: per-city building power by era, which the era model reads. |
 | `defaults.py` | Where the tree is, and the finalised design's switches. |
 | `v112_stage1.py` – `v112_stage5.py`, `v112_tachyonic_fix.py`, `thin_batch*.py`, `stage*.py` and the other scripts that edit `tt.md` | The scripts that made past tree versions. They're a record, tied to the versions they edited and to the old workspace's `tt.md` and numbered copies, not something to re-run. |

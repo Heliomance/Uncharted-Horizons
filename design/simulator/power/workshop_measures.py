@@ -14,6 +14,7 @@ Usage: python3 workshop_measures.py <world> <setting> [key=value ...]
                of development since it opened (harness_ftl_e.P.fade)
   fade_funded=0  with fade, the funded focus does not fade
   scale=<x>    the model's price calibration (default: w7c_cfg.json's)
+  workers=<n>  games played in parallel (default: every core; also the WORKERS variable)
   only=a,b     run only some measures: pace (with tiers, Insight, missed ideas and era entry), catchup, accel, premium, calib
   label=<name> results/workshop_<world>_<setting>_<label>.json (default: the settings)
 """
@@ -66,42 +67,68 @@ def q(v, p):
     v = sorted(v); return v[min(len(v) - 1, int(round(p / 100 * (len(v) - 1))))] if v else None
 
 
+WORKERS = int(OPT.get('workers') or os.environ.get('WORKERS') or os.cpu_count() or 1)   # games played in parallel (workers=1: one after another)
+_POOL = None
+
+
+def pmap(fn, args):
+    """[fn(*a) for a in args], spread over WORKERS processes, results in order. Each worker is a fork of this process
+    after its setup, and every game sets its own state, so the results are the same as one after another."""
+    global _POOL
+    if WORKERS <= 1 or len(args) <= 1: return [fn(*a) for a in args]
+    if _POOL is None:
+        import multiprocessing
+        _POOL = multiprocessing.get_context('fork').Pool(WORKERS)
+    return _POOL.starmap(fn, args, chunksize=1)
+
+
+def pace_game(j):
+    """one game's share of pace(): everything it needs, computed where the game was played"""
+    have, log, acct, opened, glimpsed, ndiff = game(j)
+    by = collections.defaultdict(list)
+    for turn, d, c in log: by[EO[min(int(d), len(EO) - 1)]].append(c)
+    rate = {t: [0, 0] for t in TIERS}
+    for k in opened: rate[TIER[k]][1] += 1; rate[TIER[k]][0] += k in have
+    missed = {k for k in opened if k not in have and ERA[k] != 'Space'}   # opened before the Space era and never discovered
+    gl = {}
+    for t in TIERS:
+        mt = {k for k in missed if TIER[k] == t}; gl[t] = (len(mt & glimpsed), len(mt))
+    m_std = {k for k in missed if TIER[k] == 'STANDARD'}; other = missed - m_std
+    reach = closure(have, EVERY - missed)
+    locked = {k for k in closure(have, EVERY - other) - reach - missed if ERA[k] != 'Space'}
+    hard = {k for k in locked - closure(have, EVERY - other - (m_std - glimpsed)) if ERA[k] != 'Space'}
+    guards = {k: len(closure(reach | {k}, EVERY - missed) - reach - {k}) for k in m_std}
+    dev = {turn: d for turn, d, _ in log}; turns = sorted((have[k][0], HF.ERA_I[k]) for k in have); entry = {}
+    for e, n in ENTRY.items():                     # era entry: development at the turn the civilisation holds §2's count
+        ei = EO.index(e); cnt = 0
+        for turn, i in turns:
+            cnt += i >= ei
+            if cnt >= n: entry[e] = dev[turn] - ei; break
+    return dict(by=dict(by), offs=[have[k][1] - HF.ERA_I[k] for k in have], rate=rate, ndiff=ndiff, gl=gl, entry=entry, guards=guards,
+                acct={key: acct.get(key, 0.0) for key in ('income', 'attention', 'premium_dilution', 'lost_empty', 'lost_cap', 'recovered')},
+                miss=(len(m_std), len(locked), len(hard)))
+
+
 def pace():
     """cadence, clumps, dry spells, lateness, tier rates, Insight accounting, missed ideas and era entry, from one set of games"""
     per = collections.defaultdict(list); clumps = collections.defaultdict(list); drought = collections.defaultdict(list)
     offs = []; rate = {t: [0, 0] for t in TIERS}; acc = collections.Counter(); diffused = []
     miss = collections.defaultdict(list); gl = {t: [0, 0] for t in TIERS}; gate = collections.defaultdict(list)
     entry = collections.defaultdict(list)
-    for j in range(N):
-        have, log, acct, opened, glimpsed, ndiff = game(j)
-        by = collections.defaultdict(list)
-        for turn, d, c in log: by[EO[min(int(d), len(EO) - 1)]].append(c)
-        for e, cs in by.items():
+    for g in pmap(pace_game, [(j,) for j in range(N)]):
+        for e, cs in g['by'].items():
             per[e].append(st.mean(cs)); clumps[e].append(sum(c >= 3 for c in cs) / len(cs))
             best = cur = 0
             for c in cs: cur = cur + 1 if c == 0 else 0; best = max(best, cur)
             drought[e].append(best)
-        offs += [have[k][1] - HF.ERA_I[k] for k in have]
-        for k in opened: rate[TIER[k]][1] += 1; rate[TIER[k]][0] += k in have
-        for key in ('income', 'attention', 'premium_dilution', 'lost_empty', 'lost_cap', 'recovered'): acc[key] += acct.get(key, 0.0)
-        diffused.append(ndiff)
-        # missed ideas: opened before the Space era and never discovered
-        missed = {k for k in opened if k not in have and ERA[k] != 'Space'}
-        for t in TIERS:
-            mt = {k for k in missed if TIER[k] == t}; gl[t][0] += len(mt & glimpsed); gl[t][1] += len(mt)
-        m_std = {k for k in missed if TIER[k] == 'STANDARD'}; other = missed - m_std
-        reach = closure(have, EVERY - missed)
-        locked = {k for k in closure(have, EVERY - other) - reach - missed if ERA[k] != 'Space'}
-        hard = {k for k in locked - closure(have, EVERY - other - (m_std - glimpsed)) if ERA[k] != 'Space'}
-        miss['standard'].append(len(m_std)); miss['locked'].append(len(locked)); miss['hard'].append(len(hard))
-        for k in m_std: gate[k].append(len(closure(reach | {k}, EVERY - missed) - reach - {k}))
-        # era entry: development at the turn the civilisation holds §2's count from the era or later
-        dev = {turn: d for turn, d, _ in log}; turns = sorted((have[k][0], HF.ERA_I[k]) for k in have)
-        for e, n in ENTRY.items():
-            ei = EO.index(e); cnt = 0
-            for turn, i in turns:
-                cnt += i >= ei
-                if cnt >= n: entry[e].append(dev[turn] - ei); break
+        offs += g['offs']
+        for t, (a, b) in g['rate'].items(): rate[t][0] += a; rate[t][1] += b
+        for key, v in g['acct'].items(): acc[key] += v
+        diffused.append(g['ndiff'])
+        for t, (a, b) in g['gl'].items(): gl[t][0] += a; gl[t][1] += b
+        miss['standard'].append(g['miss'][0]); miss['locked'].append(g['miss'][1]); miss['hard'].append(g['miss'][2])
+        for k, n in g['guards'].items(): gate[k].append(n)
+        for e, v in g['entry'].items(): entry[e].append(v)
     out = {'cadence': {e: round(st.mean(per[e]), 2) for e in EO if per[e]},
            'clump%': {e: round(100 * st.mean(clumps[e]), 1) for e in EO if clumps[e]},
            'drought': {e: round(st.mean(drought[e]), 1) for e in EO if drought[e]},
@@ -121,17 +148,19 @@ def pace():
     return out
 
 
+def catchup_game(j, unblock, old):
+    have, log, *_ = game(j, blocked_focus='Seafaring', unblock_dev=unblock)
+    t0 = next(turn for turn, d, _ in log if d >= unblock)
+    return (have['SF09'][0] - t0 if 'SF09' in have else None), sum(1 for k in old if k in have and have[k][0] - t0 <= 10) / len(old)
+
+
 def catchup(unblock=5.0):
     """a landlocked civilisation reaches the coast as its development enters the Modern era (5.0: the point at which this test
     reproduces the workshop's median of 6 turns): turns until its Caravel (SF09), and the share of its old Seafaring
     foundations (CORE and STANDARD rows from earlier eras) it holds within 10 turns of reaching the coast"""
     old = [k for k in EVERY if HF.FOCUS[k] == 'Seafaring' and HF.ERA_I[k] < int(unblock) and TIER[k] in ('CORE', 'STANDARD')]
-    cav = []; share = []
-    for j in range(N):
-        have, log, *_ = game(j, blocked_focus='Seafaring', unblock_dev=unblock)
-        t0 = next(turn for turn, d, _ in log if d >= unblock)
-        if 'SF09' in have: cav.append(have['SF09'][0] - t0)
-        share.append(sum(1 for k in old if k in have and have[k][0] - t0 <= 10) / len(old))
+    res = pmap(catchup_game, [(j, unblock, old) for j in range(N)])
+    cav = [c for c, _ in res if c is not None]; share = [sh for _, sh in res]
     return {'unblock at development': unblock, 'Caravel turns after the coast (median)': st.median(cav) if cav else None,
             'games without a Caravel %': round(100 * (N - len(cav)) / N), 'old Seafaring foundations within 10 turns %': round(100 * st.mean(share))}
 
@@ -139,27 +168,34 @@ def catchup(unblock=5.0):
 ACCEL = [('MA05', 'balanced'), ('MA05', 'specialist'), ('MC19', 'balanced'), ('ME18', 'balanced'), ('CH09-W', 'balanced'), ('SF09', 'balanced')]
 
 
+def found_in(j, kw):
+    """one game's discoveries, {row: (turn, development)}"""
+    return game(j, **kw)[0]
+
+
 def accel():
     """paired runs, the same seed with and without an accelerator: median turns and eras earlier, where both find the row"""
     out = {}; base = {}
     for player in ('balanced', 'specialist'):
-        base[player] = [game(j, player=player)[0] for j in range(N)]
+        base[player] = pmap(found_in, [(j, {'player': player}) for j in range(N)])
     for k, player in ACCEL:
         if k not in EVERY: continue
         for kind, kw in (('head start 1/2', {'accel_head': {k: 0.5}}), ('price x0.5', {'accel_price': {k: 0.5}})):
+            accd = pmap(found_in, [(j, {'player': player, **kw}) for j in range(N)])
             dt = []; dd = []
-            for j in range(N):
-                a = base[player][j]; b = game(j, player=player, **kw)[0]
+            for a, b in zip(base[player], accd):
                 if k in a and k in b: dt.append(a[k][0] - b[k][0]); dd.append(a[k][1] - b[k][1])
             out[f"{k} {NAMES.get(k, '')} ({player}), {kind}"] = [st.median(dt), round(st.median(dd), 2)] if dt else None
     return out
 
 
+def offsets(j, kw):
+    """one game: each discovery's development at the time minus its era"""
+    have = game(j, **kw)[0]; return [have[k][1] - HF.ERA_I[k] for k in have]
+
+
 def lateness_at(scale, n=8, **kw):
-    offs = []
-    for j in range(n):
-        have, *_ = game(j, scale=scale, **kw); offs += [have[k][1] - HF.ERA_I[k] for k in have]
-    return st.median(offs)
+    return st.median([o for offs in pmap(offsets, [(j, {'scale': scale, **kw}) for j in range(n)]) for o in offs])
 
 
 def calibrate(target=0.5, **kw):
@@ -176,11 +212,10 @@ def premium():
     out = {}
     for p in (2.0, 4.0, 8.0):
         sc = calibrate(premium=p); offs = []; calc = {'balanced': [], 'specialist': []}
-        for j in range(N):
-            for player in ('balanced', 'specialist'):
-                have, *_ = game(j, premium=p, scale=sc, player=player)
-                if player == 'balanced': offs += [have[k][1] - HF.ERA_I[k] for k in have]
-                if 'MA05' in have: calc[player].append(have['MA05'][1] - HF.ERA_I['MA05'])
+        args = [(j, {'premium': p, 'scale': sc, 'player': player}) for j in range(N) for player in ('balanced', 'specialist')]
+        for (j, kw), have in zip(args, pmap(found_in, args)):
+            if kw['player'] == 'balanced': offs += [have[k][1] - HF.ERA_I[k] for k in have]
+            if 'MA05' in have: calc[kw['player']].append(have['MA05'][1] - HF.ERA_I['MA05'])
         out[f'x{p:g}'] = {'scale': sc, 'outside own era %': round(100 * sum(not (0 <= o < 1) for o in offs) / len(offs), 1),
                           '>=1 era early %': round(100 * sum(o < -1 for o in offs) / len(offs), 2), 'earliest': round(min(offs), 2),
                           'Calculus, balanced / specialist (median eras from its era)': [round(st.median(v), 2) for v in calc.values()]}
