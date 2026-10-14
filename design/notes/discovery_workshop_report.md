@@ -150,7 +150,7 @@ The workshop stopped when the FTL endgame redesign took over (from 2 October). E
 
 **Missed ideas, re-measured** (`design/simulator/power/missed_ideas.py`; `results/missed_ideas_<world>.txt`). 100 games per setting and world, the workshop's balanced player without Endeavours, played to the end of the tree; figures for the eras before the Space era, where W16 does not reach. The three worlds agree within a row or two; atomic figures:
 
-| Setting | STANDARD ideas lost for good | Rows they alone lock | Still locked if every glimpsed one were Endeavoured |
+| Setting (old glimpse rule; see *Recalculated* for the agreed one) | STANDARD ideas lost for good | Rows they alone lock | Still locked if every glimpsed one were Endeavoured |
 |---|---|---|---|
 | Bare: no glimpse, no contacts (the 2 October sweep's setting) | 17.8 | 24.6 (p90 34, max 56) | 24.6 |
 | Isolated, 10% glimpse | 17.8, 15.3 of them glimpsed | 24.6 | 3.9 (p90 10, max 33) |
@@ -169,6 +169,8 @@ The workshop stopped when the FTL endgame redesign took over (from 2 October). E
 5. **The Primitive start:** accept, and rewrite *Front-loaded CORE* to describe the Ancient flurry. CORE ideas occur at once, so the Primitive cadence is set by Insight, not by ideas occurring; only cheaper Primitive prices would quicken it.
 6. **Missed ideas (new):** keep the bounded window, which gives the tiers their meaning; rely on the glimpse, Endeavours and diffusion to recover missed ideas; reword §1.2's promise that tiers never decide whether discovery is possible. Treat the big single gateways as tree content (the deferred entry's option 1), apart from the model.
 7. **The glimpse by tier (new):** glimpse STANDARD and UNCOMMON ideas only, or RARE and UNIQUE ones far more rarely, so the surprises stay surprises.
+
+**The glimpse for UNCOMMON ideas** (provisional 3% a turn; share of missed UNCOMMON ideas glimpsed, isolated): 10% a turn → 90%, 5% → 77%, 3% → 62%, 2% → 48%; STANDARD at 10% → about 85%. RARE and UNIQUE: never. The FTL check below shows the rule leaves victory turns unchanged.
 
 **Decided (14 October 2026, Tamsin):** proposals 1–5 as written above. On 7, UNCOMMON ideas are glimpsed less often than STANDARD ones, and RARE and UNIQUE ideas are never glimpsed. 6 stays open: Tamsin proposes modelling the closing window as fading attention instead of a closing chance. A breakthrough gets a smaller and smaller share of Insight as it recedes into the past; if it fills, it is still discovered, so missing the window means never filling. Also asked for: the workshop's figures recalculated now that the harness models rivals and diffusion, and a fuller account of the momentum calculation.
 
@@ -245,6 +247,51 @@ Still nothing era-breaking. **Why a head start beats a halved price:** both save
 §2 says entry falls within about 0.15 era of development, the Classical era about a third of an era late. Now the Classical era enters half an era late and the Space era a third to a half early, sooner with contacts. The parked era-entry task suggested 2 for the Classical era; the Space era would want more than 4.
 
 **Missed ideas under the agreed glimpse:** isolated, 17.6 STANDARD ideas lost before the Space era, locking 24 rows (p90 34, worst 55), or 3.8 if every glimpsed one were Endeavoured. Connected: 4.1, locking 4.3 (p90 10), or 0.3. Of the missed ideas, 85% of STANDARD and about 60% of UNCOMMON ones are glimpsed.
+
+## Fading attention (Tamsin's proposal, 14 October 2026)
+
+**The proposal.** Instead of an idea's moment closing, a breakthrough gets a smaller and smaller share of Insight as it recedes into the past. If it fills, it is still discovered; missing the window means never filling. Implemented as `harness_ftl_e.P.fade`, with a choice of clock and of the tiers that fade.
+
+**What the first forms showed** (atomic, isolated):
+- **Every tier fading** makes the rarer tiers common: RARE 0.26–0.51 and UNIQUE 0.24–0.95 of those that open, against 0.05 and 0.06. Without a closing moment their ideas keep arriving, and an old breakthrough is cheap next to a later era's income, so even a small share fills it. Whatever the clock, the rarer tiers need their moments: their rarity is luck. The proposal belongs to STANDARD, the tier the closing window was hurting.
+- **The clock matters.** Counted from when the question opened, rows that open early in their era start fading before it ends: 9.7 missed STANDARD ideas a game, locking 18 rows. Counted from the end of the row's own era (the literal "into the past"), rows whose prerequisites arrive late start out stale: Robotics, Genetic Engineering and Miniaturization are missed in 30–40% of games, and the landlocked Caravel takes 11.5 turns. **Counted from whichever comes later** solves both.
+
+**The form that works:**
+1. A STANDARD idea's moment never closes. Once its prerequisites are met, the idea occurs by chance each turn as now, however late.
+2. Attention to an open STANDARD question fades once it is behind the times. From the later of the end of its own era and the turn it opened, its share halves with every era of development (half-life h = 1 era; half an era behaves much the same).
+3. A field works in proportion to its freshest open question, against the freshest anywhere. The Insight it does not use spills to fields with fresher questions.
+4. A stalled question can be glimpsed (10% a turn), and so Endeavoured.
+5. UNCOMMON, RARE and UNIQUE ideas keep their moments, as now. CORE never fades, nor W16's funded Space-era rows.
+
+**Measured** (60 games each, at the prices giving mid-era arrivals; results `results/workshop_familiar_<setting>_fade_later1.json`):
+
+| | Window, isolated | Fading, isolated | Window, connected | Fading, connected |
+|---|---|---|---|---|
+| STANDARD found, of those that opened | 0.80 | 0.89 | 0.89 | 0.90 |
+| UNCOMMON / RARE / UNIQUE | 0.34 / 0.05 / 0.06 | 0.34 / 0.06 / 0.06 | 0.44 / 0.05 / 0.05 | 0.43 / 0.04 / 0.05 |
+| Missed STANDARD ideas a game | 17.6 | 2.9 | 4.1 | 2.3 |
+| Rows they lock (p90; worst) | 24 (34; 55) | 2.7 (6; 9) | 4.3 (10; 15) | 1.9 (4; 6) |
+| Of the missed, glimpsed | 85% | 94% | 85% | 92% |
+| Caravel after reaching the coast; never | 6 turns; 18% | 7 turns; 0% | 6.5; 0% | 7; 0% |
+| Prices for mid-era arrivals (in use: ×0.83) | ×0.78 | ×0.68 | ×0.80 | ×0.77 |
+
+**The FTL check** (atomic world, five contacts, 60 games a method; victory median, with games that could not finish out of 300; `results/w7f_familiar_cmp*.json`):
+
+| | Expert | Novice | Average |
+|---|---|---|---|
+| Old glimpse rule (every tier 10%) | 292 (3) | 307 (3) | 382 (2) |
+| Glimpse by tier (decision 7) | 292 (2) | 306 (3) | 381 (6) |
+| Fading attention, prices ×0.77 | 290 (0) | 305 (0) | 381 (0) |
+| Fading attention, prices as now (×0.83) | 292 (0) | 306 (0) | 381 (0) |
+
+Decision 7 leaves the victory turns where they were. Fading attention, at today's prices, leaves every median unchanged and makes every game finishable for every player.
+
+**The closing window against fading attention:**
+- *The window* is simple and legible: an idea's moment comes and goes, each tier's odds are exact by construction, one rule covers every tier, and an idea that never occurs absorbs no Insight. But missing is pure dice: funding a field does not help, which is why the Space era needed W16. A missed STANDARD idea locks its branch unless contacts or an Endeavour bring it back, hardest for isolated civilisations. And it breaks §1.2's promise that tiers decide difficulty, never possibility.
+- *Fading attention* makes missing depend on what the civilisation attends to, and nothing is ever locked for good: a stalled question can fill later when nothing fresher competes, arrive by diffusion, or be Endeavoured. Missed STANDARD ideas almost disappear, even in isolation; rediscovering an old question could be a good moment in play; and the FTL balance holds at today's prices. Against it: it applies to STANDARD only, so there are two mechanisms. Insight sinks into stalled half-done questions and more STANDARD rows get found, so keeping the same pace needs research 4% (connected) to 13% (isolated) cheaper. And a stalled-but-recoverable state is harder to show on a research screen than "this moment passed".
+- *Not yet modelled:* a tapering chance (the occurrence chance falling gradually instead of stopping), which softens the cliff but keeps ideas lost by dice; and funding a field reviving its stalled questions (`fade_funded=False`).
+
+**Open for Tamsin:** adopt fading attention for STANDARD? Its half-life (1 era; half an era behaves much the same)? Keep today's prices, as the FTL check supports, or recalibrate for mid-era arrivals? Should funding a field revive its stalled questions?
 
 ## How the momentum model shares Insight
 
