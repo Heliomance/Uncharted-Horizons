@@ -135,6 +135,7 @@ HF.POLICY = 'cheapest' if os.environ.get('DET') == 'smart' else 'waiting'
 HF.END_MULT = float(os.environ['END']) if os.environ.get('END') else None
 HF.END_FROM = HF.EO.index('Space')
 HF.OBS = os.environ.get('OBS', '1') == '1'
+HF.SPREAD_FIX = os.environ.get('SPREADFIX', '1') == '1'   # while an Endeavour runs, the spread keeps only its own share; SPREADFIX=0 reproduces the fault in results before 14 Oct 2026
 _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)
 HF.GLIMPSE = {t: _g for t in ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')} if os.environ.get('GLIMPSEALL') == '1' else \
     {'STANDARD': _g, 'UNCOMMON': float(os.environ.get('GLIMPSEU', '0')), 'RARE': 0.0, 'UNIQUE': 0.0}   # GLIMPSEALL=1: the old rule, one chance for every tier

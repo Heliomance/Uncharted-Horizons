@@ -172,7 +172,7 @@ The workshop stopped when the FTL endgame redesign took over (from 2 October). E
 
 **The glimpse for UNCOMMON ideas** (provisional 3% a turn; share of missed UNCOMMON ideas glimpsed, isolated): 10% a turn → 90%, 5% → 77%, 3% → 62%, 2% → 48%; STANDARD at 10% → about 85%. RARE and UNIQUE: never. The FTL check below shows the rule leaves victory turns unchanged.
 
-**Decided (14 October 2026, Tamsin):** proposals 1–5 as written above. On 7, UNCOMMON ideas are glimpsed less often than STANDARD ones, and RARE and UNIQUE ideas are never glimpsed. 6 stays open: Tamsin proposes modelling the closing window as fading attention instead of a closing chance. A breakthrough gets a smaller and smaller share of Insight as it recedes into the past; if it fills, it is still discovered, so missing the window means never filling. Also asked for: the workshop's figures recalculated now that the harness models rivals and diffusion, and a fuller account of the momentum calculation.
+**Decided (14 October 2026, Tamsin):** proposals 1–5 as written above. On 7, UNCOMMON ideas are glimpsed less often than STANDARD ones, and RARE and UNIQUE ideas are never glimpsed. 6 stays open: Tamsin proposes modelling the closing window as fading attention instead of a closing chance. *(Modelled below, then rejected by Tamsin on reflection, 14 October: the closing window stays.)* A breakthrough gets a smaller and smaller share of Insight as it recedes into the past; if it fills, it is still discovered, so missing the window means never filling. Also asked for: the workshop's figures recalculated now that the harness models rivals and diffusion, and a fuller account of the momentum calculation.
 
 **The write-up must also translate** the threshold design's remaining terms. Thresholds, rolls and excess Insight become prices, meters and occurrence. The tier table's columns become each tier's chance of occurring in its moment and the moment's length. The UNIQUE penalty becomes a lower chance of occurring for each UNIQUE held; the harness's flat 6.5% stands in for it. Diffusion's "bonus to discovery rolls" needs a meaning (proposal: the idea occurs to you, or comes back if lost; the larger bonuses add a head start; only the automatic arrivals are measured). Necessity's roll bonus becomes Insight alone. The per-city modifier applies to the price. *Serendipitous accidents* are the spread itself. The RARE and UNIQUE Endeavour prices need revisiting. §2's prices per discovery should carry the ×0.83 calibration the model applies to them.
 
@@ -291,18 +291,65 @@ Decision 7 leaves the victory turns where they were. Fading attention, at today'
 - *Fading attention* makes missing depend on what the civilisation attends to, and nothing is ever locked for good: a stalled question can fill later when nothing fresher competes, arrive by diffusion, or be Endeavoured. Missed STANDARD ideas almost disappear, even in isolation; rediscovering an old question could be a good moment in play; and the FTL balance holds at today's prices. Against it: it applies to STANDARD only, so there are two mechanisms. Insight sinks into stalled half-done questions and more STANDARD rows get found, so keeping the same pace needs research 4% (connected) to 13% (isolated) cheaper. And a stalled-but-recoverable state is harder to show on a research screen than "this moment passed".
 - *Not yet modelled:* a tapering chance (the occurrence chance falling gradually instead of stopping), which softens the cliff but keeps ideas lost by dice; and funding a field reviving its stalled questions (`fade_funded=False`).
 
-**Open for Tamsin:** adopt fading attention for STANDARD? Its half-life (1 era; half an era behaves much the same)? Keep today's prices, as the FTL check supports, or recalibrate for mid-era arrivals? Should funding a field revive its stalled questions?
+**Decided (14 October): rejected.** Tamsin prefers not to adopt it; the closing window stays. The open questions it raised were: adopt fading attention for STANDARD? Its half-life (1 era; half an era behaves much the same)? Keep today's prices, as the FTL check supports, or recalibrate for mid-era arrivals? Should funding a field revive its stalled questions?
 
-## How the momentum model shares Insight
+## The candidate model, exactly (as the simulator runs it)
 
-From the harness (`design/simulator/power/harness_ftl_e.py`, `run()` and its `use()`). Each turn the active focus receives 80% of the civilisation's Insight (50% before Specialisation of Labour), and the rest is spread over the other foci that have something under study, in proportion to what each has waiting. Inside a focus:
+From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings. Development and income follow the calibrated economy, not what is discovered.
 
-1. **What is under study:** every breakthrough whose prerequisites are met and whose idea has occurred (a CORE breakthrough's occurs at once), and which is not yet discovered.
-2. **A hidden meter for each.** When a breakthrough first comes under study, the work it will take is drawn once: on average its price, varying from game to game (a Gamma distribution with shape 4: mean 1, standard deviation 0.5). The middle half need 0.63–1.28 of the price; one in ten less than 0.44, one in ten more than 1.67. The player never sees it.
-3. **The price:** the era's price per discovery (§2) × the model's calibration (0.83) × any cost multiplier × 4 for each era the breakthrough lies ahead of the civilisation's development. Insight counts against the price in force when it is spent, so work done early, at a premium, counts for less.
-4. **Attention.** Each breakthrough's weight is its tier's odds × (its progress + 0.1), with progress as a fraction of its average cost and the odds CORE 1, STANDARD 0.85, UNCOMMON 0.4, RARE 0.1, UNIQUE 0.065. A breakthrough just begun weighs 0.1 × its odds; one half done weighs 0.6 × its odds, six times as much. That is the momentum: work under way draws attention, so a focus tends to finish one line before the next rather than bringing everything to maturity together. The 0.1 sets how much a fresh line gets: lower would approach one line at a time (the workshop's *one line* model), higher would approach sharing by tier alone (*pure rate*). How 0.1 was chosen is not recorded.
-5. **Sharing.** The focus's Insight is divided in proportion to weight. A breakthrough whose share would fill its meter takes only what it needs and is discovered; what is left over is shared again among the rest in the same turn. So one turn can bring several discoveries.
-6. **Spill-over.** Insight a focus cannot use goes the same turn to the foci that can, in proportion to what each has waiting; about 0.2–0.5% of income ends up unused.
+**Development, income and price.**
+- *Development* is the civilisation's cumulative Insight placed on §2's era spans: the era's index plus the fraction of its span accumulated (0 at the start of the Primitive era, 8 at the end of the Space era).
+- *Income* is fixed within each era: the span ÷ the era's length for a good economy. That gives 5, 18, 48, 114, 330, 853, 1,412 and 1,790 a turn from the Primitive to the Space era, × 0.8 for the average player.
+- *Price:* the era's price per discovery (§2) × 0.83 (the model's calibration) × 4 for each era the breakthrough lies ahead of development. "Ahead" is counted from the start of its era, so a breakthrough of the next era costs 4× at the start of the current era, 2× halfway through, and 1× once development reaches its era. Breakthroughs behind development keep their own era's price.
+- Effective prices: 3.8, 11.9, 54, 120, 365, 790, 1,138 and 930 (the Space era's × 0.8 included).
+
+**One turn, in order:**
+1. **Income.** Income arrives and development advances.
+2. **Discoverable rows.** Every undiscovered breakthrough whose prerequisites are all discovered becomes discoverable (each prerequisite group satisfied by at least one option). A discovery takes effect at the end of its turn, so a chain advances one link a turn.
+3. **Diffusion.** Contact starts on the first turn the civilisation holds an Early Modern breakthrough. From then, for each discoverable breakthrough that at least half the contacted rivals hold:
+   - CORE and STANDARD ones arrive free 10 turns later, once the Printing Press is known (5 turns, once the Internet is).
+   - UNCOMMON ones arrive 5 turns later, once the Internet is known.
+   - RARE and UNIQUE ones never diffuse. §1.2's roll bonuses before the Printing Press are not modelled.
+4. **Occurrence and glimpses.** Every discoverable breakthrough whose idea has not occurred gets its chance (below). If the idea does not occur, a STANDARD one is glimpsed (Revealed) with 10% chance and an UNCOMMON one with 3%.
+5. **The player's choice:** an active focus or a Grand Endeavour.
+6. **The split.** The turn's Insight is split (below); breakthroughs whose meters fill are discovered at the end of the turn.
+
+**What it means for an idea to occur.** A discoverable non-CORE breakthrough gets no Insight at all, however hard its focus is funded, until its idea *occurs*: the moment someone in the civilisation has the idea. From then it is *under study*, takes a share of its focus's Insight every turn until it is discovered, and is never lost. Occurring is hidden: it does not Reveal the breakthrough.
+- CORE ideas occur the turn they become discoverable (and Reveal themselves, §1.4).
+- Other ideas have a constant chance each turn through a window that opens when they become discoverable: half their era's length for STANDARD ideas, the whole era's length for the rest. The chance is sized so that the odds of occurring within the window are the tier's: STANDARD 85%, UNCOMMON 40%, RARE 10%, UNIQUE 6.5%.
+- An idea whose window passes is lost for good. UNCOMMON, RARE and UNIQUE ideas are also lost once development is more than half an era past the end of their era, window or not.
+- **Catch-up:** behind history the window shrinks. Once an idea's era has ended, its window is divided by 1 + 4 × the eras since it ended. The odds stay the same, packed into fewer turns: a Medieval STANDARD idea is 9.6% a turn over 18.7 turns on time, 26% a turn over 6.2 turns half an era late, and 40% a turn over 3.7 turns a full era late.
+- **W16:** a Space-era STANDARD idea in a focus the player is pursuing occurs at once.
+- A lost idea can still arrive by diffusion, or be completed by an Endeavour if it was Revealed.
+
+| Era (turns) | STANDARD: window, chance a turn | UNCOMMON | RARE | UNIQUE (window: the era) |
+|---|---|---|---|---|
+| Primitive (29.8) | 14.9 turns, 12.0% | 1.70% | 0.35% | 0.23% |
+| Ancient (31.3) | 15.7, 11.4% | 1.62% | 0.34% | 0.21% |
+| Classical (31.8) | 15.9, 11.3% | 1.59% | 0.33% | 0.21% |
+| Medieval (37.4) | 18.7, 9.6% | 1.36% | 0.28% | 0.18% |
+| Early Modern (51.6) | 25.8, 7.1% | 0.99% | 0.20% | 0.13% |
+| Modern (60.5) | 30.2, 6.1% | 0.84% | 0.17% | 0.11% |
+| Atomic (48.6) | 24.3, 7.5% | 1.05% | 0.22% | 0.14% |
+| Space (29.0) | 14.5, 12.3% | 1.75% | 0.36% | 0.23% |
+
+Windows are counted in turns of the good economy's eras, so a slower economy gets the same turns and less Insight in them.
+
+**How the Insight is split each turn.**
+1. **The active focus** gets 80% of the turn's Insight (50% before Specialisation of Labour).
+2. **The spread:** the other 20% (50%) goes to the other foci that have something under study, in proportion to each one's *waiting*. Waiting is the sum, over its breakthroughs under study, of tier odds × (1 + how far development is past the start of the breakthrough's era). So more open work, commoner work and older work all draw more of the spread. Foci with nothing under study get none.
+3. **Within each focus:** each breakthrough under study has a hidden meter, drawn when it first comes under study. Its size is the breakthrough's price × a random factor (Gamma distribution: mean 1, middle half 0.63–1.28) × any cost multiplier.
+   - The focus's Insight is shared in proportion to tier odds × (progress + 0.1), with progress as a fraction of the average cost: this is the momentum.
+   - Insight becomes progress at the price in force when it is spent.
+   - A breakthrough whose share would complete it takes only what it needs and is discovered; the remainder is shared again among the rest in the same turn.
+4. **Spill-over:** Insight a focus could not use (nothing under study, or all of it completed) goes to the foci that still have open work and used all of theirs, in proportion to waiting. What they cannot use is lost: 0.1–0.5% of income.
+5. **A Grand Endeavour** replaces the active focus. It receives the 80% (50%) share each turn until it holds 2× the breakthrough's price at the time of commitment, then completes.
+
+**A fault found on 14 October.** While an Endeavour runs, the simulator gives the spread the *whole* income on top of the Endeavour's share, 180% in all. That contradicts the code's own comment ("the spread still rolls") and §1.5. Over a game this added 21–30% to the benchmark players' Insight (the expert spends about 39 turns under Endeavours, the novice 28, the average player 35). Corrected (`SPREADFIX=1`; atomic world, 60 games a method), the victory medians move from 292 / 306 / 381 to 296 / 308 / 383, with unfinished games falling from 2 / 3 / 6 to 0 / 2 / 5 of 300. The effect is small because most of the extra spread went to fields the FTL race does not need. Whether to adopt the correction is Tamsin's call; the FTL balance was tuned without it.
+
+**Tier odds also act as attention weights** (step 3). An UNCOMMON idea under study gets 0.4/0.85 of a STANDARD one's share at the same progress, a RARE one 0.1/0.85. So rarer ideas are both less likely to occur and slower to finish once they have. The report never described this; it is a choice to confirm.
+
+**Not modelled:** environmental prerequisites; Competing Solutions' lock-outs; the UNIQUE first-come rule and stacking penalty (a flat 6.5% stands in); theoretical revelation (*Reveals* lists); necessity modifiers; the per-city cost modifier; §1.3's environment weighting of the spread; and feedback from discoveries to income.
 
 **A worked example.** A focus receives 100 Insight a turn. It has three STANDARD breakthroughs priced at 200 with meters of exactly 1: A is 60% done, B 10%, C new.
 

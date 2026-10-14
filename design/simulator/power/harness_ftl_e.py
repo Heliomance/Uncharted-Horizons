@@ -57,6 +57,8 @@ STATE = {}   # live references to lost, glimpsed and diffusing ideas
 END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE 'request')
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
+SPREAD_FIX = True    # while an Endeavour runs, the spread keeps only its own share (20%, or 50% before SO05). False reproduces the fault in
+                     # every measurement before 14 Oct 2026: the spread took the whole income on top of the Endeavour's share, 180% in all
 TRACE = None   # a list to receive one read-only record per turn (turn-by-turn traces); None = off
 CLOCK = {'turn': 0}   # the current turn, for measurements that depend on time rather than discoveries
 OBS = True; GLIMPSE = 0.0   # OBS: observational revelation from rivals; GLIMPSE: chance a turn that an eligible idea which fails to occur is glimpsed (Revealed) instead (section 1.2's proximity revelation, provisional form)   # DIFF: dict(rivals=[{row: turn}], contact_era=era index) -- knowledge diffusion from replayed rivals (section 1.2)   # END_AFTER: a row that must be discovered before any Endeavour starts   # END_FROM: era index; Endeavours may start once the civilisation has discovered a row of that era
@@ -202,8 +204,10 @@ def run(prm, seed, max_turns=450):
         flow = {}
         others = [f for f in open_foci if f != active and (prm.spread_floor > 0 or f in pool)]
         if active: flow[active] = inc * share + bank; bank = 0.0
-        else: share = 0.0
+        elif not (SPREAD_FIX and (end_k is not None or end_done)): share = 0.0   # (no active focus: the spread takes everything)
         wt = {f: waiting.get(f, 0) + prm.spread_floor for f in others}; tw = sum(wt.values()) or 1
+        if end_k is not None or end_done: acct['endeavour_turns'] = acct.get('endeavour_turns', 0) + 1; acct['endeavour_extra'] = acct.get('endeavour_extra', 0.0) + inc * sh   # (accounting only)
+        if not others: acct['spread_dropped'] = acct.get('spread_dropped', 0.0) + inc * (1 - share); acct['spread_dropped_turns'] = acct.get('spread_dropped_turns', 0) + 1   # (accounting only)
         for f in others: flow[f] = flow.get(f, 0) + inc * (1 - share) * wt[f] / tw
         found = []
         if end_done: found.append(end_done)
