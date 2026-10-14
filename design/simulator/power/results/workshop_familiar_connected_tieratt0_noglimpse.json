@@ -1,0 +1,164 @@
+{
+ "world": "familiar",
+ "setting": "connected",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.0,
+  "UNCOMMON": 0.0,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.0,
+   "Classical": 0.81,
+   "Medieval": 0.79,
+   "Early Modern": 0.98,
+   "Modern": 1.1,
+   "Atomic": 1.21,
+   "Space": 1.1
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 10.8,
+   "Classical": 5.2,
+   "Medieval": 5.0,
+   "Early Modern": 7.1,
+   "Modern": 8.4,
+   "Atomic": 11.6,
+   "Space": 10.7
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.6,
+   "Classical": 4.4,
+   "Medieval": 5.6,
+   "Early Modern": 4.3,
+   "Modern": 2.9,
+   "Atomic": 3.0,
+   "Space": 2.7
+  },
+  "lateness": 0.51,
+  "outside own era %": 36.2,
+  ">=1 era early %": 0.0,
+  "earliest": -0.95,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.88,
+   "UNCOMMON": 0.45,
+   "RARE": 0.07,
+   "UNIQUE": 0.05
+  },
+  "insight": {
+   "became progress": 0.988,
+   "premium share of progress": 0.153,
+   "net lost": 0.002
+  },
+  "diffusion arrivals a game": 61.1,
+  "missed STANDARD before Space": [
+   4.0,
+   6
+  ],
+  "rows they lock": [
+   3.8,
+   7,
+   13
+  ],
+  "still locked with Endeavours on glimpsed": [
+   3.8,
+   7,
+   13
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 0,
+   "UNCOMMON": 0,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 4.0,
+   "UNCOMMON": 21.3,
+   "RARE": 23.6,
+   "UNIQUE": 49.0
+  },
+  "gateways": [
+   [
+    "MA06",
+    "Probability Theory",
+    3,
+    36
+   ],
+   [
+    "EL11",
+    "Superconductivity",
+    8,
+    12
+   ],
+   [
+    "SF11",
+    "Ship of the Line",
+    20,
+    4
+   ],
+   [
+    "NP04",
+    "Nuclear Fusion",
+    15,
+    4
+   ],
+   [
+    "TH02",
+    "Refrigeration",
+    3,
+    16
+   ],
+   [
+    "CP08",
+    "Machine Learning",
+    15,
+    3
+   ],
+   [
+    "NP-F01",
+    "Advanced Fuel Cycles",
+    13,
+    4
+   ],
+   [
+    "GN03",
+    "Genetic Engineering",
+    3,
+    14
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.39,
+   "Medieval": 0.06,
+   "Early Modern": 0.1,
+   "Modern": 0.02,
+   "Atomic": -0.14,
+   "Space": -0.52
+  }
+ },
+ "calib": {
+  "scale": 0.774,
+  "in use": 0.8308584977264128
+ }
+}

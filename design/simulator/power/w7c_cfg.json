@@ -1,1 +1,1 @@
-{"model": "Pmom", "routing": "spill", "spread_floor": 0.0, "compress": 4.0, "window": {"STANDARD": 0.5, "UNCOMMON": 1.0, "RARE": 1.0, "UNIQUE": 1.0}, "premium": 4.0, "scale": 0.8308584977264128}
+{"model": "Pmom", "routing": "spill", "spread_floor": 0.0, "compress": 4.0, "window": {"STANDARD": 0.5, "UNCOMMON": 1.0, "RARE": 1.0, "UNIQUE": 1.0}, "premium": 4.0, "scale": 0.8308584977264128, "tier_attention": false}

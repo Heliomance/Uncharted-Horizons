@@ -46,6 +46,11 @@ class P:
         self.fade_clock = 'opened'   # fade: staleness counted from when the question opened; 'era': from the end of its own era;
                                      # 'later': from whichever comes later (on-time rows stay fresh through their era, late openers start fresh)
         self.fade_tiers = ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')   # the tiers that fade; the others keep the closing window
+        self.rediscover = 0.0        # >0: a lost idea of a tier in rediscover_tiers gets a new chance each turn, `rediscover` for every undiscovered
+                                     # breakthrough ready but for it (all its other prerequisites discovered): rediscovery on demand (14 Oct 2026)
+        self.rediscover_tiers = ('STANDARD',)
+        self.tier_attention = True   # True: tier odds also weight attention once an idea has occurred (within its focus, and its focus's pull
+                                     # on the spread and spill-over). False: once occurred, every tier is studied alike (Tamsin, 14 Oct 2026)
         self.__dict__.update(kw)
 
 # W7f copy with three switches: POLICY (focus choice), ATTN (attention weights), END_MULT (Grand Endeavours). Measurement copy of harness2: a research-target hook (TARGET_FN), W16's funded-focus rule (FUNDED), price multipliers (COSTMULT).
@@ -57,6 +62,8 @@ STATE = {}   # live references to lost, glimpsed and diffusing ideas
 END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE 'request')
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
+GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
+                     # one row of each needed), e.g. the FTL prototypes of the hypotheses still standing
 SPREAD_FIX = True    # while an Endeavour runs, the spread keeps only its own share (20%, or 50% before SO05). False reproduces the fault in
                      # every measurement before 14 Oct 2026: the spread took the whole income on top of the Endeavour's share, 180% in all
 TRACE = None   # a list to receive one read-only record per turn (turn-by-turn traces); None = off
@@ -90,6 +97,7 @@ def run(prm, seed, max_turns=450):
         focus_thr = {k: v * prm.scale for k, v in focus_thr.items()}
     diff_since = {}; diff_unc = {}; contact_turn = None; cp04_turn = None
     glimpsed = set(); lost = set(); grng = random.Random(seed * 7919 + 13)   # its own stream: glimpses never perturb the game
+    rrng = random.Random(seed * 104729 + 7); rediscovered = {}                  # rediscovery's own stream, and when each lost idea came back
     STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}
     while turn < max_turns and len(have) < len(IDS):
@@ -152,13 +160,23 @@ def run(prm, seed, max_turns=450):
                     if k in occurred and k not in glimpsed and ROWS[k]['tier'] in prm.fade_tiers:
                         g = GLIMPSE.get(ROWS[k]['tier'], 0.0) if isinstance(GLIMPSE, dict) else GLIMPSE
                         if g and grng.random() < g: glimpsed.add(k)
+            if prm.rediscover:                                                   # rediscovery on demand: a lost idea that other work is waiting on comes back
+                goals = GOALS_FN(have) if GOALS_FN else []
+                for k in disc:
+                    if k not in lost or k in occurred or ROWS[k]['tier'] not in prm.rediscover_tiers: continue
+                    n = sum(1 for j in dependents.get(k, ()) if j not in have and j not in met and
+                            all(any(all(p in have or p == k for p in opt) for opt in grp) for grp in H0.ROWS[j]['pre']))   # ready but for k
+                    n += sum(1 for gs in goals if not all(any(o in have for o in g) for g in gs) and all(any(o in have for o in g) or k in g for g in gs))   # a goal ready but for k
+                    if n and rrng.random() < 1 - (1 - prm.rediscover) ** n: occurred.add(k); occ_turn[k] = turn; lost.discard(k); rediscovered[k] = turn
             live = [k for k in disc if k in occurred]
         else:
             live = disc
         pool = {}
         for k in live: pool.setdefault(FOCUS[k], []).append(k)
         fresh_top = max((fresh(k) for k in live), default=1.0) or 1.0
-        waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) * fresh(k) for k in ks) for f, ks in pool.items()}
+        waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) * fresh(k) for k in ks) for f, ks in pool.items()}   # the simulated player's sense of where work waits
+        def aw(k): return TARGET[ROWS[k]['tier']] if prm.tier_attention else 1.0   # attention weight of an idea under study
+        pull = waiting if prm.tier_attention else {f: sum((1 + max(0.0, d - ERA_I[k])) * fresh(k) for k in ks) for f, ks in pool.items()}   # the rule: each focus's draw on the spread
         if prm.player == 'specialist' and 'Mathematics' in pool: active = 'Mathematics'
         else: active = _ftl_active(waiting, pool, have)
         def est_price(k): return PRICE[ROWS[k]['era']] * prm.scale * prm.premium ** max(0.0, ERA_I[k] - d)
@@ -186,7 +204,7 @@ def run(prm, seed, max_turns=450):
                     rate = sum(att_hist[k][-2:]) / 2; t_norm = est_rem(k) / rate if rate > 1e-9 else float('inf')
                     if END_RULE == 'active':      # the real alternative: make k's focus active, where k gets its automatic share of that focus
                         ks = [j for j in pool.get(FOCUS[k], []) if j not in have]
-                        wj = {j: TARGET[ROWS[j]['tier']] * (progress.get(j, 0) + prm.momentum) * ATTN.get(j, 1.0) * fresh(j) for j in ks}
+                        wj = {j: aw(j) * (progress.get(j, 0) + prm.momentum) * ATTN.get(j, 1.0) * fresh(j) for j in ks}
                         phi = wj[k] / sum(wj.values()) if k in wj and sum(wj.values()) > 0 else 1.0
                         t_norm = min(t_norm, est_rem(k) / max(inc * sh * phi, 1e-9))
                 else:                             # Revealed by a rival, but the idea never occurred here: only diffusion or an Endeavour brings it
@@ -205,7 +223,7 @@ def run(prm, seed, max_turns=450):
         others = [f for f in open_foci if f != active and (prm.spread_floor > 0 or f in pool)]
         if active: flow[active] = inc * share + bank; bank = 0.0
         elif not (SPREAD_FIX and (end_k is not None or end_done)): share = 0.0   # (no active focus: the spread takes everything)
-        wt = {f: waiting.get(f, 0) + prm.spread_floor for f in others}; tw = sum(wt.values()) or 1
+        wt = {f: pull.get(f, 0) + prm.spread_floor for f in others}; tw = sum(wt.values()) or 1
         if end_k is not None or end_done: acct['endeavour_turns'] = acct.get('endeavour_turns', 0) + 1; acct['endeavour_extra'] = acct.get('endeavour_extra', 0.0) + inc * sh   # (accounting only)
         if not others: acct['spread_dropped'] = acct.get('spread_dropped', 0.0) + inc * (1 - share); acct['spread_dropped_turns'] = acct.get('spread_dropped_turns', 0) + 1   # (accounting only)
         for f in others: flow[f] = flow.get(f, 0) + inc * (1 - share) * wt[f] / tw
@@ -265,7 +283,7 @@ def run(prm, seed, max_turns=450):
                     if left >= room: progress[k] = need[k]; found.append(k); left -= room; line[f] = None; acct['attention'] += room; acct['premium_dilution'] += room * (1 - 1 / prem(k))
                     else: progress[k] = progress.get(k, 0) + left / pk; acct['attention'] += left; acct['premium_dilution'] += left * (1 - 1 / prem(k)); left = 0.0
                 else:
-                    ws = {k: TARGET[ROWS[k]['tier']] * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) * fresh(k) for k in cands}; tot = sum(ws.values())
+                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) * fresh(k) for k in cands}; tot = sum(ws.values())
                     spent = 0.0; done = []
                     for k in cands:
                         att = left * ws[k] / tot; pk = price(k); room = (need[k] - progress.get(k, 0)) * pk; att_turn[k] = att_turn.get(k, 0.0) + att
@@ -282,7 +300,7 @@ def run(prm, seed, max_turns=450):
         spare = sum(unused.values())
         if prm.routing in ('spill', 'spillbank') and spare > 1e-9:
             remaining = {f: [k for k in pool.get(f, []) if k not in have and k not in found] for f in pool}
-            takers = {f: waiting.get(f, 0) + 0.1 for f in pool if remaining[f] and unused.get(f, 0) <= 1e-9}
+            takers = {f: pull.get(f, 0) + 0.1 for f in pool if remaining[f] and unused.get(f, 0) <= 1e-9}
             tw = sum(takers.values())
             if tw > 0:
                 back = 0.0
@@ -303,7 +321,7 @@ def run(prm, seed, max_turns=450):
             TRACE.append(dict(turn=turn, d=d, found=list(found), diff=[k for k in found if k in diff_due], endv=[end_done] if end_done else [],
                               occ=[(k, 'core' if ROWS[k]['tier'] == 'CORE' else ('funded' if (k in _fund0 and ROWS[k]['tier'] == 'STANDARD' and ROWS[k]['era'] == 'Space') else 'chance')) for k in _new],
                               glim=sorted(glimpsed - _gl0), fund=_fund))
-    acct['banked_end'] = bank; run.acct = acct; run.opened = opened; run.occ = occ_turn
+    acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered
     return have, log
 
 def lateness(prm, n=6, seed0=100):

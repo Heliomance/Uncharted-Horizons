@@ -154,6 +154,8 @@ SEED0 = int(os.environ.get('SEED0', '17000'))
 POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool.json")) if os.environ.get('DIFF') == '1' else None
 CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))   # the discovery model (the workshop's candidate)
 if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its price calibration
+if os.environ.get('REDISCOVER'): CFG['rediscover'] = float(os.environ['REDISCOVER'])   # rediscovery on demand (harness_ftl_e.P.rediscover)
+if os.environ.get('TIERATT'): CFG['tier_attention'] = os.environ['TIERATT'] == '1'   # tier odds weighting attention once an idea has occurred
 if os.environ.get('FADE'):   # fading attention instead of the closing window (harness_ftl_e.P.fade), for the tiers in FADETIERS
     CFG.update(fade=float(os.environ['FADE']), fade_clock=os.environ.get('FADECLOCK', 'later'), fade_tiers=tuple(os.environ.get('FADETIERS', 'STANDARD').split('+')))
 DRAWS = []   # each game's method and truth, drawn in order before any game is played, so that games can run in any order
@@ -212,6 +214,7 @@ def play(s, m, a):
             return tests | smart_targets([g for o in alive for g in BUILD[o] if not any(x in have for x in g)], have)
         return with_anc(hosts + ([] if CLOSE in have else [CLOSE]))
     HF.TARGET_FN = target
+    HF.GOALS_FN = lambda have, m=m, a=a: [BUILD[o] for o in status(have, m, a)[1]] if 'RC01' in have else []   # rediscovery: the prototypes of the hypotheses still standing, once the FTL screen opens
     if os.environ.get('PLAYER') == 'generalist': HF.TARGET_FN = None   # no FTL agenda: fund the field with the most work waiting
     if os.environ.get('PLAYER') == 'aspirant':   # no FTL agenda: pursue the Space-era content of chosen fields (ASPIRE=all or field names joined by ';')
         _asp = os.environ.get('ASPIRE', 'all'); _fs = None if _asp == 'all' else set(_asp.split(';'))

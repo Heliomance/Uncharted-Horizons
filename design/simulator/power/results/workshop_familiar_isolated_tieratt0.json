@@ -1,0 +1,164 @@
+{
+ "world": "familiar",
+ "setting": "isolated",
+ "games": 60,
+ "glimpse": {
+  "STANDARD": 0.1,
+  "UNCOMMON": 0.03,
+  "RARE": 0.0,
+  "UNIQUE": 0.0
+ },
+ "model": {
+  "model": "Pmom",
+  "routing": "spill",
+  "spread_floor": 0.0,
+  "compress": 4.0,
+  "window": {
+   "STANDARD": 0.5,
+   "UNCOMMON": 1.0,
+   "RARE": 1.0,
+   "UNIQUE": 1.0
+  },
+  "premium": 4.0,
+  "scale": 0.8308584977264128,
+  "tier_attention": false
+ },
+ "pace": {
+  "cadence": {
+   "Primitive": 0.8,
+   "Ancient": 1.0,
+   "Classical": 0.81,
+   "Medieval": 0.76,
+   "Early Modern": 0.72,
+   "Modern": 0.93,
+   "Atomic": 0.91,
+   "Space": 1.12
+  },
+  "clump%": {
+   "Primitive": 4.9,
+   "Ancient": 10.8,
+   "Classical": 5.2,
+   "Medieval": 4.7,
+   "Early Modern": 3.3,
+   "Modern": 4.7,
+   "Atomic": 5.6,
+   "Space": 10.6
+  },
+  "drought": {
+   "Primitive": 3.5,
+   "Ancient": 4.6,
+   "Classical": 4.4,
+   "Medieval": 5.7,
+   "Early Modern": 5.2,
+   "Modern": 3.2,
+   "Atomic": 3.9,
+   "Space": 2.7
+  },
+  "lateness": 0.54,
+  "outside own era %": 29.9,
+  ">=1 era early %": 0.01,
+  "earliest": -1.02,
+  "rates among discoverable": {
+   "CORE": 1.0,
+   "STANDARD": 0.8,
+   "UNCOMMON": 0.36,
+   "RARE": 0.07,
+   "UNIQUE": 0.05
+  },
+  "insight": {
+   "became progress": 0.977,
+   "premium share of progress": 0.118,
+   "net lost": 0.004
+  },
+  "diffusion arrivals a game": 0,
+  "missed STANDARD before Space": [
+   17.2,
+   22
+  ],
+  "rows they lock": [
+   23.3,
+   38,
+   55
+  ],
+  "still locked with Endeavours on glimpsed": [
+   3.9,
+   11,
+   24
+  ],
+  "missed glimpsed %": {
+   "STANDARD": 86,
+   "UNCOMMON": 63,
+   "RARE": 0,
+   "UNIQUE": 0
+  },
+  "missed a game by tier": {
+   "STANDARD": 17.2,
+   "UNCOMMON": 23.7,
+   "RARE": 21.5,
+   "UNIQUE": 45.5
+  },
+  "gateways": [
+   [
+    "MA06",
+    "Probability Theory",
+    17,
+    31
+   ],
+   [
+    "FA03",
+    "Selective Breeding",
+    17,
+    18
+   ],
+   [
+    "CO11",
+    "Reinforced Concrete",
+    18,
+    16
+   ],
+   [
+    "CP07",
+    "Artificial Intelligence (Narrow)",
+    17,
+    16
+   ],
+   [
+    "TH02",
+    "Refrigeration",
+    13,
+    16
+   ],
+   [
+    "MA09",
+    "Statistics",
+    7,
+    29
+   ],
+   [
+    "CH09",
+    "Petrochemistry",
+    12,
+    13
+   ],
+   [
+    "GN02",
+    "DNA Structure",
+    15,
+    10
+   ]
+  ],
+  "era entry, development minus era (median)": {
+   "Ancient": 0.19,
+   "Classical": 0.39,
+   "Medieval": 0.06,
+   "Early Modern": 0.14,
+   "Modern": 0.11,
+   "Atomic": 0.03,
+   "Space": -0.36
+  }
+ },
+ "calib": {
+  "scale": 0.77,
+  "in use": 0.8308584977264128
+ }
+}

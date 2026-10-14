@@ -293,9 +293,51 @@ Decision 7 leaves the victory turns where they were. Fading attention, at today'
 
 **Decided (14 October): rejected.** Tamsin prefers not to adopt it; the closing window stays. The open questions it raised were: adopt fading attention for STANDARD? Its half-life (1 era; half an era behaves much the same)? Keep today's prices, as the FTL check supports, or recalibrate for mid-era arrivals? Should funding a field revive its stalled questions?
 
+## Recovery: rediscovery on demand (14 October 2026)
+
+**Tamsin's brief.** STANDARD ideas may sometimes not happen: that is the variance between games, and why they are STANDARD, not CORE. The problem is when chance takes something vital, or locks a whole downstream chain. A glimpse of an idea that has not occurred is also illogical: if an idea is revealed as possible, it has occurred to someone.
+
+**What the glimpse was carrying.** Without glimpses of ideas that have not occurred, FTL games that cannot finish (atomic, 300 a player) rise from 0 / 4 / 0 to 21 / 28 / 28 with contacts, and from 17 / 30 / 16 to 121 / 158 / 131 isolated (expert / novice / average).
+
+**The mechanic, as modelled** (`harness_ftl_e.P.rediscover`, off by default; `REDISCOVER=0.1`):
+1. A *lost* STANDARD idea (its window closed before it occurred) that is still discoverable counts, each turn, the things *ready but for it*:
+   - each undiscovered breakthrough for which it is the only missing piece (every prerequisite group met by what is discovered or by this idea);
+   - each FTL prototype of a hypothesis still standing, once the FTL screen has opened, whose build requirements are all met except those this idea would satisfy.
+2. With *n* things waiting, the idea occurs that turn with chance 1 − 0.9ⁿ (10% for one, 19% for two, 27% for three). It then goes under study as normal, at its normal price.
+3. A leaf has nothing that can wait on it, so a missed leaf stays missed: the intended variance. The rarer tiers keep their losses.
+
+In history this is multiple discovery: ideas that many lines of work depend on keep turning up. Simplifications: only breakthroughs waiting directly count, not a whole chain behind them; every hypothesis still standing counts once the screen opens, since the simulator does not track proposals.
+
+**Measured, no glimpses of ideas that have not occurred** (atomic, 60 games; every tier studied alike):
+
+| | Missed STANDARD a game (of them, guarding nothing) | Rows locked behind them (p90; worst) | Ideas rediscovered |
+|---|---|---|---|
+| Isolated, no rediscovery | 17.2 (7.7) | 23.3 (38; 55) | 0 |
+| Isolated, 5% a waiting item | 11.4 (8.3) | 3.0 (7; 10) | 11.8 |
+| Isolated, 10% | 11.0 (8.9) | 1.4 (5; 7) | 12.5 |
+| Isolated, 20% | 10.8 (8.2) | 2.0 (5; 8) | 12.2 |
+| With contacts, no rediscovery | 4.0 (1.4) | 3.8 (7; 13) | 0 |
+| With contacts, 10% | 2.6 (1.7) | 0.4 (2; 4) | 10.9 |
+
+Rediscovery from waiting breakthroughs alone left FTL games failing on *vital leaves*, build requirements nothing else depends on: ES18 Superconducting Energy Storage (Warp) and RC04 Black Hole Thermodynamics (Wormhole). Counting the prototypes as waiting closed that gap:
+
+| FTL games that could not finish (of 300; victory median) | Expert | Novice | Average |
+|---|---|---|---|
+| Contacts: glimpses (agreed rule) | 0 (298) | 4 (308) | 0 (382) |
+| Contacts: rediscovery with prototypes, no glimpses | 0 (298) | 0 (308) | 0 (382) |
+| Isolated: glimpses | 17 (311) | 30 (332) | 16 (412) |
+| Isolated: no glimpses, no rediscovery | 121 (307) | 158 (326) | 131 (406) |
+| Isolated: rediscovery with prototypes, no glimpses | 0 (312) | 0 (337) | 0 (419) |
+
+The cost is pace for an isolated civilisation: it now researches the chains it used to lose, so its breakthroughs arrive later in their eras (median lateness 0.62, against 0.54). With contacts the pace barely moves (0.52 against 0.51).
+
+**Open for Tamsin:** adopt rediscovery on demand, with FTL prototypes counted as waiting? At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")? And is W16's funded-focus rule still needed alongside it?
+
 ## The candidate model, exactly (as the simulator runs it)
 
-From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings. Development and income follow the calibrated economy, not what is discovered.
+From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings.
+
+**Income is the simulator's abstraction.** In the game, Insight is the civilisation's science output (§1.2: 1:1 with base science), so it grows with buildings, improvements and specialists. The simulator replaces that with a calibrated curve for a good player's economy, the same whatever is discovered. So it cannot show discoveries feeding back into income, and it flatters a beeline that starves the economy (the FTL digest, §6, plans bot games to check this once the fork is playable).
 
 **Development, income and price.**
 - *Development* is the civilisation's cumulative Insight placed on §2's era spans: the era's index plus the fraction of its span accumulated (0 at the start of the Primitive era, 8 at the end of the Space era).
@@ -347,7 +389,7 @@ Windows are counted in turns of the good economy's eras, so a slower economy get
 
 **A fault found on 14 October.** While an Endeavour runs, the simulator gives the spread the *whole* income on top of the Endeavour's share, 180% in all. That contradicts the code's own comment ("the spread still rolls") and §1.5. Over a game this added 21–30% to the benchmark players' Insight (the expert spends about 39 turns under Endeavours, the novice 28, the average player 35). Corrected (`SPREADFIX=1`; atomic world, 60 games a method), the victory medians move from 292 / 306 / 381 to 296 / 308 / 383, with unfinished games falling from 2 / 3 / 6 to 0 / 2 / 5 of 300. The effect is small because most of the extra spread went to fields the FTL race does not need. Adopted by Tamsin on 14 October; it is now the simulator's default. Pooled over the three worlds, the corrected victory medians are 299 / 308 / 382 (see the digest and the parked re-check).
 
-**Tier odds also act as attention weights** (step 3). An UNCOMMON idea under study gets 0.4/0.85 of a STANDARD one's share at the same progress, a RARE one 0.1/0.85. So rarer ideas are both less likely to occur and slower to finish once they have. The report never described this; it is a choice to confirm.
+**Tier odds no longer weight attention** (decided by Tamsin, 14 October: rarer ideas pay for their rarity at occurrence, and gain nothing by being slower to finish). Once an idea has occurred, every tier is studied alike: within its focus, and in its focus's draw on the spread and spill-over (`tier_attention: false` in `w7c_cfg.json`, now the default). Measured: RARE rises from 5% to 7% of those that open; prices for mid-era arrivals ×0.77 instead of ×0.80; pooled victory medians 301 / 308 / 382 with 0 / 7 / 0 unfinished of 900; and the average player's Process-world Hyperspace outlier (402) disappears (383). The simulated player still uses the tier odds when choosing a focus.
 
 **Not modelled:** environmental prerequisites; Competing Solutions' lock-outs; the UNIQUE first-come rule and stacking penalty (a flat 6.5% stands in); theoretical revelation (*Reveals* lists); necessity modifiers; the per-city cost modifier; §1.3's environment weighting of the spread; and feedback from discoveries to income.
 

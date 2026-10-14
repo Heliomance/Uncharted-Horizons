@@ -34,6 +34,8 @@ if 'scale' in OPT: CFG['scale'] = float(OPT['scale'])
 if 'fade' in OPT: CFG['fade'] = float(OPT['fade'])
 if OPT.get('fade_funded') == '0': CFG['fade_funded'] = False
 if 'clock' in OPT: CFG['fade_clock'] = OPT['clock']                      # clock=era: staleness from the end of the row's own era
+if 'rediscover' in OPT: CFG['rediscover'] = float(OPT['rediscover'])  # rediscovery on demand: chance a turn per breakthrough waiting on a lost idea
+if 'tieratt' in OPT: CFG['tier_attention'] = OPT['tieratt'] == '1'        # tieratt=0: once occurred, every tier is studied alike
 if 'ftiers' in OPT: CFG['fade_tiers'] = tuple(OPT['ftiers'].split('+'))   # ftiers=STANDARD: only STANDARD fades; the rest keep the window
 POOL = json.load(open(os.path.join(HERE, 'results', f'w7f_{NAME}_pool.json')))
 GL = ({t: float(OPT['gall']) for t in ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')} if 'gall' in OPT else
@@ -106,7 +108,8 @@ def pace_game(j):
             if cnt >= n: entry[e] = dev[turn] - ei; break
     return dict(by=dict(by), offs=[have[k][1] - HF.ERA_I[k] for k in have], rate=rate, ndiff=ndiff, gl=gl, entry=entry, guards=guards,
                 acct={key: acct.get(key, 0.0) for key in ('income', 'attention', 'premium_dilution', 'lost_empty', 'lost_cap', 'recovered')},
-                miss=(len(m_std), len(locked), len(hard)))
+                miss=(len(m_std), len(locked), len(hard)), rec=acct.get('recovered_ideas', 0),
+                leaves=sum(1 for k in m_std if not guards[k]))
 
 
 def pace():
@@ -114,8 +117,9 @@ def pace():
     per = collections.defaultdict(list); clumps = collections.defaultdict(list); drought = collections.defaultdict(list)
     offs = []; rate = {t: [0, 0] for t in TIERS}; acc = collections.Counter(); diffused = []
     miss = collections.defaultdict(list); gl = {t: [0, 0] for t in TIERS}; gate = collections.defaultdict(list)
-    entry = collections.defaultdict(list)
+    entry = collections.defaultdict(list); rec = []; leaves = []
     for g in pmap(pace_game, [(j,) for j in range(N)]):
+        rec.append(g['rec']); leaves.append(g['leaves'])
         for e, cs in g['by'].items():
             per[e].append(st.mean(cs)); clumps[e].append(sum(c >= 3 for c in cs) / len(cs))
             best = cur = 0
@@ -139,6 +143,7 @@ def pace():
                        'net lost': round((acc['lost_empty'] + acc['lost_cap'] - acc['recovered']) / acc['income'], 3)},
            'diffusion arrivals a game': round(st.mean(diffused), 1),
            'missed STANDARD before Space': [round(st.mean(miss['standard']), 1), q(miss['standard'], 90)],
+           'of them guarding nothing': round(st.mean(leaves), 1), 'ideas rediscovered a game': round(st.mean(rec), 1),
            'rows they lock': [round(st.mean(miss['locked']), 1), q(miss['locked'], 90), max(miss['locked'])],
            'still locked with Endeavours on glimpsed': [round(st.mean(miss['hard']), 1), q(miss['hard'], 90), max(miss['hard'])],
            'missed glimpsed %': {t: round(100 * a / b) if b else None for t, (a, b) in gl.items() if t != 'CORE'},
