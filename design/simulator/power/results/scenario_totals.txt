@@ -1,0 +1,15 @@
+Turns from the start of the Space era to victory: median (middle half). 20 games per method and world.
+                                              Atomic         Substance           Process
+Current design: Wormhole                  36 (32–38)        36 (35–40)        35 (32–38)
+Current design: Hyperspace                40 (37–43)        42 (40–45)        42 (40–50)
+Current design: Tachyonic                 44 (41–48)        40 (36–42)  42 (37–45) [1 can't]
+Current design: Tunnelling                42 (40–44)                 —                 —
+Current design: Plenum                             —        41 (38–44)        42 (38–46)
+Current design: Warp                      46 (42–48)        43 (40–48)        44 (42–48)
+
+Wormhole + engineering row                40 (35–43)        43 (37–45)        39 (37–42)
+Warp, no Smart Grid                       44 (39–48)        40 (37–46)        43 (41–47)
+Warp, Storage at 1x                       44 (40–46)        42 (39–46)        44 (40–47)
+Tachyonic reshaped (atomic)               48 (44–51)                 —                 —
+
+All methods, current design: median 41

@@ -1,0 +1,58 @@
+
+== EXPERT: breakthroughs per game. sig = the method's signature field, own games vs the other methods' games in the same world
+                        investigation after cert. | signature field     own others | mix differs from others | top fields, whole endgame
+   Process   Hyperspace          76.0         4.2 | Mathematics         3.5    0.8 |                      6% | Quintessic Physics 8.0, Energy Systems 7.0, Aeronautics 5.5
+   Process   Plenum              65.1        10.0 | Aeronautics         8.0    5.2 |                      7% | Aeronautics 8.0, Quintessic Physics 7.2, Energy Systems 6.9
+   Process   Tachyonic           73.0        10.3 | Thermodynamics      1.9    0.3 |                      6% | Energy Systems 7.2, Quintessic Physics 7.0, Rocketry 5.8
+   Process   Warp                71.0         4.3 | Energy Systems      7.8    7.0 |                      6% | Quintessic Physics 7.9, Energy Systems 7.8, Rocketry 5.2
+   Process   Wormhole            67.3        11.8 | Materials Science   5.4    2.8 |                      7% | Quintessic Physics 7.3, Energy Systems 6.8, Rocketry 5.9
+   Substance Hyperspace          73.5         6.3 | Mathematics         3.3    0.7 |                      7% | Quintessic Physics 7.5, Energy Systems 7.2, Relativity & Cosmology 5.6
+   Substance Plenum              67.7        11.7 | Aeronautics         9.2    5.1 |                      8% | Aeronautics 9.2, Quintessic Physics 7.3, Energy Systems 6.6
+   Substance Tachyonic           70.5        10.9 | Thermodynamics      1.2    0.5 |                      7% | Quintessic Physics 7.2, Energy Systems 6.7, Rocketry 6.0
+   Substance Warp                70.8         4.7 | Energy Systems      8.1    6.8 |                      7% | Energy Systems 8.1, Quintessic Physics 7.5, Relativity & Cosmology 5.3
+   Substance Wormhole            70.3        11.9 | Materials Science   5.5    2.8 |                      7% | Energy Systems 7.0, Quintessic Physics 6.8, Relativity & Cosmology 6.3
+   atomic    Hyperspace          72.3         6.5 | Mathematics         2.5    0.7 |                      7% | Energy Systems 6.8, Quantum Physics 6.8, Computing 5.8
+   atomic    Tachyonic           73.9        11.0 | Nuclear Physics     3.7    2.5 |                      7% | Quantum Physics 7.6, Energy Systems 7.0, Computing 6.5
+   atomic    Tunnelling          59.4        28.5 | Computing          10.7    6.0 |                      7% | Computing 10.7, Energy Systems 7.3, Quantum Physics 6.5
+   atomic    Warp                77.3         5.2 | Energy Systems      8.6    7.1 |                      7% | Energy Systems 8.6, Quantum Physics 6.5, Aeronautics 5.8
+   atomic    Wormhole            80.7         7.8 | Materials Science   5.0    2.6 |                      7% | Energy Systems 7.2, Quantum Physics 6.8, Computing 6.3
+   average: signature field +2.2 breakthroughs over other methods' games; mixes differ by 7% on average
+
+== NOVICE: breakthroughs per game. sig = the method's signature field, own games vs the other methods' games in the same world
+                        investigation after cert. | signature field     own others | mix differs from others | top fields, whole endgame
+   Process   Hyperspace          51.6        14.6 | Mathematics         5.3    0.9 |                     11% | Quintessic Physics 6.8, Relativity & Cosmology 6.2, Computing 5.5
+   Process   Plenum              45.4        16.9 | Aeronautics         9.5    3.5 |                     13% | Aeronautics 9.5, Quintessic Physics 6.9, Relativity & Cosmology 6.2
+   Process   Tachyonic           45.0        17.2 | Thermodynamics      1.8    0.5 |                     12% | Quintessic Physics 7.6, Relativity & Cosmology 5.6, Rocketry 5.3
+   Process   Warp                41.8        16.8 | Energy Systems      6.2    3.0 |                     13% | Quintessic Physics 6.5, Relativity & Cosmology 6.2, Energy Systems 6.2
+   Process   Wormhole            51.5        15.7 | Materials Science   5.7    2.8 |                     11% | Quintessic Physics 7.2, Rocketry 6.6, Relativity & Cosmology 5.9
+   Substance Hyperspace          56.8        13.1 | Mathematics         5.2    1.1 |                     10% | Quintessic Physics 7.7, Relativity & Cosmology 6.2, Rocketry 5.7
+   Substance Plenum              46.0        17.4 | Aeronautics         9.3    3.2 |                     12% | Aeronautics 9.3, Quintessic Physics 7.0, Relativity & Cosmology 5.7
+   Substance Tachyonic           43.3        16.3 | Thermodynamics      2.0    0.6 |                     11% | Quintessic Physics 7.4, Relativity & Cosmology 5.8, Rocketry 4.9
+   Substance Warp                39.0        16.6 | Energy Systems      5.7    3.3 |                     12% | Quintessic Physics 7.3, Energy Systems 5.7, Relativity & Cosmology 5.5
+   Substance Wormhole            49.3        14.2 | Materials Science   5.8    2.4 |                     10% | Quintessic Physics 7.5, Relativity & Cosmology 6.1, Materials Science 5.8
+   atomic    Hyperspace          22.9        15.1 | Mathematics         4.7    0.6 |                     18% | Relativity & Cosmology 5.4, Quantum Physics 5.2, Mathematics 4.7
+   atomic    Tachyonic           22.7        17.9 | Nuclear Physics     5.3    2.1 |                     13% | Quantum Physics 5.3, Nuclear Physics 5.3, Relativity & Cosmology 5.3
+   atomic    Tunnelling          18.6        23.4 | Computing           6.9    2.1 |                     15% | Computing 6.9, Quantum Physics 5.7, Relativity & Cosmology 4.8
+   atomic    Warp                22.3        13.7 | Energy Systems      4.2    2.1 |                     13% | Relativity & Cosmology 4.8, Quantum Physics 4.4, Energy Systems 4.2
+   atomic    Wormhole            23.9        12.7 | Materials Science   4.3    1.9 |                     15% | Relativity & Cosmology 5.3, Quantum Physics 5.0, Materials Science 4.3
+   average: signature field +3.5 breakthroughs over other methods' games; mixes differ by 13% on average
+
+== AVERAGE: breakthroughs per game. sig = the method's signature field, own games vs the other methods' games in the same world
+                        investigation after cert. | signature field     own others | mix differs from others | top fields, whole endgame
+   Process   Hyperspace          53.2        14.8 | Mathematics         5.8    1.1 |                     12% | Quintessic Physics 7.4, Relativity & Cosmology 6.2, Mathematics 5.8
+   Process   Plenum              35.8        19.9 | Aeronautics         9.0    3.2 |                     16% | Aeronautics 9.0, Quintessic Physics 6.9, Relativity & Cosmology 5.8
+   Process   Tachyonic           38.1        17.5 | Thermodynamics      1.7    0.5 |                     13% | Quintessic Physics 7.4, Relativity & Cosmology 5.3, Rocketry 4.5
+   Process   Warp                43.0        18.4 | Energy Systems      6.3    2.8 |                     11% | Quintessic Physics 7.2, Energy Systems 6.3, Relativity & Cosmology 5.8
+   Process   Wormhole            36.5        19.1 | Materials Science   6.3    2.5 |                     11% | Materials Science 6.3, Quintessic Physics 6.0, Relativity & Cosmology 5.2
+   Substance Hyperspace          48.2        14.6 | Mathematics         4.8    0.9 |                     12% | Quintessic Physics 7.0, Relativity & Cosmology 5.9, Computing 5.5
+   Substance Plenum              43.5        17.1 | Aeronautics         9.0    3.2 |                     13% | Aeronautics 9.0, Quintessic Physics 6.7, Relativity & Cosmology 6.0
+   Substance Tachyonic           43.8        18.2 | Thermodynamics      1.7    0.5 |                     12% | Quintessic Physics 7.5, Relativity & Cosmology 5.8, Rocketry 5.4
+   Substance Warp                38.6        18.7 | Energy Systems      6.5    3.1 |                     12% | Quintessic Physics 7.2, Energy Systems 6.5, Relativity & Cosmology 5.2
+   Substance Wormhole            52.8        17.4 | Materials Science   6.5    1.9 |                     10% | Quintessic Physics 7.5, Materials Science 6.5, Rocketry 6.4
+   atomic    Hyperspace          21.3        13.3 | Mathematics         4.7    0.7 |                     20% | Relativity & Cosmology 5.3, Quantum Physics 5.0, Mathematics 4.7
+   atomic    Tachyonic           22.8        18.8 | Nuclear Physics     5.0    2.2 |                     14% | Relativity & Cosmology 5.5, Quantum Physics 5.2, Nuclear Physics 5.0
+   atomic    Tunnelling          17.9        23.8 | Computing           7.0    2.2 |                     16% | Computing 7.0, Quantum Physics 5.8, Relativity & Cosmology 5.0
+   atomic    Warp                23.6        17.1 | Energy Systems      5.0    2.3 |                     13% | Energy Systems 5.0, Relativity & Cosmology 4.9, Quantum Physics 4.8
+   atomic    Wormhole            26.6        20.4 | Materials Science   6.2    2.2 |                     14% | Materials Science 6.2, Quantum Physics 5.7, Relativity & Cosmology 5.5
+   average: signature field +3.8 breakthroughs over other methods' games; mixes differ by 13% on average
+document restored from tech_tree_v111.md: 41c1f2d0c4306d72

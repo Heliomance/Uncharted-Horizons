@@ -1,0 +1,34 @@
+== familiar: 97 certain games, critical chain median 3 rows long (rows found after the unified theory, the completing row included)
+   Row completing certainty            games  theory median
+   MS08    Exotic Matter Engineering       33      19
+   RC06    Dark Energy Understanding       14      22
+   QP11    Exotic Matter Synthesis         13      18
+   RC07    Closed Timelike Curves          13      13
+   RC05    Dark Matter Identification      12      13
+   QP10    Loop Quantum Gravity             4      12
+   CP21    Macroscopic Quantum Control      3      25
+   QP09    String Theory Validation         3      17
+   QP14    Quantum Communication            2      24
+   Rows on the critical chain         share  arrives (med)  waited after prereqs met (med)
+   QP11    Exotic Matter Synthesis        47%      13        10   [Space, STANDARD, Quantum Physics]
+   QP08    Quantum Gravity Theory         45%       0         0   [Space, CORE, Quantum Physics]
+   QP12    Casimir Effect Amplification   36%       3         3   [Space, STANDARD, Quantum Physics]
+   MS08    Exotic Matter Engineering      34%      19         7   [Space, STANDARD, Materials Science]
+   RC05    Dark Matter Identification     27%      16        10   [Space, STANDARD, Relativity & Cosmology]
+   RC06    Dark Energy Understanding      14%      22         4   [Space, STANDARD, Relativity & Cosmology]
+   RC07    Closed Timelike Curves         13%      13        13   [Space, STANDARD, Relativity & Cosmology]
+   RK05    Satellite Technology           13%      13         3   [Atomic, CORE, Rocketry]
+   RK03    Multi-Stage Rocket             11%      12        12   [Atomic, CORE, Rocketry]
+   QP10    Loop Quantum Gravity            4%      12        12   [Space, STANDARD, Quantum Physics]
+   CP21    Macroscopic Quantum Control     3%      25         1   [Space, STANDARD, Computing]
+   CP10    Quantum Computing               3%      24         6   [Space, STANDARD, Computing]
+   CP16    Planetary Data Networks         3%      18        14   [Space, STANDARD, Computing]
+   QP09    String Theory Validation        3%      17        17   [Space, STANDARD, Quantum Physics]
+   Commonest chains:
+    24x  MS08 <- QP11 <- QP12
+    13x  RC07 <- QP08
+    11x  QP11 <- QP12
+     9x  MS08 <- QP11 <- QP08
+     7x  RC06 <- RC05 <- QP08
+     7x  RC05 <- QP08
+document restored from tech_tree_v111.md: 41c1f2d0c4306d72

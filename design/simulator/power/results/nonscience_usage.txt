@@ -1,0 +1,72 @@
+
+== Generalist, generalist, good skill (85% Insight), by turn 300: Space era opens at a median turn 300
+   Space-era breakthroughs: median 0 (middle half 0–1), 0% of them in FTL-related fields
+   all breakthroughs per game from the Space era opening, by era: Early Modern 1.1, Modern 0.2, Atomic 0.0, Space 0.3
+   fields with at least 1 / 3 / 5 Space-era breakthroughs: 0 / 0 / 0  (of 25 fields with Space-era content)
+   per field, mean breakthroughs (of rows available):
+      Warfare                     0.1 of  8  
+      Mechanics                   0.1 of  8  
+      Social Organization         0.1 of  8  
+      Optics                      0.0 of  8  
+      Seafaring                   0.0 of  8  
+      Philosophy And The Arts     0.0 of  8  
+      Space Engineering           0.0 of  9  (FTL)
+      Rocketry                    0.0 of 10  (FTL)
+      Thermodynamics              0.0 of  7  (FTL)
+      Mathematics                 0.0 of  9  (FTL)
+      Materials Science           0.0 of 10  (FTL)
+      Farming                     0.0 of  3  
+
+== Generalist, specialist, good skill (85% Insight), by turn 300: Space era opens at a median turn 300
+   Space-era breakthroughs: median 0 (middle half 0–1), 0% of them in FTL-related fields
+   all breakthroughs per game from the Space era opening, by era: Early Modern 1.8, Modern 0.6, Atomic 0.1, Space 0.4; fields funded over the whole game: median 11
+   fields with at least 1 / 3 / 5 Space-era breakthroughs: 0 / 0 / 0  (of 25 fields with Space-era content)
+   per field, mean breakthroughs (of rows available):
+      Farming                     0.1 of  3  
+      Mining                      0.1 of  3  
+      Philosophy And The Arts     0.1 of  8  
+      Trade                       0.0 of  8  
+      Construction                0.0 of  3  
+      Genetics                    0.0 of  7  
+      Space Engineering           0.0 of  9  (FTL)
+      Seafaring                   0.0 of  8  
+      Rocketry                    0.0 of 10  (FTL)
+      Thermodynamics              0.0 of  7  (FTL)
+      Mathematics                 0.0 of  9  (FTL)
+      Warfare                     0.0 of  8  
+
+== Generalist, generalist, average skill (68% Insight), by turn 380: Space era opens at a median turn 380
+   Space-era breakthroughs: median 0 (middle half 0–1), 0% of them in FTL-related fields
+   all breakthroughs per game from the Space era opening, by era: Early Modern 1.3, Modern 0.5, Atomic 0.0, Space 0.4
+   fields with at least 1 / 3 / 5 Space-era breakthroughs: 0 / 0 / 0  (of 25 fields with Space-era content)
+   per field, mean breakthroughs (of rows available):
+      Mechanics                   0.2 of  8  
+      Warfare                     0.1 of  8  
+      Water Management            0.1 of  8  
+      Seafaring                   0.0 of  8  
+      Optics                      0.0 of  8  
+      Space Engineering           0.0 of  9  (FTL)
+      Rocketry                    0.0 of 10  (FTL)
+      Thermodynamics              0.0 of  7  (FTL)
+      Philosophy And The Arts     0.0 of  8  
+      Mathematics                 0.0 of  9  (FTL)
+      Materials Science           0.0 of 10  (FTL)
+      Farming                     0.0 of  3  
+
+== Generalist, specialist, average skill (68% Insight), by turn 380: Space era opens at a median turn 380
+   Space-era breakthroughs: median 0 (middle half 0–1), 0% of them in FTL-related fields
+   all breakthroughs per game from the Space era opening, by era: Early Modern 2.5, Modern 1.4, Atomic 0.1, Space 0.3; fields funded over the whole game: median 13
+   fields with at least 1 / 3 / 5 Space-era breakthroughs: 0 / 0 / 0  (of 25 fields with Space-era content)
+   per field, mean breakthroughs (of rows available):
+      Mining                      0.2 of  3  
+      Construction                0.1 of  3  
+      Farming                     0.0 of  3  
+      Genetics                    0.0 of  7  
+      Space Engineering           0.0 of  9  (FTL)
+      Seafaring                   0.0 of  8  
+      Rocketry                    0.0 of 10  (FTL)
+      Thermodynamics              0.0 of  7  (FTL)
+      Philosophy And The Arts     0.0 of  8  
+      Mathematics                 0.0 of  9  (FTL)
+      Warfare                     0.0 of  8  
+      Mechanics                   0.0 of  8  

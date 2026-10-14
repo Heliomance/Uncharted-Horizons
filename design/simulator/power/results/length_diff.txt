@@ -1,0 +1,50 @@
+Median turns: theory (unified theory to certainty), engineering after certainty, victory (from the Space era opening)
+
+atomic    Hyperspace  n=20  theory   15  engineering after certainty   6  victory   40
+   certainty completed by: closed (discovery) 30%, dark (instrument) 30%, exotic (discovery) 20%, bubble (discovery) 15%
+   build finished last: MA19 100%; when after certainty, by a median of 6 turns
+
+atomic    Tachyonic   n=20  theory   16  engineering after certainty  10  victory   44
+   certainty completed by: dark (instrument) 45%, tachDE (instrument) 40%, hartman (discovery) 35%, tachDE (discovery) 25%
+   build finished last: NP15 100%; when after certainty, by a median of 10 turns
+
+atomic    Tunnelling  n=20  theory   14  engineering after certainty  11  victory   42
+   certainty completed by: closed (discovery) 50%, tachDE (instrument) 25%, bubble (discovery) 15%, throat (discovery) 15%
+   build finished last: CP21 90%, (built before certainty) 5%, QP14 5%; when after certainty, by a median of 11 turns
+
+atomic    Warp        n=20  theory   16  engineering after certainty   8  victory   46
+   certainty completed by: dark (instrument) 50%, bubble (discovery) 40%, throat (discovery) 40%, tachDE (instrument) 25%
+   build finished last: ES18 100%; when after certainty, by a median of 8 turns
+
+atomic    Wormhole    n=20  theory   19  engineering after certainty   0  victory   36
+   certainty completed by: bubble (discovery) 60%, throat (discovery) 60%, dark (instrument) 15%, hartman (discovery) 15%
+   build finished last: (built before certainty) 80%, MS08 20%; when after certainty, by a median of 2 turns
+
+elemental Hyperspace  n=40  theory   22  engineering after certainty   6  victory   42
+   certainty completed by: dark (instrument) 48%, superlum (instrument) 48%, leak (instrument) 22%, bubble (discovery) 20%
+   build finished last: MA19 98%, (built before certainty) 2%; when after certainty, by a median of 6 turns
+
+elemental Plenum      n=40  theory   24  engineering after certainty   5  victory   42
+   certainty completed by: dark (instrument) 42%, superlum (instrument) 42%, closed (discovery) 30%, bubble (discovery) 15%
+   build finished last: AE20 92%, (built before certainty) 8%; when after certainty, by a median of 5 turns
+
+elemental Tachyonic   n=39  theory   19  engineering after certainty   4  victory   40
+   certainty completed by: superlum (instrument) 77%, dark (instrument) 56%, currents (discovery) 18%, dark (discovery) 15%
+   build finished last: TH20 100%; when after certainty, by a median of 4 turns
+
+elemental Warp        n=40  theory   20  engineering after certainty   8  victory   44
+   certainty completed by: bubble (discovery) 68%, throat (discovery) 68%, dark (instrument) 40%, superlum (instrument) 40%
+   build finished last: ES18 100%; when after certainty, by a median of 8 turns
+
+elemental Wormhole    n=40  theory   22  engineering after certainty   0  victory   35
+   certainty completed by: bubble (discovery) 78%, throat (discovery) 78%, dark (instrument) 20%, superlum (instrument) 20%
+   build finished last: (built before certainty) 88%, MS08 12%; when after certainty, by a median of 2 turns
+
+Host discovered, turns after the unified theory (median), by ontology and condition:
+   atomic   : bubble 19, closed 14, coherence 22, dark 13, discrete 10, exotic 10, extradim 10, hartman 21, leak 13, tachDE 16, tachyon 14, throat 19
+   elemental: bubble 22, catalogue 22, closed 17, coupling 33, currents 14, dark 18, exotic 17, leak 19, strata 15, superlum 18, throat 22
+
+When things happen, turns from the Space era opening (medians):
+   familiar : unified theory    8   certainty   25   victory   42   | Satellite Technology  -17 and Orbital Assembly  +15 turns relative to the unified theory
+   Substance: unified theory    2   certainty   26   victory   40   | Satellite Technology  -12 and Orbital Assembly  +21 turns relative to the unified theory
+   Process  : unified theory    0   certainty   27   victory   42   | Satellite Technology  -10 and Orbital Assembly  +21 turns relative to the unified theory

@@ -1,0 +1,16 @@
+Chance of beating an average rival (each player against its own average), before -> after the package; * outside 40-60%
+
+expert: median turn 296 -> 294; unwinnable 1 -> 1; method's share (worst world) 17% -> 28%; cells outside 40-60%: 9 -> 6; range 36%-69% -> 31%-82%
+   atomic   Wormhole 69%*->55%  Hyperspace 59%->52%  Tachyonic 39%*->47%  Tunnelling 39%*->31%*  Warp 55%->82%*
+   SubstanceWormhole 62%*->45%  Hyperspace 41%->32%*  Tachyonic 57%->46%  Plenum 36%*->41%  Warp 37%*->67%*
+   Process  Wormhole 63%*->47%  Hyperspace 49%->38%*  Tachyonic 61%*->49%  Plenum 46%->46%  Warp 37%*->71%*
+
+novice: median turn 303 -> 301; unwinnable 3 -> 3; method's share (worst world) 55% -> 26%; cells outside 40-60%: 13 -> 9; range 16%-85% -> 25%-71%
+   atomic   Wormhole 79%*->64%*  Hyperspace 36%*->25%*  Tachyonic 36%*->40%  Tunnelling 37%*->28%*  Warp 16%*->53%
+   SubstanceWormhole 72%*->53%  Hyperspace 47%->37%*  Tachyonic 65%*->55%  Plenum 39%*->38%*  Warp 41%->71%*
+   Process  Wormhole 85%*->65%*  Hyperspace 60%*->51%  Tachyonic 75%*->68%*  Plenum 32%*->40%  Warp 28%*->61%*
+
+average: median turn 378 -> 376; unwinnable 8 -> 7; method's share (worst world) 48% -> 14%; cells outside 40-60%: 10 -> 7; range 17%-80% -> 33%-69%
+   atomic   Wormhole 74%*->53%  Hyperspace 41%->33%*  Tachyonic 35%*->39%*  Tunnelling 41%->34%*  Warp 17%*->54%
+   SubstanceWormhole 67%*->47%  Hyperspace 51%->44%  Tachyonic 69%*->62%*  Plenum 39%*->45%  Warp 43%->69%*
+   Process  Wormhole 80%*->44%  Hyperspace 59%->53%  Tachyonic 75%*->69%*  Plenum 34%*->41%  Warp 26%*->64%*

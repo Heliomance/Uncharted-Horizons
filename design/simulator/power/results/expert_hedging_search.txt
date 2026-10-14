@@ -1,0 +1,17 @@
+Expert player: when to start hedged engineering. Victory, turns from the Space era opening; 20 games per method (same games across rows).
+world     hedging starts          mean median  p90 unified theory cannot win
+familiar  at the Space era opening    44.7     44   51             11          0   <- best
+          at the unified theory       45.4     45   52             11          2
+          after a first elimination   45.4     45   51             11          2
+          when two methods are left   45.5     45   51             11          2
+          never (after certainty)     45.7     45   52             11          2
+Substance at the Space era opening    41.6     42   49              4          0   <- best
+          at the unified theory       42.3     42   49              0          0
+          after a first elimination   42.1     42   49              0          0
+          when two methods are left   42.1     42   48              0          0
+          never (after certainty)     42.4     42   49              0          0
+Process   at the Space era opening    41.3     42   48              3          0   <- best
+          at the unified theory       41.9     42   48              0          0
+          after a first elimination   42.0     42   48              0          0
+          when two methods are left   42.1     42   49              0          0
+          never (after certainty)     42.4     42   49              0          0

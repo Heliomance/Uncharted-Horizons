@@ -1,0 +1,24 @@
+
+novice / atomic: 100 games; first answer 4 turns after the unified theory (middle half 1-6)
+   first answer comes from: tachyonic sector 49%, extra dimensions 21%, discreteness 12%, Hartman effect 12%, exotic matter 6%
+   groundwork it waited on (share of games): RK16 (Rocketry, Atomic) 2%, QP12 (Quantum Physics, Space) 2%, QP04 (Quantum Physics, Atomic) 1%
+
+novice / elemental: 200 games; first answer 10 turns after the unified theory (middle half 7-14)
+   first answer comes from: exotic matter 60%, catalogue 30%, strata 6%, currents 4%
+   groundwork it waited on (share of games): RK05 (Rocketry, Atomic) 4%, MS02 (Materials Science, Atomic) 0%
+
+average / atomic: 100 games; first answer 4 turns after the unified theory (middle half 2-7)
+   first answer comes from: tachyonic sector 42%, extra dimensions 23%, Hartman effect 19%, discreteness 11%, exotic matter 4%
+   groundwork it waited on (share of games): RK16 (Rocketry, Atomic) 3%, QP12 (Quantum Physics, Space) 2%
+
+average / elemental: 200 games; first answer 11 turns after the unified theory (middle half 7-16)
+   first answer comes from: exotic matter 58%, catalogue 32%, strata 7%, dark matter 2%, currents 1%
+   groundwork it waited on (share of games): MS02 (Materials Science, Atomic) 1%, RK05 (Rocketry, Atomic) 0%
+
+expert / atomic: 100 games; first answer 22 turns after the unified theory (middle half 20-25)
+   first answer comes from: discreteness 63%, closed curves 31%, exotic matter 4%, extra dimensions 1%, dark matter 1%
+   groundwork it waited on (share of games): MS02 (Materials Science, Atomic) 4%, QP04 (Quantum Physics, Atomic) 1%, EL07 (Electricity, Modern) 1%, RK05 (Rocketry, Atomic) 1%, EN03 (Electronics, Atomic) 1%, EN02 (Electronics, Atomic) 1%
+
+expert / elemental: 200 games; first answer 16 turns after the unified theory (middle half 12-22)
+   first answer comes from: exotic matter 70%, catalogue 18%, closed circuits 6%, strata 6%, dark matter 0%
+   groundwork it waited on (share of games): CH21 (Chemistry, Modern) 2%, CH23 (Chemistry, Early Modern) 2%, RK05 (Rocketry, Atomic) 0%, EN03 (Electronics, Atomic) 0%

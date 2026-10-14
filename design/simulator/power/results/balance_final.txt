@@ -1,0 +1,21 @@
+
+EXPERT: victory median turn 294 (middle half 291-297; target about 295), unwinnable 2 of 900
+   by world: atomic 292, Substance 295, Process 294; method's share of variation: worst world 30%, all cells 22%
+   cells outside 40-60%: 6 of 15 (atomic Hyperspace 66%, atomic Tunnelling 30%, atomic Warp 82%, Substance Wormhole 34%, Substance Plenum 33%, Process Wormhole 39%); range 30%-82%
+      atomic    Wormhole 293 (58%)  Hyperspace 291 (66%)  Tachyonic 292 (58%)  Tunnelling 297 (30%)  Warp 288 (82%)
+      Substance Wormhole 297 (34%)  Hyperspace 294 (46%)  Tachyonic 294 (48%)  Plenum 297 (33%)  Warp 293 (60%)
+      Process   Wormhole 296 (39%)  Hyperspace 294 (51%)  Tachyonic 294 (46%)  Plenum 296 (43%)  Warp 293 (56%)
+
+NOVICE: victory median turn 305 (middle half 303-308; target about 295-305), unwinnable 9 of 900
+   by world: atomic 306, Substance 305, Process 306; method's share of variation: worst world 20%, all cells 16%
+   cells outside 40-60%: 7 of 15 (atomic Hyperspace 40%, atomic Tunnelling 24%, Substance Tachyonic 66%, Substance Plenum 37%, Substance Warp 65%, Process Tachyonic 68%, Process Plenum 34%); range 24%-68%
+      atomic    Wormhole 304 (59%)  Hyperspace 308 (40%)  Tachyonic 306 (54%)  Tunnelling 309 (24%)  Warp 304 (59%)
+      Substance Wormhole 306 (45%)  Hyperspace 306 (42%)  Tachyonic 303 (66%)  Plenum 306 (37%)  Warp 304 (65%)
+      Process   Wormhole 305 (52%)  Hyperspace 302 (56%)  Tachyonic 303 (68%)  Plenum 308 (34%)  Warp 306 (49%)
+
+AVERAGE: victory median turn 380 (middle half 377-383; target about 360-375), unwinnable 5 of 900
+   by world: atomic 381, Substance 380, Process 380; method's share of variation: worst world 16%, all cells 13%
+   cells outside 40-60%: 6 of 15 (atomic Hyperspace 38%, atomic Tachyonic 64%, atomic Tunnelling 32%, Substance Hyperspace 40%, Substance Tachyonic 68%, Process Tachyonic 70%); range 32%-70%
+      atomic    Wormhole 381 (46%)  Hyperspace 382 (38%)  Tachyonic 377 (64%)  Tunnelling 383 (32%)  Warp 378 (55%)
+      Substance Wormhole 381 (44%)  Hyperspace 382 (40%)  Tachyonic 377 (68%)  Plenum 379 (42%)  Warp 380 (58%)
+      Process   Wormhole 381 (43%)  Hyperspace 377 (54%)  Tachyonic 376 (70%)  Plenum 380 (41%)  Warp 381 (55%)

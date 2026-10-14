@@ -1,0 +1,36 @@
+
+== Current design (Wormhole row at 2.5x): median 42, middle half 39–46, spread (SD) 5.7, cannot win 0 of 900
+   method's share of variation: atomic 8%, Substance 12%, Process 9%, all 15%
+   Substance Tachyonic   median   38  mean  38.4 ± 0.7   beats an average rival  72%  <- outside 40–60%
+   Process   Tachyonic   median   39  mean  38.6 ± 0.6   beats an average rival  71%  <- outside 40–60%
+   Process   Wormhole    median   41  mean  40.7 ± 0.6   beats an average rival  60%  <- outside 40–60%
+   Process   Plenum      median   42  mean  41.7 ± 0.6   beats an average rival  55%
+   Process   Hyperspace  median   42  mean  42.4 ± 0.7   beats an average rival  51%
+   atomic    Wormhole    median   42  mean  42.5 ± 0.6   beats an average rival  52%
+   Substance Plenum      median   42  mean  42.9 ± 0.7   beats an average rival  50%
+   Substance Wormhole    median   42  mean  43.0 ± 0.7   beats an average rival  49%
+   atomic    Warp        median   42  mean  43.1 ± 0.8   beats an average rival  50%
+   Process   Warp        median   42  mean  43.2 ± 0.7   beats an average rival  48%
+   Substance Hyperspace  median   44  mean  43.5 ± 0.7   beats an average rival  46%
+   Substance Warp        median   44  mean  43.8 ± 0.7   beats an average rival  45%
+   atomic    Tunnelling  median   45  mean  45.7 ± 0.7   beats an average rival  36%  <- outside 40–60%
+   atomic    Tachyonic   median   46  mean  46.1 ± 0.6   beats an average rival  32%  <- outside 40–60%
+   atomic    Hyperspace  median   46  mean  46.3 ± 0.8   beats an average rival  33%  <- outside 40–60%
+
+== Adjusted design (Warp both trims; Wormhole row at 4x; atomic Tachyonic without NP11): median 42, middle half 38–46, spread (SD) 5.9, cannot win 0 of 900
+   method's share of variation: atomic 13%, Substance 21%, Process 12%, all 21%
+   Substance Warp        median   37  mean  37.9 ± 0.7   beats an average rival  73%  <- outside 40–60%
+   Process   Warp        median   38  mean  38.2 ± 0.7   beats an average rival  69%  <- outside 40–60%
+   Substance Tachyonic   median   38  mean  38.4 ± 0.7   beats an average rival  68%  <- outside 40–60%
+   Process   Tachyonic   median   39  mean  38.6 ± 0.6   beats an average rival  67%  <- outside 40–60%
+   atomic    Warp        median   40  mean  40.5 ± 0.7   beats an average rival  59%
+   Process   Plenum      median   42  mean  41.7 ± 0.6   beats an average rival  51%
+   Process   Hyperspace  median   42  mean  42.4 ± 0.7   beats an average rival  48%
+   Process   Wormhole    median   43  mean  42.6 ± 0.6   beats an average rival  47%
+   Substance Plenum      median   42  mean  42.9 ± 0.7   beats an average rival  47%
+   Substance Hyperspace  median   44  mean  43.5 ± 0.7   beats an average rival  43%
+   atomic    Wormhole    median   44  mean  44.2 ± 0.6   beats an average rival  40%  <- outside 40–60%
+   atomic    Tachyonic   median   45  mean  44.7 ± 0.6   beats an average rival  36%  <- outside 40–60%
+   Substance Wormhole    median   45  mean  44.7 ± 0.7   beats an average rival  37%  <- outside 40–60%
+   atomic    Tunnelling  median   45  mean  45.7 ± 0.7   beats an average rival  34%  <- outside 40–60%
+   atomic    Hyperspace  median   46  mean  46.3 ± 0.8   beats an average rival  31%  <- outside 40–60%

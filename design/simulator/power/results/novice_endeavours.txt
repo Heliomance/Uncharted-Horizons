@@ -1,0 +1,21 @@
+expert                : median 42 (middle half 39–46), 90th percentile 50, cannot win 0 of 900, Endeavours per game 4.0, method's share 15%
+novice, no Endeavours : median 44 (middle half 39–50), 90th percentile 57, cannot win 34 of 900, Endeavours per game 0.0, method's share 15%
+novice, Endeavours    : median 50 (middle half 45–55), 90th percentile 62, cannot win 3 of 900, Endeavours per game 6.8, method's share 14%
+
+                               expert     novice, none   novice, Endeavours
+atomic    Wormhole       42  52%          39  75%*             42  82%*    
+atomic    Hyperspace     46  33%*         41  63%*             49  57%     
+atomic    Tachyonic      46  32%*         43  51%  [7]         50  53%     
+atomic    Tunnelling     45  36%*         43  56%  [4]         50  52%     
+atomic    Warp           42  50%          44  53%  [6]         51  44%     
+Substance Wormhole       42  49%          41  60%*             50  53%     
+Substance Hyperspace     44  46%          47  40%* [2]         54  37%*    
+Substance Tachyonic      38  72%*        45  47%  [12]         48  52%  [2]
+Substance Plenum         42  50%          48  38%*             53  42%     
+Substance Warp           44  45%          49  36%*             54  38%*    
+Process   Wormhole       41  60%*         42  61%*             48  56%     
+Process   Hyperspace     42  51%          42  54%              50  51%     
+Process   Tachyonic      39  71%*         47  41%  [3]         49  54%  [1]
+Process   Plenum         42  55%          48  38%*             53  40%     
+Process   Warp           42  48%          47  36%*             52  38%*    
+(median turns, chance of beating that player's own average rival; * outside 40–60%; [n] unwinnable of 60)

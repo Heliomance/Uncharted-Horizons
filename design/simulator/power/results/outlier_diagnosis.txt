@@ -1,0 +1,7 @@
+New player, current design: where the time goes in the outlying cells (medians, turns from the Space era opening)
+   familiar  Hyperspace  unified theory  15  certainty  31  build done  38  victory  46  | build finished after certainty in 98% (median 6 turns)
+   familiar  Tunnelling  unified theory  13  certainty  28  build done  36  victory  45  | build finished after certainty in 97% (median 9 turns)
+   familiar  Tachyonic   unified theory  10  certainty  29  build done  37  victory  46  | build finished after certainty in 100% (median 8 turns)
+   familiar  Warp        unified theory  12  certainty  30  build done  33  victory  42  | build finished after certainty in 75% (median 5 turns)
+   Substance Tachyonic   unified theory   4  certainty  27  build done  29  victory  38  | build finished after certainty in 95% (median 4 turns)
+   Process   Tachyonic   unified theory   5  certainty  25  build done  30  victory  39  | build finished after certainty in 98% (median 4 turns)

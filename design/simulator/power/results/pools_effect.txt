@@ -1,0 +1,10 @@
+Effect of the signature pools (same games, round-two balance). Victory = absolute game turn.
+   expert   victory 294 -> 297   theory phase 47 -> 47   unified theory to build complete 54 -> 56
+   novice   victory 302 -> 307   theory phase 25 -> 25   unified theory to build complete 34 -> 38
+   average  victory 377 -> 382   theory phase 28 -> 29   unified theory to build complete 42 -> 48
+   without pools  average: signature field +1.8 breakthroughs over other methods' games; mixes differ by 7% on average
+   without pools  average: signature field +2.7 breakthroughs over other methods' games; mixes differ by 12% on average
+   without pools  average: signature field +2.8 breakthroughs over other methods' games; mixes differ by 12% on average
+   with pools     average: signature field +2.2 breakthroughs over other methods' games; mixes differ by 7% on average
+   with pools     average: signature field +3.5 breakthroughs over other methods' games; mixes differ by 13% on average
+   with pools     average: signature field +3.8 breakthroughs over other methods' games; mixes differ by 13% on average

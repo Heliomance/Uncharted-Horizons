@@ -1,0 +1,15 @@
+The theory phase on the round-two balance: 300 games per player (20 per method and world). Turns counted from the unified theory.
+                                                            expert            novice           average
+Unified theory, game turn                            231 (223–238)     259 (248–265)     325 (313–332)
+Theory phase: unified theory to certainty               47 (41–54)        25 (19–35)        28 (23–39)
+Unified theory to victory                               63 (56–71)        43 (37–54)        53 (46–64)
+Theory as a share of that stretch                              75%               59%               55%
+First answer arrives                                    18 (14–25)          8 (3–12)          9 (5–13)
+First method ruled out                                  24 (17–31)          9 (4–19)         10 (3–20)
+Two methods left                                        41 (33–48)        20 (14–30)        24 (17–33)
+Two left until certainty                                  6 (0–10)           2 (0–8)           3 (0–9)
+Answers during the theory phase                            7 (6–8)           7 (6–8)           7 (6–8)
+Longest silence between answers                         19 (15–25)         10 (7–14)         11 (9–15)
+Theory within 15 turns (share of games)                         0%               11%                7%
+Theory within a third of the stretch (share)                    0%                3%                4%
+Theory phase by world (median turns): expert: fam 52, Sub 44, Pro 46; novice: fam 19, Sub 30, Pro 30; average: fam 24, Sub 35, Pro 33

@@ -1,0 +1,111 @@
+# Uncharted Horizons — FTL endgame: finalised decisions (digest)
+
+As of 2026-10-14. Everything here is **written into `tech_tree_v112.md`** (§4 and the rows) unless listed under *Deferred*. Detail and history: the direction document (claude.ai artifact d300173f…, rev 329; W1–W19). Read this file instead of the direction document; open the document only for measurement narratives or rationale. Default price for new Space-era rows: 2.5× (multipliers on the era's price per discovery, §1.2).
+
+## 1. Ground rules
+- **One viable method per world**, chosen secretly at world creation from the five its ontology offers. Six methods: Warp, Wormhole, Hyperspace, Tachyonic (all worlds), Tunnelling (atomic only), Plenum (elemental only).
+- **Every report is true** (W3); the risk of a gamble comes only from what is untested. **Certainty is information, not a gate** (W2).
+- **Evidence only from the Space era** (W1): no FTL answer before our present; Atomic-era rows find what ours found.
+- **Grounding** (W8): elemental accounts derive from Models I (Substance) and II (Process), in a scientific register; parity between ontologies; every *required* row CORE or STANDARD (Guarantee Rule 2).
+- **Lanes** (W13): Engineering (Warp), Renaissance (Wormhole), Theorist's (Hyperspace), Information Age (Tunnelling), Big Science (Tachyonic), Elemental (Plenum).
+
+## 2. Hypotheses and the FTL screen (W6, W10, W11, W12, W19)
+- Own screen: hypotheses, running results, hints, disproved list, prototype commitment. **Every change to it is announced** in the discovery's notification ("This bears on…"), computed from screen state before/after; says only *that* something changed.
+- **Opens at RC01 Special Relativity.** Proposers (CORE): RC02 → Warp, Wormhole; MA13 Topology → Hyperspace; RC01 → Tachyonic; QP02 → Tunnelling; QM-E04 → Plenum. **Proposing Reveals** (commitment possible from then).
+- **Unified theory closes the list** (QP08 Quantum Gravity Theory / QM-E27 Plenum Gravitation): exactly one of these five works. QM-E27 needs MA13 so every proposal precedes it.
+- Names: hypotheses named for what they do (names = spec work). The game may name them and say how many; never which is true.
+- **Shows**: checklist of open questions and build needs in plain words; **every hint points to the first workable missing step's focus** (moves as research advances; never a dead end); no breakthrough named until Revealed/discovered; no odds; only direct consequences (failed condition disproves; all confirmed confirms; last standing marked). Exception: instruments are named once their test is discovered.
+- **Guidance principles**: (1) show facts, not advice — never rate likelihood, recommend a test or say which to pursue; (2) player's vocabulary; (3) negatives clearer than positives; (4) several signals needed — by structure, not noise; (5) no outside knowledge needed.
+- **W12**: the challenge is ordering the tests and judging when to commit. **W19**: each focus says vaguely what it tends to help with (mechanism open: derived benefit tags).
+
+## 3. Conditions (W14) — three per method; all must hold
+| Method | Atomic | Elemental |
+|---|---|---|
+| Warp | exotic matter (m); extra dimensions; bubble stable (m) | exotic matter (m); higher strata / higher-order cycle; bubble of shaped Aether (m) |
+| Wormhole | exotic matter (m); closed timelike curves stable; throat stable (m) | exotic matter (m); closed circuits of the medium; throat stable (m) |
+| Hyperspace | extra dimensions; leakage shows them open; dark matter is a hidden sector | strata; leakage into the strata; dark matter hidden sector |
+| Tunnelling | macro-scale coherence (m); spacetime discrete; Hartman effect (m) | — |
+| Tachyonic | dark energy is a tachyonic field; closed timelike curves; tachyonic sector | medium carries a superluminal mode; closed circuits; a superluminal form beyond the catalogue |
+| Plenum | — | currents faster than light (m); superluminal mode; currents rideable (m) |
+
+(m) = merged: an ingredient of the method's own build, tested by building it.
+**Hosts**: exotic matter QP11 / QM-E06; dimensions/strata QP09 / QM-E12; discreteness QP10 (excludes dimensions); curves/circuits RC07; leakage RC11 (new; only where dimensions/strata exist); dark matter RC05; tachyonic field / superluminal mode RC06; coherence CP21 (or GN10 where FQ6 allows); currents QM-E19; bubble & throat MS08 (only where exotic matter exists); Hartman QP14; tachyonic sector QP15 Beyond the Standard Model / QM-E28 Beyond the Catalogue (Space; moved off the Atomic-era QP06 / QM-E17, which broke W1); riding the currents AE20. QP04 and QM-E08 host nothing.
+**Generation**: viable method uniform; its conditions hold; every other condition holds/fails at even odds, subject to dimensions⊕discreteness, leakage only with dimensions/strata, every other method failing ≥1 condition (= uniform draw from valid truths). Battery guarantee: exactly one viable; no method's conditions inside another's; viable method's build/prove rows always reachable (QP12/QM-E13 always work as science; fusion-free worlds keep advanced fission; GN10 only an alternative; no Removal Truth touches them).
+**Reliability**: MS02 CORE; QM-E06 also accepts MS02; condition-hosting build rows (CP21, MS08, AE20) at 1×; QP04, QM-E08 and **EL07 Power Grid CORE**, so no CORE unified theory waits on a missable idea.
+
+## 4. Tests and instruments
+- **Each decider's prerequisites include the "missing piece"** explaining why it is unknown today. *Theoretical* (missing piece = the unified theory): RC07, QP11 (+QP12), QP09, QP10 — the breakthrough is the answer. *Measurement* (missing piece = an instrument): the breakthrough unlocks a national wonder (every civ may build its own; 3–6 turns); **completion answers the question**.
+- **Instruments**: CP21 → Orbital Quantum Laboratory (MAQRO); RC11 Gravitational Leakage Survey (RC03 + SE02) → Space Interferometer (LISA); RC05 or RC06 → one shared Survey Telescope (Euclid/DESI), answering each of the two questions whose breakthrough the civ holds; QP15 / QM-E28 → **Very Large Particle Collider** / **Very Large Boundary Furnace** (+6 Science, 2 Scientist slots — staffed, so slots not points). RC05 and RC06 both need RC02 + RK05 + (QP08 or QM-E27): side by side.
+- **Screen note** once a test is discovered and its instrument unbuilt: "To settle this unanswered question, we'll need to build a [X]." Explicit about what to build, suggestive about what to research.
+- **Evidence travels** with theoretical/merged tests (discovery, diffusion, trade, theft); measurement tests need the receiver's own instrument. Instruments are visible to rivals.
+- Deciders cost 1×.
+
+## 5. Build, prove, power, rules (W4, W9, W15, W16)
+| Method | Build (atomic / elemental) | Prove | Space rows |
+|---|---|---|---|
+| Warp | RC02; QP08/QM-E27; QP11/QM-E06 (m); MS08 (m); power; ES18 (after EL11 + EL07) | QP09/QM-E12 | 6 |
+| Wormhole | Warp's minus power & ES18; + RC04, QP12/QM-E13, MA13, MS17 Transformation Media | RC07 | 6 |
+| Hyperspace | QP08/QM-E27; MA13; power; MA19 (after MA15) | QP09/QM-E12; RC11; RC05 | 6 |
+| Tunnelling | QP02; CP10 (after CP16); MS02 or GN05; QP14 (m; QP07 or GN10); CP21 (m) | QP10 | 6 |
+| Tachyonic | QP06/QM-E17 (plain prerequisites); QP08/QM-E27; QM-E05 (elemental); SE02; power; NP15 (atomic; after EL11 + a power plant) / TH20 (elemental) | RC06; RC07; QP15/QM-E28 | 5 / 6 |
+| Plenum | QM-E27; MS02; QM-E19 (m); QM-E23 (after AE14); AE20 (m) | RC06 | 6 |
+
+- **Power** (W9): only Warp, Hyperspace, Tachyonic; the prototype needs capacity worth one advanced fission plant = 8 points (Modern plants 1; ES06/ES07/ES15 3; ES14 8; ES08/QM-E05/RARE reactors 10); grid plants owned; shown only on the FTL screen; flavour, not a balance lever.
+- **W15 rules**: no single result settles a method; every method has ≥1 condition outside its build (Hail Mary always possible); conditions shared where physics allows; shapes vary by lane; **total time balanced** to the balance standard (§9), prototype cost flat; confirming is the normal path; the theory phase is judged by how it plays, not by length.
+- **W16 bad luck**: a Space-era row's occurrence window stays open for a civ **funding its focus**; incidental spread keeps normal windows; UNCOMMON/RARE/UNIQUE keep their odds; Endeavours are insurance (2×); diffusion is no safety net in the race (it recovers old rows earlier). An isolated civ may be unable to win alone: accepted.
+
+## 6. Theory phase (W17)
+- Each unified theory needs its ontology's great instrument (QP08 ← QP04; QM-E27 ← QM-E08); both instruments CORE; QM-E08 needs EL07 (as QP04 does). Effect: first answer 5–7 turns after the theory; ontologies at parity.
+- No length target; judged on feel (first answer, steady narrowing, silences). Attention boost dropped. The expert's beeline to the theory is optimal *within the harness's assumptions* (the theory gates most tests; income ignores what breakthroughs do for the economy). A premium cap (no target above ×2 as the active focus) removes its long premium stretches and leaves ~10% more breakthroughs by turn 150, at ~6 turns of victory in the harness. Decided: no economic-feedback model now; refine with bot games once playable. Switch `EXPCAP`/`EXPCAP_ERA`, off by default.
+- FTL fields need not be defining: science players meet light requirements, then explore freely.
+
+## 7. Prototype, Hail Mary, ship (W2; §4 *How the Victories Are Built*)
+- Prototype = Grand Endeavour on the FTL screen, one per method (Tunnelling/Plenum only in their worlds); committable once its hypothesis is Revealed and build prerequisites discovered, **verified or not**. **5×** the Space price (≈5 turns good economy, 6 average).
+- Runs full length, then reports; failure proves the method invalid, refunds nothing; costs more than any disproving experiment; halts (progress lost) if disproved mid-build; disproved hypotheses cannot be committed; active/spread split (80%/50%) keeps evidence arriving.
+- **SS FTL Drive needs only the viable method's successful prototype** (one countable). Ship: Apollo, 3 SS Boosters, SS Cockpit, SS FTL Drive (1,500; Aluminium); exotic components (+15% each) speed only the Drive; propulsion tags speed Boosters.
+- **Completing the prototype and the Drive is announced to all civs**; committing is private. AI commits when certain; Hail Mary only when a rival's ship is close (detail: AI task). Finale decided by judgement, never dice. Generation Ship victory unchanged (150 Voyage turns).
+
+## 8. The Space era (W18)
+- **Principles**: endgame breakthroughs world-agnostic (no wormhole gates etc.); steering through foci (each method's engineering in a signature field); non-FTL fields get rich content too.
+- **Tone**: *basis* — established physics or a genuinely debated open theory, the latter only as a per-world question (no forcefields, no replicators; AI up to sentience passes); *reach* — a planetary civilisation's ambition, approaching Kardashev I, never II (supergrids, geoengineering, orbital solar, space elevator, O'Neill cylinder pass; Dyson swarm fails; no antimatter weapons).
+- **Sizing**: ~10-row pools, 6–8 discovered; parallel rows opened by an entry row; capstones ~4× ending short chains; non-FTL premium = stronger effects at the same price.
+- **Signature fields and pools** (all 2.5× unless marked; cap = capstone):
+  - *Computing* (Tunnelling): CP16 Planetary Data Networks (entry, 1×), CP17 AI Advisory Council, CP18 Autonomous Logistics, CP19 Cyber Operations, CP20 Digital Twins, CP15 Neuromorphic Processors, CP10 Quantum Computing (2×), CP21 Macroscopic Quantum Control (1×), CP22 Autonomous Economy (cap A, 4×), CP09 AGI (UNCOMMON) → CP12 Sentient AI (cap B, RARE 4×).
+  - *Energy Systems* (Warp): ES22 Smart Grid (entry), ES17 Grid-Scale Storage, ES18 Superconducting Energy Storage, ES19 Electrified Industry, ES14, ES08, ES11 (UNCOMMON), ES20 Continental Interconnects → ES21 Global Supergrid (cap A, 4×); ES12 (atomic) / QM-E07 (elemental, moved here) cap B, RARE 4×.
+  - *Materials Science* (Wormhole): MS10 Structural Nanomaterials (entry), MS11 Field Repair Systems, MS12 Signature Management, MS13 Adaptive Armour, MS16 Self-Sealing Hulls, MS08 (1×), MS17 Transformation Media (4×), MS15 Modular Platforms (cap A, 4×), MS07 Programmable Matter (cap B, RARE 4×). MS09 retired.
+  - *Mathematics* (Hyperspace): MA15 Optimisation Theory (entry), MA16 Operations Research, MA17 Lifecycle Engineering, MA18 Logistics Optimisation, MA22 Auction Theory, MA23 Post-Quantum Cryptography, MA19 Higher-Dimensional Geometry (1×), MA20 Computational Proof → MA21 Automated Mathematics (cap A, 4×).
+  - *Nuclear Physics* (atomic Tachyonic): NP12 Particle Laboratories (entry), NP13 Hardened Shelters, NP11 (pool), NP15 Superconducting Storage Rings, NP-F03, NP16 Particle-Beam Weapons → NP17 Particle-Beam Artillery (cap A, 4×); NP09 / NP-F04 cap B, RARE 4×.
+  - *Thermodynamics* (elemental Tachyonic): TH15 Waste-Heat Recovery (entry), TH16 Heat Pump Networks, TH17 Supercritical Power Cycles, TH18 Deep Cryogenics, TH19 Permafrost Engineering (needs tundra), TH20 Boundary Ring / Cycle-Limit Ring (4×), TH21 Atmospheric Heat Management → TH22 Geoengineering Programme (cap A, 4×).
+  - *Aeronautics* (Plenum): AE14 Aerospace Industry (entry, 1×), AE15 Jet-Stream Navigation, AE16 Airborne Assault Doctrine → AE19 Suborbital Point-to-Point Transport (cap A, 4×), AE17 Air Mobility, AE18 Sky Carriers, QM-E23 Current Sail (moved here; STANDARD), AE20 Current Rigging (1×).
+- **MS17 Transformation Media** (replaces Throat Stabilisation; geometry-first design, as Morris–Thorne and transformation optics): unlocks **Shockproof Walls** (`[+50]% Strength for cities <vs [Siege] units> <when defending> <in this city>` — local, so walls never stack across cities); **Bomb Shelters 50% more effective**: the Bomb Shelter itself gains `Population loss from nuclear attacks [-50]% [in this city] <after discovering [Transformation Media]>` and the same for garrison damage — 12.5% gets through instead of 25%; needs the one-word `Nuke.kt` fix (`City.getAggregateModifier` using the city's own context). Distinct from NP13, which protects every city.
+- **QP13 Hidden Variable Discovery** (RARE; Deterministic worlds): its national wonder, the **Determinist Institute**, Reveals every breakthrough as soon as the civ becomes eligible (so it can be Endeavoured). Tunnelling's three "final research" accelerators removed.
+- **Ship fields settled** (prices unchanged): SE09 → **Advanced Solar Power** (UNCOMMON; SE02 + RK07 + ES07; +1 Production per Solar Plant; world wonder Orbital Solar Array +25% Production); **RK17 Reconnaissance Satellites** (RK05 + RK07) → Spy Satellite (own unit type; *orbital* unique = engine work); Optics' orbital tracking belongs to Optics' pool (deferred); SE07's worker-speed effect vs Mechanics' theme: left to the Mechanics pass.
+- **Evidence fields** (Quantum or Quintessic Physics; Relativity & Cosmology) and ship fields (Rocketry, Space Engineering) are shared by every method; pools stay open during the race (3–5 turns' drag accepted).
+- **Non-FTL Space-era fields = reward content** (rarely reached, by strong economies; balance matters less; stronger effects; a non-science player takes at most one in depth). Agreed themes: Warfare — modern doctrine; Optics — see and strike (directed energy, +1 Sight, detectors that see invisible units, orbital tracking); Philosophy and the Arts — soft power; Social Organization — governance; Trade — global markets; Genetics — engineered biology (growth); Medicine — longevity; Seafaring — the blue economy; Water Management — water security; Mechanics — robotic labour. Light touch (one Space row each): Farming, Mining, Construction. No Space content: Fire, Foraging, Stonework, Observation, Animal Husbandry, Metallurgy, Textiles & Materials, Chemistry, Electricity, Electronics.
+
+## 9. Balance and pacing
+- **Standard** (Tamsin's): methods need not take equal time; no method's advantage beyond ordinary game-to-game randomness. Measure: chance a science player with that method beats a rival with the average science player's finishing spread (neutral 50%); in practice, judge absolute gaps (simulated games are far tighter than real ones).
+- **Benchmarks**: expert (knows prerequisites; smarter either-or choices; Endeavours 2×; beelines the theory), novice (follows screens), average player (novice on 0.8× economy). Compare on absolute game turns.
+- **Settled values**: round two (MS17 4×; ES18 without ES22; AE14 1×; NP15 without NP11; TH20 4×; MA19 1×; CP16 1×), CP10 2×, prototype 5×, Space price per discovery ×0.8 (1,399 → 1,119).
+- **Results** (final confirmation, 2,700 games; re-checked on v3.112): victory medians expert ≈294, novice ≈305, average ≈380 (target windows ≈295 good economy, ≈360–375 average; average's gap left to playtesting — lever: guidance, not price cuts). Methods within a few turns; patterns: atomic Tunnelling slowest (hence CP10 2×), Tachyonic slightly fast for less skilled players, Plenum slightly slow, atomic Warp fast for experts.
+
+## 10. Discovery model and Endeavours
+- Candidate model ("Pmom") is the basis of comparison; §1.2 still describes the threshold model (rewrite deferred).
+- **Grand Endeavours 2×** (insurance, not a shortcut). **Proximity revelation** (provisional): each turn an eligible idea fails to occur, 10% chance it is glimpsed (Revealed, can be Endeavoured). Observational revelation reaches only what can be seen.
+- Knowledge diffusion as modelled: 5 rivals, contact at Early Modern; post-Printing-Press CORE/STANDARD arrive 10 turns after half have them; 5 turns after the Internet (UNCOMMON too).
+
+## 11. Deferred and open
+- **Entry 25**: write the discovery model into §1.2/§1.5 (2× Endeavours, 10% glimpse, observation limit); RARE (4×) and UNIQUE Endeavour prices not revisited.
+- **Entry 24**: design the non-FTL Space-era fields (unblocked by v3.112). **Entry 21** (high priority): missed STANDARD ideas locking large branches.
+- **Engine work** (entry 23 + additions): buildings that settle a condition on completion; the FTL screen and instrument note; announcements; Determinist reveal; orbital unique; Advisory Council events; `Nuke.kt` passing city context; Shockproof Walls definition; costs/statistics "set at spec" for new buildings and units.
+- **Effects for the other instrument national wonders** (Tamsin's note): the Orbital Quantum Laboratory, Space Interferometer and Survey Telescope only answer their questions so far.
+- **Re-measure** Tachyonic (all three players) and the theory phase after the sector move (quick expert check: atomic 294, Substance 298, from 292 and 294).
+- **Instruments and the Hail Mary** (observation): confirming costs production, so under endgame pressure skipping instruments and committing early is rational — most for Hyperspace/Tachyonic (two instruments each), never Warp/Wormhole (none). Input to the AI task: its Hail Mary rule should weigh production pressure. Not measurable in the harness.
+- **Spec work**: hypothesis names, report wording, screen layout (parked research-interface task); W19 mechanism; AI commitment policy (parked AI task).
+- **Playtest dials**: prototype 5×, Space price ×0.8, Endeavours 2×, glimpse 10%, instruments 3–6 turns, Drive ≈4 turns; MS17 numbers; the average player's gap and two guidance ideas (Endeavour note for glimpsed ideas; showing build needs early).
+- **Flagged for Tamsin**: EL07 Power Grid made CORE during writing (fixing my error: it was STANDARD, which left 8/60 Substance Plenum games without a unified theory); the alternative is dropping QM-E08's EL07 requirement (atomic chain stays exposed via QP04).
+
+## 12. Pointers
+- Tree: `tech_tree_v112.md` (544 rows; §4 = the design). Built by `power_tools/v112_stage1–5.py`.
+- Simulation: full design `LEVERS=abcrwgpnyhukqvVm WROWX=4 SPACEPRICE=0.8`; runners `runcell.sh` (expert: `EXPFIX=1 ENDFROM=theory`), `runnov.sh`, `runavg.sh`; victory = max(certainty, build) + prototype (5/6) + Drive (4/5, −1 for Warp/Wormhole/Plenum) + 1. Workspace: `WORKSPACE.md`; restore: `power_tools/restore_workspace.sh`.
+- Deferred list: `deferred-tasks/uncharted-horizons.md`.

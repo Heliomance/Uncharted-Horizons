@@ -1,0 +1,24 @@
+{
+ "bmult": {
+  "Primitive": 0.72,
+  "Ancient": 0.72,
+  "Classical": 0.72,
+  "Medieval": 0.86,
+  "Early Modern": 0.64,
+  "Modern": 0.52,
+  "Atomic": 0.48,
+  "Space": 0.45
+ },
+ "umult": {
+  "Primitive": 1.0,
+  "Ancient": 1.05,
+  "Classical": 1.0,
+  "Medieval": 1.1,
+  "Early Modern": 1.1,
+  "Modern": 1.2,
+  "Atomic": 1.15,
+  "Space": 1.2
+ },
+ "R": 2.5179829907713325,
+ "method": "cumulative turn-aligned, target 1.10"
+}

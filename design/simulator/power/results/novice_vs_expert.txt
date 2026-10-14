@@ -1,0 +1,20 @@
+expert : median 42 (middle half 39–46), cannot win 0 of 900; method's share of variation 15%
+novice : median 44 (middle half 39–50), cannot win 34 of 900; method's share of variation 15%
+
+world     method      | expert median beats rival | novice median beats rival cannot win
+atomic    Wormhole    |            42        52%  |            39        75%*          0
+atomic    Hyperspace  |            46        33%* |            41        63%*          0
+atomic    Tachyonic   |            46        32%* |            43        51%           7
+atomic    Tunnelling  |            45        36%* |            43        56%           4
+atomic    Warp        |            42        50%  |            44        53%           6
+Substance Wormhole    |            42        49%  |            41        60%*          0
+Substance Hyperspace  |            44        46%  |            47        40%*          2
+Substance Tachyonic   |            38        72%* |            45        47%          12
+Substance Plenum      |            42        50%  |            48        38%*          0
+Substance Warp        |            44        45%  |            49        36%*          0
+Process   Wormhole    |            41        60%* |            42        61%*          0
+Process   Hyperspace  |            42        51%  |            42        54%           0
+Process   Tachyonic   |            39        71%* |            47        41%           3
+Process   Plenum      |            42        55%  |            48        38%*          0
+Process   Warp        |            42        48%  |            47        36%*          0
+(* outside 40–60%; each player's 'rival' is its own average science player)

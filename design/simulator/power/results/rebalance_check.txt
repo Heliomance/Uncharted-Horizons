@@ -1,0 +1,7 @@
+Victory turn before and after the rebalance (prototype 9/11 -> 5/6 turns; Space-era research 20% cheaper). Ship included.
+   expert   before median 302 (middle half 298-306, 90th 309), unwinnable 0; unified theory at 231, theory phase 47; method medians within a world span fam 295-304, Sub 297-306, Pro 296-305
+   expert   after  median 293 (middle half 289-297, 90th 300), unwinnable 1; unified theory at 226, theory phase 49; method medians within a world span fam 286-296, Sub 290-298, Pro 288-296   [target about 295]
+   novice   before median 311 (middle half 309-313, 90th 316), unwinnable 3; unified theory at 259, theory phase 25; method medians within a world span fam 307-313, Sub 308-312, Pro 309-313
+   novice   after  median 305 (middle half 302-308, 90th 310), unwinnable 2; unified theory at 254, theory phase 27; method medians within a world span fam 305-308, Sub 303-308, Pro 301-306   [target about 295-305]
+   average  before median 387 (middle half 384-391, 90th 400), unwinnable 2; unified theory at 325, theory phase 29; method medians within a world span fam 386-389, Sub 384-388, Pro 383-388
+   average  after  median 380 (middle half 375-384, 90th 387), unwinnable 3; unified theory at 318, theory phase 32; method medians within a world span fam 376-383, Sub 376-382, Pro 375-380   [target about 360-375]

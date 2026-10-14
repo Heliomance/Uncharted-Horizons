@@ -1,0 +1,20 @@
+Instruments: an answer arrives only once its instrument stands, built from the test's breakthrough while research carries on.
+Connected civilisation (5 rivals), smarter player, agreed levers, no Endeavours. Theory = unified theory to certainty.
+world       build theory med     IQR  <=15 cert later by (med) | victory med  p90 cannot win
+familiar      0 t       16.5  12–19    46%         0%        0 |          42   54          8
+              3 t       18.0  13–20    40%        51%        2 |          42   56          8
+              6 t       19.0  14–22    31%        54%        4 |          42   55          8
+              9 t       19.0  14–23    32%        52%        4 |          43   56          8
+Substance     0 t       19.5  16–23    21%         0%        0 |          41   48          4
+              3 t       20.5  17–25    16%        46%        2 |          41   49          5
+              6 t       22.0  18–26     9%        63%        4 |          42   50          5
+              9 t       23.0  20–27     5%        65%        6 |          43   49          5
+Process       0 t       20.0  16–23    18%         0%        0 |          42   54          3
+              3 t       21.0  17–24    15%        44%        3 |          42   54          3
+              6 t       22.0  18–26     9%        62%        3 |          43   55          3
+              9 t       23.0  19–26     3%        70%        4 |          44   56          3
+------------------------------------------------------------------------------------------------
+all three     0 t       18.0  15–22    28%         0%        0 |          41   53         15
+              3 t       20.0  16–23    24%        47%        2 |          42   54         16
+              6 t       21.0  17–24    16%        60%        4 |          42   54         16
+              9 t       22.0  18–26    13%        62%        5 |          43   56         16

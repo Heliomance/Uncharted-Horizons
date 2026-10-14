@@ -1,0 +1,25 @@
+  FAIL  templates/conditionals — bad uniques 10, bad conditionals 1 ['[+15]% Food is carried over after population increases', '<upon building>', 'New spies start with [1] level']
+  FAIL  filter values — 3 [('CP17', 'relativeAmount', '+X', '[+X]% [Production]'), ('CP17', 'nonNegativeAmount', 'N', '<for [N] turns>'), ('RK17', 'mapUnitFilter', 'Satellite', 'Can see invisible [Satellite] units')]
+  PASS  prerequisite references — rows 546, dangling 0 
+  PASS  duplicate IDs — 0 
+  PASS  CORE closure (mandatory prerequisites) — 0 
+  PASS  per-world token sources — gaps 0 
+  info  CORE rows whose OR-group has no CORE option (not checked before v3.73): 4
+  PASS  exclusion by replacement — blocking clauses left 0 
+  PASS  no placeholder `replaces` — 0 
+  PASS  no Remove clause removes its own building — 0 
+  info  building-filter atoms sharing a breakthrough's name (harmless if it unlocks only that building): [('Mass Driver', 'RK15', ('Mass Driver',)), ('Re-Tempering Reactor', 'QM-E05', ('Re-Tempering Reactor',)), ('Thorium Reactor', 'NP08', ('Thorium Reactor',)), ('Water Mill', 'WM05', ())]
+  PASS  every row has seven cells — 0 
+  PASS  no hard prerequisite sits in a later era than its dependent — 0 
+  PASS  every focus table's header is followed by its separator — 0 
+  tiers {'CORE': 142, 'STANDARD': 254, 'UNCOMMON': 57, 'RARE': 39, 'UNIQUE': 54}
+  PASS  required buildings exist, arrive in time, share their worlds, and are inherited — 48 requirements, 0 problems 
+  PASS  every required building is a safe predecessor — 75 links checked, 0 unsafe 
+  PASS  no row's only grant is a world wonder — 0 
+  FAIL  every fork building has an explicit cost; the cost-scaling table covers every era — 2 without cost ['Shockproof Walls', 'Storage Array'], eras missing 0
+  PASS  every breakthrough named in a tech conditional exists — 0 
+  PASS  every prerequisite ID is read by the shared parser (prereq.py) — 0 nested, 0 losing IDs 
+  PASS  no prerequisite relies on operator precedence — 0 
+  FAIL  every validated prerequisite sits on a row that declares its world — 1 ['MS08']
+  PASS  both records of every dual path agree, every named focus exists — 22 dual-path rows, 0 problems 
+  PASS  every breakthrough row is a well-formed table row, closing pipe included — 546 rows, 0 malformed 

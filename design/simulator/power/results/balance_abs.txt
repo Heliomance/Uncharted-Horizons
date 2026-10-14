@@ -1,0 +1,24 @@
+expert: victory at a median game turn of 296 (middle half 292–299), spread 4.6 turns, unwinnable 1 of 900
+   by world: atomic 296, Substance 296, Process 295; method's share of variation within worlds: atomic 17%, Substance 16%, Process 13%; methods and worlds together 17%
+novice: victory at a median game turn of 303 (middle half 299–306), spread 4.9 turns, unwinnable 3 of 900
+   by world: atomic 305, Substance 302, Process 301; method's share of variation within worlds: atomic 50%, Substance 31%, Process 55%; methods and worlds together 50%
+
+                       expert median beats rival   novice median beats rival
+atomic    Wormhole               292        69%*             298        79%*
+atomic    Hyperspace             294        59%              305        36%*
+atomic    Tachyonic              297        39%*             305        36%*
+atomic    Tunnelling             298        39%*             306        37%*
+atomic    Warp                   295        55%              309        16%*
+Substance Wormhole               294        62%*             299        72%*
+Substance Hyperspace             298        41%              304        47% 
+Substance Tachyonic              295        57%              300        65%*
+Substance Plenum                 298        36%*             304        39%*
+Substance Warp                   298        37%*             304        41% 
+Process   Wormhole               294        63%*             296        85%*
+Process   Hyperspace             296        49%              300        60%*
+Process   Tachyonic              294        61%*             298        75%*
+Process   Plenum                 296        46%              306        32%*
+Process   Warp                   297        37%*             307        28%*
+(* outside 40–60%)
+
+expert slower than novice in 0 of 15 cells

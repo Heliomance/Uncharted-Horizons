@@ -1,0 +1,16 @@
+Total victory turn, all agreed changes plus the ship. Windows: good economy about 295 (well before 320); average player about 360-375.
+
+expert   median 302  middle half 298-306  90th 309  unwinnable 0 of 300  | within 285-320: 99%, later than 320: 0%
+   atomic    median 300  | Warp 295, Hyperspace 296, Tachyonic 300, Wormhole 304, Tunnelling 304
+   Substance median 304  | Warp 297, Hyperspace 304, Tachyonic 304, Plenum 304, Wormhole 307
+   Process   median 303  | Warp 296, Hyperspace 302, Plenum 303, Tachyonic 304, Wormhole 305
+
+novice   median 311  middle half 309-313  90th 316  unwinnable 3 of 300  | within 285-320: 95%, later than 320: 5%
+   atomic    median 312  | Warp 312, Tachyonic 310, Wormhole 311, Hyperspace 313, Tunnelling 313
+   Substance median 310  | Tachyonic 308, Warp 309, Hyperspace 312, Plenum 314, Wormhole 313
+   Process   median 311  | Tachyonic 309, Hyperspace 312, Warp 310, Wormhole 312, Plenum 313
+
+average  median 387  middle half 384-391  90th 400  unwinnable 2 of 300  | within 355-380: 9%, later than 380: 91%
+   atomic    median 388  | Tachyonic 386, Wormhole 387, Hyperspace 387, Tunnelling 389, Warp 389
+   Substance median 386  | Tachyonic 384, Warp 385, Plenum 388, Hyperspace 388, Wormhole 389
+   Process   median 387  | Hyperspace 384, Tachyonic 385, Warp 386, Wormhole 387, Plenum 388

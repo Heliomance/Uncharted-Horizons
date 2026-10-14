@@ -1,0 +1,10 @@
+Every game counted ('can't win' = worst); and the cost on games that win either way (paired by seed).
+setting    Endeavours       median  p75  p90  p95  win either way  mean cost there  sooner  later
+connected  none                 41   46   53   69
+           1.5x                 40   43   47   50             285             -1.2     58%    35%
+           2x                   40   45   48   50             285             -0.2     46%    45%
+           2.5x                 42   45   49   51             285             +0.7     38%    53%
+isolated   none                 47    —    —    —
+           1.5x                 46   51   57   61             186             +3.1     23%    68%
+           2x                   48   53   59   65             184             +4.8     14%    79%
+           2.5x                 49   54   61   66             185             +6.1      9%    87%

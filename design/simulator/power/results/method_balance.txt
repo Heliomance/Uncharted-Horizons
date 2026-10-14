@@ -1,0 +1,41 @@
+Current design (Wormhole row included). Victory = turns from the start of the Space era.
+Share of variation explained by the method:
+   atomic   : 23%
+   Substance: 5%
+   Process  : 11%
+   all worlds (method within world): 13%   | overall mean 42.4, median 42, game-to-game SD 5.5 turns
+
+world     method       mean shift (SDs)    wins by the typical turn (42)
+atomic    Wormhole     39.1       -0.60                              70%
+Substance Tachyonic    39.8       -0.48                              78%
+Process   Wormhole     40.2       -0.39                              75%
+atomic    Hyperspace   40.8       -0.30                              70%
+Process   Tachyonic    41.0       -0.25                              53%
+Substance Plenum       41.8       -0.11                              62%
+Substance Hyperspace   42.1       -0.06                              55%
+atomic    Tunnelling   42.2       -0.03                              52%
+Substance Wormhole     42.5       +0.02                              45%
+Process   Plenum       42.9       +0.08                              48%
+Substance Warp         43.3       +0.16                              42%
+atomic    Tachyonic    44.5       +0.39                              35%
+Process   Warp         45.1       +0.49                              22%
+atomic    Warp         45.3       +0.52                              20%
+Process   Hyperspace   45.4       +0.54                              42%
+
+Chance of finishing before a rival whose finishing time varies like the average science player's (neutral = 50%),
+with the uncertainty of each cell's mean (20 games each):
+   atomic    Wormhole     66%   mean  39.1 ± 1.0
+   Substance Tachyonic    65%   mean  39.8 ± 0.8
+   Process   Wormhole     66%   mean  40.2 ± 1.3
+   atomic    Hyperspace   61%   mean  40.8 ± 1.0
+   Process   Tachyonic    56%   mean  41.0 ± 1.2
+   Substance Plenum       56%   mean  41.8 ± 1.5
+   Substance Hyperspace   50%   mean  42.1 ± 1.0
+   atomic    Tunnelling   50%   mean  42.2 ± 0.9
+   Substance Wormhole     50%   mean  42.5 ± 1.2
+   Process   Plenum       49%   mean  42.9 ± 1.5
+   Substance Warp         44%   mean  43.3 ± 1.2
+   atomic    Tachyonic    37%   mean  44.5 ± 1.0
+   Process   Warp         33%   mean  45.1 ± 1.0
+   atomic    Warp         29%   mean  45.3 ± 0.7
+   Process   Hyperspace   39%   mean  45.4 ± 1.5

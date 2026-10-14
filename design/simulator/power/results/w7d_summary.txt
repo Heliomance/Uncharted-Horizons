@@ -1,0 +1,37 @@
+Turns: THEORY = unified theory → certainty; ENGINEERING = certainty → build complete (0 if already built); prototype ≈ 9 more turns.
+
+== familiar
+   method      | certain  theory med (IQR)   ≤15  eng. med (IQR) | certain  theory med (IQR)   ≤15  eng. med (IQR)
+               |                 ——— baseline ———                 |               ——— levers a+b+c ———              
+   Warp        |  19/20      18 (  11–23)   37%    17 (  13–24) |  20/20      16 (  12–20)   45%    17 (  15–21)
+   Wormhole    |  17/20      23 (  20–28)   18%     0 (    0–0) |  20/20      19 (  17–24)   20%     0 (    0–1)
+   Hyperspace  |  18/20      21 (  18–25)   17%    21 (  15–22) |  20/20      16 (  12–21)   50%    21 (  16–24)
+   Tunnelling  |  20/20      18 (  12–32)   45%     3 (   0–15) |  20/20      16 (  12–24)   50%    10 (   9–18)
+   Tachyonic   |  16/20      20 (  17–26)   12%    17 (  16–22) |  17/20      21 (  17–26)   18%    18 (  14–20)
+   ALL         |  90/100     20 (  15–26)   27%    15 (   0–21) |  97/100     18 (  13–22)   37%    14 (   1–18)
+   victory-ready, turns after the Space era opens (baseline): median 54 (48–61)
+   victory-ready, turns after the Space era opens (levers): median 50 (41–56)
+
+== Substance
+   method      | certain  theory med (IQR)   ≤15  eng. med (IQR) | certain  theory med (IQR)   ≤15  eng. med (IQR)
+               |                 ——— baseline ———                 |               ——— levers a+b+c ———              
+   Warp        |  16/20      24 (  11–43)   31%    11 (  10–16) |  20/20      23 (  14–30)   30%    11 (   8–15)
+   Wormhole    |  15/20      30 (  20–40)   13%     0 (    0–0) |  20/20      28 (  22–32)   15%     0 (    0–0)
+   Hyperspace  |  16/20      36 (  22–39)   12%     6 (    5–7) |  18/20      36 (  26–42)    6%     6 (    6–8)
+   Tachyonic   |  18/20      35 (  22–43)   11%     8 (   5–14) |  19/20      27 (  17–40)   16%     7 (   5–12)
+   Plenum      |  17/20      28 (  20–36)   18%     6 (   0–15) |  19/20      27 (  19–34)   16%    17 (   6–20)
+   ALL         |  82/100     30 (  20–39)   17%     6 (   0–11) |  96/100     28 (  17–36)   17%     6 (   3–13)
+   victory-ready, turns after the Space era opens (baseline): median 57 (50–62)
+   victory-ready, turns after the Space era opens (levers): median 52 (45–58)
+
+== Process
+   method      | certain  theory med (IQR)   ≤15  eng. med (IQR) | certain  theory med (IQR)   ≤15  eng. med (IQR)
+               |                 ——— baseline ———                 |               ——— levers a+b+c ———              
+   Warp        |  16/20      24 (  13–38)   31%     9 (    —  ) |  20/20      20 (  11–30)   35%    12 (   9–15)
+   Wormhole    |  18/20      32 (  21–38)   17%     0 (    0–1) |  20/20      28 (  20–33)   15%     0 (    0–1)
+   Hyperspace  |  16/20      22 (  10–32)   38%     7 (    5–8) |  19/20      28 (  14–39)   26%     7 (    6–9)
+   Tachyonic   |  17/20      18 (   8–24)   41%     7 (   4–10) |  19/20      19 (  15–27)   32%     8 (   5–21)
+   Plenum      |  18/20      24 (  16–50)   22%     7 (   0–19) |  19/20      29 (  15–39)   26%     6 (   3–16)
+   ALL         |  85/100     22 (  14–37)   29%     5 (    0–9) |  97/100     24 (  15–32)   27%     6 (    0–9)
+   victory-ready, turns after the Space era opens (baseline): median 56 (47–67)
+   victory-ready, turns after the Space era opens (levers): median 53 (46–59)

@@ -1,0 +1,16 @@
+The theory phase on the round-two balance: 300 games per player (20 per method and world). Turns counted from the unified theory.
+                                                            expert      expert+boost            novice      novice+boost           average     average+boost
+Unified theory, game turn                            226 (219–233)     226 (219–234)     254 (244–264)     258 (245–265)     318 (306–330)     320 (307–331)
+Theory phase: unified theory to certainty               49 (42–57)        48 (42–56)        27 (19–37)        25 (19–36)        32 (22–44)        30 (22–42)
+Unified theory to victory                               61 (55–70)        61 (55–69)        46 (37–57)        44 (37–56)        56 (45–68)        55 (45–66)
+Theory as a share of that stretch                              81%               79%               61%               59%               59%               57%
+First answer arrives                                    19 (14–24)        21 (16–26)          8 (3–11)          8 (4–12)          9 (4–12)          9 (5–13)
+First method ruled out                                  23 (19–33)        24 (19–35)          9 (4–21)          8 (2–20)         10 (5–22)         10 (2–23)
+Two methods left                                        43 (34–50)        44 (35–51)        23 (15–32)        21 (14–30)        26 (17–37)        24 (16–36)
+Two left until certainty                                  5 (0–12)           3 (0–9)           2 (0–8)           4 (0–8)          3 (0–10)          3 (0–10)
+Answers during the theory phase                            7 (6–8)           7 (6–8)           7 (6–9)           7 (6–8)           7 (6–8)           7 (5–8)
+Victory with the ship, game turn                     294 (289–297)     294 (290–297)     305 (302–308)     305 (302–308)     380 (375–383)     380 (377–383)
+Longest silence between answers                         20 (16–24)        22 (17–27)         10 (7–15)         10 (7–14)         12 (9–17)         12 (9–17)
+Theory within 15 turns (share of games)                         0%                0%               12%               15%                7%                8%
+Theory within a third of the stretch (share)                    0%                0%                6%                7%                7%                8%
+Theory phase by world (median turns): expert: fam 52, Sub 46, Pro 48; expert+boost: fam 53, Sub 45, Pro 47; novice: fam 18, Sub 34, Pro 34; novice+boost: fam 18, Sub 32, Pro 31; average: fam 21, Sub 38, Pro 39; average+boost: fam 21, Sub 40, Pro 37

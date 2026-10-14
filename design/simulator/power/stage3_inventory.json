@@ -1,0 +1,3772 @@
+[
+ {
+  "rid": "F02",
+  "row": "Kiln Construction",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Kiln",
+  "stats": {},
+  "uq": [
+   "[10]% Food is carried over after population increases [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "40",
+   "1"
+  ]
+ },
+ {
+  "rid": "F06",
+  "row": "Greek Fire",
+  "tier": "UNCOMMON",
+  "era": "Classical",
+  "b": "Fire Ship",
+  "stats": {},
+  "uq": [
+   "[+50]% Strength <when attacking>",
+   "[+50]% Strength <vs [Water] units>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "F07",
+  "row": "Advanced Pyrotechnics",
+  "tier": "CORE",
+  "era": "Medieval",
+  "b": "Fireworks Ground",
+  "stats": {
+   "Culture": 1,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "G01",
+  "row": "Plant Identification",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Forager's Hut",
+  "stats": {
+   "Food": 1,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "40",
+   "0"
+  ]
+ },
+ {
+  "rid": "G03",
+  "row": "Herbal Medicine",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Herbalist",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [
+   "[Military] Units adjacent to this city heal [+10] HP per turn when healing"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "40",
+   "1"
+  ]
+ },
+ {
+  "rid": "G04",
+  "row": "Fermentation",
+  "tier": "STANDARD",
+  "era": "Primitive",
+  "b": "Tavern",
+  "stats": {
+   "Culture": 1,
+   "Happiness": 1
+  },
+  "uq": [
+   "[10]% Food is carried over after population increases [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "G05",
+  "row": "Insect Cultivation",
+  "tier": "UNCOMMON",
+  "era": "Primitive",
+  "b": "Insect Farm",
+  "stats": {
+   "Food": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "G06",
+  "row": "Mycological Knowledge",
+  "tier": "UNCOMMON",
+  "era": "Ancient",
+  "b": "Compost Yard",
+  "stats": {
+   "Food": 1
+  },
+  "uq": [
+   "[+1 Food] from [Forest] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "G10",
+  "row": "Psychoactive Plant Knowledge",
+  "tier": "UNCOMMON",
+  "era": "Primitive",
+  "b": "Vision Lodge",
+  "stats": {
+   "Culture": 1,
+   "Faith": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "S02",
+  "row": "Grinding & Polishing",
+  "tier": "STANDARD",
+  "era": "Primitive",
+  "b": "Stonecutter",
+  "stats": {
+   "Culture": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "40",
+   "0"
+  ]
+ },
+ {
+  "rid": "S05",
+  "row": "Obsidian Working",
+  "tier": "UNCOMMON",
+  "era": "Primitive",
+  "b": "Obsidian Warrior",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "S08",
+  "row": "Jade/Gemstone Working",
+  "tier": "UNCOMMON",
+  "era": "Ancient",
+  "b": "Jeweler",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [
+   "[+1 Gold] from [Gems] tiles [in this city]",
+   "[+1 Gold] from [Silver] tiles [in this city]",
+   "Provides [1] [Jewelry]"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "75",
+   "1"
+  ]
+ },
+ {
+  "rid": "S09",
+  "row": "Geopolymer Concrete",
+  "tier": "RARE",
+  "era": "Ancient",
+  "b": "Geopolymer Works",
+  "stats": {},
+  "uq": [
+   "[-25]% maintenance cost for [All] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "75",
+   "1"
+  ]
+ },
+ {
+  "rid": "O01",
+  "row": "Star Tracking",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Calendar Stone",
+  "stats": {
+   "Food": 1,
+   "Culture": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "40",
+   "0"
+  ]
+ },
+ {
+  "rid": "O04",
+  "row": "Tidal Patterns",
+  "tier": "STANDARD",
+  "era": "Primitive",
+  "b": "Tidal Weir",
+  "stats": {
+   "Food": 1
+  },
+  "uq": [
+   "[+1 Food] from [Fish] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "O07",
+  "row": "Comparative Anatomy",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Anatomy Theatre",
+  "stats": {},
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "O12",
+  "row": "Atmospheric Science",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Weather Bureau",
+  "stats": {},
+  "uq": [
+   "[+1 Food] from [Farm] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "O13",
+  "row": "Mechanical Ephemeris",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Ephemeris House",
+  "stats": {},
+  "uq": [
+   "[+1 Gold] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "O14",
+  "row": "Tide Computing Engine",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Tide Computer",
+  "stats": {},
+  "uq": [
+   "[+1 Production, +1 Gold] from [Water resource] tiles [in this city]",
+   "[+100]% Production when constructing [Seaport] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "160",
+   "1"
+  ]
+ },
+ {
+  "rid": "O15",
+  "row": "Mechanical Weather Predictor",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Weather Station",
+  "stats": {},
+  "uq": [
+   "[+10]% growth [in this city]",
+   "[+1 Food] from [Farm] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "SO10",
+  "row": "Guilds",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Guild Hall",
+  "stats": {},
+  "uq": [
+   "[+1 Production] from every specialist [in this city]"
+  ],
+  "sp": [
+   [
+    "Merchant",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "SO13",
+  "row": "Meritocratic Civil Service",
+  "tier": "UNCOMMON",
+  "era": "Classical",
+  "b": "Examination Hall",
+  "stats": {},
+  "uq": [
+   "[+1 Production] from every specialist [in this city]",
+   "[-15]% maintenance cost for [All] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "FA08",
+  "row": "Mechanical Seed Drill",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Seed Drill Works",
+  "stats": {},
+  "uq": [
+   "[+1 Food] from [Farm] tiles [in this city]"
+  ],
+  "sp": [
+   [
+    "Engineer",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "FA09",
+  "row": "Greenhouse Cultivation",
+  "tier": "UNCOMMON",
+  "era": "Early Modern",
+  "b": "Greenhouse",
+  "stats": {
+   "Food": 2
+  },
+  "uq": [
+   "[+1 Food] from [Tundra] tiles [in this city]",
+   "[+1 Food] from [Snow] tiles [in this city]",
+   "[+1 Food] from [Desert] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "FA10",
+  "row": "Hydroponics",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Hydroponics Lab",
+  "stats": {
+   "Food": 4
+  },
+  "uq": [
+   "[-10]% Food consumption by [Population] [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "FA11",
+  "row": "Vertical Farming",
+  "tier": "UNCOMMON",
+  "era": "Space",
+  "b": "Vertical Farm",
+  "stats": {},
+  "uq": [
+   "[+1 Food] per [2] population [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "AH04",
+  "row": "Selective Breeding (Animals)",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "War Dog",
+  "stats": {},
+  "uq": [
+   "Can move after attacking"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "AH06",
+  "row": "Elephant Domestication",
+  "tier": "UNCOMMON",
+  "era": "Ancient",
+  "b": "Elephant Cavalry",
+  "stats": {},
+  "uq": [
+   "[+25]% Strength <vs [Mounted] units>",
+   "No defensive terrain bonus"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "AH08",
+  "row": "Carrier Pigeon Networks",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Pigeon Loft",
+  "stats": {},
+  "uq": [
+   "[+1 Gold] from each Trade Route",
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "AH09",
+  "row": "Apiculture (Beekeeping)",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Apiary",
+  "stats": {
+   "Food": 1,
+   "Gold": 1
+  },
+  "uq": [
+   "[+1 Food] from [Farm] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "AH11",
+  "row": "Veterinary Medicine",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Veterinary College",
+  "stats": {},
+  "uq": [
+   "[Mounted] Units adjacent to this city heal [+10] HP per turn when healing",
+   "[+1 Food] from [Cattle] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "MI06B",
+  "row": "Volcanic Ash Processing",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Pozzolana Works",
+  "stats": {},
+  "uq": [
+   "[-25]% maintenance cost for [All] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "75",
+   "1"
+  ]
+ },
+ {
+  "rid": "MI10",
+  "row": "Uranium Discovery",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Radiotherapy Ward",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MI12",
+  "row": "Asteroid Prospecting",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Asteroid Mining Station",
+  "stats": {},
+  "uq": [
+   "Provides [2] [Iron]",
+   "Provides [2] [Aluminum]",
+   "Limited to [3] per Civilization"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "MI13",
+  "row": "Wood Gas Production",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Gasworks",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "ME01",
+  "row": "Copper Working",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Copper Warrior",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "ME08-W",
+  "row": "Charcoal Blast Furnace",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Charcoal Kiln",
+  "stats": {},
+  "uq": [
+   "Provides [1] [Coal] <in cities without a [Distillery]> <when number of [Worked [non-[{non-[Forest]} {non-[Jungle]} {non-[Peat Cutting]}]] Tiles in this city] is more than [2]>",
+   "Provides [1] [Coal] <in cities with a [Distillery]> <when number of [[Worked [non-[{non-[Forest]} {non-[Jungle]} {non-[Peat Cutting]}]] Tiles in this city] - min([Worked [Peat Cutting] Tiles in this city], 1)] is more than [2]>",
+   "[-10]% [Production] [in this city] <in cities without a [Distillery]> <when number of [Worked [non-[{non-[Forest]} {non-[Jungle]} {non-[Peat Cutting]}]] Tiles in this city] is more than [2]>",
+   "[-10]% [Production] [in this city] <in cities with a [Distillery]> <when number of [[Worked [non-[{non-[Forest]} {non-[Jungle]} {non-[Peat Cutting]}]] Tiles in this city] - min([Worked [Peat Cutting] Tiles in this city], 1)] is more than [2]>"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "150",
+   "1"
+  ]
+ },
+ {
+  "rid": "ME10",
+  "row": "Cast Iron",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Cast Iron Works",
+  "stats": {
+   "Food": 1,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "ME11",
+  "row": "Tinplate/Canning",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Cannery",
+  "stats": {
+   "Food": 1
+  },
+  "uq": [
+   "[15]% Food is carried over after population increases [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "CO04",
+  "row": "Roman Concrete",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Concrete Works",
+  "stats": {},
+  "uq": [
+   "[-10]% maintenance cost for [All] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "CO05",
+  "row": "Corbel Arch/Vault",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Corbel Vault",
+  "stats": {},
+  "uq": [
+   "[10]% Food is carried over after population increases [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "CO07",
+  "row": "Earthquake-Resistant Design",
+  "tier": "UNCOMMON",
+  "era": "Classical",
+  "b": "Timber-Frame Hall",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [
+   "[-25]% maintenance cost for [All] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "CO11",
+  "row": "Reinforced Concrete",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Bunker",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "500",
+   "1"
+  ]
+ },
+ {
+  "rid": "CO13",
+  "row": "Geodesic Structures",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Biome Dome",
+  "stats": {
+   "Food": 2,
+   "Happiness": 1
+  },
+  "uq": [
+   "[+1 Food] from [Snow] tiles [in this city]",
+   "[+1 Food] from [Desert] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "CO15",
+  "row": "Orbital Construction",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Orbital Platform",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+10]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "CO23",
+  "row": "Railway Network",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Railway Station",
+  "stats": {},
+  "uq": [
+   "[+2 Gold, +1 Production] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "SF10",
+  "row": "Drydock",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Drydock",
+  "stats": {},
+  "uq": [
+   "[+25]% Production when constructing [Water] units [in this city]",
+   "[Water] Units adjacent to this city heal [+10] HP per turn when healing"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "SF15",
+  "row": "Ekranoplan",
+  "tier": "RARE",
+  "era": "Atomic",
+  "b": "Ekranoplan",
+  "stats": {},
+  "uq": [
+   "Can carry [2] [Land] units",
+   "Double movement in [Coast]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "WA02",
+  "row": "Phalanx Tactics",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Phalanx",
+  "stats": {},
+  "uq": [
+   "[+50]% Strength <vs [Mounted] units>",
+   "[+25]% Strength <when defending>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "WA12",
+  "row": "Greek Fire Naval Warfare",
+  "tier": "UNCOMMON",
+  "era": "Classical",
+  "b": "Siphon Galley",
+  "stats": {},
+  "uq": [
+   "[+50]% Strength <vs [Water] units>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "WA17",
+  "row": "Repeating Crossbow (Chu-Ko-Nu)",
+  "tier": "RARE",
+  "era": "Medieval",
+  "b": "Repeating Crossbowman",
+  "stats": {},
+  "uq": [
+   "[1] additional attacks per turn"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "WA18",
+  "row": "Pneumatic Weaponry",
+  "tier": "RARE",
+  "era": "Early Modern",
+  "b": "Air Rifleman",
+  "stats": {},
+  "uq": [
+   "[+1] Sight"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "WA19",
+  "row": "Railgun Concept",
+  "tier": "RARE",
+  "era": "Modern",
+  "b": "Railgun Battery",
+  "stats": {},
+  "uq": [
+   "[+200]% Strength <vs cities> <when attacking>"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "WA20",
+  "row": "Drone Warfare",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Drone",
+  "stats": {},
+  "uq": [
+   "[+2] Sight"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "MA02",
+  "row": "Zero and Place Value",
+  "tier": "CORE",
+  "era": "Ancient",
+  "b": "Counting House",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [],
+  "sp": [
+   [
+    "Merchant",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "MA06",
+  "row": "Probability Theory",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Actuary's Office",
+  "stats": {
+   "Gold": 3
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "1"
+  ]
+ },
+ {
+  "rid": "MA07",
+  "row": "Binary Mathematics",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Cipher Office",
+  "stats": {},
+  "uq": [
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "1"
+  ]
+ },
+ {
+  "rid": "CU04",
+  "row": "Musical Instruments",
+  "tier": "STANDARD",
+  "era": "Primitive",
+  "b": "Music Hall",
+  "stats": {
+   "Culture": 1,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "40",
+   "0"
+  ]
+ },
+ {
+  "rid": "CU03",
+  "row": "Artistic Tradition",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Gallery",
+  "stats": {
+   "Culture": 1
+  },
+  "uq": [],
+  "sp": [
+   [
+    "Artist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "75",
+   "1"
+  ]
+ },
+ {
+  "rid": "PH01",
+  "row": "Formal Logic",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Logic School",
+  "stats": {},
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "PH07",
+  "row": "Empiricism",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Experimental Laboratory",
+  "stats": {
+   "Science": 2
+  },
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD01",
+  "row": "Surgical Techniques",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Surgery",
+  "stats": {},
+  "uq": [
+   "[Military] Units adjacent to this city heal [+20] HP per turn when healing"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "MD02",
+  "row": "Quarantine Protocols",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Quarantine Station",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [
+   "[+10]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "MD03",
+  "row": "Anatomy Study",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Medical School",
+  "stats": {},
+  "uq": [
+   "[Military] Units adjacent to this city heal [+10] HP per turn when healing"
+  ],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "MD07",
+  "row": "Anesthesia",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Surgical Theatre",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [
+   "[Military] Units adjacent to this city heal [+15] HP per turn when healing"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD13",
+  "row": "Cryogenic Preservation",
+  "tier": "UNCOMMON",
+  "era": "Space",
+  "b": "Cryo Chamber",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [
+   "[+25]% Great Person generation [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "MD16",
+  "row": "Miasma Engineering",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Sanitation Works",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [
+   "[+10]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD17",
+  "row": "Humoral Medicine",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Balancing Clinic",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [
+   "[Military] Units adjacent to this city heal [+15] HP per turn when healing"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD18",
+  "row": "Humoral Pharmacology",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Pharmacopoeia",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [
+   "[+10]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD19",
+  "row": "Temperament Engineering",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Choleric Hall",
+  "stats": {},
+  "uq": [
+   "[+15]% Production when constructing [Military] units [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD19",
+  "row": "Temperament Engineering",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Sanguine Hall",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [
+   "[+10]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD19",
+  "row": "Temperament Engineering",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Melancholic Hall",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD19",
+  "row": "Temperament Engineering",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Phlegmatic Hall",
+  "stats": {},
+  "uq": [
+   "[-25]% Unhappiness from [Population] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "MD20",
+  "row": "Phage Therapy",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Phage Institute",
+  "stats": {},
+  "uq": [
+   "[+15]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "MD-V01",
+  "row": "Vital Essence Medicine",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Essence Clinic",
+  "stats": {
+   "Happiness": 3
+  },
+  "uq": [
+   "[Military] Units adjacent to this city heal [+20] HP per turn when healing",
+   "[+25]% Great Person generation [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "TR03",
+  "row": "Caravansary",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Caravansary",
+  "stats": {
+   "Gold": 1
+  },
+  "uq": [
+   "[+1 Gold] from each Trade Route",
+   "[+1 Gold] from [Desert] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "TR04",
+  "row": "Maritime Trade",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Port",
+  "stats": {
+   "Gold": 1
+  },
+  "uq": [
+   "[+1 Gold] from [Water resource] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "75",
+   "1"
+  ]
+ },
+ {
+  "rid": "TR06",
+  "row": "Joint Stock Company",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Trading Company",
+  "stats": {
+   "Gold": 3
+  },
+  "uq": [
+   "[+2 Gold] from each Trade Route"
+  ],
+  "sp": [
+   [
+    "Merchant",
+    "2"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "TR10",
+  "row": "Futures Market",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Commodity Exchange",
+  "stats": {
+   "Gold": 4
+  },
+  "uq": [
+   "[+1 Gold] from [Strategic resource] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "TR13",
+  "row": "Postal System",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Post Office",
+  "stats": {
+   "Gold": 1
+  },
+  "uq": [
+   "[+1 Gold] from each Trade Route",
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "TR16",
+  "row": "Phase Exchange",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Phase Exchange",
+  "stats": {
+   "Gold": 3
+  },
+  "uq": [
+   "[+2 Gold] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "TX01",
+  "row": "Weaving",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Weaver",
+  "stats": {
+   "Gold": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "40",
+   "0"
+  ]
+ },
+ {
+  "rid": "TX02",
+  "row": "Dyeing",
+  "tier": "STANDARD",
+  "era": "Ancient",
+  "b": "Dye Works",
+  "stats": {
+   "Gold": 2,
+   "Culture": 1
+  },
+  "uq": [
+   "[+1 Gold] from [Dyes] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "TX05",
+  "row": "Cotton Gin",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Textile Mill",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [
+   "[+1 Gold] from [Cotton] tiles [in this city]"
+  ],
+  "sp": [
+   [
+    "Engineer",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "TX07",
+  "row": "Synthetic Fibers",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Garment Factory",
+  "stats": {
+   "Gold": 2,
+   "Happiness": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "TX10",
+  "row": "Paper Making",
+  "tier": "CORE",
+  "era": "Ancient",
+  "b": "Paper Mill",
+  "stats": {
+   "Culture": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "75",
+   "1"
+  ]
+ },
+ {
+  "rid": "WM07",
+  "row": "Desalination",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Desalination Plant",
+  "stats": {
+   "Food": 3
+  },
+  "uq": [
+   "[+1 Food] from [Desert] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "WM11",
+  "row": "Industrial Canal Network",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Pound Lock",
+  "stats": {},
+  "uq": [
+   "[+2 Gold, +2 Production] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "WM12",
+  "row": "Tidal Mill",
+  "tier": "UNCOMMON",
+  "era": "Medieval",
+  "b": "Tidal Mill",
+  "stats": {},
+  "uq": [
+   "[+2 Food, +1 Production] [in this city] <in cities without a [Water Mill]>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "120",
+   "2"
+  ]
+ },
+ {
+  "rid": "MC05",
+  "row": "Clockwork",
+  "tier": "CORE",
+  "era": "Medieval",
+  "b": "Clock Tower",
+  "stats": {
+   "Culture": 2
+  },
+  "uq": [],
+  "sp": [
+   [
+    "Engineer",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "160",
+   "1"
+  ]
+ },
+ {
+  "rid": "MC06",
+  "row": "Printing Press",
+  "tier": "CORE",
+  "era": "Medieval",
+  "b": "Printing House",
+  "stats": {
+   "Culture": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "MC07",
+  "row": "Hero's Aeolipile (Early Steam)",
+  "tier": "RARE",
+  "era": "Classical",
+  "b": "Steam Temple",
+  "stats": {
+   "Production": 1,
+   "Culture": 1,
+   "Faith": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "MC08",
+  "row": "Steam Engine",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Steam Works",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+100]% Production when constructing [Factory] buildings [in this city]"
+  ],
+  "sp": [
+   [
+    "Engineer",
+    "1"
+   ]
+  ],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "MC09-W",
+  "row": "Alcohol Combustion Engine",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Distillery Fuel Depot",
+  "stats": {},
+  "uq": [
+   "Provides [1] [Oil] <when number of [Worked [Farm] Tiles in this city] is more than [2]>",
+   "[-20]% growth [in this city] <when number of [Worked [Farm] Tiles in this city] is more than [2]>"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "MC15",
+  "row": "Mainspring Energy Storage",
+  "tier": "RARE",
+  "era": "Medieval",
+  "b": "Clockwork Toy Works",
+  "stats": {
+   "Gold": 2,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "160",
+   "1"
+  ]
+ },
+ {
+  "rid": "MC16",
+  "row": "Clockwork Automaton",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Automaton",
+  "stats": {},
+  "uq": [
+   "Can build [Land] improvements on tiles",
+   "[-100]% maintenance costs"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "MC16",
+  "row": "Clockwork Automaton",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Automated Workshop",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+1 Production] from every specialist [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "160",
+   "1"
+  ]
+ },
+ {
+  "rid": "TH08",
+  "row": "Stirling Engine Mastery",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Stirling Works",
+  "stats": {
+   "Production": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "300",
+   "1"
+  ]
+ },
+ {
+  "rid": "TH11",
+  "row": "Caloric Storage",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Caloric Reservoir",
+  "stats": {},
+  "uq": [
+   "Provides [4] [Caloric]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP",
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "TH11",
+  "row": "Caloric Storage",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Solar Reservoir",
+  "stats": {},
+  "uq": [
+   "Provides [6] [Caloric]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP",
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "TH11",
+  "row": "Caloric Storage",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Heat Exchange",
+  "stats": {
+   "Production": 2,
+   "Happiness": 2
+  },
+  "uq": [
+   "Costs [40] [Caloric]",
+   "[+2 Food, +1 Happiness] in cities on [Snow] tiles",
+   "[+1 Food, +1 Happiness] in cities on [Tundra] tiles"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP",
+   "X"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "TH12",
+  "row": "Caloric Projection",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Caloric Lance",
+  "stats": {},
+  "uq": [
+   "Costs [40] [Caloric]",
+   "[+50]% Strength <vs cities>"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "TH12",
+  "row": "Caloric Projection",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Thermal Ward",
+  "stats": {},
+  "uq": [
+   "Costs [30] [Caloric]"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "TH13",
+  "row": "The Weight of the Air",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Condensing Pump",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [
+   "[+10]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "TH14",
+  "row": "Atmospheric Engine",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Engine House",
+  "stats": {},
+  "uq": [
+   "Consumes [1] [Coal]",
+   "[+1 Production] from [Mine] tiles [in this city]",
+   "[+2 Food, +1 Production] [in this city] <in cities without a [Water Mill]>",
+   "Unavailable <after discovering [Steam Engine]>",
+   "[+100]% Production when constructing [Steam Works] buildings [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "160",
+   "2"
+  ]
+ },
+ {
+  "rid": "CH01",
+  "row": "Alchemy",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Laboratory",
+  "stats": {
+   "Gold": 1
+  },
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "CH04",
+  "row": "Distillation",
+  "tier": "CORE",
+  "era": "Medieval",
+  "b": "Distillery",
+  "stats": {
+   "Gold": 2,
+   "Happiness": 1
+  },
+  "uq": [
+   "Provides [1] [Whisky] <when number of [Worked [Peat Cutting] Tiles in this city] is more than [0]>"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "CH07",
+  "row": "Organic Chemistry",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Pharmaceutical Works",
+  "stats": {
+   "Gold": 2,
+   "Happiness": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "CH09",
+  "row": "Petrochemistry",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Refinery",
+  "stats": {
+   "Production": 2,
+   "Gold": 3
+  },
+  "uq": [
+   "[+1 Production] from [Oil] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "CH09-W",
+  "row": "Bio-Organic Synthesis",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Bio-Refinery",
+  "stats": {
+   "Production": 1,
+   "Gold": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "3"
+  ]
+ },
+ {
+  "rid": "CH13",
+  "row": "Rocket Propellant",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Propellant Works",
+  "stats": {},
+  "uq": [
+   "[+15]% Production when constructing [Siege] units [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "CH14",
+  "row": "Photochemistry",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Photography Studio",
+  "stats": {
+   "Culture": 2
+  },
+  "uq": [
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "300",
+   "1"
+  ]
+ },
+ {
+  "rid": "CH15",
+  "row": "Greek Alchemical Tradition",
+  "tier": "RARE",
+  "era": "Classical",
+  "b": "Alchemist's Guild",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "100",
+   "1"
+  ]
+ },
+ {
+  "rid": "CH20",
+  "row": "Transmutation Practice",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Noble Crucible",
+  "stats": {},
+  "uq": [
+   "Costs [400] [Prima Materia]"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP",
+   "X"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "CH23",
+  "row": "Generative Cycle Engine",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Cycle Forge",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [],
+  "sp": [
+   [
+    "Sage",
+    "1"
+   ]
+  ],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "CH24",
+  "row": "Phase-Destruction Warfare",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Phase Disruptor",
+  "stats": {},
+  "uq": [
+   "[+25]% Strength <vs cities>",
+   "[+25]% Strength <when attacking>"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "CH24",
+  "row": "Phase-Destruction Warfare",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Elemental Ward",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "200",
+   "1"
+  ]
+ },
+ {
+  "rid": "CH26",
+  "row": "Closed-Loop Calorimetry",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Calorimetry Hall",
+  "stats": {},
+  "uq": [
+   "[+1 Production] from all [Cycle Forge] buildings"
+  ],
+  "sp": [
+   [
+    "Sage",
+    "1"
+   ]
+  ],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "200",
+   "2"
+  ]
+ },
+ {
+  "rid": "CH27",
+  "row": "Formless Reserve",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Reserve Vats",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [
+   "[50]% of [Production] from every [Mine] in the city added to [Prima Materia]"
+  ],
+  "sp": [
+   [
+    "Merchant",
+    "1"
+   ]
+  ],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "300",
+   "2"
+  ]
+ },
+ {
+  "rid": "OP01",
+  "row": "Glassmaking",
+  "tier": "CORE",
+  "era": "Ancient",
+  "b": "Glassworks",
+  "stats": {
+   "Gold": 1,
+   "Culture": 1
+  },
+  "uq": [
+   "[10]% Food is carried over after population increases [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "60",
+   "1"
+  ]
+ },
+ {
+  "rid": "OP06",
+  "row": "Fiber Optics",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Telecom Exchange",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "OP09",
+  "row": "Ibn al-Haytham's Optics",
+  "tier": "RARE",
+  "era": "Medieval",
+  "b": "Optics Academy",
+  "stats": {},
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "120",
+   "1"
+  ]
+ },
+ {
+  "rid": "EL01",
+  "row": "Static Electricity",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Leyden Hall",
+  "stats": {
+   "Culture": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "200",
+   "1"
+  ]
+ },
+ {
+  "rid": "EL03",
+  "row": "Electromagnetism",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Electromagnetics Institute",
+  "stats": {},
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "EL04",
+  "row": "Telegraph",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Telegraph Office",
+  "stats": {
+   "Gold": 1
+  },
+  "uq": [
+   "[+1 Gold] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "300",
+   "1"
+  ]
+ },
+ {
+  "rid": "EL05",
+  "row": "Electric Motor",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Tramway",
+  "stats": {
+   "Happiness": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "EL09",
+  "row": "Wireless Transmission",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Radio Transmitter",
+  "stats": {
+   "Culture": 1
+  },
+  "uq": [
+   "New [Military] units start with [15] XP [in this city]",
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "EL13",
+  "row": "Telephone",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Telephone Exchange",
+  "stats": {
+   "Gold": 2,
+   "Happiness": 1
+  },
+  "uq": [
+   "[+1 Gold] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "EL14",
+  "row": "Direct-Current Stations",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Generating Station",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "150",
+   "1"
+  ]
+ },
+ {
+  "rid": "EN03",
+  "row": "Integrated Circuit",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Microchip Foundry",
+  "stats": {
+   "Gold": 3
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "EN04",
+  "row": "Radar",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Radar Station",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "EN05",
+  "row": "Television",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "TV Station",
+  "stats": {
+   "Culture": 3,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "EN06",
+  "row": "Semiconductor Mastery",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Fab",
+  "stats": {
+   "Gold": 4
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "EN06",
+  "row": "Semiconductor Mastery",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Resonant Crystal Works",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "CP01",
+  "row": "Programmable Computer",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Computer Centre",
+  "stats": {},
+  "uq": [],
+  "sp": [
+   [
+    "Scientist",
+    "1"
+   ]
+  ],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "CP05",
+  "row": "Database Systems",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Database Centre",
+  "stats": {
+   "Gold": 3
+  },
+  "uq": [
+   "[+1 Gold] from each Trade Route",
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "750",
+   "2"
+  ]
+ },
+ {
+  "rid": "CP07",
+  "row": "Artificial Intelligence (Narrow)",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "AI Lab",
+  "stats": {
+   "Science": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "750",
+   "3"
+  ]
+ },
+ {
+  "rid": "CP14",
+  "row": "Perceptron Machines",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Perceptron Laboratory",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "1"
+  ]
+ },
+ {
+  "rid": "CP15",
+  "row": "Neuromorphic Processors",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Neuromorphic Foundry",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "1000",
+   "2"
+  ]
+ },
+ {
+  "rid": "NP01",
+  "row": "Radioactivity",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Radiology Laboratory",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "NP02",
+  "row": "Atomic Model",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Nuclear Physics Lab",
+  "stats": {
+   "Science": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "NP08",
+  "row": "Thorium Reactor",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Thorium Reactor",
+  "stats": {
+   "Production": 4
+  },
+  "uq": [
+   "[+10]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "750",
+   "2"
+  ]
+ },
+ {
+  "rid": "NP09",
+  "row": "Compact Fusion",
+  "tier": "RARE",
+  "era": "Space",
+  "b": "Compact Fusion Plant",
+  "stats": {
+   "Production": 8
+  },
+  "uq": [
+   "[+15]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": [
+   "1000",
+   "2"
+  ]
+ },
+ {
+  "rid": "NP10",
+  "row": "Cold Fusion",
+  "tier": "RARE",
+  "era": "Atomic",
+  "b": "Cold Fusion Cell",
+  "stats": {
+   "Production": 3,
+   "Happiness": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "750",
+   "0"
+  ]
+ },
+ {
+  "rid": "NP-F02",
+  "row": "Micro-Fission Reactors",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Micro-Reactor",
+  "stats": {
+   "Production": 3
+  },
+  "uq": [
+   "[+10]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "1"
+  ]
+ },
+ {
+  "rid": "NP-F04",
+  "row": "Quantum Fission Cascade",
+  "tier": "RARE",
+  "era": "Space",
+  "b": "Cascade Reactor",
+  "stats": {
+   "Production": 8
+  },
+  "uq": [
+   "[+15]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "QM-E01",
+  "row": "Fundamental Matter Theory",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Deep Matter Lab",
+  "stats": {
+   "Science": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "QM-E05",
+  "row": "Great Work Reactor",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Great Work Reactor",
+  "stats": {
+   "Production": 8
+  },
+  "uq": [
+   "[+15]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "X"
+  ],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "QM-E06",
+  "row": "Exotic Matter (Elemental)",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Exotic Matter Forge",
+  "stats": {},
+  "uq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "QM-E16",
+  "row": "Boundary Survey",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Boundary Laboratory",
+  "stats": {
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "500",
+   "2"
+  ]
+ },
+ {
+  "rid": "QM-E18",
+  "row": "Aether Telegraphy (Flow Signalling)",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Medium Relay",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [
+   "[+1 Gold] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "750",
+   "2"
+  ]
+ },
+ {
+  "rid": "QM-E19",
+  "row": "Celestial Current Survey",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Current Chart",
+  "stats": {},
+  "uq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "1000",
+   "2"
+  ]
+ },
+ {
+  "rid": "QM-E21",
+  "row": "Compact Athanor (Compact Wheel)",
+  "tier": "RARE",
+  "era": "Space",
+  "b": "Compact Athanor",
+  "stats": {
+   "Production": 8
+  },
+  "uq": [
+   "[+15]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "1000",
+   "2"
+  ]
+ },
+ {
+  "rid": "QM-E26",
+  "row": "Dissonance Weaponry",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Dissonance Cannon",
+  "stats": {},
+  "uq": [
+   "[+200]% Strength <vs cities> <when attacking>",
+   "[+33]% Strength <vs [Armored] units>"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "QM-E26",
+  "row": "Dissonance Weaponry",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Harmonic Ward",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "200",
+   "1"
+  ]
+ },
+ {
+  "rid": "QP11",
+  "row": "Exotic Matter Synthesis",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Exotic Matter Lab",
+  "stats": {},
+  "uq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "QP14",
+  "row": "Quantum Communication",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Quantum Network",
+  "stats": {},
+  "uq": [
+   "[+2 Gold] from each Trade Route"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "1000",
+   "2"
+  ]
+ },
+ {
+  "rid": "RC09",
+  "row": "Inertial Dampening",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Arcology",
+  "stats": {},
+  "uq": [
+   "[+25]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "RC10",
+  "row": "Gravitic Lift",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Gravitic Platform",
+  "stats": {},
+  "uq": [
+   "[+50]% Production when constructing [Spaceship part] units [in all cities] <if [Space Elevator] is not constructed>"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP",
+   "X"
+  ],
+  "alone": false,
+  "cost": [
+   "1500",
+   "3"
+  ]
+ },
+ {
+  "rid": "RK04",
+  "row": "Orbital Mechanics",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Space Agency",
+  "stats": {
+   "Gold": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "750",
+   "2"
+  ]
+ },
+ {
+  "rid": "RK07",
+  "row": "Reusable Launch Vehicle",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Space Port",
+  "stats": {},
+  "uq": [
+   "[+25]% Production when constructing [Spaceship part] units [in all cities] <if [Space Elevator] is not constructed>"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "RK15",
+  "row": "Mass Driver",
+  "tier": "UNCOMMON",
+  "era": "Space",
+  "b": "Mass Driver",
+  "stats": {},
+  "uq": [
+   "[+33]% Production when constructing [Spaceship part] units [in all cities] <if [Space Elevator] is not constructed>"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "1500",
+   "3"
+  ]
+ },
+ {
+  "rid": "MS07",
+  "row": "Programmable Matter",
+  "tier": "RARE",
+  "era": "Space",
+  "b": "Morphic Armour",
+  "stats": {},
+  "uq": [
+   "[+25]% Strength <when defending>"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "MS08",
+  "row": "Exotic Matter Engineering",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Exotic Matter Foundry",
+  "stats": {},
+  "uq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "GN09",
+  "row": "Massively Parallel Bio-Processing",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Drug Design Lab",
+  "stats": {
+   "Gold": 3,
+   "Happiness": 2
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "GN12",
+  "row": "Vital Essence Isolation",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Essence Reservoir",
+  "stats": {
+   "Food": 2,
+   "Happiness": 2
+  },
+  "uq": [
+   "[+10]% growth [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "cost": [
+   "750",
+   "2"
+  ]
+ },
+ {
+  "rid": "GN13",
+  "row": "Animating Principle",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Vital Automaton",
+  "stats": {},
+  "uq": [
+   "Can build [Land] improvements on tiles",
+   "[-100]% maintenance costs"
+  ],
+  "sp": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "AE01",
+  "row": "Hot Air Balloon",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Observation Balloon",
+  "stats": {},
+  "uq": [
+   "[+2] Sight",
+   "Ignores terrain cost"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "AE02",
+  "row": "Dirigible/Airship",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Airship",
+  "stats": {},
+  "uq": [
+   "[+2] Sight",
+   "Triggers a [Airship Disaster] event <with [1]% chance> <upon turn start> <before discovering [Helium Extraction]>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "AE09",
+  "row": "Ornithopter",
+  "tier": "RARE",
+  "era": "Early Modern",
+  "b": "Ornithopter",
+  "stats": {},
+  "uq": [
+   "[+2] Sight",
+   "Ignores terrain cost"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "AE10",
+  "row": "Flying Boat",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Flying Boat",
+  "stats": {},
+  "uq": [
+   "Can see invisible [Submarine] units"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "AE11",
+  "row": "Electric Aviation",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Electric Aircraft",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "AE13",
+  "row": "Rigid Airship",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Rigid Airship",
+  "stats": {},
+  "uq": [
+   "[+2] Sight",
+   "Triggers a [Airship Disaster] event <with [1]% chance> <upon turn start> <before discovering [Helium Extraction]>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "AE12",
+  "row": "Grand Aerostat",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Sky Fortress",
+  "stats": {},
+  "uq": [
+   "[+3] Sight",
+   "Triggers a [Airship Disaster] event <with [1]% chance> <upon turn start> <before discovering [Helium Extraction]>"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "SE01",
+  "row": "Life Support Systems",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Biosphere",
+  "stats": {
+   "Food": 3,
+   "Happiness": 1
+  },
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "750",
+   "2"
+  ]
+ },
+ {
+  "rid": "SE02",
+  "row": "Orbital Assembly",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Orbital Shipyard",
+  "stats": {},
+  "uq": [
+   "[+25]% Production when constructing [Spaceship part] units [in all cities]"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "SE05",
+  "row": "Closed-Loop Ecology",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Bio-Recycler",
+  "stats": {
+   "Food": 3
+  },
+  "uq": [
+   "[-10]% Food consumption by [Population] [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "1000",
+   "2"
+  ]
+ },
+ {
+  "rid": "SE06",
+  "row": "Orbital Resource Delivery",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Orbital Depot",
+  "stats": {},
+  "uq": [
+   "Provides [2] [Aluminum]",
+   "Provides [2] [Rare Earths]",
+   "Limited to [3] per Civilization"
+  ],
+  "sp": [],
+  "role": [
+   "RES/CAP"
+  ],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "SE07",
+  "row": "Planetary Engineering Theory",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Climate Control",
+  "stats": {},
+  "uq": [
+   "[+1 Food] from [Desert] tiles [in this city]",
+   "[+1 Food] from [Tundra] tiles [in this city]",
+   "[+1 Food] from [Snow] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [],
+  "alone": true,
+  "cost": [
+   "1000",
+   "3"
+  ]
+ },
+ {
+  "rid": "SE13",
+  "row": "Planetary Defense",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Planetary Defense Network",
+  "stats": {},
+  "uq": [],
+  "sp": [],
+  "role": [],
+  "alone": false,
+  "cost": [
+   "1500",
+   "3"
+  ]
+ },
+ {
+  "rid": "ES03",
+  "row": "Coal Power Plant",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Coal Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]",
+   "[-1 Happiness] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES03-W",
+  "row": "Biomass Power Plant",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Biomass Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES05",
+  "row": "Oil Power Plant",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Oil Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]",
+   "[-1 Happiness] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES05-W",
+  "row": "Alcohol/Biogas Power Plant",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Bio-Fuel Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]",
+   "[-2 Food] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES08",
+  "row": "Fusion Reactor",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Fusion Plant",
+  "stats": {
+   "Production": 8
+  },
+  "uq": [
+   "[+15]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES09",
+  "row": "Geothermal Power",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Geothermal Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]",
+   "[+1 Production] from [Volcanic] tiles [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "ES10",
+  "row": "Tidal Power",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Tidal Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "ES13",
+  "row": "Biomass/Biogas",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Biogas Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "[+5]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES14",
+  "row": "Advanced Fission",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Advanced Fission Plant",
+  "stats": {
+   "Production": 6
+  },
+  "uq": [
+   "[+15]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP"
+  ],
+  "alone": false,
+  "cost": null
+ },
+ {
+  "rid": "ES15",
+  "row": "Quintessic Power Plant",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Quintessic Plant",
+  "stats": {
+   "Production": 3
+  },
+  "uq": [
+   "[+10]% [Production] [in this city]",
+   "[+2 Production] [in this city] <when number of [Uranium] is more than [0]>",
+   "[+5]% [Production] [in this city] <when number of [Uranium] is more than [0]>"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "X"
+  ],
+  "alone": true,
+  "cost": null
+ },
+ {
+  "rid": "ES16",
+  "row": "Caloric Engine Plant",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Caloric Plant",
+  "stats": {
+   "Production": 2
+  },
+  "uq": [
+   "Costs [60] [Caloric]",
+   "[+5]% [Production] [in this city]"
+  ],
+  "sp": [],
+  "role": [
+   "SLOT",
+   "RES/CAP",
+   "X"
+  ],
+  "alone": true,
+  "cost": null
+ }
+]

@@ -1,0 +1,42 @@
+{
+ "cadence": {
+  "Primitive": 0.77,
+  "Ancient": 2.08,
+  "Classical": 0.92,
+  "Medieval": 0.91,
+  "Early Modern": 0.87,
+  "Modern": 1.55,
+  "Atomic": 1.24,
+  "Space": 0.38
+ },
+ "clump%": {
+  "Primitive": 3.6,
+  "Ancient": 36.9,
+  "Classical": 6.0,
+  "Medieval": 6.1,
+  "Early Modern": 4.8,
+  "Modern": 17.4,
+  "Atomic": 12.5,
+  "Space": 2.8
+ },
+ "drought": {
+  "Primitive": 3.2,
+  "Ancient": 1.7,
+  "Classical": 3.3,
+  "Medieval": 4.8,
+  "Early Modern": 3.8,
+  "Modern": 1.8,
+  "Atomic": 2.4,
+  "Space": 22.1
+ },
+ "outside own era %": 27.2,
+ "\u22651 era early %": 0.0,
+ "earliest": -0.84,
+ "tiers": {
+  "CORE": 1.0,
+  "STANDARD": 0.65,
+  "UNCOMMON": 0.3,
+  "RARE": 0.06,
+  "UNIQUE": 0.03
+ }
+}

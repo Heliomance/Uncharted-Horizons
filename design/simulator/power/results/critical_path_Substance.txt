@@ -1,0 +1,34 @@
+== Substance: 96 certain games, critical chain median 3 rows long (rows found after the unified theory, the completing row included)
+   Row completing certainty            games  theory median
+   MS08    Exotic Matter Engineering       41      28
+   RC06    Dark Energy Understanding       15      30
+   RC05    Dark Matter Identification      10      26
+   QM-E19  Celestial Current Survey         8      34
+   RC07    Closed Timelike Curves           6      16
+   AE20    Current Rigging                  6      50
+   QM-E12  Higher Strata Theory             4      20
+   RC11    Gravitational Leakage Survey     3      40
+   QM-E06  Exotic Matter (Elemental)        3      12
+   Rows on the critical chain         share  arrives (med)  waited after prereqs met (med)
+   MS08    Exotic Matter Engineering      43%      28         8   [Space, STANDARD, Materials Science]
+   QM-E27  Plenum Gravitation             41%       0         0   [Space, CORE, Quintessic Physics]
+   QM-E06  Exotic Matter (Elemental)      28%      18        11   [Space, STANDARD, Quintessic Physics]
+   MS02    Nanotechnology / Fine Struct   27%      18        18   [Atomic, CORE, Materials Science]
+   RC05    Dark Matter Identification     26%      25        14   [Space, STANDARD, Relativity & Cosmology]
+   RK05    Satellite Technology           25%      18         3   [Atomic, CORE, Rocketry]
+   RK03    Multi-Stage Rocket             20%      15         9   [Atomic, CORE, Rocketry]
+   RC06    Dark Energy Understanding      16%      30         5   [Space, STANDARD, Relativity & Cosmology]
+   RK02    Liquid Fuel Rocket             11%       7         7   [Modern, CORE, Rocketry]
+   QM-E19  Celestial Current Survey       10%      40        18   [Space, STANDARD, Quintessic Physics]
+   RC07    Closed Timelike Curves          6%      16        16   [Space, STANDARD, Relativity & Cosmology]
+   AE20    Current Rigging                 6%      50         2   [Space, STANDARD, Aeronautics]
+   QM-E23  Current Sail                    6%      49         3   [Space, STANDARD, Quintessic Physics]
+   EN03    Integrated Circuit              5%      15        15   [Atomic, CORE, Electronics]
+   Commonest chains:
+    17x  MS08 <- MS02
+    15x  MS08 <- QM-E06 <- QM-E27
+     9x  MS08 <- QM-E06 <- MS02
+     7x  RC06 <- RC05 <- QM-E27
+     6x  RC07 <- QM-E27
+     4x  QM-E12 <- QM-E27
+document restored from tech_tree_v111.md: 41c1f2d0c4306d72

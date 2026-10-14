@@ -1,0 +1,1120 @@
+[
+ {
+  "rid": "F02",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Kiln",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "40/1; +1 Production; \u27e8[10]% Food is carried over after population increases [in this city]\u27e9 \u2014 storage jars"
+ },
+ {
+  "rid": "F03",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Charcoal Burner",
+  "flat": 1,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Forest"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "40/0; +1 Production; \u27e8[+1 Production] from [Forest] tiles [in this city]\u27e9; \u27e8Must have an owned [Forest] within"
+ },
+ {
+  "rid": "F11",
+  "tier": "UNIQUE",
+  "era": "Classical",
+  "b": "Volcanic Forge",
+  "flat": 2,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Volcanic"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Forge; 100/1; +2 Production; \u27e8[+1 Production] from [Volcanic] tiles [in this city]\u27e9; \u27e8[+15]% Producti"
+ },
+ {
+  "rid": "S02",
+  "tier": "STANDARD",
+  "era": "Primitive",
+  "b": "Stonecutter",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "40/0; +1 Production, +1 Culture"
+ },
+ {
+  "rid": "FA07",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Chinampa Garden",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Water Mill; 75/1; +2 Food, +1 Production; \u27e8[+1 Food] from [Lakes] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "FA14",
+  "tier": "UNIQUE",
+  "era": "Primitive",
+  "b": "Yurt Camp",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "30/0; +1 Food, +1 Production, +1 Culture"
+ },
+ {
+  "rid": "FA15",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Terrace Granary",
+  "flat": 0,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Hill"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Granary; 60/1; +2 Food; \u27e8[+1 Production] from [Hill] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "AH10",
+  "tier": "UNIQUE",
+  "era": "Primitive",
+  "b": "Llama Pen",
+  "flat": 1,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Sheep"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "40/0; +1 Food, +1 Production; \u27e8[+1 Production] from [Sheep] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "AH13",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Nomad Camp",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Barracks; 60/0; +1 Production; \u27e8New [Mounted] units start with [15] XP [in this city]\u27e9"
+ },
+ {
+  "rid": "AH14",
+  "tier": "UNIQUE",
+  "era": "Classical",
+  "b": "Elephant Stable",
+  "flat": 0,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Ivory"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Stable; 100/1; \u27e8[+15]% Production when constructing [Mounted] units [in this city]\u27e9; \u27e8[+1 Production]"
+ },
+ {
+  "rid": "MI12",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Asteroid Mining Station",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "RESOURCE"
+  ],
+  "alone": true,
+  "spec": "750/3; +3 Production; \u27e8Provides [2] [Iron]\u27e9; \u27e8Provides [2] [Aluminum]\u27e9; \u27e8Limited to [3] per Civilization\u27e9"
+ },
+ {
+  "rid": "MI13",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Gasworks",
+  "flat": 1,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Forest"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "200/2; +1 Production, +1 Happiness; \u27e8[+1 Production] from [Forest] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "MI14",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Mining Temple",
+  "flat": 1,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Mine"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Stone Works; 75/1; +1 Production, +1 Faith; \u27e8[+1 Production] from [Mine] tiles [in this city]\u27e9; +5% I"
+ },
+ {
+  "rid": "ME08-W",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Managed Forest",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "improvement on Forest; 6 turns; +1 Production; \u27e8Does not need removal of [Forest]\u27e9"
+ },
+ {
+  "rid": "ME10",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Cast Iron Works",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "100/1; +1 Food, +1 Production, +1 Happiness"
+ },
+ {
+  "rid": "ME16",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Bronze Foundry Temple",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "RESOURCE"
+  ],
+  "alone": false,
+  "spec": "replaces Temple; 100/2; +2 Faith, +1 Production, +1 Culture; \u27e8Provides [1] [Copper]\u27e9 \u2014 the base luxury, cast r"
+ },
+ {
+  "rid": "CO04",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Concrete Works",
+  "flat": 0,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Water resource"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "100/1; cityHealth +25; \u27e8[-10]% maintenance cost for [All] buildings [in this city]\u27e9; \u27e8[+1 Production] from [Wa"
+ },
+ {
+  "rid": "CO15",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Orbital Platform",
+  "flat": 3,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "500/2; +3 Production; \u27e8[+10]% [Production] [in this city]\u27e9 \u2014 orbital industry; any city may have one"
+ },
+ {
+  "rid": "CO17",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Clean Room",
+  "flat": 0,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "500/3; \u27e8[+10]% [Production] [in this city]\u27e9"
+ },
+ {
+  "rid": "SF16",
+  "tier": "UNIQUE",
+  "era": "Classical",
+  "b": "Monsoon Harbour",
+  "flat": 0,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Water resource"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "replaces Harbor; 120/2; \u27e8Connects trade routes over water\u27e9; \u27e8[+2 Gold] from each Trade Route\u27e9; \u27e8[+1 Production"
+ },
+ {
+  "rid": "MD08",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Prosthetics Workshop",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "300/2; +2 Production; \u27e8[+1 Production] per [4] population [in this city]\u27e9"
+ },
+ {
+  "rid": "TX01",
+  "tier": "CORE",
+  "era": "Primitive",
+  "b": "Weaver",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "40/0; +1 Production, +1 Gold"
+ },
+ {
+  "rid": "TX05",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Textile Mill",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "200/2; +2 Production, +2 Gold; Engineer \u00d71; \u27e8[+1 Gold] from [Cotton] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "WM06",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Dam",
+  "flat": 3,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "River"
+   ]
+  ],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "500/3; +3 Production; \u27e8[+1 Production] from [River] tiles [in this city]\u27e9; \u27e8Must be on [River]\u27e9"
+ },
+ {
+  "rid": "MC05",
+  "tier": "CORE",
+  "era": "Medieval",
+  "b": "Clock Tower",
+  "flat": 1,
+  "pct": 5,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "160/1; +1 Production, +2 Culture; Engineer \u00d71; \u27e8[+5]% [Production] [in this city]\u27e9"
+ },
+ {
+  "rid": "MC07",
+  "tier": "RARE",
+  "era": "Classical",
+  "b": "Steam Temple",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "100/1; +2 Faith, +1 Culture, +1 Production"
+ },
+ {
+  "rid": "MC08",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Steam Works",
+  "flat": 3,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "300/2; +3 Production; Engineer \u00d71; \u27e8[+10]% [Production] [in this city]\u27e9; \u27e8Remove [Engine House] [in this city]"
+ },
+ {
+  "rid": "MC16",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Automated Workshop",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "160/1; +2 Production; \u27e8[+1 Production] from every specialist [in this city]\u27e9"
+ },
+ {
+  "rid": "TH03",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Turbine Hall",
+  "flat": 3,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "500/2; +3 Production; \u27e8[+10]% [Production] [in this city]\u27e9"
+ },
+ {
+  "rid": "TH08",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Stirling Works",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); 300/1; +3 Production \u2014 burns anything, needs no resource; \u27e8Remove [{Power P"
+ },
+ {
+  "rid": "TH11",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Heat Exchange",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV",
+   "RESOURCE",
+   "X"
+  ],
+  "alone": false,
+  "spec": "\u27e8Costs [40] [Caloric]\u27e9; +3 Production, +2 Happiness; \u27e8[+2 Food, +1 Happiness] in cities on [Snow] tiles\u27e9; \u27e8[+1"
+ },
+ {
+  "rid": "TH14",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Engine House",
+  "flat": 0,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Mine"
+   ]
+  ],
+  "frm": [],
+  "role": [
+   "RESOURCE"
+  ],
+  "alone": false,
+  "spec": "160/2; \u27e8Consumes [1] [Coal]\u27e9; \u27e8[+1 Production] from [Mine] tiles [in this city]\u27e9; \u27e8[+2 Food, +1 Production] [i"
+ },
+ {
+  "rid": "CH09",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Refinery",
+  "flat": 3,
+  "pct": 0,
+  "tile": [
+   [
+    "2",
+    "Oil"
+   ]
+  ],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": true,
+  "spec": "500/3; +3 Production, +3 Gold; \u27e8[+2 Production] from [Oil] tiles [in this city]\u27e9; requires **Oil**; \u27e8Remove [B"
+ },
+ {
+  "rid": "CH09-W",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Bio-Refinery",
+  "flat": 2,
+  "pct": 0,
+  "tile": [
+   [
+    "1",
+    "Farm"
+   ]
+  ],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "500/3; +2 Production, +2 Gold; \u27e8[+1 Production] from [Farm] tiles [in this city]\u27e9; \u27e8Remove [Refinery] [in this"
+ },
+ {
+  "rid": "CH13",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Propellant Works",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "500/2; +2 Production; \u27e8[+15]% Production when constructing [Siege] units [in this city]\u27e9"
+ },
+ {
+  "rid": "CH23",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Cycle Forge",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "spec": "300/2; +4 Production; Sage \u00d71; Great Sage points 2"
+ },
+ {
+  "rid": "CH26",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Calorimetry Hall",
+  "flat": 0,
+  "pct": 0,
+  "tile": [],
+  "frm": [
+   [
+    "2",
+    "Cycle Forge"
+   ]
+  ],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "spec": "200/2; Sage \u00d71; \u27e8[+2 Production] from all [Cycle Forge] buildings\u27e9 \u2014 better-tuned loops"
+ },
+ {
+  "rid": "OP07",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Laser Lab",
+  "flat": 0,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "X"
+  ],
+  "alone": false,
+  "spec": "750/2; \u27e8[+10]% [Production] [in this city]\u27e9 \u2014 laser manufacturing"
+ },
+ {
+  "rid": "EL02",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Battery Works",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "200/1; +1 Production"
+ },
+ {
+  "rid": "EL05",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Tramway",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "500/2; +2 Happiness; +1 Production"
+ },
+ {
+  "rid": "EL14",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Generating Station",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); 150/1; +2 Production; \u27e8Remove [{Power Plant} {non-[Generating Station]}"
+ },
+ {
+  "rid": "EN01",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Valve Works",
+  "flat": 1,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "500/1; +1 Production"
+ },
+ {
+  "rid": "EN03",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Microchip Foundry",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "750/3; +3 Production, +3 Gold; requires **Rare Earths**"
+ },
+ {
+  "rid": "CP14",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Perceptron Laboratory",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "500/1; +3 Production \u2014 pattern recognition on the factory floor; no **Rare Earths**; \u27e8Remove [AI Lab] [in this"
+ },
+ {
+  "rid": "CP15",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Neuromorphic Foundry",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "1000/2; +2 Production; no **Rare Earths**; \u27e8Remove [Fab] [in this city]\u27e9"
+ },
+ {
+  "rid": "NP08",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Thorium Reactor",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "750/2; +4 Production; needs **no Uranium**; \u27e8Remove [{Power Plant} {non-[Thorium Reactor]}"
+ },
+ {
+  "rid": "NP10",
+  "tier": "RARE",
+  "era": "Atomic",
+  "b": "Cold Fusion Cell",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "750/0; +4 Production, +2 Happiness \u2014 clean, distributed, and needing no fuel"
+ },
+ {
+  "rid": "NP-F02",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Micro-Reactor",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "500/1; +3 Production; requires **Uranium**; \u27e8Remove [{Power Plant} {non-[Micro-Reactor]}"
+ },
+ {
+  "rid": "QM-E05",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Great Work Reactor",
+  "flat": 8,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PAIR/CONV",
+   "X"
+  ],
+  "alone": false,
+  "spec": "1000; maintenance 3; +8 Production; Production +20%; \u27e8Remove [{Power Plant} {non-[Great Work Reactor]}"
+ },
+ {
+  "rid": "QM-E13",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Vacuum Tap",
+  "flat": 5,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "spec": "1000/2; +5 Production"
+ },
+ {
+  "rid": "QM-E22",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Medium Cell",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "X"
+  ],
+  "alone": true,
+  "spec": "750/2; +3 Production"
+ },
+ {
+  "rid": "QP12",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Casimir Generator",
+  "flat": 5,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "1000/2; +5 Production"
+ },
+ {
+  "rid": "RC10",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Floating Foundry",
+  "flat": 8,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "W",
+   "X"
+  ],
+  "alone": false,
+  "spec": "world wonder; 1500; +8 Production, +4 Culture"
+ },
+ {
+  "rid": "RK12",
+  "tier": "UNCOMMON",
+  "era": "Space",
+  "b": "Space Elevator",
+  "flat": 5,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "W",
+   "PAIR/CONV"
+  ],
+  "alone": true,
+  "spec": "world wonder; 1500; +5 Production; \u27e8Can only be built <in [Capital] cities>\u27e9; \u27e8Remove [Launch Complex] [in thi"
+ },
+ {
+  "rid": "MS01",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Composites Factory",
+  "flat": 3,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "750/2; +3 Production; \u27e8[+10]% [Production] [in this city]\u27e9"
+ },
+ {
+  "rid": "MS02",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Nanofab",
+  "flat": 4,
+  "pct": 10,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "1000/3; +4 Production; \u27e8[+10]% [Production] [in this city]\u27e9"
+ },
+ {
+  "rid": "MS04",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Graphene Works",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "1000/3; +3 Production"
+ },
+ {
+  "rid": "MS08",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Exotic Matter Foundry",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "1000/3; +4 Production; \u27e8[+15]% Production when constructing [SS FTL Drive] units [in this city]\u27e9"
+ },
+ {
+  "rid": "GN05",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Bio-Factory",
+  "flat": 5,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": false,
+  "spec": "1000/3; +5 Production"
+ },
+ {
+  "rid": "SE02",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Orbital Shipyard",
+  "flat": 2,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [],
+  "alone": true,
+  "spec": "1000/3; +2 Production; \u27e8Can only be built <in [Capital] cities>\u27e9; \u27e8Destroyed when the city is captured\u27e9; \u27e8[+25"
+ },
+ {
+  "rid": "SE06",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Orbital Depot",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "RESOURCE"
+  ],
+  "alone": true,
+  "spec": "1000/3; +3 Production; \u27e8Provides [2] [Aluminum]\u27e9; \u27e8Provides [2] [Rare Earths]\u27e9; \u27e8Limited to [3] per Civilizati"
+ },
+ {
+  "rid": "ES03",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Coal Plant",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 2; +4 Production; Production +10%; \u27e8[-1 Happiness] [in this cit"
+ },
+ {
+  "rid": "ES03-W",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Biomass Plant",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 2; +3 Production; Production +10%; \u27e8Remove [{Power Plant} {non-"
+ },
+ {
+  "rid": "ES05",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Oil Plant",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 2; +4 Production; Production +10%; \u27e8[-1 Happiness] [in this cit"
+ },
+ {
+  "rid": "ES05-W",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Bio-Fuel Plant",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 2; +3 Production; Production +10%; \u27e8[-2 Food] [in this city]\u27e9 \u2014"
+ },
+ {
+  "rid": "ES08",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Fusion Plant",
+  "flat": 8,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); 1000; maintenance 3; +8 Production; Production +20%; no fuel; \u27e8Remove [{Pow"
+ },
+ {
+  "rid": "ES09",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Geothermal Plant",
+  "flat": 4,
+  "pct": 0,
+  "tile": [
+   [
+    "2",
+    "Volcanic"
+   ]
+  ],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": true,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 2; +4 Production; Production +10%; \u27e8[+2 Production] from [Volca"
+ },
+ {
+  "rid": "ES10",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Tidal Plant",
+  "flat": 4,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": true,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 2; +4 Production; Production +10%; \u27e8Must be next to [Coast]\u27e9; \u27e8"
+ },
+ {
+  "rid": "ES12",
+  "tier": "RARE",
+  "era": "Space",
+  "b": "Zero-Point Reactor",
+  "flat": 0,
+  "pct": 0,
+  "tile": [],
+  "frm": [
+   [
+    "2",
+    "Power Plant"
+   ]
+  ],
+  "role": [
+   "W"
+  ],
+  "alone": true,
+  "spec": "world wonder; 1500; \u27e8[+15]% [Production] [in all cities]\u27e9; \u27e8[+2 Production] from all [Power Plant] buildings\u27e9 "
+ },
+ {
+  "rid": "ES13",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Biogas Plant",
+  "flat": 3,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 1; +3 Production; Production +5%; no fuel; \u27e8Remove [{Power Plan"
+ },
+ {
+  "rid": "ES14",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Advanced Fission Plant",
+  "flat": 7,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV"
+  ],
+  "alone": false,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 3; +7 Production; Production +20%; requires **Uranium**; \u27e8Remov"
+ },
+ {
+  "rid": "ES15",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Quintessic Plant",
+  "flat": 5,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV",
+   "X"
+  ],
+  "alone": true,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); maintenance 3; +5 Production; Production +15%; no fuel \u2014 bound energy from "
+ },
+ {
+  "rid": "ES16",
+  "tier": "UNCOMMON",
+  "era": "Modern",
+  "b": "Caloric Plant",
+  "flat": 5,
+  "pct": 0,
+  "tile": [],
+  "frm": [],
+  "role": [
+   "PLANT",
+   "PAIR/CONV",
+   "RESOURCE",
+   "X"
+  ],
+  "alone": true,
+  "spec": "a grid plant: \u27e8Power Plant\u27e9 (tag); \u27e8Costs [60] [Caloric]\u27e9 \u2014 bought with banked heat; maintenance 1; +5 Product"
+ }
+]

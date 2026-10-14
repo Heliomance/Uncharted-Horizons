@@ -1,0 +1,62 @@
+{
+ "as now": {
+  "scale": 0.7728215745581435,
+  "rates": {
+   "CORE": 1.0,
+   "STANDARD": 0.85,
+   "UNCOMMON": 0.4,
+   "RARE": 0.09,
+   "UNIQUE": 0.06
+  },
+  "caravel": 10.0,
+  "share": 55
+ },
+ "STANDARD window \u00d70.5": {
+  "scale": 0.7771382791443594,
+  "rates": {
+   "CORE": 1.0,
+   "STANDARD": 0.87,
+   "UNCOMMON": 0.39,
+   "RARE": 0.11,
+   "UNIQUE": 0.03
+  },
+  "caravel": 11.0,
+  "share": 63
+ },
+ "compress behind history (4)": {
+  "scale": 0.8080379299936714,
+  "rates": {
+   "CORE": 1.0,
+   "STANDARD": 0.81,
+   "UNCOMMON": 0.37,
+   "RARE": 0.06,
+   "UNIQUE": 0.04
+  },
+  "caravel": 7,
+  "share": 73
+ },
+ "both": {
+  "scale": 0.8308584977264128,
+  "rates": {
+   "CORE": 1.0,
+   "STANDARD": 0.86,
+   "UNCOMMON": 0.32,
+   "RARE": 0.07,
+   "UNIQUE": 0.05
+  },
+  "caravel": 6,
+  "share": 76
+ },
+ "both, all windows \u00d70.5": {
+  "scale": 0.821653933307287,
+  "rates": {
+   "CORE": 1.0,
+   "STANDARD": 0.84,
+   "UNCOMMON": 0.44,
+   "RARE": 0.13,
+   "UNIQUE": 0.06
+  },
+  "caravel": 7.0,
+  "share": 77
+ }
+}

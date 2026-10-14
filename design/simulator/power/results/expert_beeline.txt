@@ -1,0 +1,16 @@
+The theory phase on the round-two balance: 300 games per player (20 per method and world). Turns counted from the unified theory.
+                                                      theory first        no beelineno beeline, early Endv
+Unified theory, game turn                            236 (230–240)     262 (259–265)     264 (260–267)
+Theory phase: unified theory to certainty               43 (37–48)        21 (17–24)        18 (15–23)
+Unified theory to victory                               54 (48–59)        33 (29–36)        30 (26–34)
+Theory as a share of that stretch                              80%               64%               65%
+First answer arrives                                     13 (9–17)          9 (7–12)           7 (5–9)
+First method ruled out                                   15 (0–26)          8 (0–13)          8 (1–12)
+Two methods left                                        37 (28–44)        18 (14–20)        15 (12–19)
+Two left until certainty                                  3 (0–10)           2 (0–5)           2 (0–5)
+Answers during the theory phase                            6 (5–8)           6 (5–8)           6 (5–8)
+Victory with the ship, game turn                     294 (291–297)     299 (296–301)     298 (295–301)
+Longest silence between answers                         17 (14–21)         10 (8–13)          8 (6–10)
+Theory within 15 turns (share of games)                         0%               14%               27%
+Theory within a third of the stretch (share)                    0%                0%                0%
+Theory phase by world (median turns): theory first: fam 40, Sub 45, Pro 44; no beeline: fam 21, Sub 20, Pro 21; no beeline, early Endv: fam 17, Sub 20, Pro 19

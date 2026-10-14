@@ -1,0 +1,24 @@
+
+EXPERT
+   current : median turn 296, unwinnable  1, method's share (worst world)  17%, outside 40-60%:  9 of 15, range 36%-69%
+   round 1 : median turn 294, unwinnable  1, method's share (worst world)  28%, outside 40-60%:  6 of 15, range 31%-82%
+   round 2 : median turn 294, unwinnable  1, method's share (worst world)  12%, outside 40-60%:  5 of 15, range 38%-71%
+      atomic    Wormhole 54%  Hyperspace 66%*  Tachyonic 48%  Tunnelling 47%  Warp 71%*
+      Substance Wormhole 42%  Hyperspace 51%  Tachyonic 38%*  Plenum 40%*  Warp 51%
+      Process   Wormhole 46%  Hyperspace 50%  Tachyonic 40%*  Plenum 47%  Warp 58%
+
+NOVICE
+   current : median turn 303, unwinnable  3, method's share (worst world)  55%, outside 40-60%: 13 of 15, range 16%-85%
+   round 1 : median turn 301, unwinnable  3, method's share (worst world)  26%, outside 40-60%:  9 of 15, range 25%-71%
+   round 2 : median turn 302, unwinnable  3, method's share (worst world)  14%, outside 40-60%:  3 of 15, range 41%-70%
+      atomic    Wormhole 67%*  Hyperspace 42%  Tachyonic 41%  Tunnelling 45%  Warp 41%
+      Substance Wormhole 51%  Hyperspace 47%  Tachyonic 52%  Plenum 42%  Warp 51%
+      Process   Wormhole 70%*  Hyperspace 63%*  Tachyonic 54%  Plenum 43%  Warp 41%
+
+AVERAGE
+   current : median turn 378, unwinnable  8, method's share (worst world)  48%, outside 40-60%: 10 of 15, range 17%-80%
+   round 1 : median turn 376, unwinnable  7, method's share (worst world)  14%, outside 40-60%:  7 of 15, range 33%-69%
+   round 2 : median turn 377, unwinnable  7, method's share (worst world)   5%, outside 40-60%:  2 of 15, range 38%-64%
+      atomic    Wormhole 54%  Hyperspace 49%  Tachyonic 42%  Tunnelling 48%  Warp 38%*
+      Substance Wormhole 58%  Hyperspace 56%  Tachyonic 51%  Plenum 50%  Warp 48%
+      Process   Wormhole 45%  Hyperspace 64%*  Tachyonic 60%  Plenum 44%  Warp 43%

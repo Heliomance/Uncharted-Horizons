@@ -1,0 +1,22 @@
+All three worlds, the same 300 games per row (20 per method and world). Every game counted; unwinnable = worst.
+player                   mean (winnable) median  p75  p90  p95 cannot win Endeavours unified theory
+novice, no Endeavours               46.0     45   52   62   68         11        0.0              1
+novice, patience 10                 50.8     50   56   63   67          1        7.0              1
+novice, patience 15                 51.0     51   57   64   67          1        7.0              1
+novice, patience 20                 50.9     51   56   63   67          2        7.0              1
+expert (before the fix)             42.5     42   46   50   51          0        4.0              8
+expert, theory first                67.8     67   75   80   85          1        6.5              0
+
+Expert against novice (patience 15), cell by cell: median turns (20 games each)
+   familiar : Wormhole 72 vs 42 (novice ahead), Hyperspace 68 vs 48 (novice ahead), Tachyonic 76 vs 50 (novice ahead), Tunnelling 75 vs 48 (novice ahead), Warp 76 vs 51 (novice ahead)
+   Substance: Wormhole 62 vs 50 (novice ahead), Hyperspace 66 vs 56 (novice ahead), Tachyonic 62 vs 48 (novice ahead), Plenum 64 vs 53 (novice ahead), Warp 64 vs 55 (novice ahead)
+   Process  : Wormhole 64 vs 50 (novice ahead), Hyperspace 66 vs 48 (novice ahead), Tachyonic 64 vs 52 (novice ahead), Plenum 66 vs 58 (novice ahead), Warp 66 vs 54 (novice ahead)
+
+The same games in ABSOLUTE game turns (a clock every player shares): victory turn, and when each player's Space-era clock started
+player                   victory median  p90  p95 first Space discovery unified theory
+novice, no Endeavours               298  306  311                   254            259
+novice, patience 10                 303  309  310                   254            259
+novice, patience 15                 303  308  310                   254            259
+novice, patience 20                 303  309  310                   254            259
+expert (before the fix)             299  304  305                   257            266
+expert, theory first                296  302  303                   228            231

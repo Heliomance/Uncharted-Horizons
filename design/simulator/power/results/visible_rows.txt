@@ -1,0 +1,16 @@
+440 rows; 318 (72%) name a unit, building, wonder or improvement in their Unlocks
+   by era: Primitive 15/22, Ancient 50/61, Classical 29/36, Medieval 34/39, Early Modern 40/49, Modern 59/77, Atomic 55/86, Space 36/70
+--- the rows that locked games:
+   EL11    Superconductivity              [STANDARD, Atomic] not visible (effects only)
+   MA06    Probability Theory             [STANDARD, Early Modern] not visible (effects only)
+   MC11    Assembly Line                  [STANDARD, Modern] VISIBLE: Machine Gun
+   CO11    Reinforced Concrete            [STANDARD, Modern] not visible (effects only)
+   CP07    Artificial Intelligence (Narro [STANDARD, Atomic] VISIBLE: AI Lab, Research Lab
+   TH02    Refrigeration                  [STANDARD, Modern] VISIBLE: Stadium
+   MC12    Robotics                       [STANDARD, Atomic] VISIBLE: Spaceship Factory
+   EL07    Power Grid                     [STANDARD, Modern] not visible (effects only)
+   RK16    Satellite Communications       [STANDARD, Atomic] not visible (effects only)
+   QP06    Standard Model Completion      [STANDARD, Atomic] VISIBLE: Standard Model Institute
+   NP04    Nuclear Fusion                 [STANDARD, Atomic] not visible (effects only)
+   NP07    Breeder Reactor                [UNCOMMON, Atomic] not visible (effects only)
+   QM-E08  Boundary Furnace / Cycle-Limit [STANDARD, Atomic] VISIBLE: Boundary Furnace

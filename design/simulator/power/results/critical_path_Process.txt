@@ -1,0 +1,34 @@
+== Process: 97 certain games, critical chain median 3 rows long (rows found after the unified theory, the completing row included)
+   Row completing certainty            games  theory median
+   MS08    Exotic Matter Engineering       44      26
+   RC06    Dark Energy Understanding       18      22
+   RC05    Dark Matter Identification       7      27
+   AE20    Current Rigging                  7      30
+   RC07    Closed Timelike Curves           6      13
+   QM-E06  Exotic Matter (Elemental)        5      12
+   QM-E19  Celestial Current Survey         5      28
+   QM-E12  Higher Strata Theory             3      13
+   RC11    Gravitational Leakage Survey     2      24
+   Rows on the critical chain         share  arrives (med)  waited after prereqs met (med)
+   QM-E27  Plenum Gravitation             51%       0         0   [Space, CORE, Quintessic Physics]
+   MS08    Exotic Matter Engineering      45%      26         6   [Space, STANDARD, Materials Science]
+   QM-E06  Exotic Matter (Elemental)      34%      14        10   [Space, STANDARD, Quintessic Physics]
+   RC05    Dark Matter Identification     26%      16        11   [Space, STANDARD, Relativity & Cosmology]
+   MS02    Nanotechnology / Fine Struct   25%      18        18   [Atomic, CORE, Materials Science]
+   RC06    Dark Energy Understanding      19%      22         6   [Space, STANDARD, Relativity & Cosmology]
+   RK05    Satellite Technology           18%      19         3   [Atomic, CORE, Rocketry]
+   RK03    Multi-Stage Rocket             12%      14        12   [Atomic, CORE, Rocketry]
+   AE20    Current Rigging                 7%      30         1   [Space, STANDARD, Aeronautics]
+   QM-E23  Current Sail                    7%      28         4   [Space, STANDARD, Quintessic Physics]
+   QM-E19  Celestial Current Survey        7%      28        14   [Space, STANDARD, Quintessic Physics]
+   RC07    Closed Timelike Curves          6%      13        13   [Space, STANDARD, Relativity & Cosmology]
+   EN03    Integrated Circuit              4%      21        21   [Atomic, CORE, Electronics]
+   QM-E12  Higher Strata Theory            3%      13        13   [Space, STANDARD, Quintessic Physics]
+   Commonest chains:
+    22x  MS08 <- QM-E06 <- QM-E27
+    16x  MS08 <- MS02
+     9x  RC06 <- RC05 <- QM-E27
+     6x  RC07 <- QM-E27
+     6x  MS08 <- QM-E06 <- MS02
+     5x  RC06 <- RC05 <- RK05 <- RK03
+document restored from tech_tree_v111.md: 41c1f2d0c4306d72

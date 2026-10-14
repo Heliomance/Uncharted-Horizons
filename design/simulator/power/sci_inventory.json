@@ -1,0 +1,1741 @@
+[
+ {
+  "rid": "S11",
+  "row": "Megalithic Observatory",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Standing Stones",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+2 Faith"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 2,
+  "world_excl": false,
+  "spec": "national wonder; 100/0; +3 Science, +2 Faith; +10% Insight to Observation and Mathematics"
+ },
+ {
+  "rid": "O07",
+  "row": "Comparative Anatomy",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Anatomy Theatre",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Medicine"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "100/1; +1 Science; Scientist \u00d71"
+ },
+ {
+  "rid": "O10",
+  "row": "Antikythera-Style Mechanism",
+  "tier": "RARE",
+  "era": "Classical",
+  "b": "Antikythera Engine",
+  "sci": 3,
+  "pct": 15,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+2 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [
+   "Seed of the Antikythera chain"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 120/0; +3 Science, +2 Culture; \u27e8[+15]% [Science] [in this city]\u27e9"
+ },
+ {
+  "rid": "O12",
+  "row": "Atmospheric Science",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Weather Bureau",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+1 Food] from [Farm] tiles [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +2 Science; \u27e8[+1 Food] from [Farm] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "O13",
+  "row": "Mechanical Ephemeris",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Ephemeris House",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+1 Gold] from each Trade Route"
+  ],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "100/1; +1 Science; \u27e8[+1 Gold] from each Trade Route\u27e9 \u2014 navigational data sold to all comers"
+ },
+ {
+  "rid": "O15",
+  "row": "Mechanical Weather Predictor",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Weather Station",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+10]% growth [in this city]",
+   "[+1 Food] from [Farm] tiles [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "200/2; +2 Science; \u27e8[+10]% growth [in this city]\u27e9; \u27e8[+1 Food] from [Farm] tiles [in this city]\u27e9"
+ },
+ {
+  "rid": "O16",
+  "row": "Sacred Astronomy Tradition",
+  "tier": "UNIQUE",
+  "era": "Primitive",
+  "b": "Mountain Observatory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Faith"
+  ],
+  "uniq": [
+   "Must be next to [Mountain]"
+  ],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "60/1; +2 Science, +1 Faith; \u27e8Must be next to [Mountain]\u27e9 \u2014 an Observatory available from the Primitive era"
+ },
+ {
+  "rid": "SO09",
+  "row": "Quipu/Non-Written Recording",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Quipu Archive",
+  "sci": 0,
+  "pct": 0,
+  "per": [
+   [
+    "1",
+    "2"
+   ]
+  ],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+1 Gold] from each Trade Route"
+  ],
+  "rest_objs": [
+   "Trade"
+  ],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "replaces Library; 75/1; \u27e8[+1 Science] per [2] population [in this city]\u27e9; \u27e8[+1 Gold] from each Trade Route\u27e9"
+ },
+ {
+  "rid": "SO13",
+  "row": "Meritocratic Civil Service",
+  "tier": "UNCOMMON",
+  "era": "Classical",
+  "b": "Examination Hall",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+1 Production] from every specialist [in this city]",
+   "[-15]% maintenance cost for [All] buildings [in this city]"
+  ],
+  "rest_objs": [
+   "Chichen Itza"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "100/1; +2 Science; \u27e8[+1 Production] from every specialist [in this city]\u27e9; \u27e8[-15]% maintenance cost for [All] buildings "
+ },
+ {
+  "rid": "AH08",
+  "row": "Carrier Pigeon Networks",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "Pigeon Loft",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+1 Gold] from each Trade Route",
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "120/1; +1 Science; \u27e8[+1 Gold] from each Trade Route\u27e9; \u27e8[+25]% spy effectiveness [in this city]\u27e9 (`<when espionage is ena"
+ },
+ {
+  "rid": "AH11",
+  "row": "Veterinary Medicine",
+  "tier": "STANDARD",
+  "era": "Classical",
+  "b": "Veterinary College",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[Mounted] Units adjacent to this city heal [+10] HP per turn when healing",
+   "[+1 Food] from [Cattle] tiles [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "100/1; +1 Science; \u27e8[Mounted] Units adjacent to this city heal [+10] HP per turn when healing\u27e9; \u27e8[+1 Food] from [Cattle]"
+ },
+ {
+  "rid": "CO17",
+  "row": "Sealed Environments",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Clean Room",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+10]% [Production] [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/3; +1 Science; \u27e8[+10]% [Production] [in this city]\u27e9"
+ },
+ {
+  "rid": "MA07",
+  "row": "Binary Mathematics",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Cipher Office",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+25]% spy effectiveness [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "200/1; +1 Science; \u27e8[+25]% spy effectiveness [in this city]\u27e9 (`<when espionage is enabled>`)"
+ },
+ {
+  "rid": "MA12",
+  "row": "Mayan Vigesimal Mathematics",
+  "tier": "UNIQUE",
+  "era": "Ancient",
+  "b": "Long Count Observatory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Faith"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "60/1; +2 Science, +1 Faith; +10% Insight to Observation"
+ },
+ {
+  "rid": "PH01",
+  "row": "Formal Logic",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Logic School",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "100/1; +2 Science; Scientist \u00d71"
+ },
+ {
+  "rid": "PH12",
+  "row": "Harmonious Inquiry",
+  "tier": "UNIQUE",
+  "era": "Classical",
+  "b": "Academy of Harmony",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "100/1; +2 Science, +1 Culture; \u27e8[+1 Science] for every known Natural Wonder\u27e9"
+ },
+ {
+  "rid": "PH07",
+  "row": "Empiricism",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Experimental Laboratory",
+  "sci": 2,
+  "pct": 10,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "200/2; +2 Science; Scientist \u00d71; \u27e8[+10]% [Science] [in this city]\u27e9"
+ },
+ {
+  "rid": "PH10",
+  "row": "Information Theory",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Signals Institute",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +3 Science"
+ },
+ {
+  "rid": "MD03",
+  "row": "Anatomy Study",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Medical School",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[Military] Units adjacent to this city heal [+10] HP per turn when healing"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "100/1; +2 Science; Scientist \u00d71; \u27e8[Military] Units adjacent to this city heal [+10] HP per turn when healing\u27e9"
+ },
+ {
+  "rid": "MD15",
+  "row": "Contagion Experiments",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Contagion Laboratory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [
+   "Triggers a [Contagion Experiments] event"
+  ],
+  "rest_objs": [
+   "The decisive experiment for FQ10"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 200/0; +2 Science; on completion \u27e8Triggers a [Contagion Experiments] event\u27e9 and `Reveals` this world's "
+ },
+ {
+  "rid": "MD19",
+  "row": "Temperament Engineering",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Melancholic Hall",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "Regimen Hall"
+  ],
+  "rest_objs": [
+   "Choleric Hall",
+   "Sanguine Hall",
+   "Phlegmatic Hall"
+  ],
+  "rest_u": 9,
+  "world_excl": false,
+  "spec": "500/2; +3 Science; \u27e8Regimen Hall\u27e9 (tag); \u27e8Remove [{Regimen Hall} {non-[Melancholic Hall]}"
+ },
+ {
+  "rid": "TX10",
+  "row": "Paper Making",
+  "tier": "CORE",
+  "era": "Ancient",
+  "b": "Paper Mill",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [
+   "Paper Maker"
+  ],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "75/1; +1 Science, +1 Culture"
+ },
+ {
+  "rid": "MC06",
+  "row": "Printing Press",
+  "tier": "CORE",
+  "era": "Medieval",
+  "b": "Printing House",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+2 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [
+   "Leaning Tower of Pisa"
+  ],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "120/1; +2 Culture, +2 Science"
+ },
+ {
+  "rid": "MC14",
+  "row": "Babbage Mechanical Computer",
+  "tier": "RARE",
+  "era": "Early Modern",
+  "b": "Difference Engine",
+  "sci": 4,
+  "pct": 10,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 250/0; +4 Science; \u27e8[+10]% [Science] [in this city]\u27e9"
+ },
+ {
+  "rid": "MC16",
+  "row": "Clockwork Automaton",
+  "tier": "STANDARD",
+  "era": "Medieval",
+  "b": "The Mechanical Turk",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+3 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [
+   "Automaton",
+   "Automated Workshop"
+  ],
+  "rest_u": 3,
+  "world_excl": false,
+  "spec": "world wonder; 250; +3 Culture, +2 Science; Great Scientist points 2"
+ },
+ {
+  "rid": "MC18",
+  "row": "Clockwork Analytical Engine",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Analytical Engine",
+  "sci": 6,
+  "pct": 15,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 300/0; +6 Science; \u27e8[+15]% [Science] [in this city]\u27e9"
+ },
+ {
+  "rid": "TH06",
+  "row": "Cryogenics",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Cryolab",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +3 Science"
+ },
+ {
+  "rid": "TH09",
+  "row": "Caloric Theory",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Caloric Lecture Hall",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "FQ12:"
+  ],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "200/1; +2 Science"
+ },
+ {
+  "rid": "TH10",
+  "row": "Mechanical Equivalent of Heat",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Joule Laboratory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [
+   "Triggers a [Mechanical Equivalent of Heat] event"
+  ],
+  "rest_objs": [
+   "The decisive experiment for FQ12"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 200/0; +2 Science; on completion \u27e8Triggers a [Mechanical Equivalent of Heat] event\u27e9 and `Reveals` the h"
+ },
+ {
+  "rid": "CH01",
+  "row": "Alchemy",
+  "tier": "CORE",
+  "era": "Classical",
+  "b": "Laboratory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Gold"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "100/1; +2 Science, +1 Gold; Scientist \u00d71"
+ },
+ {
+  "rid": "CH15",
+  "row": "Greek Alchemical Tradition",
+  "tier": "RARE",
+  "era": "Classical",
+  "b": "Alchemist's Guild",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+2 Gold"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "100/1; +2 Science, +2 Gold"
+ },
+ {
+  "rid": "CH19",
+  "row": "Systematic Element Analysis",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Analytical Laboratory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [
+   "Triggers a [Systematic Element Analysis] event"
+  ],
+  "rest_objs": [
+   "The decisive experiment for FQ9"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 200/0; +2 Science; on completion \u27e8Triggers a [Systematic Element Analysis] event\u27e9 and `Reveals` the for"
+ },
+ {
+  "rid": "CH22",
+  "row": "Five-Phase Theory",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Phase Codex Hall",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "200/2; +2 Science"
+ },
+ {
+  "rid": "CH25",
+  "row": "Organic Synthesis Attempt",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Synthesis Laboratory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [
+   "Triggers a [Organic Synthesis Attempt] event"
+  ],
+  "rest_objs": [
+   "The decisive experiment for FQ11"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 300/0; +2 Science; on completion \u27e8Triggers a [Organic Synthesis Attempt] event\u27e9 and `Reveals` the path:"
+ },
+ {
+  "rid": "CH26",
+  "row": "Closed-Loop Calorimetry",
+  "tier": "STANDARD",
+  "era": "Early Modern",
+  "b": "Calorimetry Hall",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+2 Production] from all [Cycle Forge] buildings"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "200/2; +2 Science; Sage \u00d71; \u27e8[+2 Production] from all [Cycle Forge] buildings\u27e9 \u2014 better-tuned loops"
+ },
+ {
+  "rid": "OP06",
+  "row": "Fiber Optics",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Telecom Exchange",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+2 Gold"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +2 Science, +2 Gold; \u27e8[+2 Science] from all [Research Lab] buildings\u27e9"
+ },
+ {
+  "rid": "OP07",
+  "row": "Laser",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Laser Lab",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+10]% [Production] [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "750/2; +3 Science; \u27e8[+10]% [Production] [in this city]\u27e9 \u2014 laser manufacturing"
+ },
+ {
+  "rid": "OP09",
+  "row": "Ibn al-Haytham's Optics",
+  "tier": "RARE",
+  "era": "Medieval",
+  "b": "Optics Academy",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "120/1; +3 Science; Scientist \u00d71"
+ },
+ {
+  "rid": "EL01",
+  "row": "Static Electricity",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Leyden Hall",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+2 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "200/1; +2 Culture, +1 Science"
+ },
+ {
+  "rid": "EL02",
+  "row": "Voltaic Pile (Battery)",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Battery Works",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Production"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "200/1; +1 Production, +1 Science"
+ },
+ {
+  "rid": "EL03",
+  "row": "Electromagnetism",
+  "tier": "CORE",
+  "era": "Early Modern",
+  "b": "Electromagnetics Institute",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +3 Science; Scientist \u00d71"
+ },
+ {
+  "rid": "EN01",
+  "row": "Vacuum Tube",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Valve Works",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Production"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/1; +1 Science, +1 Production"
+ },
+ {
+  "rid": "EN04",
+  "row": "Radar",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Radar Station",
+  "sci": 1,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Anti-Aircraft Gun",
+   "Fighter",
+   "Bomber",
+   "Paratrooper",
+   "Oil"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +1 Science; cityStrength +5"
+ },
+ {
+  "rid": "EN06",
+  "row": "Semiconductor Mastery",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Fab",
+  "sci": 0,
+  "pct": 10,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+4 Gold"
+  ],
+  "uniq": [
+   "Remove [Neuromorphic Foundry] [in this city]"
+  ],
+  "rest_objs": [
+   "Resonant Crystal Works",
+   "Rare Earths",
+   "Resonant Crystal Mastery"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "750/3; +4 Gold; \u27e8[+10]% [Science] [in this city]\u27e9; requires **Rare Earths**; \u27e8Remove [Neuromorphic Foundry] [in this cit"
+ },
+ {
+  "rid": "EN08",
+  "row": "Photonics",
+  "tier": "UNCOMMON",
+  "era": "Atomic",
+  "b": "Photonic Network",
+  "sci": 4,
+  "pct": 10,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Atomic worlds only:"
+  ],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "750/2; +4 Science; \u27e8[+10]% [Science] [in this city]\u27e9; requires **Rare Earths**"
+ },
+ {
+  "rid": "CP01",
+  "row": "Programmable Computer",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Computer Centre",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": true,
+  "spec": "750/3; +4 Science; Scientist \u00d71"
+ },
+ {
+  "rid": "CP07",
+  "row": "Artificial Intelligence (Narrow)",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "AI Lab",
+  "sci": 5,
+  "pct": 10,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "Remove [Perceptron Laboratory] [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "750/3; +5 Science; \u27e8[+10]% [Science] [in this city]\u27e9; \u27e8Remove [Perceptron Laboratory] [in this city]\u27e9"
+ },
+ {
+  "rid": "CP10",
+  "row": "Quantum Computing",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Quantum Computer",
+  "sci": 6,
+  "pct": 15,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": true,
+  "spec": "750/3; +6 Science; \u27e8[+15]% [Science] [in this city]\u27e9; requires **Rare Earths**"
+ },
+ {
+  "rid": "CP14",
+  "row": "Perceptron Machines",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Perceptron Laboratory",
+  "sci": 2,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+3 Production"
+  ],
+  "uniq": [
+   "Remove [AI Lab] [in this city]"
+  ],
+  "rest_objs": [
+   "The trade:",
+   "Competing Solution"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/1; +3 Production, +2 Science \u2014 pattern recognition on the factory floor; no **Rare Earths**; \u27e8Remove [AI Lab] [in th"
+ },
+ {
+  "rid": "CP15",
+  "row": "Neuromorphic Processors",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Neuromorphic Foundry",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+2 Production"
+  ],
+  "uniq": [
+   "Remove [Fab] [in this city]"
+  ],
+  "rest_objs": [
+   "The trade:"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/2; +4 Science, +2 Production; no **Rare Earths**; \u27e8Remove [Fab] [in this city]\u27e9"
+ },
+ {
+  "rid": "NP01",
+  "row": "Radioactivity",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Radiology Laboratory",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Happiness"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "500/2; +3 Science, +1 Happiness \u2014 X-rays for the hospital and the crystal"
+ },
+ {
+  "rid": "NP02",
+  "row": "Atomic Model",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Nuclear Physics Lab",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "500/2; +3 Science; Great Scientist points 2"
+ },
+ {
+  "rid": "NP03",
+  "row": "Nuclear Fission",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Nuclear Research Lab",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "500/2; +3 Science; requires **Uranium**"
+ },
+ {
+  "rid": "NP04",
+  "row": "Nuclear Fusion",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Fusion Research Centre",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Dead-ends in FQ2-Impossible worlds (~25%)"
+  ],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "750/3; +4 Science"
+ },
+ {
+  "rid": "NP11",
+  "row": "Antimatter Production",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Antimatter Lab",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "750/3; +4 Science \u2014 the propulsion of the far future"
+ },
+ {
+  "rid": "QM-E01",
+  "row": "Fundamental Matter Theory",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Deep Matter Lab",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "500/2; +3 Science; Great Scientist points 2 \u2014 the Nuclear Physics Lab's stats, so the two worlds keep pace"
+ },
+ {
+  "rid": "QM-E02",
+  "row": "Bound-Energy Release",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Bound-Energy Laboratory",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "500/2; +3 Science; no resource \u2014 bound energy is drawn from common matter, where fission needs Uranium"
+ },
+ {
+  "rid": "QM-E04",
+  "row": "Unified Field Theory (Elemental)",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Unified Field Institute",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": true,
+  "spec": "750/3; +4 Science"
+ },
+ {
+  "rid": "QM-E06",
+  "row": "Exotic Matter (Elemental)",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Exotic Matter Forge",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "1000/3; +5 Science; \u27e8[+15]% Production when constructing [SS FTL Drive] units [in this city]\u27e9"
+ },
+ {
+  "rid": "QM-E08",
+  "row": "Grand Athanor / Great Observatory",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Grand Athanor",
+  "sci": 6,
+  "pct": 15,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+1 Happiness"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "national wonder \u2014 every civilisation may build its own, since the FTL evidence must not be first-come; 750; +6 Science, "
+ },
+ {
+  "rid": "QM-E12",
+  "row": "Supernal Spheres (Higher Realms)",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Dimensional Loom",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "QM-E14",
+  "row": "Limiting Fineness",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Fineness Laboratory",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": true,
+  "spec": "500/2; +3 Science"
+ },
+ {
+  "rid": "QM-E16",
+  "row": "Boundary Survey",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Boundary Laboratory",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+1 Happiness"
+  ],
+  "uniq": [],
+  "rest_objs": [
+   "Uranium"
+  ],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "500/2; +3 Science, +1 Happiness"
+ },
+ {
+  "rid": "QM-E17",
+  "row": "Complete Catalogue (Complete Phase Codex)",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Codex Hall",
+  "sci": 6,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+3 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "national wonder; 1000; +6 Science, +3 Culture"
+ },
+ {
+  "rid": "QM-E19",
+  "row": "Celestial Current Survey",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Current Chart",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "rest_objs": [
+   "prerequisite for the Plenum Drive (Method F)"
+  ],
+  "rest_u": 0,
+  "world_excl": true,
+  "spec": "1000/2; +4 Science; \u27e8[+15]% Production when constructing [SS FTL Drive] units [in this city]\u27e9"
+ },
+ {
+  "rid": "QP01",
+  "row": "Wave-Particle Duality",
+  "tier": "CORE",
+  "era": "Modern",
+  "b": "Electron Microscope",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": true,
+  "spec": "500/2; +3 Science"
+ },
+ {
+  "rid": "QP02",
+  "row": "Quantum Mechanics Formalism",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Quantum Lab",
+  "sci": 4,
+  "pct": 10,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "750/3; +4 Science; \u27e8[+10]% [Science] [in this city]\u27e9"
+ },
+ {
+  "rid": "QP04",
+  "row": "Particle Accelerator",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Particle Accelerator",
+  "sci": 6,
+  "pct": 15,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+1 Happiness"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder \u2014 every civilisation may build its own, since the FTL evidence must not be first-come; 750; +6 Science, "
+ },
+ {
+  "rid": "QP05",
+  "row": "Quantum Field Theory",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Field Theory Institute",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "750/3; +4 Science"
+ },
+ {
+  "rid": "QP06",
+  "row": "Standard Model Completion",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Standard Model Institute",
+  "sci": 6,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+3 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 1000; +6 Science, +3 Culture"
+ },
+ {
+  "rid": "QP07",
+  "row": "Quantum Entanglement Mastery",
+  "tier": "CORE",
+  "era": "Space",
+  "b": "Entanglement Lab",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Quantum Sensor"
+  ],
+  "rest_u": 3,
+  "world_excl": false,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "QP08",
+  "row": "Quantum Gravity Theory",
+  "tier": "CORE",
+  "era": "Space",
+  "b": "Gravimetry Station",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "1000/2; +4 Science"
+ },
+ {
+  "rid": "QP09",
+  "row": "String Theory Validation",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Dimensional Scanner",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "QP10",
+  "row": "Loop Quantum Gravity",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Spacetime Loom",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "QP11",
+  "row": "Exotic Matter Synthesis",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Exotic Matter Lab",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+15]% Production when constructing [SS FTL Drive] units [in this city]"
+  ],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/3; +5 Science; \u27e8[+15]% Production when constructing [SS FTL Drive] units [in this city]\u27e9"
+ },
+ {
+  "rid": "QP13",
+  "row": "Hidden Variable Discovery",
+  "tier": "RARE",
+  "era": "Space",
+  "b": "Determinist Institute",
+  "sci": 8,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "national wonder; 1000; +8 Science"
+ },
+ {
+  "rid": "QP14",
+  "row": "Quantum Communication",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Quantum Network",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [
+   "[+2 Gold] from each Trade Route"
+  ],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "1000/2; +3 Science; \u27e8[+2 Gold] from each Trade Route\u27e9"
+ },
+ {
+  "rid": "RC03",
+  "row": "Gravitational Waves Detection",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Gravitational Wave Observatory",
+  "sci": 6,
+  "pct": 0,
+  "per": [],
+  "wonder": true,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "national wonder; 1000; +6 Science"
+ },
+ {
+  "rid": "RC05",
+  "row": "Dark Matter Identification",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Dark Matter Detector",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/2; +5 Science"
+ },
+ {
+  "rid": "RC06",
+  "row": "Dark Energy Understanding",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Cosmological Survey",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "RC07",
+  "row": "Closed Timelike Curves",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Time Crystal Lab",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "RC08",
+  "row": "Gravitational Coupling Experiment",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Gravimetry Laboratory",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Frontier Question FQ7:"
+  ],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "1000/2; +4 Science"
+ },
+ {
+  "rid": "RK04",
+  "row": "Orbital Mechanics",
+  "tier": "CORE",
+  "era": "Atomic",
+  "b": "Space Agency",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+2 Gold"
+  ],
+  "uniq": [],
+  "rest_objs": [
+   "Apollo Program"
+  ],
+  "rest_u": 2,
+  "world_excl": false,
+  "spec": "750/2; +3 Science, +2 Gold"
+ },
+ {
+  "rid": "RK06",
+  "row": "Space Station",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Space Station",
+  "sci": 8,
+  "pct": 10,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+4 Gold"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "world wonder; 1500; +8 Science, +4 Gold; \u27e8[+10]% [Science] [in all cities]\u27e9"
+ },
+ {
+  "rid": "MS04",
+  "row": "Graphene Production",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Graphene Works",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [
+   "+3 Production"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "1000/3; +3 Science, +3 Production"
+ },
+ {
+  "rid": "GN01",
+  "row": "Mendelian Genetics",
+  "tier": "STANDARD",
+  "era": "Modern",
+  "b": "Genetics Lab",
+  "sci": 3,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "500/2; +3 Science"
+ },
+ {
+  "rid": "GN03",
+  "row": "Genetic Engineering",
+  "tier": "STANDARD",
+  "era": "Atomic",
+  "b": "Biotech Lab",
+  "sci": 4,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 1,
+  "world_excl": false,
+  "spec": "1000/3; +4 Science"
+ },
+ {
+  "rid": "GN08",
+  "row": "Bio-Computing",
+  "tier": "RARE",
+  "era": "Atomic",
+  "b": "Bio-Computer",
+  "sci": 6,
+  "pct": 10,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1000/3; +6 Science; \u27e8[+10]% [Science] [in this city]\u27e9"
+ },
+ {
+  "rid": "GN10",
+  "row": "Bio-Quantum Coherence",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Bio-Quantum Lab",
+  "sci": 5,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [
+   "Frontier Question FQ6"
+  ],
+  "rest_u": 3,
+  "world_excl": true,
+  "spec": "1000/3; +5 Science"
+ },
+ {
+  "rid": "GN11",
+  "row": "Organic Neural Architecture",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Organic AI Centre",
+  "sci": 6,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1500/2; +6 Science"
+ },
+ {
+  "rid": "SE08",
+  "row": "O'Neill Cylinder",
+  "tier": "UNCOMMON",
+  "era": "Space",
+  "b": "O'Neill Project",
+  "sci": 8,
+  "pct": 10,
+  "per": [],
+  "wonder": true,
+  "nonsci": [
+   "+4 Culture"
+  ],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "world wonder; 1500; +8 Science, +4 Culture; \u27e8[+10]% [Science] [in all cities]\u27e9"
+ },
+ {
+  "rid": "SE14",
+  "row": "Interstellar Communication",
+  "tier": "STANDARD",
+  "era": "Space",
+  "b": "Interstellar Beacon",
+  "sci": 6,
+  "pct": 0,
+  "per": [],
+  "wonder": false,
+  "nonsci": [],
+  "uniq": [],
+  "rest_objs": [],
+  "rest_u": 0,
+  "world_excl": false,
+  "spec": "1500/3; +6 Science"
+ }
+]

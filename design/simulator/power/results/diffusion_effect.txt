@@ -1,0 +1,7 @@
+Corrected rules (W9 power; engineering targets unmet requirements only); games run on past the end of the tree.
+familiar   isolated (no diffusion)  certain  96/100  can win  63/100  victory median  42  p90  50  | still locked by: EL11×8, MA06×8, MC11×5, CO11×4, CP07×4
+           connected (5 rivals)     certain 100/100  can win  92/100  victory median  41  p90  48  | still locked by: RK16×3, CO11×3, QP06×2
+Substance  isolated (no diffusion)  certain  96/100  can win  63/100  victory median  41  p90  48  | still locked by: TH02×6, EL11×5, MA06×5, MC12×4, QM-E08×3
+           connected (5 rivals)     certain 100/100  can win  96/100  victory median  40  p90  47  | still locked by: MC12×3, CO11×1
+Process    isolated (no diffusion)  certain  95/100  can win  60/100  victory median  40  p90  50  | still locked by: TH02×9, EL11×5, MC11×5, MA06×4, EL07×4
+           connected (5 rivals)     certain 100/100  can win  97/100  victory median  42  p90  52  | still locked by: EL11×3

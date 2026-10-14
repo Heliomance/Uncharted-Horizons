@@ -1,0 +1,407 @@
+{
+ "R/spill/0.1/False": {
+  "scale": 0.7029997236138136,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.96,
+    "Ancient": 1.64,
+    "Classical": 1.13,
+    "Medieval": 0.99,
+    "Early Modern": 0.94,
+    "Modern": 1.39,
+    "Atomic": 1.36,
+    "Space": 0.4
+   },
+   "clump%": {
+    "Primitive": 5.5,
+    "Ancient": 24.5,
+    "Classical": 11.1,
+    "Medieval": 6.8,
+    "Early Modern": 5.2,
+    "Modern": 14.1,
+    "Atomic": 15.9,
+    "Space": 1.2
+   },
+   "drought": {
+    "Primitive": 3.4,
+    "Ancient": 2.6,
+    "Classical": 3.5,
+    "Medieval": 3.5,
+    "Early Modern": 3.7,
+    "Modern": 2.1,
+    "Atomic": 1.9,
+    "Space": 13
+   },
+   "outside own era %": 36.0,
+   "\u22651 era early %": 0.19,
+   "earliest": -1.73,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.68,
+    "UNCOMMON": 0.29,
+    "RARE": 0.04,
+    "UNIQUE": 0.04
+   }
+  }
+ },
+ "R/spill/0.0/False": {
+  "scale": 0.7268914099863061,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.87,
+    "Ancient": 1.82,
+    "Classical": 1.13,
+    "Medieval": 0.97,
+    "Early Modern": 0.88,
+    "Modern": 1.43,
+    "Atomic": 1.36,
+    "Space": 0.47
+   },
+   "clump%": {
+    "Primitive": 4.5,
+    "Ancient": 30.9,
+    "Classical": 12.6,
+    "Medieval": 6.5,
+    "Early Modern": 3.9,
+    "Modern": 13.5,
+    "Atomic": 12.8,
+    "Space": 2.4
+   },
+   "drought": {
+    "Primitive": 3.6,
+    "Ancient": 1.8,
+    "Classical": 3.9,
+    "Medieval": 3.7,
+    "Early Modern": 4,
+    "Modern": 1.9,
+    "Atomic": 2.1,
+    "Space": 12.3
+   },
+   "outside own era %": 36.2,
+   "\u22651 era early %": 0.26,
+   "earliest": -1.71,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.68,
+    "UNCOMMON": 0.32,
+    "RARE": 0.07,
+    "UNIQUE": 0.04
+   }
+  }
+ },
+ "R/spillbank/0.0/False": {
+  "scale": 0.7268914099863061,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.87,
+    "Ancient": 1.82,
+    "Classical": 1.13,
+    "Medieval": 0.97,
+    "Early Modern": 0.88,
+    "Modern": 1.43,
+    "Atomic": 1.36,
+    "Space": 0.47
+   },
+   "clump%": {
+    "Primitive": 4.5,
+    "Ancient": 30.9,
+    "Classical": 12.6,
+    "Medieval": 6.5,
+    "Early Modern": 3.9,
+    "Modern": 13.5,
+    "Atomic": 12.8,
+    "Space": 2.4
+   },
+   "drought": {
+    "Primitive": 3.6,
+    "Ancient": 1.8,
+    "Classical": 3.9,
+    "Medieval": 3.7,
+    "Early Modern": 4,
+    "Modern": 1.9,
+    "Atomic": 2.1,
+    "Space": 12.3
+   },
+   "outside own era %": 36.2,
+   "\u22651 era early %": 0.26,
+   "earliest": -1.71,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.68,
+    "UNCOMMON": 0.32,
+    "RARE": 0.07,
+    "UNIQUE": 0.04
+   }
+  }
+ },
+ "R/spillbank/0.0/True": {
+  "scale": 0.8125513405311999,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.9,
+    "Ancient": 1.72,
+    "Classical": 1.13,
+    "Medieval": 0.89,
+    "Early Modern": 0.98,
+    "Modern": 1.48,
+    "Atomic": 1.19,
+    "Space": 0.29
+   },
+   "clump%": {
+    "Primitive": 4.8,
+    "Ancient": 28.2,
+    "Classical": 11.9,
+    "Medieval": 5.6,
+    "Early Modern": 4.6,
+    "Modern": 11.3,
+    "Atomic": 9.1,
+    "Space": 0.6
+   },
+   "drought": {
+    "Primitive": 3.5,
+    "Ancient": 3,
+    "Classical": 4.1,
+    "Medieval": 4.2,
+    "Early Modern": 3.4,
+    "Modern": 1.6,
+    "Atomic": 3.6,
+    "Space": 18.4
+   },
+   "outside own era %": 35.3,
+   "\u22651 era early %": 0.33,
+   "earliest": -1.95,
+   "tiers": {
+    "CORE": 0.99,
+    "STANDARD": 0.65,
+    "UNCOMMON": 0.28,
+    "RARE": 0.07,
+    "UNIQUE": 0.04
+   }
+  }
+ },
+ "Pmom/spill/0.1/False": {
+  "scale": 0.7515950635026649,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.81,
+    "Ancient": 1.94,
+    "Classical": 0.99,
+    "Medieval": 1.03,
+    "Early Modern": 0.83,
+    "Modern": 1.59,
+    "Atomic": 1.16,
+    "Space": 0.35
+   },
+   "clump%": {
+    "Primitive": 5.8,
+    "Ancient": 33.6,
+    "Classical": 9.3,
+    "Medieval": 9.4,
+    "Early Modern": 3.8,
+    "Modern": 18.3,
+    "Atomic": 10.9,
+    "Space": 1.8
+   },
+   "drought": {
+    "Primitive": 3.2,
+    "Ancient": 2.4,
+    "Classical": 3.7,
+    "Medieval": 4,
+    "Early Modern": 3.5,
+    "Modern": 1.5,
+    "Atomic": 3.2,
+    "Space": 16.9
+   },
+   "outside own era %": 31.7,
+   "\u22651 era early %": 0.03,
+   "earliest": -1.02,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.65,
+    "UNCOMMON": 0.28,
+    "RARE": 0.06,
+    "UNIQUE": 0.04
+   }
+  }
+ },
+ "Pmom/spill/0.0/False": {
+  "scale": 0.7728215745581435,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.81,
+    "Ancient": 1.95,
+    "Classical": 0.93,
+    "Medieval": 1.02,
+    "Early Modern": 0.87,
+    "Modern": 1.54,
+    "Atomic": 1.23,
+    "Space": 0.37
+   },
+   "clump%": {
+    "Primitive": 4.8,
+    "Ancient": 34.1,
+    "Classical": 9.3,
+    "Medieval": 9.4,
+    "Early Modern": 5.4,
+    "Modern": 17.4,
+    "Atomic": 14.1,
+    "Space": 2.0
+   },
+   "drought": {
+    "Primitive": 3.1,
+    "Ancient": 2.5,
+    "Classical": 4.3,
+    "Medieval": 4.3,
+    "Early Modern": 4.2,
+    "Modern": 1.9,
+    "Atomic": 2.9,
+    "Space": 15.4
+   },
+   "outside own era %": 32.0,
+   "\u22651 era early %": 0.0,
+   "earliest": -1.0,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.65,
+    "UNCOMMON": 0.28,
+    "RARE": 0.09,
+    "UNIQUE": 0.03
+   }
+  }
+ },
+ "Pmom/spillbank/0.0/False": {
+  "scale": 0.7728215745581435,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.81,
+    "Ancient": 2.0,
+    "Classical": 0.91,
+    "Medieval": 0.99,
+    "Early Modern": 0.88,
+    "Modern": 1.56,
+    "Atomic": 1.25,
+    "Space": 0.34
+   },
+   "clump%": {
+    "Primitive": 4.8,
+    "Ancient": 34.5,
+    "Classical": 8.9,
+    "Medieval": 7.9,
+    "Early Modern": 5.7,
+    "Modern": 16.7,
+    "Atomic": 15.0,
+    "Space": 1.6
+   },
+   "drought": {
+    "Primitive": 3.1,
+    "Ancient": 2.3,
+    "Classical": 3.7,
+    "Medieval": 4.2,
+    "Early Modern": 3.1,
+    "Modern": 1.7,
+    "Atomic": 2.8,
+    "Space": 12.6
+   },
+   "outside own era %": 32.3,
+   "\u22651 era early %": 0.0,
+   "earliest": -0.87,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.66,
+    "UNCOMMON": 0.29,
+    "RARE": 0.07,
+    "UNIQUE": 0.03
+   }
+  }
+ },
+ "Pone/spill/0.0/False": {
+  "scale": 0.6359339446581234,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.86,
+    "Ancient": 1.75,
+    "Classical": 1.13,
+    "Medieval": 0.71,
+    "Early Modern": 0.96,
+    "Modern": 1.76,
+    "Atomic": 1.24,
+    "Space": 0.31
+   },
+   "clump%": {
+    "Primitive": 5.5,
+    "Ancient": 29.1,
+    "Classical": 11.5,
+    "Medieval": 6.5,
+    "Early Modern": 7.3,
+    "Modern": 24.3,
+    "Atomic": 11.9,
+    "Space": 1.0
+   },
+   "drought": {
+    "Primitive": 3.7,
+    "Ancient": 2.2,
+    "Classical": 3.4,
+    "Medieval": 6.1,
+    "Early Modern": 4.2,
+    "Modern": 1.9,
+    "Atomic": 3.2,
+    "Space": 16.7
+   },
+   "outside own era %": 42.0,
+   "\u22651 era early %": 0.32,
+   "earliest": -1.87,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.67,
+    "UNCOMMON": 0.32,
+    "RARE": 0.07,
+    "UNIQUE": 0.05
+   }
+  }
+ },
+ "Pone/spillbank/0.0/False": {
+  "scale": 0.6359339446581234,
+  "summary": {
+   "cadence": {
+    "Primitive": 0.85,
+    "Ancient": 1.8,
+    "Classical": 1.02,
+    "Medieval": 0.72,
+    "Early Modern": 1.02,
+    "Modern": 1.76,
+    "Atomic": 1.25,
+    "Space": 0.25
+   },
+   "clump%": {
+    "Primitive": 5.5,
+    "Ancient": 30.0,
+    "Classical": 8.5,
+    "Medieval": 5.0,
+    "Early Modern": 7.5,
+    "Modern": 24.1,
+    "Atomic": 15.6,
+    "Space": 0.4
+   },
+   "drought": {
+    "Primitive": 3.7,
+    "Ancient": 2.4,
+    "Classical": 4.1,
+    "Medieval": 5.7,
+    "Early Modern": 4.6,
+    "Modern": 1.9,
+    "Atomic": 3,
+    "Space": 16.9
+   },
+   "outside own era %": 41.8,
+   "\u22651 era early %": 0.29,
+   "earliest": -1.76,
+   "tiers": {
+    "CORE": 1.0,
+    "STANDARD": 0.67,
+    "UNCOMMON": 0.31,
+    "RARE": 0.07,
+    "UNIQUE": 0.04
+   }
+  }
+ }
+}
