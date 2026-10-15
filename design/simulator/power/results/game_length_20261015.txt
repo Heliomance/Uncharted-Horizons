@@ -1,0 +1,498 @@
+Back to base Civ V's game lengths (Tamsin, 15 Oct 2026). Development's era boundaries at base Civ V's era timings for a good economy
+(DEVENDS=Modern:66231,Atomic:113629,Space:209676: the Atomic era from turn 228, the Space era from 264 to 320; 284, 330 and 400 on the average economy),
+idea windows following those era lengths (WINTURNS=Modern:47,Atomic:36,Space:56), the Space era's price swept (SPACEPRICE, x the span's 1,399).
+Three players, familiar Warp, Process Tachyonic, Substance Plenum, 60 games a cell, PYTHONHASHSEED=0. Victory adds the prototype priced
+at PROTOX x the Space price (with any premium) from the active share of income, the SS FTL Drive (4 / 5 turns, one fewer for exotic
+methods) and a turn to launch. Made by: DEVENDS=... SPACEPRICE=<f> PROTOX=<x> python3 space_timing.py _bt<label> familiar:Warp Process:Tachyonic Substance:Plenum
+
+=================== bt080: Space price x0.8, prototype 5x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   222   development 5.87
+  unified theory                                      turn   224   development 5.92
+  enters the Space era (4th Space-era breakthrough)   turn   253   development 6.66
+  certainty                                           turn   270   development 7.09
+  build complete                                      turn   287   development 7.36
+  race finished                                       turn   287   development 7.36
+  victory (the prototype from its price)              turn   295   development 7.52
+  victory (the prototype at a fixed 5 / 6 turns)      turn   296   development 7.54
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 253/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 49% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 31%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.09, Atomic 1.27, Space 1.40
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   245   development 6.41
+  unified theory                                      turn   262   development 6.94
+  enters the Space era (4th Space-era breakthrough)   turn   258   development 6.81
+  certainty                                           turn   282   development 7.28
+  build complete                                      turn   291   development 7.44
+  race finished                                       turn   291   development 7.44
+  victory (the prototype from its price)              turn   300   development 7.61
+  victory (the prototype at a fixed 5 / 6 turns)      turn   301   development 7.63
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 258/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 22% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 15%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.34, Space 1.23
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   306   development 6.42
+  unified theory                                      turn   328   development 6.97
+  enters the Space era (4th Space-era breakthrough)   turn   322   development 6.82
+  certainty                                           turn   350   development 7.26
+  build complete                                      turn   360   development 7.40
+  race finished                                       turn   360   development 7.40
+  victory (the prototype from its price)              turn   370   development 7.55
+  victory (the prototype at a fixed 5 / 6 turns)      turn   372   development 7.58
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 322/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 25% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 10%, Space 16%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 1.06, Space 0.99
+
+=================== bt080: Space price x0.8, prototype 9x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   222   development 5.87
+  unified theory                                      turn   224   development 5.92
+  enters the Space era (4th Space-era breakthrough)   turn   253   development 6.66
+  certainty                                           turn   270   development 7.09
+  build complete                                      turn   287   development 7.36
+  race finished                                       turn   287   development 7.36
+  victory (the prototype from its price)              turn   297   development 7.55
+  victory (the prototype at a fixed 5 / 6 turns)      turn   296   development 7.54
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 253/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 49% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 31%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.09, Atomic 1.27, Space 1.40
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   245   development 6.41
+  unified theory                                      turn   262   development 6.94
+  enters the Space era (4th Space-era breakthrough)   turn   258   development 6.81
+  certainty                                           turn   282   development 7.28
+  build complete                                      turn   291   development 7.44
+  race finished                                       turn   291   development 7.44
+  victory (the prototype from its price)              turn   302   development 7.65
+  victory (the prototype at a fixed 5 / 6 turns)      turn   301   development 7.63
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 258/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 22% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 15%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.34, Space 1.23
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   306   development 6.42
+  unified theory                                      turn   328   development 6.97
+  enters the Space era (4th Space-era breakthrough)   turn   322   development 6.82
+  certainty                                           turn   350   development 7.26
+  build complete                                      turn   360   development 7.40
+  race finished                                       turn   360   development 7.40
+  victory (the prototype from its price)              turn   374   development 7.61
+  victory (the prototype at a fixed 5 / 6 turns)      turn   372   development 7.58
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 322/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 25% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 10%, Space 16%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 1.06, Space 0.99
+
+=================== bt100: Space price x1, prototype 5x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   225   development 5.94
+  unified theory                                      turn   227   development 5.98
+  enters the Space era (4th Space-era breakthrough)   turn   255   development 6.72
+  certainty                                           turn   272   development 7.12
+  build complete                                      turn   290   development 7.42
+  race finished                                       turn   290   development 7.42
+  victory (the prototype from its price)              turn   298   development 7.57
+  victory (the prototype at a fixed 5 / 6 turns)      turn   299   development 7.59
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 255/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 41% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 29%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.07, Atomic 1.20, Space 1.35
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   246   development 6.44
+  unified theory                                      turn   264   development 7.00
+  enters the Space era (4th Space-era breakthrough)   turn   260   development 6.88
+  certainty                                           turn   282   development 7.28
+  build complete                                      turn   292   development 7.46
+  race finished                                       turn   292   development 7.46
+  victory (the prototype from its price)              turn   300   development 7.61
+  victory (the prototype at a fixed 5 / 6 turns)      turn   301   development 7.63
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 260/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 22% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 15%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.29, Space 1.16
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   308   development 6.47
+  unified theory                                      turn   330   development 7.01
+  enters the Space era (4th Space-era breakthrough)   turn   325   development 6.90
+  certainty                                           turn   350   development 7.26
+  build complete                                      turn   364   development 7.46
+  race finished                                       turn   364   development 7.46
+  victory (the prototype from its price)              turn   374   development 7.61
+  victory (the prototype at a fixed 5 / 6 turns)      turn   375   development 7.63
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 325/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 22% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 10%, Space 16%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 1.03, Space 0.89
+
+=================== bt100: Space price x1, prototype 9x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   225   development 5.94
+  unified theory                                      turn   227   development 5.98
+  enters the Space era (4th Space-era breakthrough)   turn   255   development 6.72
+  certainty                                           turn   272   development 7.12
+  build complete                                      turn   290   development 7.42
+  race finished                                       turn   290   development 7.42
+  victory (the prototype from its price)              turn   302   development 7.65
+  victory (the prototype at a fixed 5 / 6 turns)      turn   299   development 7.59
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 255/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 41% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 29%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.07, Atomic 1.20, Space 1.35
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   246   development 6.44
+  unified theory                                      turn   264   development 7.00
+  enters the Space era (4th Space-era breakthrough)   turn   260   development 6.88
+  certainty                                           turn   282   development 7.28
+  build complete                                      turn   292   development 7.46
+  race finished                                       turn   292   development 7.46
+  victory (the prototype from its price)              turn   304   development 7.69
+  victory (the prototype at a fixed 5 / 6 turns)      turn   301   development 7.63
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 260/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 22% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 15%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.29, Space 1.16
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   308   development 6.47
+  unified theory                                      turn   330   development 7.01
+  enters the Space era (4th Space-era breakthrough)   turn   325   development 6.90
+  certainty                                           turn   350   development 7.26
+  build complete                                      turn   364   development 7.46
+  race finished                                       turn   364   development 7.46
+  victory (the prototype from its price)              turn   378   development 7.67
+  victory (the prototype at a fixed 5 / 6 turns)      turn   375   development 7.63
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 325/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 22% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 10%, Space 16%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 1.03, Space 0.89
+
+=================== bt125: Space price x1.25, prototype 5x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   227   development 5.98
+  unified theory                                      turn   229   development 6.02
+  enters the Space era (4th Space-era breakthrough)   turn   258   development 6.81
+  certainty                                           turn   276   development 7.18
+  build complete                                      turn   294   development 7.50
+  race finished                                       turn   294   development 7.50
+  victory (the prototype from its price)              turn   304   development 7.69
+  victory (the prototype at a fixed 5 / 6 turns)      turn   304   development 7.69
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 258/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 35% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 27%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.06, Atomic 1.16, Space 1.26
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   249   development 6.53
+  unified theory                                      turn   265   development 7.02
+  enters the Space era (4th Space-era breakthrough)   turn   262   development 6.94
+  certainty                                           turn   284   development 7.31
+  build complete                                      turn   294   development 7.50
+  race finished                                       turn   294   development 7.50
+  victory (the prototype from its price)              turn   303   development 7.67
+  victory (the prototype at a fixed 5 / 6 turns)      turn   303   development 7.67
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 262/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 19% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 14%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.25, Space 1.08
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   311   development 6.55
+  unified theory                                      turn   330   development 7.01
+  enters the Space era (4th Space-era breakthrough)   turn   329   development 7.00
+  certainty                                           turn   352   development 7.28
+  build complete                                      turn   365   development 7.47
+  race finished                                       turn   365   development 7.47
+  victory (the prototype from its price)              turn   377   development 7.66
+  victory (the prototype at a fixed 5 / 6 turns)      turn   376   development 7.64
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 329/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 19% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 10%, Space 15%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.99, Space 0.83
+
+=================== bt125: Space price x1.25, prototype 9x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   227   development 5.98
+  unified theory                                      turn   229   development 6.02
+  enters the Space era (4th Space-era breakthrough)   turn   258   development 6.81
+  certainty                                           turn   276   development 7.18
+  build complete                                      turn   294   development 7.50
+  race finished                                       turn   294   development 7.50
+  victory (the prototype from its price)              turn   308   development 7.77
+  victory (the prototype at a fixed 5 / 6 turns)      turn   304   development 7.69
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 258/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 35% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 27%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.06, Atomic 1.16, Space 1.26
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   249   development 6.53
+  unified theory                                      turn   265   development 7.02
+  enters the Space era (4th Space-era breakthrough)   turn   262   development 6.94
+  certainty                                           turn   284   development 7.31
+  build complete                                      turn   294   development 7.50
+  race finished                                       turn   294   development 7.50
+  victory (the prototype from its price)              turn   307   development 7.75
+  victory (the prototype at a fixed 5 / 6 turns)      turn   303   development 7.67
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 262/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 19% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 14%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.25, Space 1.08
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   311   development 6.55
+  unified theory                                      turn   330   development 7.01
+  enters the Space era (4th Space-era breakthrough)   turn   329   development 7.00
+  certainty                                           turn   352   development 7.28
+  build complete                                      turn   365   development 7.47
+  race finished                                       turn   365   development 7.47
+  victory (the prototype from its price)              turn   381   development 7.72
+  victory (the prototype at a fixed 5 / 6 turns)      turn   376   development 7.64
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 329/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 19% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 10%, Space 15%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.99, Space 0.83
+
+=================== bt150: Space price x1.5, prototype 5x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   230   development 6.04
+  unified theory                                      turn   233   development 6.10
+  enters the Space era (4th Space-era breakthrough)   turn   260   development 6.88
+  certainty                                           turn   278   development 7.22
+  build complete                                      turn   296   development 7.54
+  race finished                                       turn   296   development 7.54
+  victory (the prototype from its price)              turn   306   development 7.73
+  victory (the prototype at a fixed 5 / 6 turns)      turn   305   development 7.71
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 260/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 26% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 26%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.05, Atomic 1.11, Space 1.24
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   251   development 6.60
+  unified theory                                      turn   266   development 7.03
+  enters the Space era (4th Space-era breakthrough)   turn   264   development 7.00
+  certainty                                           turn   284   development 7.31
+  build complete                                      turn   295   development 7.52
+  race finished                                       turn   296   development 7.54
+  victory (the prototype from its price)              turn   306   development 7.73
+  victory (the prototype at a fixed 5 / 6 turns)      turn   305   development 7.71
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 264/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 15% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 13%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.22, Space 1.03
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   314   development 6.62
+  unified theory                                      turn   332   development 7.04
+  enters the Space era (4th Space-era breakthrough)   turn   331   development 7.02
+  certainty                                           turn   352   development 7.28
+  build complete                                      turn   368   development 7.52
+  race finished                                       turn   368   development 7.52
+  victory (the prototype from its price)              turn   381   development 7.72
+  victory (the prototype at a fixed 5 / 6 turns)      turn   379   development 7.69
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 331/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 16% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 11%, Space 14%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.97, Space 0.80
+
+=================== bt150: Space price x1.5, prototype 9x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   230   development 6.04
+  unified theory                                      turn   233   development 6.10
+  enters the Space era (4th Space-era breakthrough)   turn   260   development 6.88
+  certainty                                           turn   278   development 7.22
+  build complete                                      turn   296   development 7.54
+  race finished                                       turn   296   development 7.54
+  victory (the prototype from its price)              turn   311   development 7.83
+  victory (the prototype at a fixed 5 / 6 turns)      turn   305   development 7.71
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 260/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 26% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 18%, Space 26%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.05, Atomic 1.11, Space 1.24
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   251   development 6.60
+  unified theory                                      turn   266   development 7.03
+  enters the Space era (4th Space-era breakthrough)   turn   264   development 7.00
+  certainty                                           turn   284   development 7.31
+  build complete                                      turn   295   development 7.52
+  race finished                                       turn   296   development 7.54
+  victory (the prototype from its price)              turn   311   development 7.83
+  victory (the prototype at a fixed 5 / 6 turns)      turn   305   development 7.71
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 264/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 15% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 13%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.18, Atomic 1.22, Space 1.03
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   314   development 6.62
+  unified theory                                      turn   332   development 7.04
+  enters the Space era (4th Space-era breakthrough)   turn   331   development 7.02
+  certainty                                           turn   352   development 7.28
+  build complete                                      turn   368   development 7.52
+  race finished                                       turn   368   development 7.52
+  victory (the prototype from its price)              turn   387   development 7.81
+  victory (the prototype at a fixed 5 / 6 turns)      turn   379   development 7.69
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 331/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 16% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 11%, Space 14%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.97, Space 0.80
+
+=================== bt200: Space price x2, prototype 5x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   235   development 6.13
+  unified theory                                      turn   238   development 6.19
+  enters the Space era (4th Space-era breakthrough)   turn   263   development 6.97
+  certainty                                           turn   283   development 7.29
+  build complete                                      turn   299   development 7.59
+  race finished                                       turn   299   development 7.59
+  victory (the prototype from its price)              turn   311   development 7.83
+  victory (the prototype at a fixed 5 / 6 turns)      turn   308   development 7.77
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 263/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 21% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 19%, Space 26%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.04, Atomic 1.06, Space 1.16
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   254   development 6.69
+  unified theory                                      turn   267   development 7.05
+  enters the Space era (4th Space-era breakthrough)   turn   267   development 7.05
+  certainty                                           turn   286   development 7.34
+  build complete                                      turn   297   development 7.55
+  race finished                                       turn   297   development 7.55
+  victory (the prototype from its price)              turn   309   development 7.79
+  victory (the prototype at a fixed 5 / 6 turns)      turn   306   development 7.73
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 267/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 11% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 13%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.19, Atomic 1.18, Space 0.97
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   318   development 6.72
+  unified theory                                      turn   332   development 7.04
+  enters the Space era (4th Space-era breakthrough)   turn   334   development 7.06
+  certainty                                           turn   355   development 7.32
+  build complete                                      turn   368   development 7.52
+  race finished                                       turn   368   development 7.52
+  victory (the prototype from its price)              turn   384   development 7.77
+  victory (the prototype at a fixed 5 / 6 turns)      turn   380   development 7.70
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 334/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 11% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 11%, Space 13%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.94, Space 0.76
+
+=================== bt200: Space price x2, prototype 9x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   235   development 6.13
+  unified theory                                      turn   238   development 6.19
+  enters the Space era (4th Space-era breakthrough)   turn   263   development 6.97
+  certainty                                           turn   283   development 7.29
+  build complete                                      turn   299   development 7.59
+  race finished                                       turn   299   development 7.59
+  victory (the prototype from its price)              turn   318   development 7.96
+  victory (the prototype at a fixed 5 / 6 turns)      turn   308   development 7.77
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 218/228, Space 263/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 21% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 19%, Space 26%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.04, Atomic 1.06, Space 1.16
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   254   development 6.69
+  unified theory                                      turn   267   development 7.05
+  enters the Space era (4th Space-era breakthrough)   turn   267   development 7.05
+  certainty                                           turn   286   development 7.34
+  build complete                                      turn   297   development 7.55
+  race finished                                       turn   297   development 7.55
+  victory (the prototype from its price)              turn   316   development 7.92
+  victory (the prototype at a fixed 5 / 6 turns)      turn   306   development 7.73
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 267/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 11% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 13%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.19, Atomic 1.18, Space 0.97
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   318   development 6.72
+  unified theory                                      turn   332   development 7.04
+  enters the Space era (4th Space-era breakthrough)   turn   334   development 7.06
+  certainty                                           turn   355   development 7.32
+  build complete                                      turn   368   development 7.52
+  race finished                                       turn   368   development 7.52
+  victory (the prototype from its price)              turn   392   development 7.89
+  victory (the prototype at a fixed 5 / 6 turns)      turn   380   development 7.70
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 334/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 11% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 11%, Space 13%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.94, Space 0.76
+
+=================== bt300: Space price x3, prototype 5x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   241   development 6.28
+  unified theory                                      turn   244   development 6.38
+  enters the Space era (4th Space-era breakthrough)   turn   267   development 7.05
+  certainty                                           turn   287   development 7.36
+  build complete                                      turn   303   development 7.67
+  race finished                                       turn   303   development 7.67
+  victory (the prototype from its price)              turn   320   development 8.00
+  victory (the prototype at a fixed 5 / 6 turns)      turn   313   development 7.86
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 217/228, Space 267/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 14% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 20%, Space 26%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.03, Atomic 0.99, Space 1.12
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   260   development 6.88
+  unified theory                                      turn   267   development 7.05
+  enters the Space era (4th Space-era breakthrough)   turn   270   development 7.09
+  certainty                                           turn   287   development 7.36
+  build complete                                      turn   299   development 7.59
+  race finished                                       turn   299   development 7.59
+  victory (the prototype from its price)              turn   316   development 7.92
+  victory (the prototype at a fixed 5 / 6 turns)      turn   309   development 7.79
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 270/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 6% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 11%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.19, Atomic 1.14, Space 0.91
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   324   development 6.87
+  unified theory                                      turn   333   development 7.05
+  enters the Space era (4th Space-era breakthrough)   turn   337   development 7.10
+  certainty                                           turn   356   development 7.33
+  build complete                                      turn   373   development 7.60
+  race finished                                       turn   373   development 7.60
+  victory (the prototype from its price)              turn   393   development 7.91
+  victory (the prototype at a fixed 5 / 6 turns)      turn   384   development 7.77
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 337/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 6% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 11%, Space 11%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.92, Space 0.70
+
+=================== bt300: Space price x3, prototype 9x
+EXPERT (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   241   development 6.28
+  unified theory                                      turn   244   development 6.38
+  enters the Space era (4th Space-era breakthrough)   turn   267   development 7.05
+  certainty                                           turn   287   development 7.36
+  build complete                                      turn   303   development 7.67
+  race finished                                       turn   303   development 7.67
+  victory (the prototype from its price)              turn   330   development 8.19
+  victory (the prototype at a fixed 5 / 6 turns)      turn   313   development 7.86
+  enters each era by count / development reaches it: Ancient 35/30, Classical 62/62, Medieval 89/94, Early Modern 133/132, Modern 178/181, Atomic 217/228, Space 267/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 14% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 11%, Atomic 20%, Space 26%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.03, Atomic 0.99, Space 1.12
+NOVICE (180 games, 0 unfinished; economy x1.0): development enters the Atomic era on turn 228, the Space era on 264, and ends it on 321
+  first Space-era discovery                           turn   260   development 6.88
+  unified theory                                      turn   267   development 7.05
+  enters the Space era (4th Space-era breakthrough)   turn   270   development 7.09
+  certainty                                           turn   287   development 7.36
+  build complete                                      turn   299   development 7.59
+  race finished                                       turn   299   development 7.59
+  victory (the prototype from its price)              turn   326   development 8.12
+  victory (the prototype at a fixed 5 / 6 turns)      turn   309   development 7.79
+  enters each era by count / development reaches it: Ancient 36/30, Classical 68/62, Medieval 96/94, Early Modern 138/132, Modern 184/181, Atomic 231/228, Space 270/264
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 6% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 5%, Atomic 10%, Space 11%
+  discoveries a turn while development is in each era (diffusion included): Modern 1.19, Atomic 1.14, Space 0.91
+AVERAGE (180 games, 0 unfinished; economy x0.8): development enters the Atomic era on turn 284, the Space era on 330, and ends it on 400
+  first Space-era discovery                           turn   324   development 6.87
+  unified theory                                      turn   333   development 7.05
+  enters the Space era (4th Space-era breakthrough)   turn   337   development 7.10
+  certainty                                           turn   356   development 7.33
+  build complete                                      turn   373   development 7.60
+  race finished                                       turn   373   development 7.60
+  victory (the prototype from its price)              turn   405   development 8.09
+  victory (the prototype at a fixed 5 / 6 turns)      turn   384   development 7.77
+  enters each era by count / development reaches it: Ancient 45/38, Classical 84/77, Medieval 119/117, Early Modern 172/164, Modern 228/225, Atomic 287/284, Space 337/330
+  Space-era breakthroughs held at the finish that came before development reached the Space era: 6% (median)
+  the premium's share of the Insight spent on study, by era of the row: Modern 6%, Atomic 11%, Space 11%
+  discoveries a turn while development is in each era (diffusion included): Modern 0.95, Atomic 0.92, Space 0.70

@@ -114,7 +114,16 @@ SPACE_FROM = None    # the cumulative Insight at which development enters the Sp
                      # Lower, development crosses the Atomic era faster and the Space era more slowly, both eras' outer ends unchanged;
                      # income (the simulator's stand-in economy) and every price stay as they are (Tamsin, 15 Oct 2026: the development
                      # thresholds look wrong if the game ends before the Space era begins)
+DEV_ENDS = None      # {era: cumulative Insight at which development leaves it}: development's own era boundaries where they differ from
+                     # the spans income follows (a redraw of section 2 that leaves the simulated economy alone); None, the spans themselves
+WIN_TURNS = None     # {era: turns}: the era lengths that size idea windows (section 1.2), where they differ from the era model's
 def dev_at(cum):
+    if DEV_ENDS:
+        ends = [DEV_ENDS.get(e, Lg.ERA_END[e]) for e in EO]; lo = 0.0
+        for i, hi in enumerate(ends):
+            if cum <= hi: return i + (cum - lo) / (hi - lo)
+            lo = hi
+        return len(EO) - 1 + (cum - ends[-2]) / (ends[-1] - ends[-2])
     if SPACE_FROM is None: return dev(cum)
     a0, s1 = Lg.ERA_END['Modern'], Lg.ERA_END['Space']
     if a0 <= cum < SPACE_FROM: return SPACE_I - 1 + (cum - a0) / (SPACE_FROM - a0)
@@ -195,7 +204,7 @@ def run(prm, seed, max_turns=450):
                 t = ROWS[k]['tier']
                 if t == 'CORE' or (W16 and k in FUNDED and t == 'STANDARD' and ROWS[k]['era'] == 'Space'): occurred.add(k); continue   # W16: a funded focus never loses an idea
                 if k in lost: continue                                                 # its window closed on an earlier turn: it stays closed
-                W = TURNS[ROWS[k]['era']] * prm.window[t] * prm.accel_occ.get(k, 1.0)
+                W = (WIN_TURNS.get(ROWS[k]['era'], TURNS[ROWS[k]['era']]) if WIN_TURNS else TURNS[ROWS[k]['era']]) * prm.window[t] * prm.accel_occ.get(k, 1.0)
                 behind = d - (ERA_I[k] + 1)
                 if prm.compress and behind > 0: W = W / (1 + prm.compress * behind)
                 W = max(W, 1.0)

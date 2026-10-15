@@ -168,6 +168,8 @@ _L = os.environ.get('LEVERS', '')
 PARALLEL = os.environ.get('PARALLEL') == '1'
 HF.ECON = float(os.environ.get('ECON', '1'))
 HF.SPACE_FROM = float(os.environ['SPACEFROM']) if os.environ.get('SPACEFROM') else None   # where development enters the Space era (harness_ftl_e.SPACE_FROM)
+HF.DEV_ENDS = {e: float(x) for e, x in (i.split(':') for i in os.environ['DEVENDS'].split(','))} if os.environ.get('DEVENDS') else None   # development's era boundaries, era:Insight,... (harness_ftl_e.DEV_ENDS)
+HF.WIN_TURNS = {e: float(x) for e, x in (i.split(':') for i in os.environ['WINTURNS'].split(','))} if os.environ.get('WINTURNS') else None   # era lengths for idea windows, era:turns,... (harness_ftl_e.WIN_TURNS)
 HF.INSIGHT_CUT = float(os.environ.get('INSIGHTCUT', '0')); HF.INSIGHT_CUT_FROM = os.environ.get('INSIGHTCUTFROM', 'Atomic')   # Insight lost late on (harness_ftl_e.INSIGHT_CUT)
 HF.INSIGHT_CUT_DEV = os.environ.get('INSIGHTCUTDEV') == '1'   # ...and not counted towards development
 HF.INCOME_FULL = os.environ.get('INCOMEFULL') == '1'   # income follows all Insight produced, not development (harness_ftl_e.INCOME_FULL)
