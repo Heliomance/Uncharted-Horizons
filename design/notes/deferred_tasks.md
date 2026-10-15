@@ -60,7 +60,16 @@
 - **Claude's recommendation:** adopt `e7` with v3.123 if every era should be at or under one discovery a turn: it costs no victory time and keeps the eras aligned, and play would show whether the later Ancient era matters. For the late game, merging rows is the only lever found that reaches one a turn at parity; it's content work, best done with the FTL methods' rebalance (which reprices late rows anyway), starting from the late rows that players nearly always discover and no victory needs. Otherwise the late game stays at 1.1–1.4 discoveries a turn for the expert and novice.
 - **Next:** Tamsin decides on `e7` and on the late game. If `e7` is adopted, confirm it on all 15 victory conditions with the ×1 late prices before writing v3.123.
 - **Decided (15 October, Tamsin):** "adopt the ancient changes. draft merge candidates, survey for technologies that don't earn their place, and ones that can be demoted to UNCOMMON".
-- **Done (v3.123):** `e7` adopted and confirmed on all 15 victory conditions (every era up to the Early Modern at one turn per discovery or slower for all three players; victory 304 / 307 / 380). The survey is in progress: its data is `results/row_survey_v3123.tsv` (`row_survey.py`).
+- **Done (v3.123):** `e7` adopted and confirmed on all 15 victory conditions (every era up to the Early Modern at one turn per discovery or slower for all three players; victory 304 / 307 / 380).
+- **Drafted (15 October): the row survey,** `design/notes/row_survey_20261015.md` (data: `results/row_survey_v3123.tsv`, `row_survey.py`).
+  - It proposes:
+    - seven merges, three of them recommended (Relativity; Quantum Field Theory with its elemental mirror; Radioactivity with Uranium Discovery, as the elemental Boundary Survey already is);
+    - two cuts (Sealed Environments, Atmospheric Science);
+    - four demotions to UNCOMMON (Desalination, Hydroponics, Flying Boat, Nuclear Thermal Rocket), with Helium Extraction optional.
+  - First-order, that removes about 11 late discoveries a game. Competing Solutions' lock-outs, which the simulator doesn't model, remove about 5 more in real games.
+  - Together, about 1.1 discoveries a turn from the Modern era on for the good economies, against about 1.25.
+  - Found in passing: Aetheric Electrodynamics keeps a +2 Production from Factories that Quantum Electrodynamics has lost; Aetheric Vacuum lacks Casimir's report.
+- **Next:** Tamsin picks from the survey; then v3.124 applies the picks, re-solves the late prices for parity on all 15 conditions and reports the late pace. Optionally, the harness first models Competing Solutions' lock-outs.
 
 ## 2026-10-15: Rebalance the FTL methods for v3.122
 - **Surfaced during:** v3.122's confirmation (`results/v3122_confirmation.txt`).
