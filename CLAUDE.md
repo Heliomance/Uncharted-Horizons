@@ -16,6 +16,7 @@ Each cloud session starts in a fresh container with a fresh clone of the reposit
 - `design/notes/discovery_workshop_report.md`: the candidate discovery model that every measurement since 1 October uses.
 - `design/verification-battery/`, `design/simulator/`, `design/wiki/`: the tools. `design/README.md` explains each.
 - `docs/Modders/` (`uniques.md`, `Unique-parameters.md`) and `android/assets/jsons/Civ V - Gods & Kings/`: Unciv's unique templates and rulesets, which every effect in the document must be written against.
+- `~/.claude/projects/-home-user-Uncharted-Horizons/previous-chats/` (outside the repository, when present): the transcripts of the design conversation on claude.ai, 13 February to 14 October 2026, with a README, a summary of its last stretch and `search_transcripts.py` (run it with `python3 -I`; `--who human` finds Tamsin's own words). Search them before saying what was or wasn't decided. They stay out of this public repository, and a new session starts without them: ask Tamsin for the zip.
 
 ## Changing the design document
 
