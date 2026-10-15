@@ -440,6 +440,24 @@ The start reading changes nothing before the Space era. The clock reading helps 
 
 **Open for Tamsin (14 October, now decided above):** adopt rediscovery on demand, with FTL prototypes and open questions counted as waiting? Which W16, if any? The clock hold (no window closes before its era, measured above) is a candidate safety net that needs no Space-era special case; W16 as simulated adds speed. Beyond that, there are three choices. The rule as written (a funded focus keeps its windows open) measured as no rule at all for the simulated players, and game-long it barely changes the missed ideas. The simulated rule (an idea the player pursues occurs at once) is a speed rule, worth 6 turns to the expert. Or no W16, with the expert re-tuned back towards ≈295. At what strength (10% a waiting item measured best; 5% and 20% are close)? Retire glimpses of ideas that have not occurred, keeping proximity revelation for ideas under study ("your scholars are onto something")?
 
+## Ideas under study, reordering Endeavours and the glimpse rate (15 October 2026)
+
+Measured on v3.120's defaults (the safety net, no W16), familiar world, 300 games a player, with two loggers that patch a private copy of the engine (`focus_load.py`, `glimpse_log.py`).
+
+**How many ideas a focus studies at once.** The funded focus has a median of 2 ideas under study (p90 3, p99 5 for the expert; 4 for the average player). Half the expert's turns have a single one, and 81% have two or fewer. The most at once in any focus was 9: Mathematics, the Space-era pool, in an expert's Hyperspace game; the average player's most was 8, in Computing. Per game, the largest focus peaks at a median of 6 (expert) or 5 (average). Loads are highest in the Atomic and Space eras.
+
+**Can an Endeavour on an idea under study pay?** For that idea alone, often: a trailing line holds only a small share under momentum, so in 29% of the expert's turns (52% of the average player's) some idea in the funded focus would finish sooner as a 2× Endeavour fed the whole active share. But it finishes sooner only by stopping everything else in its focus, at twice the price: the focus's work as a whole always ends later. It pays only when that one idea is the binding constraint and the rest of the focus can wait (the last row of a build, a wonder race). The benchmark players' reordering Endeavours, chosen whenever they finished their target a turn sooner, cost 4–9 turns of victory (14 October), which is why the package forbids them.
+
+**The glimpse rate** (STANDARD / UNCOMMON per turn an eligible idea fails to occur; expert unless noted):
+
+| Rate | Glimpses a game | One every | Of them, occurred anyway | Endeavours a game | Victory median (unfinished of 300) |
+|---|---|---|---|---|---|
+| 10% / 3% (agreed, provisional) | 68 + 20 (average player: 75 + 23) | 3.3 turns | 67% | 2.0 | 297 (0) |
+| 3% / 1% | 29 + 9 | 7 turns | 65% | 0.9 | 295 (0) |
+| 1% / 0.3% | 11 + 3 | 20 turns | 65% | 0.4 | 295 (0) |
+
+With rediscovery carrying winnability, the rate no longer moves victory; it sets how often the player sees a goal ahead of its idea and how many Endeavour targets exist. By the window arithmetic (a Medieval STANDARD idea, 9.6% a turn over 19 turns), 10% previews about half of all STANDARD ideas before they occur and shows 86% of those that never occur; 3%, about a fifth and 43%; 1%, about one in thirteen and 17%. Results: `results/w7f_familiar_cmpG003X_*`, `…_cmpG001X_*`.
+
 ## The candidate model, exactly (as the simulator runs it)
 
 From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings.
