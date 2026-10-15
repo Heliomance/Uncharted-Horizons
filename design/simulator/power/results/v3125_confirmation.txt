@@ -1,0 +1,115 @@
+v3.125 confirmed (15 Oct 2026): Ring Fortress merged into Reinforced Concrete, otherwise v3.124. All 15 victory conditions, three
+benchmark players, 60 games a cell, 2,700 games, PYTHONHASHSEED=0, rivals made under v3.125 (POOLTAG=125). Made by:
+  for w in familiar Process Substance; do bash make_pool.sh $w 125; done
+  for w in familiar Process Substance; do bash compare_settings.sh $w V125 SAVE_T=1 POOLTAG=125; done
+  python3 confirm_report.py V125
+(the results files keep only what victory needs, without every discovery turn).
+Reference: base Civ V on the same income (base_race.py), 305 good economy, 380 average.
+
+== familiar
+  expert   median 301, mean 303.7, unfinished 0 | Warp 296, Wormhole 313, Hyperspace 304, Tachyonic 296, Tunnelling 308 | from the Modern era: 120 discoveries in 105 turns
+  novice   median 304, mean 306.4, unfinished 0 | Warp 300, Wormhole 314, Hyperspace 308, Tachyonic 299, Tunnelling 308 | from the Modern era: 123 discoveries in 108 turns
+  average  median 378, mean 379.6, unfinished 0 | Warp 373, Wormhole 384, Hyperspace 381, Tachyonic 371, Tunnelling 381 | from the Modern era: 121 discoveries in 133 turns
+== Process
+  expert   median 304, mean 306.7, unfinished 0 | Warp 299, Wormhole 316, Hyperspace 306, Tachyonic 301, Plenum 314 | from the Modern era: 127 discoveries in 108 turns
+  novice   median 306, mean 308.6, unfinished 0 | Warp 300, Wormhole 313, Hyperspace 310, Tachyonic 303, Plenum 319 | from the Modern era: 131 discoveries in 110 turns
+  average  median 382, mean 383.6, unfinished 0 | Warp 374, Wormhole 388, Hyperspace 385, Tachyonic 378, Plenum 394 | from the Modern era: 131 discoveries in 138 turns
+== Substance
+  expert   median 307, mean 308.3, unfinished 0 | Warp 300, Wormhole 316, Hyperspace 309, Tachyonic 300, Plenum 314 | from the Modern era: 126 discoveries in 110 turns
+  novice   median 310, mean 310.7, unfinished 0 | Warp 308, Wormhole 312, Hyperspace 312, Tachyonic 304, Plenum 316 | from the Modern era: 131 discoveries in 113 turns
+  average  median 383, mean 384.7, unfinished 0 | Warp 382, Wormhole 385, Hyperspace 384, Tachyonic 378, Plenum 390 | from the Modern era: 130 discoveries in 139 turns
+
+== all 15 conditions
+expert   900 games, 0 unfinished: victory median 304 (-1 against 305), middle half 298-313, mean 306.2; prototype 5 turns, Drive 10; from the Modern era 125 discoveries in 108 turns (1.16 a turn); lock-outs a game 7.8 (5.8 from the Modern era)
+novice   900 games, 0 unfinished: victory median 307 (+2 against 305), middle half 301-314, mean 308.5; prototype 5 turns, Drive 10; from the Modern era 128 discoveries in 110 turns (1.16 a turn); lock-outs a game 7.1 (4.6 from the Modern era)
+average  900 games, 0 unfinished: victory median 381 (+1 against 380), middle half 375-389, mean 382.6; prototype 6 turns, Drive 12; from the Modern era 127 discoveries in 137 turns (0.93 a turn); lock-outs a game 6.9 (4.5 from the Modern era)
+
+== era alignment and discoveries a game (smooth_report.py cmpV125)
+  expert   victory 304 (-1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical -2, Medieval +0, Early Modern +2, Modern -2, Atomic -6, Space -9; discoveries a game by the finish 282 (242), 1.03 turns each
+  novice   victory 307 (+2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +7, Classical +4, Medieval +2, Early Modern +6, Modern +2, Atomic +0, Space -7; discoveries a game by the finish 288 (240), 1.01 turns each
+  average  victory 381 (+1 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +9, Classical +5, Medieval +3, Early Modern +6, Modern +3, Atomic -1, Space -9; discoveries a game by the finish 287 (238), 1.26 turns each
+
+Turns per discovery while development is in each era (all discoveries; own only, without rivals' knowledge, in brackets),
+the fork to each player's race finish; base Civ V, turns per tech over the same stretch of research, on the same income.
+
+| Era | Expert | Novice | Average | Base Civ V, good economy | Base Civ V, average economy |
+|---|---|---|---|---|---|
+| Primitive | 1.1 (1.1) | 1.1 (1.1) | 1.4 (1.4) | 7.8 (4 techs) | 9.8 |
+| Ancient | 1.1 (1.1) | 1.0 (1.0) | 1.2 (1.2) | 3.0 (7 techs) | 3.7 |
+| Classical | 1.2 (1.2) | 1.4 (1.4) | 1.7 (1.7) | 3.7 (9 techs) | 4.6 |
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.3) | 4.0 (10 techs) | 4.9 |
+| Early Modern | 1.2 (1.6) | 1.2 (1.6) | 1.5 (2.0) | 3.6 (16 techs) | 4.5 |
+| Modern | 0.9 (1.1) | 0.9 (1.2) | 1.1 (1.5) | 3.5 (13 techs) | 4.4 |
+| Atomic | 0.9 (1.1) | 0.8 (1.2) | 1.0 (1.6) | 4.4 (8 techs) | 5.5 |
+| Space | 0.8 (1.2) | 0.9 (1.3) | 1.2 (1.7) | 4.2 (8 techs) | 5.5 |
+
+== the FTL races (ftl_balance.py cmpV125)
+
+=== expert
+== familiar (field median 301)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            296       -5    251     273   277    277   62%/  3%/ 35%   MS08 (65%, 279), ES18 (35%, 275)           bubble (92%)
+  Wormhole        313      +12    251     276   297    297  100%/  0%/  0%   MS17 (100%, 297)                           throat (93%)
+  Hyperspace      304       +3    250     271   288    288   97%/  2%/  2%   MA19 (100%, 288)                           dark (58%)
+  Tunnelling      308       +7    250     268   292    292   90%/ 10%/  0%   CP21 (100%, 292)                           coherence (100%)
+  Tachyonic       296       -5    250     270   276    276   90%/  7%/  3%   NP15 (85%, 277), SE02 (15%, 273)           tachDE (47%)
+== Process (field median 304)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            299       -5    250     277   282    282   65%/  7%/ 28%   MS08 (62%, 282), ES18 (38%, 277)           bubble (88%)
+  Wormhole        316      +12    251     273   300    300  100%/  0%/  0%   MS17 (100%, 300)                           throat (87%)
+  Hyperspace      306       +2    251     276   289    290   78%/ 18%/  3%   MA19 (100%, 289)                           dark (50%)
+  Tachyonic       301       -3    251     274   283    284   85%/ 13%/  2%   TH20 (80%, 282), SE02 (20%, 284)           superlum (42%)
+  Plenum          314      +10    252     278   298    298   93%/  2%/  5%   AE20 (100%, 298)                           coupling (100%)
+== Substance (field median 307)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            300       -7    252     276   283    283   65%/  2%/ 33%   MS08 (68%, 291), ES18 (32%, 278)           bubble (93%)
+  Wormhole        316       +8    251     278   300    300  100%/  0%/  0%   MS17 (100%, 300)                           throat (90%)
+  Hyperspace      309       +2    250     275   292    293   87%/ 12%/  2%   MA19 (100%, 292)                           dark (45%)
+  Tachyonic       300       -7    251     276   282    283   88%/  8%/  3%   TH20 (73%, 282), SE02 (27%, 284)           superlum (53%)
+  Plenum          314       +7    251     276   298    298   87%/  0%/ 13%   AE20 (100%, 298)                           coupling (95%)
+
+=== novice
+== familiar (field median 304)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            300       -4    254     276   282    282   77%/  0%/ 23%   ES18 (65%, 283), MS08 (35%, 279)           bubble (100%)
+  Wormhole        314      +10    253     278   298    298  100%/  0%/  0%   MS17 (100%, 298)                           throat (98%)
+  Hyperspace      308       +4    252     273   292    292   98%/  2%/  0%   MA19 (97%, 292), ES06/ES07/ES14/ES08 (3%, 278)   dark (77%)
+  Tunnelling      308       +4    256     270   292    292   97%/  3%/  0%   CP21 (100%, 292)                           coherence (100%)
+  Tachyonic       299       -5    251     273   282    282   87%/  7%/  7%   NP15 (82%, 282), SE02 (18%, 278)           tachDE (53%)
+== Process (field median 306)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            300       -6    259     279   283    283   88%/  3%/  8%   ES18 (73%, 284), MS08 (27%, 279)           bubble (85%)
+  Wormhole        313       +7    259     277   297    297  100%/  0%/  0%   MS17 (100%, 297)                           throat (93%)
+  Hyperspace      310       +4    257     283   293    294   87%/ 12%/  2%   MA19 (100%, 293)                           dark (47%)
+  Tachyonic       303       -3    258     276   287    287  100%/  0%/  0%   SE02 (63%, 284), TH20 (37%, 289)           superlum (50%)
+  Plenum          319      +13    258     278   303    303   97%/  0%/  3%   AE20 (100%, 303)                           coupling (98%)
+== Substance (field median 310)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            308       -2    260     281   292    292   82%/  2%/ 17%   ES18 (72%, 293), MS08 (28%, 288)           bubble (92%)
+  Wormhole        312       +2    259     277   296    296  100%/  0%/  0%   MS17 (100%, 296)                           throat (98%)
+  Hyperspace      312       +1    258     279   294    296   95%/  5%/  0%   MA19 (100%, 294)                           strata (37%)
+  Tachyonic       304       -6    258     278   288    288   98%/  2%/  0%   TH20 (60%, 290), SE02 (40%, 285)           superlum (50%)
+  Plenum          316       +6    258     277   300    300   93%/  2%/  5%   AE20 (100%, 300)                           coupling (100%)
+
+=== average
+== familiar (field median 378)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            373       -4    314     342   353    353   83%/  2%/ 15%   ES18 (78%, 354), MS08 (22%, 348)           bubble (100%)
+  Wormhole        384       +6    317     341   364    364  100%/  0%/  0%   MS17 (100%, 364)                           throat (90%)
+  Hyperspace      381       +4    318     340   361    361  100%/  0%/  0%   MA19 (98%, 361), ES06/ES07/ES14/ES08 (2%, 348)   dark (83%)
+  Tunnelling      381       +4    319     335   361    361   98%/  2%/  0%   CP21 (100%, 361)                           coherence (100%)
+  Tachyonic       371       -6    313     337   349    349   90%/  7%/  3%   NP15 (85%, 350), SE02 (15%, 338)           tachDE (62%)
+== Process (field median 382)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            374       -8    323     348   354    354   83%/  5%/ 12%   ES18 (75%, 354), MS08 (25%, 352)           bubble (80%)
+  Wormhole        388       +6    323     343   369    369  100%/  0%/  0%   MS17 (100%, 369)                           throat (83%)
+  Hyperspace      385       +3    325     348   365    365   85%/ 12%/  3%   MA19 (100%, 365)                           leak (58%)
+  Tachyonic       378       -4    324     344   358    358  100%/  0%/  0%   SE02 (70%, 356), TH20 (30%, 359)           superlum (58%)
+  Plenum          394      +12    324     342   374    374  100%/  0%/  0%   AE20 (100%, 374)                           coupling (100%)
+== Substance (field median 383)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            382       -1    324     350   363    363   82%/  0%/ 18%   ES18 (70%, 363), MS08 (30%, 364)           bubble (93%)
+  Wormhole        385       +2    323     346   366    366  100%/  0%/  0%   MS17 (100%, 366)                           throat (95%)
+  Hyperspace      384       +2    322     345   364    364   93%/  5%/  2%   MA19 (100%, 364)                           strata (42%)
+  Tachyonic       378       -6    323     346   358    358  100%/  0%/  0%   TH20 (67%, 358), SE02 (33%, 356)           superlum (58%)
+  Plenum          390       +7    322     346   371    371   93%/  0%/  7%   AE20 (100%, 371)                           coupling (100%)

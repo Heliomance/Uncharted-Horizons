@@ -1,4 +1,4 @@
-# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.124)
+# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.125)
 
 ## 1. System Overview
 
@@ -254,7 +254,7 @@ Once a breakthrough is **Revealed** and all its prerequisites are **Discovered**
 | **Atomic** | 47,398 | 113,629 | 36 | 1,369 | 46,000 |
 | **Space** | 96,047 | 209,676 | 56 | 1,469 (×1.05) | 90,200 |
 
-**The late eras (v3.122–v3.124, provisional; to be confirmed in play).** Until v3.122 development entered the Space era around turn 285 on a good economy, 24–29 turns after civilisations entered it by count, so the FTL race was bought at the ahead-of-time premium and finished before development reached the Space era. Now the Space era's span covers the race, from about when civilisations reach the unified theory to about when a good player wins. Measured on the full design (v3.124: all 15 victory conditions, 2,700 games with rivals at the same prices, none unfinished), the expert wins at a median of turn 305, the novice 307 and the average player 379, against base Civ V's 305, 305 and 380; civilisations enter every era by count within 10 turns of their development reaching it. The cost is the late pace. A game holds about as many discoveries as turns whatever the prices, since players discover nearly everything that occurs to them and prices only set how long it takes; and the Modern to Space breakthroughs take 85% of the Insight spent on discoveries, so they cannot get dearer without lengthening the science victory. Fewer late breakthroughs are the lever: v3.124's merges, cuts and demotions, with Competing Solutions' lock-outs now measured, bring a good economy from about 1.26 discoveries a turn from the Modern era on, counting rivals' knowledge, to about 1.17, and an average one from about 1.0 to 0.93. The merges shortened the science victory, so the Space era's price rose ×1.05 to restore it.
+**The late eras (v3.122–v3.125, provisional; to be confirmed in play).** Until v3.122 development entered the Space era around turn 285 on a good economy, 24–29 turns after civilisations entered it by count, so the FTL race was bought at the ahead-of-time premium and finished before development reached the Space era. Now the Space era's span covers the race, from about when civilisations reach the unified theory to about when a good player wins. Measured on the full design (v3.125: all 15 victory conditions, 2,700 games with rivals at the same prices, none unfinished), the expert wins at a median of turn 304, the novice 307 and the average player 381, against base Civ V's 305, 305 and 380; civilisations enter every era by count within 9 turns of their development reaching it. The cost is the late pace. A game holds about as many discoveries as turns whatever the prices, since players discover nearly everything that occurs to them and prices only set how long it takes; and the Modern to Space breakthroughs take 85% of the Insight spent on discoveries, so they cannot get dearer without lengthening the science victory. Fewer late breakthroughs are the lever: v3.124's merges, cuts and demotions, with Competing Solutions' lock-outs now measured, bring a good economy from about 1.26 discoveries a turn from the Modern era on, counting rivals' knowledge, to about 1.16 (v3.125), and an average one from about 1.0 to 0.93. The merges shortened the science victory, so the Space era's price rose ×1.05 to restore it.
 
 ---
 
@@ -466,7 +466,7 @@ Once a breakthrough is **Revealed** and all its prerequisites are **Discovered**
 | CO08 | **Modular Construction** | RARE | Ancient | CO01 + SO05 (Specialization) | ⟨[+25]% Production when constructing [All] buildings [in all cities]⟩ — standard parts, everywhere. | Speculative: Roman standardization taken further. |
 | CO09 | **Suspension Bridge** | UNCOMMON | Medieval | CO03 + (ME05 (Steel) or TX01 (Weaving — rope-making)) | ⟨[+1 Gold] from each Trade Route⟩; ⟨[+1 Production] [in all cities connected to capital]⟩ — the canyon crossed, the network pays. |  |
 | CO10 | **Iron-Frame Construction** | CORE | Early Modern | ME08 + CO03 | **Factory** (the canonical Industrialization building: +4 Production; Production +10%; Engineer ×2). The ruleset derivation gives the canonical Factory ⟨Remove [Steam Works] [in this city]⟩: a Factory built where Steam Works stand converts them, twice as fast (the Steam Works' own clause), as a Steam Works converts an Engine House. |  |
-| CO11 | **Reinforced Concrete** | STANDARD | Modern | (CO04 or CH05) + ME12 — Roman Concrete, or the chemistry of Portland cement; and Bessemer steel | ⟨[+10]% Production when constructing [All] buildings [in all cities]⟩ — steel and concrete build fast and stand hard; ⟨Improves movement speed on roads⟩ — the canonical Machinery unique, for cement roads (Portland Cement, merged here in v3.99: reinforced concrete was Portland cement and steel). Dams (WM06) become possible. | |
+| CO11 | **Reinforced Concrete** | STANDARD | Modern | (CO04 or CH05) + ME12 — Roman Concrete, or the chemistry of Portland cement; and Bessemer steel | ⟨[+10]% Production when constructing [All] buildings [in all cities]⟩ — steel and concrete build fast and stand hard; ⟨Improves movement speed on roads⟩ — the canonical Machinery unique, for cement roads (Portland Cement, merged here in v3.99: reinforced concrete was Portland cement and steel). Dams (WM06) become possible. **Military Base**; **Bunker**ⁿ [325/2; requires a **Military Base** in this city; cityStrength +8; cityHealth +50] — detached forts in concrete and steel (Ring Fortress, merged here in v3.125). | Rifled shells made the bastion obsolete, and after 1885 high explosive did the same to masonry: the forts were rebuilt as a ring of detached works in concrete and steel — Liège, Verdun. |
 | CO13 | **Geodesic Structures** | UNCOMMON | Atomic | CO11 + MA03 (Basic Algebra — trigonometry) | ⟨[+15]% Production when constructing [Stadium] buildings [in all cities]⟩ — the dome over the arena. Any climate, enclosed. | |
 | CO14 | **3D Printed Construction** | RARE | Atomic | MC11 (Assembly Line — prefabrication) + CP01 (Computer) + MS01 (Composites) | ⟨[+33]% Production when constructing [All] buildings [in all cities]⟩ — printed, not built. |  |
 | CO15 | **Orbital Construction** | STANDARD | Space | CO13 + SE02 (Orbital Assembly) | **Orbital Platform**ⁿ [560/3; +2 Production; ⟨[+10]% [Production] [in this city]⟩ — orbital industry; any city may have one]. Enables the Space Station (RK06) and the large orbital projects. | |
@@ -478,7 +478,6 @@ Once a breakthrough is **Revealed** and all its prerequisites are **Discovered**
 | CO22 | **Mound Builder Tradition** | UNIQUE | Ancient | CO01 + SO03 (Tribal Law) + River + Grassland biome | **Earthen Mound**ⁿ [national wonder; 75/0; +3 Culture, +2 Faith]; **Mound Platform**ⁿ [45/1; +1 Culture; cityStrength +4; cityHealth +25]. Civ unique: ⟨[+1 Culture] from [{River} {Grassland}] tiles [in all cities]⟩ — the river plain remembers its builders. | Cahokia, Poverty Point, Hopewell earthworks. |
 | CO24 | **Concentric Fortification** | CORE | Medieval | WA06 (Fortification Design) + CO03 (Arch) | **Castle** (and the **Mughal Fort**); **Alhambra** (world wonder) — rings of walls and flanking towers: defence in depth. | Krak des Chevaliers; Edward I's Welsh castles (12th–13th c.). |
 | CO25 | **Star Fort** | STANDARD | Early Modern | WA06 + (WA22 Cannons or WA11 Trebuchet) | **Arsenal**; **Kremlin** (world wonder) — low, angled bastions that turn a bombardment aside. | The *trace italienne* (16th c.), the answer to cannon; where gunpowder never works, the trebuchet is the threat it answers. |
-| CO26 | **Ring Fortress** | STANDARD | Modern | CO25 (Star Fort) + CO11 (Reinforced Concrete) | **Military Base**; **Bunker**ⁿ [325/2; requires a **Military Base** in this city; cityStrength +8; cityHealth +50] — detached forts in concrete and steel. | Rifled shells made the bastion obsolete, and after 1885 high explosive did the same to masonry: the forts were rebuilt as a ring of detached works in concrete and steel — Liège, Verdun. Neither prerequisite needs gunpowder: Star Fort also accepts the Trebuchet. |
 
 ---
 
@@ -1739,7 +1738,7 @@ The tables below assign every base-game object (wonders, buildings, tile improve
 | Police Station | Electricity | **SO16** |
 | Stadium | Refrigeration | **TH02** |
 | Broadcast Tower | Radio | **EN11** |
-| Military Base | Replaceable Parts | **CO26** |
+| Military Base | Replaceable Parts | **CO11** |
 | Research Lab | Plastics | **CH06** |
 | Medical Lab | Pharmaceuticals | **MD06** |
 | Solar Plant | Ecology | **ES07** |
@@ -1752,7 +1751,7 @@ The tables below assign every base-game object (wonders, buildings, tile improve
 | Mosque | — | *Faith-purchased worship building — gated by Belief, not a breakthrough* |
 | Pagoda | — | *Faith-purchased worship building — gated by Belief, not a breakthrough* |
 
-**Requirement overrides.** The ruleset derivation changes these canonical `requiredBuilding` values. Every requirement must name a safe predecessor: one whose row is certain to come first, or a CORE row of the same or an earlier era that is reachable wherever the dependent is (battery check 13). Vanilla chains its culture and happiness buildings rung by rung, for pacing rather than realism — a museum does not need an opera house. In this tree the middle rungs sit on STANDARD rows, so a rung-by-rung chain could leave a top building unbuildable. Instead a top rung requires its line's *first* rung: cheap, always reachable, and still no way to buy only the best building. The Broadcast Tower needs nothing, because its +33% Culture multiplies whatever the city already has.
+**Requirement overrides.** The ruleset derivation changes these canonical `requiredBuilding` values. Every requirement must name a safe predecessor: one whose row is certain to come first, or a CORE row of the same or an earlier era that is reachable wherever the dependent is (battery check 13). Vanilla chains its culture and happiness buildings rung by rung, for pacing rather than realism — a museum does not need an opera house. In this tree the middle rungs sit on STANDARD rows, so a rung-by-rung chain could leave a top building unbuildable. Instead a top rung requires its line's *first* rung: cheap, always reachable, and still no way to buy only the best building. The Broadcast Tower needs nothing, because its +33% Culture multiplies whatever the city already has. The Military Base needs a Castle rather than an Arsenal (v3.125): it comes with Reinforced Concrete, which does not require Star Fort, the Arsenal's row, so the defensive line skips only its STANDARD rung.
 
 | Building | Vanilla requires | Fork requires |
 |---|---|---|
@@ -1761,6 +1760,7 @@ The tables below assign every base-game object (wonders, buildings, tile improve
 | Museum | Opera House | Monument |
 | Stadium | Theatre | Colosseum |
 | Broadcast Tower | Museum | — |
+| Military Base | Arsenal | Castle |
 
 **Cost scaling.** Build time is the invariant: the fork's extra Production buys breadth, a longer building list, not a faster game. Counting buildings alone, a fork city has about 1.3× base Civ V's Production from the Medieval era; counting its worked tiles too, which both games share, it has only about 1.05–1.2×, and it is that whole-city ratio that sets how long anything takes. Fork building specs are priced on vanilla's scale by value: the era's typical canonical building cost (Primitive 50, Ancient 75, Classical 100, Medieval 140, Early Modern 250, Modern and Atomic 500, Space 750) × (value points ÷ 4), clamped between a quarter and one and a half times that cost and rounded to 5. Value points: 1 per flat yield, 1 per 10% bonus, 1 per specialist slot, 1 per 5 city Strength or 50 city HP, a tile or per-population unique at its typical-city yield, and 1 for any other unique. Upkeep follows vanilla's rate for the era, per 100 cost: Primitive 2.5, Ancient 1.33, Classical 1.17, Medieval 0.85, Early Modern 0.8, Modern to Space 0.55. A UNIQUE replacement costs what its base costs, as vanilla's unique buildings do. The v3.77 spaceship stack — the launch complex, the Orbital Shipyard and the exotic-component buildings — keeps its tuned costs. The ruleset derivation then multiplies every cost by its era's row below, canonical and fork alike, the era being that of the row that grants the object. Every building shares one multiplier, so none is a bargain per point. The building column is solved era by era so that, by the end of every fork era, the fork's buildings have taken about 1.1× the share of a city's Production that base Civ V's had taken by the same turn (the extra tenth for breadth). The comparison is by turn, not by era: since v3.108 the fork's eras are its own (§2, Era boundaries) and no longer line up with base Civ V's, and an era-against-era comparison would have let fork cities spend 20–55% more of their Production on buildings than base cities at the same point in the game. A city's Production here counts its worked tiles (1.5 per citizen, plus 2 from the city centre — an assumption) as well as its buildings, with percentage bonuses applied to the whole, over the era's length from the era model below. The Ancient and Classical eras share one value, because the Ancient surplus is canonical Classical buildings on historically Ancient rows, a timing shift gone by the end of the Classical era. The unit column is the era's whole-city Production ratio, rounded to 0.05, so units, wonders and spaceship parts take base Civ V's time. Unciv derives purchase prices from production cost, so Gold prices follow both columns. The Space era carried about five times base Civ V's building load at value price, since base adds almost nothing in its last era. Consolidation (v3.92) brought that to about 3.4 times — the Planetary Defense Network became a national wonder, the Orbital Depot an upgrade of the Asteroid Mining Station, and the Quantum Network a bonus of its own breakthrough — and the Space row is solved on what remains. Most of the rest is the Fusion Plant upgrade; base Civ V has no Space-era plant.
 
@@ -1897,9 +1897,9 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 | Metric | Count |
 |---|---|
 | Focus Areas | 35 (5 starting + 31 unlockable) |
-| Total Breakthroughs | ~538 |
+| Total Breakthroughs | ~537 |
 | CORE Breakthroughs | ~139 |
-| STANDARD Breakthroughs | ~245 |
+| STANDARD Breakthroughs | ~244 |
 | UNCOMMON Breakthroughs | ~61 |
 | RARE Breakthroughs | ~39 |
 | UNIQUE Breakthroughs | ~54 |
@@ -1913,7 +1913,7 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 
 **Tier design philosophy:**
 - **CORE** (~139): The skeleton — guaranteed, reliable, sufficient to reach victory alone.
-- **STANDARD** (~245): The flesh — what most civilisations will discover, including RARE chain follow-ups and the many theory-variant breakthroughs of the World Truths system.
+- **STANDARD** (~244): The flesh — what most civilisations will discover, including RARE chain follow-ups and the many theory-variant breakthroughs of the World Truths system.
 - **UNCOMMON** (~61): The branching paths — where civilisations diverge. Obsolescence creates natural variation without removing anything from the global pool.
 - **RARE** (~39): The surprises — exciting, powerful, never required. Gateway breakthroughs to speculative chains.
 - **UNIQUE** (~54): The identity — cultural and environmental specialisations that define your civilisation's playstyle. First come, first served. Each game, 2–5 per civilisation, ~20–35 claimed, ~20–35 unclaimed.
@@ -2087,6 +2087,13 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 ---
 
 ## Changelog from v2.0 — Game Design Pass
+
+### v3.125 — Ring Fortress Merged into Reinforced Concrete
+
+- **Ring Fortress merged into Reinforced Concrete** (CO11, Modern, STANDARD; Tamsin, 15 October, the row survey's merge 7). The Military Base and the Bunker move to the row that brings the concrete, with Liège and Verdun in its notes. v3.88 had created Ring Fortress so that the Military Base's Arsenal was certain to come first; Reinforced Concrete does not require Star Fort, the Arsenal's row, so the Military Base now requires a Castle instead (§7's requirement overrides; the Castle's row is CORE), and the defensive line skips only its STANDARD rung. Star Fort keeps the Arsenal and the Kremlin.
+- **537 breakthroughs:** CORE 139, STANDARD 244, UNCOMMON 61, RARE 39 and UNIQUE 54.
+- **Decided with it** (Tamsin): the four CORE rows that are CORE only for being on an FTL route (Quantum Entanglement Mastery, the Laser, Composite Materials, Carbon Fiber) stay CORE; an audit of the Competing Solutions is parked (`design/notes/deferred_tasks.md`).
+- **Measured** (three worlds, all 15 victory conditions, three benchmark players, 2,700 games with rivals made under v3.125, none unfinished): victory medians **304** (expert; middle half 298–313), **307** (novice) and **381** (average), against base Civ V's 305, 305 and 380. Civilisations enter every era by count within 9 turns of their development reaching it. From the Modern era on, a good economy makes 1.16 discoveries a turn counting rivals' knowledge, an average one 0.93.
 
 ### v3.124 — Fewer Late Breakthroughs; Competing Solutions Measured
 

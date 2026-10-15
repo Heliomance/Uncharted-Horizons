@@ -21,7 +21,8 @@ Since v3.124 (three merges, two cuts, five demotions to UNCOMMON): Competing Sol
 an alternative costs its x1.5 detour margin while its primary exists in the world, and a civilisation that discovers the
 primary first never develops the alternative; the Space era's price x1.05, which re-centres the science victory on base
 Civ V's after the merges shortened it (all 15 conditions: 305 / 307 / 379; at x1, 301 / 305 / 378); rivals made under
-these settings (POOLTAG=124).
+these settings (POOLTAG=124). Since v3.125 (Ring Fortress merged into Reinforced Concrete): rivals made under v3.125's tree
+(POOLTAG=125); all 15 conditions 304 / 307 / 381.
 Importing this module applies them to any switch that isn't set, so a run simulates the agreed design unless told
 otherwise; set a switch to override it, and LEVERS= (empty) to switch every lever off. Every tool that loads the tree imports this module through reach.py.
 
@@ -34,7 +35,7 @@ FINAL = {'LEVERS': 'abcrwgpnyhukqvVm', 'WROWX': '4',
          'REDISCOVER': '0.1', 'ENDUNOCC': '1', 'W16': '0',   # the safety-net package and no W16 (v3.120, 15 Oct 2026); ENDUNOCC: see above
          'DEVENDS': 'Primitive:194,Ancient:1052,Classical:2590,Medieval:6859,Early_Modern:23900,Modern:66231,Atomic:113629,Space:209676',
          'WINTURNS': 'Primitive:33,Ancient:36,Classical:28,Medieval:36,Early_Modern:49,Modern:46,Atomic:36,Space:56',   # v3.122, v3.123: see above
-         'ERAPRICE': 'Ancient:1.5', 'MODERNPRICE': '1', 'ATOMICPRICE': '1', 'SPACEPRICE': '1.05', 'POOLTAG': '124',
+         'ERAPRICE': 'Ancient:1.5', 'MODERNPRICE': '1', 'ATOMICPRICE': '1', 'SPACEPRICE': '1.05', 'POOLTAG': '125',
          'COMPETE': '1'}   # v3.124: Competing Solutions' margins and lock-outs (competing.py)
 
 if __name__ == '__main__':
