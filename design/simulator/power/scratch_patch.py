@@ -115,16 +115,6 @@ if os.environ.get('EARLYFIX') == '1':
 # be had without it, out of every world, as it does any world's absent rows.
 if os.environ.get('DRY') == '1':
     i = row('FA01'); c = L[i].split(' | '); c[5] = c[5] + ' *Wet only.*'; L[i] = ' | '.join(c)
-# WINDFIX=1 (15 October, Tamsin's question): the Windmill needs Weaving instead of Sail Invention, and the four rows that
-# need the Water Mill for power take the Water Mill or the Windmill; WINDFIX=2 also makes the Windmill CORE
-if os.environ.get('WINDFIX') in ('1', '2'):
-    i = row('MC04'); c = L[i].split(' | ')
-    assert c[4] == 'MC03 + SF03 (Sail — wind/fabric knowledge)', c[4]
-    c[4] = 'MC03 + TX01 (Weaving)'
-    if os.environ['WINDFIX'] == '2': c[2] = 'CORE'
-    L[i] = ' | '.join(c)
-    for rid in ('ME08', 'MC19', 'MC08', 'ME18'):
-        i = row(rid); c = L[i].split(' | ')
-        new, n = re.subn(r'\bWM05\b(?: \([^()]*\))?', '(WM05 or MC04)', c[4]); assert n == 1, (rid, c[4])
-        c[4] = new; L[i] = ' | '.join(c)
+# (WINDFIX, the Windmill on Weaving and the industrial rows on the Water Mill or the Windmill, was adopted with a CORE
+# Windmill in v3.117 and retired.)
 open(p,'w',encoding='utf-8').write('\n'.join(L)); print("scratch redesign in place")
