@@ -1,0 +1,47 @@
+v3.122 confirmation (15 Oct 2026): the defaults (base Civ V's era timing for development, idea windows following; Modern and Atomic
+prices x1.25, Space x2; rivals from pool122, made under the same settings) and the retuned expert (runcell.sh: EXPCAP=2 ENDRULE=last).
+Three players on all 15 victory conditions, 60 games a cell, 2,700 games, PYTHONHASHSEED=0 (compare_settings.sh <world> V122).
+Victory as victory.py computes it (the prototype at 5x the Space price). Tabulate: python3 victory_table.py <world> v3.122=_cmpV122{p}_{m}
+
+== familiar
+expert:
+  v3.122         median 322, mean 322.2, unfinished 0 | Warp 310, Wormhole 326, Hyperspace 326, Tachyonic 315, Tunnelling 336
+novice:
+  v3.122         median 326, mean 328.2, unfinished 0 | Warp 320, Wormhole 337, Hyperspace 337, Tachyonic 316, Tunnelling 337
+average:
+  v3.122         median 404, mean 405.7, unfinished 0 | Warp 400, Wormhole 412, Hyperspace 408, Tachyonic 391, Tunnelling 418
+== Process
+expert:
+  v3.122         median 323, mean 325.1, unfinished 0 | Warp 314, Wormhole 333, Hyperspace 329, Tachyonic 316, Plenum 339
+novice:
+  v3.122         median 328, mean 330.0, unfinished 0 | Warp 325, Wormhole 344, Hyperspace 332, Tachyonic 317, Plenum 339
+average:
+  v3.122         median 408, mean 408.8, unfinished 0 | Warp 406, Wormhole 417, Hyperspace 412, Tachyonic 398, Plenum 419
+== Substance
+expert:
+  v3.122         median 323, mean 324.0, unfinished 0 | Warp 313, Wormhole 331, Hyperspace 329, Tachyonic 315, Plenum 333
+novice:
+  v3.122         median 326, mean 327.0, unfinished 0 | Warp 316, Wormhole 336, Hyperspace 329, Tachyonic 320, Plenum 333
+average:
+  v3.122         median 408, mean 408.1, unfinished 0 | Warp 396, Wormhole 422, Hyperspace 411, Tachyonic 398, Plenum 415
+
+Pooled: expert median 323 (middle half 313-333), novice 328 (319-337), average 407 (396-416); none unfinished.
+
+== v3.122: the share of races each method wins against its world's pooled field (40-60% is balanced)
+  expert   fam Warp 75, Worm 44, Hype 48, Tach 62, Tunn 22 | Pro Warp 71, Worm 36, Hype 47, Tach 68, Plen 27 | Sub Warp 77, Worm 33, Hype 46, Tach 69, Plen 25
+  novice   fam Warp 72, Worm 35, Hype 36, Tach 76, Tunn 31 | Pro Warp 65, Worm 26, Hype 53, Tach 78, Plen 28 | Sub Warp 76, Worm 28, Hype 47, Tach 69, Plen 30
+  average  fam Warp 65, Worm 36, Hype 44, Tach 75, Tunn 29 | Pro Warp 62, Worm 35, Hype 51, Tach 72, Plen 31 | Sub Warp 75, Worm 26, Hype 50, Tach 69, Plen 30
+== v3.120 standard: the share of races each method wins against its world's pooled field (40-60% is balanced)
+  expert   fam Warp 70, Worm 58, Hype 55, Tach 38, Tunn 29 | Pro Warp 60, Worm 48, Hype 55, Tach 55, Plen 32 | Sub Warp 64, Worm 47, Hype 52, Tach 53, Plen 34
+  novice   fam Warp 68, Worm 47, Hype 39, Tach 69, Tunn 27 | Pro Warp 62, Worm 43, Hype 52, Tach 61, Plen 33 | Sub Warp 70, Worm 44, Hype 42, Tach 56, Plen 38
+  average  fam Warp 68, Worm 50, Hype 41, Tach 66, Tunn 25 | Pro Warp 64, Worm 42, Hype 47, Tach 63, Plen 33 | Sub Warp 71, Worm 42, Hype 41, Tach 58, Plen 37
+
+The expert's retune (all 15 victory conditions, 900 games each, the expert only; labels _xt<label>_<method>):
+  x0 the old expert (EXPFIX=1, ENDRULE=active, no cap)    median 326 (middle half 316-335), mean 326.1, unfinished 0, Endeavours 4.8 a game
+  x2 EXPCAP=2                                             median 323 (middle half 315-335), mean 325.0, unfinished 0, Endeavours 4.6 a game
+  y2 EXPCAP=2 ENDRULE=last (adopted)                      median 323 (middle half 313-333), mean 323.8, unfinished 0, Endeavours 0.4 a game
+  z1 ENDRULE=last                                         median 324 (middle half 314-334), mean 324.2, unfinished 0, Endeavours 0.3 a game
+  z2 EXPCAP=1.5 ENDRULE=last                              median 323 (middle half 314-334), mean 324.8, unfinished 0, Endeavours 0.3 a game
+  Screened on three conditions only (familiar Warp, Process Tachyonic, Substance Plenum): EXPFIX=0 324; EXPCAP=1.5 320; EXPCAP=3 322;
+  EXPFIX=0 EXPCAP=2 323; HEDGE=theory 324; ENDFROM= (Endeavours from the first Space discovery) 324; EXPCAP=2 with HEDGE=theory 323, END= 320,
+  HEDGE=two 324, HEDGE=never 324, PARALLEL=0 324, ENDRULE=naive 320; EXPCAP=2.5 321 (today's expert 324 there).

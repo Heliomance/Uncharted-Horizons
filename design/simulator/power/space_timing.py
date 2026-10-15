@@ -11,9 +11,7 @@ from results saved with SAVE_T=1 and ACCT=<path>:
   the share of the Insight spent studying each era's rows that the ahead-of-time premium takes (Grand Endeavours are
   priced separately and not included);
   discoveries a turn while development is in each era, the civilisation's own and those diffused from rivals.
-Victory adds the prototype, priced at PROTOX (default 5) x the Space era's price (SPACEPRICE, default the finalised design's)
-with the premium at the finish, paid from the active share of the Insight then; the SS FTL Drive (4 turns, 5 for the
-average player, one fewer where exotic components exist) and a turn to launch. The fixed figure (5 / 6 turns) is the old one.
+Victory as victory.py computes it (the prototype priced at PROTOX, default 5, x the Space era's price, SPACEPRICE).
 Usage: [SPACEFROM=<Insight>] [DEVENDS=era:Insight,...] [SPACEPRICE=<f>] [PROTOX=<f>] python3 space_timing.py <label> world:method ...
 (the switches as the runs had them; reads
 results/w7f_<world>_<label><X|N|A>_<method>.json and results/acct_<label><X|N|A>_<world>_<method>.json), e.g.
@@ -26,30 +24,17 @@ from harness import income, EO
 import harness_ftl_e as HF
 HF.SPACE_FROM = float(os.environ['SPACEFROM']) if os.environ.get('SPACEFROM') else None   # as the runs had it (harness_ftl_e.SPACE_FROM)
 HF.DEV_ENDS = {e: float(x) for e, x in (i.split(':') for i in os.environ['DEVENDS'].split(','))} if os.environ.get('DEVENDS') else None
-import defaults, math
-SPACEPRICE = float(os.environ.get('SPACEPRICE') or defaults.FINAL['SPACEPRICE'])   # as the runs had it
-PROTOX = float(os.environ.get('PROTOX', '5'))   # the prototype's price, in Space-era prices (section 4: 5x)
-SCALE = json.load(open(os.path.join(HERE, 'w7c_cfg.json')))['scale']; P_SPACE = json.load(open(os.path.join(HERE, 'era_prices.json')))['Space']
+import victory as V   # the victory turn: the prototype priced from SPACEPRICE (as the runs had it)
 
 PLAYERS = [('X', 'expert', 1.0, 5, 4), ('N', 'novice', 1.0, 5, 4), ('A', 'average', 0.8, 6, 5)]   # economy, prototype, Drive
 EXOTIC = {'Warp', 'Wormhole', 'Plenum'}
 SPACE = EO.index('Space')
 ENTRY = {'Ancient': 5, 'Classical': 3, 'Medieval': 3, 'Early Modern': 5, 'Modern': 7, 'Atomic': 6, 'Space': 4}   # section 2's era entry
 NAMES = dict(space='first Space-era discovery', close='unified theory', entry='enters the Space era (4th Space-era breakthrough)',
-             cert='certainty', built='build complete', finish='race finished', victory='victory (the prototype from its price)',
-             fixed='victory (the prototype at a fixed 5 / 6 turns)')
+             cert='certainty', built='build complete', finish='race finished', victory='victory')
 
 
-def clock(econ, turns=700):   # development at the end of each turn, as the harness accumulates it, and the Insight a turn from then on
-    cum, d, inc = 0.0, [0.0], [income(0.0) * econ]
-    for _ in range(turns):
-        cum += income(cum) * econ; d.append(HF.dev_at(cum)); inc.append(income(cum) * econ)
-    return d, inc
-
-
-def prototype(t, d, inc):   # turns the prototype Endeavour takes from turn t: its price (premium fixed at commitment) from the active share
-    price = PROTOX * P_SPACE * SCALE * SPACEPRICE * 4 ** max(0.0, SPACE - d[t])
-    return math.ceil(price / (0.8 * inc[t]))
+clock = V.clock
 
 
 def reach(d, level): return next(t for t, x in enumerate(d) if x >= level)
@@ -76,9 +61,8 @@ for code, name, econ, proto, drive in PLAYERS:
             if not (g['cert'] and g['built']): unfinished += 1; continue
             fin = max(g['cert'], g['built'])
             sp = sorted(t for k, t in g['t'].items() if era(k) >= SPACE and t <= fin)
-            drv = (drive - 1 if g['m'] in EXOTIC else drive) + 1   # the SS FTL Drive (one turn fewer where exotic components exist), then launch
             vals = dict(space=g['space'], close=g['close'], entry=sp[3] if len(sp) > 3 else None, cert=g['cert'], built=g['built'],
-                        finish=fin, victory=fin + prototype(fin, d, inc) + drv, fixed=fin + proto + drv)
+                        finish=fin, victory=V.victory(g, econ))
             for k, v in vals.items():
                 if v is not None: rows[k].append(v)
             early.append(sum(1 for t in sp if t < t_space) / len(sp) if sp else 0.0)
