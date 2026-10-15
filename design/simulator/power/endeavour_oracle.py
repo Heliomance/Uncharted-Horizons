@@ -104,7 +104,7 @@ def forward(items, F, runs, rng, tmax=400):
 DESIGNS = (('today', 2.0, 'active', False, 'price', 0.0), ('all, 1.25x', 1.25, 1.0, False, 'share', 0.0),
            ('crash, 2x', 2.0, 1.0, True, 'share', 0.0), ('70%, true', 1.0, 0.7, False, 'true', 0.1),
            ('70%, share', 1.0, 0.7, False, 'share', 0.1), ('60%, true', 1.0, 0.6, False, 'true', 0.2),
-           ('50%, true', 1.0, 0.5, False, 'true', 0.3))
+           ('50%, true', 1.0, 0.5, False, 'true', 0.3), ('all, no premium', 1.0, 1.0, False, 'true', 0.0))
 
 
 def _analyse_file(args):

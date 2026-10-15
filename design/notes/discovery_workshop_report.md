@@ -595,6 +595,24 @@ Under 70/20/10 an idea alone in its focus is better served by funding that focus
 
 Results: `results/w7f_familiar_cmpUA125*`, `…cmpUA150*`, `…cmpUC200*`, `…cmpT70*`, `…cmpT70S*`, `…cmpT60*`, `…cmpT50*`, `…cmpT70U*`, `…cmpT70C10*`, `…cmpT70C20*`.
 
+**Tamsin's ideal, then (the same day):** an Endeavour should reliably get you the breakthrough sooner than you would otherwise have had it, *and* make the game take longer to win. The 10% loss cannot do that. The race is a chain that at any moment waits on one or two breakthroughs; an Endeavour on the one it waits for speeds the race up whatever it costs the rest of research, because the race is not waiting on the rest, and a cost paid while the Endeavour runs falls on exactly that research. To lengthen the race every time, the cost has to come after the breakthrough arrives, on whatever the race needs next, and be larger than the time saved.
+
+**A time debt** (`URGENT=1`): an Endeavour on an idea under study pulls every researcher in (all the turn's Insight goes into the breakthrough's meter, the spread waiting too; no premium). When it is done, no focus is funded for `URGENTDEBT` × the turns it saved, against funding the idea's focus when it was committed; the spread goes on, and no Endeavour can start meanwhile. The saving is estimated by playing the focus forward under momentum with each meter at its estimate (the price less the study done, at least a fifth of it). A first estimate, the remaining work over the idea's present share, overstated the saving for an idea trailing in its focus, whose share grows as the ideas ahead finish: debts were too long and 5 of 2,700 games went unfinished (`UR125`, `UR100`). Endeavours on ideas that have not occurred are unchanged (2× the price, the active share).
+
+Per idea (the same snapshots): all the Insight, no premium, gets an idea sooner than funding its focus for 89% of the ideas whose study would take two turns or more (97% sharing a focus, 73% alone in one, the rest ties at a turn's resolution), typically in half the time.
+
+| Whole games (familiar world, 900 games each) | Expert | Novice | Average | Endeavours a game | Unfinished |
+|---|---|---|---|---|---|
+| not allowed (today's default) | 297 | 301 | 374 | 2.0 / 2.1 / 2.0 | 0 |
+| time debt 1× | 300 | 305 | 379 | 11.0 / 9.2 / 9.6 | 0 |
+| **time debt 1.25×** | **303** | **306** | **380** | **9.7 / 8.3 / 8.9** | **0** |
+
+The simulated players start an urgent Endeavour whenever it gets a target sooner, without weighing the debt, so these medians show what using it for the race costs: 5–6 turns at 1.25×. A player who weighs it would keep it for real emergencies. The debt also replaces a cooldown, since no Endeavour can start while it is being paid.
+
+**Claude's recommendation, replacing the cooldown:** the urgent Endeavour with a time debt of 1.25×. Before committing, the player would see the trade: "by study, about 9 turns; by Endeavour, about 4; afterwards your focus stands idle for about 7".
+
+Results: `results/w7f_familiar_cmpUQ125*`, `…cmpUQ100*` (and the first estimate's `…cmpUR125*`, `…cmpUR100*`).
+
 ## The candidate model, exactly (as the simulator runs it)
 
 From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings.
