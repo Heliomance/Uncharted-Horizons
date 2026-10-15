@@ -61,6 +61,8 @@ STATE = {}   # live references to lost, glimpsed and diffusing ideas
 INSIGHT_CUT = 0.0    # >0: from the first discovery of era INSIGHT_CUT_FROM, this share of every turn's Insight is lost before it is
 INSIGHT_CUT_FROM = 'Atomic'   # allocated (development still counts it): Tamsin's question, 15 Oct 2026, what losing Insight costs late on
 INSIGHT_CUT_DEV = False       # True: the lost share does not count towards development either (the era clock slows)
+INCOME_FULL = False  # True: income follows all the Insight ever produced, not development, so Insight withheld from development (above,
+                     # or END_ALL_NODEV) slows only the era clock's prices, as in the real game, where income comes from cities
 END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE 'request')
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
@@ -78,6 +80,8 @@ END_SHARE = None     # the share of each turn's Insight an Endeavour receives: N
                      # the rest; 1.0, all of it, the spread pausing too (Tamsin's urgent button, 15 Oct 2026)
 END_SPREAD = None    # the spread's share of the turn while an Endeavour runs: None, whatever the Endeavour leaves; 0.2 with END_SHARE 0.7, the
                      # rest (10%) lost (Tamsin's model, 15 Oct 2026: 70% to the breakthrough, 20% to the spread, 10% lost, no premium)
+END_LOST_NODEV = False   # True: the share of the turn an Endeavour loses (with END_SPREAD) does not count towards development either
+END_ALL_NODEV = False    # True: nor does the share it receives: an Endeavour's Insight builds its breakthrough, not the civilisation's development
 END_COOLDOWN = 0     # turns after an Endeavour ends (completed, repaid or dropped) before another may start (Tamsin's urgent button)
 URGENT = False       # True: an Endeavour on an idea under study is urgent. It takes every Insight (the spread waits too) and fills the idea's
                      # meter with no premium; when it is done, no focus is funded for URGENT_DEBT x the turns it saved against funding the
@@ -134,10 +138,11 @@ def run(prm, seed, max_turns=450):
     STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}; debt = 0.0; cool_until = 0   # debt: a crash programme's price still to repay; cool_until: END_COOLDOWN
     pause_until = 0; end_urgent = False; end_tstudy = 0.0; end_t0 = 0   # URGENT: the debt's last turn; the running Endeavour's estimate and start
+    cum_all = 0.0                                                          # all the Insight ever produced (INCOME_FULL)
     while turn < max_turns and len(have) < len(IDS):
-        turn += 1; inc = income(cum) * ECON
+        turn += 1; inc = income(cum_all if INCOME_FULL else cum) * ECON
         cut = inc * INSIGHT_CUT if INSIGHT_CUT and any(ERA_I[k] >= EO.index(INSIGHT_CUT_FROM) for k in have) else 0.0   # lost before it is allocated
-        cum += inc - (cut if INSIGHT_CUT_DEV else 0.0); d = dev(cum); acct['income'] += inc; inc -= cut   # ECON: the player's economy against the calibrated good player's
+        cum_all += inc; cum += inc - (cut if INSIGHT_CUT_DEV else 0.0); d = dev(cum); acct['income'] += inc; inc -= cut   # ECON: the player's economy against the calibrated good player's
         CLOCK['turn'] = turn
         if d >= SPACE_I and 'space_entry_turn' not in acct: acct['space_entry_turn'] = turn   # (accounting only) development reaches the Space era
         while len(era_start) < len(EO) and d >= len(era_start): era_start.append(turn)       # the turn development reached each era
@@ -309,8 +314,10 @@ def run(prm, seed, max_turns=450):
         if active: flow[active] = inc * share + bank; bank = 0.0
         elif not (SPREAD_FIX and (busy or end_done)): share = 0.0   # (no active focus: the spread takes everything)
         elif urgent_now: share = 1.0                   # an urgent Endeavour takes every Insight: the spread waits too
-        elif END_SHARE: share = 1.0 - END_SPREAD if END_SPREAD is not None else END_SHARE   # the spread keeps END_SPREAD, or what the
-                                                       # Endeavour leaves (nothing, at 1.0); anything else is lost
+        elif END_SHARE:                                # the spread keeps END_SPREAD, or what the Endeavour leaves (nothing, at 1.0);
+            share = 1.0 - END_SPREAD if END_SPREAD is not None else END_SHARE   # anything else is lost
+            if END_ALL_NODEV and END_SPREAD is not None: cum -= inc * max(0.0, 1.0 - END_SPREAD)   # none of it counts towards development
+            elif END_LOST_NODEV and END_SPREAD is not None: cum -= inc * max(0.0, 1.0 - END_SHARE - END_SPREAD)   # ...nor counts towards development
         wt = {f: pull.get(f, 0) + prm.spread_floor for f in others}; tw = sum(wt.values()) or 1
         if end_k is not None or end_done: acct['endeavour_turns'] = acct.get('endeavour_turns', 0) + 1; acct['endeavour_extra'] = acct.get('endeavour_extra', 0.0) + inc * sh   # (accounting only)
         if not others: acct['spread_dropped'] = acct.get('spread_dropped', 0.0) + inc * (1 - share); acct['spread_dropped_turns'] = acct.get('spread_dropped_turns', 0) + 1   # (accounting only)

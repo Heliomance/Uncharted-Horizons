@@ -152,6 +152,8 @@ HF.URGENT = os.environ.get('URGENT') == '1'   # urgent Endeavours on ideas under
 HF.URGENT_DEBT = float(os.environ.get('URGENTDEBT', '1.25'))   # the debt: this many times the turns an urgent Endeavour saved
 HF.END_ABANDON = float(os.environ.get('ENDABANDON', '0'))   # with URGENT: an urgent Endeavour's field loses this share of its other progress
 HF.END_ABANDON_ALL = os.environ.get('ENDABANDONALL') == '1'   # ...in every focus, not only its own
+HF.END_LOST_NODEV = os.environ.get('ENDLOSTNODEV') == '1'   # an Endeavour's lost share does not count towards development (harness_ftl_e.END_LOST_NODEV)
+HF.END_ALL_NODEV = os.environ.get('ENDALLNODEV') == '1'   # nor does any Insight it takes (harness_ftl_e.END_ALL_NODEV)
 HF.END_NOW = os.environ.get('ENDNOW') == '1'   # a crash programme: delivered at once, its price repaid afterwards (harness_ftl_e.END_NOW)
 HF.SPREAD_FIX = os.environ.get('SPREADFIX', '1') == '1'   # while an Endeavour runs, the spread keeps only its own share; SPREADFIX=0 reproduces the fault in results before 14 Oct 2026
 _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)
@@ -167,6 +169,7 @@ PARALLEL = os.environ.get('PARALLEL') == '1'
 HF.ECON = float(os.environ.get('ECON', '1'))
 HF.INSIGHT_CUT = float(os.environ.get('INSIGHTCUT', '0')); HF.INSIGHT_CUT_FROM = os.environ.get('INSIGHTCUTFROM', 'Atomic')   # Insight lost late on (harness_ftl_e.INSIGHT_CUT)
 HF.INSIGHT_CUT_DEV = os.environ.get('INSIGHTCUTDEV') == '1'   # ...and not counted towards development
+HF.INCOME_FULL = os.environ.get('INCOMEFULL') == '1'   # income follows all Insight produced, not development (harness_ftl_e.INCOME_FULL)
 HF.EXPCAP = float(os.environ['EXPCAP']) if os.environ.get('EXPCAP') else None; HF.EXPCAP_ERA = HF.EO.index(os.environ['EXPCAP_ERA']) if os.environ.get('EXPCAP_ERA') else None
 if 'w' in _L: BUILD['Wormhole'].append(['MS17'])   # Wormhole's engineering row outside its tests (its price: prices.py)
 if 'y' in _L and world is None: BUILD['Tachyonic'] = [g for g in BUILD['Tachyonic'] if g != ['NP11']]   # scenario: atomic Tachyonic without NP11 in its build

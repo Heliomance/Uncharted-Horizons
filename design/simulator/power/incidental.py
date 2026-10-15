@@ -5,9 +5,10 @@ finish is the turn its science race is complete (certainty and build both done; 
 the Drive, when the simulation has stopped). Two comparisons:
   at the racer's finish: what the non-racer held by that same turn that the racer lacks (the research it diverted);
   at each one's own finish: what the non-racer holds when it is ready that the racer lacked when it was.
-Usage: python3 incidental.py <non-racer pattern> <label>=<racer pattern> ...   (patterns name result files
-results/w7f_<world><pattern>.json, with {m} for the method), e.g.
+Usage: python3 incidental.py [--only world:method,...] <non-racer pattern> <label>=<racer pattern> ...   (patterns name result
+files results/w7f_<world><pattern>.json, with {m} for the method; --only limits the victory conditions), e.g.
   python3 incidental.py _incN_{m} 70/20/10=_incA_{m} 70/10/20=_incB_{m}
+  python3 incidental.py --only familiar:Warp,Process:Tachyonic,Substance:Plenum _incN_{m} cut=_incD10_{m}
 """
 import sys, os, re, json, collections, statistics as st
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
@@ -45,8 +46,12 @@ def short(text, n=110):
     return text if len(text) <= n else text[:n - 1] + '…'
 
 
-base = sys.argv[1]
-for label, pat in (a.split('=', 1) for a in sys.argv[2:]):
+args = sys.argv[1:]
+if args[0] == '--only':
+    keep = {tuple(x.split(':')) for x in args[1].split(',')}; args = args[2:]
+    WORLDS = {w: [m for m in ms if (w, m) in keep] for w, ms in WORLDS.items()}
+base = args[0]
+for label, pat in (a.split('=', 1) for a in args[1:]):
     pairs = []
     for w, methods in WORLDS.items():
         for m in methods:
