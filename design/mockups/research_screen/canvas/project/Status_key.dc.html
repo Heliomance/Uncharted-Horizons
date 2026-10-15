@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research screen, status key</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#000033}
+</style>
+</helmet>
+<div style="width:1440px;height:880px;box-sizing:border-box;padding:24px 32px;background:#000033;color:#FFFFFF;font-family:'DejaVu Sans UH','DejaVu Sans',sans-serif;font-size:14px;line-height:1.25;display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));column-gap:48px">
+  <div style="display:flex;flex-direction:column;gap:0">
+    <div style="font-size:18px;height:32px">Breakthrough statuses</div>
+    <sc-for list="{{statuses}}" as="s" hint-placeholder-count="11">
+      <div style="display:grid;grid-template-columns:350px 1fr;align-items:center;min-height:56px;border-top:1px solid rgba(127,127,127,0.35)">
+        <span style="display:flex;align-items:center"><span style="{{s.style}}">
+          <sc-if value="{{s.g.endeavour}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg></sc-if>
+          <sc-if value="{{s.g.studying}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><g transform="translate(2.3 2.1) scale(.82)"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#000033" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#000033" stroke-width="1.7" stroke-linecap="round"></path></g></svg></sc-if>
+          <sc-if value="{{s.g.waiting}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2.2 1.6"></circle><circle cx="7" cy="7" r="1.6" fill="#FFFFFF"></circle></svg></sc-if>
+          <sc-if value="{{s.g.unreach}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.75" y="6.25" width="8.5" height="6.25" rx="1.2" fill="none" stroke="#FFFFFF" stroke-width="1.5"></rect><path d="M4.8 6.25V4.5a2.2 2.2 0 0 1 4.4 0v1.75" fill="none" stroke="#FFFFFF" stroke-width="1.5"></path></svg></sc-if>
+          <sc-if value="{{s.g.closed}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.25" y="2.25" width="9.5" height="9.5" rx="1.5" fill="none" stroke="#B3B3B3" stroke-width="1.5"></rect><path d="M2.5 5.6h9M2.5 8.4h9" stroke="#B3B3B3" stroke-width="1.3"></path></svg></sc-if>
+          <sc-if value="{{s.g.notTaken}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 12.5V8.3L7 5V1.5M7 5l4.5 3.6" fill="none" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path><path d="M8.6 10.9l2.6-3" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path></svg></sc-if>
+          <span>{{s.example}}</span>
+          <sc-if value="{{s.era}}" hint-placeholder-val="{{ true }}"><span style="{{s.eraStyle}}">{{s.era}}</span></sc-if>
+          <sc-for list="{{s.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
+        </span></span>
+        <span style="display:flex;flex-direction:column;gap:3px;padding:6px 0">
+          <span style="font-size:18px">{{s.label}}</span>
+          <span style="color:#B3B3B3">{{s.sentence}}</span>
+        </span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;flex-direction:column">
+    <div style="font-size:18px;height:32px">Tags on breakthroughs</div>
+    <div style="display:grid;grid-template-columns:150px 1fr;row-gap:9px;align-items:center;padding:8px 0 14px 0;border-top:1px solid rgba(127,127,127,0.35)">
+      <sc-for list="{{tags}}" as="t" hint-placeholder-count="8">
+        <span><span style="{{t.style}}">{{t.text}}</span></span>
+        <span style="color:#B3B3B3">{{t.sentence}}</span>
+      </sc-for>
+    </div>
+    <div style="font-size:18px;height:32px">Selection</div>
+    <div style="display:grid;grid-template-columns:250px 1fr;row-gap:12px;align-items:center;padding:10px 0 14px 0;border-top:1px solid rgba(127,127,127,0.35)">
+      <span><span style="display:inline-flex;align-items:center;height:22px;box-sizing:border-box;border-radius:11px;background:#FFD700;border:1.5px solid #B3B3B3;color:#6B4300;padding:0 9px;outline:2px solid #FFFFFF;outline-offset:2px">Refrigeration</span></span>
+      <span style="color:#B3B3B3">Selected: its description and actions show in the bar below the board.</span>
+      <span><span style="display:inline-flex;align-items:center;height:22px;box-sizing:border-box;border-radius:11px;background:#FFD700;border:1.5px solid #B3B3B3;color:#6B4300;padding:0 9px;outline:1.5px dashed #FFFFFF;outline-offset:2px">Electromagnetism</span></span>
+      <span style="color:#B3B3B3">A prerequisite of the selected breakthrough (only shown rows are marked).</span>
+    </div>
+    <div style="font-size:18px;height:32px">The focus list</div>
+    <div style="display:grid;grid-template-columns:250px 1fr;row-gap:8px;align-items:center;padding:10px 0 0 0;border-top:1px solid rgba(127,127,127,0.35)">
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+        <span style="{{r.style}}">
+          <svg width="22" height="14" viewBox="-4 0 22 14" aria-hidden="true"><circle cx="7" cy="7" r="5.75" fill="none" stroke="{{r.ring}}" stroke-width="1.5"></circle><circle cx="7" cy="7" r="3" fill="{{r.dot}}"></circle></svg>
+          <span style="flex:1">{{r.name}}</span>
+          <sc-if value="{{r.pyramid}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg></sc-if>
+          <sc-if value="{{r.isNew}}" hint-placeholder-val="{{ false }}"><span style="margin-left:4px;height:15px;line-height:15px;border-radius:7.5px;padding:0 5px;background:#FFFFFF;color:#000033">New</span></sc-if>
+          <sc-if value="{{r.badge}}" hint-placeholder-val="{{ false }}"><span style="margin-left:4px;min-width:18px;height:15px;line-height:15px;box-sizing:border-box;border-radius:7.5px;padding:0 4px;background:#4893AF;color:#000033;text-align:center;font-size:12px">{{r.badge}}</span></sc-if>
+          <sc-if value="{{r.queue}}" hint-placeholder-val="{{ false }}"><span style="margin-left:4px;width:16px;height:16px;box-sizing:border-box;border-radius:8px;border:1.5px solid #FFFFFF;background:rgba(0,64,133,0.75);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1">{{r.queue}}</span></sc-if>
+        </span>
+        <span style="color:#B3B3B3">{{r.sentence}}</span>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":880}}'>
+const CHIP = 'display:inline-flex;align-items:center;gap:5px;height:22px;box-sizing:border-box;font-size:14px;line-height:1;white-space:nowrap;';
+const BODY = {
+  owned: 'background:#FFD700;border:1.5px solid #B3B3B3;border-radius:11px;color:#6B4300;padding:0 9px;',
+  studying: 'background:#4893AF;border:1.5px solid #B3B3B3;border-radius:11px;color:#000033;padding:0 3px 0 3px;',
+  waiting: 'background:#0E5C56;border:1.5px dashed #FFFFFF;border-radius:11px;color:#FFFFFF;padding:0 3px 0 3px;',
+  unreach: 'background:transparent;border:1.5px dashed #B3B3B3;border-radius:11px;color:#FFFFFF;padding:0 3px 0 3px;',
+  closed: 'background:#111111;border:1.5px dotted #B3B3B3;border-radius:4px;color:#B3B3B3;padding:0 3px 0 3px;',
+  not_taken: 'background:transparent;border:1.5px dashed #6A6A8C;border-radius:11px;color:#9C9CB4;padding:0 3px;',
+  endeavour: 'background:#334D80;border:2px solid #FFFFFF;border-radius:11px;color:#FFFFFF;padding:0 3px 0 3px;',
+};
+const ERA = { studying: 'background:rgba(0,0,51,0.78);color:#FFFFFF;', waiting: 'background:rgba(0,0,0,0.55);color:#FFFFFF;', unreach: 'background:rgba(255,255,255,0.16);color:#FFFFFF;',
+  closed: 'background:rgba(255,255,255,0.13);color:#B3B3B3;', endeavour: 'background:rgba(0,0,0,0.45);color:#FFFFFF;' };
+const TAGB = 'display:inline-flex;align-items:center;height:16px;border-radius:8px;padding:0 6px;font-size:14px;line-height:1;white-space:nowrap;';
+const TAG = { New: 'background:#FFFFFF;color:#000033;', Rare: 'background:#7F3200;color:#FFFFFF;', '★ Unique': 'background:#3F1046;color:#FFFFFF;',
+  'Dead end': 'background:#6B4300;color:#FFD700;', Superseded: 'background:#252B3E;color:#FFFFFF;', FTL: 'background:#334D80;color:#FFFFFF;',
+  'Path not taken': 'background:#252B3E;color:#FFFFFF;', 'Endeavour 64%': 'background:#FFFFFF;color:#000033;', 'Set aside · 40%': 'background:#4893AF;color:#000033;',
+  '75% · traded': 'background:#252B3E;color:#FFFFFF;', '50% · stolen': 'background:#252B3E;color:#FFFFFF;', 'Writing came first': 'background:#252B3E;color:#FFFFFF;',
+  'Claimed': 'background:#252B3E;color:#FFFFFF;' };
+const S = (st, example, era, label, sentence, tags) => ({ style: CHIP + BODY[st], example: example, era: era || '', eraStyle: TAGB + 'border-radius:4px;padding:0 4px;' + (ERA[st] || ''),
+  label: label, sentence: sentence, tags: (tags || []).map(t => ({ text: t, style: TAGB + TAG[t] })),
+  g: { studying: st === 'studying', waiting: st === 'waiting', unreach: st === 'unreach', closed: st === 'closed', notTaken: st === 'not_taken', endeavour: st === 'endeavour' } });
+const ROW = (fill, name, ring, dot, sentence, extra) => Object.assign({ style: 'display:flex;align-items:center;height:20px;border-radius:10px;padding:0 6px 0 0;width:236px;box-sizing:border-box;' + fill,
+  name: name, ring: ring, dot: dot, sentence: sentence, pyramid: false, isNew: false, badge: 0, queue: 0 }, extra || {});
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      statuses: [
+        S('owned', 'Refrigeration', '', 'Owned', 'Discovered: its effects are yours.'),
+        S('studying', 'Laser', 'Atom', 'Being studied', 'Revealed, and its idea has occurred: it takes a share of its focus’s Insight every turn.'),
+        S('waiting', 'Phage Therapy', 'Mod', 'Awaiting the idea', 'Revealed, not yet occurred: no Insight until the idea occurs, and it still may.'),
+        S('unreach', 'Rigid Airship', 'Mod', 'Not yet reachable', 'Revealed, but a prerequisite must be discovered first.'),
+        S('closed', 'Superconductivity', 'Atom', 'Moment passed', 'Revealed, its window closed: only an Endeavour is certain.'),
+        S('not_taken', 'Corbel Arch/Vault', '', 'Path not taken', 'A rival solution came first: it will never be developed.', ['Path not taken']),
+        S('endeavour', 'Superconductivity', 'Atom', 'Grand Endeavour', 'Being completed by a Grand Endeavour: it cannot fail.', ['Endeavour 64%']),
+        S('closed', 'Radar', 'Mod', 'Set aside', 'An Endeavour you stopped: its progress decays slowly; you can resume it.', ['Set aside · 40%']),
+        S('waiting', 'Loop Quantum Gravity', 'Space', 'Dead end (known)', 'A revealed theory an experiment reported against: only its consolation remains.', ['Dead end']),
+        S('not_taken', 'Oral Epic Tradition', '', 'Closed for good', 'A negative prerequisite closed it.', ['Writing came first']),
+        S('not_taken', 'Rice Paddy Mastery', '', 'Claimed', 'A Unique that another civilisation discovered first.', ['Claimed']),
+      ],
+      tags: [
+        { text: 'New', style: TAGB + TAG.New, sentence: 'Changed since you last opened this screen.' },
+        { text: 'Rare', style: TAGB + TAG.Rare, sentence: 'A rare find (owned breakthroughs only).' },
+        { text: '★ Unique', style: TAGB + TAG['★ Unique'], sentence: 'Unique to your civilisation: never traded, stolen or diffused.' },
+        { text: 'Superseded', style: TAGB + TAG.Superseded, sentence: 'A later solution replaced its buildings.' },
+        { text: 'Dead end', style: TAGB + TAG['Dead end'], sentence: 'Owned, but an experiment reported against it; what stands is listed.' },
+        { text: 'FTL', style: TAGB + TAG.FTL, sentence: 'It bore on the question of how to exceed the speed of light.' },
+        { text: '75% · traded', style: TAGB + TAG['75% · traded'], sentence: 'Traded: at 75% until your own research catches up.' },
+        { text: '50% · stolen', style: TAGB + TAG['50% · stolen'], sentence: 'Stolen: at 50%.' },
+      ],
+      rows: [
+        ROW('color:#FFFFFF;', 'Chemistry', '#B3B3B3', 'none', 'A focus you can fund. The badge counts revealed work under study.', { badge: 2 }),
+        ROW('background:#4893AF;color:#000033;', 'Quantum Physics', '#000033', '#000033', 'Funded: 80% of your Insight goes here.', { badge: 2 }),
+        ROW('background:#0E5C56;color:#FFFFFF;', 'Energy Systems', '#B3B3B3', 'none', 'Queued 2nd: funding moves here when the funded focus has no revealed work.', { badge: 4, queue: 2 }),
+        ROW('color:#FFFFFF;box-shadow:inset 0 0 0 2px #FFFFFF;', 'Medicine', '#B3B3B3', 'none', 'Selected: the board shows only this focus.'),
+        ROW('color:#FFFFFF;', 'Electricity', '#B3B3B3', 'none', 'Holds the running Grand Endeavour.', { pyramid: true }),
+        ROW('color:#FFFFFF;', 'Materials Science', '#B3B3B3', 'none', 'Newly opened.', { isNew: true, badge: 1 }),
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

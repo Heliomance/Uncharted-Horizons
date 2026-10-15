@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Research screen, late game</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:'DejaVu Sans UH';src:url(__FONT_URL__) format('woff2');font-weight:400;font-style:normal}
+body{margin:0;background:#000033}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:left;line-height:inherit}
+.uh-chip:hover{border-color:#FFFFFF !important}
+.uh-btn:hover:not([disabled]){background:#65DC72 !important;color:#404040 !important}
+.uh-btn:active:not([disabled]){background:#409955 !important;color:#000033 !important}
+.uh-row:hover{background:#252B3E}
+.uh-link:hover{color:#FFFFFF !important}
+button:focus-visible{outline:2px solid #3A98DB !important;outline-offset:1px}
+.uh-scroll{scrollbar-width:thin;scrollbar-color:#334D80 transparent}
+.uh-scroll::-webkit-scrollbar{width:10px;height:10px}
+.uh-scroll::-webkit-scrollbar-thumb{background:#334D80;border-radius:5px}
+.uh-scroll::-webkit-scrollbar-track{background:transparent}
+a{color:#4893AF}a:hover{color:#FFFFFF}
+</style>
+</helmet>
+<div style="{{rootStyle}}">
+
+<!-- LEFT COLUMN: what is funded, and every focus the civilisation has entered -->
+<div style="{{L.leftStyle}}">
+  <button aria-label="{{fund.aria}}" onClick="{{fund.onClick}}" style="{{fund.style}}">
+    <span style="display:flex;align-items:center;gap:6px;height:24px;padding-left:3px">
+      <svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"></path></svg>
+      <span style="font-size:18px">{{fund.insight}} Insight a turn</span>
+    </span>
+    <sc-if value="{{fund.isFocus}}" hint-placeholder-val="{{ true }}">
+      <span style="display:flex;align-items:center;gap:5px;height:28px;box-sizing:border-box;border-radius:14px;background:#4893AF;border:1.5px solid #B3B3B3;color:#000033;padding:0 8px 0 4px">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#000033" stroke-width="1.5"></circle><circle cx="8" cy="8" r="3.5" fill="#000033"></circle></svg>
+        <span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{fund.name}}</span>
+        <span style="white-space:nowrap">{{fund.right}}</span>
+      </span>
+    </sc-if>
+    <sc-if value="{{fund.isEndeavour}}" hint-placeholder-val="{{ false }}">
+      <span style="display:flex;flex-direction:column;justify-content:center;gap:3px;height:28px;box-sizing:border-box;border-radius:14px;background:#334D80;border:2px solid #FFFFFF;color:#FFFFFF;padding:0 10px 0 4px">
+        <span style="display:flex;align-items:center;gap:6px;height:16px">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg>
+          <span style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{fund.name}}</span>
+          <span>{{fund.right}}</span>
+        </span>
+      </span>
+      <span style="display:block;position:relative;height:4px;margin:-8px 12px 4px 26px;background:rgba(255,255,255,0.25);border-radius:2px">
+        <span style="{{fund.barFill}}"></span>
+        <span style="position:absolute;left:25%;top:0;width:1px;height:4px;background:#000033"></span>
+        <span style="position:absolute;left:50%;top:0;width:1px;height:4px;background:#000033"></span>
+        <span style="position:absolute;left:75%;top:0;width:1px;height:4px;background:#000033"></span>
+      </span>
+    </sc-if>
+    <span style="display:flex;align-items:center;height:20px;box-sizing:border-box;border-radius:10px;border:1px dashed #B3B3B3;color:#B3B3B3;padding:0 9px 0 12px;margin-top:2px">
+      <span style="flex:1;white-space:nowrap">Spread to other foci</span><span style="margin-left:8px;white-space:nowrap">{{fund.spread}}</span>
+    </span>
+  </button>
+
+  <div role="radiogroup" aria-label="Fund a focus" class="uh-scroll" ref="{{L.listRef}}" style="{{L.listStyle}}">
+    <sc-for list="{{foci}}" as="f" hint-placeholder-count="33">
+      <div class="uh-row" style="{{f.rowStyle}}" onContextMenu="{{f.onQueue}}">
+        <button role="radio" aria-checked="{{f.checked}}" aria-label="{{f.radioAria}}" onClick="{{f.onFund}}" style="{{L.radioStyle}}">
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.75" fill="none" stroke="{{f.ring}}" stroke-width="1.5"></circle><circle cx="7" cy="7" r="3" fill="{{f.dot}}"></circle></svg>
+        </button>
+        <button aria-label="{{f.selectAria}}" onClick="{{f.onSelect}}" style="{{f.nameStyle}}">{{f.name}}</button>
+        <sc-if value="{{f.showPyramid}}" hint-placeholder-val="{{ false }}">
+          <svg width="16" height="16" viewBox="0 0 16 16" role="img" aria-label="holds the Grand Endeavour" style="margin-left:4px;flex:none"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg>
+        </sc-if>
+        <sc-if value="{{f.showNew}}" hint-placeholder-val="{{ false }}">
+          <span style="margin-left:4px;height:15px;line-height:15px;border-radius:7.5px;padding:0 5px;background:#FFFFFF;color:#000033;flex:none">New</span>
+        </sc-if>
+        <sc-if value="{{f.showBadge}}" hint-placeholder-val="{{ false }}">
+          <span title="{{f.badgeTitle}}" style="{{f.badgeStyle}}">{{f.badge}}</span>
+        </sc-if>
+        <sc-if value="{{f.showQueue}}" hint-placeholder-val="{{ false }}">
+          <span title="{{f.queueTitle}}" style="margin-left:4px;width:16px;height:16px;box-sizing:border-box;border-radius:8px;border:1.5px solid #FFFFFF;background:rgba(0,64,133,0.75);color:#FFFFFF;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1">{{f.queueNo}}</span>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+  <sc-if value="{{showHint}}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:6px;margin:9px 0 0 3px;color:#B3B3B3">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.75" fill="none" stroke="#B3B3B3" stroke-width="1.5"></circle></svg>
+      <span>funds · right-click queues</span>
+    </div>
+  </sc-if>
+</div>
+
+<div style="width:3px;flex:none;box-sizing:border-box;background:#334D80;border-left:1px solid #19263F;border-right:1px solid #19263F"></div>
+
+<!-- RIGHT: filter row, board, bottom bar -->
+<div style="flex:1;min-width:0;display:flex;flex-direction:column">
+  <div style="{{L.topStyle}}">
+    <sc-for list="{{segs}}" as="sg" hint-placeholder-count="5">
+      <button aria-pressed="{{sg.pressed}}" aria-label="{{sg.aria}}" onClick="{{sg.onClick}}" style="{{sg.style}}">
+        <sc-if value="{{sg.g.studying}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><g transform="translate(2.3 2.1) scale(.82)"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#000033" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#000033" stroke-width="1.7" stroke-linecap="round"></path></g></svg></sc-if>
+        <sc-if value="{{sg.g.waiting}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2.2 1.6"></circle><circle cx="7" cy="7" r="1.6" fill="#FFFFFF"></circle></svg></sc-if>
+        <sc-if value="{{sg.g.unreach}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.75" y="6.25" width="8.5" height="6.25" rx="1.2" fill="none" stroke="#FFFFFF" stroke-width="1.5"></rect><path d="M4.8 6.25V4.5a2.2 2.2 0 0 1 4.4 0v1.75" fill="none" stroke="#FFFFFF" stroke-width="1.5"></path></svg></sc-if>
+        <sc-if value="{{sg.g.closed}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.25" y="2.25" width="9.5" height="9.5" rx="1.5" fill="none" stroke="#B3B3B3" stroke-width="1.5"></rect><path d="M2.5 5.6h9M2.5 8.4h9" stroke="#B3B3B3" stroke-width="1.3"></path></svg></sc-if>
+        <sc-if value="{{sg.g.owned}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1.5" y="3.5" width="11" height="7" rx="3.5" fill="#FFD700" stroke="#B3B3B3"></rect></svg></sc-if>
+        <sc-if value="{{L.segLabels}}" hint-placeholder-val="{{ true }}"><span>{{sg.label}}</span></sc-if>
+        <span style="{{sg.countStyle}}">{{sg.count}}</span>
+      </button>
+    </sc-for>
+    <span style="flex:1"></span>
+    <sc-if value="{{L.ftlTop}}" hint-placeholder-val="{{ false }}"><button class="uh-btn" aria-label="Open the Faster than light screen" style="{{L.ftlTopStyle}}">Faster than light</button></sc-if>
+    <button aria-label="{{era.aria}}" onClick="{{era.onClick}}" style="{{era.style}}">{{era.text}}</button>
+  </div>
+
+  <div class="uh-scroll" style="{{boardStyle}}">
+    <!-- the focus view's header -->
+    <sc-if value="{{fv.show}}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:10px;height:30px;margin-bottom:6px">
+        <button role="radio" aria-checked="{{fv.checked}}" aria-label="{{fv.radioAria}}" onClick="{{fv.onFund}}" style="width:20px;height:20px;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"></circle><circle cx="8" cy="8" r="3.5" fill="{{fv.dot}}"></circle></svg>
+        </button>
+        <span style="font-size:18px">{{fv.name}}</span>
+        <span style="color:#B3B3B3">{{fv.summary}}</span>
+        <span style="flex:1"></span>
+        <button class="uh-btn" onClick="{{fv.onBack}}" style="height:30px;border-radius:15px;background:#334D80;color:#FFFFFF;padding:0 13px">× All foci</button>
+      </div>
+    </sc-if>
+
+    <!-- live sections: Grand Endeavour, Being studied, Awaiting the idea, Not yet reachable, Moment passed -->
+    <sc-for list="{{sections}}" as="sec" hint-placeholder-count="4">
+      <div style="margin-bottom:4px">
+        <button aria-expanded="{{sec.expandedStr}}" onClick="{{sec.onToggle}}" style="{{L.secHeadStyle}}">
+          <sc-if value="{{sec.g.endeavour}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg></sc-if>
+          <sc-if value="{{sec.g.studying}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><g transform="translate(2.3 2.1) scale(.82)"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#000033" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#000033" stroke-width="1.7" stroke-linecap="round"></path></g></svg></sc-if>
+          <sc-if value="{{sec.g.waiting}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2.2 1.6"></circle><circle cx="7" cy="7" r="1.6" fill="#FFFFFF"></circle></svg></sc-if>
+          <sc-if value="{{sec.g.unreach}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.75" y="6.25" width="8.5" height="6.25" rx="1.2" fill="none" stroke="#FFFFFF" stroke-width="1.5"></rect><path d="M4.8 6.25V4.5a2.2 2.2 0 0 1 4.4 0v1.75" fill="none" stroke="#FFFFFF" stroke-width="1.5"></path></svg></sc-if>
+          <sc-if value="{{sec.g.closed}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.25" y="2.25" width="9.5" height="9.5" rx="1.5" fill="none" stroke="#B3B3B3" stroke-width="1.5"></rect><path d="M2.5 5.6h9M2.5 8.4h9" stroke="#B3B3B3" stroke-width="1.3"></path></svg></sc-if>
+          <span style="font-size:18px;margin-left:8px">{{sec.title}}</span>
+          <span style="font-size:18px;margin-left:8px;color:#B3B3B3">{{sec.count}}</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="margin-left:7px"><path d="{{sec.chevron}}" fill="none" stroke="#B3B3B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <sc-if value="{{L.showWhy}}" hint-placeholder-val="{{ true }}"><span style="margin-left:14px;color:#B3B3B3">{{sec.why}}</span></sc-if>
+        </button>
+        <sc-if value="{{sec.showRuns}}" hint-placeholder-val="{{ true }}">
+          <div style="{{L.runsStyle}}">
+            <sc-for list="{{sec.runs}}" as="run" hint-placeholder-count="6">
+              <div style="display:flex;align-items:flex-start;max-width:100%">
+                <button aria-label="{{run.aria}}" onClick="{{run.onSelect}}" style="{{run.labelStyle}}">{{run.label}}</button>
+                <div style="{{L.chipsStyle}}">
+                  <sc-for list="{{run.chips}}" as="c" hint-placeholder-count="2">
+                    <button class="uh-chip" aria-label="{{c.aria}}" onClick="{{c.onClick}}" style="{{c.style}}">
+                      <sc-if value="{{c.g.endeavour}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg></sc-if>
+                      <sc-if value="{{c.g.studying}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><g transform="translate(2.3 2.1) scale(.82)"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#000033" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#000033" stroke-width="1.7" stroke-linecap="round"></path></g></svg></sc-if>
+                      <sc-if value="{{c.g.waiting}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2.2 1.6"></circle><circle cx="7" cy="7" r="1.6" fill="#FFFFFF"></circle></svg></sc-if>
+                      <sc-if value="{{c.g.unreach}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.75" y="6.25" width="8.5" height="6.25" rx="1.2" fill="none" stroke="#FFFFFF" stroke-width="1.5"></rect><path d="M4.8 6.25V4.5a2.2 2.2 0 0 1 4.4 0v1.75" fill="none" stroke="#FFFFFF" stroke-width="1.5"></path></svg></sc-if>
+                      <sc-if value="{{c.g.closed}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.25" y="2.25" width="9.5" height="9.5" rx="1.5" fill="none" stroke="#B3B3B3" stroke-width="1.5"></rect><path d="M2.5 5.6h9M2.5 8.4h9" stroke="#B3B3B3" stroke-width="1.3"></path></svg></sc-if>
+                      <span>{{c.name}}</span>
+                      <sc-if value="{{c.era.show}}" hint-placeholder-val="{{ true }}"><span style="{{c.era.style}}">{{c.era.text}}</span></sc-if>
+                      <sc-for list="{{c.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{sec.showCards}}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px 12px">
+            <sc-for list="{{sec.cards}}" as="c" hint-placeholder-count="2">
+              <button class="uh-chip" aria-label="{{c.aria}}" onClick="{{c.onClick}}" style="{{c.cardStyle}}">
+                <span style="display:flex;align-items:center;gap:5px;height:20px">
+                  <sc-if value="{{c.g.endeavour}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg></sc-if>
+                  <sc-if value="{{c.g.studying}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><g transform="translate(2.3 2.1) scale(.82)"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#000033" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#000033" stroke-width="1.7" stroke-linecap="round"></path></g></svg></sc-if>
+                  <sc-if value="{{c.g.waiting}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2.2 1.6"></circle><circle cx="7" cy="7" r="1.6" fill="#FFFFFF"></circle></svg></sc-if>
+                  <sc-if value="{{c.g.unreach}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.75" y="6.25" width="8.5" height="6.25" rx="1.2" fill="none" stroke="#FFFFFF" stroke-width="1.5"></rect><path d="M4.8 6.25V4.5a2.2 2.2 0 0 1 4.4 0v1.75" fill="none" stroke="#FFFFFF" stroke-width="1.5"></path></svg></sc-if>
+                  <sc-if value="{{c.g.closed}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.25" y="2.25" width="9.5" height="9.5" rx="1.5" fill="none" stroke="#B3B3B3" stroke-width="1.5"></rect><path d="M2.5 5.6h9M2.5 8.4h9" stroke="#B3B3B3" stroke-width="1.3"></path></svg></sc-if>
+                  <sc-if value="{{c.g.notTaken}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 12.5V8.3L7 5V1.5M7 5l4.5 3.6" fill="none" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path><path d="M8.6 10.9l2.6-3" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path></svg></sc-if>
+                  <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{c.name}}</span>
+                  <sc-if value="{{c.era.show}}" hint-placeholder-val="{{ true }}"><span style="{{c.era.style}}">{{c.era.text}}</span></sc-if>
+                  <sc-for list="{{c.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
+                </span>
+                <span style="{{c.line2Style}}">{{c.line2}}</span>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+
+    <!-- the owned history, newest era first, in Unciv's era-header colours -->
+    <sc-if value="{{owned.show}}" hint-placeholder-val="{{ true }}">
+      <button aria-expanded="{{owned.expandedStr}}" onClick="{{owned.onToggle}}" style="{{L.secHeadStyle}}">
+        <svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><rect x="1.5" y="3.5" width="11" height="7" rx="3.5" fill="#FFD700" stroke="#B3B3B3"></rect></svg>
+        <span style="font-size:18px;margin-left:8px">Owned</span>
+        <span style="font-size:18px;margin-left:8px;color:#B3B3B3">{{owned.count}}</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="margin-left:7px"><path d="{{owned.chevron}}" fill="none" stroke="#B3B3B3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <sc-if value="{{L.showWhy}}" hint-placeholder-val="{{ true }}"><span style="margin-left:14px;color:#B3B3B3">{{owned.why}}</span></sc-if>
+      </button>
+      <sc-if value="{{owned.expanded}}" hint-placeholder-val="{{ true }}">
+        <sc-for list="{{owned.bands}}" as="band" hint-placeholder-count="3">
+          <button aria-expanded="{{band.expandedStr}}" onClick="{{band.onToggle}}" style="{{band.style}}">
+            <span>{{band.label}}</span><span style="font-size:14px;margin-left:8px">· {{band.count}}</span>
+          </button>
+          <sc-if value="{{band.showRuns}}" hint-placeholder-val="{{ true }}">
+            <div style="{{L.runsStyle}}">
+              <sc-for list="{{band.runs}}" as="run" hint-placeholder-count="6">
+                <div style="display:flex;align-items:flex-start;max-width:100%">
+                  <button aria-label="{{run.aria}}" onClick="{{run.onSelect}}" style="{{run.labelStyle}}">{{run.label}}</button>
+                  <div style="{{L.chipsStyle}}">
+                    <sc-for list="{{run.chips}}" as="c" hint-placeholder-count="3">
+                      <button class="uh-chip" aria-label="{{c.aria}}" onClick="{{c.onClick}}" style="{{c.style}}">
+                        <sc-if value="{{c.g.notTaken}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 12.5V8.3L7 5V1.5M7 5l4.5 3.6" fill="none" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path><path d="M8.6 10.9l2.6-3" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path></svg></sc-if>
+                        <span>{{c.name}}</span>
+                        <sc-for list="{{c.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
+                      </button>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{band.showCards}}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px 12px;margin-bottom:6px">
+              <sc-for list="{{band.cards}}" as="c" hint-placeholder-count="1">
+                <button class="uh-chip" aria-label="{{c.aria}}" onClick="{{c.onClick}}" style="{{c.cardStyle}}">
+                  <span style="display:flex;align-items:center;gap:5px;height:20px">
+                    <sc-if value="{{c.g.notTaken}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 12.5V8.3L7 5V1.5M7 5l4.5 3.6" fill="none" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path><path d="M8.6 10.9l2.6-3" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path></svg></sc-if>
+                    <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{c.name}}</span>
+                    <sc-for list="{{c.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
+                  </span>
+                  <span style="{{c.line2Style}}">{{c.line2}}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </sc-for>
+      </sc-if>
+    </sc-if>
+  </div>
+
+  <!-- BOTTOM BAR: Close | description | actions, as in Unciv's picker screens -->
+  <sc-if value="{{bar.show}}" hint-placeholder-val="{{ true }}">
+    <div style="height:3px;flex:none;box-sizing:border-box;background:#334D80;border-top:1px solid #19263F;border-bottom:1px solid #19263F"></div>
+    <div style="{{L.barStyle}}">
+      <div style="{{L.leftBtnsStyle}}">
+        <button class="uh-btn" style="{{L.closeStyle}}">Close</button>
+        <sc-if value="{{L.ftlBottom}}" hint-placeholder-val="{{ true }}"><button class="uh-btn" aria-label="Open the Faster than light screen" style="width:180px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center">Faster than light</button></sc-if>
+      </div>
+      <div class="uh-scroll" style="{{L.descStyle}}">
+        <div style="display:flex;align-items:center;height:24px;white-space:nowrap">
+          <sc-if value="{{bar.g.endeavour}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><path d="M3.6 11.3h8.8L8 4.2z" fill="none" stroke="#000033" stroke-width="1.4" stroke-linejoin="round"></path><path d="M5.4 8.4h5.2" stroke="#000033" stroke-width="1.1"></path></svg></sc-if>
+          <sc-if value="{{bar.g.studying}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="#FFFFFF"></circle><g transform="translate(2.3 2.1) scale(.82)"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#000033" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#000033" stroke-width="1.7" stroke-linecap="round"></path></g></svg></sc-if>
+          <sc-if value="{{bar.g.waiting}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2.2 1.6"></circle><circle cx="7" cy="7" r="1.6" fill="#FFFFFF"></circle></svg></sc-if>
+          <sc-if value="{{bar.g.unreach}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.75" y="6.25" width="8.5" height="6.25" rx="1.2" fill="none" stroke="#FFFFFF" stroke-width="1.5"></rect><path d="M4.8 6.25V4.5a2.2 2.2 0 0 1 4.4 0v1.75" fill="none" stroke="#FFFFFF" stroke-width="1.5"></path></svg></sc-if>
+          <sc-if value="{{bar.g.closed}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.25" y="2.25" width="9.5" height="9.5" rx="1.5" fill="none" stroke="#B3B3B3" stroke-width="1.5"></rect><path d="M2.5 5.6h9M2.5 8.4h9" stroke="#B3B3B3" stroke-width="1.3"></path></svg></sc-if>
+          <sc-if value="{{bar.g.notTaken}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 12.5V8.3L7 5V1.5M7 5l4.5 3.6" fill="none" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path><path d="M8.6 10.9l2.6-3" stroke="#9C9CB4" stroke-width="1.5" stroke-linecap="round"></path></svg></sc-if>
+          <sc-if value="{{bar.g.owned}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><rect x="1.5" y="3.5" width="11" height="7" rx="3.5" fill="#FFD700" stroke="#B3B3B3"></rect></svg></sc-if>
+          <sc-if value="{{bar.g.focus}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"></circle><circle cx="8" cy="8" r="3.5" fill="{{bar.dot}}"></circle></svg></sc-if>
+          <sc-if value="{{bar.g.insight}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 1.5h4M5.8 1.5v4L2.2 11.6c-.4.7.1 1.4.9 1.4h7.8c.8 0 1.3-.7.9-1.4L8.2 5.5v-4" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.6 9.5h6.8" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"></path></svg></sc-if>
+          <span style="font-size:18px;margin-left:7px">{{bar.title}}</span>
+          <span style="margin-left:10px;color:#B3B3B3;overflow:hidden;text-overflow:ellipsis">{{bar.meta}}</span>
+          <sc-for list="{{bar.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
+          <span style="flex:1"></span>
+          <sc-if value="{{bar.move.show}}" hint-placeholder-val="{{ false }}">
+            <button class="uh-btn" aria-label="{{bar.move.upAria}}" onClick="{{bar.move.onUp}}" style="width:24px;height:24px;border-radius:12px;background:#334D80;display:flex;align-items:center;justify-content:center;margin-left:6px"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 9l4-4 4 4" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button class="uh-btn" aria-label="{{bar.move.downAria}}" onClick="{{bar.move.onDown}}" style="width:24px;height:24px;border-radius:12px;background:#334D80;display:flex;align-items:center;justify-content:center;margin-left:6px"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          </sc-if>
+        </div>
+        <sc-for list="{{bar.lines}}" as="ln" hint-placeholder-count="4">
+          <div style="{{ln.style}}"><sc-for list="{{ln.parts}}" as="p" hint-placeholder-count="1"><span style="{{p.style}}">{{p.text}}</span></sc-for></div>
+        </sc-for>
+      </div>
+      <div style="{{L.actsStyle}}">
+        <sc-if value="{{bar.primary.show}}" hint-placeholder-val="{{ true }}">
+          <button class="uh-btn" disabled="{{bar.primary.disabled}}" onClick="{{bar.primary.onClick}}" style="{{bar.primary.style}}">
+            <span style="display:block;font-size:18px;line-height:20px">{{bar.primary.l1}}</span>
+            <sc-if value="{{bar.primary.l2}}" hint-placeholder-val="{{ false }}"><span style="display:block;font-size:14px;line-height:16px">{{bar.primary.l2}}</span></sc-if>
+          </button>
+        </sc-if>
+        <sc-if value="{{bar.secondary.show}}" hint-placeholder-val="{{ true }}">
+          <button class="uh-btn" disabled="{{bar.secondary.disabled}}" onClick="{{bar.secondary.onClick}}" style="{{bar.secondary.style}}">
+            <span style="display:block;font-size:18px;line-height:20px">{{bar.secondary.l1}}</span>
+            <sc-if value="{{bar.secondary.l2}}" hint-placeholder-val="{{ false }}"><span style="display:block;font-size:14px;line-height:16px">{{bar.secondary.l2}}</span></sc-if>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+<!-- confirmation popups -->
+<sc-if value="{{popup.show}}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.5)"></div>
+  <div role="dialog" aria-modal="true" aria-label="{{popup.title}}" style="position:absolute;left:410px;top:305px;width:620px;box-sizing:border-box;background:#111111;border:1.5px solid #B3B3B3;border-radius:15px;padding:24px;display:flex;flex-direction:column;gap:12px">
+    <div style="font-size:18px">{{popup.title}}</div>
+    <div style="font-size:18px;line-height:24px;color:#FFFFFF">{{popup.body}}</div>
+    <div style="display:flex;justify-content:flex-end;gap:12px;margin-top:6px">
+      <button class="uh-btn" onClick="{{popup.ok.onClick}}" style="min-width:250px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center;padding:0 13px 0 12px">{{popup.ok.label}}</button>
+      <button class="uh-btn" onClick="{{popup.cancel.onClick}}" style="min-width:250px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center;padding:0 13px 0 12px">{{popup.cancel.label}}</button>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["a1","a2","a3","a3b","a4"],"default":"a1","section":"Mockup"},"phone":{"editor":"boolean","default":false,"section":"Mockup"},"$preview":{"width":1440,"height":810}}'>
+__SCRIPT__
+</script>
+</body>
+</html>

@@ -1,0 +1,5318 @@
+{
+ "t226": {
+  "turn": 226,
+  "era": "Modern",
+  "insight": 853.3,
+  "funded": "Quantum Physics",
+  "queue": [
+   "Energy Systems",
+   "Medicine"
+  ],
+  "foci": [
+   "Aeronautics",
+   "Animal Husbandry",
+   "Chemistry",
+   "Computing",
+   "Construction",
+   "Electricity",
+   "Electronics",
+   "Energy Systems",
+   "Farming",
+   "Fire",
+   "Foraging",
+   "Genetics",
+   "Materials Science",
+   "Mathematics",
+   "Mechanics",
+   "Medicine",
+   "Metallurgy",
+   "Mining",
+   "Nuclear Physics",
+   "Observation",
+   "Optics",
+   "Philosophy and the Arts",
+   "Quantum Physics",
+   "Relativity & Cosmology",
+   "Rocketry",
+   "Seafaring",
+   "Social Organization",
+   "Stonework",
+   "Textiles & Materials",
+   "Thermodynamics",
+   "Trade",
+   "Warfare",
+   "Water Management"
+  ],
+  "badges": {
+   "Aeronautics": 2,
+   "Chemistry": 2,
+   "Computing": 1,
+   "Electronics": 1,
+   "Energy Systems": 4,
+   "Medicine": 2,
+   "Mining": 2,
+   "Materials Science": 1,
+   "Nuclear Physics": 1,
+   "Observation": 1,
+   "Optics": 1,
+   "Philosophy and the Arts": 2,
+   "Quantum Physics": 2,
+   "Relativity & Cosmology": 1,
+   "Rocketry": 1,
+   "Trade": 1,
+   "Textiles & Materials": 1,
+   "Water Management": 1,
+   "Farming": 2
+  },
+  "endeavour": null,
+  "rows": [
+   {
+    "id": "AE01",
+    "name": "Hot Air Balloon",
+    "focus": "Aeronautics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 202,
+    "tags": []
+   },
+   {
+    "id": "AE02",
+    "name": "Dirigible/Airship",
+    "focus": "Aeronautics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "AE03",
+    "name": "Heavier-Than-Air Flight",
+    "focus": "Aeronautics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "AE09",
+    "name": "Ornithopter",
+    "focus": "Aeronautics",
+    "era": "Early Modern",
+    "tier": "RARE",
+    "status": "owned",
+    "turn": 191,
+    "tags": [
+     "Rare"
+    ]
+   },
+   {
+    "id": "AH01",
+    "name": "Dog Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 28,
+    "tags": []
+   },
+   {
+    "id": "AH02",
+    "name": "Herd Animal Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 15,
+    "tags": []
+   },
+   {
+    "id": "AH03",
+    "name": "Horse Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 72,
+    "tags": []
+   },
+   {
+    "id": "AH05",
+    "name": "Camel Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "AH06",
+    "name": "Elephant Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "AH11",
+    "name": "Veterinary Medicine",
+    "focus": "Animal Husbandry",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 129,
+    "tags": []
+   },
+   {
+    "id": "CH01",
+    "name": "Alchemy",
+    "focus": "Chemistry",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "CH04",
+    "name": "Distillation",
+    "focus": "Chemistry",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 89,
+    "tags": []
+   },
+   {
+    "id": "CH05",
+    "name": "Oxygen Theory",
+    "focus": "Chemistry",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 139,
+    "tags": []
+   },
+   {
+    "id": "CH06",
+    "name": "Periodic Table",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 157,
+    "tags": []
+   },
+   {
+    "id": "CH07",
+    "name": "Organic Chemistry",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 199,
+    "tags": []
+   },
+   {
+    "id": "CH08",
+    "name": "Explosives (non-gunpowder)",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 216,
+    "tags": [],
+    "also": [
+     "Mining"
+    ]
+   },
+   {
+    "id": "CH09",
+    "name": "Petrochemistry",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 213,
+    "tags": []
+   },
+   {
+    "id": "CH09-W",
+    "name": "Bio-Organic Synthesis",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 211,
+    "tags": []
+   },
+   {
+    "id": "CH11",
+    "name": "Polymer Science",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 223,
+    "tags": []
+   },
+   {
+    "id": "CH12",
+    "name": "Catalysis",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 203,
+    "tags": [],
+    "also": [
+     "Farming"
+    ]
+   },
+   {
+    "id": "CH13",
+    "name": "Rocket Propellant",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 194,
+    "tags": []
+   },
+   {
+    "id": "CH14",
+    "name": "Photochemistry",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CH15",
+    "name": "Greek Alchemical Tradition",
+    "focus": "Chemistry",
+    "era": "Classical",
+    "tier": "RARE",
+    "status": "owned",
+    "turn": 82,
+    "tags": [
+     "Rare"
+    ]
+   },
+   {
+    "id": "CH19",
+    "name": "Systematic Element Analysis",
+    "focus": "Chemistry",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 139,
+    "tags": []
+   },
+   {
+    "id": "CH25",
+    "name": "Organic Synthesis Attempt",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 211,
+    "tags": []
+   },
+   {
+    "id": "CH28",
+    "name": "Helium Extraction",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "CO01",
+    "name": "Mud Brick Construction",
+    "focus": "Construction",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 33,
+    "tags": []
+   },
+   {
+    "id": "CO02",
+    "name": "Post and Lintel",
+    "focus": "Construction",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 37,
+    "tags": []
+   },
+   {
+    "id": "CO03",
+    "name": "Arch Construction",
+    "focus": "Construction",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 38,
+    "tags": []
+   },
+   {
+    "id": "CO04",
+    "name": "Roman Concrete",
+    "focus": "Construction",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 103,
+    "tags": []
+   },
+   {
+    "id": "CO05",
+    "name": "Corbel Arch/Vault",
+    "focus": "Construction",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "not_taken",
+    "turn": 151,
+    "instead": "Arch Construction",
+    "curated": true,
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO06",
+    "name": "Flying Buttress",
+    "focus": "Construction",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 123,
+    "tags": []
+   },
+   {
+    "id": "CO07",
+    "name": "Earthquake-Resistant Design",
+    "focus": "Construction",
+    "era": "Classical",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO09",
+    "name": "Suspension Bridge",
+    "focus": "Construction",
+    "era": "Medieval",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO10",
+    "name": "Iron-Frame Construction",
+    "focus": "Construction",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 129,
+    "tags": []
+   },
+   {
+    "id": "CO11",
+    "name": "Reinforced Concrete",
+    "focus": "Construction",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 210,
+    "tags": []
+   },
+   {
+    "id": "CO13",
+    "name": "Geodesic Structures",
+    "focus": "Construction",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "waiting",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO17",
+    "name": "Sealed Environments",
+    "focus": "Construction",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO23",
+    "name": "Railway Network",
+    "focus": "Construction",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 198,
+    "tags": []
+   },
+   {
+    "id": "CO24",
+    "name": "Concentric Fortification",
+    "focus": "Construction",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 122,
+    "tags": []
+   },
+   {
+    "id": "CO25",
+    "name": "Star Fort",
+    "focus": "Construction",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 195,
+    "tags": []
+   },
+   {
+    "id": "CO26",
+    "name": "Ring Fortress",
+    "focus": "Construction",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CP13",
+    "name": "Analog Computing Mastery",
+    "focus": "Computing",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "CU02",
+    "name": "Monumental Architecture",
+    "focus": "Philosophy and the Arts",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 64,
+    "tags": []
+   },
+   {
+    "id": "CU03",
+    "name": "Artistic Tradition",
+    "focus": "Philosophy and the Arts",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 54,
+    "tags": []
+   },
+   {
+    "id": "CU04",
+    "name": "Musical Instruments",
+    "focus": "Philosophy and the Arts",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 27,
+    "tags": []
+   },
+   {
+    "id": "CU05",
+    "name": "Theater",
+    "focus": "Philosophy and the Arts",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 65,
+    "tags": []
+   },
+   {
+    "id": "CU06",
+    "name": "University",
+    "focus": "Philosophy and the Arts",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 148,
+    "tags": []
+   },
+   {
+    "id": "CU07",
+    "name": "Renaissance",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 198,
+    "tags": []
+   },
+   {
+    "id": "CU14",
+    "name": "Historiography",
+    "focus": "Philosophy and the Arts",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 110,
+    "tags": []
+   },
+   {
+    "id": "CU15",
+    "name": "Scholastic Theology",
+    "focus": "Philosophy and the Arts",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 130,
+    "tags": []
+   },
+   {
+    "id": "EL02",
+    "name": "Voltaic Pile (Battery)",
+    "focus": "Electricity",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 120,
+    "tags": []
+   },
+   {
+    "id": "EL03",
+    "name": "Electromagnetism",
+    "focus": "Electricity",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 136,
+    "tags": []
+   },
+   {
+    "id": "EL04",
+    "name": "Telegraph",
+    "focus": "Electricity",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 167,
+    "tags": []
+   },
+   {
+    "id": "EL06",
+    "name": "Electric Generator",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 194,
+    "tags": []
+   },
+   {
+    "id": "EL07",
+    "name": "Power Grid",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 196,
+    "tags": []
+   },
+   {
+    "id": "EL09",
+    "name": "Wireless Transmission",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 193,
+    "tags": []
+   },
+   {
+    "id": "EL10",
+    "name": "Piezoelectricity",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "EL11",
+    "name": "Superconductivity",
+    "focus": "Electricity",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "EN01",
+    "name": "Vacuum Tube",
+    "focus": "Electronics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 187,
+    "tags": []
+   },
+   {
+    "id": "EN02",
+    "name": "Transistor",
+    "focus": "Electronics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "EN04",
+    "name": "Radar",
+    "focus": "Electronics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "EN11",
+    "name": "Radio",
+    "focus": "Electronics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "ES03",
+    "name": "Coal Power Plant",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "ES03-W",
+    "name": "Biomass Power Plant",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "competes_with": "Coal Power Plant",
+    "tags": [],
+    "competes": "Coal Power Plant",
+    "also": [
+     "Farming"
+    ]
+   },
+   {
+    "id": "ES09",
+    "name": "Geothermal Power",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "ES10",
+    "name": "Tidal Power",
+    "focus": "Energy Systems",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "ES13",
+    "name": "Biomass/Biogas",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": [],
+    "also": [
+     "Chemistry",
+     "Farming"
+    ]
+   },
+   {
+    "id": "F01",
+    "name": "Controlled Fire",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 2,
+    "tags": []
+   },
+   {
+    "id": "F02",
+    "name": "Kiln Construction",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 11,
+    "tags": []
+   },
+   {
+    "id": "F03",
+    "name": "Charcoal Production",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 10,
+    "tags": []
+   },
+   {
+    "id": "F04",
+    "name": "Smelting Discovery",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 15,
+    "tags": []
+   },
+   {
+    "id": "F05",
+    "name": "Signal Fires",
+    "focus": "Fire",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 57,
+    "tags": []
+   },
+   {
+    "id": "F07",
+    "name": "Advanced Pyrotechnics",
+    "focus": "Fire",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "F16",
+    "name": "Turbary",
+    "focus": "Fire",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 151,
+    "tags": []
+   },
+   {
+    "id": "FA01",
+    "name": "Irrigation",
+    "focus": "Farming",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 17,
+    "tags": []
+   },
+   {
+    "id": "FA02",
+    "name": "Crop Rotation",
+    "focus": "Farming",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 82,
+    "tags": []
+   },
+   {
+    "id": "FA03",
+    "name": "Selective Breeding",
+    "focus": "Farming",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 95,
+    "tags": [],
+    "also": [
+     "Animal Husbandry"
+    ]
+   },
+   {
+    "id": "FA10",
+    "name": "Hydroponics",
+    "focus": "Farming",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 223,
+    "tags": []
+   },
+   {
+    "id": "FA16",
+    "name": "Nitrate Fertiliser",
+    "focus": "Farming",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 187,
+    "by": "Catalysis",
+    "curated": true,
+    "tags": [
+     "Superseded"
+    ]
+   },
+   {
+    "id": "G01",
+    "name": "Plant Identification",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 3,
+    "tags": []
+   },
+   {
+    "id": "G02",
+    "name": "Seed Saving",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 14,
+    "tags": []
+   },
+   {
+    "id": "G03",
+    "name": "Herbal Medicine",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 14,
+    "tags": []
+   },
+   {
+    "id": "G04",
+    "name": "Fermentation",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "G05",
+    "name": "Insect Cultivation",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 33,
+    "tags": []
+   },
+   {
+    "id": "G06",
+    "name": "Mycological Knowledge",
+    "focus": "Foraging",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "G07",
+    "name": "Botanical Classification",
+    "focus": "Foraging",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 128,
+    "tags": []
+   },
+   {
+    "id": "G10",
+    "name": "Psychoactive Plant Knowledge",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "GN02",
+    "name": "DNA Structure",
+    "focus": "Genetics",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Learned of from another civilisation",
+    "tags": []
+   },
+   {
+    "id": "MA01",
+    "name": "Geometry",
+    "focus": "Mathematics",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 36,
+    "tags": []
+   },
+   {
+    "id": "MA03",
+    "name": "Basic Algebra",
+    "focus": "Mathematics",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 57,
+    "tags": []
+   },
+   {
+    "id": "MA05",
+    "name": "Calculus",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 114,
+    "tags": []
+   },
+   {
+    "id": "MA06",
+    "name": "Probability Theory",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 141,
+    "tags": []
+   },
+   {
+    "id": "MA07",
+    "name": "Binary Mathematics",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 141,
+    "tags": []
+   },
+   {
+    "id": "MA08",
+    "name": "Non-Euclidean Geometry",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 143,
+    "tags": []
+   },
+   {
+    "id": "MA09",
+    "name": "Statistics",
+    "focus": "Mathematics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 160,
+    "tags": []
+   },
+   {
+    "id": "MA11",
+    "name": "Fractal Mathematics",
+    "focus": "Mathematics",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "MA13",
+    "name": "Topology",
+    "focus": "Mathematics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 164,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "MC01",
+    "name": "Wheel",
+    "focus": "Mechanics",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 16,
+    "tags": []
+   },
+   {
+    "id": "MC03",
+    "name": "Gearing",
+    "focus": "Mechanics",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 40,
+    "tags": []
+   },
+   {
+    "id": "MC04",
+    "name": "Windmill",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 136,
+    "tags": [],
+    "also": [
+     "Energy Systems"
+    ]
+   },
+   {
+    "id": "MC05",
+    "name": "Clockwork",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MC06",
+    "name": "Printing Press",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MC08",
+    "name": "Steam Engine",
+    "focus": "Mechanics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MC09",
+    "name": "Internal Combustion Engine",
+    "focus": "Mechanics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 220,
+    "tags": [],
+    "also": [
+     "Chemistry"
+    ]
+   },
+   {
+    "id": "MC10",
+    "name": "Precision Machining",
+    "focus": "Mechanics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 151,
+    "tags": []
+   },
+   {
+    "id": "MC11",
+    "name": "Assembly Line",
+    "focus": "Mechanics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 200,
+    "tags": []
+   },
+   {
+    "id": "MC19",
+    "name": "Crank and Connecting Rod",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MD01",
+    "name": "Surgical Techniques",
+    "focus": "Medicine",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 72,
+    "tags": []
+   },
+   {
+    "id": "MD03",
+    "name": "Anatomy Study",
+    "focus": "Medicine",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 136,
+    "tags": []
+   },
+   {
+    "id": "MD04",
+    "name": "Vaccination",
+    "focus": "Medicine",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 191,
+    "tags": [],
+    "also": [
+     "Animal Husbandry"
+    ]
+   },
+   {
+    "id": "MD05",
+    "name": "Germ Theory",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 199,
+    "tags": []
+   },
+   {
+    "id": "MD06",
+    "name": "Antibiotics",
+    "focus": "Medicine",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MD07",
+    "name": "Anaesthesia",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MD08",
+    "name": "Prosthetics",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "MD15",
+    "name": "Contagion Experiments",
+    "focus": "Medicine",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 180,
+    "tags": []
+   },
+   {
+    "id": "ME-B",
+    "name": "Bellows",
+    "focus": "Metallurgy",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 34,
+    "tags": []
+   },
+   {
+    "id": "ME01",
+    "name": "Copper Working",
+    "focus": "Metallurgy",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 19,
+    "tags": []
+   },
+   {
+    "id": "ME02",
+    "name": "Bronze Alloy",
+    "focus": "Metallurgy",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 40,
+    "tags": []
+   },
+   {
+    "id": "ME04",
+    "name": "Iron Smelting",
+    "focus": "Metallurgy",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 41,
+    "tags": []
+   },
+   {
+    "id": "ME05",
+    "name": "Steel Production",
+    "focus": "Metallurgy",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 75,
+    "tags": []
+   },
+   {
+    "id": "ME08",
+    "name": "Blast Furnace",
+    "focus": "Metallurgy",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 81,
+    "tags": []
+   },
+   {
+    "id": "ME09",
+    "name": "Crucible Steel",
+    "focus": "Metallurgy",
+    "era": "Medieval",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 156,
+    "tags": []
+   },
+   {
+    "id": "ME12",
+    "name": "Bessemer Process",
+    "focus": "Metallurgy",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 180,
+    "tags": []
+   },
+   {
+    "id": "ME13",
+    "name": "Aluminium Extraction",
+    "focus": "Metallurgy",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 176,
+    "tags": []
+   },
+   {
+    "id": "ME17",
+    "name": "Assaying",
+    "focus": "Metallurgy",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 81,
+    "tags": []
+   },
+   {
+    "id": "ME18",
+    "name": "Plate Armour",
+    "focus": "Metallurgy",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MI05",
+    "name": "Deep Shaft Mining",
+    "focus": "Mining",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "MI06",
+    "name": "Coal Discovery",
+    "focus": "Mining",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 146,
+    "tags": []
+   },
+   {
+    "id": "MI06B",
+    "name": "Volcanic Ash Processing",
+    "focus": "Mining",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 47,
+    "tags": []
+   },
+   {
+    "id": "MI07",
+    "name": "Petroleum Discovery",
+    "focus": "Mining",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 151,
+    "tags": []
+   },
+   {
+    "id": "MI08",
+    "name": "Saltpeter Mining",
+    "focus": "Mining",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 135,
+    "tags": []
+   },
+   {
+    "id": "MI10",
+    "name": "Uranium Discovery",
+    "focus": "Mining",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MI11",
+    "name": "Rare Earth Extraction",
+    "focus": "Mining",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MI13",
+    "name": "Wood Gas Production",
+    "focus": "Mining",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 191,
+    "tags": [],
+    "also": [
+     "Chemistry"
+    ]
+   },
+   {
+    "id": "MS02",
+    "name": "Nanotechnology",
+    "focus": "Materials Science",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "NP01",
+    "name": "Radioactivity",
+    "focus": "Nuclear Physics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 187,
+    "tags": []
+   },
+   {
+    "id": "NP02",
+    "name": "Atomic Model",
+    "focus": "Nuclear Physics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 191,
+    "tags": []
+   },
+   {
+    "id": "NP12",
+    "name": "Particle Laboratories",
+    "focus": "Nuclear Physics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "O01",
+    "name": "Star Tracking",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 7,
+    "tags": []
+   },
+   {
+    "id": "O02",
+    "name": "Weather Prediction",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "O03",
+    "name": "Animal Behavior Study",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 6,
+    "tags": []
+   },
+   {
+    "id": "O04",
+    "name": "Tidal Patterns",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "O05",
+    "name": "Celestial Mathematics",
+    "focus": "Observation",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 29,
+    "tags": []
+   },
+   {
+    "id": "O06",
+    "name": "Natural Philosophy",
+    "focus": "Observation",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 51,
+    "tags": []
+   },
+   {
+    "id": "O07",
+    "name": "Comparative Anatomy",
+    "focus": "Observation",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 120,
+    "tags": []
+   },
+   {
+    "id": "O08",
+    "name": "Geological Observation",
+    "focus": "Observation",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 26,
+    "tags": []
+   },
+   {
+    "id": "O09",
+    "name": "Migratory Pattern Mapping",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "O12",
+    "name": "Atmospheric Science",
+    "focus": "Observation",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "OP01",
+    "name": "Glassmaking",
+    "focus": "Optics",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 32,
+    "tags": []
+   },
+   {
+    "id": "OP02",
+    "name": "Lens Grinding",
+    "focus": "Optics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 73,
+    "tags": []
+   },
+   {
+    "id": "OP03",
+    "name": "Telescope",
+    "focus": "Optics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 117,
+    "tags": []
+   },
+   {
+    "id": "OP07",
+    "name": "Laser",
+    "focus": "Optics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "OP08",
+    "name": "Spectroscopy",
+    "focus": "Optics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 184,
+    "tags": []
+   },
+   {
+    "id": "OP10",
+    "name": "Semaphore",
+    "focus": "Optics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 181,
+    "tags": []
+   },
+   {
+    "id": "PH01",
+    "name": "Formal Logic",
+    "focus": "Philosophy and the Arts",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 66,
+    "tags": []
+   },
+   {
+    "id": "PH04",
+    "name": "Scientific Method",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 134,
+    "tags": []
+   },
+   {
+    "id": "PH08",
+    "name": "Dialectical Thinking",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 134,
+    "tags": []
+   },
+   {
+    "id": "PH09",
+    "name": "Existentialism",
+    "focus": "Philosophy and the Arts",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "PH10",
+    "name": "Information Theory",
+    "focus": "Philosophy and the Arts",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "PH11",
+    "name": "Systems Thinking",
+    "focus": "Philosophy and the Arts",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "PH14",
+    "name": "The Enlightenment",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 226,
+    "tags": [
+     "New"
+    ]
+   },
+   {
+    "id": "QP01",
+    "name": "Wave-Particle Duality",
+    "focus": "Quantum Physics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 195,
+    "tags": []
+   },
+   {
+    "id": "QP02",
+    "name": "Quantum Mechanics Formalism",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 200,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "QP03",
+    "name": "Quantum Electrodynamics",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 207,
+    "tags": []
+   },
+   {
+    "id": "QP04",
+    "name": "Particle Accelerator",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 206,
+    "tags": []
+   },
+   {
+    "id": "QP05",
+    "name": "Quantum Field Theory",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 210,
+    "tags": []
+   },
+   {
+    "id": "QP06",
+    "name": "Standard Model Completion",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "QP08",
+    "name": "Quantum Gravity Theory",
+    "focus": "Quantum Physics",
+    "era": "Space",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "QP12",
+    "name": "Casimir Effect Amplification",
+    "focus": "Quantum Physics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 224,
+    "tags": []
+   },
+   {
+    "id": "RC01",
+    "name": "Special Relativity",
+    "focus": "Relativity & Cosmology",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 169,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "RC02",
+    "name": "General Relativity",
+    "focus": "Relativity & Cosmology",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 186,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "RC04",
+    "name": "Black Hole Thermodynamics",
+    "focus": "Relativity & Cosmology",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "RK02",
+    "name": "Liquid Fuel Rocket",
+    "focus": "Rocketry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 222,
+    "tags": []
+   },
+   {
+    "id": "RK03",
+    "name": "Multi-Stage Rocket",
+    "focus": "Rocketry",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "S01",
+    "name": "Tool Knapping",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 4,
+    "tags": []
+   },
+   {
+    "id": "S02",
+    "name": "Grinding & Polishing",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 31,
+    "tags": []
+   },
+   {
+    "id": "S03",
+    "name": "Quarrying",
+    "focus": "Stonework",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 33,
+    "tags": []
+   },
+   {
+    "id": "S04",
+    "name": "Ore Identification",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 9,
+    "tags": []
+   },
+   {
+    "id": "S05",
+    "name": "Obsidian Working",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "S07",
+    "name": "Flint Knapping Mastery",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "S08",
+    "name": "Jade/Gemstone Working",
+    "focus": "Stonework",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 60,
+    "tags": []
+   },
+   {
+    "id": "SF01",
+    "name": "Reed/Log Raft",
+    "focus": "Seafaring",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 5,
+    "tags": []
+   },
+   {
+    "id": "SF02",
+    "name": "Dugout Canoe",
+    "focus": "Seafaring",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 36,
+    "tags": []
+   },
+   {
+    "id": "SF03",
+    "name": "Sail Invention",
+    "focus": "Seafaring",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 64,
+    "tags": []
+   },
+   {
+    "id": "SF04",
+    "name": "Celestial Navigation",
+    "focus": "Seafaring",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 89,
+    "tags": []
+   },
+   {
+    "id": "SF05",
+    "name": "Trireme/Galley Construction",
+    "focus": "Seafaring",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 123,
+    "tags": []
+   },
+   {
+    "id": "SF08",
+    "name": "Compass",
+    "focus": "Seafaring",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 146,
+    "tags": []
+   },
+   {
+    "id": "SF09",
+    "name": "Caravel/Deep Ocean Ship",
+    "focus": "Seafaring",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 169,
+    "tags": []
+   },
+   {
+    "id": "SF10",
+    "name": "Drydock",
+    "focus": "Seafaring",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 152,
+    "tags": []
+   },
+   {
+    "id": "SF11",
+    "name": "Ship of the Line",
+    "focus": "Seafaring",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 194,
+    "tags": []
+   },
+   {
+    "id": "SF12",
+    "name": "Ironclad",
+    "focus": "Seafaring",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": [
+     "New"
+    ]
+   },
+   {
+    "id": "SF19",
+    "name": "Longitude",
+    "focus": "Seafaring",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 200,
+    "tags": []
+   },
+   {
+    "id": "SO01",
+    "name": "Basic Counting",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 6,
+    "tags": []
+   },
+   {
+    "id": "SO02",
+    "name": "Storytelling",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 8,
+    "tags": []
+   },
+   {
+    "id": "SO03",
+    "name": "Tribal Law",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 17,
+    "tags": []
+   },
+   {
+    "id": "SO04",
+    "name": "Writing",
+    "focus": "Social Organization",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 31,
+    "tags": []
+   },
+   {
+    "id": "SO05",
+    "name": "Specialization of Labor",
+    "focus": "Social Organization",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 35,
+    "tags": []
+   },
+   {
+    "id": "SO06",
+    "name": "Codified Law",
+    "focus": "Social Organization",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "SO08",
+    "name": "Census",
+    "focus": "Social Organization",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 124,
+    "tags": []
+   },
+   {
+    "id": "SO10",
+    "name": "Guilds",
+    "focus": "Social Organization",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 167,
+    "tags": []
+   },
+   {
+    "id": "SO11",
+    "name": "Banking",
+    "focus": "Social Organization",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 130,
+    "tags": []
+   },
+   {
+    "id": "SO16",
+    "name": "Public Education",
+    "focus": "Social Organization",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "TH01",
+    "name": "Laws of Thermodynamics",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 146,
+    "tags": []
+   },
+   {
+    "id": "TH02",
+    "name": "Refrigeration",
+    "focus": "Thermodynamics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 190,
+    "tags": []
+   },
+   {
+    "id": "TH03",
+    "name": "Turbine Design",
+    "focus": "Thermodynamics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 190,
+    "tags": []
+   },
+   {
+    "id": "TH05",
+    "name": "Carnot Efficiency",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "TH08",
+    "name": "Stirling Engine Mastery",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 188,
+    "tags": [],
+    "also": [
+     "Energy Systems",
+     "Mechanics"
+    ]
+   },
+   {
+    "id": "TH09",
+    "name": "Caloric Theory",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 187,
+    "curated": true,
+    "tags": [
+     "Dead end"
+    ]
+   },
+   {
+    "id": "TH10",
+    "name": "Mechanical Equivalent of Heat",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "TH15",
+    "name": "Waste-Heat Recovery",
+    "focus": "Thermodynamics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "TR01",
+    "name": "Barter System",
+    "focus": "Trade",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 31,
+    "tags": []
+   },
+   {
+    "id": "TR02",
+    "name": "Currency",
+    "focus": "Trade",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 70,
+    "tags": []
+   },
+   {
+    "id": "TR03",
+    "name": "Caravansary",
+    "focus": "Trade",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 91,
+    "tags": []
+   },
+   {
+    "id": "TR05",
+    "name": "Letter of Credit",
+    "focus": "Trade",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 153,
+    "tags": []
+   },
+   {
+    "id": "TR06",
+    "name": "Joint Stock Company",
+    "focus": "Trade",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 198,
+    "tags": []
+   },
+   {
+    "id": "TR10",
+    "name": "Futures Market",
+    "focus": "Trade",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "TR17",
+    "name": "Long-Distance Trade",
+    "focus": "Trade",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "TX01",
+    "name": "Weaving",
+    "focus": "Textiles & Materials",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 12,
+    "tags": []
+   },
+   {
+    "id": "TX02",
+    "name": "Dyeing",
+    "focus": "Textiles & Materials",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "TX05",
+    "name": "Cotton Gin",
+    "focus": "Textiles & Materials",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 200,
+    "tags": []
+   },
+   {
+    "id": "TX08",
+    "name": "Carbon Fiber",
+    "focus": "Textiles & Materials",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "TX10",
+    "name": "Paper Making",
+    "focus": "Textiles & Materials",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 67,
+    "tags": []
+   },
+   {
+    "id": "WA01",
+    "name": "Formation Fighting",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 73,
+    "tags": []
+   },
+   {
+    "id": "WA03",
+    "name": "Archery",
+    "focus": "Warfare",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "WA04",
+    "name": "Composite Bow",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "WA05",
+    "name": "Siege Warfare",
+    "focus": "Warfare",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 112,
+    "tags": []
+   },
+   {
+    "id": "WA06",
+    "name": "Fortification Design",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 93,
+    "tags": []
+   },
+   {
+    "id": "WA07",
+    "name": "Cavalry Tactics",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 89,
+    "tags": []
+   },
+   {
+    "id": "WA08",
+    "name": "Chariot Warfare",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "not_taken",
+    "turn": 94,
+    "instead": "Cavalry Tactics",
+    "curated": true,
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "WA09",
+    "name": "Crossbow",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 129,
+    "tags": []
+   },
+   {
+    "id": "WA10",
+    "name": "Gunpowder",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 151,
+    "tags": [],
+    "also": [
+     "Chemistry"
+    ]
+   },
+   {
+    "id": "WA11",
+    "name": "Trebuchet",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 155,
+    "tags": []
+   },
+   {
+    "id": "WA13",
+    "name": "Guerrilla Tactics",
+    "focus": "Warfare",
+    "era": "Classical",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "WA16",
+    "name": "Rifling",
+    "focus": "Warfare",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "WA22",
+    "name": "Cannons",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 162,
+    "tags": []
+   },
+   {
+    "id": "WA26",
+    "name": "Professional Army",
+    "focus": "Warfare",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 139,
+    "tags": []
+   },
+   {
+    "id": "WA27",
+    "name": "Stirrup",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 135,
+    "tags": []
+   },
+   {
+    "id": "WA28",
+    "name": "Drill and Discipline",
+    "focus": "Warfare",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 186,
+    "tags": []
+   },
+   {
+    "id": "WM01",
+    "name": "Canal Building",
+    "focus": "Water Management",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 39,
+    "tags": []
+   },
+   {
+    "id": "WM02",
+    "name": "Aqueduct",
+    "focus": "Water Management",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 58,
+    "tags": []
+   },
+   {
+    "id": "WM05",
+    "name": "Water Mill",
+    "focus": "Water Management",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 60,
+    "tags": [],
+    "also": [
+     "Energy Systems"
+    ]
+   },
+   {
+    "id": "WM06",
+    "name": "Dam Construction",
+    "focus": "Water Management",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "WM09",
+    "name": "Rice Paddy Mastery",
+    "focus": "Water Management",
+    "era": "Ancient",
+    "tier": "UNIQUE",
+    "status": "owned",
+    "turn": 58,
+    "tags": [
+     "Unique"
+    ]
+   },
+   {
+    "id": "WM11",
+    "name": "Industrial Canal Network",
+    "focus": "Water Management",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 194,
+    "by": "Railway Network",
+    "curated": true,
+    "tags": [
+     "Superseded"
+    ]
+   },
+   {
+    "id": "WM12",
+    "name": "Tidal Mill",
+    "focus": "Water Management",
+    "era": "Medieval",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "MD20",
+    "name": "Phage Therapy",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Germ Theory",
+    "tags": [],
+    "curated": true,
+    "competes": "Antibiotics"
+   },
+   {
+    "id": "ES05",
+    "name": "Oil Power Plant",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Turbine Design",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "RK09",
+    "name": "Ion Drive",
+    "focus": "Rocketry",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Quantum Electrodynamics",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "RC03",
+    "name": "Gravitational Waves Detection",
+    "focus": "Relativity & Cosmology",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "unreach",
+    "src": "Revealed by General Relativity",
+    "needs": "Laser",
+    "needs_focus": "Optics",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "AE13",
+    "name": "Rigid Airship",
+    "focus": "Aeronautics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "unreach",
+    "src": "Seen in use by another civilisation",
+    "needs": "Dirigible/Airship",
+    "needs_focus": "Aeronautics",
+    "tags": [],
+    "curated": true
+   }
+  ]
+ },
+ "t231": {
+  "turn": 231,
+  "era": "Atomic",
+  "insight": 853.3,
+  "funded": null,
+  "queue": [
+   "Quantum Physics",
+   "Energy Systems",
+   "Medicine"
+  ],
+  "foci": [
+   "Aeronautics",
+   "Animal Husbandry",
+   "Chemistry",
+   "Computing",
+   "Construction",
+   "Electricity",
+   "Electronics",
+   "Energy Systems",
+   "Farming",
+   "Fire",
+   "Foraging",
+   "Genetics",
+   "Materials Science",
+   "Mathematics",
+   "Mechanics",
+   "Medicine",
+   "Metallurgy",
+   "Mining",
+   "Nuclear Physics",
+   "Observation",
+   "Optics",
+   "Philosophy and the Arts",
+   "Quantum Physics",
+   "Relativity & Cosmology",
+   "Rocketry",
+   "Seafaring",
+   "Social Organization",
+   "Stonework",
+   "Textiles & Materials",
+   "Thermodynamics",
+   "Trade",
+   "Warfare",
+   "Water Management"
+  ],
+  "badges": {
+   "Aeronautics": 2,
+   "Chemistry": 2,
+   "Construction": 1,
+   "Computing": 1,
+   "Electronics": 1,
+   "Energy Systems": 4,
+   "Medicine": 2,
+   "Mining": 2,
+   "Materials Science": 1,
+   "Nuclear Physics": 1,
+   "Observation": 1,
+   "Optics": 1,
+   "Philosophy and the Arts": 1,
+   "Relativity & Cosmology": 1,
+   "Rocketry": 1,
+   "Trade": 1,
+   "Textiles & Materials": 1,
+   "Water Management": 1,
+   "Farming": 2
+  },
+  "endeavour": {
+   "id": "EL11",
+   "pct": 64,
+   "paid": 3415,
+   "price": 5340,
+   "committed": 226
+  },
+  "rows": [
+   {
+    "id": "AE01",
+    "name": "Hot Air Balloon",
+    "focus": "Aeronautics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 202,
+    "tags": []
+   },
+   {
+    "id": "AE02",
+    "name": "Dirigible/Airship",
+    "focus": "Aeronautics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "AE03",
+    "name": "Heavier-Than-Air Flight",
+    "focus": "Aeronautics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "AE09",
+    "name": "Ornithopter",
+    "focus": "Aeronautics",
+    "era": "Early Modern",
+    "tier": "RARE",
+    "status": "owned",
+    "turn": 191,
+    "tags": [
+     "Rare"
+    ]
+   },
+   {
+    "id": "AH01",
+    "name": "Dog Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 28,
+    "tags": []
+   },
+   {
+    "id": "AH02",
+    "name": "Herd Animal Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 15,
+    "tags": []
+   },
+   {
+    "id": "AH03",
+    "name": "Horse Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 72,
+    "tags": []
+   },
+   {
+    "id": "AH05",
+    "name": "Camel Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "AH06",
+    "name": "Elephant Domestication",
+    "focus": "Animal Husbandry",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "AH11",
+    "name": "Veterinary Medicine",
+    "focus": "Animal Husbandry",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 129,
+    "tags": []
+   },
+   {
+    "id": "CH01",
+    "name": "Alchemy",
+    "focus": "Chemistry",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "CH04",
+    "name": "Distillation",
+    "focus": "Chemistry",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 89,
+    "tags": []
+   },
+   {
+    "id": "CH05",
+    "name": "Oxygen Theory",
+    "focus": "Chemistry",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 139,
+    "tags": []
+   },
+   {
+    "id": "CH06",
+    "name": "Periodic Table",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 157,
+    "tags": []
+   },
+   {
+    "id": "CH07",
+    "name": "Organic Chemistry",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 199,
+    "tags": []
+   },
+   {
+    "id": "CH08",
+    "name": "Explosives (non-gunpowder)",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 216,
+    "tags": [],
+    "also": [
+     "Mining"
+    ]
+   },
+   {
+    "id": "CH09",
+    "name": "Petrochemistry",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 213,
+    "tags": []
+   },
+   {
+    "id": "CH09-W",
+    "name": "Bio-Organic Synthesis",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 211,
+    "tags": []
+   },
+   {
+    "id": "CH11",
+    "name": "Polymer Science",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 223,
+    "tags": []
+   },
+   {
+    "id": "CH12",
+    "name": "Catalysis",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 203,
+    "tags": [],
+    "also": [
+     "Farming"
+    ]
+   },
+   {
+    "id": "CH13",
+    "name": "Rocket Propellant",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 194,
+    "tags": []
+   },
+   {
+    "id": "CH14",
+    "name": "Photochemistry",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CH15",
+    "name": "Greek Alchemical Tradition",
+    "focus": "Chemistry",
+    "era": "Classical",
+    "tier": "RARE",
+    "status": "owned",
+    "turn": 82,
+    "tags": [
+     "Rare"
+    ]
+   },
+   {
+    "id": "CH19",
+    "name": "Systematic Element Analysis",
+    "focus": "Chemistry",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 139,
+    "tags": []
+   },
+   {
+    "id": "CH25",
+    "name": "Organic Synthesis Attempt",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 211,
+    "tags": []
+   },
+   {
+    "id": "CH28",
+    "name": "Helium Extraction",
+    "focus": "Chemistry",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "CO01",
+    "name": "Mud Brick Construction",
+    "focus": "Construction",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 33,
+    "tags": []
+   },
+   {
+    "id": "CO02",
+    "name": "Post and Lintel",
+    "focus": "Construction",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 37,
+    "tags": []
+   },
+   {
+    "id": "CO03",
+    "name": "Arch Construction",
+    "focus": "Construction",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 38,
+    "tags": []
+   },
+   {
+    "id": "CO04",
+    "name": "Roman Concrete",
+    "focus": "Construction",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 103,
+    "tags": []
+   },
+   {
+    "id": "CO05",
+    "name": "Corbel Arch/Vault",
+    "focus": "Construction",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "not_taken",
+    "turn": 151,
+    "instead": "Arch Construction",
+    "curated": true,
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO06",
+    "name": "Flying Buttress",
+    "focus": "Construction",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 123,
+    "tags": []
+   },
+   {
+    "id": "CO07",
+    "name": "Earthquake-Resistant Design",
+    "focus": "Construction",
+    "era": "Classical",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO09",
+    "name": "Suspension Bridge",
+    "focus": "Construction",
+    "era": "Medieval",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO10",
+    "name": "Iron-Frame Construction",
+    "focus": "Construction",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 129,
+    "tags": []
+   },
+   {
+    "id": "CO11",
+    "name": "Reinforced Concrete",
+    "focus": "Construction",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 210,
+    "tags": []
+   },
+   {
+    "id": "CO13",
+    "name": "Geodesic Structures",
+    "focus": "Construction",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": [
+     "New"
+    ]
+   },
+   {
+    "id": "CO17",
+    "name": "Sealed Environments",
+    "focus": "Construction",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CO23",
+    "name": "Railway Network",
+    "focus": "Construction",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 198,
+    "tags": []
+   },
+   {
+    "id": "CO24",
+    "name": "Concentric Fortification",
+    "focus": "Construction",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 122,
+    "tags": []
+   },
+   {
+    "id": "CO25",
+    "name": "Star Fort",
+    "focus": "Construction",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 195,
+    "tags": []
+   },
+   {
+    "id": "CO26",
+    "name": "Ring Fortress",
+    "focus": "Construction",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "CP13",
+    "name": "Analog Computing Mastery",
+    "focus": "Computing",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "CU02",
+    "name": "Monumental Architecture",
+    "focus": "Philosophy and the Arts",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 64,
+    "tags": []
+   },
+   {
+    "id": "CU03",
+    "name": "Artistic Tradition",
+    "focus": "Philosophy and the Arts",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 54,
+    "tags": []
+   },
+   {
+    "id": "CU04",
+    "name": "Musical Instruments",
+    "focus": "Philosophy and the Arts",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 27,
+    "tags": []
+   },
+   {
+    "id": "CU05",
+    "name": "Theater",
+    "focus": "Philosophy and the Arts",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 65,
+    "tags": []
+   },
+   {
+    "id": "CU06",
+    "name": "University",
+    "focus": "Philosophy and the Arts",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 148,
+    "tags": []
+   },
+   {
+    "id": "CU07",
+    "name": "Renaissance",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 198,
+    "tags": []
+   },
+   {
+    "id": "CU14",
+    "name": "Historiography",
+    "focus": "Philosophy and the Arts",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 110,
+    "tags": []
+   },
+   {
+    "id": "CU15",
+    "name": "Scholastic Theology",
+    "focus": "Philosophy and the Arts",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 130,
+    "tags": []
+   },
+   {
+    "id": "EL02",
+    "name": "Voltaic Pile (Battery)",
+    "focus": "Electricity",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 120,
+    "tags": []
+   },
+   {
+    "id": "EL03",
+    "name": "Electromagnetism",
+    "focus": "Electricity",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 136,
+    "tags": []
+   },
+   {
+    "id": "EL04",
+    "name": "Telegraph",
+    "focus": "Electricity",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 167,
+    "tags": []
+   },
+   {
+    "id": "EL06",
+    "name": "Electric Generator",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 194,
+    "tags": []
+   },
+   {
+    "id": "EL07",
+    "name": "Power Grid",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 196,
+    "tags": []
+   },
+   {
+    "id": "EL09",
+    "name": "Wireless Transmission",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 193,
+    "tags": []
+   },
+   {
+    "id": "EL10",
+    "name": "Piezoelectricity",
+    "focus": "Electricity",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "EL11",
+    "name": "Superconductivity",
+    "focus": "Electricity",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "endeavour",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "EN01",
+    "name": "Vacuum Tube",
+    "focus": "Electronics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 187,
+    "tags": []
+   },
+   {
+    "id": "EN02",
+    "name": "Transistor",
+    "focus": "Electronics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "EN04",
+    "name": "Radar",
+    "focus": "Electronics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "EN11",
+    "name": "Radio",
+    "focus": "Electronics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "ES03",
+    "name": "Coal Power Plant",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "ES03-W",
+    "name": "Biomass Power Plant",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "competes_with": "Coal Power Plant",
+    "tags": [],
+    "competes": "Coal Power Plant",
+    "also": [
+     "Farming"
+    ]
+   },
+   {
+    "id": "ES09",
+    "name": "Geothermal Power",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "ES10",
+    "name": "Tidal Power",
+    "focus": "Energy Systems",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "ES13",
+    "name": "Biomass/Biogas",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": [],
+    "also": [
+     "Chemistry",
+     "Farming"
+    ]
+   },
+   {
+    "id": "F01",
+    "name": "Controlled Fire",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 2,
+    "tags": []
+   },
+   {
+    "id": "F02",
+    "name": "Kiln Construction",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 11,
+    "tags": []
+   },
+   {
+    "id": "F03",
+    "name": "Charcoal Production",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 10,
+    "tags": []
+   },
+   {
+    "id": "F04",
+    "name": "Smelting Discovery",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 15,
+    "tags": []
+   },
+   {
+    "id": "F05",
+    "name": "Signal Fires",
+    "focus": "Fire",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 57,
+    "tags": []
+   },
+   {
+    "id": "F07",
+    "name": "Advanced Pyrotechnics",
+    "focus": "Fire",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "F16",
+    "name": "Turbary",
+    "focus": "Fire",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 151,
+    "tags": []
+   },
+   {
+    "id": "FA01",
+    "name": "Irrigation",
+    "focus": "Farming",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 17,
+    "tags": []
+   },
+   {
+    "id": "FA02",
+    "name": "Crop Rotation",
+    "focus": "Farming",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 82,
+    "tags": []
+   },
+   {
+    "id": "FA03",
+    "name": "Selective Breeding",
+    "focus": "Farming",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 95,
+    "tags": [],
+    "also": [
+     "Animal Husbandry"
+    ]
+   },
+   {
+    "id": "FA10",
+    "name": "Hydroponics",
+    "focus": "Farming",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 223,
+    "tags": []
+   },
+   {
+    "id": "FA16",
+    "name": "Nitrate Fertiliser",
+    "focus": "Farming",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 187,
+    "by": "Catalysis",
+    "curated": true,
+    "tags": [
+     "Superseded"
+    ]
+   },
+   {
+    "id": "G01",
+    "name": "Plant Identification",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 3,
+    "tags": []
+   },
+   {
+    "id": "G02",
+    "name": "Seed Saving",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 14,
+    "tags": []
+   },
+   {
+    "id": "G03",
+    "name": "Herbal Medicine",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 14,
+    "tags": []
+   },
+   {
+    "id": "G04",
+    "name": "Fermentation",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "G05",
+    "name": "Insect Cultivation",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 33,
+    "tags": []
+   },
+   {
+    "id": "G06",
+    "name": "Mycological Knowledge",
+    "focus": "Foraging",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "G07",
+    "name": "Botanical Classification",
+    "focus": "Foraging",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 128,
+    "tags": []
+   },
+   {
+    "id": "G10",
+    "name": "Psychoactive Plant Knowledge",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "GN02",
+    "name": "DNA Structure",
+    "focus": "Genetics",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Learned of from another civilisation",
+    "tags": []
+   },
+   {
+    "id": "MA01",
+    "name": "Geometry",
+    "focus": "Mathematics",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 36,
+    "tags": []
+   },
+   {
+    "id": "MA03",
+    "name": "Basic Algebra",
+    "focus": "Mathematics",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 57,
+    "tags": []
+   },
+   {
+    "id": "MA05",
+    "name": "Calculus",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 114,
+    "tags": []
+   },
+   {
+    "id": "MA06",
+    "name": "Probability Theory",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 141,
+    "tags": []
+   },
+   {
+    "id": "MA07",
+    "name": "Binary Mathematics",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 141,
+    "tags": []
+   },
+   {
+    "id": "MA08",
+    "name": "Non-Euclidean Geometry",
+    "focus": "Mathematics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 143,
+    "tags": []
+   },
+   {
+    "id": "MA09",
+    "name": "Statistics",
+    "focus": "Mathematics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 160,
+    "tags": []
+   },
+   {
+    "id": "MA11",
+    "name": "Fractal Mathematics",
+    "focus": "Mathematics",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "MA13",
+    "name": "Topology",
+    "focus": "Mathematics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 164,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "MC01",
+    "name": "Wheel",
+    "focus": "Mechanics",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 16,
+    "tags": []
+   },
+   {
+    "id": "MC03",
+    "name": "Gearing",
+    "focus": "Mechanics",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 40,
+    "tags": []
+   },
+   {
+    "id": "MC04",
+    "name": "Windmill",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 136,
+    "tags": [],
+    "also": [
+     "Energy Systems"
+    ]
+   },
+   {
+    "id": "MC05",
+    "name": "Clockwork",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MC06",
+    "name": "Printing Press",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MC08",
+    "name": "Steam Engine",
+    "focus": "Mechanics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MC09",
+    "name": "Internal Combustion Engine",
+    "focus": "Mechanics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 220,
+    "tags": [],
+    "also": [
+     "Chemistry"
+    ]
+   },
+   {
+    "id": "MC10",
+    "name": "Precision Machining",
+    "focus": "Mechanics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 151,
+    "tags": []
+   },
+   {
+    "id": "MC11",
+    "name": "Assembly Line",
+    "focus": "Mechanics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 200,
+    "tags": []
+   },
+   {
+    "id": "MC19",
+    "name": "Crank and Connecting Rod",
+    "focus": "Mechanics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MD01",
+    "name": "Surgical Techniques",
+    "focus": "Medicine",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 72,
+    "tags": []
+   },
+   {
+    "id": "MD03",
+    "name": "Anatomy Study",
+    "focus": "Medicine",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 136,
+    "tags": []
+   },
+   {
+    "id": "MD04",
+    "name": "Vaccination",
+    "focus": "Medicine",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 191,
+    "tags": [],
+    "also": [
+     "Animal Husbandry"
+    ]
+   },
+   {
+    "id": "MD05",
+    "name": "Germ Theory",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 199,
+    "tags": []
+   },
+   {
+    "id": "MD06",
+    "name": "Antibiotics",
+    "focus": "Medicine",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MD07",
+    "name": "Anaesthesia",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MD08",
+    "name": "Prosthetics",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "MD15",
+    "name": "Contagion Experiments",
+    "focus": "Medicine",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 180,
+    "tags": []
+   },
+   {
+    "id": "ME-B",
+    "name": "Bellows",
+    "focus": "Metallurgy",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 34,
+    "tags": []
+   },
+   {
+    "id": "ME01",
+    "name": "Copper Working",
+    "focus": "Metallurgy",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 19,
+    "tags": []
+   },
+   {
+    "id": "ME02",
+    "name": "Bronze Alloy",
+    "focus": "Metallurgy",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 40,
+    "tags": []
+   },
+   {
+    "id": "ME04",
+    "name": "Iron Smelting",
+    "focus": "Metallurgy",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 41,
+    "tags": []
+   },
+   {
+    "id": "ME05",
+    "name": "Steel Production",
+    "focus": "Metallurgy",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 75,
+    "tags": []
+   },
+   {
+    "id": "ME08",
+    "name": "Blast Furnace",
+    "focus": "Metallurgy",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 81,
+    "tags": []
+   },
+   {
+    "id": "ME09",
+    "name": "Crucible Steel",
+    "focus": "Metallurgy",
+    "era": "Medieval",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 156,
+    "tags": []
+   },
+   {
+    "id": "ME12",
+    "name": "Bessemer Process",
+    "focus": "Metallurgy",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 180,
+    "tags": []
+   },
+   {
+    "id": "ME13",
+    "name": "Aluminium Extraction",
+    "focus": "Metallurgy",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 176,
+    "tags": []
+   },
+   {
+    "id": "ME17",
+    "name": "Assaying",
+    "focus": "Metallurgy",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 81,
+    "tags": []
+   },
+   {
+    "id": "ME18",
+    "name": "Plate Armour",
+    "focus": "Metallurgy",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 140,
+    "tags": []
+   },
+   {
+    "id": "MI05",
+    "name": "Deep Shaft Mining",
+    "focus": "Mining",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "MI06",
+    "name": "Coal Discovery",
+    "focus": "Mining",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 146,
+    "tags": []
+   },
+   {
+    "id": "MI06B",
+    "name": "Volcanic Ash Processing",
+    "focus": "Mining",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 47,
+    "tags": []
+   },
+   {
+    "id": "MI07",
+    "name": "Petroleum Discovery",
+    "focus": "Mining",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 151,
+    "tags": []
+   },
+   {
+    "id": "MI08",
+    "name": "Saltpeter Mining",
+    "focus": "Mining",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 135,
+    "tags": []
+   },
+   {
+    "id": "MI10",
+    "name": "Uranium Discovery",
+    "focus": "Mining",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MI11",
+    "name": "Rare Earth Extraction",
+    "focus": "Mining",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "MI13",
+    "name": "Wood Gas Production",
+    "focus": "Mining",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 191,
+    "tags": [],
+    "also": [
+     "Chemistry"
+    ]
+   },
+   {
+    "id": "MS02",
+    "name": "Nanotechnology",
+    "focus": "Materials Science",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "NP01",
+    "name": "Radioactivity",
+    "focus": "Nuclear Physics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 187,
+    "tags": []
+   },
+   {
+    "id": "NP02",
+    "name": "Atomic Model",
+    "focus": "Nuclear Physics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 191,
+    "tags": []
+   },
+   {
+    "id": "NP12",
+    "name": "Particle Laboratories",
+    "focus": "Nuclear Physics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "O01",
+    "name": "Star Tracking",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 7,
+    "tags": []
+   },
+   {
+    "id": "O02",
+    "name": "Weather Prediction",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "O03",
+    "name": "Animal Behavior Study",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 6,
+    "tags": []
+   },
+   {
+    "id": "O04",
+    "name": "Tidal Patterns",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "O05",
+    "name": "Celestial Mathematics",
+    "focus": "Observation",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 29,
+    "tags": []
+   },
+   {
+    "id": "O06",
+    "name": "Natural Philosophy",
+    "focus": "Observation",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 51,
+    "tags": []
+   },
+   {
+    "id": "O07",
+    "name": "Comparative Anatomy",
+    "focus": "Observation",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 120,
+    "tags": []
+   },
+   {
+    "id": "O08",
+    "name": "Geological Observation",
+    "focus": "Observation",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 26,
+    "tags": []
+   },
+   {
+    "id": "O09",
+    "name": "Migratory Pattern Mapping",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "O12",
+    "name": "Atmospheric Science",
+    "focus": "Observation",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "OP01",
+    "name": "Glassmaking",
+    "focus": "Optics",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 32,
+    "tags": []
+   },
+   {
+    "id": "OP02",
+    "name": "Lens Grinding",
+    "focus": "Optics",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 73,
+    "tags": []
+   },
+   {
+    "id": "OP03",
+    "name": "Telescope",
+    "focus": "Optics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 117,
+    "tags": []
+   },
+   {
+    "id": "OP07",
+    "name": "Laser",
+    "focus": "Optics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "OP08",
+    "name": "Spectroscopy",
+    "focus": "Optics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 184,
+    "tags": []
+   },
+   {
+    "id": "OP10",
+    "name": "Semaphore",
+    "focus": "Optics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 181,
+    "tags": []
+   },
+   {
+    "id": "PH01",
+    "name": "Formal Logic",
+    "focus": "Philosophy and the Arts",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 66,
+    "tags": []
+   },
+   {
+    "id": "PH04",
+    "name": "Scientific Method",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 134,
+    "tags": []
+   },
+   {
+    "id": "PH08",
+    "name": "Dialectical Thinking",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 134,
+    "tags": []
+   },
+   {
+    "id": "PH09",
+    "name": "Existentialism",
+    "focus": "Philosophy and the Arts",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "PH10",
+    "name": "Information Theory",
+    "focus": "Philosophy and the Arts",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 229,
+    "tags": [
+     "New"
+    ]
+   },
+   {
+    "id": "PH11",
+    "name": "Systems Thinking",
+    "focus": "Philosophy and the Arts",
+    "era": "Atomic",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "PH14",
+    "name": "The Enlightenment",
+    "focus": "Philosophy and the Arts",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 226,
+    "tags": []
+   },
+   {
+    "id": "QP01",
+    "name": "Wave-Particle Duality",
+    "focus": "Quantum Physics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 195,
+    "tags": []
+   },
+   {
+    "id": "QP02",
+    "name": "Quantum Mechanics Formalism",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 200,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "QP03",
+    "name": "Quantum Electrodynamics",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 207,
+    "tags": []
+   },
+   {
+    "id": "QP04",
+    "name": "Particle Accelerator",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 206,
+    "tags": []
+   },
+   {
+    "id": "QP05",
+    "name": "Quantum Field Theory",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 210,
+    "tags": []
+   },
+   {
+    "id": "QP06",
+    "name": "Standard Model Completion",
+    "focus": "Quantum Physics",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 228,
+    "tags": [
+     "New"
+    ]
+   },
+   {
+    "id": "QP08",
+    "name": "Quantum Gravity Theory",
+    "focus": "Quantum Physics",
+    "era": "Space",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 228,
+    "tags": [
+     "FTL",
+     "New"
+    ]
+   },
+   {
+    "id": "QP12",
+    "name": "Casimir Effect Amplification",
+    "focus": "Quantum Physics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 224,
+    "tags": []
+   },
+   {
+    "id": "RC01",
+    "name": "Special Relativity",
+    "focus": "Relativity & Cosmology",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 169,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "RC02",
+    "name": "General Relativity",
+    "focus": "Relativity & Cosmology",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 186,
+    "tags": [
+     "FTL"
+    ]
+   },
+   {
+    "id": "RC04",
+    "name": "Black Hole Thermodynamics",
+    "focus": "Relativity & Cosmology",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "RK02",
+    "name": "Liquid Fuel Rocket",
+    "focus": "Rocketry",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 222,
+    "tags": []
+   },
+   {
+    "id": "RK03",
+    "name": "Multi-Stage Rocket",
+    "focus": "Rocketry",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "S01",
+    "name": "Tool Knapping",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 4,
+    "tags": []
+   },
+   {
+    "id": "S02",
+    "name": "Grinding & Polishing",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 31,
+    "tags": []
+   },
+   {
+    "id": "S03",
+    "name": "Quarrying",
+    "focus": "Stonework",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 33,
+    "tags": []
+   },
+   {
+    "id": "S04",
+    "name": "Ore Identification",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 9,
+    "tags": []
+   },
+   {
+    "id": "S05",
+    "name": "Obsidian Working",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "S07",
+    "name": "Flint Knapping Mastery",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "S08",
+    "name": "Jade/Gemstone Working",
+    "focus": "Stonework",
+    "era": "Ancient",
+    "tier": "UNCOMMON",
+    "status": "owned",
+    "turn": 60,
+    "tags": []
+   },
+   {
+    "id": "SF01",
+    "name": "Reed/Log Raft",
+    "focus": "Seafaring",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 5,
+    "tags": []
+   },
+   {
+    "id": "SF02",
+    "name": "Dugout Canoe",
+    "focus": "Seafaring",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 36,
+    "tags": []
+   },
+   {
+    "id": "SF03",
+    "name": "Sail Invention",
+    "focus": "Seafaring",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 64,
+    "tags": []
+   },
+   {
+    "id": "SF04",
+    "name": "Celestial Navigation",
+    "focus": "Seafaring",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 89,
+    "tags": []
+   },
+   {
+    "id": "SF05",
+    "name": "Trireme/Galley Construction",
+    "focus": "Seafaring",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 123,
+    "tags": []
+   },
+   {
+    "id": "SF08",
+    "name": "Compass",
+    "focus": "Seafaring",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 146,
+    "tags": []
+   },
+   {
+    "id": "SF09",
+    "name": "Caravel/Deep Ocean Ship",
+    "focus": "Seafaring",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 169,
+    "tags": []
+   },
+   {
+    "id": "SF10",
+    "name": "Drydock",
+    "focus": "Seafaring",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 152,
+    "tags": []
+   },
+   {
+    "id": "SF11",
+    "name": "Ship of the Line",
+    "focus": "Seafaring",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 194,
+    "tags": []
+   },
+   {
+    "id": "SF12",
+    "name": "Ironclad",
+    "focus": "Seafaring",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "SF19",
+    "name": "Longitude",
+    "focus": "Seafaring",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 200,
+    "tags": []
+   },
+   {
+    "id": "SO01",
+    "name": "Basic Counting",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 6,
+    "tags": []
+   },
+   {
+    "id": "SO02",
+    "name": "Storytelling",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 8,
+    "tags": []
+   },
+   {
+    "id": "SO03",
+    "name": "Tribal Law",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 17,
+    "tags": []
+   },
+   {
+    "id": "SO04",
+    "name": "Writing",
+    "focus": "Social Organization",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 31,
+    "tags": []
+   },
+   {
+    "id": "SO05",
+    "name": "Specialization of Labor",
+    "focus": "Social Organization",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 35,
+    "tags": []
+   },
+   {
+    "id": "SO06",
+    "name": "Codified Law",
+    "focus": "Social Organization",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "SO08",
+    "name": "Census",
+    "focus": "Social Organization",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 124,
+    "tags": []
+   },
+   {
+    "id": "SO10",
+    "name": "Guilds",
+    "focus": "Social Organization",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 167,
+    "tags": []
+   },
+   {
+    "id": "SO11",
+    "name": "Banking",
+    "focus": "Social Organization",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 130,
+    "tags": []
+   },
+   {
+    "id": "SO16",
+    "name": "Public Education",
+    "focus": "Social Organization",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "TH01",
+    "name": "Laws of Thermodynamics",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 146,
+    "tags": []
+   },
+   {
+    "id": "TH02",
+    "name": "Refrigeration",
+    "focus": "Thermodynamics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 190,
+    "tags": []
+   },
+   {
+    "id": "TH03",
+    "name": "Turbine Design",
+    "focus": "Thermodynamics",
+    "era": "Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 190,
+    "tags": []
+   },
+   {
+    "id": "TH05",
+    "name": "Carnot Efficiency",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "TH08",
+    "name": "Stirling Engine Mastery",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 188,
+    "tags": [],
+    "also": [
+     "Energy Systems",
+     "Mechanics"
+    ]
+   },
+   {
+    "id": "TH09",
+    "name": "Caloric Theory",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 187,
+    "curated": true,
+    "tags": [
+     "Dead end"
+    ]
+   },
+   {
+    "id": "TH10",
+    "name": "Mechanical Equivalent of Heat",
+    "focus": "Thermodynamics",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "TH15",
+    "name": "Waste-Heat Recovery",
+    "focus": "Thermodynamics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "TR01",
+    "name": "Barter System",
+    "focus": "Trade",
+    "era": "Primitive",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 31,
+    "tags": []
+   },
+   {
+    "id": "TR02",
+    "name": "Currency",
+    "focus": "Trade",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 70,
+    "tags": []
+   },
+   {
+    "id": "TR03",
+    "name": "Caravansary",
+    "focus": "Trade",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 91,
+    "tags": []
+   },
+   {
+    "id": "TR05",
+    "name": "Letter of Credit",
+    "focus": "Trade",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 153,
+    "tags": []
+   },
+   {
+    "id": "TR06",
+    "name": "Joint Stock Company",
+    "focus": "Trade",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 198,
+    "tags": []
+   },
+   {
+    "id": "TR10",
+    "name": "Futures Market",
+    "focus": "Trade",
+    "era": "Modern",
+    "tier": "UNCOMMON",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "TR17",
+    "name": "Long-Distance Trade",
+    "focus": "Trade",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "TX01",
+    "name": "Weaving",
+    "focus": "Textiles & Materials",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 12,
+    "tags": []
+   },
+   {
+    "id": "TX02",
+    "name": "Dyeing",
+    "focus": "Textiles & Materials",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "TX05",
+    "name": "Cotton Gin",
+    "focus": "Textiles & Materials",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 200,
+    "tags": []
+   },
+   {
+    "id": "TX08",
+    "name": "Carbon Fiber",
+    "focus": "Textiles & Materials",
+    "era": "Atomic",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "TX10",
+    "name": "Paper Making",
+    "focus": "Textiles & Materials",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 67,
+    "tags": []
+   },
+   {
+    "id": "WA01",
+    "name": "Formation Fighting",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 73,
+    "tags": []
+   },
+   {
+    "id": "WA03",
+    "name": "Archery",
+    "focus": "Warfare",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 21,
+    "tags": []
+   },
+   {
+    "id": "WA04",
+    "name": "Composite Bow",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 63,
+    "tags": []
+   },
+   {
+    "id": "WA05",
+    "name": "Siege Warfare",
+    "focus": "Warfare",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 112,
+    "tags": []
+   },
+   {
+    "id": "WA06",
+    "name": "Fortification Design",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 93,
+    "tags": []
+   },
+   {
+    "id": "WA07",
+    "name": "Cavalry Tactics",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 89,
+    "tags": []
+   },
+   {
+    "id": "WA08",
+    "name": "Chariot Warfare",
+    "focus": "Warfare",
+    "era": "Ancient",
+    "tier": "STANDARD",
+    "status": "not_taken",
+    "turn": 94,
+    "instead": "Cavalry Tactics",
+    "curated": true,
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "WA09",
+    "name": "Crossbow",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 129,
+    "tags": []
+   },
+   {
+    "id": "WA10",
+    "name": "Gunpowder",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 151,
+    "tags": [],
+    "also": [
+     "Chemistry"
+    ]
+   },
+   {
+    "id": "WA11",
+    "name": "Trebuchet",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 155,
+    "tags": []
+   },
+   {
+    "id": "WA13",
+    "name": "Guerrilla Tactics",
+    "focus": "Warfare",
+    "era": "Classical",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "WA16",
+    "name": "Rifling",
+    "focus": "Warfare",
+    "era": "Early Modern",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 188,
+    "tags": []
+   },
+   {
+    "id": "WA22",
+    "name": "Cannons",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 162,
+    "tags": []
+   },
+   {
+    "id": "WA26",
+    "name": "Professional Army",
+    "focus": "Warfare",
+    "era": "Classical",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 139,
+    "tags": []
+   },
+   {
+    "id": "WA27",
+    "name": "Stirrup",
+    "focus": "Warfare",
+    "era": "Medieval",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 135,
+    "tags": []
+   },
+   {
+    "id": "WA28",
+    "name": "Drill and Discipline",
+    "focus": "Warfare",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 186,
+    "tags": []
+   },
+   {
+    "id": "WM01",
+    "name": "Canal Building",
+    "focus": "Water Management",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 39,
+    "tags": []
+   },
+   {
+    "id": "WM02",
+    "name": "Aqueduct",
+    "focus": "Water Management",
+    "era": "Ancient",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 58,
+    "tags": []
+   },
+   {
+    "id": "WM05",
+    "name": "Water Mill",
+    "focus": "Water Management",
+    "era": "Classical",
+    "tier": "CORE",
+    "status": "owned",
+    "turn": 60,
+    "tags": [],
+    "also": [
+     "Energy Systems"
+    ]
+   },
+   {
+    "id": "WM06",
+    "name": "Dam Construction",
+    "focus": "Water Management",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "WM09",
+    "name": "Rice Paddy Mastery",
+    "focus": "Water Management",
+    "era": "Ancient",
+    "tier": "UNIQUE",
+    "status": "owned",
+    "turn": 58,
+    "tags": [
+     "Unique"
+    ]
+   },
+   {
+    "id": "WM11",
+    "name": "Industrial Canal Network",
+    "focus": "Water Management",
+    "era": "Early Modern",
+    "tier": "STANDARD",
+    "status": "owned",
+    "turn": 194,
+    "by": "Railway Network",
+    "curated": true,
+    "tags": [
+     "Superseded"
+    ]
+   },
+   {
+    "id": "WM12",
+    "name": "Tidal Mill",
+    "focus": "Water Management",
+    "era": "Medieval",
+    "tier": "UNCOMMON",
+    "status": "closed",
+    "src": "Glimpsed by our scholars",
+    "tags": []
+   },
+   {
+    "id": "MD20",
+    "name": "Phage Therapy",
+    "focus": "Medicine",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Germ Theory",
+    "tags": [],
+    "curated": true,
+    "competes": "Antibiotics"
+   },
+   {
+    "id": "ES05",
+    "name": "Oil Power Plant",
+    "focus": "Energy Systems",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Turbine Design",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "RK09",
+    "name": "Ion Drive",
+    "focus": "Rocketry",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Quantum Electrodynamics",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "RC03",
+    "name": "Gravitational Waves Detection",
+    "focus": "Relativity & Cosmology",
+    "era": "Atomic",
+    "tier": "STANDARD",
+    "status": "unreach",
+    "src": "Revealed by General Relativity",
+    "needs": "Laser",
+    "needs_focus": "Optics",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "AE13",
+    "name": "Rigid Airship",
+    "focus": "Aeronautics",
+    "era": "Modern",
+    "tier": "STANDARD",
+    "status": "unreach",
+    "src": "Seen in use by another civilisation",
+    "needs": "Dirigible/Airship",
+    "needs_focus": "Aeronautics",
+    "tags": [],
+    "curated": true
+   },
+   {
+    "id": "QP09",
+    "name": "String Theory Validation",
+    "focus": "Quantum Physics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Quantum Gravity Theory",
+    "tags": [
+     "New"
+    ],
+    "curated": true
+   },
+   {
+    "id": "QP10",
+    "name": "Loop Quantum Gravity",
+    "focus": "Quantum Physics",
+    "era": "Space",
+    "tier": "STANDARD",
+    "status": "waiting",
+    "src": "Revealed by Quantum Gravity Theory",
+    "tags": [
+     "New"
+    ],
+    "curated": true
+   }
+  ]
+ }
+}
