@@ -7,7 +7,7 @@ late on, where the board is full, and on turn 1, where it is nearly empty. The c
 
 | Artboard | What it shows |
 |---|---|
-| 1 · Turn 226 (`Main.dc.html`) | The screen as it opens: Quantum Physics funded, 250 breakthroughs, Superconductivity (moment passed) selected. Interactive. |
+| 1 · Turn 226 (`Main.dc.html`) | The screen as it opens: Quantum Physics funded, 249 breakthroughs, Superconductivity (moment passed) selected. Interactive. |
 | 2 · Grand Endeavour, turn 231 (`Endeavour.dc.html`) | An Endeavour on Superconductivity occupying the funding slot. |
 | 3 · Switching away (`Switch_away.dc.html`) | The confirmation when funding a focus while an Endeavour runs. |
 | 4 · One focus (`Focus_view.dc.html`) | Energy Systems chosen: its breakthroughs as cards, with conjectures and effects. |
@@ -26,7 +26,7 @@ Every artboard except the key is the one component in `Main.dc.html` with a diff
 - **The board** lists every owned and revealed breakthrough by status, newest work first: Being studied, Awaiting the
   idea (revealed, not yet occurred), Not yet reachable, Moment passed (revealed, its window closed: only an Endeavour is
   certain), then the owned history in era bands with Unciv's era-header colours. Statuses differ by fill lightness,
-  border pattern (solid, dashed, dotted), shape and glyph, never by hue alone. Filters and collapsible sections keep 250
+  border pattern (solid, dashed, dotted), shape and glyph, never by hue alone. Filters and collapsible sections keep 249
   rows legible.
 - **The bottom bar** is Unciv's Close | description | action. It explains why each breakthrough is or is not progressing
   and what can be done: fund its focus, or a Grand Endeavour (offered only for ideas that have not occurred).
@@ -55,7 +55,7 @@ From `build_spec.md` §11, with the review's changes:
   `design/notes/deferred_tasks.md`, *Decide how far the One-Step Horizon reaches*.
 
 The Experiment and Synthesis abilities were removed from the design on 15 October (v3.113) and from the screen with
-them. The records of how the screen was made (`requirements.json` R102 and R103, `build_spec.md`, the reviews) predate
+them; Dialectical Thinking was removed in v3.114 and is dropped from the snapshots, which predate it. The records of how the screen was made (`requirements.json` R102 and R103, `build_spec.md`, the reviews) predate
 that and still describe them.
 
 ## The data

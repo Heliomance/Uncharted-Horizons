@@ -1,4 +1,4 @@
-# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.113)
+# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.114)
 
 ## 1. System Overview
 
@@ -570,7 +570,6 @@ The Space era's span is provisional. The FTL endgame (§4) widened the era with 
 | CU06 | **University** | CORE | Medieval | SO04 + PH01 (Formal Logic — epistemology) + MC06 (Printing Press) | **University** (and the Siamese **Wat**); **Angkor Wat** (world wonder); **Oxford University** (national wonder — a great seat of learning, built on recovered knowledge: the Translation Movement, merged here in v3.100). (The theology wonders are Scholastic Theology's, CU15.) |  |
 | CU11 | **Courtly Love Tradition** | UNIQUE | Medieval | CU03 (Artistic Tradition) + CU05 (Theater) + SO06 (Codified Law) | **Royal Court**ⁿ [replaces Amphitheater; 100/2; requires a **Monument** in this city; +3 Culture; Great Artist points 2]. Civ unique: ⟨When declaring friendship, both parties gain a [15]% boost to great person generation⟩ — courtship, made diplomacy. | European/Japanese/Persian courtly poetry and culture. |
 | PH04 | **Scientific Method** | CORE | Early Modern | PH01 | ⟨[+25]% [Science] [in all cities]⟩ — Insight *is* science, so the design's game-changing bonus is this one legal unique. **Experimental Laboratory**ⁿ [190/2; requires a **University** in this city; +2 Science; Scientist ×1] — the experiment as institution (Empiricism, merged here in v3.100: Bacon's empiricism was the method). | Game-changing. |
-| PH08 | **Dialectical Thinking** | UNCOMMON | Early Modern | PH01 | ⟨Resting point for Influence with City-States is increased by [10]⟩ — proposals reconciled. |  |
 | CU07 | **Renaissance** | STANDARD | Early Modern | CU06 + PH01 (Formal Logic — epistemology) + TR05 | ⟨Empire enters a [10]-turn Golden Age⟩ (a Triggerable on discovery — the Renaissance itself); **Hermitage** (national wonder); **Opera House** (and the Celtic **Ceilidh Hall**); **Theatre**; **Sistine Chapel** (world wonder) — music and drama for a paying public: opera began in Renaissance Florence, and the Sistine ceiling dates from 1512 (Opera, merged here in v3.100). |  |
 | PH09 | **Existentialism** | UNCOMMON | Modern | PH01 (Formal Logic — epistemology) | ⟨[+2 Culture] from every [Artist]⟩ — the movement finds its voices. Existential-crisis events via `Events.json`. |  |
 | PH10 | **Information Theory** | CORE | Atomic | PH01 + MA07 (Binary Math) | ⟨[Great Scientist] is earned [+10]% faster⟩ — information made measurable. Prerequisite for Computing. | |
@@ -1879,10 +1878,10 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 | Metric | Count |
 |---|---|
 | Focus Areas | 35 (5 starting + 31 unlockable) |
-| Total Breakthroughs | ~546 |
+| Total Breakthroughs | ~545 |
 | CORE Breakthroughs | ~142 |
 | STANDARD Breakthroughs | ~254 |
-| UNCOMMON Breakthroughs | ~57 |
+| UNCOMMON Breakthroughs | ~56 |
 | RARE Breakthroughs | ~39 |
 | UNIQUE Breakthroughs | ~54 |
 | World Truth Axes | 11 (4 Foundational + 7 Frontier) + 3 Geological + 3 Contingency (~15,000+ physics signatures) |
@@ -2069,6 +2068,10 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 ---
 
 ## Changelog from v2.0 — Game Design Pass
+
+### v3.114 — Dialectical Thinking Removed
+
+- **PH08 Dialectical Thinking is removed**, by the rule that a row must justify its existence (v3.80). With Synthesis gone (v3.113) its only effect was ⟨Resting point for Influence with City-States is increased by [10]⟩, which Radio and Talking Drum Networks also grant, and no row needed it. Philosophy and the Arts keeps two UNCOMMON rows, Existentialism and Systems Thinking. ~545 breakthroughs.
 
 ### v3.113 — Experiment and Synthesis Removed
 

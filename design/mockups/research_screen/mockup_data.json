@@ -1663,16 +1663,6 @@
     "tags": []
    },
    {
-    "id": "PH08",
-    "name": "Dialectical Thinking",
-    "focus": "Philosophy and the Arts",
-    "era": "Early Modern",
-    "tier": "UNCOMMON",
-    "status": "owned",
-    "turn": 134,
-    "tags": []
-   },
-   {
     "id": "PH09",
     "name": "Existentialism",
     "focus": "Philosophy and the Arts",
@@ -4312,16 +4302,6 @@
     "focus": "Philosophy and the Arts",
     "era": "Early Modern",
     "tier": "CORE",
-    "status": "owned",
-    "turn": 134,
-    "tags": []
-   },
-   {
-    "id": "PH08",
-    "name": "Dialectical Thinking",
-    "focus": "Philosophy and the Arts",
-    "era": "Early Modern",
-    "tier": "UNCOMMON",
     "status": "owned",
     "turn": 134,
     "tags": []

@@ -33,6 +33,7 @@ PERSISTS_TEXT = {'TH08': 'Persists: Internal Combustion Engine came later, and t
 # which the engine had under study there, is dropped (the engine counts a focus as entered once any row is discoverable)
 NOT_ENTERED = {'Computing'}
 DROP = {'CP13'}
+CUT = {'PH08'}   # removed from the design in v3.114; the snapshots predate that
 ROW_MULT = {'TH15': 2.5, 'NP12': 2.5}   # true row multipliers (W18) that an Endeavour price includes
 DEAD_END = {'TH09'}
 FTL = {'RC01', 'RC02', 'QP02', 'QP12'}   # illustrative: proposals after RC01, and QP12, a build requirement met (hint moves not tracked)
@@ -58,7 +59,7 @@ def load(mode):
         if r['id'] in DEAD_END: tags.append('Dead end'); r['curated'] = True
         if r['status'] == 'owned' and r['tier'] == 'RARE': tags.append('Rare')
         if r['status'] == 'owned' and r['tier'] == 'UNIQUE': tags.append('Unique')
-        if r['id'] in DROP: continue
+        if r['id'] in DROP or r['id'] in CUT: continue
         if r['id'] in FTL or (mode == 't231' and r['id'] in ('QP08', 'QP06')): tags.append('FTL')
         if r['id'] in SUPERSEDED_TEXT: r['superseded'] = SUPERSEDED_TEXT[r['id']]
         if r['id'] in PERSISTS_TEXT: r['persists'] = PERSISTS_TEXT[r['id']]

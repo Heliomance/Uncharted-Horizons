@@ -789,10 +789,6 @@
     Discovered on turn 134. +25% Science in all cities; Experimental Laboratory (building)
     Needs ✓ Formal Logic
     ACTIONS: [disabled] Discovered
---- PH08 [owned] Dialectical Thinking Philosophy and the Arts · Early Modern era
-    Discovered on turn 134. Resting point for Influence with City-States is increased by 10
-    Needs ✓ Formal Logic
-    ACTIONS: [disabled] Discovered
 --- PH09 [closed] Existentialism Philosophy and the Arts · Modern era
     Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Formal Logic
@@ -2202,10 +2198,6 @@
     ACTIONS: [disabled] Discovered
 --- PH04 [owned] Scientific Method Philosophy and the Arts · Early Modern era
     Discovered on turn 134. +25% Science in all cities; Experimental Laboratory (building)
-    Needs ✓ Formal Logic
-    ACTIONS: [disabled] Discovered
---- PH08 [owned] Dialectical Thinking Philosophy and the Arts · Early Modern era
-    Discovered on turn 134. Resting point for Influence with City-States is increased by 10
     Needs ✓ Formal Logic
     ACTIONS: [disabled] Discovered
 --- PH09 [closed] Existentialism Philosophy and the Arts · Modern era

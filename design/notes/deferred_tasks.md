@@ -7,6 +7,7 @@
 - **Suggested fix (Claude's recommendation):** remove the row; no effect that fits the name is both distinctive and available without a new mechanic. If an Early Modern UNCOMMON is wanted in the focus, ⟨[-10]% Culture cost of adopting new Policies⟩ ("opposed proposals reconciled into reform") is an existing Unciv template that no row uses yet.
 - **Not affected:** Scientific Method (PH04) stands on its own (the tree's largest empire-wide Science bonus, the era's Science landmark, 12 dependent rows). Its §1.4 role, theory revealing its applications from then on, has almost no data behind it (about ten rows reveal named breakthroughs, none of them as a theory's applications) and is not simulated; that belongs with the One-Step entry below.
 - **Next:** Tamsin decides; removing the row also means the tree viewer's layout and the mockup's data drop PH08.
+- **Done (2026-10-15, v3.114):** Tamsin chose to remove the row; the mockup's data drops it. The tree viewer's stored layouts still place it, harmlessly, until they are next regenerated.
 
 ## 2026-10-15: Decide how far the One-Step Horizon reaches
 - **Surfaced during:** Tamsin's question why the research-screen mockup needs a "Not yet reachable" status (a check of the document by three independent readers).
