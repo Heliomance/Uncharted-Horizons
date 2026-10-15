@@ -8,11 +8,15 @@ Wormhole's MS17 row at 4x; since v3.120, the discovery model's safety net: redis
 W16 (W16=0); and the simulated players' Endeavours only for revealed ideas that have not occurred (ENDUNOCC=1; since v3.121
 the design also allows them on ideas under study, for needs the game situation creates, which the simulated players do
 not have: allowed, they lose 0-6 turns of victory).
-Since v3.122 (back to base Civ V's game lengths): development's era boundaries at base Civ V's era timings for a good
-economy (DEVENDS: the Atomic era from turn 228, the Space era from 264 to 320) with idea windows following those era
-lengths (WINTURNS), while the simulated economy keeps its v3.108 calibration (ledger.ERA_END, the era model); prices per
-discovery x1.25 in the Modern and Atomic eras and x2 in the Space era (MODERNPRICE, ATOMICPRICE, SPACEPRICE, against the
-v3.108 prices); and rivals replayed from a pool made under these settings (POOLTAG=122; make_pool.sh).
+Since v3.122 (back to base Civ V's game lengths): development's late era boundaries at base Civ V's era timings for a
+good economy (DEVENDS: the Atomic era from turn 228, the Space era from 264 to 320) with idea windows following the era
+lengths (WINTURNS), while the simulated economy keeps its v3.108 calibration (ledger.ERA_END, the era model).
+Since v3.123 (parity with base Civ V's science victory, and a smoother early pace): the Modern, Atomic and Space prices back
+at their v3.108 values (MODERNPRICE, ATOMICPRICE, SPACEPRICE 1; v3.122 had 1.25, 1.25 and 2, which lengthened the science
+victory by 22-32 turns); the Ancient era's price x1.5 with its span to match (ERAPRICE), and the Primitive span x1.3 at its
+old price, so that development enters the Ancient era about when civilisations do (smooth.py Ancient=1.5
+span.Primitive=1.3, which also gives DEVENDS and WINTURNS for every era); and rivals replayed from a pool made under these
+settings (POOLTAG=123; make_pool.sh).
 Importing this module applies them to any switch that isn't set, so a run simulates the agreed design unless told
 otherwise; set a switch to override it, and LEVERS= (empty) to switch every lever off. Every tool that loads the tree imports this module through reach.py.
 
@@ -23,8 +27,9 @@ import os, shlex
 CANONICAL = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tech_tree.md'))
 FINAL = {'LEVERS': 'abcrwgpnyhukqvVm', 'WROWX': '4',
          'REDISCOVER': '0.1', 'ENDUNOCC': '1', 'W16': '0',   # the safety-net package and no W16 (v3.120, 15 Oct 2026); ENDUNOCC: see above
-         'DEVENDS': 'Modern:66231,Atomic:113629,Space:209676', 'WINTURNS': 'Modern:47,Atomic:36,Space:56',   # v3.122: see above
-         'MODERNPRICE': '1.25', 'ATOMICPRICE': '1.25', 'SPACEPRICE': '2', 'POOLTAG': '122'}
+         'DEVENDS': 'Primitive:194,Ancient:1052,Classical:2590,Medieval:6859,Early_Modern:23900,Modern:66231,Atomic:113629,Space:209676',
+         'WINTURNS': 'Primitive:33,Ancient:36,Classical:28,Medieval:36,Early_Modern:49,Modern:46,Atomic:36,Space:56',   # v3.122, v3.123: see above
+         'ERAPRICE': 'Ancient:1.5', 'MODERNPRICE': '1', 'ATOMICPRICE': '1', 'SPACEPRICE': '1', 'POOLTAG': '123'}
 
 if __name__ == '__main__':
     print(f'CANONICAL={shlex.quote(CANONICAL)}')
