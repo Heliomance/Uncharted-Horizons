@@ -460,6 +460,8 @@ With rediscovery carrying winnability, the rate no longer moves victory; it sets
 
 ## A wobble in the sharing, and Endeavours on ideas under study (15 October 2026)
 
+**The wobble is scrapped** (Tamsin, later the same day: it adds nothing important). `JITTER` is gone from the simulator; its results files stay. The measurements are kept below for the record.
+
 **Decided (Tamsin):** Grand Endeavours may again target an idea already under study, for needs the game situation creates: bomb shelters, the turn word comes that a rival has the bomb (v3.121). The simulated players keep `ENDUNOCC=1`, since with nothing pressing they would only reorder research. Open: whether the Insight already spent studying the idea counts towards the Endeavour.
 
 **The question.** Should a focus's Insight be shared with some randomness? Tamsin's first form, the shares as odds (all of a focus's Insight to one idea a turn, drawn by the shares), was dropped before it was measured: the leader's odds would snowball, so it would be funded fast while nothing else got anything. The form measured keeps a share for every idea but lets close ones swap places. Each turn, every idea's weight (progress + 0.1) is multiplied by a random factor, e^(s × a standard normal draw), before the focus's Insight is shared (`JITTER=s`, from its own random stream). At s = 0.5 the factor lies between ×0.61 and ×1.65 two turns in three.
@@ -482,20 +484,64 @@ So the wobble does what was asked of it: close lines trade the lead, distant one
 
 **Nor does the value of an Endeavour.** `endeavour_oracle.py` takes the state of every focus every ten turns in 300 expert games and asks, for each idea under study: if you needed this one now, would a 2× Endeavour fed the active share have it sooner than making its focus active? The focus is played forward on its own (no new ideas, prices and income as they stand), 100 times with the wobble.
 
-| Ideas in the focus | Ideas sampled | Endeavour sooner: s = 0 / 0.5 / 1.0 | If the Endeavour counted the study already done (s = 0) |
+| Ideas in the focus | Ideas sampled | Endeavour sooner: s = 0 / 0.5 / 1.0 | If the study already done came off the 2× price (s = 0) |
 |---|---|---|---|
-| 1 | 87,000 | 1.6% / 1.6% / 1.7% | 2.7% |
-| 2 | 71,000 | 8.3% / 8.4% / 9.1% | 10.8% |
-| 3–4 | 58,000 | 25.5% / 26.2% / 27.8% | 29.2% |
-| 5 or more | 11,000 | 51.7% / 51.2% / 51.3% | 56.7% |
-| all | 226,000 | 12.2% / 12.4% / 13.3% | 14.6% |
-| of them, in the funded focus | 11,000 | 13.5% / 13.4% / 13.7% | 22.5% |
+| 1 | 87,000 | 1.6% / 1.6% / 1.7% | 2.6% |
+| 2 | 71,000 | 8.3% / 8.4% / 9.1% | 10.7% |
+| 3–4 | 58,000 | 25.5% / 26.2% / 27.8% | 29.1% |
+| 5 or more | 11,000 | 51.7% / 51.2% / 51.3% | 56.5% |
+| all | 226,000 | 12.2% / 12.4% / 13.3% | 14.4% |
+| of them, in the funded focus | 11,000 | 13.5% / 13.4% / 13.7% | 22.0% |
+
+*(The last column is corrected: as first computed, an Endeavour whose price the study already done cancelled took no turns at all; every Endeavour takes at least one. It had read 2.7%, 10.8%, 29.2%, 56.7%, 14.6% and 22.5%, the last two quoted in v3.121's changelog as 15% and 22.5%.)*
 
 Crowding sets the value; the wobble hardly touches it. What the wobble does change is how predictable one idea's arrival is: in a focus of three or four, its slow outcomes (90th percentile) take on average 1.3 times its fast ones (10th) at s = 0.5 and 1.6 times at s = 1.0, where today the time is fixed once the meter is drawn. That is small beside the meter's own spread, which the player cannot see either. When an Endeavour is sooner, it is sooner by about 3 turns today and about 2 with the wobble (the wobble adds marginal cases).
 
 **The simulated players with Endeavours on ideas under study** (`ENDUNOCC=0`), familiar world, 900 games a setting: without the wobble, the expert gains nothing (297 either way) and the novice and the average player lose 5–6 turns (301 → 306, 374 → 380); at s = 0.5, much the same (297 → 296, 301 → 306, 373 → 381). None unfinished.
 
 Results: `results/w7f_familiar_cmpJIT25*`, `…cmpJIT50*`, `…cmpJIT100*`, `…cmpEU0*`, `…cmpEU0J50*`, `results/w7f_Process_cmpJIT50*`, `results/w7f_Substance_cmpJIT50*`. The oracle's snapshots are not kept (about 100 MB; `endeavour_oracle.py` regenerates them in about four minutes).
+
+### Endeavours that count the study already done (15 October 2026)
+
+Tamsin's question: what if an Endeavour on an idea under study counts the study already done *before* the 2× premium, so the premium multiplies only the remaining work? Four prices for an Endeavour on an idea at progress *p* (in units of its price; cost multiplier 1):
+
+- **now:** 2 × the price, from nothing;
+- **after:** 2 × the price − the study done (2 − *p*);
+- **before** (Tamsin's): 2 × (the price − the study done), never below nothing (2 − 2*p*);
+- **floor:** the same, the remaining work counted as at least half the price: 2 × max(1 − *p*, ½), "twice the work remaining, never less than the price".
+
+**The meter remembers.** The price is the meter's average, but an idea still unfinished after long study probably has a large meter (Gamma, shape 4):
+
+| Progress (of its price) | Still unfinished | Work left on average | now / after / before / floor |
+|---|---|---|---|
+| 0 | 100% | 1.00 | 2.0 / 2.0 / 2.0 / 2.0 |
+| 0.25 | 98% | 0.77 | 2.0 / 1.75 / 1.5 / 1.5 |
+| 0.5 | 86% | 0.61 | 2.0 / 1.5 / 1.0 / 1.0 |
+| 0.75 | 65% | 0.51 | 2.0 / 1.25 / 0.5 / 1.0 |
+| 0.9 | 52% | 0.47 | 2.0 / 1.1 / 0.2 / 1.0 |
+| 1.0 | 43% | 0.45 | 2.0 / 1.0 / 0 / 1.0 |
+| 1.5 | 15% | 0.39 | 2.0 / 0.5 / 0 / 1.0 |
+
+So "before" prices the remaining work as if the meter were exactly the price; past about three-quarters of its price it charges less than the work that is left, and past the whole price nothing. The floor stays close to twice the work left at every stage.
+
+**Per idea** (`endeavour_oracle.py`, the snapshots above without the wobble: 226,000 ideas under study, the expert, familiar world; an Endeavour always takes at least a turn):
+
+| | now | after | before | floor |
+|---|---|---|---|---|
+| Endeavour sooner than funding its focus | 12.2% | 14.4% | 18.4% | 17.1% |
+| … in the funded focus | 13.5% | 22.0% | 37.8% | 27.4% |
+| … in a focus of five or more | 51.7% | 56.5% | 61.8% | 60.7% |
+| Endeavour cheaper than the Insight study still needs | 2.8% | 5.4% | 14.5% | 7.5% |
+| … for ideas past three-quarters of their price | 0.6% | 7.9% | 62.9% | 11.4% |
+| … for ideas past their whole price (4.2% of ideas) | 0.3% | 23.5% | 100% (free) | 7.8% |
+
+When an Endeavour is sooner, it is sooner by about 2.5–3 turns under every rule.
+
+**Whole games** (`ENDUNOCC=0` with `ENDCREDIT`, familiar world, 900 games a rule): the rule hardly matters to the simulated players. Allowed Endeavours on ideas under study, they lose about the same under every price, since stalling the rest of the focus is the real cost: victory medians, expert / novice / average, 297 / 301 / 374 not allowed; 297 / 306 / 380 from nothing; 296 / 305 / 379 after; 296 / 305 / 379 before; 296 / 305 / 379 floor. None unfinished. They start about 10 Endeavours a game when allowed, against 2 when not.
+
+**Claude's suggestion:** Tamsin's rule with the floor. It keeps most of the gain (17% against 18% of ideas sooner) and closes the loophole: under "before", a careful player could Endeavour every idea that passes its price for nothing and so cut off every unlucky meter, and the Endeavour would stop being insurance.
+
+Results: `results/w7f_familiar_cmpEU0CA*`, `…cmpEU0CB*`, `…cmpEU0CF*`.
 
 ## The candidate model, exactly (as the simulator runs it)
 

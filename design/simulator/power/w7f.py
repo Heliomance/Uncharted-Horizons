@@ -143,6 +143,8 @@ HF.END_FROM = HF.EO.index('Space')
 HF.OBS = os.environ.get('OBS', '1') == '1'
 HF.W16 = os.environ.get('W16', '1') == '1'   # W16=0 switches off the Space era's funded-focus rule
 HF.END_UNOCCURRED_ONLY = os.environ.get('ENDUNOCC') == '1'   # Endeavours only on ideas that have not occurred
+HF.END_CREDIT = os.environ.get('ENDCREDIT') or None   # before|after: an Endeavour on an idea under study counts the study already done (harness_ftl_e.END_CREDIT)
+HF.END_CREDIT_FLOOR = float(os.environ.get('ENDFLOOR', '0'))   # with ENDCREDIT=before: the remaining work counts as at least this share of the price
 HF.SPREAD_FIX = os.environ.get('SPREADFIX', '1') == '1'   # while an Endeavour runs, the spread keeps only its own share; SPREADFIX=0 reproduces the fault in results before 14 Oct 2026
 _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)
 HF.GLIMPSE = {t: _g for t in ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')} if os.environ.get('GLIMPSEALL') == '1' else \
@@ -167,7 +169,6 @@ if os.environ.get('ERAHOLDTIERS'): CFG['era_hold_tiers'] = tuple(os.environ['ERA
 if os.environ.get('FUNDEDWIN') == '1': CFG['funded_windows'] = True   # a STANDARD window stays open while its focus is funded
 if os.environ.get('REDISCOVER'): CFG['rediscover'] = float(os.environ['REDISCOVER'])   # rediscovery on demand (harness_ftl_e.P.rediscover)
 if os.environ.get('TIERATT'): CFG['tier_attention'] = os.environ['TIERATT'] == '1'   # tier odds weighting attention once an idea has occurred
-if os.environ.get('JITTER'): CFG['jitter'] = float(os.environ['JITTER'])   # a random wobble on each idea's share within its focus (harness_ftl_e.P.jitter)
 DRAWS = []   # each game's method and truth, drawn in order before any game is played, so that games can run in any order
 for s in range(N * len(COND)):
     m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m])

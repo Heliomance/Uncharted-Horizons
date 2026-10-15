@@ -1,8 +1,8 @@
-"""Would a Grand Endeavour get one particular idea under study sooner than ordinary study? And how often do two ideas
-studied side by side swap places? Benchmark games on a patched private copy of the engine (the simulator is not
-modified), then an offline analysis.
+"""Would a Grand Endeavour get one particular idea under study sooner than ordinary study, and at what cost? And how
+often is the one of two ideas studied side by side that is behind discovered first? Benchmark games on a patched private
+copy of the engine (the simulator is not modified), then an offline analysis.
 
-Record, through scratch_run.sh with a cell's environment (JITTER as in the games you want to measure):
+Record, through scratch_run.sh with a cell's environment:
   python3 endeavour_oracle.py <world> <games> <suffix>        ORACLELOG=<path prefix> receives, per worker process,
     <prefix>.snap.<pid>: every ORACLEEVERY turns (default 10), each focus with ideas under study: the Insight it would
         receive as the active focus (income x the active share) and, for each idea, its progress, hidden meter (null if
@@ -10,16 +10,19 @@ Record, through scratch_run.sh with a cell's environment (JITTER as in the games
     <prefix>.pairs.<pid>: every pair of ideas studied side by side in one focus, once one of them is discovered: their
         weights (progress + 0.1) when the pair began, how often their order changed, and which was discovered first.
 Analyse:
-  python3 endeavour_oracle.py --analyse <path prefix> <jitter> [runs]
+  python3 endeavour_oracle.py --analyse <path prefix> [runs]
     For every idea in every snapshot: make its focus active and play the focus forward on its own (no new ideas, prices
-    and income as they stand, the same jitter as the games, `runs` times, default 100); compare when ordinary study
-    discovers the idea with when a 2x Endeavour fed the same Insight would (from nothing, as in the engine).
+    and income as they stand; `runs` draws, default 20, for meters not yet drawn), and compare when ordinary study
+    discovers the idea with when a 2x Endeavour fed the same Insight would, under three costs: from nothing (2x the
+    price, as now); the study already done taken off after the premium (2x the price - done); and taken off before it,
+    so the premium multiplies only the remaining work (2 x (the price - done), never below nothing); and that, with the
+    remaining work counted as at least half the price. An Endeavour always takes at least a turn.
 Example (the expert, familiar world, every method; then delete results/w7f_familiar_oracle*.json, which w7f.py writes):
   cd design/simulator/power && for m in Warp Wormhole Hyperspace Tachyonic Tunnelling; do env PYTHONHASHSEED=0 DET=smart \
     ORSMART=1 PARALLEL=1 RUNON=1 DIFF=1 OBS=0 GLIMPSE=0.1 GLIMPSEU=0.03 END=2 ENDRULE=active INSTR_D=5 EXPFIX=1 \
-    ENDFROM=theory METHODS=$m JITTER=0.5 ORACLELOG=/tmp/oracle50 bash scratch_run.sh python3 endeavour_oracle.py \
-    familiar 60 _oracle50_$m; done
-  python3 endeavour_oracle.py --analyse /tmp/oracle50 0.5
+    ENDFROM=theory METHODS=$m ORACLELOG=/tmp/oracle bash scratch_run.sh python3 endeavour_oracle.py familiar 60 _oracle_$m; done
+  python3 endeavour_oracle.py --analyse /tmp/oracle
+(The measurements of 15 October with a random wobble in the sharing, since scrapped, used commit 622a931's version.)
 """
 import sys, os, json, glob, math
 POWER = '/home/user/Uncharted-Horizons/design/simulator/power'
@@ -68,7 +71,7 @@ def record():
     except SystemExit: pass
 
 
-def forward(items, F, sigma, runs, rng, tmax=400):
+def forward(items, F, runs, rng, tmax=400):
     """play one focus forward as the active focus: the turn each idea is discovered, in each run (inf: not within tmax)"""
     import numpy as np
     n = len(items)
@@ -80,9 +83,8 @@ def forward(items, F, sigma, runs, rng, tmax=400):
     p = np.tile(p0, (runs, 1)); alive = np.ones((runs, n), bool); when = np.full((runs, n), np.inf)
     for t in range(1, tmax + 1):
         left = np.full(runs, float(F))
-        wob = np.exp(sigma * rng.standard_normal((runs, n))) if sigma else 1.0   # one wobble per idea a turn, as in the engine
         for _ in range(n + 1):
-            w = wf * (p + MOMENTUM) * wob * alive; tot = w.sum(1)
+            w = wf * (p + MOMENTUM) * alive; tot = w.sum(1)
             go = (left > 1e-9) & (tot > 0)
             if not go.any(): break
             att = np.where(go[:, None], left[:, None] * w / np.where(tot > 0, tot, 1.0)[:, None], 0.0)
@@ -92,43 +94,57 @@ def forward(items, F, sigma, runs, rng, tmax=400):
             p = np.where(fin, need, p + att / price); when[fin] = t; alive &= ~fin
             left = np.where(fin.any(1), left - spent, 0.0)
         if not alive.any(): break
-    return when
+    return when, need
+
+
+RULES = ('now', 'after', 'before', 'floor')   # from nothing; study done off the 2x price; off the price before the 2x; the same, the
+                                              # remaining work counted as at least half the price
+
+
+def costs(it):
+    """the Endeavour's price under each rule, for one idea [k, progress, meter, price, est. price, cost multiplier, ...]"""
+    full = it[5] * it[4]; done = it[1] * it[4]
+    return {'now': END_MULT * full, 'after': max(END_MULT * full - done, 0.0), 'before': END_MULT * max(full - done, 0.0),
+            'floor': END_MULT * max(full - done, 0.5 * full)}
 
 
 def _analyse_file(args):
     import numpy as np
-    path, sigma, runs = args
+    path, runs = args
     rng = np.random.default_rng(abs(hash(os.path.basename(path))) % (2 ** 32))
-    rows = []   # one per idea: [ideas in its focus, funded focus?, P(Endeavour sooner), mean saving, median study turns, Endeavour turns, p10, p90,
-                #               P(sooner if the Endeavour counted the Insight already spent studying the idea)]
+    rows = []   # one per idea: [ideas in its focus, funded focus?, progress / cost multiplier, study turns (median), then per rule:
+                #   P(Endeavour sooner), mean turns saved where sooner (0 if never), Endeavour turns, Endeavour price / Insight study still needs]
     for line in open(path):
         seed, turn, d, F, snap = json.loads(line)
         for f, items in snap.items():
-            when = forward(items, F, sigma, runs, rng)
+            when, need = forward(items, F, runs, rng)
             for j, it in enumerate(items):
-                t_end = math.ceil(END_MULT * it[5] * it[4] / F - 1e-9)
-                t_cred = math.ceil(max(END_MULT * it[5] * it[4] - it[1] * it[3], 0.0) / F - 1e-9)   # progress x today's price, as credit
                 ts = when[:, j]; ts = np.where(np.isinf(ts), 401.0, ts)
-                rows.append([len(items), bool(it[7]), float((t_end < ts).mean()), float((ts - t_end).mean()),
-                             float(np.median(ts)), t_end, float(np.percentile(ts, 10)), float(np.percentile(ts, 90)), float((t_cred < ts).mean())])
+                left_ins = float(np.mean((need[:, j] - it[1]) * it[3]))   # Insight ordinary study still needs (its meter, hidden)
+                row = [len(items), bool(it[7]), it[1] / it[5], float(np.median(ts))]
+                for rule, c in costs(it).items():
+                    te = max(1, math.ceil(c / F - 1e-9))
+                    sooner = ts > te
+                    row += [float(sooner.mean()), float((ts - te)[sooner].mean()) if sooner.any() else 0.0, te, c / max(left_ins, 1e-9)]
+                rows.append(row)
     return rows
 
 
-def analyse(prefix, sigma, runs):
+def analyse(prefix, runs):
     import numpy as np, multiprocessing
     files = sorted(glob.glob(prefix + '.snap.*'))
-    with multiprocessing.Pool() as pool: parts = pool.map(_analyse_file, [(f, sigma, runs) for f in files])
+    with multiprocessing.Pool() as pool: parts = pool.map(_analyse_file, [(f, runs) for f in files])
     rows = np.array([r for part in parts for r in part], dtype=float)
-    print(f"jitter {sigma}: {len(rows)} ideas under study in {len(files)} snapshot files")
+    print(f"{len(rows)} ideas under study in {len(files)} snapshot files; {100 * np.mean(rows[:, 2] >= 1):.1f}% have had their whole price")
     def line(label, m):
         r = rows[m]
         if not len(r): return
-        sooner = r[:, 2]; save = r[:, 3]
-        spread = r[:, 7] / np.maximum(r[:, 6], 1)
-        print(f"  {label:26} {len(r):7d} ideas | Endeavour sooner {100 * sooner.mean():5.1f}% | mean turns saved "
-              f"{np.mean(np.maximum(save, 0)):5.2f} (when sooner on average: {np.sum(np.maximum(save, 0)) / max(np.sum(save > 0), 1):5.2f}) | "
-              f"study median {np.median(r[:, 4]):5.1f} turns, Endeavour {np.median(r[:, 5]):4.0f} | study p90/p10 {np.median(spread):4.2f} "
-              f"(mean {np.mean(spread):4.2f}) | credited Endeavour sooner {100 * r[:, 8].mean():5.1f}%")
+        out = [f"  {label:24} {len(r):7d} ideas | study median {np.median(r[:, 3]):4.1f} turns"]
+        for i, rule in enumerate(RULES):
+            b = 4 + 4 * i; so = r[:, b]
+            gain = np.sum(so * r[:, b + 1]) / max(np.sum(so), 1e-9)
+            out.append(f"{rule}: sooner {100 * so.mean():5.1f}% by {gain:4.1f} turns, cheaper than study {100 * np.mean(r[:, b + 3] < 1):5.1f}%")
+        print(' | '.join(out))
     n = rows[:, 0]
     line('every idea', n >= 1)
     line('alone in its focus', n == 1)
@@ -136,20 +152,20 @@ def analyse(prefix, sigma, runs):
     line('3-4 in its focus', (n >= 3) & (n <= 4))
     line('5 or more', n >= 5)
     line('in the funded focus', rows[:, 1] == 1)
+    for lo, hi in ((0, 0.25), (0.25, 0.5), (0.5, 0.75), (0.75, 1.0), (1.0, 99)):
+        line(f'progress {lo:g}-{hi:g} of price', (rows[:, 2] >= lo) & (rows[:, 2] < hi))
     pairs = [json.loads(l) for f in sorted(glob.glob(prefix + '.pairs.*')) for l in open(f)]
     print(f"  pairs studied side by side: {len(pairs)}")
     for lo, hi in ((1, 1.25), (1.25, 1.5), (1.5, 2), (2, 4), (4, 1e9)):
         sel = [p for p in pairs if lo <= max(p[5], p[6]) / max(min(p[5], p[6]), 1e-9) < hi]
         if not sel: continue
-        swapped = sum(1 for p in sel if p[7] > 0)
         decided = [p for p in sel if p[8] != 'tie']
         behind_first = sum(1 for p in decided if p[8] == (p[4] if p[5] >= p[6] else p[3]))
-        print(f"    leader ahead by x{lo:g}-{hi:g}: {len(sel):6d} pairs | order changed at least once {100 * swapped / len(sel):5.1f}% | "
-              f"the one behind discovered first {100 * behind_first / max(len(decided), 1):5.1f}%")
+        print(f"    leader ahead by x{lo:g}-{hi:g}: {len(sel):6d} pairs | the one behind discovered first {100 * behind_first / max(len(decided), 1):5.1f}%")
 
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == '--analyse':
-        analyse(sys.argv[2], float(sys.argv[3]), int(sys.argv[4]) if len(sys.argv) > 4 else 100)
+        analyse(sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 20)
     else:
         record()

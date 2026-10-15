@@ -50,9 +50,6 @@ class P:
         self.rediscover_tiers = ('STANDARD',)
         self.tier_attention = True   # True: tier odds also weight attention once an idea has occurred (within its focus, and its focus's pull
                                      # on the spread and spill-over). False: once occurred, every tier is studied alike (Tamsin, 14 Oct 2026)
-        self.jitter = 0.0            # >0: each turn, every idea's weight within its focus (progress + momentum) is multiplied by
-                                     # e^(jitter x a standard normal draw) before the focus's Insight is shared. Every idea keeps a share,
-                                     # but two whose weights are close can swap places (Tamsin's question, 15 Oct 2026)
         self.__dict__.update(kw)
 
 # W7f copy with three switches: POLICY (focus choice), ATTN (attention weights), END_MULT (Grand Endeavours). Measurement copy of harness2: a research-target hook (TARGET_FN), W16's funded-focus rule (FUNDED), price multipliers (COSTMULT).
@@ -68,6 +65,10 @@ W16 = True           # W16: a Space-era STANDARD idea the player is pursuing (in
 END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
                               # never one already under study. The design allows both since v3.121 (for needs the game situation creates);
                               # the simulated players keep to this (ENDUNOCC=1), since with nothing pressing they would only reorder research
+END_CREDIT = None    # an Endeavour on an idea under study: None, it starts from nothing (2x the price); 'before', the study already done
+                     # comes off the price before the 2x premium, which then multiplies only the remaining work (Tamsin's question,
+                     # 15 Oct 2026); 'after', it comes off the 2x price. With either, the idea leaves ordinary study while the Endeavour runs
+END_CREDIT_FLOOR = 0.0   # with END_CREDIT 'before': the remaining work counts as at least this share of the price (0.5: never less than half)
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
                      # one row of each needed), e.g. the FTL prototypes of the hypotheses still standing
 SPREAD_FIX = True    # while an Endeavour runs, the spread keeps only its own share (20%, or 50% before SO05). False reproduces the fault in
@@ -106,7 +107,6 @@ def run(prm, seed, max_turns=450):
     diff_since = {}; diff_unc = {}; contact_turn = None; cp04_turn = None
     glimpsed = set(); lost = set(); grng = random.Random(seed * 7919 + 13)   # its own stream: glimpses never perturb the game
     rrng = random.Random(seed * 104729 + 7); rediscovered = {}                  # rediscovery's own stream, and when each lost idea came back
-    jrng = random.Random(seed * 15485863 + 29)                                 # jitter's own stream (P.jitter)
     held = set()                                                               # (accounting only) ideas the funded focus kept open past their window
     era_start = []                                                             # era_start[i]: the turn development reached era i
     lost_at = {}                                                               # (accounting only) when each idea was lost: turn, its window, whether it was a target
@@ -120,7 +120,7 @@ def run(prm, seed, max_turns=450):
         if d >= SPAN_E and not RUN_ON: break                           # past the end of the tree (RUN_ON: carry on at the last era's income)
         if STOP_FN and STOP_FN(have): break                            # the measurement has what it needs
         blocked = prm.blocked_focus if (prm.blocked_focus and d < prm.unblock_dev) else None
-        att_turn = {}; end_done = None; wobble = {}                        # wobble: this turn's jitter factor for each idea (P.jitter)
+        att_turn = {}; end_done = None
         for p in new_rows:                                                 # recheck only the rows that depend on last turn's discoveries
             for k in dependents.get(p, ()):
                 if k not in met and prereqs_met(k, have): met.add(k)
@@ -183,7 +183,8 @@ def run(prm, seed, max_turns=450):
         else:
             live = disc
         pool = {}
-        for k in live: pool.setdefault(FOCUS[k], []).append(k)
+        for k in live:
+            if not (END_CREDIT and k == end_k): pool.setdefault(FOCUS[k], []).append(k)   # (END_CREDIT: the Endeavour has taken it over)
         waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the simulated player's sense of where work waits
         def aw(k): return TARGET[ROWS[k]['tier']] if prm.tier_attention else 1.0   # attention weight of an idea under study
         pull = waiting if prm.tier_attention else {f: sum((1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the rule: each focus's draw on the spread
@@ -191,6 +192,11 @@ def run(prm, seed, max_turns=450):
         else: active = _ftl_active(waiting, pool, have)
         def est_price(k): return PRICE[ROWS[k]['era']] * prm.scale * prm.premium ** max(0.0, ERA_I[k] - d)
         def est_rem(k): return max(COSTMULT.get(k, 1.0) - progress.get(k, 0.0), 0.2) * est_price(k)
+        def end_price(k):                         # a Grand Endeavour's cost: 2x the price, less any study already done (END_CREDIT)
+            full = COSTMULT.get(k, 1.0) * est_price(k); done = progress.get(k, 0.0) * est_price(k) if (END_CREDIT and k in occurred) else 0.0
+            if END_CREDIT == 'before': return END_MULT * max(full - done, END_CREDIT_FLOOR * full)
+            if END_CREDIT == 'after': return max(END_MULT * full - done, 0.0)
+            return END_MULT * full
         if POLICY == 'cheapest' and FUNDED:      # smarter detective: fund the focus whose cheapest targeted row would finish soonest
             pri = (PRIORITY & FUNDED) if PRIORITY else FUNDED   # higher-priority targets (the tests) take the active focus when any is workable
             capped = EXPCAP is not None and (EXPCAP_ERA is None or d < EXPCAP_ERA)
@@ -204,7 +210,7 @@ def run(prm, seed, max_turns=450):
         if end_k is not None and (end_k in have or (END_RULE != 'request' and end_k not in FUNDED)): END_LOG.append((turn, end_k, 'dropped')); end_k = None
         if END_MULT and end_k is None and (END_FROM is None or any(ERA_I[k] >= END_FROM for k in have)) and (END_AFTER is None or END_AFTER in have):   # gate: first discovery of era END_FROM            # Grand Endeavour: commit to the targeted live row it saves most time on (at least a turn)
             if END_RULE == 'request' and END_REQUEST and END_REQUEST not in have and prereqs_met(END_REQUEST, have) and not (END_UNOCCURRED_ONLY and END_REQUEST in occurred):
-                end_k, end_cost, end_prog = END_REQUEST, END_MULT * COSTMULT.get(END_REQUEST, 1.0) * est_price(END_REQUEST), 0.0; END_LOG.append((turn, END_REQUEST, 'start'))
+                end_k, end_cost, end_prog = END_REQUEST, end_price(END_REQUEST), 0.0; END_LOG.append((turn, END_REQUEST, 'start'))
                 _ek = 'end_on_occurred' if end_k in occurred else 'end_on_unoccurred'; acct[_ek] = acct.get(_ek, 0) + 1   # (accounting only)
             best = None
             for k in ([] if (END_RULE == 'request' or END_UNOCCURRED_ONLY) else live) + [x for x in (obs | glimpsed) if END_RULE != 'request' and x not in occurred and x not in have and prereqs_met(x, have) and (x in lost or x in diff_since or x in diff_unc)]:
@@ -221,7 +227,7 @@ def run(prm, seed, max_turns=450):
                 else:                             # Revealed by a rival, but the idea never occurred here: only diffusion or an Endeavour brings it
                     s0 = diff_since.get(k, diff_unc.get(k))
                     t_norm = max(0, (5 if cp04_turn is not None else 10) - (turn - s0)) if s0 is not None else float('inf')
-                cost = END_MULT * COSTMULT.get(k, 1.0) * est_price(k); t_end = cost / max(inc * sh, 1e-9)
+                cost = end_price(k); t_end = cost / max(inc * sh, 1e-9)
                 if t_norm - t_end >= 1.0 and (best is None or t_norm - t_end > best[0]): best = (t_norm - t_end, k, cost)
             if best:
                 end_k, end_cost, end_prog = best[1], best[2], 0.0; END_LOG.append((turn, end_k, 'start'))
@@ -295,12 +301,7 @@ def run(prm, seed, max_turns=450):
                     if left >= room: progress[k] = need[k]; found.append(k); left -= room; line[f] = None; acct['attention'] += room; acct['premium_dilution'] += room * (1 - 1 / prem(k))
                     else: progress[k] = progress.get(k, 0) + left / pk; acct['attention'] += left; acct['premium_dilution'] += left * (1 - 1 / prem(k)); left = 0.0
                 else:
-                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) for k in cands}
-                    if prm.jitter:               # this turn's wobble: drawn once per idea a turn, kept for any later spending this turn
-                        for k in cands:
-                            if k not in wobble: wobble[k] = math.exp(prm.jitter * jrng.gauss(0.0, 1.0))
-                            ws[k] *= wobble[k]
-                    tot = sum(ws.values())
+                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) for k in cands}; tot = sum(ws.values())
                     spent = 0.0; done = []
                     for k in cands:
                         att = left * ws[k] / tot; pk = price(k); room = (need[k] - progress.get(k, 0)) * pk; att_turn[k] = att_turn.get(k, 0.0) + att
