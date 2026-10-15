@@ -12,7 +12,6 @@
    "Aeronautics",
    "Animal Husbandry",
    "Chemistry",
-   "Computing",
    "Construction",
    "Electricity",
    "Electronics",
@@ -46,7 +45,6 @@
   "badges": {
    "Aeronautics": 2,
    "Chemistry": 2,
-   "Computing": 1,
    "Electronics": 1,
    "Energy Systems": 4,
    "Medicine": 2,
@@ -247,6 +245,7 @@
     "tier": "STANDARD",
     "status": "owned",
     "turn": 211,
+    "persists": "Persists: Petrochemistry came later, and the Bio-Refinery stays available.",
     "tags": []
    },
    {
@@ -497,15 +496,6 @@
     "tags": []
    },
    {
-    "id": "CP13",
-    "name": "Analog Computing Mastery",
-    "focus": "Computing",
-    "era": "Modern",
-    "tier": "STANDARD",
-    "status": "studying",
-    "tags": []
-   },
-   {
     "id": "CU02",
     "name": "Monumental Architecture",
     "focus": "Philosophy and the Arts",
@@ -711,7 +701,10 @@
     "era": "Modern",
     "tier": "STANDARD",
     "status": "studying",
-    "tags": []
+    "tags": [
+     "Rival"
+    ],
+    "rivalOf": "Biomass Power Plant"
    },
    {
     "id": "ES03-W",
@@ -721,7 +714,9 @@
     "tier": "STANDARD",
     "status": "studying",
     "competes_with": "Coal Power Plant",
-    "tags": [],
+    "tags": [
+     "Rival"
+    ],
     "competes": "Coal Power Plant",
     "also": [
      "Farming"
@@ -882,6 +877,7 @@
     "turn": 187,
     "by": "Catalysis",
     "curated": true,
+    "superseded": "Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process.",
     "tags": [
      "Superseded"
     ]
@@ -1224,7 +1220,10 @@
     "era": "Atomic",
     "tier": "STANDARD",
     "status": "studying",
-    "tags": []
+    "tags": [
+     "Rival"
+    ],
+    "rivalOf": "Phage Therapy"
    },
    {
     "id": "MD07",
@@ -1482,6 +1481,7 @@
     "era": "Space",
     "tier": "STANDARD",
     "status": "studying",
+    "mult": 2.5,
     "tags": []
    },
    {
@@ -1790,7 +1790,9 @@
     "tier": "STANDARD",
     "status": "owned",
     "turn": 224,
-    "tags": []
+    "tags": [
+     "FTL"
+    ]
    },
    {
     "id": "RC01",
@@ -2174,6 +2176,7 @@
     "tier": "STANDARD",
     "status": "owned",
     "turn": 188,
+    "persists": "Persists: Internal Combustion Engine came later, and the Stirling Works stays available.",
     "tags": [],
     "also": [
      "Energy Systems",
@@ -2211,6 +2214,7 @@
     "tier": "STANDARD",
     "status": "closed",
     "src": "Glimpsed by our scholars",
+    "mult": 2.5,
     "tags": []
    },
    {
@@ -2561,6 +2565,7 @@
     "turn": 194,
     "by": "Railway Network",
     "curated": true,
+    "superseded": "Superseded by Railway Network: its Pound Lock can no longer be built.",
     "tags": [
      "Superseded"
     ]
@@ -2583,7 +2588,9 @@
     "tier": "STANDARD",
     "status": "waiting",
     "src": "Revealed by Germ Theory",
-    "tags": [],
+    "tags": [
+     "Rival"
+    ],
     "curated": true,
     "competes": "Antibiotics"
    },
@@ -2651,7 +2658,6 @@
    "Aeronautics",
    "Animal Husbandry",
    "Chemistry",
-   "Computing",
    "Construction",
    "Electricity",
    "Electronics",
@@ -2686,7 +2692,6 @@
    "Aeronautics": 2,
    "Chemistry": 2,
    "Construction": 1,
-   "Computing": 1,
    "Electronics": 1,
    "Energy Systems": 4,
    "Medicine": 2,
@@ -2708,7 +2713,8 @@
    "pct": 64,
    "paid": 3415,
    "price": 5340,
-   "committed": 226
+   "committed": 226,
+   "aside": false
   },
   "rows": [
    {
@@ -2892,6 +2898,7 @@
     "tier": "STANDARD",
     "status": "owned",
     "turn": 211,
+    "persists": "Persists: Petrochemistry came later, and the Bio-Refinery stays available.",
     "tags": []
    },
    {
@@ -3143,15 +3150,6 @@
     "tags": []
    },
    {
-    "id": "CP13",
-    "name": "Analog Computing Mastery",
-    "focus": "Computing",
-    "era": "Modern",
-    "tier": "STANDARD",
-    "status": "studying",
-    "tags": []
-   },
-   {
     "id": "CU02",
     "name": "Monumental Architecture",
     "focus": "Philosophy and the Arts",
@@ -3307,7 +3305,7 @@
     "focus": "Electricity",
     "era": "Atomic",
     "tier": "STANDARD",
-    "status": "endeavour",
+    "status": "closed",
     "src": "Glimpsed by our scholars",
     "tags": []
    },
@@ -3357,7 +3355,10 @@
     "era": "Modern",
     "tier": "STANDARD",
     "status": "studying",
-    "tags": []
+    "tags": [
+     "Rival"
+    ],
+    "rivalOf": "Biomass Power Plant"
    },
    {
     "id": "ES03-W",
@@ -3367,7 +3368,9 @@
     "tier": "STANDARD",
     "status": "studying",
     "competes_with": "Coal Power Plant",
-    "tags": [],
+    "tags": [
+     "Rival"
+    ],
     "competes": "Coal Power Plant",
     "also": [
      "Farming"
@@ -3528,6 +3531,7 @@
     "turn": 187,
     "by": "Catalysis",
     "curated": true,
+    "superseded": "Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process.",
     "tags": [
      "Superseded"
     ]
@@ -3870,7 +3874,10 @@
     "era": "Atomic",
     "tier": "STANDARD",
     "status": "studying",
-    "tags": []
+    "tags": [
+     "Rival"
+    ],
+    "rivalOf": "Phage Therapy"
    },
    {
     "id": "MD07",
@@ -4128,6 +4135,7 @@
     "era": "Space",
     "tier": "STANDARD",
     "status": "studying",
+    "mult": 2.5,
     "tags": []
    },
    {
@@ -4420,6 +4428,7 @@
     "status": "owned",
     "turn": 228,
     "tags": [
+     "FTL",
      "New"
     ]
    },
@@ -4444,7 +4453,9 @@
     "tier": "STANDARD",
     "status": "owned",
     "turn": 224,
-    "tags": []
+    "tags": [
+     "FTL"
+    ]
    },
    {
     "id": "RC01",
@@ -4826,6 +4837,7 @@
     "tier": "STANDARD",
     "status": "owned",
     "turn": 188,
+    "persists": "Persists: Internal Combustion Engine came later, and the Stirling Works stays available.",
     "tags": [],
     "also": [
      "Energy Systems",
@@ -4863,6 +4875,7 @@
     "tier": "STANDARD",
     "status": "closed",
     "src": "Glimpsed by our scholars",
+    "mult": 2.5,
     "tags": []
    },
    {
@@ -5213,6 +5226,7 @@
     "turn": 194,
     "by": "Railway Network",
     "curated": true,
+    "superseded": "Superseded by Railway Network: its Pound Lock can no longer be built.",
     "tags": [
      "Superseded"
     ]
@@ -5235,7 +5249,9 @@
     "tier": "STANDARD",
     "status": "waiting",
     "src": "Revealed by Germ Theory",
-    "tags": [],
+    "tags": [
+     "Rival"
+    ],
     "curated": true,
     "competes": "Antibiotics"
    },

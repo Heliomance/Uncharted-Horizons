@@ -1,0 +1,418 @@
+{
+ "reviews": [
+  {
+   "lens": "requirements",
+   "verdict": "Not ready to show Tamsin yet, though it is close. Almost every MUST requirement holds when checked against the tree. No CORE row shows a window state, no RARE or UNIQUE row is revealed, every revealed row's prerequisites are owned, nothing from another world appears, and the bar texts name no Unknown row and contain no raw notation. The four statuses are clearly told apart. One data error is a blocker: Computing is listed as an entered focus, but nothing has opened it. The status key also contradicts the depicted world and hints which quantum-gravity theory wins. Four majors follow: the Moment-passed description is cut off in the main view, two different numbers look the same in the focus list, the queue wording is wrong during an Endeavour, and one Endeavour price leaves out its multiplier.",
+   "findings": [
+    {
+     "severity": "blocker",
+     "where": "All desktop and phone artboards, focus list row 'Computing' (badge 1) and the Being studied chip 'Analog Computing Mastery'. Data: make_state.py:104 (foci_entered = any focus with an owned or discoverable row), copied by build_data.py:77 and build_spec.md §3.1 and §5.",
+     "problem": "R2, R38, R146 and the critic's must on correcting simulator state. Computing opens only with EN02 + MA07, or MC14 (Babbage), or QM-E03 (§3, tech_tree.md l.816). None of these holds at turn 226 or 231. Transistor (EN02) is only under study, MC14 and MC18 are not owned, and QM-E03 is elemental. The focus is listed only because the simulator counts a focus as entered once any of its rows is discoverable. CP13 is therefore shown 'Being studied in Computing' in a focus the civilisation has not entered. A reader who knows the rules would infer an unshown RARE Babbage or an elemental route.",
+     "fix": "Either add MC14 Babbage Mechanical Computer as an owned Rare row (Early Modern; its prerequisites MC05, MC10 and MA07 are all owned), which legitimately opens Computing through 'rare early access'. CP13's needs line then reads '(✓ Babbage Mechanical Computer or ✓ Vacuum Tube) + ✓ Calculus', the Rare tally becomes 3 and the counts become Owned 192 and Early Modern 41. Or remove Computing from the list and CP13 from Being studied (32 foci; Being studied 25 at turn 226 and 23 at turn 231). Either way, change make_state.py so foci are entered by their 'Available from' conditions, and recheck the other 32."
+    },
+    {
+     "severity": "blocker",
+     "where": "Status key artboard (key.png), canvas/project/Status_key.dc.html lines 106, 107 and 109.",
+     "problem": "R72, R135 and R146. The key's examples use real rows of the depicted world in states that contradict the board. 'Loop Quantum Gravity — Dead end (known)': at turn 231 QP10 is Awaiting beside String Theory Validation, and R72 requires the two to be shown 'with no hint of which will validate'. A dead QP10 implies QP09 validates (extra dimensions, Warp and Hyperspace), which is also an FTL-method hint. 'Rice Paddy Mastery — Claimed' contradicts A2, where it is owned and tagged Unique. 'Radar — Set aside · 40%' contradicts A1, where Radar is a plain Moment-passed row.",
+     "fix": "Use rows that do not appear in this world's board for the spec-only states. For example: Dead end (known) on 'Humoral Medicine' or a made-up 'Example theory'; Claimed on a Unique not on the board, such as 'Megalithic Observatory'; Set aside on a row with no other state shown. Or label the column 'illustrative, other games'. Never put QP09 or QP10 in a dead-end example."
+    },
+    {
+     "severity": "major",
+     "where": "A1 bottom bar (Superconductivity), and every Moment-passed selection: bar_texts.txt l.12, 295 etc.; src/main.js:332. Also MD20 (Awaiting), AE13 (Not yet reachable) and ES03-W (Being studied).",
+     "problem": "Tamsin's status 4 is not clearly presented in the hero view. main.js:332 appends 'It takes no Insight now.' to 'Its moment passed — only an Endeavour is certain'. The line is then about 714 px against a 655-px column, so it wraps. All 24 Moment-passed descriptions run to five lines in a four-line pane, and the closing conjecture is cut in half at the bottom of A1 with no visible scroll cue. Measured with DejaVu Sans 14 px, about 40 entries per turn overflow. The spec required every line to be at most 650 px and nowrap.",
+     "fix": "Drop 'It takes no Insight now.' (the section reason already says it) so line 1 fits as the spec measured. Add white-space:nowrap to the bar lines, and check that every entry stays within the title plus four lines. Shorten MD20's and AE13's first lines the same way, e.g. 'Revealed by Germ Theory. Awaiting the idea: no Insight until it occurs.'"
+    },
+    {
+     "severity": "major",
+     "where": "Focus list, A1 and A3: Quantum Physics row; Energy Systems and Medicine rows. src/main.js:206 (badgeStyle ring on the funded row) and Main.template.html:81 (queue disc).",
+     "problem": "R48 and R51, and the brief's 'foci shown clearly and unambiguously'. The under-study badge on the funded row gets a navy ring, which makes it look like the queue disc. In A1, Quantum Physics shows a ringed '2' meaning '2 under study', while Energy Systems shows '4' then a ringed '2' meaning 'queued 2nd'. In A3, Quantum Physics' ringed '2' means 'queued 2nd'. The same mark carries two meanings on adjacent rows, and nothing on the screen explains either number.",
+     "fix": "Remove the ring from the funded row's badge. Give the queue position a distinct form, such as an ordinal '2nd' tag or a numeral placed before the radio. Extend the hint line to say 'number = revealed work under study'."
+    },
+    {
+     "severity": "major",
+     "where": "bar_texts.txt l.1327 (Medicine, queued 3rd), l.2720, 2761 and 2797 (turn-231 focus descriptions), l.2853 (turn-231 funding header). src/main.js:360, 370, 391 and 106.",
+     "problem": "R51 and R52 (with the critic's correction). The queue rule is stated wrongly. Medicine (3rd) says 'funding moves here when Quantum Physics has no revealed work under study', but funding would go to Energy Systems first. During the Endeavour every queued focus says 'when the Endeavour has no revealed work under study', which means nothing. The funding header still says 'the funded focus' when nothing is funded, instead of the spec's line 'When the Endeavour ends, funding goes to the first queued focus with revealed work under study'. stopEndeavour() and the Stop popup fund queue[0], which is Quantum Physics, although it has nothing under study at turn 231 ('Nothing revealed is under study here').",
+     "fix": "Queued Nth: 'funding moves here when the foci ahead of it have no revealed work under study'. While an Endeavour runs: 'When the Endeavour ends, funding goes to the first queued focus with revealed work under study' in both the header and the focus lines. Make stopEndeavour(null) pick the first queued focus with a studying row, and name that focus in the Stop popup."
+    },
+    {
+     "severity": "major",
+     "where": "TH15 Waste-Heat Recovery (Moment passed): bar_texts.txt l.1047–1052 and the turn-231 copy; src/main.js:76 price() uses D.prices[era] only.",
+     "problem": "R105, and spec Q34 with the critic's R59 fix: the price is built from true multipliers, including the W18 row multipliers. TH15 carries '— cost ×2.5' (tech_tree.md l.709, W18 entry row, not a World-Truth multiplier). Its Endeavour price is shown as 21,827 Insight, about 32 turns, when it should be about 54,568 Insight, about 80 turns.",
+     "fix": "Multiply price() by the row's W18 multiplier (TH15 ×2.5, and NP12 if it is ever offered), and keep excluding Truth multipliers, detour margins and multipliers below 1. Re-render the TH15 bar and buttons."
+    },
+    {
+     "severity": "minor",
+     "where": "FA16 Nitrate Fertiliser, owned and Superseded: bar_texts.txt l.403 and l.1829; src/main.js:301.",
+     "problem": "R71: the Superseded marking must say what became unavailable. The generic line 'Superseded by Catalysis: its buildings are no longer available.' is wrong for FA16, which has no buildings; its +1 Food from Farms passed to Catalysis (the Haber process). The line is right for WM11's Pound Lock.",
+     "fix": "Add a per-row 'superseded' text, e.g. FA16: 'Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process', as build_spec §6 has it."
+    },
+    {
+     "severity": "minor",
+     "where": "CH09-W Bio-Organic Synthesis (bar_texts.txt l.85) and TH08 Stirling Engine Mastery (l.1031); A4 card for Stirling Engine Mastery. src/main.js has no 'persist' handling.",
+     "problem": "R71 and build_spec §8: these alternatives were owned before their primaries arrived (CH09 on turn 213, MC09 on turn 220), so they 'persist'. The spec asks for a note in the description, but neither row's description or card mentions it. Petrochemistry's Refinery removes the Bio-Refinery in a city, so a player will wonder whether the Bio-Refinery still works.",
+     "fix": "Add a line such as 'Persists: Petrochemistry came later, and the Bio-Refinery stays available (a city holds one or the other).' and a similar line for TH08."
+    },
+    {
+     "severity": "minor",
+     "where": "A2 owned bands: 'Ancient era · 38 owned' against every other band's '· 31' form; src/main.js:171.",
+     "problem": "The band-count format changes in the one band that holds Paths not taken, which makes the counts read inconsistently down the history.",
+     "fix": "Use one format everywhere, e.g. 'Ancient era · 38 · 2 not taken', or always '· N owned'."
+    },
+    {
+     "severity": "minor",
+     "where": "A3 and A3b funding pill (Main.template.html:48; main.js:214).",
+     "problem": "R48 requires the current target to be unambiguous. During an Endeavour the pill shows only 'Superconductivity 64%' with a small pyramid and bar, never the word Endeavour, while three teal queued rows dominate the list below it.",
+     "fix": "Label the pill 'Endeavour: Superconductivity' (or put 'Grand Endeavour' as a small caption above it), as the aria-label already does."
+    },
+    {
+     "severity": "minor",
+     "where": "bar_texts.txt l.534 and l.1960 (MC09 Internal Combustion Engine needs line).",
+     "problem": "R79 requires prerequisites to be readable. '(✓ Petroleum Discovery and Petrochemistry or ✓ Distillation and Organic Chemistry)' puts one tick on each two-row group, so the 'and' members carry no met mark and the grouping is unclear.",
+     "fix": "Render nested groups with a tick on each member: '((✓ Petroleum Discovery + ✓ Petrochemistry) or (✓ Distillation + ✓ Organic Chemistry))'."
+    },
+    {
+     "severity": "minor",
+     "where": "Chip and bar title 'Explosives (non-gunpowder)' (CH08), A2 Modern band.",
+     "problem": "R126 (spirit): the parenthesis is a design label for gunpowder-less worlds. It points to the existence of Removal Truths on a player-facing name.",
+     "fix": "Ask Tamsin whether to show it as 'Chemical Explosives' (tech_tree.md l.1371) or 'Dynamite' (the Civilopedia mapping at l.1827)."
+    },
+    {
+     "severity": "minor",
+     "where": "Focus descriptions for Farming, Medicine and Foraging; the D.mods table in Main.dc.html.",
+     "problem": "Build-spec deviation (R57 is a should). The spec lists 'Diverse lands +20%: Farming, Medicine, Foraging' for the declared lands. The build omits it, so these focus descriptions understate their modifiers.",
+     "fix": "Add '+20% diverse lands' to Farming, Medicine and Foraging in D.mods, or record why it was dropped."
+    },
+    {
+     "severity": "minor",
+     "where": "Focus-list badges: src/main.js:206 sets font-size:12px.",
+     "problem": "Build spec §1 says the only sizes are 14 px and 18 px, with nothing smaller. The badge numerals are 12 px, which makes the badge-versus-queue ambiguity above worse.",
+     "fix": "Use 14 px, widening the badge if needed."
+    }
+   ]
+  },
+  {
+   "lens": "hidden",
+   "findings": [
+    {
+     "severity": "blocker",
+     "where": "Status key artboard (key.png), 'Dead end (known)' row; canvas/project/Status_key.dc.html line 107",
+     "problem": "The example is Loop Quantum Gravity with the Awaiting body and a 'Dead end' tag. QP10 hosts the 'spacetime is discrete' FTL condition (Tunnelling) and is mutually exclusive with QP09, and which of the two validates is hidden (R30, R139, R135). A Dead end on QP10 means QP09 validated and Tunnelling is disproved, so the key shows the research screen announcing an FTL result through something other than the FTL tag and its single line. It also contradicts the shown game: QP10 is unknown at turn 226 and Awaiting, with no dead end, at turn 231.",
+     "fix": "Use a row with no FTL role whose dead end the player already knows. Caloric Theory, drawn with the revealed (Awaiting) body, is one: A2 already shows it as Dead end. Alternatively, leave the example unnamed. Never use QP09 or QP10, or any other row that hosts an FTL condition, as an example."
+    },
+    {
+     "severity": "major",
+     "where": "Status key artboard, 'Closed for good' row; Status_key.dc.html line 108",
+     "problem": "'Oral Epic Tradition — Writing came first' names a breakthrough that is neither owned nor revealed in mockup_data.json (R63, R94). This game could never have revealed it: SO14 is UNIQUE, and UNIQUE ideas are never glimpsed (workshop decision of 14 October). Writing was discovered on turn 31, before Artistic Tradition on turn 54, so SO14 never even became discoverable.",
+     "fix": "Choose a STANDARD or UNCOMMON row with a negative prerequisite that could have been glimpsed in this state, or show the variant without a breakthrough name (for example a placeholder chip reading 'A glimpsed idea')."
+    },
+    {
+     "severity": "major",
+     "where": "Status key artboard, 'Claimed' row; Status_key.dc.html line 109",
+     "problem": "Rice Paddy Mastery is shown as 'Claimed' by another civilisation, but in this state the player owns it: A2's Ancient band shows it with the ★ Unique tag, and its bar text says 'Unique to your civilisation'. The key contradicts the board it explains.",
+     "fix": "Use a UNIQUE row that is not owned and that the player could plausibly have seen in a rival's hands, or show the variant without a name."
+    },
+    {
+     "severity": "major",
+     "where": "Focus list (every artboard): the 'Computing' row and its badge 1; Being studied → Computing run (Analog Computing Mastery); make_state.py line 104 and build_data.py line 77",
+     "problem": "The design opens Computing only with EN02 + MA07, MC14 (Babbage) or QM-E03 (tech_tree.md, line 816). Transistor (EN02) is still under study and MC14 is Unknown, so the civilisation has not entered Computing. The state builder marks a focus as entered once any of its rows is discoverable, so the list offers a focus that cannot yet be funded. CP13 is also shown taking Insight in a focus the civilisation does not qualify for (§1.1: the spread goes only to foci it qualifies for). Every other listed focus passes its 'Available from' rule.",
+     "fix": "Remove Computing from the list (32 foci). Remove CP13 from Being studied, along with Computing's badge and run. Alternatively, change the state so that Computing is legitimately open. In either case, derive the entered foci from the design's 'Available from' rules rather than from discoverable rows."
+    },
+    {
+     "severity": "major",
+     "where": "A3 and A3b (turn 231): focus descriptions for Quantum Physics, Energy Systems and Medicine (bar_texts.txt t231 entries: 'Queued 2nd/3rd/4th: funding moves here when the Endeavour has no revealed work under study'); the funding description ('It moves on when the funded focus has no revealed work under study'); the Stop popup ('Funding goes to Quantum Physics'); src/main.js lines 360, 370 and 391; Status key focus-list row ('no revealed work'), Status_key.dc.html line 124",
+     "problem": "During an Endeavour there is no funded focus, and an Endeavour has no 'work under study', so the queue rule as worded is meaningless. Spec §5 and §6 give the turn-231 line as 'When the Endeavour ends, funding goes to the first queued focus with revealed work under study.' The text also contradicts itself: Quantum Physics, queued 2nd, reads 'Nothing revealed is under study here' (QP09 and QP10 are only Awaiting), so by the screen's own rule the queue would pass over it, yet its description, and the Stop popup, say funding goes there. The key drops 'under study', which misstates the rule, since Quantum Physics does have revealed (Awaiting) work.",
+     "fix": "While an Endeavour runs, write 'When the Endeavour ends, funding goes to the first queued focus with revealed work under study.' For each queued focus, write 'Queued Nth: funding comes here when the Endeavour ends, if the foci ahead of it have no revealed work under study' and use the same rule in the Stop popup: that would name Energy Systems, not Quantum Physics. In the key, write 'no revealed work under study'."
+    },
+    {
+     "severity": "major",
+     "where": "Bottom bar for Nitrate Fertiliser (FA16), bar_texts t226 and t231: 'Superseded by Catalysis: its buildings are no longer available.'; src/main.js line 301; Status key 'Superseded' sentence, Status_key.dc.html line 115",
+     "problem": "Nitrate Fertiliser has no buildings. Under the design (tech_tree.md, line 359), its only effect, +1 Food from Farms while Saltpeter is held, passes to the Haber process (Catalysis) once it is superseded. The hard-coded sentence, and the key's definition 'A later solution replaced its buildings', are wrong for one of the two superseded rows. Spec §6 already gives the right text.",
+     "fix": "Write the superseded line per row. For FA16: 'Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process.' WM11 can keep 'its Pound Lock can no longer be built'. Reword the key to: 'A later solution took over what it gave.'"
+    },
+    {
+     "severity": "minor",
+     "where": "Owned row Casimir Effect Amplification (QP12; A2 Space band, both turns) and Standard Model Completion (QP06; turn-231 bar text); build_data.py line 29 (FTL set)",
+     "problem": "The FTL tag is defined, in the key and in its line, as 'it bore on the question', meaning the discovery changed the FTL screen. Under §4 (tech_tree.md, line 1140) a build need being met counts as such a change. QP12 is in Wormhole's build list and was discovered on turn 224, after General Relativity proposed Wormhole on turn 186. QP06 is in Tachyonic's build list and was discovered on turn 228, after Special Relativity (turn 169). Neither carries the tag or the line, so the tag set is proposers only, which is narrower than the rule.",
+     "fix": "Add the FTL tag, the single line and 'Open the FTL screen' to QP12 at both turns and to QP06 at turn 231. Alternatively, if only proposals are meant to be tagged, say so in the key."
+    },
+    {
+     "severity": "minor",
+     "where": "Focus descriptions, 'Modifiers:' lines (every focus, both turns); assemble.py line 32 (MODS)",
+     "problem": "Calculus is owned and its text reads '+15% Insight to the physical foci', but no focus lists it. Physics foci such as Quantum Physics, Nuclear Physics and Electricity show only Natural Philosophy, so the two texts contradict each other. Spec §6 also lists 'Diverse lands +20%: Farming, Medicine, Foraging' for the declared lands (§1.3, Diverse biome), and it is missing from all three foci.",
+     "fix": "Add '+15% Calculus' to the foci the design counts as physical (and define that set in the document if it is undefined). Add '+20% diverse lands' to Farming, Medicine and Foraging."
+    },
+    {
+     "severity": "minor",
+     "where": "Bottom bar for Waste-Heat Recovery (TH15): 'As an Endeavour: 21,827 Insight, twice today’s price' and the button '21,827 Insight · about 32 turns'; src/main.js line 76 (price uses the era price only)",
+     "problem": "TH15 carries a true row multiplier of ×2.5 (tech_tree.md, line 709). It is not keyed to a World Truth, and Q34 includes the row multiplier in the price. The price shown leaves it out, so 'twice today’s price' is false for this row: about 54,568 Insight, roughly 80 turns, would be right.",
+     "fix": "Multiply by any unconditional row cost multiplier: TH15 ×2.5, and NP12 if it ever becomes eligible. World-Truth multipliers and detour margins stay excluded."
+    },
+    {
+     "severity": "minor",
+     "where": "Moment passed section header in A1, A2, A3 and A4 ('revealed, its window closed: only an Endeavour is certain'); key 'Moment passed' sentence; src/main.js line 50; Status_key.dc.html line 103",
+     "problem": "The decided wording for status 4 is 'Its moment passed — only an Endeavour is certain', and the bar text uses it. The header and the key instead name the model's 'window', which invites questions about window length and timing that the screen deliberately never answers, and makes the screen's own wording inconsistent.",
+     "fix": "Use 'revealed, its moment passed: only an Endeavour is certain' in the header and in the key."
+    },
+    {
+     "severity": "minor",
+     "where": "Bottom bar for Stirling Engine Mastery (TH08) and Bio-Organic Synthesis (CH09-W); A4 card for Stirling Engine Mastery",
+     "problem": "Both are Competing Solution alternatives whose primaries arrived later: Internal Combustion Engine on turn 220 after Stirling on 188, and Petrochemistry on 213 after Bio-Organic Synthesis on 211. Under the design they therefore persist. Spec §8 asks for a 'persists' note on each, but neither the bar text nor the A4 card has one. The A4 card's line 2 is also clipped, so it ends 'home: …' and the home focus is lost.",
+     "fix": "Add 'Persists: Internal Combustion Engine came later, and it still burns anything.' (and the Petrochemistry equivalent for CH09-W). Shorten the A4 card's line 2 to 'Stirling Works (building) · persists · home: Thermodynamics'."
+    }
+   ],
+   "verdict": "Not quite ready. The main boards and every bar_texts line are clean on the core rules: no World Truth names or odds, no tiers, windows or meters on revealed rows, FTL limited to the tag and its single line, and no names of unknown breakthroughs. The problems are concentrated in a few places. The Status key uses Loop Quantum Gravity as a known dead end, which signals an FTL result, and its Oral Epic Tradition and Rice Paddy Mastery examples contradict the shown game. The focus list offers Computing, which this civilisation cannot have entered. The queue and superseded wording is wrong at turn 231 and on Nitrate Fertiliser. Fixing those should take an hour, after which it can be shown to Tamsin."
+  },
+  {
+   "lens": "visual",
+   "findings": [
+    {
+     "severity": "blocker",
+     "where": "Artboards 2 (Endeavour) and 3 (Switch_away): the 'Stop the Endeavour' button, and 'Fund Quantum Physics' in the a3b popup. Code: src/main.js:72 (rowsNow), 104-108 (stopEndeavour), 345 (describe, endeavour branch); build_data.py:55",
+     "problem": "Stopping the Endeavour crashes the artboard. build_data.py:55 writes status 'endeavour' into EL11's base row at t231. After stopEndeavour sets en.aside, rowsNow falls back to that base status, so EL11 is still 'endeavour' while `en` is null. describe() then reads `en.pct` and throws 'Cannot read properties of null (reading pct)'. I reproduced it in Chromium with preview.build: after a3 Stop -> Stop, and after a3b 'Fund Quantum Physics', #root has 0 nodes and the screen is blank. If another row is selected first there is no crash, but the 'Grand Endeavour' section still lists the stopped Superconductivity with its white Endeavour border. The key's 'Set aside · 40%' tag is never drawn on the board either: main.js has no Set-aside tag at all. The key also colours that tag #4893AF (Status_key.dc.html:87), the Being-studied fill, so a stopped Endeavour would read as studied.",
+     "fix": "Keep the status out of the data. Drop the override at build_data.py:55 so EL11 stays 'closed' in t231. In rowsNow use `status: en && en.id === r.id ? (en.aside ? 'closed' : 'endeavour') : r.status`. In chipOf, when `this.state.endeavour && this.state.endeavour.aside && r.id === this.state.endeavour.id`, push `{text:'Set aside · '+pct+'%', style:TAG_BASE+'background:#334D80;color:#FFFFFF;'}`. That is the Endeavour body colour rather than Being-studied blue; use the same colour in Status_key.dc.html:87. Guard the endeavour branch of describe() with `if (r.status === 'endeavour' && en)`."
+    },
+    {
+     "severity": "major",
+     "where": "Bottom description bar in every artboard. src/main.js:18 (DESK barH:121), 19 (PHONE barH:110), 263 (19-px lines), 365-372 (funding text). Visible in a1.png: the quote line 'Cooled far enough…' is cut through the middle of its glyphs.",
+     "problem": "The description is taller than its box for many selections. With the box 121 px tall less 16 px of padding, there is room for the 24-px title and 4 lines of 19 px. I measured scrollHeight against clientHeight for every selection: 40 of 286 desktop selections overflow at t226. That is all 24 Moment-passed rows, 11 owned rows, ES03-W, MD20, AE13, the Medicine focus, and the funding header, which is 52 px over: the Diffusion line is cut and the Abilities line is hidden. On phone, 128 of 286 overflow, by up to 82 px (Energy Systems loses its 'Queued 2nd' and 'Switching loses nothing' lines). The default selection on the hero artboard is one of the clipped ones. Unciv's PickerPane allows the bar up to 150 px (maxBottomTableHeight). Related: the title meta uses nowrap with ellipsis (template:260), so 'also reached by En…' is cut for TH08 on desktop and for 8 rows on phone.",
+     "fix": "Set DESK.barH to 150, Unciv's own maximum. I measured that this takes the overflow from 40 selections to 1, the funding header, which is still 23 px over. Trim that text by two wrapped lines: drop 'Switching loses nothing' (the focus bar already says it) and move the Abilities line to the era-pill bar. On phone, set barH to 150 (128 overflowing becomes 12). Add a fade cue when content is cut: `mask-image:linear-gradient(to bottom,#000 calc(100% - 18px),transparent)` on descStyle while scrollHeight > clientHeight. Move 'also reached by …' from b.meta (main.js:294) to its own body line so the title row never ellipsizes."
+    },
+    {
+     "severity": "major",
+     "where": "Focus list rows (src/main.js:198, the queued fill; template:81, the queue disc; main.js:206, the count badge) against Awaiting chips (main.js:25, BODY.waiting). Visible in a1.png: Energy Systems and Medicine rows next to the Oil Power Plant and Phage Therapy chips.",
+     "problem": "Teal #0E5C56 means three things on one screen: queued focus (the list fill), Awaiting the idea (the chip fill), and the current era (the era pill and band). In Unciv, teal tech buttons mean 'queued'. In a1, the two queued foci, Energy Systems and Medicine, are exactly the foci whose Awaiting chips are teal, so the screen suggests 'Oil Power Plant / Phage Therapy are queued'. That is backwards: Awaiting rows take no Insight. On the same rows, the queue numeral (12-px text in a 16-px disc) sits right beside the count badge, so the row reads '4 ②'. That looks like two counts, and it pushes the count badge about 20 px left of the badge column used on every other row.",
+     "fix": "Give teal one meaning on the board. Drop the queued fill: `const fill = isF ? 'background:#4893AF;color:#000033;' : 'color:#FFFFFF;'`. Show the queue position the way Unciv does, as an order disc on the left: draw it in the radio's slot (or a fixed 20-px slot before the name) as `width:18px;height:18px;border-radius:9px;border:1.5px solid #FFFFFF;background:rgba(0,64,133,0.75);font-size:12px`. The count badges then stay in one right-aligned column. Awaiting chips keep #0E5C56."
+    },
+    {
+     "severity": "major",
+     "where": "Status glyphs: the Endeavour pyramid disc (template:47, 72, 133, 151, 171, 250) against the Being-studied flask disc (template:101, 134, 152, 172, 251). Visible in a3.png: the 'Grand Endeavour' and 'Being studied' headers, and the Electricity row in the focus list.",
+     "problem": "At 16 px the two glyphs are almost identical. Both are a white disc holding a navy triangle crossed by a horizontal bar; the flask differs only by a 2-px neck. I checked an 8× crop of a3. build_spec §2 promises that every status differs by glyph, and for these two it effectively does not. This matters most where the glyph is the only cue: on the Electricity row in the focus list, the pyramid sits in the count-badge slot and reads as 'being studied'. It also matters for colour-blind players, for whom the Endeavour fill #334D80 is already close in lightness to Awaiting.",
+     "fix": "Give the Endeavour a different container and fill style. Use a white rounded square with a solid navy pyramid: `<rect x=\"1\" y=\"1\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#FFFFFF\"/><path d=\"M3 12.5h10L8 3.5z\" fill=\"#000033\"/>`. That gives square against round and filled against outline next to the outlined flask disc. Use it at all six places, and in the funding pill."
+    },
+    {
+     "severity": "minor",
+     "where": "Selection and prerequisite outlines. src/main.js:128-129, with DESK gapX:4 / gapY:3 at main.js:18. Visible in a1.png (Superconductivity), and in t226 with AE13 or RC03 selected.",
+     "problem": "The selected outline (2 px, offset 2) reaches 4 px past the chip. That fills the whole 4-px gap and touches the neighbouring chip (Piezoelectricity in a1), and it overruns the 3-px gap between rows. The prerequisite marker is a 1.5-px dashed white ring, the same pattern as the Awaiting border. On a Being-studied chip that is a prerequisite (Dirigible/Airship when Rigid Airship is selected, Laser for Gravitational Waves), the chip picks up an 'awaiting' dashed border and blurs the solid/dashed/dotted status ladder.",
+     "fix": "Draw selection inside the gap: `outline:2px solid #FFFFFF;outline-offset:0` (or `box-shadow:0 0 0 2px #FFFFFF`), and raise gapX to 6 and gapY to 5. Mark prerequisites with a non-dashed cue that no status uses: `outline:2px solid #65DC72;outline-offset:0`. That is Unciv's highlight green, and it matches the ✓ in the Needs line."
+    },
+    {
+     "severity": "minor",
+     "where": "Popups: template:291-301 (a3b.png), and the phone artboard with Begin or Replace open",
+     "problem": "The dialog is placed at a fixed left:410px; top:305px. On the 1300×600 phone artboard it sits 70 px right of and about 140 px below centre: the Replace popup spans y 305-577, only 23 px from the bottom edge. Its buttons are right-aligned (justify-content:flex-end), so even on desktop they sit 83 px from the left and 25 px from the right. Unciv popups use a 50% grey veil, rgba(128,128,128,0.5), and a navy inner panel, baseColor.darken(0.5) ≈ rgba(0,32,66,0.875). This one uses a black veil and a #111111 panel with a grey border. The title is the same 18 px as the body.",
+     "fix": "Centre it with a flex wrapper: `position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(128,128,128,0.5)`. Give the dialog `position:relative;max-width:620px;max-height:calc(100% - 32px);overflow:auto;background:rgba(0,32,66,0.875);border:0`. Set `justify-content:center` on the button row, and make the title 20 px (Unciv's smallerHeadingFontSize)."
+    },
+    {
+     "severity": "minor",
+     "where": "Funding pill while an Endeavour runs: template:45-57 (a3.png, top left)",
+     "problem": "The progress bar is pulled up with margin:-8px, which puts it at y 52-56 inside a pill whose text row ends at y 52 and whose 2-px border starts at y 56. There is no space above or below it. The descender of 'y' in 'Superconductivity' touches the bar, and the bar touches the border, so the pill looks crammed beside the clean 28-px Quantum Physics pill in a1.",
+     "fix": "Make the Endeavour pill 34 px tall with `justify-content:flex-start;padding-top:4px`. Put the bar in normal flow with `margin:3px 12px 0 26px` instead of the negative margin."
+    },
+    {
+     "severity": "minor",
+     "where": "Focus view cards: src/main.js:135-138 (a4.png, owned cards)",
+     "problem": "Line 2 is one ellipsized string, and the focus name is appended at the end. On Stirling Engine Mastery the part that explains why the card is here is the part that gets cut: '…needs no fuel resource · home: …'. Line 1 (the name) and line 2 are also both 14 px in the same colour (#6B4300 on gold, navy on blue), so the name does not stand out from the effect or quote.",
+     "fix": "Split line 2 into two spans: the effect or quote in `flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis`, then `flex:none` '· from Thermodynamics'. Alternatively, show the home focus as a tag on line 1. Set the name to 16 px, or line 2 to 13 px with opacity 0.8."
+    },
+    {
+     "severity": "minor",
+     "where": "Moment passed section: src/main.js:27 (BODY.closed), 148 (run label style) (a1.png, lower half)",
+     "problem": "The run labels are #B3B3B3 text. The chips here are also #B3B3B3 text on #111111, which is 1.06:1 against the #000033 background, so the chip fill is invisible. The run separators are 2-px #334D80, 2.4:1 on navy. Labels and chips therefore read as one grey stream ('Animal Husbandry Camel Domestication Anc Elephant Domestication Anc Chemistry…'), and only the dotted border sets them apart.",
+     "fix": "Make run labels clearly a different kind of text, e.g. `color:#FFFFFF;opacity:.8`. Raise the separator to `border-left:2px solid #5A6E9C`. Give closed chips a fill you can see, such as `background:#1C1C24`, while keeping the dotted border and radius 4 so the status stays dim."
+    },
+    {
+     "severity": "minor",
+     "where": "Era tags on live chips: src/main.js:6 (AB)",
+     "problem": "Several abbreviations collide with nearby words. 'Med' (Medieval) sits in runs beside the 'Medicine' focus label. 'Mod' (Modern) is the most common tag, while the bar says 'Modifiers:' for focus effects. 'Class' reads as a word. In a1 you can see 'Medicine | Prosthetics Mod' and 'Water Management | Tidal Mill Med'.",
+     "fix": "Spell out the two ambiguous eras: `Medieval:'Medieval', Modern:'Modern'` (about 25 px more per chip). Or, closer to Unciv, keep short tags but tint them with the era-header colours relative to the current era: past `#FFAF00/#782E10`, current `#0E5C56/#FFFFFF`, future `#111111/#FFFFFF`. Then the tag shows behind, now or ahead at a glance."
+    },
+    {
+     "severity": "minor",
+     "where": "Phone artboard: template:264-265 (queue arrows 24×24), template:125 ('× All foci' 30 px), main.js:238 (top FTL button 36 px), main.js:19 (segH 36, chipH 36)",
+     "problem": "The phone board is titled '44-px targets' (build_spec:36), but the queue up/down arrows are 24 px on phone (I checked phone_es), and the segments, chips and the top Faster-than-light button are 36 px. The queue arrows are the only way to reorder the queue on touch. The segments also lose their labels on phone (main.js:237), leaving five 14-px glyphs to decode, although the top row has about 220 px free before the FTL button.",
+     "fix": "Use `M.phone ? 44 : 24` for the move buttons (and 44 for '× All foci'), segH 44 on phone, and chipH 36 with the hit area padded to 44 (`padding-block:4px` or a ::before hit box). Show short segment labels on phone ('Studied', 'Awaiting', 'Unreachable', 'Passed', 'Owned'), or at least the label of the active filter."
+    },
+    {
+     "severity": "minor",
+     "where": "Bottom bar left column: src/main.js:245 (Close 90 px wide), template:246 (Faster than light 180 px wide) (a1.png, a3.png, a4.png)",
+     "problem": "Close and Faster than light are stacked and left-aligned at different widths. Close is half as wide, so the column looks ragged next to the evenly sized 290-px action pair on the right.",
+     "fix": "Make both 180 px wide (`closeStyle width:180px`). Alternatively, move Faster than light to the top row beside the era pill as the phone layout already does, and centre Close vertically in the bar as Unciv's PickerPane does."
+    },
+    {
+     "severity": "minor",
+     "where": "Owned era bands: src/main.js:171 (a2.png: 'Ancient era · 38 owned' against 'Early Modern era · 40')",
+     "problem": "The band count changes format depending on whether the band contains a Path-not-taken chip. Only the Ancient band says 'owned'; every other band shows a bare number, so readers wonder whether the counts mean different things.",
+     "fix": "Use one format: `count: nOwnedHere + (nt ? ' owned · ' + nt + ' not taken' : '')`, or always 'N owned'."
+    },
+    {
+     "severity": "minor",
+     "where": "Status filter segments: src/main.js:186-190 (a4.png: 'Not yet reachable 0')",
+     "problem": "Segments with a count of 0 look the same as active ones and can be clicked. Pressing one in the focus view empties the board with no message.",
+     "fix": "When `counts[k] === 0`, set `disabled`, `color:#B3B3B3;opacity:.5;cursor:default`, and make onClick a no-op."
+    }
+   ],
+   "verdict": "Not yet. Stopping the Grand Endeavour, or funding a focus from the a3b popup, crashes the Endeavour artboards to a blank screen. The hero render's description bar is cut through mid-line, and 40 desktop selections (128 on phone) overflow it. With those fixed, plus a single meaning for teal and a distinct Endeavour glyph, it is ready to show: the rest is polish on a layout that is legible and largely faithful to Unciv."
+  },
+  {
+   "lens": "format",
+   "findings": [
+    {
+     "severity": "major",
+     "where": "Main.dc.html, the Tweaks `view` enum (data-props, src/Main.template.html:304); src/main.js:61-66 (constructor) and :114 (renderVals reads only `st.view`)",
+     "problem": "The `view` Tweak on the Main artboard does nothing. The constructor copies `props.view` into `this.state` once. The runtime keeps the same logic instance when props change: it only updates `logic.props`, and rebuilds the logic only when the class itself changes. I confirmed this in the canvas's own runtime (dc-runtime.js from the published canvas, served locally): `__dcSetProps('Main', {view:'a3'})` and then `{view:'a4'}` left the screen on turn 226 with Quantum Physics funded. `{phone:true}` in the same run did switch the layout, because renderVals reads `this.props.phone`, but the selection stayed on Superconductivity, which is off-screen in the phone list. build_spec.md:671 asked for `this.state.view ?? this.props.view` precisely so that the preview could switch views. The enum values `a1/a2/a3/a3b/a4` also mean nothing to Tamsin.",
+     "fix": "Move the constructor body into a top-level `initState(props)`. Keep `constructor(props){ super(props); this.state = initState(props); }` and add `componentDidUpdate(prev){ if ((prev.view||'a1') !== (this.props.view||'a1') || String(prev.phone) !== String(this.props.phone)) this.setState(initState(this.props)); }`. The host passes its previous props, which include `view`. Rename the enum options to readable values such as `t226-main`, `t226-whole-board`, `t231-endeavour`, `t231-switch-away`, `t226-focus-energy` (and VIEWS to match). In assemble.py's WRAPPERS, pass `phone=\"{{ true }}\"` so the child gets a boolean, not the string \"true\"."
+    },
+    {
+     "severity": "major",
+     "where": "src/Main.template.html: 45 of the 110 `style` attributes are whole-value holes, among them rootStyle (l.28), L.leftStyle (31), L.listStyle (64), L.radioStyle (67), f.nameStyle (70), L.topStyle (98), boardStyle (115), L.secHeadStyle (132, 191), L.runsStyle/L.chipsStyle (144, 148, 204, 208), c.line2Style (181, 230), L.barStyle/leftBtnsStyle/closeStyle/descStyle/actsStyle (243-272); canvas/project/Status_key.dc.html s.style, s.eraStyle, t.style (twice), r.style",
+     "problem": "format.md allows a style hole only for live, state-driven values and declared tweak props, and \"never for other static theme tokens, which belong inline so they paint while streaming\". SKILL.md adds that inline `style` is what the properties panel edits. Many of these holes carry static tokens:\n- the root's size, background, colour and font;\n- every L.* layout box, which varies only with the phone flag;\n- `c.line2Style`, which is a constant string (main.js:138);\n- every chip style on the static key artboard.\nThe pages render correctly once loaded, but the board paints as unstyled boxes while it streams in, and Tamsin cannot adjust paddings, colours or sizes from the properties panel without code changes.",
+     "fix": "Write the static parts as literal inline CSS. Keep holes only for the parts that vary, either as interpolated pieces (e.g. l.31 `style=\"width: {{L.leftW}}px; flex: none; box-sizing: border-box; padding: 4px 8px 0 8px; display: flex; flex-direction: column; min-height: 0\"`, l.28 with `width: {{L.w}}px; height: {{L.h}}px` and the colours and font literal) or as whole-value holes for genuinely state-driven styles: selection outline, funded/queued row fill, pressed segment, disabled button. Make c.line2Style literal at l.181/230. On Status_key, write each example chip's style literally, or branch the five status looks with sc-if."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:11-26 (Main.dc.html's <helmet><style>), which the five wrappers import",
+     "problem": "For a `<dc-import>`ed file, SKILL.md limits `<helmet>` to font `<link>`, an uploaded `@font-face` and `body{margin:0}`. Main's helmet also carries:\n- a global `button{…}` reset;\n- the `.uh-chip/.uh-btn/.uh-row/.uh-link` hover and active rules;\n- `button:focus-visible`, the scrollbar rules and `a{}` colours;\n- a body background.\nI checked the runtime: it copies an imported helmet's `<style>` into the importer's `<head>`, so the five wrapper artboards render the same today. Those global rules still leak into any artboard that imports Main.",
+     "fix": "Move the button reset into every button's inline style. The style strings are already computed, so this only means adding `background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left` to BTN, chipBase and the L.* strings. Then reduce Main's helmet to the @font-face and `body{margin:0}`, and drop or simplify the hover rules. The alternative is for assemble.py to write each wrapper as a full standalone copy of Main with its view fixed, with no dc-import at all. That also removes the dependence on prop-driven initial state."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:322 (Experiment), :337 (Synthesis), :309 (Open the FTL screen); src/Main.template.html:245 (Close), :111 and :246 (Faster than light)",
+     "problem": "These buttons are enabled but have no handler, on artboards marked `is_interactive`. I confirmed in the real runtime that clicking Synthesis (Superconductivity selected), Experiment (Phage Therapy selected) or Close changes nothing. Experiment and Synthesis are the main actions for the Awaiting and Moment passed statuses, so a silent click reads as a broken prototype.",
+     "fix": "Give Experiment and Synthesis a confirmation popup like the Endeavour one. For example, Experiment: \"Experiment on Phage Therapy? 300 Gold. The idea may or may not occur.\" with Spend and Cancel. Synthesis gets the same treatment, worded for its own effect. Alternatively, render all of these as disabled with an l2 such as \"not in this mockup\". Close and the FTL buttons can stay inert, but then give them `disabled` and the disabled colour so they do not look live."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:140 `<path d=\"{{sec.chevron}}\">` and :195 `<path d=\"{{owned.chevron}}\">`",
+     "problem": "The runtime parses the template into a `<template>` element before filling holes, so Chromium logs a console error on every load: `Error: <path> attribute d: Expected moveto path command ('M' or 'm'), \"{{sec.chevron}}\"`, and the same for owned.chevron. Rendering is unaffected.",
+     "fix": "Use two whole `<svg>` chevrons, down and right, each in an `<sc-if>` outside the SVG on `sec.open` and `owned.expanded`, the way the status icons already do. Do not put sc-if inside the svg."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:64 (`<div role=\"radiogroup\">`) and :66 (`<div class=\"uh-row\" onContextMenu=\"{{f.onQueue}}\">`)",
+     "problem": "The right-click queue handler is on a `<div>`. The canvas's accessibility rule says never to put a role or handler on a div. The handler does work: in the real runtime, `oncontextmenu` maps to React's `onContextMenu`, and right-clicking Chemistry queued it 4th. The radiogroup also contains the non-radio name buttons and the badges, and it has no arrow-key handling. Screen readers therefore announce a radio group that does not behave like one.",
+     "fix": "Put `onContextMenu=\"{{f.onQueue}}\"` on the two real buttons in the row, the radio (l.67) and the name (l.70), instead of on the div. Drop `role=\"radiogroup\"` and `role=\"radio\"`, and keep the radio as a plain button with `aria-pressed=\"{{f.checked}}\"`. Or keep the radio roles and move the name buttons out of the group."
+    },
+    {
+     "severity": "minor",
+     "where": "canvas/project/canvas.json board title \"5 · Phone: Unciv Small, landscape, 44-px targets\"; src/main.js:19 (PHONE chipH 36, segH 36, secH 30); src/Main.template.html:264-265 (24-px queue arrows)",
+     "problem": "The phone artboard's title promises 44-px targets, and the canvas craft rules ask for touch targets of at least 44 px. On phone, though, the breakthrough chips are 36 px, the status segments 36 px, the section and band headers 30 px, and the queue up/down buttons 24 px. Only the focus rows, the radios and the Close and action buttons reach 44.",
+     "fix": "Keep the 36-px look but make the hit area 44 px: render each chip as a 44-px-tall transparent `<button>` with `padding:4px 0` around an inner span that carries the visible 36-px pill. Set PHONE.secH and segH to 44, and the move buttons to 44 on phone. Or change the board title so it does not claim 44-px targets."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:44-51 (STATUS_LABEL, SECTIONS titles and why-lines), :332 (the status-4 sentence); Status_key.dc.html script (all status labels and sentences)",
+     "problem": "The status names and their one-line explanations are copy Tamsin is still deciding on: the status-4 wording was itself a decision. They live only in JS strings, in up to four places. format.md asks for copy the viewer retypes to stay literal markup, so it can be edited in place, so she cannot reword \"Moment passed\" or \"revealed, its window closed: only an Endeavour is certain\" on the canvas.",
+     "fix": "Write the five live section headers as literal markup: five fixed blocks, each in `<sc-if value=\"{{sections.studying.show}}\">` and so on, with the title and why-line as text. Do the same for the segment labels. Keep only the counts and the chip lists as holes. At minimum, define each status's wording once in main.js and reuse it in SECTIONS, STATUS_LABEL and describe()."
+    }
+   ],
+   "verdict": "Yes, it's ready to show Tamsin. None of the format's fail-silently rules are broken in any of the seven artboards. I checked each file with a script and also ran all seven in the canvas's own runtime (dc-runtime.js from the published canvas). Every one renders the same as the earlier renders, the uploaded font loads, and the risky constructs (constructor, ref callback, onContextMenu, disabled holes, style holes) all work there. Before or soon after she sees it, fix two things: the `view` Tweak on Main does nothing, and many style holes carry static tokens, which keeps her from editing those styles from the properties panel. The rest is polish: buttons that look clickable but do nothing, an over-full helmet in the imported file, and two harmless console errors."
+  },
+  {
+   "lens": "usability",
+   "findings": [
+    {
+     "severity": "blocker",
+     "where": "A3b and A3 (Main.dc.html / src/main.js: stopEndeavour lines 104-108, rowsNow line 72, describe() endeavour branch line 345)",
+     "problem": "Getting out of a Grand Endeavour crashes the artboard. If you confirm 'Fund Quantum Physics' in the A3b popup, or confirm 'Stop the Endeavour' from A3, stopEndeavour sets endeavour.aside. The t231 snapshot still stores EL11 with status 'endeavour', though, so the row stays in that status, and describe() then reads en.pct while en is null. That throws TypeError \"Cannot read properties of null (reading 'pct')\" and the screen goes blank navy. I reproduced it with preview.py, clicking through both flows.",
+     "fix": "Store the row's status from before the Endeavour in the data (e.g. endeavour.from = 'closed'). In rowsNow, when the Endeavour is set aside, return that status instead of 'endeavour'. Guard the endeavour branches in describe() and chipOf() with `en`. Then click through both exit flows again."
+    },
+    {
+     "severity": "major",
+     "where": "src/main.js chipOf (lines 121-125), enBtn (284-288), beginEndeavour (99-103); A3b popup text",
+     "problem": "Both exit popups say 'you can resume it later', but the screen gives no way to resume. A set-aside Endeavour gets no 'Set aside · 64%' tag on its chip (the tag exists only on the Status key). Its row then offers 'Begin Grand Endeavour · 5,340 Insight · about 8 turns' at full price, and beginEndeavour resets pct and paid to 0. A player who stops at 64% can't find the work again, and re-committing restarts from nothing.",
+     "fix": "While st.endeavour.aside matches the row, add the 'Set aside · N%' tag to its chip. Make the secondary action 'Resume the Endeavour / 1,925 Insight left · about 3 turns', and have the resume keep `paid` (less the decay) instead of zeroing it."
+    },
+    {
+     "severity": "major",
+     "where": "Focus list badges: src/main.js line 206 (badgeStyle adds a 1-px ring on the funded row) vs the queue disc in Main.template.html line 81; A1, A3, key.png",
+     "problem": "Two different numbers look the same. At turn 226 the funded Quantum Physics row shows its under-study count as a ringed '(2)'. On Energy Systems, a ringed '(2)' means 'queued 2nd'. At turn 231, Quantum Physics' ringed '(2)' does mean queued 2nd. So a player can't tell queue position from work under study, and may read Quantum Physics as queued. The Status key shows the funded badge without a ring, so the key doesn't match the screen either.",
+     "fix": "Remove the ring from the funded row's badge (keep it the plain blue pill the key shows). Give the queue disc a form numbers can't be mistaken for, e.g. a '2nd' text tag or a hash disc ('#2'). Make the key match."
+    },
+    {
+     "severity": "major",
+     "where": "Funding header during an Endeavour (A3, A3b: template lines 44-58, main.js line 214); funding-header bar action (main.js line 373)",
+     "problem": "'What am I funding, and how much?' gets a misleading answer during an Endeavour. The slot that read 'Quantum Physics 80% · 683' (share of Insight) now reads 'Superconductivity 64%', which is progress. It's the same place and the same % format with a different meaning, the Insight amount is gone, and the word 'Endeavour' appears nowhere in the header. The funding description's action is a bare disabled 'Grand Endeavour'.",
+     "fix": "Keep the right-hand figure as the share, as when a focus is funded ('80% · 683'). Show progress as '64% done' beside the 4-px bar, or fold it into the name ('Endeavour: Superconductivity'). Change the funding description's disabled action to 'Funded: Grand Endeavour'."
+    },
+    {
+     "severity": "major",
+     "where": "bar_texts.txt focus entries 'Medicine [focus] … queued 3rd' (t226), every queued focus at t231, and 'funding [funding]' at t231; main.js lines 360 and 370",
+     "problem": "The queue sentences are wrong.\n- At turn 226, Medicine (3rd) says the same as Energy Systems (2nd): 'funding moves here when Quantum Physics has no revealed work under study'. That condition actually sends funding to Energy Systems.\n- At turn 231 every queued focus says 'when the Endeavour has no revealed work under study', which means nothing for an Endeavour.\n- The funding description at turn 231 says 'It moves on when the funded focus has no revealed work under study' while nothing is funded. The spec's turn-231 sentence (build_spec line 549) was dropped.",
+     "fix": "2nd: 'Next: funding moves here when Quantum Physics has no revealed work under study.' 3rd and later: 'Queued 3rd: next after Energy Systems.' During an Endeavour, on queued foci and the funding description: 'After the Endeavour, funding goes to the first queued focus with work under study.'"
+    },
+    {
+     "severity": "major",
+     "where": "A3b popup ('Fund Quantum Physics instead?'), the Stop popup (main.js lines 390-392), stopEndeavour (line 106)",
+     "problem": "Both exit paths send funding to a focus where it does nothing.\n- At turn 231, Quantum Physics has nothing revealed under study: its bar says so, and its two rows are Awaiting ('no Insight, however hard Quantum Physics is funded').\n- A3b invites the player to give up a 64% Endeavour to fund it, with no warning.\n- The Stop popup says 'Funding goes to Quantum Physics', because stopEndeavour takes queue[0] without skipping empty foci. The spec's rule is the first queued focus with work under study, which here is Energy Systems.",
+     "fix": "In stopEndeavour, skip queued foci with no badge. The Stop popup should read 'Funding goes to Energy Systems (Quantum Physics has nothing revealed under study)'. When a switch target has nothing under study, add to the switch popup: 'Quantum Physics has nothing revealed under study; its share would move on to Energy Systems.' Or pick Energy Systems or Medicine for the A3b example."
+    },
+    {
+     "severity": "major",
+     "where": "Primary action on every Awaiting row ('Experiment / 300 Gold · Scientific Method', main.js line 322) and every Moment passed row ('Synthesis / once this era · unused', line 337); funding description 'Abilities:' line",
+     "problem": "Nothing on the screen says what Experiment or Synthesis does, so the player can't judge 'what can I do about this status'. Both buttons look enabled but do nothing (onClick is null). Synthesis is once per era, yet unlike an Endeavour it has no confirmation. The spec makes Enter perform the primary action, and A1 opens with a Moment passed row selected, so one Enter would spend the era's Synthesis. 'Scientific Method' on the Experiment button reads like a target, and there is no hint whether the player can afford 300 Gold.",
+     "fix": "Add one bar line per ability, stating the effect without its size (per Q21), in Tamsin's wording. For example: 'Synthesis (once an era) gives its moment another chance; it is not certain.' (525 px) and 'Experiment (300 Gold) may help the idea occur; it is not certain.' (454 px). Confirm Synthesis with a popup. Replace l2 with '300 Gold · you have N'."
+    },
+    {
+     "severity": "major",
+     "where": "Bottom description pane, desktop (A1 hero and bar_texts.txt); main.js line 332 and the other status sentences",
+     "problem": "About 40 of the ~287 selections per turn need more than the 4 visible lines (measured with DejaVu Sans 14 px at 645 px): every one of the 24 Moment passed rows, Phage Therapy, Rigid Airship, Biomass Power Plant, the Energy Systems and Medicine foci, and the funding description (7 lines). In A1 itself, Superconductivity's conjecture is cut in half at the bottom edge, and the pane shows no scroll knob, so the player gets no cue that more text exists. Causes:\n- ' It takes no Insight now.' makes line 1 715 px wide.\n- The Awaiting sentence with a source is 788 px.\n- Path not taken is 798 px.",
+     "fix": "- Drop ' It takes no Insight now.' (the section header already says it). That brings the line to 548 px.\n- Shorten Awaiting to '<source>. Awaiting the idea: no Insight until the idea occurs.' (542 px).\n- Hold every scripted line to 645 px or less, as the spec required.\n- Make the knob visible, or fade the pane's bottom edge, when it overflows."
+    },
+    {
+     "severity": "major",
+     "where": "Phone artboard: bottom bar 110 px, about 600 px of text width (PHONE.barH in main.js line 19)",
+     "problem": "On the phone, the description pane shows the title and 3 lines. Measured at 590 px, about 131 of ~287 selections per turn overflow, including every Moment passed row, every Awaiting row with a rival, and most owned rows. I rendered Phage Therapy selected on the phone: the 'Competes with Antibiotics…' line, the most decision-relevant one, sits on the clipped edge and the conjecture is hidden. The pane is a 90-px inner scroller with no visible knob, which is hard to scroll by touch.",
+     "fix": "On phone, make the description a sheet that expands to full height on tap. Or raise the bar to about 150 px: the board has room, since Being studied already scrolls. Order lines so the status, prerequisites and rival come first and the conjecture last."
+    },
+    {
+     "severity": "minor",
+     "where": "Phone touch targets: Main.template.html lines 119 (focus-view radio 20×20), 125 ('× All foci' 30 tall), 264-265 (queue move buttons 24×24); era pill (24 tall); section and era-band headers (24-30)",
+     "problem": "The phone artboard claims 44-px targets, but these controls have fixed desktop sizes (measured in a phone render). The queue move buttons are the only way to reorder the queue and are 24×24.",
+     "fix": "Take the sizes from M, giving at least 44 px of hit area on phone, as the list radios already do."
+    },
+    {
+     "severity": "minor",
+     "where": "Phone top row (phone.png): segLabels false (main.js line 237), showWhy false (line 240)",
+     "problem": "On the phone the status filter is five bare glyphs with counts (26, 6, 2, 24, 191), and the section reasons are hidden. The lock and shutter glyphs don't explain themselves, and the top row has about 220 px free between the segments (ending near x 645) and 'Faster than light' (x 868).",
+     "fix": "Show short labels on phone ('Studied 26', 'Awaiting 6', 'Not yet 2', 'Passed 24', 'Owned 191'), or at least label the pressed segment."
+    },
+    {
+     "severity": "minor",
+     "where": "Moment passed price line (main.js line 335): e.g. bar_texts.txt EL11 'As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.'",
+     "problem": "'Twice today’s price' doesn't say twice what. 'Development' is explained nowhere on the screen (the era pill counts breakthroughs instead). The spec's 'ahead of its time' was dropped. The line invites waiting for the price to fall, yet neither it nor the Begin popup says the price is fixed once committed.",
+     "fix": "Use 'As an Endeavour: 5,340 Insight; dearer while ahead of its time. Fixed once begun.' (575 px). For eras that aren't ahead, use 'As an Endeavour: 37 Insight, double the usual cost; about 1 turn.'"
+    },
+    {
+     "severity": "minor",
+     "where": "A1/A2 board: Being studied and Awaiting chips for Biomass Power Plant / Coal Power Plant and Phage Therapy / Antibiotics",
+     "problem": "Nothing on the board marks a rival pair, where funding the wrong focus can lose a breakthrough for good. You only find out by selecting each chip. This is one of the few signals of what's worth attention, and the spec allows it here because both rows are revealed.",
+     "fix": "Add a 'Rival' word tag to both chips of each revealed pair (Superseded's #252B3E style). The bar keeps the full sentence."
+    },
+    {
+     "severity": "minor",
+     "where": "A4 Owned card 'Stirling Engine Mastery' (main.js line 136 appends home after the effects)",
+     "problem": "Its second line ellipsises to '… · home: …', so the one fact the focus view adds for a row from another focus (that it belongs to Thermodynamics) is cut off.",
+     "fix": "Put 'home: Thermodynamics' first on line 2, or on line 1 after the name, before the effects."
+    },
+    {
+     "severity": "minor",
+     "where": "Focus list hint 'funds · right-click queues' (Main.template.html line 89); src/main.js (no double-click handler)",
+     "problem": "The hint is a fragment beside a radio glyph. It doesn't say that clicking the name switches the board instead of funding. The spec's double-click on a name to fund and close isn't wired. The hint disappears at 34 foci, leaving no queueing cue on desktop.",
+     "fix": "Reword it as 'radio: fund now · right-click: queue' and keep it at 34 foci by letting the list scroll by one row. Wire the double-click, or drop it from the spec."
+    },
+    {
+     "severity": "minor",
+     "where": "A3b and the Begin/Stop popups (Main.template.html lines 297-298)",
+     "problem": "The irreversible choice ('Fund Quantum Physics', 'Stop the Endeavour', 'Begin Grand Endeavour') and the safe choice look identical (both #334D80, 250 px). The irreversible one sits on the left and neither is marked as the default.",
+     "fix": "Make 'Keep the Endeavour' / 'Cancel' the default, with a focus ring so Enter picks it and Esc closes the popup. Put it first, or style the irreversible button differently."
+    },
+    {
+     "severity": "minor",
+     "where": "A2 Owned era bands (main.js line 171)",
+     "problem": "The Ancient band reads 'Ancient era · 38 owned', but every other band reads '· N' (e.g. 'Early Modern era · 40'). The word appears only because that band holds the two Paths not taken.",
+     "fix": "Use one format everywhere, e.g. '· 38 owned · 2 not taken' on Ancient and '· 40 owned' on the others."
+    }
+   ],
+   "verdict": "The mockup isn't ready to show Tamsin yet. Getting out of a Grand Endeavour (the A3b popup, or Stop) crashes the artboard to a blank screen, and the exit flow sends funding to a focus with nothing under study while promising a resume that doesn't exist. The static renders read well. Most other problems are text fixes: wrong queue sentences, a queue disc that looks like the under-study badge, Synthesis and Experiment never explained, and description text that overflows its pane, mildly on desktop and heavily on the phone."
+  }
+ ]
+}

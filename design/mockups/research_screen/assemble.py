@@ -29,22 +29,22 @@ HELP = {'Aeronautics': 'air units and sight', 'Animal Husbandry': 'mounted units
         'Thermodynamics': 'engines and power', 'Trade': 'gold and trade routes', 'Warfare': 'military units and tactics',
         'Water Management': 'food and water power'}
 # Insight modifiers (§1.3 and owned breakthroughs) for the declared lands: a river-valley start, volcanic, earthquake-prone
-MODS = {'*': ['+5% Natural Philosophy (all foci)'], 'Farming': ['+20% river start', '+10% Botanical Classification'],
+MODS = {'*': ['+5% Natural Philosophy (all foci)'], 'Farming': ['+20% river start', '+20% diverse lands', '+10% Botanical Classification'], 'Foraging': ['+20% diverse lands'],
         'Trade': ['+20% river start'], 'Construction': ['+20% river start', '+25% earthquake-prone land'],
-        'Metallurgy': ['+20% volcanic region'], 'Chemistry': ['+20% volcanic region'], 'Medicine': ['+10% Botanical Classification'],
+        'Metallurgy': ['+20% volcanic region'], 'Chemistry': ['+20% volcanic region'], 'Medicine': ['+20% diverse lands', '+10% Botanical Classification'],
         'Electronics': ['+10% Quantum Electrodynamics'], 'Nuclear Physics': ['+10% Special Relativity']}
 ERA = {
-    't226': dict(era='Modern', devEra='Modern', eraText='Modern era · 5 of 6 toward Atomic', newFoci=['Materials Science'], eraLines=[
+    't226': dict(era='Modern', devEra='Modern', eraText='Modern era · 5 of 6 toward Atomic', eraShort='Modern · 5/6 to Atomic', newFoci=['Materials Science'], eraLines=[
         'You enter an era when you hold enough breakthroughs from it or later.',
         'The Atomic era needs 6 from the Atomic era or later: you hold 5.',
         'Synthesis can be used once in each era: unused in the Modern era.']),
-    't231': dict(era='Atomic', devEra='Modern', eraText='Atomic era · 2 of 4 toward Space', newFoci=[], eraLines=[
+    't231': dict(era='Atomic', devEra='Modern', eraText='Atomic era · 2 of 4 toward Space', eraShort='Atomic · 2/4 to Space', newFoci=[], eraLines=[
         'You enter an era when you hold enough breakthroughs from it or later.',
         'You entered the Atomic era with your 6th breakthrough from it or later.',
         'The Space era needs 4 from the Space era: you hold 2.',
         'Synthesis can be used once in each era: unused in the Atomic era.']),
 }
-STATIC = ('name', 'focus', 'era', 'src', 'also', 'competes', 'instead', 'by', 'needs_focus')
+STATIC = ('name', 'focus', 'era', 'src', 'also', 'competes', 'rivalOf', 'instead', 'by', 'needs_focus', 'superseded', 'persists', 'mult')
 
 
 def build():
@@ -80,11 +80,11 @@ def main():
     print('wrote', len(html) // 1024, 'KB Main.dc.html;', len(D['rows']), 'rows;', sum(1 for r in D['rows'].values() if r.get('needs')), 'with texts')
 
 
-WRAPPERS = [('Whole_board.dc.html', 'a2', (1440, WHOLE_HEIGHT), 'Research screen, whole board'),
-            ('Endeavour.dc.html', 'a3', (1440, 810), 'Research screen, a Grand Endeavour'),
-            ('Switch_away.dc.html', 'a3b', (1440, 810), 'Research screen, switching away from an Endeavour'),
-            ('Focus_view.dc.html', 'a4', (1440, 810), 'Research screen, one focus'),
-            ('Phone.dc.html', 'a1" phone="true', (1300, 600), 'Research screen on a phone')]
+WRAPPERS = [('Whole_board.dc.html', 't226-whole-board', (1440, WHOLE_HEIGHT), 'Research screen, whole board'),
+            ('Endeavour.dc.html', 't231-endeavour', (1440, 810), 'Research screen, a Grand Endeavour'),
+            ('Switch_away.dc.html', 't231-switch-away', (1440, 810), 'Research screen, switching away from an Endeavour'),
+            ('Focus_view.dc.html', 't226-focus-energy', (1440, 810), 'Research screen, one focus'),
+            ('Phone.dc.html', 't226-main" phone="{{ true }}', (1300, 600), 'Research screen on a phone')]
 WRAP = """<!doctype html>
 <html lang="en">
 <head>

@@ -12,7 +12,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 OUT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'bar_texts.txt'
 MAIN = HERE / 'canvas' / 'project' / 'Main.dc.html'
 DATA = json.load(open(HERE / 'mockup_data.json', encoding='utf-8'))
-READ = """() => { const bar = [...document.querySelectorAll('div')].find(d => d.style.height === '121px' && d.style.display === 'flex');
+READ = """() => { const bar = document.querySelector('[data-uh=bar]');
   if (!bar) return null; const cells = bar.children;
   const desc = cells[1]; const title = desc.children[0].innerText.replace(/\\s+/g, ' ').trim();
   const lines = [...desc.children].slice(1).map(x => x.innerText.trim()).filter(Boolean);
@@ -21,7 +21,7 @@ READ = """() => { const bar = [...document.querySelectorAll('div')].find(d => d.
 
 with sync_playwright() as p:
     b = p.chromium.launch(); out = []
-    for view, snap in (('a1', 't226'), ('a3', 't231')):
+    for view, snap in (('t226-main', 't226'), ('t231-endeavour', 't231')):
         html = preview.build(str(MAIN), {'view': view})
         tmp = HERE / f'_dump_{view}.html'; tmp.write_text(html, encoding='utf-8')
         pg = b.new_page(viewport={'width': 1440, 'height': 810}); pg.goto(tmp.as_uri()); pg.wait_for_timeout(200)

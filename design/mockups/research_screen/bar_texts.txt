@@ -1,4 +1,4 @@
-===== t226 (a1)
+===== t226 (t226-main)
 --- AE01 [owned] Hot Air Balloon Aeronautics · Early Modern era
     Discovered on turn 202. Observation Balloon (unit)
     Needs ✓ Controlled Fire + ✓ Weaving + ✓ Scientific Method
@@ -36,15 +36,17 @@
     The horse transformed warfare.
     ACTIONS: [disabled] Discovered
 --- AH05 [closed] Camel Domestication Animal Husbandry · Ancient era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Animal Behavior Study + ✓ Desert in your lands
-    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 37 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The desert beast that stores its water might carry our goods.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 37 Insight · about 1 turn
 --- AH06 [closed] Elephant Domestication Animal Husbandry · Ancient era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Animal Behavior Study + ✓ Tropical forest in your lands
-    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 37 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The great beasts of the forest might be tamed to haul and to carry.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 37 Insight · about 1 turn
 --- AH11 [owned] Veterinary Medicine Animal Husbandry · Classical era
@@ -74,7 +76,7 @@
     Discovered on turn 199. Pharmaceutical Works (building); Cristo Redentor (world wonder)
     Needs ✓ Periodic Table
     ACTIONS: [disabled] Discovered
---- CH08 [owned] Explosives (non-gunpowder) Chemistry · Modern era · also reached by Mining
+--- CH08 [owned] Explosives (non-gunpowder) Chemistry · Modern era
     Discovered on turn 216. Artillery (unit); -25% construction time for Mine improvements
     Needs ✓ Organic Chemistry + ✓ Distillation
     ACTIONS: [disabled] Discovered
@@ -84,6 +86,7 @@
     ACTIONS: [disabled] Discovered
 --- CH09-W [owned] Bio-Organic Synthesis Chemistry · Modern era
     Discovered on turn 211. Bio-Refinery (building)
+    Persists: Petrochemistry came later, and the Bio-Refinery stays available.
     Needs ✓ Organic Chemistry + ✓ Selective Breeding
     Nature made polymers first. What if we learned from it better?
     ACTIONS: [disabled] Discovered
@@ -92,7 +95,7 @@
     Opens the Materials Science focus.
     Needs ✓ Organic Chemistry + (✓ Petrochemistry or ✓ Bio-Organic Synthesis)
     ACTIONS: [disabled] Discovered
---- CH12 [owned] Catalysis Chemistry · Modern era · also reached by Farming
+--- CH12 [owned] Catalysis Chemistry · Modern era
     Discovered on turn 203. +1 Food from Farm tiles in all cities
     Needs ✓ Periodic Table
     ACTIONS: [disabled] Discovered
@@ -102,9 +105,10 @@
     Needs (✓ Explosives (non-gunpowder) or ✓ Gunpowder) + ✓ Laws of Thermodynamics
     ACTIONS: [disabled] Discovered
 --- CH14 [closed] Photochemistry Chemistry · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Periodic Table + ✓ Telescope
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Light darkens salts of silver; perhaps it could be made to fix an image.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- CH15 [owned] Greek Alchemical Tradition Chemistry · Classical era
@@ -149,7 +153,7 @@
     Seawater-proof harbours, from a recipe later lost for a millennium.
     ACTIONS: [disabled] Discovered
 --- CO05 [not_taken] Corbel Arch/Vault Construction · Ancient era
-    Glimpsed by our scholars. Path not taken: Arch Construction was discovered first, so this will never be developed.
+    Glimpsed by our scholars. Path not taken: Arch Construction came first, so this will never be developed.
     A thing your civilisation glimpsed and let slip.
     “Stones stepped inward, course by course, until they meet.”
     ACTIONS: [disabled] Never developed
@@ -160,15 +164,17 @@
     Walls that lean on air: the masons who raised the cathedrals raised the colleges.
     ACTIONS: [disabled] Discovered
 --- CO07 [closed] Earthquake-Resistant Design Construction · Classical era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Post and Lintel + ✓ Earthquake-prone lands
-    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 168 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Timber that bends where stone would crack might ride out the earthquakes.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 168 Insight · about 1 turn
 --- CO09 [closed] Suspension Bridge Construction · Medieval era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Arch Construction + (✓ Steel Production or ✓ Weaving)
-    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 371 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “A road hung from cables might cross a gorge no arch could span.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 371 Insight · about 1 turn
 --- CO10 [owned] Iron-Frame Construction Construction · Early Modern era
@@ -182,15 +188,17 @@
     Steel and concrete build fast and stand hard: Portland cement and Bessemer steel.
     ACTIONS: [disabled] Discovered
 --- CO13 [waiting] Geodesic Structures Construction · Atomic era
-    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Glimpsed by our scholars. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Reinforced Concrete + ✓ Basic Algebra
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A dome of light struts, all triangles, might roof an arena in any climate.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 5,340 Insight · about 8 turns
+    ACTIONS: Experiment 300 Gold | Begin Grand Endeavour 5,340 Insight · about 8 turns
 --- CO17 [waiting] Sealed Environments Construction · Modern era
-    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Glimpsed by our scholars. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Reinforced Concrete + ✓ Oxygen Theory + ✓ Glassmaking
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A hull sealed tight, with air of its own, might keep a crew alive under water.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+    ACTIONS: Experiment 300 Gold | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- CO23 [owned] Railway Network Construction · Early Modern era
     Discovered on turn 198. Railroad (improvement); Railway Station (building)
     Neuschwanstein (world wonder)
@@ -208,15 +216,11 @@
     The trace italienne: low, angled bastions that turn a bombardment aside.
     ACTIONS: [disabled] Discovered
 --- CO26 [waiting] Ring Fortress Construction · Modern era
-    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Glimpsed by our scholars. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Star Fort + ✓ Reinforced Concrete
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A ring of detached forts in concrete and steel might stand up to any shell.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
---- CP13 [studying] Analog Computing Mastery Computing · Modern era
-    Being studied in Computing: it takes a share of that focus’s Insight every turn.
-    Needs ✓ Vacuum Tube + ✓ Calculus
-    “A machine of shafts and currents might act out an equation, not count it.”
-    ACTIONS: Fund Computing | [disabled] Grand Endeavour only for ideas not yet occurred
+    ACTIONS: Experiment 300 Gold | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- CU02 [owned] Monumental Architecture Philosophy and the Arts · Ancient era
     Discovered on turn 64. Temple (building); Stonehenge, The Pyramids, Mausoleum of Halicarnassus (wonders)
     -25% Culture cost of natural border growth in all cities
@@ -286,15 +290,17 @@
     Bell and Marconi: telecommunication by wire and without.
     ACTIONS: [disabled] Discovered
 --- EL10 [closed] Piezoelectricity Electricity · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Electromagnetism + ✓ Periodic Table
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Squeezed hard enough, certain crystals might give up a current of their own.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- EL11 [closed] Superconductivity Electricity · Atomic era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Refrigeration + ✓ Electromagnetism
-    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Cooled far enough, some metals might carry a current with no loss at all.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 5,340 Insight · about 8 turns
 --- EN01 [owned] Vacuum Tube Electronics · Modern era
@@ -308,32 +314,37 @@
     “A sliver of crystal might do the work of a vacuum tube, smaller and cooler.”
     ACTIONS: Fund Electronics | [disabled] Grand Endeavour only for ideas not yet occurred
 --- EN04 [closed] Radar Electronics · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Vacuum Tube + ✓ Wireless Transmission
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Radio waves bounced off distant aircraft might find them before any eye can.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- EN11 [closed] Radio Electronics · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Vacuum Tube + ✓ Wireless Transmission + ✓ Lens Grinding
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Voices and music might be carried through the air to every home.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- ES03 [studying] Coal Power Plant Energy Systems · Modern era
     Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Rival of Biomass Power Plant: if this comes first, Biomass Power Plant is never developed.
     Needs ✓ Turbine Design + ✓ Blast Furnace
     “Steam raised by coal fires might spin great turbines and light a whole city.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
---- ES03-W [studying] Biomass Power Plant Energy Systems · Modern era · also reached by Farming
+--- ES03-W [studying] Biomass Power Plant Energy Systems · Modern era
     Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
-    Competes with Coal Power Plant, also under study: if that comes first, this is never developed.
+    Rival of Coal Power Plant: if that comes first, this is never developed.
     Needs ✓ Turbine Design + ✓ Wood Gas Production + ✓ Selective Breeding
+    Also reached by funding Farming.
     “Crops and timber grown for burning could turn a turbine as well as coal.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
 --- ES09 [closed] Geothermal Power Energy Systems · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Deep Shaft Mining + ✓ Laws of Thermodynamics
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The heat that stirs our volcanoes might be drawn up to turn our turbines.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- ES10 [studying] Tidal Power Energy Systems · Atomic era
@@ -341,9 +352,10 @@
     Needs ✓ Tidal Patterns + ✓ Turbine Design
     “The sea rises and falls by the clock; that rhythm might be made to work.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
---- ES13 [studying] Biomass/Biogas Energy Systems · Modern era · also reached by Chemistry, Farming
+--- ES13 [studying] Biomass/Biogas Energy Systems · Modern era
     Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
     Needs ✓ Distillation + ✓ Organic Chemistry
+    Also reached by funding Chemistry or Farming.
     “Rotting waste gives off a gas that burns; our refuse might light our cities.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
 --- F01 [owned] Controlled Fire Fire · Primitive era
@@ -388,7 +400,7 @@
     Needs ✓ Seed Saving
     The soil no longer tires.
     ACTIONS: [disabled] Discovered
---- FA03 [owned] Selective Breeding Farming · Ancient era · also reached by Animal Husbandry
+--- FA03 [owned] Selective Breeding Farming · Ancient era
     Discovered on turn 95. +1 Food from Plantation tiles; +1 Production from Pasture tiles; War Dog (unit)
     Needs ✓ Seed Saving + ✓ Herd Animal Domestication + (✓ Botanical Classification or ✓ Irrigation and Crop Rotation)
     Improved varieties of every cultivated crop.
@@ -400,7 +412,7 @@
     ACTIONS: [disabled] Discovered
 --- FA16 [owned] Nitrate Fertiliser Farming · Early Modern era
     Discovered on turn 187. +1 Food from Farm tiles in all cities while you hold Saltpeter, until Catalysis
-    Superseded by Catalysis: its buildings are no longer available.
+    Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process.
     Needs ✓ Saltpeter Mining + ✓ Crop Rotation
     Before 1913 the world's fields were fed from Chilean nitrate and Peruvian guano.
     ACTIONS: [disabled] Discovered
@@ -428,9 +440,10 @@
     Needs ✓ Plant Identification
     ACTIONS: [disabled] Discovered
 --- G06 [closed] Mycological Knowledge Foraging · Ancient era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Plant Identification
-    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 37 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The moulds that spoil our bread may have uses we have not yet guessed.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 37 Insight · about 1 turn
 --- G07 [owned] Botanical Classification Foraging · Classical era
@@ -438,15 +451,17 @@
     Needs ✓ Plant Identification + ✓ Writing
     ACTIONS: [disabled] Discovered
 --- G10 [closed] Psychoactive Plant Knowledge Foraging · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Plant Identification
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Certain resins and leaves bring visions; our priests might learn their use.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
 --- GN02 [closed] DNA Structure Genetics · Atomic era
-    Learned of from another civilisation. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Learned of from another civilisation. Its moment passed — only an Endeavour is certain.
     Needs ✓ Germ Theory + ✓ Selective Breeding + ✓ Organic Chemistry + ✓ Telescope
-    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Heredity must be written in a molecule; if we saw its shape, we could read it.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 5,340 Insight · about 8 turns
 --- MA01 [owned] Geometry Mathematics · Ancient era
@@ -486,9 +501,10 @@
     Quality control: a factory’s output judged from a sample.
     ACTIONS: [disabled] Discovered
 --- MA11 [closed] Fractal Mathematics Mathematics · Atomic era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Calculus + ✓ Non-Euclidean Geometry
-    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Coastlines and mountains might follow a mathematics of their own.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 5,340 Insight · about 8 turns
 --- MA13 [owned] Topology Mathematics · Modern era
@@ -508,7 +524,7 @@
     Needs ✓ Wheel + ✓ Geometry
     The crane lifts what the arm cannot.
     ACTIONS: [disabled] Discovered
---- MC04 [owned] Windmill Mechanics · Medieval era · also reached by Energy Systems
+--- MC04 [owned] Windmill Mechanics · Medieval era
     Discovered on turn 136. Windmill (building)
     Needs ✓ Gearing + ✓ Sail Invention
     ACTIONS: [disabled] Discovered
@@ -528,7 +544,7 @@
     Needs ✓ Blast Furnace + ✓ Water Mill + ✓ Scientific Method
     Watt's separate condenser (1769) began as a repair to a model Newcomen engine.
     ACTIONS: [disabled] Discovered
---- MC09 [owned] Internal Combustion Engine Mechanics · Modern era · also reached by Chemistry
+--- MC09 [owned] Internal Combustion Engine Mechanics · Modern era
     Discovered on turn 220. Landship, Tank, Anti-Tank Gun (units); Distillery Fuel Depot (building)
     Distillery Fuel Depot: 1 Oil and -20% growth while its city works 3 Farms
     Needs ✓ Steam Engine + (✓ Petroleum Discovery and Petrochemistry or ✓ Distillation and Organic Chemistry)
@@ -560,7 +576,7 @@
     Discovered on turn 136. Medical School (building)
     Needs ✓ Comparative Anatomy + ✓ Writing
     ACTIONS: [disabled] Discovered
---- MD04 [owned] Vaccination Medicine · Early Modern era · also reached by Animal Husbandry
+--- MD04 [owned] Vaccination Medicine · Early Modern era
     Discovered on turn 191. +10% growth in all cities
     Needs ✓ Anatomy Study + ✓ Herd Animal Domestication
     The milkmaid observation: the plague years end.
@@ -572,6 +588,7 @@
     ACTIONS: [disabled] Discovered
 --- MD06 [studying] Antibiotics Medicine · Atomic era
     Being studied in Medicine: it takes a share of that focus’s Insight every turn.
+    Rival of Phage Therapy: if this comes first, Phage Therapy is never developed.
     Needs ✓ Germ Theory + ✓ Organic Chemistry
     “A compound that kills germs but spares the patient might cure infection.”
     ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
@@ -581,9 +598,10 @@
     “Distilled vapours might put a patient beyond pain while the surgeon works.”
     ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
 --- MD08 [closed] Prosthetics Medicine · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Anatomy Study + ✓ Gearing
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Geared limbs of wood and metal might send the wounded back to the line.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- MD15 [owned] Contagion Experiments Medicine · Early Modern era
@@ -683,7 +701,7 @@
     Needs ✓ Deep Shaft Mining + ✓ Periodic Table
     “Rare metals hidden in dull-looking ores might be separated out, one by one.”
     ACTIONS: Fund Mining | [disabled] Grand Endeavour only for ideas not yet occurred
---- MI13 [owned] Wood Gas Production Mining · Early Modern era · also reached by Chemistry
+--- MI13 [owned] Wood Gas Production Mining · Early Modern era
     Discovered on turn 191. -25% construction time for Lumber mills
     Needs ✓ Charcoal Production + ✓ Oxygen Theory
     Wood-gas lorries were common in fuel-starved Europe in the Second World War.
@@ -741,9 +759,10 @@
     Needs ✓ Ore Identification
     ACTIONS: [disabled] Discovered
 --- O09 [closed] Migratory Pattern Mapping Observation · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Animal Behavior Study
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “If we knew where the herds go each season, we could be waiting for them.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
 --- O12 [studying] Atmospheric Science Observation · Modern era
@@ -798,9 +817,10 @@
     Needs ✓ Formal Logic
     ACTIONS: [disabled] Discovered
 --- PH09 [closed] Existentialism Philosophy and the Arts · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Formal Logic
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “If life has no given purpose, each of us may have to make one.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- PH10 [studying] Information Theory Philosophy and the Arts · Atomic era
@@ -852,7 +872,8 @@
 --- QP12 [owned] Casimir Effect Amplification Quantum Physics · Space era
     Discovered on turn 224. No buildings, units or bonuses of its own.
     Needs ✓ Quantum Field Theory + ✓ Precision Machining
-    ACTIONS: [disabled] Discovered
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
 --- RC01 [owned] Special Relativity Relativity & Cosmology · Modern era
     Discovered on turn 169. +10% Gold from Trade Routes; +10% Insight to Nuclear Physics
     Needs ✓ Non-Euclidean Geometry + ✓ Electromagnetism
@@ -898,15 +919,17 @@
     Suddenly you see where the wealth is buried.
     ACTIONS: [disabled] Discovered
 --- S05 [closed] Obsidian Working Stonework · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Tool Knapping + ✓ Volcanic region in your lands
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Volcanic glass might flake to an edge keener than any blade we can forge.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
 --- S07 [closed] Flint Knapping Mastery Stonework · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Tool Knapping
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Flint shaped with patience might give our arrows truer, keener points.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
 --- S08 [owned] Jade/Gemstone Working Stonework · Ancient era
@@ -952,9 +975,10 @@
     Needs ✓ Caravel/Deep Ocean Ship + ✓ Cannons
     ACTIONS: [disabled] Discovered
 --- SF12 [closed] Ironclad Seafaring · Modern era New
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Ship of the Line + ✓ Blast Furnace
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “A hull sheathed in iron plate might shrug off shot that splinters oak.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- SF19 [owned] Longitude Seafaring · Early Modern era
@@ -1028,8 +1052,9 @@
     Needs ✓ Laws of Thermodynamics + ✓ Calculus
     The engineer who knows the limit gets closest to it.
     ACTIONS: [disabled] Discovered
---- TH08 [owned] Stirling Engine Mastery Thermodynamics · Early Modern era · also reached by Energy Systems, Mechanics
+--- TH08 [owned] Stirling Engine Mastery Thermodynamics · Early Modern era
     Discovered on turn 188. Stirling Works (building): a power plant that needs no fuel resource
+    Persists: Internal Combustion Engine came later, and the Stirling Works stays available.
     Needs ✓ Laws of Thermodynamics + ✓ Steam Engine
     Less power, but it burns anything.
     ACTIONS: [disabled] Discovered
@@ -1045,11 +1070,12 @@
     Joule’s paddle-wheel and Rumford’s cannon: friction makes heat without limit.
     ACTIONS: [disabled] Discovered
 --- TH15 [closed] Waste-Heat Recovery Thermodynamics · Space era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Turbine Design + ✓ Carnot Efficiency
-    As an Endeavour: 21,827 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 54,568 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The heat our factories throw away might be caught and set to work.”
-    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 21,827 Insight · about 32 turns
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 54,568 Insight · about 80 turns
 --- TR01 [owned] Barter System Trade · Primitive era
     Discovered on turn 31. +1 Gold from each Trade Route; unlocks the Trade screen
     Needs ✓ Basic Counting
@@ -1078,9 +1104,10 @@
     “A price might be agreed today for a harvest not yet sown.”
     ACTIONS: Fund Trade | [disabled] Grand Endeavour only for ideas not yet occurred
 --- TR17 [closed] Long-Distance Trade Trade · Classical era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Caravansary + ✓ Currency
-    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 168 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Passed from caravan to caravan, goods might cross a whole continent.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 168 Insight · about 1 turn
 --- TX01 [owned] Weaving Textiles & Materials · Primitive era
@@ -1133,7 +1160,7 @@
     Riders who strike where the line bends.
     ACTIONS: [disabled] Discovered
 --- WA08 [not_taken] Chariot Warfare Warfare · Ancient era
-    Glimpsed by our scholars. Path not taken: Cavalry Tactics was discovered first, so this will never be developed.
+    Glimpsed by our scholars. Path not taken: Cavalry Tactics came first, so this will never be developed.
     A thing your civilisation glimpsed and let slip.
     “A light cart behind fast horses might carry a man with a bow into battle.”
     ACTIONS: [disabled] Never developed
@@ -1141,7 +1168,7 @@
     Discovered on turn 129. Crossbowman (unit)
     Needs ✓ Composite Bow + ✓ Gearing
     ACTIONS: [disabled] Discovered
---- WA10 [owned] Gunpowder Warfare · Medieval era · also reached by Chemistry
+--- WA10 [owned] Gunpowder Warfare · Medieval era
     Discovered on turn 151. Musketman (unit, requires Saltpeter); Himeji Castle (world wonder)
     Needs ✓ Advanced Pyrotechnics + ✓ Saltpeter Mining + ✓ Geological Observation
     ACTIONS: [disabled] Discovered
@@ -1150,9 +1177,10 @@
     Needs ✓ Siege Warfare + ✓ Geometry
     ACTIONS: [disabled] Discovered
 --- WA13 [closed] Guerrilla Tactics Warfare · Classical era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Formation Fighting + ✓ Forest, jungle or mountains in your lands
-    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 168 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Small bands who know the hills and forests might bleed a larger army.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 168 Insight · about 1 turn
 --- WA16 [owned] Rifling Warfare · Early Modern era
@@ -1189,7 +1217,7 @@
     +1 Food from Flood plains tiles in all cities
     Needs ✓ Canal Building + ✓ Arch Construction
     ACTIONS: [disabled] Discovered
---- WM05 [owned] Water Mill Water Management · Classical era · also reached by Energy Systems
+--- WM05 [owned] Water Mill Water Management · Classical era
     Discovered on turn 60. Water Mill (building)
     Needs ✓ Canal Building + ✓ Gearing
     ACTIONS: [disabled] Discovered
@@ -1207,32 +1235,36 @@
     ACTIONS: [disabled] Discovered
 --- WM11 [owned] Industrial Canal Network Water Management · Early Modern era
     Discovered on turn 194. Pound Lock (building): +2 Gold, +2 Production from each Trade Route
-    Superseded by Railway Network: its buildings are no longer available.
+    Superseded by Railway Network: its Pound Lock can no longer be built.
     Needs ✓ Canal Building + ✓ Arch Construction + ✓ Caravansary + ✓ A river in your lands
     Canal Mania, 1790s: one horse pulled 30 tons by barge, but only 1 ton by road cart.
     ACTIONS: [disabled] Discovered
 --- WM12 [closed] Tidal Mill Water Management · Medieval era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Water Mill + ✓ Tidal Patterns
-    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 371 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Sea water trapped behind a sluice gate might turn a wheel as a river does.”
     ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 371 Insight · about 1 turn
 --- MD20 [waiting] Phage Therapy Medicine · Modern era
-    Revealed by Germ Theory. Awaiting the idea: no Insight, however hard Medicine is funded, until the idea occurs.
+    Revealed by Germ Theory. Awaiting the idea: no Insight until the idea occurs.
+    Rival of Antibiotics: if that comes first, this is never developed.
     Needs ✓ Germ Theory + ✓ Telescope
-    Competes with Antibiotics, under study: if that comes first, this is never developed.
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “Viruses that prey on bacteria might be bred to fight infection.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+    ACTIONS: Experiment 300 Gold | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- ES05 [waiting] Oil Power Plant Energy Systems · Modern era
-    Revealed by Turbine Design. Awaiting the idea: no Insight, however hard Energy Systems is funded, until the idea occurs.
+    Revealed by Turbine Design. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Turbine Design + (✓ Petroleum Discovery or ✓ Internal Combustion Engine)
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “Oil already drives our engines; it might drive a turbine as readily as coal.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+    ACTIONS: Experiment 300 Gold | Begin Grand Endeavour 2,447 Insight · about 4 turns
 --- RK09 [waiting] Ion Drive Rocketry · Space era
-    Revealed by Quantum Electrodynamics. Awaiting the idea: no Insight, however hard Rocketry is funded, until the idea occurs.
+    Revealed by Quantum Electrodynamics. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Liquid Fuel Rocket + ✓ Electric Generator + ✓ Quantum Electrodynamics
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A faint, endless push of charged atoms might carry a craft to other planets.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 21,827 Insight · about 32 turns
+    ACTIONS: Experiment 300 Gold | Begin Grand Endeavour 21,827 Insight · about 32 turns
 --- RC03 [unreach] Gravitational Waves Detection Relativity & Cosmology · Atomic era
     Revealed by General Relativity. Not yet reachable: a prerequisite must be discovered first.
     Needs ✓ General Relativity + ✗ Laser (under study in Optics) + ✓ Precision Machining
@@ -1260,11 +1292,6 @@
     Tends to help with materials, fuels and medicines. Modifiers: +20% volcanic region, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Chemistry | Add to queue
---- Computing [focus] Computing not funded
-    Under study here: Analog Computing Mastery.
-    Tends to help with science and administration. Modifiers: +5% Natural Philosophy (all foci).
-    Switching loses nothing: every breakthrough keeps its progress.
-    ACTIONS: Fund Computing | Add to queue
 --- Construction [focus] Construction not funded
     Nothing revealed is under study here.
     Tends to help with buildings and defences. Modifiers: +20% river start, +25% earthquake-prone land, +5% Natural Philosophy (all foci).
@@ -1283,12 +1310,12 @@
 --- Energy Systems [focus] Energy Systems not funded · queued 2nd
     Under study here: Coal Power Plant, Biomass Power Plant, Tidal Power, Biomass/Biogas.
     Tends to help with power and production. Modifiers: +5% Natural Philosophy (all foci).
-    Queued 2nd: funding moves here when Quantum Physics has no revealed work under study.
+    Next in the queue: funding moves here when Quantum Physics has no revealed work under study.
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Energy Systems | Remove from queue
 --- Farming [focus] Farming not funded
     Under study here: Biomass Power Plant, Biomass/Biogas.
-    Tends to help with food and growth. Modifiers: +20% river start, +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Tends to help with food and growth. Modifiers: +20% river start, +20% diverse lands, +10% Botanical Classification, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Farming | Add to queue
 --- Fire [focus] Fire not funded
@@ -1298,7 +1325,7 @@
     ACTIONS: Fund Fire | Add to queue
 --- Foraging [focus] Foraging not funded
     Nothing revealed is under study here.
-    Tends to help with food and medicine. Modifiers: +5% Natural Philosophy (all foci).
+    Tends to help with food and medicine. Modifiers: +20% diverse lands, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Foraging | Add to queue
 --- Genetics [focus] Genetics not funded
@@ -1323,8 +1350,8 @@
     ACTIONS: Fund Mechanics | Add to queue
 --- Medicine [focus] Medicine not funded · queued 3rd
     Under study here: Antibiotics, Anaesthesia.
-    Tends to help with health and growth. Modifiers: +10% Botanical Classification, +5% Natural Philosophy (all foci).
-    Queued 3rd: funding moves here when Quantum Physics has no revealed work under study.
+    Tends to help with health and growth. Modifiers: +20% diverse lands, +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Queued 3rd: after Energy Systems.
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Medicine | Remove from queue
 --- Metallurgy [focus] Metallurgy not funded
@@ -1414,17 +1441,17 @@
     ACTIONS: Fund Water Management | Add to queue
 --- funding [funding] Insight 853 a turn, equal to your science
     80% (683) goes to the funded focus, since Specialization of Labor; before it, 50%.
-    The other 20% (171) spreads to foci with work under study. Switching loses nothing.
+    The other 20% (171) spreads to foci with work under study.
     Queue: 2 Energy Systems, 3 Medicine. It moves on when the funded focus has no revealed work under study.
-    Diffusion: after the press (Printing Press). Theories reveal their applications (Scientific Method).
-    Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
+    Diffusion: after the press. Theories reveal their applications (Scientific Method).
     ACTIONS: [disabled] Funded: Quantum Physics
 --- era [era] Modern era entered by count
     You enter an era when you hold enough breakthroughs from it or later.
     The Atomic era needs 6 from the Atomic era or later: you hold 5.
     Synthesis can be used once in each era: unused in the Modern era.
+    Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
     ACTIONS: 
-===== t231 (a3)
+===== t231 (t231-endeavour)
 --- AE01 [owned] Hot Air Balloon Aeronautics · Early Modern era
     Discovered on turn 202. Observation Balloon (unit)
     Needs ✓ Controlled Fire + ✓ Weaving + ✓ Scientific Method
@@ -1462,15 +1489,17 @@
     The horse transformed warfare.
     ACTIONS: [disabled] Discovered
 --- AH05 [closed] Camel Domestication Animal Husbandry · Ancient era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Animal Behavior Study + ✓ Desert in your lands
-    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 37 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The desert beast that stores its water might carry our goods.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 37 Insight · about 1 turn
 --- AH06 [closed] Elephant Domestication Animal Husbandry · Ancient era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Animal Behavior Study + ✓ Tropical forest in your lands
-    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 37 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The great beasts of the forest might be tamed to haul and to carry.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 37 Insight · about 1 turn
 --- AH11 [owned] Veterinary Medicine Animal Husbandry · Classical era
@@ -1500,7 +1529,7 @@
     Discovered on turn 199. Pharmaceutical Works (building); Cristo Redentor (world wonder)
     Needs ✓ Periodic Table
     ACTIONS: [disabled] Discovered
---- CH08 [owned] Explosives (non-gunpowder) Chemistry · Modern era · also reached by Mining
+--- CH08 [owned] Explosives (non-gunpowder) Chemistry · Modern era
     Discovered on turn 216. Artillery (unit); -25% construction time for Mine improvements
     Needs ✓ Organic Chemistry + ✓ Distillation
     ACTIONS: [disabled] Discovered
@@ -1510,6 +1539,7 @@
     ACTIONS: [disabled] Discovered
 --- CH09-W [owned] Bio-Organic Synthesis Chemistry · Modern era
     Discovered on turn 211. Bio-Refinery (building)
+    Persists: Petrochemistry came later, and the Bio-Refinery stays available.
     Needs ✓ Organic Chemistry + ✓ Selective Breeding
     Nature made polymers first. What if we learned from it better?
     ACTIONS: [disabled] Discovered
@@ -1518,7 +1548,7 @@
     Opens the Materials Science focus.
     Needs ✓ Organic Chemistry + (✓ Petrochemistry or ✓ Bio-Organic Synthesis)
     ACTIONS: [disabled] Discovered
---- CH12 [owned] Catalysis Chemistry · Modern era · also reached by Farming
+--- CH12 [owned] Catalysis Chemistry · Modern era
     Discovered on turn 203. +1 Food from Farm tiles in all cities
     Needs ✓ Periodic Table
     ACTIONS: [disabled] Discovered
@@ -1528,9 +1558,10 @@
     Needs (✓ Explosives (non-gunpowder) or ✓ Gunpowder) + ✓ Laws of Thermodynamics
     ACTIONS: [disabled] Discovered
 --- CH14 [closed] Photochemistry Chemistry · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Periodic Table + ✓ Telescope
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Light darkens salts of silver; perhaps it could be made to fix an image.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- CH15 [owned] Greek Alchemical Tradition Chemistry · Classical era
@@ -1575,7 +1606,7 @@
     Seawater-proof harbours, from a recipe later lost for a millennium.
     ACTIONS: [disabled] Discovered
 --- CO05 [not_taken] Corbel Arch/Vault Construction · Ancient era
-    Glimpsed by our scholars. Path not taken: Arch Construction was discovered first, so this will never be developed.
+    Glimpsed by our scholars. Path not taken: Arch Construction came first, so this will never be developed.
     A thing your civilisation glimpsed and let slip.
     “Stones stepped inward, course by course, until they meet.”
     ACTIONS: [disabled] Never developed
@@ -1586,15 +1617,17 @@
     Walls that lean on air: the masons who raised the cathedrals raised the colleges.
     ACTIONS: [disabled] Discovered
 --- CO07 [closed] Earthquake-Resistant Design Construction · Classical era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Post and Lintel + ✓ Earthquake-prone lands
-    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 168 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Timber that bends where stone would crack might ride out the earthquakes.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 168 Insight · about 1 turn
 --- CO09 [closed] Suspension Bridge Construction · Medieval era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Arch Construction + (✓ Steel Production or ✓ Weaving)
-    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 371 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “A road hung from cables might cross a gorge no arch could span.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 371 Insight · about 1 turn
 --- CO10 [owned] Iron-Frame Construction Construction · Early Modern era
@@ -1613,10 +1646,11 @@
     “A dome of light struts, all triangles, might roof an arena in any climate.”
     ACTIONS: Fund Construction | [disabled] Grand Endeavour only for ideas not yet occurred
 --- CO17 [waiting] Sealed Environments Construction · Modern era
-    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Glimpsed by our scholars. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Reinforced Concrete + ✓ Oxygen Theory + ✓ Glassmaking
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A hull sealed tight, with air of its own, might keep a crew alive under water.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 2,447 Insight · about 4 turns
 --- CO23 [owned] Railway Network Construction · Early Modern era
     Discovered on turn 198. Railroad (improvement); Railway Station (building)
     Neuschwanstein (world wonder)
@@ -1634,15 +1668,11 @@
     The trace italienne: low, angled bastions that turn a bombardment aside.
     ACTIONS: [disabled] Discovered
 --- CO26 [waiting] Ring Fortress Construction · Modern era
-    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Glimpsed by our scholars. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Star Fort + ✓ Reinforced Concrete
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A ring of detached forts in concrete and steel might stand up to any shell.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
---- CP13 [studying] Analog Computing Mastery Computing · Modern era
-    Being studied in Computing: it takes a share of that focus’s Insight every turn.
-    Needs ✓ Vacuum Tube + ✓ Calculus
-    “A machine of shafts and currents might act out an equation, not count it.”
-    ACTIONS: Fund Computing | [disabled] Grand Endeavour only for ideas not yet occurred
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 2,447 Insight · about 4 turns
 --- CU02 [owned] Monumental Architecture Philosophy and the Arts · Ancient era
     Discovered on turn 64. Temple (building); Stonehenge, The Pyramids, Mausoleum of Halicarnassus (wonders)
     -25% Culture cost of natural border growth in all cities
@@ -1712,17 +1742,18 @@
     Bell and Marconi: telecommunication by wire and without.
     ACTIONS: [disabled] Discovered
 --- EL10 [closed] Piezoelectricity Electricity · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Electromagnetism + ✓ Periodic Table
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Squeezed hard enough, certain crystals might give up a current of their own.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
---- EL11 [endeavour] Superconductivity Electricity · Atomic era · Grand Endeavour
-    64% complete — 3,415 of 5,340 Insight; about 3 more turns at 683 a turn. It cannot fail.
-    It takes the funded share; the 20% spread still reaches your other foci.
-    Milestones at 25%, 50% and 75% may bring spin-offs. Committed on turn 226.
+--- EL11 [closed] Superconductivity Electricity · Atomic era · Grand Endeavour
+    64% done — 3,415 of 5,340 Insight; about 3 turns more at 683 a turn. It cannot fail.
+    It takes the funded share, 80%; the 20% spread still reaches your other foci.
+    Milestones at 25%, 50% and 75% may bring spin-offs. Begun on turn 226.
     Stopping it lets its progress decay slowly; you can resume it later.
-    ACTIONS: [disabled] Endeavour under way 64% | Stop the Endeavour
+    ACTIONS: [disabled] Endeavour under way 64% done | Stop the Endeavour
 --- EN01 [owned] Vacuum Tube Electronics · Modern era
     Discovered on turn 187. +15% Production when constructing Air units in all cities
     Needs ✓ Electromagnetism + ✓ Glassmaking
@@ -1734,32 +1765,37 @@
     “A sliver of crystal might do the work of a vacuum tube, smaller and cooler.”
     ACTIONS: Fund Electronics | [disabled] Grand Endeavour only for ideas not yet occurred
 --- EN04 [closed] Radar Electronics · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Vacuum Tube + ✓ Wireless Transmission
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Radio waves bounced off distant aircraft might find them before any eye can.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- EN11 [closed] Radio Electronics · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Vacuum Tube + ✓ Wireless Transmission + ✓ Lens Grinding
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Voices and music might be carried through the air to every home.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- ES03 [studying] Coal Power Plant Energy Systems · Modern era
     Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Rival of Biomass Power Plant: if this comes first, Biomass Power Plant is never developed.
     Needs ✓ Turbine Design + ✓ Blast Furnace
     “Steam raised by coal fires might spin great turbines and light a whole city.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
---- ES03-W [studying] Biomass Power Plant Energy Systems · Modern era · also reached by Farming
+--- ES03-W [studying] Biomass Power Plant Energy Systems · Modern era
     Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
-    Competes with Coal Power Plant, also under study: if that comes first, this is never developed.
+    Rival of Coal Power Plant: if that comes first, this is never developed.
     Needs ✓ Turbine Design + ✓ Wood Gas Production + ✓ Selective Breeding
+    Also reached by funding Farming.
     “Crops and timber grown for burning could turn a turbine as well as coal.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
 --- ES09 [closed] Geothermal Power Energy Systems · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Deep Shaft Mining + ✓ Laws of Thermodynamics
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The heat that stirs our volcanoes might be drawn up to turn our turbines.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- ES10 [studying] Tidal Power Energy Systems · Atomic era
@@ -1767,9 +1803,10 @@
     Needs ✓ Tidal Patterns + ✓ Turbine Design
     “The sea rises and falls by the clock; that rhythm might be made to work.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
---- ES13 [studying] Biomass/Biogas Energy Systems · Modern era · also reached by Chemistry, Farming
+--- ES13 [studying] Biomass/Biogas Energy Systems · Modern era
     Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
     Needs ✓ Distillation + ✓ Organic Chemistry
+    Also reached by funding Chemistry or Farming.
     “Rotting waste gives off a gas that burns; our refuse might light our cities.”
     ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
 --- F01 [owned] Controlled Fire Fire · Primitive era
@@ -1814,7 +1851,7 @@
     Needs ✓ Seed Saving
     The soil no longer tires.
     ACTIONS: [disabled] Discovered
---- FA03 [owned] Selective Breeding Farming · Ancient era · also reached by Animal Husbandry
+--- FA03 [owned] Selective Breeding Farming · Ancient era
     Discovered on turn 95. +1 Food from Plantation tiles; +1 Production from Pasture tiles; War Dog (unit)
     Needs ✓ Seed Saving + ✓ Herd Animal Domestication + (✓ Botanical Classification or ✓ Irrigation and Crop Rotation)
     Improved varieties of every cultivated crop.
@@ -1826,7 +1863,7 @@
     ACTIONS: [disabled] Discovered
 --- FA16 [owned] Nitrate Fertiliser Farming · Early Modern era
     Discovered on turn 187. +1 Food from Farm tiles in all cities while you hold Saltpeter, until Catalysis
-    Superseded by Catalysis: its buildings are no longer available.
+    Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process.
     Needs ✓ Saltpeter Mining + ✓ Crop Rotation
     Before 1913 the world's fields were fed from Chilean nitrate and Peruvian guano.
     ACTIONS: [disabled] Discovered
@@ -1854,9 +1891,10 @@
     Needs ✓ Plant Identification
     ACTIONS: [disabled] Discovered
 --- G06 [closed] Mycological Knowledge Foraging · Ancient era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Plant Identification
-    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 37 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The moulds that spoil our bread may have uses we have not yet guessed.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 37 Insight · about 1 turn
 --- G07 [owned] Botanical Classification Foraging · Classical era
@@ -1864,15 +1902,17 @@
     Needs ✓ Plant Identification + ✓ Writing
     ACTIONS: [disabled] Discovered
 --- G10 [closed] Psychoactive Plant Knowledge Foraging · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Plant Identification
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Certain resins and leaves bring visions; our priests might learn their use.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
 --- GN02 [closed] DNA Structure Genetics · Atomic era
-    Learned of from another civilisation. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Learned of from another civilisation. Its moment passed — only an Endeavour is certain.
     Needs ✓ Germ Theory + ✓ Selective Breeding + ✓ Organic Chemistry + ✓ Telescope
-    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Heredity must be written in a molecule; if we saw its shape, we could read it.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 5,340 Insight · about 8 turns
 --- MA01 [owned] Geometry Mathematics · Ancient era
@@ -1912,9 +1952,10 @@
     Quality control: a factory’s output judged from a sample.
     ACTIONS: [disabled] Discovered
 --- MA11 [closed] Fractal Mathematics Mathematics · Atomic era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Calculus + ✓ Non-Euclidean Geometry
-    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Coastlines and mountains might follow a mathematics of their own.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 5,340 Insight · about 8 turns
 --- MA13 [owned] Topology Mathematics · Modern era
@@ -1934,7 +1975,7 @@
     Needs ✓ Wheel + ✓ Geometry
     The crane lifts what the arm cannot.
     ACTIONS: [disabled] Discovered
---- MC04 [owned] Windmill Mechanics · Medieval era · also reached by Energy Systems
+--- MC04 [owned] Windmill Mechanics · Medieval era
     Discovered on turn 136. Windmill (building)
     Needs ✓ Gearing + ✓ Sail Invention
     ACTIONS: [disabled] Discovered
@@ -1954,7 +1995,7 @@
     Needs ✓ Blast Furnace + ✓ Water Mill + ✓ Scientific Method
     Watt's separate condenser (1769) began as a repair to a model Newcomen engine.
     ACTIONS: [disabled] Discovered
---- MC09 [owned] Internal Combustion Engine Mechanics · Modern era · also reached by Chemistry
+--- MC09 [owned] Internal Combustion Engine Mechanics · Modern era
     Discovered on turn 220. Landship, Tank, Anti-Tank Gun (units); Distillery Fuel Depot (building)
     Distillery Fuel Depot: 1 Oil and -20% growth while its city works 3 Farms
     Needs ✓ Steam Engine + (✓ Petroleum Discovery and Petrochemistry or ✓ Distillation and Organic Chemistry)
@@ -1986,7 +2027,7 @@
     Discovered on turn 136. Medical School (building)
     Needs ✓ Comparative Anatomy + ✓ Writing
     ACTIONS: [disabled] Discovered
---- MD04 [owned] Vaccination Medicine · Early Modern era · also reached by Animal Husbandry
+--- MD04 [owned] Vaccination Medicine · Early Modern era
     Discovered on turn 191. +10% growth in all cities
     Needs ✓ Anatomy Study + ✓ Herd Animal Domestication
     The milkmaid observation: the plague years end.
@@ -1998,6 +2039,7 @@
     ACTIONS: [disabled] Discovered
 --- MD06 [studying] Antibiotics Medicine · Atomic era
     Being studied in Medicine: it takes a share of that focus’s Insight every turn.
+    Rival of Phage Therapy: if this comes first, Phage Therapy is never developed.
     Needs ✓ Germ Theory + ✓ Organic Chemistry
     “A compound that kills germs but spares the patient might cure infection.”
     ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
@@ -2007,9 +2049,10 @@
     “Distilled vapours might put a patient beyond pain while the surgeon works.”
     ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
 --- MD08 [closed] Prosthetics Medicine · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Anatomy Study + ✓ Gearing
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Geared limbs of wood and metal might send the wounded back to the line.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- MD15 [owned] Contagion Experiments Medicine · Early Modern era
@@ -2109,7 +2152,7 @@
     Needs ✓ Deep Shaft Mining + ✓ Periodic Table
     “Rare metals hidden in dull-looking ores might be separated out, one by one.”
     ACTIONS: Fund Mining | [disabled] Grand Endeavour only for ideas not yet occurred
---- MI13 [owned] Wood Gas Production Mining · Early Modern era · also reached by Chemistry
+--- MI13 [owned] Wood Gas Production Mining · Early Modern era
     Discovered on turn 191. -25% construction time for Lumber mills
     Needs ✓ Charcoal Production + ✓ Oxygen Theory
     Wood-gas lorries were common in fuel-starved Europe in the Second World War.
@@ -2167,9 +2210,10 @@
     Needs ✓ Ore Identification
     ACTIONS: [disabled] Discovered
 --- O09 [closed] Migratory Pattern Mapping Observation · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Animal Behavior Study
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “If we knew where the herds go each season, we could be waiting for them.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
 --- O12 [studying] Atmospheric Science Observation · Modern era
@@ -2224,9 +2268,10 @@
     Needs ✓ Formal Logic
     ACTIONS: [disabled] Discovered
 --- PH09 [closed] Existentialism Philosophy and the Arts · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Formal Logic
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “If life has no given purpose, each of us may have to make one.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- PH10 [owned] Information Theory Philosophy and the Arts · Atomic era New
@@ -2267,7 +2312,8 @@
 --- QP06 [owned] Standard Model Completion Quantum Physics · Atomic era New
     Discovered on turn 228. Standard Model Institute (national wonder)
     Needs ✓ Quantum Field Theory + ✓ Particle Accelerator
-    ACTIONS: [disabled] Discovered
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
 --- QP08 [owned] Quantum Gravity Theory Quantum Physics · Space era New
     Discovered on turn 228. Reveals every strategic resource within a 20-tile radius
     Needs ✓ Quantum Field Theory + ✓ General Relativity + ✓ Particle Accelerator
@@ -2276,7 +2322,8 @@
 --- QP12 [owned] Casimir Effect Amplification Quantum Physics · Space era
     Discovered on turn 224. No buildings, units or bonuses of its own.
     Needs ✓ Quantum Field Theory + ✓ Precision Machining
-    ACTIONS: [disabled] Discovered
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
 --- RC01 [owned] Special Relativity Relativity & Cosmology · Modern era
     Discovered on turn 169. +10% Gold from Trade Routes; +10% Insight to Nuclear Physics
     Needs ✓ Non-Euclidean Geometry + ✓ Electromagnetism
@@ -2322,15 +2369,17 @@
     Suddenly you see where the wealth is buried.
     ACTIONS: [disabled] Discovered
 --- S05 [closed] Obsidian Working Stonework · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Tool Knapping + ✓ Volcanic region in your lands
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Volcanic glass might flake to an edge keener than any blade we can forge.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
 --- S07 [closed] Flint Knapping Mastery Stonework · Primitive era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Tool Knapping
-    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 12 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Flint shaped with patience might give our arrows truer, keener points.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
 --- S08 [owned] Jade/Gemstone Working Stonework · Ancient era
@@ -2376,9 +2425,10 @@
     Needs ✓ Caravel/Deep Ocean Ship + ✓ Cannons
     ACTIONS: [disabled] Discovered
 --- SF12 [closed] Ironclad Seafaring · Modern era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Ship of the Line + ✓ Blast Furnace
-    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    As an Endeavour: 2,447 Insight, double the usual cost; about 4 turns at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “A hull sheathed in iron plate might shrug off shot that splinters oak.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
 --- SF19 [owned] Longitude Seafaring · Early Modern era
@@ -2452,8 +2502,9 @@
     Needs ✓ Laws of Thermodynamics + ✓ Calculus
     The engineer who knows the limit gets closest to it.
     ACTIONS: [disabled] Discovered
---- TH08 [owned] Stirling Engine Mastery Thermodynamics · Early Modern era · also reached by Energy Systems, Mechanics
+--- TH08 [owned] Stirling Engine Mastery Thermodynamics · Early Modern era
     Discovered on turn 188. Stirling Works (building): a power plant that needs no fuel resource
+    Persists: Internal Combustion Engine came later, and the Stirling Works stays available.
     Needs ✓ Laws of Thermodynamics + ✓ Steam Engine
     Less power, but it burns anything.
     ACTIONS: [disabled] Discovered
@@ -2469,11 +2520,12 @@
     Joule’s paddle-wheel and Rumford’s cannon: friction makes heat without limit.
     ACTIONS: [disabled] Discovered
 --- TH15 [closed] Waste-Heat Recovery Thermodynamics · Space era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Turbine Design + ✓ Carnot Efficiency
-    As an Endeavour: 21,827 Insight, twice today’s price, falling as development catches up.
+    As an Endeavour: 54,568 Insight; dearer while it is ahead of its time. Fixed once begun.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “The heat our factories throw away might be caught and set to work.”
-    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 21,827 Insight · about 32 turns
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 54,568 Insight · about 80 turns
 --- TR01 [owned] Barter System Trade · Primitive era
     Discovered on turn 31. +1 Gold from each Trade Route; unlocks the Trade screen
     Needs ✓ Basic Counting
@@ -2502,9 +2554,10 @@
     “A price might be agreed today for a harvest not yet sown.”
     ACTIONS: Fund Trade | [disabled] Grand Endeavour only for ideas not yet occurred
 --- TR17 [closed] Long-Distance Trade Trade · Classical era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Caravansary + ✓ Currency
-    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 168 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Passed from caravan to caravan, goods might cross a whole continent.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 168 Insight · about 1 turn
 --- TX01 [owned] Weaving Textiles & Materials · Primitive era
@@ -2557,7 +2610,7 @@
     Riders who strike where the line bends.
     ACTIONS: [disabled] Discovered
 --- WA08 [not_taken] Chariot Warfare Warfare · Ancient era
-    Glimpsed by our scholars. Path not taken: Cavalry Tactics was discovered first, so this will never be developed.
+    Glimpsed by our scholars. Path not taken: Cavalry Tactics came first, so this will never be developed.
     A thing your civilisation glimpsed and let slip.
     “A light cart behind fast horses might carry a man with a bow into battle.”
     ACTIONS: [disabled] Never developed
@@ -2565,7 +2618,7 @@
     Discovered on turn 129. Crossbowman (unit)
     Needs ✓ Composite Bow + ✓ Gearing
     ACTIONS: [disabled] Discovered
---- WA10 [owned] Gunpowder Warfare · Medieval era · also reached by Chemistry
+--- WA10 [owned] Gunpowder Warfare · Medieval era
     Discovered on turn 151. Musketman (unit, requires Saltpeter); Himeji Castle (world wonder)
     Needs ✓ Advanced Pyrotechnics + ✓ Saltpeter Mining + ✓ Geological Observation
     ACTIONS: [disabled] Discovered
@@ -2574,9 +2627,10 @@
     Needs ✓ Siege Warfare + ✓ Geometry
     ACTIONS: [disabled] Discovered
 --- WA13 [closed] Guerrilla Tactics Warfare · Classical era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Formation Fighting + ✓ Forest, jungle or mountains in your lands
-    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 168 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Small bands who know the hills and forests might bleed a larger army.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 168 Insight · about 1 turn
 --- WA16 [owned] Rifling Warfare · Early Modern era
@@ -2613,7 +2667,7 @@
     +1 Food from Flood plains tiles in all cities
     Needs ✓ Canal Building + ✓ Arch Construction
     ACTIONS: [disabled] Discovered
---- WM05 [owned] Water Mill Water Management · Classical era · also reached by Energy Systems
+--- WM05 [owned] Water Mill Water Management · Classical era
     Discovered on turn 60. Water Mill (building)
     Needs ✓ Canal Building + ✓ Gearing
     ACTIONS: [disabled] Discovered
@@ -2631,32 +2685,36 @@
     ACTIONS: [disabled] Discovered
 --- WM11 [owned] Industrial Canal Network Water Management · Early Modern era
     Discovered on turn 194. Pound Lock (building): +2 Gold, +2 Production from each Trade Route
-    Superseded by Railway Network: its buildings are no longer available.
+    Superseded by Railway Network: its Pound Lock can no longer be built.
     Needs ✓ Canal Building + ✓ Arch Construction + ✓ Caravansary + ✓ A river in your lands
     Canal Mania, 1790s: one horse pulled 30 tons by barge, but only 1 ton by road cart.
     ACTIONS: [disabled] Discovered
 --- WM12 [closed] Tidal Mill Water Management · Medieval era
-    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Water Mill + ✓ Tidal Patterns
-    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    As an Endeavour: 371 Insight, double the usual cost; about 1 turn at 683 a turn.
+    Synthesis (once an era) gives its moment another chance; it is not certain.
     “Sea water trapped behind a sluice gate might turn a wheel as a river does.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 371 Insight · about 1 turn
 --- MD20 [waiting] Phage Therapy Medicine · Modern era
-    Revealed by Germ Theory. Awaiting the idea: no Insight, however hard Medicine is funded, until the idea occurs.
+    Revealed by Germ Theory. Awaiting the idea: no Insight until the idea occurs.
+    Rival of Antibiotics: if that comes first, this is never developed.
     Needs ✓ Germ Theory + ✓ Telescope
-    Competes with Antibiotics, under study: if that comes first, this is never developed.
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “Viruses that prey on bacteria might be bred to fight infection.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 2,447 Insight · about 4 turns
 --- ES05 [waiting] Oil Power Plant Energy Systems · Modern era
-    Revealed by Turbine Design. Awaiting the idea: no Insight, however hard Energy Systems is funded, until the idea occurs.
+    Revealed by Turbine Design. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Turbine Design + (✓ Petroleum Discovery or ✓ Internal Combustion Engine)
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “Oil already drives our engines; it might drive a turbine as readily as coal.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 2,447 Insight · about 4 turns
 --- RK09 [waiting] Ion Drive Rocketry · Space era
-    Revealed by Quantum Electrodynamics. Awaiting the idea: no Insight, however hard Rocketry is funded, until the idea occurs.
+    Revealed by Quantum Electrodynamics. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Liquid Fuel Rocket + ✓ Electric Generator + ✓ Quantum Electrodynamics
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “A faint, endless push of charged atoms might carry a craft to other planets.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 21,827 Insight · about 32 turns
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 21,827 Insight · about 32 turns
 --- RC03 [unreach] Gravitational Waves Detection Relativity & Cosmology · Atomic era
     Revealed by General Relativity. Not yet reachable: a prerequisite must be discovered first.
     Needs ✓ General Relativity + ✗ Laser (under study in Optics) + ✓ Precision Machining
@@ -2670,15 +2728,17 @@
     “A frame of light metal around great gas cells could cross an ocean.”
     ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour needs Dirigible/Airship first
 --- QP09 [waiting] String Theory Validation Quantum Physics · Space era New
-    Revealed by Quantum Gravity Theory. Awaiting the idea: no Insight, however hard Quantum Physics is funded, until the idea occurs.
+    Revealed by Quantum Gravity Theory. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Quantum Gravity Theory + ✓ Topology + ✓ Particle Accelerator
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “Each particle might be a tiny string, vibrating in its own note.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 21,827 Insight · about 32 turns
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 21,827 Insight · about 32 turns
 --- QP10 [waiting] Loop Quantum Gravity Quantum Physics · Space era New
-    Revealed by Quantum Gravity Theory. Awaiting the idea: no Insight, however hard Quantum Physics is funded, until the idea occurs.
+    Revealed by Quantum Gravity Theory. Awaiting the idea: no Insight until the idea occurs.
     Needs ✓ Quantum Gravity Theory + ✓ Non-Euclidean Geometry
+    Experiment (300 Gold) may help the idea occur; it is not certain.
     “The fabric of space might be knitted from loops of the gravitational field.”
-    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 21,827 Insight · about 32 turns
+    ACTIONS: Experiment 300 Gold | Replace the Endeavour 21,827 Insight · about 32 turns
 --- Aeronautics [focus] Aeronautics not funded
     Under study here: Dirigible/Airship, Heavier-Than-Air Flight.
     Tends to help with air units and sight. Modifiers: +5% Natural Philosophy (all foci).
@@ -2694,11 +2754,6 @@
     Tends to help with materials, fuels and medicines. Modifiers: +20% volcanic region, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Chemistry sets the Endeavour aside | Add to queue
---- Computing [focus] Computing not funded
-    Under study here: Analog Computing Mastery.
-    Tends to help with science and administration. Modifiers: +5% Natural Philosophy (all foci).
-    Switching loses nothing: every breakthrough keeps its progress.
-    ACTIONS: Fund Computing sets the Endeavour aside | Add to queue
 --- Construction [focus] Construction not funded
     Under study here: Geodesic Structures.
     Tends to help with buildings and defences. Modifiers: +20% river start, +25% earthquake-prone land, +5% Natural Philosophy (all foci).
@@ -2717,12 +2772,12 @@
 --- Energy Systems [focus] Energy Systems not funded · queued 3rd
     Under study here: Coal Power Plant, Biomass Power Plant, Tidal Power, Biomass/Biogas.
     Tends to help with power and production. Modifiers: +5% Natural Philosophy (all foci).
-    Queued 3rd: funding moves here when the Endeavour has no revealed work under study.
+    Queued 3rd: after the Endeavour ends, funding moves along the queue.
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Energy Systems sets the Endeavour aside | Remove from queue
 --- Farming [focus] Farming not funded
     Under study here: Biomass Power Plant, Biomass/Biogas.
-    Tends to help with food and growth. Modifiers: +20% river start, +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Tends to help with food and growth. Modifiers: +20% river start, +20% diverse lands, +10% Botanical Classification, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Farming sets the Endeavour aside | Add to queue
 --- Fire [focus] Fire not funded
@@ -2732,7 +2787,7 @@
     ACTIONS: Fund Fire sets the Endeavour aside | Add to queue
 --- Foraging [focus] Foraging not funded
     Nothing revealed is under study here.
-    Tends to help with food and medicine. Modifiers: +5% Natural Philosophy (all foci).
+    Tends to help with food and medicine. Modifiers: +20% diverse lands, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Foraging sets the Endeavour aside | Add to queue
 --- Genetics [focus] Genetics not funded
@@ -2757,8 +2812,8 @@
     ACTIONS: Fund Mechanics sets the Endeavour aside | Add to queue
 --- Medicine [focus] Medicine not funded · queued 4th
     Under study here: Antibiotics, Anaesthesia.
-    Tends to help with health and growth. Modifiers: +10% Botanical Classification, +5% Natural Philosophy (all foci).
-    Queued 4th: funding moves here when the Endeavour has no revealed work under study.
+    Tends to help with health and growth. Modifiers: +20% diverse lands, +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Queued 4th: after the Endeavour ends, funding moves along the queue.
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Medicine sets the Endeavour aside | Remove from queue
 --- Metallurgy [focus] Metallurgy not funded
@@ -2794,7 +2849,7 @@
 --- Quantum Physics [focus] Quantum Physics not funded · queued 2nd
     Nothing revealed is under study here.
     Tends to help with science and instruments. Modifiers: +5% Natural Philosophy (all foci).
-    Queued 2nd: funding moves here when the Endeavour has no revealed work under study.
+    Queued 2nd: after the Endeavour ends, funding moves along the queue.
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Quantum Physics sets the Endeavour aside | Remove from queue
 --- Relativity & Cosmology [focus] Relativity & Cosmology not funded
@@ -2848,15 +2903,15 @@
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Water Management sets the Endeavour aside | Add to queue
 --- funding [funding] Insight 853 a turn, equal to your science
-    The Endeavour takes 80% (683) since Specialization of Labor; before it, 50%.
-    The other 20% (171) spreads to foci with work under study. Switching loses nothing.
-    Queue: 2 Quantum Physics, 3 Energy Systems, 4 Medicine. It moves on when the funded focus has no revealed work under study.
-    Diffusion: after the press (Printing Press). Theories reveal their applications (Scientific Method).
-    Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
-    ACTIONS: [disabled] Grand Endeavour
+    The Endeavour takes 80% (683), since Specialization of Labor; before it, 50%.
+    The other 20% (171) spreads to foci with work under study.
+    Queue: 2 Quantum Physics, 3 Energy Systems, 4 Medicine. After the Endeavour, it funds the first with revealed work under study.
+    Diffusion: after the press. Theories reveal their applications (Scientific Method).
+    ACTIONS: [disabled] Funded: Grand Endeavour
 --- era [era] Atomic era entered by count
     You enter an era when you hold enough breakthroughs from it or later.
     You entered the Atomic era with your 6th breakthrough from it or later.
     The Space era needs 4 from the Space era: you hold 2.
     Synthesis can be used once in each era: unused in the Atomic era.
+    Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
     ACTIONS: 
