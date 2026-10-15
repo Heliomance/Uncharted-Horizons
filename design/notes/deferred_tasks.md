@@ -1,5 +1,17 @@
 # Deferred Tasks — Uncharted Horizons
 
+## 2026-10-15: Decide what an Endeavour on an idea under study does with the study already done
+- **Surfaced during:** v3.121, which lets Grand Endeavours target ideas already under study again (Tamsin: bomb shelters, the turn word comes that a rival has the bomb).
+- **Location:** §1.5, *Under study or not*.
+- **Issue:** as the simulator has it, the Endeavour starts from nothing at 2× the price while the idea stays under study. The Insight already spent studying the idea counts for nothing, and if study finishes first the Endeavour ends and its own Insight is lost. Measured (the expert, familiar world, `endeavour_oracle.py`): counting the study already done towards the Endeavour's price would make it beat funding the idea's focus for 15% of ideas under study instead of 12%, and in the funded focus for 22.5% instead of 13.5%.
+- **Options:** keep it as it is; count the study already done towards the Endeavour (the idea then leaves ordinary study); and either way, decide what becomes of the Endeavour's Insight if study finishes first.
+- **Next:** Tamsin decides; §1.5 is written to match.
+
+## 2026-10-15: Decide whether a focus's Insight is shared with a random wobble
+- **Surfaced during:** Tamsin's question whether jitter in the sharing would change the simulations and the value of Endeavours: every idea keeps a share, but close ones can swap places.
+- **Measured (15 October; workshop report, *A wobble in the sharing, and Endeavours on ideas under study*):** each idea's weight × a random factor each turn (`JITTER`). Close lines trade the lead (pairs within 25% of each other: 53% change places at least once at a wobble of 0.5, against 17% today, all of those between ideas of different eras), distant ones almost never; the order of discovery moves only a few points, since the random meters already shuffle it. Victory medians unchanged and no game unfinished; the value of an Endeavour unchanged.
+- **Next:** Tamsin decides whether to adopt it and at what size (Claude's suggestion, if adopted: 0.5); if adopted, §1.2's study rule and the simulator's defaults gain it. It shows only if the research screen shows progress on rows under study.
+
 ## 2026-10-15: Decide the early-rows review
 - **Surfaced during:** the One-Step Horizon brainstorm: 38 rows can be had two or more eras before their own era (`design/simulator/power/early_availability.py`).
 - **Where:** `design/notes/early_rows_review.md`, with every row's history and reasoning.
@@ -64,6 +76,7 @@
 - **Winnability re-measured (15 October, v3.119, familiar world, 900 games):** the workshop's safety-net package (rediscovery on demand at 10% a waiting item, FTL prototypes and open questions counted as waiting; Endeavours only for revealed ideas that have not occurred; `REDISCOVER=0.1 ENDUNOCC=1`) leaves 0 games unfinished against 8 under today's rules, at medians 289 / 297 / 370 against 290 / 306 / 380 (expert / novice / average): the weaker players gain because Endeavours stop being spent on reordering. Without W16 the package gives 297 / 301 / 374, still 0 unfinished, so W16 is a speed rule only. Results `…_cmpPKG119…`, `…_cmpPKGNOW119…` against `…_cmpGC118…` (the v3.119 rows). Since this makes every game winnable whatever the player can see, the reveal decision can be made for the player's experience alone.
 - **Decided (15 October, Tamsin):** the safety-net package adopted and W16 dropped (v3.120, now the simulator's defaults). Leaning towards B, revealing a breakthrough only when it could be started now (not settled). Glimpses of ideas that have not occurred stay, since without them Endeavours lose their purpose; their rate needs calibrating. The time limit (nothing reveals itself or opens its window more than an era before its own era): tentatively yes, not yet measured.
 - **Glimpse rates measured (15 October; workshop report, *Ideas under study, reordering Endeavours and the glimpse rate*):** at today's 10% / 3% the expert sees a glimpse every 3.3 turns (88 a game), two-thirds of them for ideas that then occur anyway, and starts 2 Endeavours a game; 3% / 1% gives one every 7 turns and 0.9 Endeavours; 1% / 0.3% one every 20 turns and 0.4. Victory does not move (295–297, none unfinished). Claude's suggestion: 3% / 1% as the starting point for playtesting.
+- **Decided (15 October, Tamsin):** Grand Endeavours may again target ideas already under study (v3.121), for needs the game situation creates; the simulated players keep `ENDUNOCC=1`, since with nothing pressing they would only reorder research.
 - **Next:** Tamsin chooses between A and B; the glimpse rates are calibrated; then §1.4 is written to match, §1.4's examples corrected, and the mockup's status kept or removed.
 
 ## 2026-10-15: Decide what the research-screen mockup chose for you
@@ -71,6 +84,7 @@
 - **Issue:** to draw the screen, the mockup had to answer open questions: Endeavours only for ideas that have not occurred; no progress shown on rows under study; no per-focus Insight; the queue rule; which statuses are statuses and which are tags. The list is in the mockup's README, *Choices the mockup makes*, and the full set in `build_spec.md` §11.
 - **Also found:** §1.2 refers to "the research-screen concept", which does not exist; §1.3's modifier table names foci that do not exist (Woodworking, Diplomacy); "Explosives (non-gunpowder)" carries a world-truth hint in its name; Calculus gives "+15% Insight to the physical foci", a set the document never defines.
 - **Also chosen, not in the document:** on turn 1 (the *Start* artboard) nothing is funded until the player picks a focus; what happens to the funded half if they never pick is undecided. (Experiment and Synthesis, which the mockup had to interpret, were removed from the design in v3.113.)
+- **Changed since:** v3.121 lets Endeavours target ideas under study again, so the mockup's first choice no longer holds.
 - **Next:** Tamsin confirms or changes each choice; §1.4 and §1.5 then get the screen's rules written in.
 
 ## 2026-09-24: Resolve UNIQUE buildings that replace a base the nation already replaces

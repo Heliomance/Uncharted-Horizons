@@ -96,7 +96,7 @@ As of 2026-10-14. Everything here is **written into `tech_tree_v112.md`** (§4 a
 
 ## 10. Discovery model and Endeavours
 - The candidate model ("Pmom") is written into §1.2 (v3.120).
-- **The safety net (v3.120):** rediscovery on demand; Grand Endeavours only for revealed ideas that have not occurred; no W16. Now the simulator's defaults (`REDISCOVER=0.1 ENDUNOCC=1 W16=0`). Three worlds, 2,700 games: none unfinished; victory medians expert 297–298, novice 301–302, average 374–375 (`results/w7f_<world>_cmpP120*`).
+- **The safety net (v3.120):** rediscovery on demand; Grand Endeavours only for revealed ideas that have not occurred; no W16. Now the simulator's defaults (`REDISCOVER=0.1 ENDUNOCC=1 W16=0`). Three worlds, 2,700 games: none unfinished; victory medians expert 297–298, novice 301–302, average 374–375 (`results/w7f_<world>_cmpP120*`). **v3.121 (15 Oct):** the design again allows Endeavours on ideas under study, for needs the game situation creates (bomb shelters when a rival has the bomb); the simulated players keep `ENDUNOCC=1`, since allowed they lose 0–6 turns (expert nothing measurable, novice and average player 5–6).
 - **Grand Endeavours 2×** (insurance, not a shortcut). **Proximity revelation** (provisional): each turn an eligible idea fails to occur, 10% chance it is glimpsed (Revealed, can be Endeavoured). Observational revelation reaches only what can be seen.
 - Knowledge diffusion as modelled: 5 rivals, contact at Early Modern; post-Printing-Press CORE/STANDARD arrive 10 turns after half have them; 5 turns after the Internet (UNCOMMON too).
 
