@@ -6,7 +6,8 @@ saved with SAVE_T=1, development as the defaults (DEVENDS) have it.
 Base Civ V: the player who researches only what the spaceship needs (base_race.py), on the same income, over the same
 stretches of research: the fork era's span of base Civ V's tech costs (ledger.BASE_END, as the era model maps them), the turns
 its research spends there divided by the techs it completes there.
-Usage: python3 era_pace.py <label>   (results/w7f_<world>_<label><X|N|A>_<method>.json, all 15 victory conditions), e.g.
+Usage: python3 era_pace.py <label> [world:method ...]   (results/w7f_<world>_<label><X|N|A>_<method>.json; all 15 victory
+conditions unless some are named), e.g.
   python3 era_pace.py _cmpPBT
 """
 import sys, os, json
@@ -22,11 +23,12 @@ WORLDS = {'familiar': ['Warp', 'Wormhole', 'Hyperspace', 'Tachyonic', 'Tunnellin
 PLAYERS = [('X', 'expert', 1.0), ('N', 'novice', 1.0), ('A', 'average', 0.8)]
 
 
-def fork_pace(label, code, econ):
+def fork_pace(label, code, econ, cells=None):
     d, _ = V.clock(econ); start = {e: next(t for t, x in enumerate(d) if x >= i) for i, e in enumerate(EO)}
     own, dif, turns = ({e: 0 for e in EO} for _ in range(3))
     for w, ms in WORLDS.items():
         for m in ms:
+            if cells and (w, m) not in cells: continue
             for g in json.load(open(os.path.join(HERE, 'results', f'w7f_{w}{label.lstrip("_") and "_" + label.lstrip("_")}{code}_{m}.json'))):
                 if not (g['cert'] and g['built']): continue
                 fin = max(g['cert'], g['built']); diffused = {k for _, k in (g.get('diffs') or [])}
@@ -51,8 +53,8 @@ def base_pace(econ):
 
 
 if __name__ == '__main__':
-    label = sys.argv[1]
-    fork = {code: fork_pace(label, code, econ) for code, _, econ in PLAYERS}
+    label = sys.argv[1]; cells = {tuple(c.split(':')) for c in sys.argv[2:]} or None
+    fork = {code: fork_pace(label, code, econ, cells) for code, _, econ in PLAYERS}
     base = {econ: base_pace(econ) for econ in (1.0, 0.8)}
     f = lambda x: '—' if x is None else f'{x:.1f}'
     print('Turns per discovery while development is in each era (all discoveries; own only, without rivals\' knowledge, in brackets),')

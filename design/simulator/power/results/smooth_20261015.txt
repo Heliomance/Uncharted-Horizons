@@ -1,0 +1,342 @@
+Smoothing the discovery rate at parity (15 Oct 2026). Tamsin: "can we tweak the era boundaries to smooth out the discovery rate
+through the game, or would that bring development-derived eras wildly out of parity with technology-derived eras?"; then "yes,
+run it - count rivals' knowledge too. It's fine for later technologies to be on average more turn-expensive than earlier ones".
+The aim: no era faster than one discovery a turn, counting rivals' knowledge, for all three players; parity with base Civ V's
+science victory kept (within 5 turns of 305 / 305 / 380); development's eras still aligned with the eras players enter by
+section 2's counts.
+
+Screens: familiar Warp, Process Tachyonic and Substance Plenum, 60 games a player each (180 a player), PYTHONHASHSEED=0, no game
+unfinished anywhere. Made by smooth_screen.sh <label> [Era=x ...] [span.Era=y] [VAR=value ...], with rivals rebuilt under each
+candidate's prices (make_pool.sh) unless the label says otherwise. Settings from smooth.py: each era's price per discovery x its
+multiplier against v3.108's; up to the Early Modern era an era's span of development moves with its price, as section 2's rule
+has it (span = price x expected discoveries), and idea windows follow the new era lengths; the Modern, Atomic and Space
+boundaries stay at base Civ V's timing (v3.122). Victory as victory.py has it (prototype and Drive costed).
+Pace: era_pace.py, turns per discovery while development is in each era, up to the race's finish; in brackets, the player's own
+discoveries only. Alignment: the median turn a civilisation enters each era by section 2's count, minus the turn its
+development does (positive: the count comes later).
+The control, d0, is the parity setting (v3.122's era timing with the Modern, Atomic and Space prices at x1, rivals pb): on these
+three conditions 302 / 306 / 380 (304 / 308 / 381 on all 15).
+
+=================== Round 1: era prices (development's spans moving with the early prices)
+== s1: Ancient=1.3 Classical=0.9 Early_Modern=0.85 Modern=1.2 Atomic=1.3 Space=1.2 -> ERAPRICE=Ancient:1.3,Classical:0.9,Early_Modern:0.85 MODERNPRICE=1.2 ATOMICPRICE=1.3 SPACEPRICE=1.2 DEVENDS=Primitive:149,Ancient:893,Classical:2277,Medieval:6546,Early_Modern:21031,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:36,Classical:28,Early_Modern:42,Modern:54,Atomic:36,Space:56
+  expert   victory 310 (+5 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +7, Classical -2, Medieval +1, Early Modern +1, Modern +4, Atomic -1, Space -4
+  novice   victory 317 (+12 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +8, Classical +4, Medieval +3, Early Modern +4, Modern +10, Atomic +7, Space +0
+  average  victory 393 (+13 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +10, Classical +5, Medieval +3, Early Modern +4, Modern +12, Atomic +7, Space -1
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.9 (0.9) | 1.1 (1.1) 
+| Classical | 1.2 (1.2) | 1.4 (1.4) | 1.7 (1.7) 
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.4) 
+| Early Modern | 1.2 (1.5) | 1.1 (1.4) | 1.4 (1.8) 
+| Modern | 1.0 (1.4) | 1.0 (1.4) | 1.2 (1.7) 
+| Atomic | 1.0 (1.2) | 0.9 (1.2) | 1.1 (1.6) 
+| Space | 0.8 (1.2) | 0.9 (1.4) | 1.1 (1.7) 
+== s2: Ancient=1.3 Classical=0.85 Medieval=0.9 Early_Modern=0.8 Modern=1.15 Atomic=1.2 Space=1.15 -> ERAPRICE=Ancient:1.3,Classical:0.85,Medieval:0.9,Early_Modern:0.8 MODERNPRICE=1.15 ATOMICPRICE=1.2 SPACEPRICE=1.15 DEVENDS=Primitive:149,Ancient:893,Classical:2200,Medieval:6042,Early_Modern:19675,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:36,Classical:27,Medieval:34,Early_Modern:43,Modern:58,Atomic:36,Space:56
+  expert   victory 308 (+4 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +7, Classical -2, Medieval +0, Early Modern +3, Modern +3, Atomic -4, Space -5
+  novice   victory 313 (+8 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +8, Classical +4, Medieval +3, Early Modern +7, Modern +11, Atomic +4, Space -2
+  average  victory 389 (+9 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +10, Classical +4, Medieval +3, Early Modern +8, Modern +12, Atomic +4, Space -4
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.9 (0.9) | 1.1 (1.1) 
+| Classical | 1.2 (1.2) | 1.3 (1.3) | 1.6 (1.6) 
+| Medieval | 1.0 (1.1) | 1.0 (1.0) | 1.3 (1.3) 
+| Early Modern | 1.2 (1.6) | 1.1 (1.5) | 1.4 (1.8) 
+| Modern | 1.0 (1.4) | 1.0 (1.4) | 1.3 (1.8) 
+| Atomic | 0.9 (1.1) | 0.8 (1.2) | 1.0 (1.5) 
+| Space | 0.8 (1.1) | 0.9 (1.3) | 1.1 (1.7) 
+== s3: Ancient=1.3 Modern=1.3 Atomic=1.4 Space=1.3 -> ERAPRICE=Ancient:1.3 MODERNPRICE=1.3 ATOMICPRICE=1.4 SPACEPRICE=1.3 DEVENDS=Primitive:149,Ancient:893,Classical:2431,Medieval:6700,Early_Modern:23741,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:36,Classical:30,Medieval:37,Early_Modern:49,Modern:46,Atomic:36,Space:56
+  expert   victory 316 (+10 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +7, Classical -1, Medieval +0, Early Modern +2, Modern +0, Atomic +1, Space -1
+  novice   victory 322 (+18 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +8, Classical +5, Medieval +1, Early Modern +5, Modern +5, Atomic +12, Space +4
+  average  victory 400 (+20 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +10, Classical +5, Medieval +2, Early Modern +6, Modern +6, Atomic +15, Space +3
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.9 (0.9) | 1.1 (1.1) 
+| Classical | 1.2 (1.2) | 1.4 (1.4) | 1.7 (1.7) 
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.3 (1.7) | 1.3 (1.7) | 1.6 (2.1) 
+| Modern | 1.0 (1.3) | 1.0 (1.3) | 1.2 (1.7) 
+| Atomic | 1.0 (1.3) | 0.9 (1.3) | 1.2 (1.6) 
+| Space | 0.8 (1.2) | 0.9 (1.4) | 1.1 (1.8) 
+
+=================== Round 2: knowledge diffusion slowed or switched off, at the parity prices (rivals pb, unchanged)
+DIFFWAIT / DIFFWAITNET: turns a breakthrough waits after the Printing Press / after the Internet (10 / 5); DIFFSHARE: the share
+of contacts that must hold it (0.5; with five contacts, 0.8 means four, 1.0 all five, 9 never).
+== d0: POOLTAG=pb -> ERAPRICE= MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 POOLTAG=pb
+  expert   victory 302 (-3 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +5, Classical +0, Medieval -0, Early Modern +2, Modern -4, Atomic -5, Space -8
+  novice   victory 306 (+1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical +6, Medieval +2, Early Modern +5, Modern +2, Atomic +2, Space -6
+  average  victory 380 (+0 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +7, Classical +7, Medieval +2, Early Modern +6, Modern +3, Atomic +0, Space -9
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.8 (0.8) | 1.0 (1.0) 
+| Classical | 1.2 (1.2) | 1.5 (1.5) | 1.9 (1.9) 
+| Medieval | 1.1 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.3 (1.7) | 1.2 (1.6) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.2) | 1.1 (1.6) 
+== dw20: POOLTAG=pb DIFFWAIT=20 DIFFWAITNET=10 -> ERAPRICE= MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 POOLTAG=pb DIFFWAIT=20 DIFFWAITNET=10
+  expert   victory 306 (+1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +5, Classical +0, Medieval -0, Early Modern +3, Modern +1, Atomic -2, Space -7
+  novice   victory 313 (+8 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical +6, Medieval +2, Early Modern +6, Modern +5, Atomic +3, Space -3
+  average  victory 384 (+4 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +7, Classical +7, Medieval +2, Early Modern +8, Modern +5, Atomic +4, Space -6
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.8 (0.8) | 1.0 (1.0) 
+| Classical | 1.2 (1.2) | 1.5 (1.5) | 1.9 (1.9) 
+| Medieval | 1.3 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.3 (1.5) | 1.3 (1.5) | 1.6 (1.8) 
+| Modern | 0.9 (1.0) | 0.9 (1.0) | 1.1 (1.3) 
+| Atomic | 0.8 (0.9) | 0.8 (1.0) | 1.0 (1.3) 
+| Space | 0.7 (1.0) | 0.7 (1.1) | 0.9 (1.5) 
+== dw30: POOLTAG=pb DIFFWAIT=30 DIFFWAITNET=15 -> ERAPRICE= MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 POOLTAG=pb DIFFWAIT=30 DIFFWAITNET=15
+  expert   victory 309 (+4 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +5, Classical +0, Medieval -0, Early Modern +3, Modern +3, Atomic -1, Space -5
+  novice   victory 319 (+14 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical +6, Medieval +2, Early Modern +6, Modern +6, Atomic +6, Space -0
+  average  victory 392 (+12 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +7, Classical +7, Medieval +2, Early Modern +8, Modern +6, Atomic +7, Space -3
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.8 (0.8) | 1.0 (1.0) 
+| Classical | 1.2 (1.2) | 1.5 (1.5) | 1.9 (1.9) 
+| Medieval | 1.3 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.3 (1.5) | 1.3 (1.5) | 1.6 (1.8) 
+| Modern | 0.9 (1.0) | 0.9 (1.0) | 1.1 (1.3) 
+| Atomic | 0.8 (0.9) | 0.8 (0.9) | 1.0 (1.2) 
+| Space | 0.7 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+== ds8: POOLTAG=pb DIFFSHARE=0.8 -> ERAPRICE= MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 POOLTAG=pb DIFFSHARE=0.8
+  expert   victory 305 (+0 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +5, Classical +0, Medieval -0, Early Modern +3, Modern -2, Atomic -4, Space -8
+  novice   victory 313 (+8 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical +6, Medieval +2, Early Modern +6, Modern +3, Atomic +2, Space -6
+  average  victory 387 (+7 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +7, Classical +7, Medieval +2, Early Modern +8, Modern +4, Atomic +3, Space -7
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.8 (0.8) | 1.0 (1.0) 
+| Classical | 1.2 (1.2) | 1.5 (1.5) | 1.9 (1.9) 
+| Medieval | 1.2 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.3 (1.6) | 1.3 (1.6) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (0.9) | 0.8 (1.0) | 1.0 (1.4) 
+| Space | 0.8 (1.0) | 0.9 (1.2) | 1.1 (1.4) 
+== ds10: POOLTAG=pb DIFFSHARE=1.0 -> ERAPRICE= MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 POOLTAG=pb DIFFSHARE=1.0
+  expert   victory 306 (+1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +5, Classical +0, Medieval -0, Early Modern +3, Modern +1, Atomic -4, Space -6
+  novice   victory 314 (+10 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical +6, Medieval +2, Early Modern +6, Modern +5, Atomic +3, Space -4
+  average  victory 387 (+7 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +7, Classical +7, Medieval +2, Early Modern +8, Modern +5, Atomic +4, Space -6
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.8 (0.8) | 1.0 (1.0) 
+| Classical | 1.2 (1.2) | 1.5 (1.5) | 1.9 (1.9) 
+| Medieval | 1.2 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.4 (1.6) | 1.3 (1.5) | 1.6 (1.9) 
+| Modern | 0.9 (1.0) | 0.9 (1.1) | 1.1 (1.3) 
+| Atomic | 0.8 (0.9) | 0.8 (1.0) | 1.1 (1.3) 
+| Space | 0.9 (1.0) | 0.9 (1.1) | 1.2 (1.4) 
+== dnone: POOLTAG=pb DIFFSHARE=9 -> ERAPRICE= MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 POOLTAG=pb DIFFSHARE=9
+  expert   victory 311 (+6 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +5, Classical +0, Medieval -0, Early Modern +3, Modern +3, Atomic +0, Space -5
+  novice   victory 330 (+24 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical +6, Medieval +2, Early Modern +6, Modern +6, Atomic +8, Space +0
+  average  victory 406 (+26 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +7, Classical +7, Medieval +2, Early Modern +8, Modern +8, Atomic +10, Space -1
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.0 (1.0) | 0.8 (0.8) | 1.0 (1.0) 
+| Classical | 1.2 (1.2) | 1.5 (1.5) | 1.9 (1.9) 
+| Medieval | 1.3 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Early Modern | 1.5 (1.5) | 1.4 (1.4) | 1.8 (1.8) 
+| Modern | 1.0 (1.0) | 0.9 (0.9) | 1.2 (1.2) 
+| Atomic | 0.9 (0.9) | 0.9 (0.9) | 1.1 (1.1) 
+| Space | 0.9 (0.9) | 1.0 (1.0) | 1.2 (1.2) 
+
+=================== Round 3: the Ancient era dearer (rivals rebuilt for each)
+e1-e3: the Ancient span moving with its price; e4, e5: price only, development's boundaries as today (DEVENDS given);
+e6, e7: the Ancient span moving with its price and the Primitive span x1.3 (span.Primitive=1.3, price unchanged).
+== e1: Ancient=1.5 -> ERAPRICE=Ancient:1.5 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:1007,Classical:2545,Medieval:6814,Early_Modern:23855,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:38,Classical:29,Medieval:36,Early_Modern:49,Modern:46,Atomic:36,Space:56
+  expert   victory 303 (-2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +8, Classical -2, Medieval -1, Early Modern +2, Modern -3, Atomic -6, Space -8
+  novice   victory 306 (+1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +9, Classical +5, Medieval +1, Early Modern +5, Modern +2, Atomic +1, Space -5
+  average  victory 380 (+0 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +11, Classical +6, Medieval +3, Early Modern +7, Modern +3, Atomic +0, Space -8
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.1 (1.1) | 0.9 (0.9) | 1.2 (1.2) 
+| Classical | 1.2 (1.2) | 1.3 (1.3) | 1.7 (1.7) 
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.4) 
+| Early Modern | 1.2 (1.6) | 1.2 (1.6) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.2) | 1.1 (1.6) 
+== e2: Ancient=1.8 -> ERAPRICE=Ancient:1.8 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:1179,Classical:2717,Medieval:6986,Early_Modern:24027,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:42,Classical:26,Medieval:36,Early_Modern:48,Modern:46,Atomic:36,Space:56
+  expert   victory 300 (-5 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +10, Classical -4, Medieval +0, Early Modern +2, Modern -3, Atomic -5, Space -8
+  novice   victory 304 (-1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +11, Classical +3, Medieval +2, Early Modern +5, Modern +2, Atomic +2, Space -6
+  average  victory 376 (-4 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +14, Classical +5, Medieval +3, Early Modern +6, Modern +3, Atomic +1, Space -8
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.1 (1.1) | 1.0 (1.0) | 1.3 (1.3) 
+| Classical | 1.2 (1.2) | 1.2 (1.2) | 1.6 (1.6) 
+| Medieval | 1.1 (1.1) | 1.1 (1.1) | 1.3 (1.3) 
+| Early Modern | 1.2 (1.6) | 1.2 (1.6) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.3) | 1.1 (1.6) 
+== e3: Ancient=1.8 Classical=0.9 -> ERAPRICE=Ancient:1.8,Classical:0.9 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:1179,Classical:2563,Medieval:6832,Early_Modern:23873,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:42,Classical:25,Medieval:36,Early_Modern:49,Modern:46,Atomic:36,Space:56
+  expert   victory 303 (-2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +10, Classical -4, Medieval +0, Early Modern +2, Modern -1, Atomic -6, Space -8
+  novice   victory 308 (+2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +11, Classical +3, Medieval +3, Early Modern +5, Modern +3, Atomic +2, Space -7
+  average  victory 379 (-1 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +14, Classical +4, Medieval +3, Early Modern +6, Modern +3, Atomic +1, Space -9
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.1 (1.1) | 1.0 (1.0) | 1.3 (1.3) 
+| Classical | 1.2 (1.2) | 1.2 (1.2) | 1.5 (1.5) 
+| Medieval | 1.1 (1.1) | 1.1 (1.1) | 1.3 (1.4) 
+| Early Modern | 1.3 (1.6) | 1.2 (1.6) | 1.5 (1.9) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.2) | 1.1 (1.5) 
+== e4: Ancient=1.8 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 -> ERAPRICE=Ancient:1.8 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:1179,Classical:2717,Medieval:6986,Early_Modern:24027,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:42,Classical:26,Medieval:36,Early_Modern:48,Modern:46,Atomic:36,Space:56 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56
+  expert   victory 302 (-3 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +10, Classical +3, Medieval +0, Early Modern +2, Modern -3, Atomic -6, Space -7
+  novice   victory 303 (-2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +11, Classical +12, Medieval +4, Early Modern +6, Modern +2, Atomic +2, Space -6
+  average  victory 377 (-3 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +14, Classical +15, Medieval +5, Early Modern +7, Modern +2, Atomic +0, Space -8
+| Era | Expert | Novice | Average 
+| Primitive | 1.2 (1.2) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.3 (1.3) | 1.1 (1.1) | 1.4 (1.4) 
+| Classical | 1.1 (1.1) | 1.1 (1.1) | 1.3 (1.3) 
+| Medieval | 1.0 (1.1) | 1.1 (1.1) | 1.3 (1.4) 
+| Early Modern | 1.2 (1.6) | 1.2 (1.6) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.2) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.2) | 1.1 (1.6) 
+== e5: Ancient=1.5 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56 -> ERAPRICE=Ancient:1.5 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:149,Ancient:1007,Classical:2545,Medieval:6814,Early_Modern:23855,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Ancient:38,Classical:29,Medieval:36,Early_Modern:49,Modern:46,Atomic:36,Space:56 DEVENDS=Primitive:149,Ancient:721,Classical:2259,Medieval:6528,Early_Modern:23569,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Modern:47,Atomic:36,Space:56
+  expert   victory 302 (-4 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +8, Classical +2, Medieval +0, Early Modern +2, Modern -2, Atomic -6, Space -8
+  novice   victory 306 (+1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +9, Classical +10, Medieval +3, Early Modern +5, Modern +3, Atomic +2, Space -6
+  average  victory 380 (+0 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +12, Classical +11, Medieval +4, Early Modern +6, Modern +3, Atomic +1, Space -9
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Ancient | 1.2 (1.2) | 1.0 (1.0) | 1.2 (1.2) 
+| Classical | 1.1 (1.1) | 1.2 (1.2) | 1.5 (1.5) 
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.4) 
+| Early Modern | 1.2 (1.6) | 1.2 (1.6) | 1.5 (2.1) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.2) | 1.1 (1.5) 
+== e6: Ancient=1.8 span.Primitive=1.3 -> ERAPRICE=Ancient:1.8 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:194,Ancient:1223,Classical:2761,Medieval:7030,Early_Modern:24071,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Primitive:33,Ancient:40,Classical:26,Medieval:35,Early_Modern:48,Modern:46,Atomic:36,Space:56
+  expert   victory 303 (-2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +8, Classical -4, Medieval -1, Early Modern +2, Modern -1, Atomic -5, Space -8
+  novice   victory 305 (+0 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +9, Classical +2, Medieval +1, Early Modern +5, Modern +2, Atomic +1, Space -6
+  average  victory 379 (-1 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +12, Classical +5, Medieval +2, Early Modern +7, Modern +3, Atomic +1, Space -9
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.1 (1.1) | 1.4 (1.4) 
+| Ancient | 1.2 (1.2) | 1.1 (1.1) | 1.3 (1.3) 
+| Classical | 1.2 (1.2) | 1.3 (1.3) | 1.5 (1.5) 
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.3) 
+| Early Modern | 1.2 (1.6) | 1.2 (1.5) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.2) | 1.1 (1.6) 
+== e7: Ancient=1.5 span.Primitive=1.3 -> ERAPRICE=Ancient:1.5 MODERNPRICE=1 ATOMICPRICE=1 SPACEPRICE=1 DEVENDS=Primitive:194,Ancient:1052,Classical:2590,Medieval:6859,Early_Modern:23900,Modern:66231,Atomic:113629,Space:209676 WINTURNS=Primitive:33,Ancient:36,Classical:28,Medieval:36,Early_Modern:49,Modern:46,Atomic:36,Space:56
+  expert   victory 302 (-3 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical -2, Medieval +0, Early Modern +2, Modern -2, Atomic -5, Space -8
+  novice   victory 306 (+1 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +7, Classical +4, Medieval +2, Early Modern +5, Modern +2, Atomic +1, Space -5
+  average  victory 379 (-1 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +9, Classical +5, Medieval +2, Early Modern +6, Modern +3, Atomic +0, Space -8
+| Era | Expert | Novice | Average 
+| Primitive | 1.1 (1.1) | 1.1 (1.1) | 1.4 (1.4) 
+| Ancient | 1.1 (1.1) | 1.0 (1.0) | 1.2 (1.2) 
+| Classical | 1.2 (1.2) | 1.3 (1.3) | 1.6 (1.6) 
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.3) 
+| Early Modern | 1.2 (1.6) | 1.2 (1.5) | 1.5 (2.0) 
+| Modern | 0.9 (1.1) | 0.8 (1.1) | 1.0 (1.4) 
+| Atomic | 0.8 (1.0) | 0.7 (1.1) | 0.9 (1.4) 
+| Space | 0.7 (1.1) | 0.8 (1.3) | 1.1 (1.6) 
+
+=================== Discoveries a game, by the race's finish
+Median finish; mean discoveries a game up to it (the player's own in brackets); mean finish / mean discoveries (smooth_report.py now
+prints the last two).
+| Screen | Expert: finish, discoveries (own), turns each | Novice | Average |
+|---|---|---|---|
+| d0 | 287, 295 (248), 0.98 | 291, 303 (250), 0.97 | 362, 302 (247), 1.21 |
+| s1 | 294, 286 (240), 1.04 | 301, 298 (245), 1.02 | 374, 296 (242), 1.26 |
+| s2 | 292, 288 (240), 1.02 | 297, 299 (244), 1.00 | 369, 297 (242), 1.24 |
+| s3 | 298, 284 (239), 1.06 | 307, 296 (243), 1.04 | 379, 294 (241), 1.30 |
+| dw20 | 291, 294 (261), 1.00 | 298, 305 (265), 0.98 | 366, 302 (258), 1.22 |
+| dw30 | 294, 293 (270), 1.01 | 304, 308 (278), 0.99 | 374, 306 (271), 1.23 |
+| ds8 | 290, 288 (256), 1.02 | 298, 298 (258), 1.00 | 368, 296 (255), 1.25 |
+| ds10 | 291, 283 (264), 1.04 | 300, 295 (267), 1.02 | 369, 291 (262), 1.28 |
+| dnone | 296, 280 (280), 1.07 | 316, 298 (298), 1.06 | 390, 296 (296), 1.32 |
+| e1 | 288, 293 (248), 0.99 | 291, 301 (248), 0.97 | 361, 299 (246), 1.21 |
+| e2 | 284, 290 (245), 0.99 | 289, 300 (247), 0.98 | 358, 298 (246), 1.21 |
+| e3 | 288, 293 (247), 0.98 | 292, 302 (248), 0.97 | 361, 300 (246), 1.21 |
+| e4 | 287, 289 (245), 0.99 | 288, 298 (245), 0.97 | 358, 296 (242), 1.22 |
+| e5 | 286, 293 (245), 0.99 | 291, 302 (249), 0.97 | 362, 302 (246), 1.21 |
+| e6 | 288, 295 (249), 0.98 | 290, 301 (249), 0.97 | 361, 299 (246), 1.21 |
+| e7 | 287, 293 (247), 0.99 | 291, 302 (249), 0.97 | 360, 300 (246), 1.21 |
+
+=================== Where the discoveries come from (discovery_mix.py; per game, the row's era, own / diffused)
+d0X: 180 games; per game, discoveries made while development is in each era, by the row's era (own / diffused)
+  Primitive      30.0 turns,  26.6 discoveries (1.13 turns each): Primitive 25.8, Ancient 0.8
+  Ancient        32.0 turns,  33.1 discoveries (0.97 turns each): Primitive 6.5, Ancient 24.0, Classical 2.6
+  Classical      32.0 turns,  25.9 discoveries (1.23 turns each): Primitive 0.1, Ancient 14.9, Classical 7.9, Medieval 3.0
+  Medieval       38.0 turns,  33.8 discoveries (1.13 turns each): Primitive 0.0/0.3, Ancient 0.5/0.3, Classical 10.4/1.1, Medieval 16.1/1.5, Early Modern 2.9/0.6
+  Early Modern   49.0 turns,  38.0 discoveries (1.29 turns each): Primitive 0.0/0.1, Ancient 0.0/0.2, Classical 0.3/0.4, Medieval 5.7/1.9, Early Modern 17.9/3.8, Modern 5.2/2.4
+  Modern         47.0 turns,  54.5 discoveries (0.86 turns each): Medieval 0.0/0.0, Early Modern 11.3/3.3, Modern 23.3/8.3, Atomic 8.2/0.2, Space 0.0
+  Atomic         36.0 turns,  46.5 discoveries (0.77 turns each): Primitive 0.0/0.2, Ancient 0.0/0.1, Classical 0.0/0.6, Medieval 0.0/0.3, Early Modern 0.2/0.2, Modern 12.5/4.6, Atomic 16.6/3.0, Space 7.9/0.3
+  Space          25.8 turns,  36.6 discoveries (0.70 turns each): Primitive 0.0/0.7, Ancient 0.0/0.4, Classical 0.0/0.6, Medieval 0.2/0.4, Modern 2.2/2.7, Atomic 8.0/4.4, Space 12.6/4.5
+d0N: 180 games; per game, discoveries made while development is in each era, by the row's era (own / diffused)
+  Primitive      30.0 turns,  24.9 discoveries (1.21 turns each): Primitive 24.6, Ancient 0.3
+  Ancient        32.0 turns,  40.0 discoveries (0.80 turns each): Primitive 7.5, Ancient 31.8, Classical 0.6
+  Classical      32.0 turns,  21.3 discoveries (1.50 turns each): Primitive 0.0, Ancient 7.8, Classical 11.6, Medieval 1.9
+  Medieval       38.0 turns,  33.9 discoveries (1.12 turns each): Primitive 0.2/0.1, Ancient 0.1/0.1, Classical 9.6/0.2, Medieval 22.3/0.2, Early Modern 0.9/0.2
+  Early Modern   49.0 turns,  40.1 discoveries (1.22 turns each): Primitive 0.0/0.3, Ancient 0.0/0.3, Classical 0.0/0.8, Medieval 3.1/0.6, Early Modern 24.1/5.8, Modern 3.0/2.0
+  Modern         47.0 turns,  56.8 discoveries (0.83 turns each): Medieval 0.0/0.0, Early Modern 7.0/1.9, Modern 29.9/12.7, Atomic 4.8/0.3
+  Atomic         36.0 turns,  50.5 discoveries (0.71 turns each): Primitive 0.0/0.9, Ancient 0.0/0.4, Classical 0.0/0.9, Medieval 0.1/0.7, Early Modern 0.0/0.1, Modern 9.0/3.2, Atomic 19.1/9.5, Space 5.3/1.2
+  Space          29.3 turns,  35.4 discoveries (0.83 turns each): Primitive 0.0/0.2, Ancient 0.0/0.1, Classical 0.0/0.3, Medieval 0.1/0.2, Modern 0.6/1.5, Atomic 8.6/3.0, Space 15.3/5.4
+d0A: 180 games; per game, discoveries made while development is in each era, by the row's era (own / diffused)
+  Primitive      38.0 turns,  25.5 discoveries (1.49 turns each): Primitive 25.1, Ancient 0.4
+  Ancient        39.0 turns,  39.1 discoveries (1.00 turns each): Primitive 7.2, Ancient 31.3, Classical 0.6
+  Classical      40.0 turns,  21.5 discoveries (1.86 turns each): Ancient 8.6, Classical 11.1, Medieval 1.8
+  Medieval       47.0 turns,  34.3 discoveries (1.37 turns each): Primitive 0.2/0.2, Ancient 0.1/0.1, Classical 9.8/0.4, Medieval 22.1/0.3, Early Modern 0.9/0.2
+  Early Modern   61.0 turns,  40.2 discoveries (1.52 turns each): Primitive 0.0/0.3, Ancient 0.0/0.3, Classical 0.0/0.7, Medieval 3.4/0.6, Early Modern 23.3/6.6, Modern 3.2/1.9
+  Modern         59.0 turns,  57.5 discoveries (1.03 turns each): Medieval 0.0/0.1, Early Modern 7.1/1.9, Modern 30.2/12.8, Atomic 4.9/0.5
+  Atomic         46.0 turns,  51.6 discoveries (0.89 turns each): Primitive 0.0/1.0, Ancient 0.0/0.6, Classical 0.0/1.1, Medieval 0.1/0.8, Early Modern 0.0/0.1, Modern 8.8/3.3, Atomic 18.6/9.7, Space 6.0/1.4
+  Space          34.4 turns,  31.8 discoveries (1.08 turns each): Primitive 0.0/0.1, Ancient 0.0/0.0, Classical 0.0/0.1, Medieval 0.1/0.1, Modern 0.5/1.3, Atomic 7.7/3.1, Space 13.7/5.1
+Diffusion three times slower (dw30), the late eras:
+dw30X: 180 games; per game, discoveries made while development is in each era, by the row's era (own / diffused)
+  Modern         47.0 turns,  52.1 discoveries (0.90 turns each): Medieval 0.1/0.0, Early Modern 14.2/1.6, Modern 27.1/2.8, Atomic 6.3
+  Atomic         36.0 turns,  43.3 discoveries (0.83 turns each): Primitive 0.0/0.0, Ancient 0.0/0.0, Classical 0.0/0.1, Medieval 0.0/0.1, Early Modern 0.5/0.3, Modern 15.4/2.0, Atomic 18.0/0.4, Space 6.5
+  Space          31.5 turns,  44.3 discoveries (0.71 turns each): Primitive 0.0/0.7, Ancient 0.0/0.4, Classical 0.0/0.9, Medieval 0.1/0.5, Early Modern 0.0/0.1, Modern 4.4/3.3, Atomic 11.7/3.4, Space 16.6/2.4
+dw30N: 180 games; per game, discoveries made while development is in each era, by the row's era (own / diffused)
+  Modern         47.0 turns,  52.5 discoveries (0.90 turns each): Medieval 0.0, Early Modern 9.1/1.5, Modern 34.7/3.4, Atomic 3.8, Space 0.0
+  Atomic         36.0 turns,  43.9 discoveries (0.82 turns each): Primitive 0.0/0.1, Ancient 0.0/0.1, Classical 0.0/0.2, Medieval 0.0/0.1, Early Modern 0.0/0.3, Modern 14.4/2.5, Atomic 21.1/1.4, Space 3.9
+  Space          41.2 turns,  55.6 discoveries (0.74 turns each): Primitive 0.0/1.0, Ancient 0.0/0.5, Classical 0.0/1.0, Medieval 0.2/0.8, Early Modern 0.0/0.1, Modern 0.6/3.6, Atomic 16.1/5.0, Space 21.0/5.8
+The Ancient era x1.5 with a longer Primitive span (e7), the novice's early eras:
+e7N: 180 games; per game, discoveries made while development is in each era, by the row's era (own / diffused)
+  Primitive      33.0 turns,  29.6 discoveries (1.12 turns each): Primitive 28.8, Ancient 0.8
+  Ancient        36.0 turns,  36.2 discoveries (0.99 turns each): Primitive 3.5, Ancient 31.3, Classical 1.4
+  Classical      28.0 turns,  21.0 discoveries (1.33 turns each): Primitive 0.0, Ancient 7.8, Classical 11.3, Medieval 1.9
+
+Era entry by count (median turn), the control against e7:
+d0X: Ancient 35, Classical 62, Medieval 94, Early Modern 134, Modern 177, Atomic 223, Space 256
+d0N: Ancient 36, Classical 68, Medieval 96, Early Modern 137, Modern 183, Atomic 230, Space 258
+d0A: Ancient 45, Classical 84, Medieval 119, Early Modern 170, Modern 228, Atomic 284, Space 321
+e7X: Ancient 39, Classical 67, Medieval 97, Early Modern 135, Modern 180, Atomic 223, Space 256
+e7N: Ancient 40, Classical 73, Medieval 99, Early Modern 138, Modern 184, Atomic 229, Space 259
+e7A: Ancient 50, Classical 91, Medieval 123, Early Modern 172, Modern 229, Atomic 284, Space 322
+
+=================== Where the Insight goes (the control; own discoveries a game by the row's era x its era's price per discovery,
+before premiums, which add to the late share)
+  Primitive 0.1%, Ancient 0.4%, Classical 1.0-1.1%, Medieval 2.7-3.0%, Early Modern 10.5%, Modern 30-31%, Atomic 33%, Space 21%
+  (all three players): the Modern to Space rows take 85%, the Primitive to Medieval rows 4-5%.
+
+=================== Findings
+1. A game holds about as many discoveries as turns. By the race's finish a player has made 280-308 discoveries on every screen,
+   whatever the prices or diffusion: 0.97-1.07 turns per discovery over the whole game for the expert and novice, 1.21-1.32 for
+   the average player. Players discover nearly everything that occurs to them; prices set how long that takes. With the
+   game's length fixed by parity, era settings can only move the fast stretches around, not slow the game's discoveries as a
+   whole.
+2. The late eras can't be slowed at parity. They take 85% of the Insight spent on discoveries, so dearer late research
+   lengthens the science victory and no early discount can buy it back: round 1 brought the expert's Modern and Atomic eras to
+   about one a turn (its Space era stayed at 0.8 turns per discovery) at a cost of 6-20 turns against the control. v3.122's
+   prices brought the late eras to about one a turn at a cost of 22-32 turns against base Civ V.
+3. Slowing diffusion doesn't help. The player researches what it no longer receives, so the late pace barely moves while
+   victory lengthens (against the control: doubled delays +4 / +7 / +4, tripled +7 / +13 / +12, four contacts of five
+   +3 / +7 / +7, all five +4 / +8 / +7, none at all +9 / +24 / +26). Diffusion is how the novice and the average player keep up.
+4. The early game can be smoothed at parity, at a cost in era timing. The Ancient era is the fast stretch there: the novice
+   makes about 40 discoveries in its 32 turns (32 Ancient rows, 7 left-over Primitive ones). e2-e7 bring every era up to the
+   Early Modern to at least one turn per discovery for all three players (e1, the Ancient era x1.5 alone, leaves the novice at
+   0.9), with victory unchanged (300-303 / 303-308 / 376-380). The mildest that does it, e7 (Ancient x1.5 with its span, the
+   Primitive span x1.3), keeps era entry aligned with development as today; but civilisations get through their Ancient rows
+   later, so they enter the Ancient and Classical eras by count 4-7 turns later (Medieval 3-4, Early Modern 1-2). Development's Ancient era would end on turn 69
+   (today 62; base Civ V's research passes the same stretch on turn 52 on the same income). The simulator's income doesn't
+   depend on the breakthroughs held, so it can't see what later Ancient-era buildings would cost in play.
+5. Under one discovery a turn in the Modern to Space eras, at parity, needs fewer discoveries there: about a fifth fewer (the
+   expert and novice make about 140 between development entering the Modern era and the race's finish, in about 110 turns).
+   Since the count is set by what occurs, not by price, that means fewer late rows reaching a player: merging rows into bigger
+   breakthroughs priced at the sum (the victory's research then costs the same, so long as each merged pair is either both on
+   the way to the victory or both off it), dropping rows, or rarer late ideas (STANDARD occurring in fewer than 85% of games,
+   which changes what the tier means).

@@ -23,7 +23,7 @@ import gen_data as G
 from harness import income, EO
 import harness_ftl_e as HF
 HF.SPACE_FROM = float(os.environ['SPACEFROM']) if os.environ.get('SPACEFROM') else None   # as the runs had it (harness_ftl_e.SPACE_FROM)
-HF.DEV_ENDS = {e: float(x) for e, x in (i.split(':') for i in os.environ['DEVENDS'].split(','))} if os.environ.get('DEVENDS') else None
+HF.DEV_ENDS = {e.replace('_', ' '): float(x) for e, x in (i.split(':') for i in os.environ['DEVENDS'].split(','))} if os.environ.get('DEVENDS') else None
 import victory as V   # the victory turn: the prototype priced from SPACEPRICE (as the runs had it)
 
 PLAYERS = [('X', 'expert', 1.0, 5, 4), ('N', 'novice', 1.0, 5, 4), ('A', 'average', 0.8, 6, 5)]   # economy, prototype, Drive

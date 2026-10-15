@@ -28,6 +28,10 @@ def apply(HF, rows):
     HF.PRICE['Atomic'] = HF.ATOMIC_BASE * float(os.environ.get('ATOMICPRICE') or 1.0)   # the Atomic era's, likewise (a redraw's experiments)
     if not hasattr(HF, 'MODERN_BASE'): HF.MODERN_BASE = HF.PRICE['Modern']
     HF.PRICE['Modern'] = HF.MODERN_BASE * float(os.environ.get('MODERNPRICE') or 1.0)   # and the Modern era's
+    if not hasattr(HF, 'ERA_BASE'): HF.ERA_BASE = dict(HF.PRICE)
+    for e, x in (i.split(':') for i in (os.environ.get('ERAPRICE') or '').split(',') if i):   # ERAPRICE=era:x,...: the earlier eras' prices
+        e = e.replace('_', ' '); assert e not in ('Modern', 'Atomic', 'Space'), 'the late eras take MODERNPRICE, ATOMICPRICE and SPACEPRICE'
+        HF.PRICE[e] = HF.ERA_BASE[e] * float(x)
     if 'w' in L: HF.COSTMULT['MS17'] = float(os.environ.get('WROWX', '2.5'))      # Wormhole's engineering row outside its tests
     if 'x' in L: HF.COSTMULT['ES18'] = 1.0
     if 'p' in L: HF.COSTMULT['AE14'] = 1.0

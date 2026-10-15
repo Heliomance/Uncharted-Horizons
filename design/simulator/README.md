@@ -60,6 +60,9 @@ The standard run is 60 games of one FTL method in one world, played by the exper
 | `compare_settings.sh`, `victory_table.py` | Setting-against-setting FTL checks, and their victory table. |
 | `victory.py` | Every tool's victory turn: the race's finish, the prototype priced from the Space price, the SS FTL Drive built from Production, launch. |
 | `base_race.py` | Base Civ V's science victory on Unciv's Gods & Kings tree, run on the simulator's income, for comparison with the fork's. |
+| `make_pool.sh` | Rebuilds the rivals that knowledge diffusion replays, under a run's prices and eras (`POOLTAG`). |
+| `era_pace.py` | Turns per discovery while development is in each era, beside base Civ V's turns per tech on the same income. |
+| `smooth.py`, `smooth_screen.sh`, `smooth_report.py`, `discovery_mix.py` | The era-smoothing pass: settings for a set of era price multipliers, a three-condition screen of them, its victory, era-alignment and discovery-count report, and where each era's discoveries come from (`results/smooth_20261015.txt`). |
 | `ledger.py`, `ledger2.py` – `ledger6.py` | The power ledgers: per-city building power by era, which the era model reads. |
 | `defaults.py` | Where the tree is, and the finalised design's switches. |
 | `v112_stage1.py` – `v112_stage5.py`, `v112_tachyonic_fix.py`, `thin_batch*.py`, `stage*.py` and the other scripts that edit `tt.md` | The scripts that made past tree versions. They're a record, tied to the versions they edited and to the old workspace's `tt.md` and numbered copies, not something to re-run. |

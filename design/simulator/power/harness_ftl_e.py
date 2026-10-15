@@ -56,6 +56,7 @@ class P:
 TARGET_FN = None; FUNDED = set(); COSTMULT = {}
 POLICY = 'waiting'; ATTN = {}; END_MULT = None; END_LOG = []; END_RULE = 'naive'; END_ONLY = None; END_AFTER = None; END_FROM = None; RUN_ON = False; STOP_FN = None
 DIFF = None; DIFF_LOG = []
+DIFF_WAIT = 10; DIFF_WAIT_NET = 5; DIFF_SHARE = 0.5   # section 1.2: turns after the Printing Press, after the Internet; the share of contacts that must hold it
 ECON = 1.0   # income relative to the calibrated (good player's) economy
 STATE = {}   # live references to lost, glimpsed and diffusing ideas
 INSIGHT_CUT = 0.0    # >0: from the first discovery of era INSIGHT_CUT_FROM, this share of every turn's Insight is lost before it is
@@ -187,13 +188,13 @@ def run(prm, seed, max_turns=450):
                     nh = sum(1 for r in riv if r.get(k, 10 ** 9) <= turn)
                     if nh == 0: continue
                     if OBS: obs.add(k)             # observational revelation: a contacted rival has it in effect
-                    if nh / nr < 0.5: continue
+                    if nh / nr < DIFF_SHARE: continue
                     if tk in ('CORE', 'STANDARD') and 'MC06' in have:
                         s0 = diff_since.setdefault(k, turn)
-                        if turn - s0 >= 10 or (cp04_turn is not None and turn - max(s0, cp04_turn) >= 5): diff_due.append(k)
+                        if turn - s0 >= DIFF_WAIT or (cp04_turn is not None and turn - max(s0, cp04_turn) >= DIFF_WAIT_NET): diff_due.append(k)
                     elif tk == 'UNCOMMON' and cp04_turn is not None:
                         s0 = diff_unc.setdefault(k, turn)
-                        if turn - s0 >= 5: diff_due.append(k)
+                        if turn - s0 >= DIFF_WAIT_NET: diff_due.append(k)
         for k in disc: opened.setdefault(k, turn)
         if TRACE is not None: _occ0, _gl0, _fund0 = set(occurred), set(glimpsed), set(FUNDED)
         # the moment: a non-CORE idea occurs to the civilisation with a small chance each turn while it lasts

@@ -23,7 +23,7 @@ from harness import income, EO
 import harness_ftl_e as HF
 import ledger as Lg, ledger3 as L3, eramodel as M
 HF.SPACE_FROM = float(os.environ['SPACEFROM']) if os.environ.get('SPACEFROM') else None
-HF.DEV_ENDS = {e: float(x) for e, x in (i.split(':') for i in os.environ['DEVENDS'].split(','))} if os.environ.get('DEVENDS') else None
+HF.DEV_ENDS = {e.replace('_', ' '): float(x) for e, x in (i.split(':') for i in os.environ['DEVENDS'].split(','))} if os.environ.get('DEVENDS') else None
 SPACEPRICE = float(os.environ.get('SPACEPRICE') or 1.0)
 PROTOX = float(os.environ.get('PROTOX', '5'))
 SCALE = json.load(open(os.path.join(HERE, 'w7c_cfg.json')))['scale']
