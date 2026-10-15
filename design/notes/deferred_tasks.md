@@ -1,5 +1,12 @@
 # Deferred Tasks — Uncharted Horizons
 
+## 2026-10-15: Decide the early-rows review
+- **Surfaced during:** the One-Step Horizon brainstorm: 38 rows can be had two or more eras before their own era (`design/simulator/power/early_availability.py`).
+- **Where:** `design/notes/early_rows_review.md`, with every row's history and reasoning.
+- **Proposed:** nineteen rows gain a prerequisite that stands for what really held them back (all checked against the rules; the battery passes; measured with `EARLYFIX=1`: no effect on the FTL race). Fourteen are held back by demand or institutions and are left to the time limit under discussion. Four look mislabelled: the Crossbow (Classical), the Stirrup (really the Knight), Prosthetics (ancient; the row is the industrial limb trade), the Viking Longship (Classical). The Ornithopter is held back by its focus gate already.
+- **Decisions for Tamsin:** which prerequisites to adopt, above all Scientific Method after the University (which ties about 310 rows to the University and the Printing Press); a new benefit for Comparative Anatomy if it gains Natural Philosophy; the four labels; and the time limit itself.
+- **Next:** apply what is chosen to the document, with a changelog entry, the battery and a re-measure.
+
 ## 2026-10-15: Review the RARE and UNIQUE breakthroughs
 - **Surfaced during:** the One-Step Horizon brainstorm. Tamsin wants a review pass over every RARE (39) and UNIQUE (54) row at some point.
 - **Known items so far:**

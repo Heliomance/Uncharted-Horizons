@@ -92,4 +92,17 @@ if 'z' in LEVERS:   # ASSUMED Space-era pools for the agreed non-FTL fields (def
             pre = (f'{ids[1]} + {ids[2]}' if n >= 4 else f'{ids[0]} + {ids[1]}') if rid.endswith('C') else ids[0]
             add_after(prev, rid, f'{fname} Space {j} (assumed)', 'STANDARD', 'Space', pre, '(assumed pool)'); prev = rid
                 # atomic Tachyonic shaped like its elemental mirror   # dark energy waits on expansion surveys, not on RC05
+# EARLYFIX=1: the prerequisites proposed by the review of rows available two or more eras early
+# (design/notes/early_rows_review.md), for measurement; each goes in before any commentary after a dash
+EARLY = {'ME08': ['WM05'], 'MI08': ['CH01'], 'F07': ['MI08'], 'MC04': ['WM05'], 'MI07': ['MC08'], 'O07': ['O06'],
+         'AE09': ['AE01'], 'WM11': ['TR06'], 'MD04': ['PH04'], 'TR05': ['SO11'], 'MA05': ['PH04'], 'MA06': ['SO11'],
+         'PH04': ['CU06'], 'PH09': ['PH14'], 'PH10': ['EN01'], 'MA11': ['CP01'], 'MD07': ['CH05'], 'FA11': ['EN06'],
+         'MA15': ['CP01'], 'WA14': ['WA27']}
+if os.environ.get('EARLYFIX') == '1':
+    for rid, adds in EARLY.items():
+        i = row(rid); c = L[i].split(' | '); pre = c[4]; d = 0; cut = len(pre)
+        for j, ch in enumerate(pre):
+            d += ch == '('; d -= ch == ')'
+            if d == 0 and pre.startswith(' — ', j): cut = j; break
+        c[4] = pre[:cut] + ''.join(f' + {a}' for a in adds) + pre[cut:]; L[i] = ' | '.join(c)
 open(p,'w',encoding='utf-8').write('\n'.join(L)); print("scratch redesign in place")

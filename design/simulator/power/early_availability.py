@@ -2,7 +2,9 @@
 """How many breakthroughs become available (prerequisites met) an era or more before their own era?
 Direct measure: the earliest era in which a row's prerequisite breakthroughs, by their own eras, can all be held
 (for each AND-term, the OR-option whose latest prerequisite era is earliest). Chain measure: the same, but each
-prerequisite counted at its own earliest availability rather than its era label."""
+prerequisite counted at its own earliest availability rather than its era label. Focus gates ("Available from") are
+ignored, as in the simulator; the early-rows review (design/notes/early_rows_review.md) found one row they hold back
+(the Ornithopter, behind Aeronautics)."""
 import re, sys, collections
 sys.path.insert(0, '/home/user/Uncharted-Horizons/design/verification-battery')
 import prereq
