@@ -613,6 +613,28 @@ The simulated players start an urgent Endeavour whenever it gets a target sooner
 
 Results: `results/w7f_familiar_cmpUQ125*`, `…cmpUQ100*` (and the first estimate's `…cmpUR125*`, `…cmpUR100*`).
 
+**Tamsin, then:** the time debt is neither intuitive nor fun, and no message may say how long a breakthrough would take by study (the debt's size depends on that, so showing it would reveal it). Two other costs were measured on 70/20/10's urgent delivery (all Insight into the breakthrough, no premium, `URGENT=1 URGENTDEBT=0`), with the naive racer: **abandonment**, the other ideas under study in the Endeavour's focus losing half or all of their progress (`ENDABANDON`), and **national abandonment**, every idea under study losing a quarter or half (`ENDABANDONALL=1`). Neither moves the expert from the 287–288 it reaches with no cost at all (297 without such Endeavours); the novice and the average player are unchanged. The reason: a Space-era breakthrough costs about half a turn of a good economy's Insight, so late in the game Insight is plentiful and the race is held up by structure (ideas occurring, one link a turn, momentum's dilution); a cost in Insight does not slow a racer, only a cost in time does. A recovery period (no focus funded for as long as the Endeavour ran) was rejected by Tamsin before measurement as the debt by another name. Results: `…cmpUAB0*`, `…cmpUAB50*`, `…cmpUAB100*`, `…cmpUAA25*`, `…cmpUAA50*`.
+
+### What a racer gives up (Tamsin's test, 15 October 2026)
+
+Tamsin's question: how much economy does an expert racing with Endeavours lose against one who does not, in the incidental breakthroughs it never gets? The simulator's income does not depend on discoveries, so this is the cost it cannot see. The expert on all 15 victory conditions (three worlds, five methods, 60 games each), every discovery turn saved (`SAVE_T=1`): today's expert, without Endeavours on ideas under study; and racers at 70/20/10 and 70/10/20 (70% to the breakthrough, 20% or 10% to the spread, the rest lost; no premium). Games are paired by number (the same world truth and seed). A game's finish is the turn its race is complete (certainty and build); victory follows after the prototype and the Drive. `incidental.py` compares them.
+
+| | Non-racer | Racer 70/20/10 | Racer 70/10/20 |
+|---|---|---|---|
+| Victory, median (900 games each; none unfinished) | 297 | 291 | 292 |
+| Racer sooner / later than its twin | | 73% / 24% | 72% / 25% |
+| Breakthroughs held at its own finish, median | 274 | 261 | 258 |
+| At the racer's finish: what the racer lacks of the non-racer's, mean | | 9.6 | 11.4 |
+| … of them with an economic effect (yields, growth, maintenance, trade) | | 4.9 | 5.8 |
+| … and what the racer holds that the non-racer does not | | 7.6 | 7.1 |
+| At each one's own finish: lacks / holds extra | | 17.3 / 5.0 | 19.1 / 4.8 |
+
+**At the same turn the racer is barely behind in number:** Endeavours mostly reorder research, the racer's build rows coming sooner and incidental ones later; what is actually lost is the 10% or 20% while Endeavours run. What it lacks is late: Modern 2.5, Atomic 3.1 and Space 3.8 a game (70/20/10; 3.8, 3.5 and 3.9 at 70/10/20, the smaller spread costing the Modern era most).
+
+**What it lacks, most often** (70/20/10, share of games): FTL tests and drives its own method no longer needed (Gravitational Coupling Experiment 57%, Ion Drive 51%, Fusion Drive 24%, Nuclear Thermal Rocket 20%, Dark Matter Identification 19%, Dark Energy Understanding 15%); late economy (Perceptron Machines 18%, Semiconductor Mastery 18%, Cryptography 16%, Orbital Assembly 16%, Dam Construction 14%, Free Trade Agreements 14%, Artificial Intelligence (Narrow) 12%, Direct-Current Stations 12%, Self-Healing Materials 12%, Radio 12%); and military (Rigid Airship 22%, Ironclad 18%, Radar 14%, Planetary Defense 13%, and Radiation Shielding, the Bomb Shelter, 16%). At 70/10/20 the Modern economy and military go more often (Free Trade Agreements 25%, Direct-Current Stations 22%, Dam Construction 20%, Ironclad 29%). **What it holds instead:** its build rows, sooner (Superconducting Energy Storage 43%, Superconductivity 32%, Exotic Matter Engineering 24%, Higher-Dimensional Geometry 24%, Optimisation Theory 21%, Aerospace Industry 20%, the Boundary Ring 19%).
+
+So the racer finishes its race about 6 turns sooner, without some 5–6 late economic breakthroughs (power plants, laboratories, the Stock Exchange, the Dam) for the last stretch of the game. The simulator cannot turn that into turns; in a real game it is a few percent of production and science over the final 20–30 turns. The spread during an Endeavour is the lever on this cost: halving it to 10% costs about two more incidental breakthroughs at the same turn, one of them economic, for the same race gain. Results: `results/w7f_<world>_inc{N,A,B}_<method>.json`.
+
 ## The candidate model, exactly (as the simulator runs it)
 
 From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings.

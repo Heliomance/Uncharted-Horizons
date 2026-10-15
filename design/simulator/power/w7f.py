@@ -150,6 +150,8 @@ HF.END_SPREAD = float(os.environ['ENDSPREAD']) if os.environ.get('ENDSPREAD') el
 HF.END_COOLDOWN = int(os.environ.get('ENDCOOL', '0'))   # turns after an Endeavour ends before another may start (harness_ftl_e.END_COOLDOWN)
 HF.URGENT = os.environ.get('URGENT') == '1'   # urgent Endeavours on ideas under study: all Insight, no premium, then a time debt (harness_ftl_e.URGENT)
 HF.URGENT_DEBT = float(os.environ.get('URGENTDEBT', '1.25'))   # the debt: this many times the turns an urgent Endeavour saved
+HF.END_ABANDON = float(os.environ.get('ENDABANDON', '0'))   # with URGENT: an urgent Endeavour's field loses this share of its other progress
+HF.END_ABANDON_ALL = os.environ.get('ENDABANDONALL') == '1'   # ...in every focus, not only its own
 HF.END_NOW = os.environ.get('ENDNOW') == '1'   # a crash programme: delivered at once, its price repaid afterwards (harness_ftl_e.END_NOW)
 HF.SPREAD_FIX = os.environ.get('SPREADFIX', '1') == '1'   # while an Endeavour runs, the spread keeps only its own share; SPREADFIX=0 reproduces the fault in results before 14 Oct 2026
 _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)

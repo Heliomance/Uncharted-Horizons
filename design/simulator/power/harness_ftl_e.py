@@ -82,6 +82,9 @@ URGENT = False       # True: an Endeavour on an idea under study is urgent. It t
                      # always slower overall).
                      # Endeavours on ideas that have not occurred are unchanged
 URGENT_DEBT = 1.25
+END_ABANDON = 0.0    # with URGENT: when an urgent Endeavour starts, every other idea under study in its focus loses this share of its progress
+                     # (the field drops everything for the one breakthrough; Tamsin's ideal, 15 Oct 2026)
+END_ABANDON_ALL = False   # True: every idea under study, in every focus, loses END_ABANDON of its progress (the whole nation drops everything)
 END_NOW = False      # True: a crash programme. The Endeavour delivers its breakthrough the turn it starts; its price is then repaid from the
                      # same share of the turns that follow, nothing else funded until it is paid (Tamsin's urgent button, 15 Oct 2026)
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
@@ -272,7 +275,11 @@ def run(prm, seed, max_turns=450):
             if best:
                 end_k, end_cost, end_prog = best[1], best[2], 0.0; END_LOG.append((turn, end_k, 'start')); started = True
                 _ek = 'end_on_occurred' if end_k in occurred else 'end_on_unoccurred'; acct[_ek] = acct.get(_ek, 0) + 1   # (accounting only)
-        if started and is_urgent(end_k): end_cost, end_urgent, end_tstudy, end_t0 = urgent_price(end_k), True, study_turns(end_k), turn
+        if started and is_urgent(end_k):
+            end_cost, end_urgent, end_tstudy, end_t0 = urgent_price(end_k), True, (study_turns(end_k) if URGENT_DEBT else 0.0), turn
+            if END_ABANDON:                       # the field's other work is dropped: it loses END_ABANDON of its progress
+                for j in ([x for ks_ in pool.values() for x in ks_] if END_ABANDON_ALL else pool.get(FOCUS[end_k], [])):
+                    if j != end_k and j not in have and j in progress: progress[j] *= 1.0 - END_ABANDON
         busy = end_k is not None or debt > 0 or pausing   # an Endeavour, a crash programme's repayment or an urgent one's debt holds the focus
         urgent_now = end_k is not None and end_urgent
         if end_k is not None and END_NOW:            # a crash programme: delivered now, repaid from the turns that follow
