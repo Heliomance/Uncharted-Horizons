@@ -1,0 +1,5065 @@
+[
+ {
+  "id": "CH01",
+  "needs": [
+   {
+    "label": "Copper Working",
+    "ref": "ME01",
+    "alt": false
+   },
+   {
+    "label": "Natural Philosophy",
+    "ref": "O06",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from Salt tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH04",
+  "needs": [
+   {
+    "label": "Alchemy",
+    "ref": "CH01",
+    "alt": false
+   },
+   {
+    "label": "Controlled Fire",
+    "ref": "F01",
+    "alt": false
+   }
+  ],
+  "fx": "Distillery (building); Whisky (resource) in cities working a Peat Cutting",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH05",
+  "needs": [
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   },
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production from all Forge buildings",
+  "fx2": "",
+  "opens": "",
+  "flav": "The older phlogiston account described this same chemistry through missing oxygen.",
+  "conj": ""
+ },
+ {
+  "id": "CH06",
+  "needs": [
+   {
+    "label": "Oxygen Theory",
+    "ref": "CH05",
+    "alt": false
+   },
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   }
+  ],
+  "fx": "Research Lab (building); +1 Science from Strategic resource tiles in all cities",
+  "fx2": "+1 Gold from Gems tiles in all cities",
+  "opens": "",
+  "flav": "You finally know what you're looking for.",
+  "conj": ""
+ },
+ {
+  "id": "CH07",
+  "needs": [
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "Pharmaceutical Works (building); Cristo Redentor (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH08",
+  "needs": [
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   },
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   }
+  ],
+  "fx": "Artillery (unit); -25% construction time for Mine improvements",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH09",
+  "needs": [
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   },
+   {
+    "label": "Petroleum Discovery",
+    "ref": "MI07",
+    "alt": false
+   }
+  ],
+  "fx": "Refinery (building), which needs Oil",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH09-W",
+  "needs": [
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   },
+   {
+    "label": "Selective Breeding",
+    "ref": "FA03",
+    "alt": false
+   }
+  ],
+  "fx": "Bio-Refinery (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Nature made polymers first. What if we learned from it better?",
+  "conj": ""
+ },
+ {
+  "id": "CH11",
+  "needs": [
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   },
+   {
+    "label": "Petrochemistry",
+    "ref": "CH09",
+    "alt": true
+   },
+   {
+    "label": "Bio-Organic Synthesis",
+    "ref": "CH09-W",
+    "alt": true
+   }
+  ],
+  "fx": "Infantry (unit); +15% Production when constructing Land units in all cities",
+  "fx2": "",
+  "opens": "Materials Science",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH12",
+  "needs": [
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Food from Farm tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH13",
+  "needs": [
+   {
+    "label": "Explosives (non-gunpowder)",
+    "ref": "CH08",
+    "alt": true
+   },
+   {
+    "label": "Gunpowder",
+    "ref": "WA10",
+    "alt": true
+   },
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   }
+  ],
+  "fx": "Rocket Artillery, Mobile SAM (units); Propellant Works (building)",
+  "fx2": "",
+  "opens": "Rocketry",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CH14",
+  "needs": [
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   },
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Light darkens salts of silver; perhaps it could be made to fix an image."
+ },
+ {
+  "id": "CH15",
+  "needs": [
+   {
+    "label": "Alchemy",
+    "ref": "CH01",
+    "alt": false
+   },
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   },
+   {
+    "label": "Monumental Architecture",
+    "ref": "CU02",
+    "alt": false
+   }
+  ],
+  "fx": "Alchemist's Guild (building); reveals Distillation centuries early",
+  "fx2": "",
+  "opens": "",
+  "flav": "Alexandrian alchemists achieving practical results.",
+  "conj": ""
+ },
+ {
+  "id": "CH19",
+  "needs": [
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   }
+  ],
+  "fx": "Analytical Laboratory (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The question every natural philosopher asked: what is matter made of?",
+  "conj": ""
+ },
+ {
+  "id": "CH25",
+  "needs": [
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   }
+  ],
+  "fx": "Synthesis Laboratory (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "In 1828 Wöhler made urea, a product of living bodies, from lifeless salts.",
+  "conj": ""
+ },
+ {
+  "id": "CH28",
+  "needs": [
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   },
+   {
+    "label": "Spectroscopy",
+    "ref": "OP08",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A gas first seen only in the Sun's light may be drawn from our own wells."
+ },
+ {
+  "id": "SO01",
+  "needs": [],
+  "fx": "+25% Gold from Trade Routes",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO02",
+  "needs": [],
+  "fx": "Monument (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO03",
+  "needs": [
+   {
+    "label": "Basic Counting",
+    "ref": "SO01",
+    "alt": false
+   },
+   {
+    "label": "Storytelling",
+    "ref": "SO02",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Happiness in capital; +1 Unit Supply per city",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO04",
+  "needs": [
+   {
+    "label": "Basic Counting",
+    "ref": "SO01",
+    "alt": false
+   },
+   {
+    "label": "Storytelling",
+    "ref": "SO02",
+    "alt": false
+   }
+  ],
+  "fx": "Library (building); The Great Library (world wonder)",
+  "fx2": "Enables establishment of embassies",
+  "opens": "Trade",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO05",
+  "needs": [
+   {
+    "label": "Tribal Law",
+    "ref": "SO03",
+    "alt": false
+   },
+   {
+    "label": "Population 5 in a city",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production from every specialist in all cities",
+  "fx2": "The funded focus now receives 80% of Insight, up from 50%",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO06",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Tribal Law",
+    "ref": "SO03",
+    "alt": false
+   }
+  ],
+  "fx": "Courthouse (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO08",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Basic Counting",
+    "ref": "SO01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold per 4 population in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO10",
+  "needs": [
+   {
+    "label": "Specialization of Labor",
+    "ref": "SO05",
+    "alt": false
+   },
+   {
+    "label": "Codified Law",
+    "ref": "SO06",
+    "alt": false
+   }
+  ],
+  "fx": "Guild Hall (building); Machu Picchu (world wonder)",
+  "fx2": "Enables conversion of city production to Gold",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO11",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Currency",
+    "ref": "TR02",
+    "alt": false
+   }
+  ],
+  "fx": "Bank, Coffee House (buildings); Forbidden Palace (world wonder)",
+  "fx2": "National Treasury (national wonder)",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SO16",
+  "needs": [
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   },
+   {
+    "label": "Printing Press",
+    "ref": "MC06",
+    "alt": false
+   }
+  ],
+  "fx": "Public School (building); +2 Unit Supply per city",
+  "fx2": "Constabulary, Police Station (buildings) when espionage is enabled",
+  "opens": "",
+  "flav": "Prussia made schooling compulsory in 1763, and other states followed.",
+  "conj": ""
+ },
+ {
+  "id": "S01",
+  "needs": [],
+  "fx": "Warrior, Scout (units); Remove Forest, Remove Jungle (improvements)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "S02",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "-25% construction time for Quarry improvements",
+  "fx2": "",
+  "opens": "",
+  "flav": "The Neolithic revolution in tool quality.",
+  "conj": ""
+ },
+ {
+  "id": "S03",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "Walls, Stone Works (buildings); Quarry (improvement)",
+  "fx2": "",
+  "opens": "Construction",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "S04",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "Mine (improvement); shows Copper, Gold Ore, Gems and Iron on the map",
+  "fx2": "",
+  "opens": "Mining",
+  "flav": "Suddenly you see where the wealth is buried.",
+  "conj": ""
+ },
+ {
+  "id": "S05",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   },
+   {
+    "label": "Volcanic region in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Volcanic glass might flake to an edge keener than any blade we can forge."
+ },
+ {
+  "id": "S07",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Flint shaped with patience might give our arrows truer, keener points."
+ },
+ {
+  "id": "S08",
+  "needs": [
+   {
+    "label": "Grinding & Polishing",
+    "ref": "S02",
+    "alt": false
+   }
+  ],
+  "fx": "Jeweler (building), which provides Jewelry (resource)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "ES03",
+  "needs": [
+   {
+    "label": "Turbine Design",
+    "ref": "TH03",
+    "alt": false
+   },
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Steam raised by coal fires might spin great turbines and light a whole city."
+ },
+ {
+  "id": "ES03-W",
+  "needs": [
+   {
+    "label": "Turbine Design",
+    "ref": "TH03",
+    "alt": false
+   },
+   {
+    "label": "Wood Gas Production",
+    "ref": "MI13",
+    "alt": false
+   },
+   {
+    "label": "Selective Breeding",
+    "ref": "FA03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Crops and timber grown for burning could turn a turbine as well as coal."
+ },
+ {
+  "id": "ES05",
+  "needs": [
+   {
+    "label": "Turbine Design",
+    "ref": "TH03",
+    "alt": false
+   },
+   {
+    "label": "Petroleum Discovery",
+    "ref": "MI07",
+    "alt": true
+   },
+   {
+    "label": "Internal Combustion Engine",
+    "ref": "MC09",
+    "alt": true
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Oil already drives our engines; it might drive a turbine as readily as coal."
+ },
+ {
+  "id": "ES09",
+  "needs": [
+   {
+    "label": "Deep Shaft Mining",
+    "ref": "MI05",
+    "alt": false
+   },
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The heat that stirs our volcanoes might be drawn up to turn our turbines."
+ },
+ {
+  "id": "ES10",
+  "needs": [
+   {
+    "label": "Tidal Patterns",
+    "ref": "O04",
+    "alt": false
+   },
+   {
+    "label": "Turbine Design",
+    "ref": "TH03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The sea rises and falls by the clock; that rhythm might be made to work."
+ },
+ {
+  "id": "ES13",
+  "needs": [
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   },
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Rotting waste gives off a gas that burns; our refuse might light our cities."
+ },
+ {
+  "id": "NP01",
+  "needs": [
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   },
+   {
+    "label": "Spectroscopy",
+    "ref": "OP08",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from Uranium tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "NP02",
+  "needs": [
+   {
+    "label": "Radioactivity",
+    "ref": "NP01",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   },
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   }
+  ],
+  "fx": "Nuclear Physics Lab (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "NP12",
+  "needs": [
+   {
+    "label": "Atomic Model",
+    "ref": "NP02",
+    "alt": false
+   },
+   {
+    "label": "Particle Accelerator",
+    "ref": "QP04",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Accelerators housed in great laboratories might become a home for big science."
+ },
+ {
+  "id": "MS02",
+  "needs": [
+   {
+    "label": "Quantum Mechanics Formalism",
+    "ref": "QP02",
+    "alt": false
+   },
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "If atoms can be counted, perhaps they can be set in place one by one."
+ },
+ {
+  "id": "CO01",
+  "needs": [
+   {
+    "label": "Seed Saving",
+    "ref": "G02",
+    "alt": false
+   }
+  ],
+  "fx": "Granary (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Sun-dried brick bound with the straw of the first harvests.",
+  "conj": ""
+ },
+ {
+  "id": "CO02",
+  "needs": [
+   {
+    "label": "Quarrying",
+    "ref": "S03",
+    "alt": false
+   }
+  ],
+  "fx": "Colosseum (building); Lumber mill (improvement)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CO03",
+  "needs": [
+   {
+    "label": "Quarrying",
+    "ref": "S03",
+    "alt": false
+   },
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   }
+  ],
+  "fx": "Road (improvement); Post Office (building)",
+  "fx2": "Roads connect tiles across rivers; +5% Production when constructing buildings",
+  "opens": "",
+  "flav": "The arch spans wider rooms, and carries the road across the river.",
+  "conj": ""
+ },
+ {
+  "id": "CO04",
+  "needs": [
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   },
+   {
+    "label": "Volcanic Ash Processing",
+    "ref": "MI06B",
+    "alt": false
+   }
+  ],
+  "fx": "Concrete Works (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Seawater-proof harbours, from a recipe later lost for a millennium.",
+  "conj": ""
+ },
+ {
+  "id": "CO05",
+  "needs": [
+   {
+    "label": "Quarrying",
+    "ref": "S03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Stones stepped inward, course by course, until they meet."
+ },
+ {
+  "id": "CO06",
+  "needs": [
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   },
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   }
+  ],
+  "fx": "Notre Dame, Taj Mahal, Porcelain Tower (world wonders)",
+  "fx2": "+15% Production when constructing Universities",
+  "opens": "",
+  "flav": "Walls that lean on air: the masons who raised the cathedrals raised the colleges.",
+  "conj": ""
+ },
+ {
+  "id": "CO07",
+  "needs": [
+   {
+    "label": "Post and Lintel",
+    "ref": "CO02",
+    "alt": false
+   },
+   {
+    "label": "Earthquake-prone lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Timber that bends where stone would crack might ride out the earthquakes."
+ },
+ {
+  "id": "CO09",
+  "needs": [
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   },
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": true
+   },
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": true
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A road hung from cables might cross a gorge no arch could span."
+ },
+ {
+  "id": "CO10",
+  "needs": [
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": false
+   },
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   }
+  ],
+  "fx": "Factory (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CO11",
+  "needs": [
+   {
+    "label": "Bessemer Process",
+    "ref": "ME12",
+    "alt": false
+   },
+   {
+    "label": "Roman Concrete",
+    "ref": "CO04",
+    "alt": true
+   },
+   {
+    "label": "Oxygen Theory",
+    "ref": "CH05",
+    "alt": true
+   }
+  ],
+  "fx": "+10% Production when constructing buildings",
+  "fx2": "Improves movement speed on roads",
+  "opens": "",
+  "flav": "Steel and concrete build fast and stand hard: Portland cement and Bessemer steel.",
+  "conj": ""
+ },
+ {
+  "id": "CO13",
+  "needs": [
+   {
+    "label": "Reinforced Concrete",
+    "ref": "CO11",
+    "alt": false
+   },
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A dome of light struts, all triangles, might roof an arena in any climate."
+ },
+ {
+  "id": "CO17",
+  "needs": [
+   {
+    "label": "Reinforced Concrete",
+    "ref": "CO11",
+    "alt": false
+   },
+   {
+    "label": "Oxygen Theory",
+    "ref": "CH05",
+    "alt": false
+   },
+   {
+    "label": "Glassmaking",
+    "ref": "OP01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A hull sealed tight, with air of its own, might keep a crew alive under water."
+ },
+ {
+  "id": "CO23",
+  "needs": [
+   {
+    "label": "Steam Engine",
+    "ref": "MC08",
+    "alt": false
+   },
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   },
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": false
+   }
+  ],
+  "fx": "Railroad (improvement); Railway Station (building)",
+  "fx2": "Neuschwanstein (world wonder)",
+  "opens": "",
+  "flav": "The defining infrastructure of the industrial age: distance stops mattering.",
+  "conj": ""
+ },
+ {
+  "id": "CO24",
+  "needs": [
+   {
+    "label": "Fortification Design",
+    "ref": "WA06",
+    "alt": false
+   },
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   }
+  ],
+  "fx": "Castle (building); Alhambra (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Rings of walls and flanking towers: Krak des Chevaliers, Edward I’s Welsh castles.",
+  "conj": ""
+ },
+ {
+  "id": "CO25",
+  "needs": [
+   {
+    "label": "Fortification Design",
+    "ref": "WA06",
+    "alt": false
+   },
+   {
+    "label": "Cannons",
+    "ref": "WA22",
+    "alt": true
+   },
+   {
+    "label": "Trebuchet",
+    "ref": "WA11",
+    "alt": true
+   }
+  ],
+  "fx": "Arsenal (building); Kremlin (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The trace italienne: low, angled bastions that turn a bombardment aside.",
+  "conj": ""
+ },
+ {
+  "id": "CO26",
+  "needs": [
+   {
+    "label": "Star Fort",
+    "ref": "CO25",
+    "alt": false
+   },
+   {
+    "label": "Reinforced Concrete",
+    "ref": "CO11",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A ring of detached forts in concrete and steel might stand up to any shell."
+ },
+ {
+  "id": "MA01",
+  "needs": [
+   {
+    "label": "Basic Counting",
+    "ref": "SO01",
+    "alt": false
+   },
+   {
+    "label": "Celestial Mathematics",
+    "ref": "O05",
+    "alt": false
+   }
+  ],
+  "fx": "-25% construction time for improvements; +1 Gold from all Markets",
+  "fx2": "",
+  "opens": "Mechanics",
+  "flav": "Surveyed land is improved faster; place value keeps the market’s accounts.",
+  "conj": ""
+ },
+ {
+  "id": "MA03",
+  "needs": [
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   }
+  ],
+  "fx": "+5% Production when constructing buildings",
+  "fx2": "+10% Strength for Siege units; +1 Culture from all World Wonders",
+  "opens": "",
+  "flav": "Algebra and trigonometry, the mathematics of Alexandria and Baghdad.",
+  "conj": ""
+ },
+ {
+  "id": "MA05",
+  "needs": [
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   },
+   {
+    "label": "Natural Philosophy",
+    "ref": "O06",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Range for Siege units; +15% Insight to the physical foci",
+  "fx2": "",
+  "opens": "",
+  "flav": "Trajectories solved: the path of a shot worked out before it is fired.",
+  "conj": ""
+ },
+ {
+  "id": "MA06",
+  "needs": [
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from all Banks; +10% Gold in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "Insurance priced by probability: risk, priced and pooled.",
+  "conj": ""
+ },
+ {
+  "id": "MA07",
+  "needs": [
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   },
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   }
+  ],
+  "fx": "Cipher Office (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "MA08",
+  "needs": [
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   }
+  ],
+  "fx": "+10% Gold from Trade Routes",
+  "fx2": "",
+  "opens": "",
+  "flav": "Accurate maps, shortest paths.",
+  "conj": ""
+ },
+ {
+  "id": "MA09",
+  "needs": [
+   {
+    "label": "Probability Theory",
+    "ref": "MA06",
+    "alt": false
+   }
+  ],
+  "fx": "+5% Production in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "Quality control: a factory’s output judged from a sample.",
+  "conj": ""
+ },
+ {
+  "id": "MA11",
+  "needs": [
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   },
+   {
+    "label": "Non-Euclidean Geometry",
+    "ref": "MA08",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Coastlines and mountains might follow a mathematics of their own."
+ },
+ {
+  "id": "MA13",
+  "needs": [
+   {
+    "label": "Non-Euclidean Geometry",
+    "ref": "MA08",
+    "alt": false
+   },
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   },
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold, +1 Production from each Trade Route",
+  "fx2": "-10% maintenance cost for buildings",
+  "opens": "",
+  "flav": "Administration by set and rule: Cantor and Poincaré, the new mathematics.",
+  "conj": ""
+ },
+ {
+  "id": "MI05",
+  "needs": [
+   {
+    "label": "Ore Identification",
+    "ref": "S04",
+    "alt": false
+   },
+   {
+    "label": "Mud Brick Construction",
+    "ref": "CO01",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Silver and Salt on the map; +1 Production from Mine tiles",
+  "fx2": "",
+  "opens": "",
+  "flav": "Going underground changes everything.",
+  "conj": ""
+ },
+ {
+  "id": "MI06",
+  "needs": [
+   {
+    "label": "Deep Shaft Mining",
+    "ref": "MI05",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Coal on the map; +1 Production from Coal tiles",
+  "fx2": "",
+  "opens": "",
+  "flav": "The fuel of the industrial revolution.",
+  "conj": ""
+ },
+ {
+  "id": "MI06B",
+  "needs": [
+   {
+    "label": "Ore Identification",
+    "ref": "S04",
+    "alt": false
+   },
+   {
+    "label": "Volcanic region in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Pozzolana Works (building); +1 Food from Volcanic tiles",
+  "fx2": "",
+  "opens": "",
+  "flav": "Fertile ash for the fields, and a binding powder for the builders.",
+  "conj": ""
+ },
+ {
+  "id": "MI07",
+  "needs": [
+   {
+    "label": "Deep Shaft Mining",
+    "ref": "MI05",
+    "alt": false
+   },
+   {
+    "label": "Geological Observation",
+    "ref": "O08",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Oil on the map; Oil well, Offshore Platform (improvements)",
+  "fx2": "+1 Gold from Oil tiles",
+  "opens": "",
+  "flav": "Kerosene for the lamps, before any engine wanted the oil.",
+  "conj": ""
+ },
+ {
+  "id": "MI08",
+  "needs": [
+   {
+    "label": "Deep Shaft Mining",
+    "ref": "MI05",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Saltpeter on the map; +1 Unit Supply per city",
+  "fx2": "",
+  "opens": "",
+  "flav": "Nitre for the army: preserved rations, and gunpowder.",
+  "conj": ""
+ },
+ {
+  "id": "MI10",
+  "needs": [
+   {
+    "label": "Deep Shaft Mining",
+    "ref": "MI05",
+    "alt": false
+   },
+   {
+    "label": "Radioactivity",
+    "ref": "NP01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The ore that darkens a sealed photographic plate might lie in our own hills."
+ },
+ {
+  "id": "MI11",
+  "needs": [
+   {
+    "label": "Deep Shaft Mining",
+    "ref": "MI05",
+    "alt": false
+   },
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Rare metals hidden in dull-looking ores might be separated out, one by one."
+ },
+ {
+  "id": "MI13",
+  "needs": [
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": false
+   },
+   {
+    "label": "Oxygen Theory",
+    "ref": "CH05",
+    "alt": false
+   }
+  ],
+  "fx": "-25% construction time for Lumber mills",
+  "fx2": "",
+  "opens": "",
+  "flav": "Wood-gas lorries were common in fuel-starved Europe in the Second World War.",
+  "conj": ""
+ },
+ {
+  "id": "OP01",
+  "needs": [
+   {
+    "label": "Kiln Construction",
+    "ref": "F02",
+    "alt": false
+   },
+   {
+    "label": "Desert or coast in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "+15% Production when constructing Lighthouses",
+  "fx2": "",
+  "opens": "",
+  "flav": "Glass for the lantern.",
+  "conj": ""
+ },
+ {
+  "id": "OP02",
+  "needs": [
+   {
+    "label": "Glassmaking",
+    "ref": "OP01",
+    "alt": false
+   },
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Science from every Scientist; +1 Culture from every Artist",
+  "fx2": "",
+  "opens": "",
+  "flav": "Spectacles double a scholar’s working life.",
+  "conj": ""
+ },
+ {
+  "id": "OP03",
+  "needs": [
+   {
+    "label": "Lens Grinding",
+    "ref": "OP02",
+    "alt": false
+   }
+  ],
+  "fx": "Observatory (building); +1 Sight for Water units",
+  "fx2": "-25% enemy spy effectiveness in all cities",
+  "opens": "",
+  "flav": "The same lens-makers made telescope and microscope: Janssen, around 1590.",
+  "conj": ""
+ },
+ {
+  "id": "OP07",
+  "needs": [
+   {
+    "label": "Lens Grinding",
+    "ref": "OP02",
+    "alt": false
+   },
+   {
+    "label": "Quantum Mechanics Formalism",
+    "ref": "QP02",
+    "alt": true
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Atoms made to shine in step might force light into a single voice."
+ },
+ {
+  "id": "OP08",
+  "needs": [
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   },
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from Mine tiles",
+  "fx2": "",
+  "opens": "",
+  "flav": "Ore composition read without sampling.",
+  "conj": ""
+ },
+ {
+  "id": "OP10",
+  "needs": [
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "Semaphore Tower (improvement)",
+  "fx2": "",
+  "opens": "",
+  "flav": "A message across a province in an afternoon.",
+  "conj": ""
+ },
+ {
+  "id": "RK02",
+  "needs": [
+   {
+    "label": "Rocket Propellant",
+    "ref": "CH13",
+    "alt": false
+   },
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   },
+   {
+    "label": "Petrochemistry",
+    "ref": "CH09",
+    "alt": true
+   },
+   {
+    "label": "Bio-Organic Synthesis",
+    "ref": "CH09-W",
+    "alt": true
+   }
+  ],
+  "fx": "Guided Missile (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Guidance is what liquid fuel makes possible.",
+  "conj": ""
+ },
+ {
+  "id": "RK03",
+  "needs": [
+   {
+    "label": "Liquid Fuel Rocket",
+    "ref": "RK02",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A rocket that sheds its spent stages as it climbs might reach orbit."
+ },
+ {
+  "id": "RK09",
+  "needs": [
+   {
+    "label": "Liquid Fuel Rocket",
+    "ref": "RK02",
+    "alt": false
+   },
+   {
+    "label": "Electric Generator",
+    "ref": "EL06",
+    "alt": false
+   },
+   {
+    "label": "Quantum Electrodynamics",
+    "ref": "QP03",
+    "alt": true
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A faint, endless push of charged atoms might carry a craft to other planets."
+ },
+ {
+  "id": "WA01",
+  "needs": [
+   {
+    "label": "Tribal Law",
+    "ref": "SO03",
+    "alt": false
+   }
+  ],
+  "fx": "Spearman (unit); Barracks (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Men who fight as one.",
+  "conj": ""
+ },
+ {
+  "id": "WA03",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "Archer (unit); Temple of Artemis (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA04",
+  "needs": [
+   {
+    "label": "Archery",
+    "ref": "WA03",
+    "alt": false
+   },
+   {
+    "label": "Herd Animal Domestication",
+    "ref": "AH02",
+    "alt": false
+   }
+  ],
+  "fx": "Composite Bowman (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA05",
+  "needs": [
+   {
+    "label": "Formation Fighting",
+    "ref": "WA01",
+    "alt": false
+   },
+   {
+    "label": "Post and Lintel",
+    "ref": "CO02",
+    "alt": false
+   }
+  ],
+  "fx": "Catapult (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Walls stop being final.",
+  "conj": ""
+ },
+ {
+  "id": "WA06",
+  "needs": [
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   },
+   {
+    "label": "Formation Fighting",
+    "ref": "WA01",
+    "alt": false
+   }
+  ],
+  "fx": "Fort (improvement); Great Wall (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA07",
+  "needs": [
+   {
+    "label": "Formation Fighting",
+    "ref": "WA01",
+    "alt": false
+   },
+   {
+    "label": "Horse Domestication",
+    "ref": "AH03",
+    "alt": false
+   }
+  ],
+  "fx": "Horseman (unit); +10% to Flank Attack bonuses",
+  "fx2": "",
+  "opens": "",
+  "flav": "Riders who strike where the line bends.",
+  "conj": ""
+ },
+ {
+  "id": "WA08",
+  "needs": [
+   {
+    "label": "Horse Domestication",
+    "ref": "AH03",
+    "alt": false
+   },
+   {
+    "label": "Wheel",
+    "ref": "MC01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A light cart behind fast horses might carry a man with a bow into battle."
+ },
+ {
+  "id": "WA09",
+  "needs": [
+   {
+    "label": "Composite Bow",
+    "ref": "WA04",
+    "alt": false
+   },
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   }
+  ],
+  "fx": "Crossbowman (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA10",
+  "needs": [
+   {
+    "label": "Advanced Pyrotechnics",
+    "ref": "F07",
+    "alt": false
+   },
+   {
+    "label": "Saltpeter Mining",
+    "ref": "MI08",
+    "alt": false
+   },
+   {
+    "label": "Geological Observation",
+    "ref": "O08",
+    "alt": false
+   }
+  ],
+  "fx": "Musketman (unit, requires Saltpeter); Himeji Castle (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA11",
+  "needs": [
+   {
+    "label": "Siege Warfare",
+    "ref": "WA05",
+    "alt": false
+   },
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   }
+  ],
+  "fx": "Trebuchet (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA13",
+  "needs": [
+   {
+    "label": "Formation Fighting",
+    "ref": "WA01",
+    "alt": false
+   },
+   {
+    "label": "Forest, jungle or mountains in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Small bands who know the hills and forests might bleed a larger army."
+ },
+ {
+  "id": "WA16",
+  "needs": [
+   {
+    "label": "Gunpowder",
+    "ref": "WA10",
+    "alt": false
+   },
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": false
+   }
+  ],
+  "fx": "Rifleman (unit); Gatling Gun (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WA22",
+  "needs": [
+   {
+    "label": "Gunpowder",
+    "ref": "WA10",
+    "alt": false
+   },
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": true
+   },
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": true
+   }
+  ],
+  "fx": "Cannon (unit, requires Saltpeter)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Medieval walls stop mattering.",
+  "conj": ""
+ },
+ {
+  "id": "WA26",
+  "needs": [
+   {
+    "label": "Formation Fighting",
+    "ref": "WA01",
+    "alt": false
+   },
+   {
+    "label": "Iron Smelting",
+    "ref": "ME04",
+    "alt": false
+   },
+   {
+    "label": "Census",
+    "ref": "SO08",
+    "alt": false
+   }
+  ],
+  "fx": "Terracotta Army (world wonder); Heroic Epic (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The Marian reforms (107 BC): soldiers by trade, not by levy.",
+  "conj": ""
+ },
+ {
+  "id": "WA27",
+  "needs": [
+   {
+    "label": "Cavalry Tactics",
+    "ref": "WA07",
+    "alt": false
+   },
+   {
+    "label": "Iron Smelting",
+    "ref": "ME04",
+    "alt": false
+   }
+  ],
+  "fx": "Knight (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The stirrup spread west across Eurasia between the 6th and 8th centuries.",
+  "conj": ""
+ },
+ {
+  "id": "WA28",
+  "needs": [
+   {
+    "label": "Formation Fighting",
+    "ref": "WA01",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   }
+  ],
+  "fx": "Military Academy (building); Brandenburg Gate (world wonder)",
+  "fx2": "Cavalry (unit); Lancer (unit); +25% Strength for Gunpowder units vs Mounted units",
+  "opens": "",
+  "flav": "Maurice of Nassau’s drill (1590s), written from the classical manuals.",
+  "conj": ""
+ },
+ {
+  "id": "MD01",
+  "needs": [
+   {
+    "label": "Herbal Medicine",
+    "ref": "G03",
+    "alt": false
+   }
+  ],
+  "fx": "Surgery (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Trepanation is Neolithic: surgery predates comparative anatomy by millennia.",
+  "conj": ""
+ },
+ {
+  "id": "MD03",
+  "needs": [
+   {
+    "label": "Comparative Anatomy",
+    "ref": "O07",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "Medical School (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "MD04",
+  "needs": [
+   {
+    "label": "Anatomy Study",
+    "ref": "MD03",
+    "alt": false
+   },
+   {
+    "label": "Herd Animal Domestication",
+    "ref": "AH02",
+    "alt": false
+   }
+  ],
+  "fx": "+10% growth in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "The milkmaid observation: the plague years end.",
+  "conj": ""
+ },
+ {
+  "id": "MD05",
+  "needs": [
+   {
+    "label": "Anatomy Study",
+    "ref": "MD03",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   },
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   }
+  ],
+  "fx": "Hospital (building); +10% growth in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "The microbe is the culprit.",
+  "conj": ""
+ },
+ {
+  "id": "MD06",
+  "needs": [
+   {
+    "label": "Germ Theory",
+    "ref": "MD05",
+    "alt": false
+   },
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A compound that kills germs but spares the patient might cure infection."
+ },
+ {
+  "id": "MD07",
+  "needs": [
+   {
+    "label": "Surgical Techniques",
+    "ref": "MD01",
+    "alt": false
+   },
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Distilled vapours might put a patient beyond pain while the surgeon works."
+ },
+ {
+  "id": "MD08",
+  "needs": [
+   {
+    "label": "Anatomy Study",
+    "ref": "MD03",
+    "alt": false
+   },
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Geared limbs of wood and metal might send the wounded back to the line."
+ },
+ {
+  "id": "MD15",
+  "needs": [
+   {
+    "label": "Anatomy Study",
+    "ref": "MD03",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   }
+  ],
+  "fx": "Contagion Laboratory (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Pasteur’s swan-neck flask, and controlled exposure.",
+  "conj": ""
+ },
+ {
+  "id": "MD20",
+  "needs": [
+   {
+    "label": "Germ Theory",
+    "ref": "MD05",
+    "alt": false
+   },
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Viruses that prey on bacteria might be bred to fight infection."
+ },
+ {
+  "id": "TH01",
+  "needs": [
+   {
+    "label": "Steam Engine",
+    "ref": "MC08",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production from all Steam Works buildings",
+  "fx2": "",
+  "opens": "",
+  "flav": "The kinetic theory of heat: heat is motion.",
+  "conj": ""
+ },
+ {
+  "id": "TH02",
+  "needs": [
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   },
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   },
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "Stadium (building); +1 Gold from all Factory buildings",
+  "fx2": "15% Food is carried over after population increases in all cities",
+  "opens": "",
+  "flav": "Linde built the refrigerator and then liquefied air.",
+  "conj": ""
+ },
+ {
+  "id": "TH03",
+  "needs": [
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   },
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   },
+   {
+    "label": "Bessemer Process",
+    "ref": "ME12",
+    "alt": false
+   }
+  ],
+  "fx": "+15% Production when constructing Water units in all cities",
+  "fx2": "+1 Happiness in cities on Snow tiles",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TH05",
+  "needs": [
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production from every Engineer",
+  "fx2": "",
+  "opens": "",
+  "flav": "The engineer who knows the limit gets closest to it.",
+  "conj": ""
+ },
+ {
+  "id": "TH08",
+  "needs": [
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   },
+   {
+    "label": "Steam Engine",
+    "ref": "MC08",
+    "alt": false
+   }
+  ],
+  "fx": "Stirling Works (building): a power plant that needs no fuel resource",
+  "fx2": "",
+  "opens": "",
+  "flav": "Less power, but it burns anything.",
+  "conj": ""
+ },
+ {
+  "id": "TH09",
+  "needs": [
+   {
+    "label": "Steam Engine",
+    "ref": "MC08",
+    "alt": false
+   },
+   {
+    "label": "Natural Philosophy",
+    "ref": "O06",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production from all Steam Works buildings",
+  "fx2": "",
+  "opens": "",
+  "flav": "Heat as a weightless fluid — wrong in our world.",
+  "conj": ""
+ },
+ {
+  "id": "TH10",
+  "needs": [
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": true
+   },
+   {
+    "label": "Caloric Theory",
+    "ref": "TH09",
+    "alt": true
+   },
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   }
+  ],
+  "fx": "Joule Laboratory (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Joule’s paddle-wheel and Rumford’s cannon: friction makes heat without limit.",
+  "conj": ""
+ },
+ {
+  "id": "TH15",
+  "needs": [
+   {
+    "label": "Turbine Design",
+    "ref": "TH03",
+    "alt": false
+   },
+   {
+    "label": "Carnot Efficiency",
+    "ref": "TH05",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The heat our factories throw away might be caught and set to work."
+ },
+ {
+  "id": "AE01",
+  "needs": [
+   {
+    "label": "Controlled Fire",
+    "ref": "F01",
+    "alt": false
+   },
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   }
+  ],
+  "fx": "Observation Balloon (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The Montgolfiers flew in 1783, before oxygen chemistry was accepted.",
+  "conj": ""
+ },
+ {
+  "id": "AE02",
+  "needs": [
+   {
+    "label": "Hot Air Balloon",
+    "ref": "AE01",
+    "alt": false
+   },
+   {
+    "label": "Internal Combustion Engine",
+    "ref": "MC09",
+    "alt": true
+   },
+   {
+    "label": "Electric Generator",
+    "ref": "EL06",
+    "alt": true
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A gas bag with an engine and a rudder might be steered against the wind."
+ },
+ {
+  "id": "AE03",
+  "needs": [
+   {
+    "label": "Internal Combustion Engine",
+    "ref": "MC09",
+    "alt": false
+   },
+   {
+    "label": "Basic Algebra",
+    "ref": "MA03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "With a light enough engine, a fixed wing might lift a machine into the air."
+ },
+ {
+  "id": "AE09",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   },
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   },
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   }
+  ],
+  "fx": "Ornithopter (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Flight before the combustion engine.",
+  "conj": ""
+ },
+ {
+  "id": "AE13",
+  "needs": [
+   {
+    "label": "Dirigible/Airship",
+    "ref": "AE02",
+    "alt": false
+   },
+   {
+    "label": "Aluminium Extraction",
+    "ref": "ME13",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A frame of light metal around great gas cells could cross an ocean."
+ },
+ {
+  "id": "EN01",
+  "needs": [
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   },
+   {
+    "label": "Glassmaking",
+    "ref": "OP01",
+    "alt": false
+   }
+  ],
+  "fx": "+15% Production when constructing Air units in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "A heated filament boils electrons into the bulb; a charged grid steers them.",
+  "conj": ""
+ },
+ {
+  "id": "EN02",
+  "needs": [
+   {
+    "label": "Vacuum Tube",
+    "ref": "EN01",
+    "alt": false
+   },
+   {
+    "label": "Wave-Particle Duality",
+    "ref": "QP01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "Computing",
+  "flav": "",
+  "conj": "A sliver of crystal might do the work of a vacuum tube, smaller and cooler."
+ },
+ {
+  "id": "EN04",
+  "needs": [
+   {
+    "label": "Vacuum Tube",
+    "ref": "EN01",
+    "alt": false
+   },
+   {
+    "label": "Wireless Transmission",
+    "ref": "EL09",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Radio waves bounced off distant aircraft might find them before any eye can."
+ },
+ {
+  "id": "EN11",
+  "needs": [
+   {
+    "label": "Vacuum Tube",
+    "ref": "EN01",
+    "alt": false
+   },
+   {
+    "label": "Wireless Transmission",
+    "ref": "EL09",
+    "alt": false
+   },
+   {
+    "label": "Lens Grinding",
+    "ref": "OP02",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Voices and music might be carried through the air to every home."
+ },
+ {
+  "id": "CU02",
+  "needs": [
+   {
+    "label": "Post and Lintel",
+    "ref": "CO02",
+    "alt": false
+   },
+   {
+    "label": "Specialization of Labor",
+    "ref": "SO05",
+    "alt": false
+   }
+  ],
+  "fx": "Temple (building); Stonehenge, The Pyramids, Mausoleum of Halicarnassus (wonders)",
+  "fx2": "-25% Culture cost of natural border growth in all cities",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CU03",
+  "needs": [
+   {
+    "label": "Storytelling",
+    "ref": "SO02",
+    "alt": false
+   },
+   {
+    "label": "A luxury resource in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Great Artist is earned 10% faster",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CU04",
+  "needs": [
+   {
+    "label": "Storytelling",
+    "ref": "SO02",
+    "alt": false
+   },
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "Great Prophet is earned 10% faster",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CU05",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Artistic Tradition",
+    "ref": "CU03",
+    "alt": false
+   }
+  ],
+  "fx": "Amphitheater (building); a drama festival (event)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CU06",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   },
+   {
+    "label": "Printing Press",
+    "ref": "MC06",
+    "alt": false
+   }
+  ],
+  "fx": "University (building); Angkor Wat (wonder); Oxford University (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CU07",
+  "needs": [
+   {
+    "label": "University",
+    "ref": "CU06",
+    "alt": false
+   },
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   },
+   {
+    "label": "Letter of Credit",
+    "ref": "TR05",
+    "alt": false
+   }
+  ],
+  "fx": "Empire enters a 10-turn Golden Age; Opera House and Theatre (buildings)",
+  "fx2": "Hermitage (national wonder); Sistine Chapel (wonder)",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "CU14",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Artistic Tradition",
+    "ref": "CU03",
+    "alt": false
+   }
+  ],
+  "fx": "National Epic (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Herodotus and Thucydides wrote their histories in the 5th century BC.",
+  "conj": ""
+ },
+ {
+  "id": "CU15",
+  "needs": [
+   {
+    "label": "Monumental Architecture",
+    "ref": "CU02",
+    "alt": false
+   },
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   }
+  ],
+  "fx": "Hagia Sophia, Great Mosque of Djenne (wonders); Grand Temple (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "In the age of Aquinas and the kalam, faith was argued by logic.",
+  "conj": ""
+ },
+ {
+  "id": "PH01",
+  "needs": [
+   {
+    "label": "Natural Philosophy",
+    "ref": "O06",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Science from every specialist in all cities; -25% enemy spy effectiveness",
+  "fx2": "Gifts of Gold to City-States generate +25% more Influence",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "PH04",
+  "needs": [
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   }
+  ],
+  "fx": "+25% Science in all cities; Experimental Laboratory (building)",
+  "fx2": "Experiment ability (spend Gold on a revealed breakthrough)",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "PH08",
+  "needs": [
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   }
+  ],
+  "fx": "Resting point for Influence with City-States is increased by 10",
+  "fx2": "Synthesis ability (once each era, retry a breakthrough whose moment passed)",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "PH09",
+  "needs": [
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "If life has no given purpose, each of us may have to make one."
+ },
+ {
+  "id": "PH10",
+  "needs": [
+   {
+    "label": "Formal Logic",
+    "ref": "PH01",
+    "alt": false
+   },
+   {
+    "label": "Binary Mathematics",
+    "ref": "MA07",
+    "alt": false
+   }
+  ],
+  "fx": "Great Scientist is earned 10% faster",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Information itself might be measured, counted out in yes-or-no answers."
+ },
+ {
+  "id": "PH11",
+  "needs": [
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   },
+   {
+    "label": "Statistics",
+    "ref": "MA09",
+    "alt": true
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A city, a market or a forest might be understood only as a whole."
+ },
+ {
+  "id": "PH14",
+  "needs": [
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   },
+   {
+    "label": "Renaissance",
+    "ref": "CU07",
+    "alt": false
+   }
+  ],
+  "fx": "Museum (building); The Louvre (wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The British Museum was founded in 1753; the Encyclopédie began to appear in 1751.",
+  "conj": ""
+ },
+ {
+  "id": "QP01",
+  "needs": [
+   {
+    "label": "Atomic Model",
+    "ref": "NP02",
+    "alt": false
+   },
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   }
+  ],
+  "fx": "+10% Strength for cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "QP02",
+  "needs": [
+   {
+    "label": "Wave-Particle Duality",
+    "ref": "QP01",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   },
+   {
+    "label": "Topology",
+    "ref": "MA13",
+    "alt": false
+   }
+  ],
+  "fx": "Great Engineer is earned 10% faster; triggers the Quantum Strangeness event",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "QP03",
+  "needs": [
+   {
+    "label": "Quantum Mechanics Formalism",
+    "ref": "QP02",
+    "alt": false
+   },
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   }
+  ],
+  "fx": "+10% Insight to Electronics",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "QP04",
+  "needs": [
+   {
+    "label": "Quantum Mechanics Formalism",
+    "ref": "QP02",
+    "alt": false
+   },
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   },
+   {
+    "label": "Power Grid",
+    "ref": "EL07",
+    "alt": false
+   }
+  ],
+  "fx": "Particle Accelerator (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "QP05",
+  "needs": [
+   {
+    "label": "Quantum Electrodynamics",
+    "ref": "QP03",
+    "alt": false
+   },
+   {
+    "label": "Topology",
+    "ref": "MA13",
+    "alt": false
+   }
+  ],
+  "fx": "No buildings, units or bonuses of its own.",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "QP06",
+  "needs": [
+   {
+    "label": "Quantum Field Theory",
+    "ref": "QP05",
+    "alt": false
+   },
+   {
+    "label": "Particle Accelerator",
+    "ref": "QP04",
+    "alt": false
+   }
+  ],
+  "fx": "Standard Model Institute (national wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A complete list of the particles and forces may be within our grasp."
+ },
+ {
+  "id": "QP08",
+  "needs": [
+   {
+    "label": "Quantum Field Theory",
+    "ref": "QP05",
+    "alt": false
+   },
+   {
+    "label": "General Relativity",
+    "ref": "RC02",
+    "alt": false
+   },
+   {
+    "label": "Particle Accelerator",
+    "ref": "QP04",
+    "alt": false
+   }
+  ],
+  "fx": "Reveals every strategic resource within a 20-tile radius",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Gravity and the quantum might yet be written in a single account."
+ },
+ {
+  "id": "QP09",
+  "needs": [
+   {
+    "label": "Quantum Gravity Theory",
+    "ref": "QP08",
+    "alt": false
+   },
+   {
+    "label": "Topology",
+    "ref": "MA13",
+    "alt": false
+   },
+   {
+    "label": "Particle Accelerator",
+    "ref": "QP04",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Each particle might be a tiny string, vibrating in its own note."
+ },
+ {
+  "id": "QP10",
+  "needs": [
+   {
+    "label": "Quantum Gravity Theory",
+    "ref": "QP08",
+    "alt": false
+   },
+   {
+    "label": "Non-Euclidean Geometry",
+    "ref": "MA08",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The fabric of space might be knitted from loops of the gravitational field."
+ },
+ {
+  "id": "QP12",
+  "needs": [
+   {
+    "label": "Quantum Field Theory",
+    "ref": "QP05",
+    "alt": false
+   },
+   {
+    "label": "Precision Machining",
+    "ref": "MC10",
+    "alt": false
+   }
+  ],
+  "fx": "No buildings, units or bonuses of its own.",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "F01",
+  "needs": [],
+  "fx": "+1 Production in all cities; +1 Food from Tundra tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "Fire: the foundation of civilisation.",
+  "conj": ""
+ },
+ {
+  "id": "F02",
+  "needs": [
+   {
+    "label": "Controlled Fire",
+    "ref": "F01",
+    "alt": false
+   }
+  ],
+  "fx": "Shrine (building); +25% City Strength from defensive buildings",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "F03",
+  "needs": [
+   {
+    "label": "Controlled Fire",
+    "ref": "F01",
+    "alt": false
+   }
+  ],
+  "fx": "+25% Production when constructing Melee units in all cities",
+  "fx2": "-25% maintenance on road & railroads; +10% Strength for Water units",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "F04",
+  "needs": [
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": false
+   },
+   {
+    "label": "Ore Identification",
+    "ref": "S04",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production from Copper tiles; +1 Gold from Gold Ore tiles, in all cities",
+  "fx2": "",
+  "opens": "Metallurgy",
+  "flav": "The moment someone put green rock near hot charcoal.",
+  "conj": ""
+ },
+ {
+  "id": "F05",
+  "needs": [
+   {
+    "label": "Controlled Fire",
+    "ref": "F01",
+    "alt": false
+   },
+   {
+    "label": "Tribal Law",
+    "ref": "SO03",
+    "alt": false
+   }
+  ],
+  "fx": "Signal Fire (improvement, on Hills)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "F07",
+  "needs": [
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": false
+   },
+   {
+    "label": "Geological Observation",
+    "ref": "O08",
+    "alt": false
+   }
+  ],
+  "fx": "Fireworks Ground (building, requires Saltpeter)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "F16",
+  "needs": [
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": false
+   },
+   {
+    "label": "Marsh in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Peat Cutting (improvement, on Marsh)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Pliny described the Chauci burning peat in the first century AD.",
+  "conj": ""
+ },
+ {
+  "id": "AH01",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Sight for Scout units; +1 Food from Deer tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "The first animal people ever domesticated.",
+  "conj": ""
+ },
+ {
+  "id": "AH02",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   }
+  ],
+  "fx": "Pasture (improvement)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "AH03",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   },
+   {
+    "label": "Grassland in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Horses on the map; Stable (building); Circus Maximus (national wonder)",
+  "fx2": "+1 Production from Horses tiles in all cities",
+  "opens": "",
+  "flav": "The horse transformed warfare.",
+  "conj": ""
+ },
+ {
+  "id": "AH05",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   },
+   {
+    "label": "Desert in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The desert beast that stores its water might carry our goods."
+ },
+ {
+  "id": "AH06",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   },
+   {
+    "label": "Tropical forest in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The great beasts of the forest might be tamed to haul and to carry."
+ },
+ {
+  "id": "AH11",
+  "needs": [
+   {
+    "label": "Selective Breeding",
+    "ref": "FA03",
+    "alt": false
+   },
+   {
+    "label": "Surgical Techniques",
+    "ref": "MD01",
+    "alt": false
+   }
+  ],
+  "fx": "Veterinary College (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "RC01",
+  "needs": [
+   {
+    "label": "Non-Euclidean Geometry",
+    "ref": "MA08",
+    "alt": false
+   },
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   }
+  ],
+  "fx": "+10% Gold from Trade Routes; +10% Insight to Nuclear Physics",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "RC02",
+  "needs": [
+   {
+    "label": "Special Relativity",
+    "ref": "RC01",
+    "alt": false
+   },
+   {
+    "label": "Non-Euclidean Geometry",
+    "ref": "MA08",
+    "alt": false
+   }
+  ],
+  "fx": "No buildings, units or bonuses of its own.",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "RC03",
+  "needs": [
+   {
+    "label": "General Relativity",
+    "ref": "RC02",
+    "alt": false
+   },
+   {
+    "label": "Laser",
+    "ref": "OP07",
+    "alt": false
+   },
+   {
+    "label": "Precision Machining",
+    "ref": "MC10",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "If space itself can ripple, a fine enough instrument might hear it."
+ },
+ {
+  "id": "RC04",
+  "needs": [
+   {
+    "label": "General Relativity",
+    "ref": "RC02",
+    "alt": false
+   },
+   {
+    "label": "Quantum Field Theory",
+    "ref": "QP05",
+    "alt": true
+   },
+   {
+    "label": "Laws of Thermodynamics",
+    "ref": "TH01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Even a star collapsed beyond all light might have a temperature."
+ },
+ {
+  "id": "ME-B",
+  "needs": [
+   {
+    "label": "Copper Working",
+    "ref": "ME01",
+    "alt": false
+   },
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   }
+  ],
+  "fx": "Forge (building): +15% Production when building land units",
+  "fx2": "Forge: +1 Production from Iron tiles in this city",
+  "opens": "",
+  "flav": "Forced air changes everything about metallurgy.",
+  "conj": ""
+ },
+ {
+  "id": "ME01",
+  "needs": [
+   {
+    "label": "Smelting Discovery",
+    "ref": "F04",
+    "alt": false
+   }
+  ],
+  "fx": "Copper Warrior (unit), which requires Copper",
+  "fx2": "",
+  "opens": "",
+  "flav": "The first worked metal, in the first metal hand.",
+  "conj": ""
+ },
+ {
+  "id": "ME02",
+  "needs": [
+   {
+    "label": "Copper Working",
+    "ref": "ME01",
+    "alt": false
+   },
+   {
+    "label": "Copper in your territory",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Statue of Zeus (world wonder); +10% Strength for Melee units",
+  "fx2": "",
+  "opens": "",
+  "flav": "Bronze arms and armour.",
+  "conj": ""
+ },
+ {
+  "id": "ME04",
+  "needs": [
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": false
+   },
+   {
+    "label": "Bellows",
+    "ref": "ME-B",
+    "alt": false
+   },
+   {
+    "label": "Iron in your territory",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Swordsman (unit); Colossus (world wonder)",
+  "fx2": "",
+  "opens": "",
+  "flav": "The Iron Age begins.",
+  "conj": ""
+ },
+ {
+  "id": "ME05",
+  "needs": [
+   {
+    "label": "Iron Smelting",
+    "ref": "ME04",
+    "alt": false
+   },
+   {
+    "label": "Coal Discovery",
+    "ref": "MI06",
+    "alt": true
+   },
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": true
+   },
+   {
+    "label": "Bellows",
+    "ref": "ME-B",
+    "alt": false
+   }
+  ],
+  "fx": "Pikeman (unit); +1 Gold from Iron tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "China cast iron and made steel from it in the same centuries.",
+  "conj": ""
+ },
+ {
+  "id": "ME08",
+  "needs": [
+   {
+    "label": "Iron Smelting",
+    "ref": "ME04",
+    "alt": false
+   },
+   {
+    "label": "Post and Lintel",
+    "ref": "CO02",
+    "alt": false
+   },
+   {
+    "label": "Coal Discovery",
+    "ref": "MI06",
+    "alt": true
+   },
+   {
+    "label": "Charcoal Production",
+    "ref": "F03",
+    "alt": true
+   }
+  ],
+  "fx": "Ironworks (national wonder), which requires Coal; Charcoal Kiln (building)",
+  "fx2": "Charcoal Kiln: 1 Coal, -10% Production; needs 3 worked Forest, Jungle or Peat Cutting",
+  "opens": "",
+  "flav": "Sweden ran charcoal blast furnaces into the 19th century.",
+  "conj": ""
+ },
+ {
+  "id": "ME09",
+  "needs": [
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": false
+   },
+   {
+    "label": "Alchemy",
+    "ref": "CH01",
+    "alt": false
+   }
+  ],
+  "fx": "+10% Strength for Melee units",
+  "fx2": "",
+  "opens": "",
+  "flav": "The finest pre-industrial steel.",
+  "conj": ""
+ },
+ {
+  "id": "ME12",
+  "needs": [
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": false
+   },
+   {
+    "label": "Oxygen Theory",
+    "ref": "CH05",
+    "alt": false
+   }
+  ],
+  "fx": "Battleship (unit); +1 Production from Iron tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "Cheap steel: steel hulls and steel rails.",
+  "conj": ""
+ },
+ {
+  "id": "ME13",
+  "needs": [
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   },
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Aluminum on the map; +1 Production from Aluminum tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "ME17",
+  "needs": [
+   {
+    "label": "Currency",
+    "ref": "TR02",
+    "alt": false
+   },
+   {
+    "label": "Natural Philosophy",
+    "ref": "O06",
+    "alt": false
+   }
+  ],
+  "fx": "Mint (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Archimedes and the crown (c. 250 BC).",
+  "conj": ""
+ },
+ {
+  "id": "ME18",
+  "needs": [
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": false
+   },
+   {
+    "label": "Water Mill",
+    "ref": "WM05",
+    "alt": false
+   }
+  ],
+  "fx": "Longswordsman (unit); Armory (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Steel beaten to shape under water-driven hammers, 14th–15th century.",
+  "conj": ""
+ },
+ {
+  "id": "MC01",
+  "needs": [
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Movement for Civilian units",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "MC03",
+  "needs": [
+   {
+    "label": "Wheel",
+    "ref": "MC01",
+    "alt": false
+   },
+   {
+    "label": "Geometry",
+    "ref": "MA01",
+    "alt": false
+   }
+  ],
+  "fx": "-25% construction time for Mine and Farm improvements",
+  "fx2": "+10% Production when building wonders in all cities",
+  "opens": "",
+  "flav": "The crane lifts what the arm cannot.",
+  "conj": ""
+ },
+ {
+  "id": "MC04",
+  "needs": [
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   },
+   {
+    "label": "Sail Invention",
+    "ref": "SF03",
+    "alt": false
+   }
+  ],
+  "fx": "Windmill (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "MC05",
+  "needs": [
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   },
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": false
+   }
+  ],
+  "fx": "Great Engineer is earned 10% faster",
+  "fx2": "",
+  "opens": "",
+  "flav": "The clockmaker, the first precision engineer.",
+  "conj": ""
+ },
+ {
+  "id": "MC06",
+  "needs": [
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   },
+   {
+    "label": "Paper Making",
+    "ref": "TX10",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "+10% Science in all cities; Leaning Tower of Pisa (world wonder)",
+  "fx2": "Knowledge Diffusion: ideas widely held abroad now reach you in print",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "MC08",
+  "needs": [
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": false
+   },
+   {
+    "label": "Water Mill",
+    "ref": "WM05",
+    "alt": false
+   },
+   {
+    "label": "Scientific Method",
+    "ref": "PH04",
+    "alt": false
+   }
+  ],
+  "fx": "Steam Works (building); Big Ben (world wonder)",
+  "fx2": "",
+  "opens": "Thermodynamics",
+  "flav": "Watt's separate condenser (1769) began as a repair to a model Newcomen engine.",
+  "conj": ""
+ },
+ {
+  "id": "MC09",
+  "needs": [
+   {
+    "label": "Steam Engine",
+    "ref": "MC08",
+    "alt": false
+   },
+   {
+    "label": "Petroleum Discovery and Petrochemistry",
+    "ref": "MI07",
+    "alt": true
+   },
+   {
+    "label": "Distillation and Organic Chemistry",
+    "ref": "CH04",
+    "alt": true
+   }
+  ],
+  "fx": "Landship, Tank, Anti-Tank Gun (units); Distillery Fuel Depot (building)",
+  "fx2": "Distillery Fuel Depot: 1 Oil and -20% growth while its city works 3 Farms",
+  "opens": "",
+  "flav": "Fuel-starved Europe ran its cars on alcohol and wood gas in the Second World War.",
+  "conj": ""
+ },
+ {
+  "id": "MC10",
+  "needs": [
+   {
+    "label": "Clockwork",
+    "ref": "MC05",
+    "alt": false
+   },
+   {
+    "label": "Steel Production",
+    "ref": "ME05",
+    "alt": false
+   }
+  ],
+  "fx": "Great War Infantry (unit); Statue of Liberty (world wonder)",
+  "fx2": "+10% Production when constructing Military units in all cities",
+  "opens": "",
+  "flav": "Interchangeable parts.",
+  "conj": ""
+ },
+ {
+  "id": "MC11",
+  "needs": [
+   {
+    "label": "Precision Machining",
+    "ref": "MC10",
+    "alt": false
+   },
+   {
+    "label": "Specialization of Labor",
+    "ref": "SO05",
+    "alt": false
+   }
+  ],
+  "fx": "Machine Gun (unit); +15% Production when constructing buildings",
+  "fx2": "+25% Production when constructing a Military Base",
+  "opens": "",
+  "flav": "The line moves; the workers stand.",
+  "conj": ""
+ },
+ {
+  "id": "MC19",
+  "needs": [
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   },
+   {
+    "label": "Water Mill",
+    "ref": "WM05",
+    "alt": false
+   }
+  ],
+  "fx": "Workshop (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Al-Jazari (1206): rotation turned into strokes, for mills that saw, hammer and pump.",
+  "conj": ""
+ },
+ {
+  "id": "EL02",
+  "needs": [
+   {
+    "label": "Natural Philosophy",
+    "ref": "O06",
+    "alt": false
+   },
+   {
+    "label": "Distillation",
+    "ref": "CH04",
+    "alt": false
+   },
+   {
+    "label": "Copper Working",
+    "ref": "ME01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from Silver, Gold Ore and Luxury resource tiles in all cities",
+  "fx2": "+1 Culture from all Museum buildings",
+  "opens": "",
+  "flav": "Galvani's frogs and Volta's pile were one line of experiment.",
+  "conj": ""
+ },
+ {
+  "id": "EL03",
+  "needs": [
+   {
+    "label": "Voltaic Pile (Battery)",
+    "ref": "EL02",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   }
+  ],
+  "fx": "Great Scientist is earned 10% faster",
+  "fx2": "",
+  "opens": "",
+  "flav": "Two forces found to be one.",
+  "conj": ""
+ },
+ {
+  "id": "EL04",
+  "needs": [
+   {
+    "label": "Voltaic Pile (Battery)",
+    "ref": "EL02",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "Telegraph Office (building): +1 Gold, +1 Gold from each Trade Route, +3 City strength",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "EL06",
+  "needs": [
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   },
+   {
+    "label": "Turbine Design",
+    "ref": "TH03",
+    "alt": false
+   }
+  ],
+  "fx": "-25% construction time for Railroad improvements",
+  "fx2": "",
+  "opens": "Electronics",
+  "flav": "The motor is the generator run backwards.",
+  "conj": ""
+ },
+ {
+  "id": "EL07",
+  "needs": [
+   {
+    "label": "Electric Generator",
+    "ref": "EL06",
+    "alt": false
+   },
+   {
+    "label": "Iron-Frame Construction",
+    "ref": "CO10",
+    "alt": false
+   }
+  ],
+  "fx": "+2 Production and +1 Happiness in cities connected to the capital",
+  "fx2": "A further +3 Production in connected cities without a Power Plant",
+  "opens": "",
+  "flav": "The grid, and electric light.",
+  "conj": ""
+ },
+ {
+  "id": "EL09",
+  "needs": [
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   },
+   {
+    "label": "Precision Machining",
+    "ref": "MC10",
+    "alt": false
+   }
+  ],
+  "fx": "Radio Transmitter (building); Telephone Exchange (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Bell and Marconi: telecommunication by wire and without.",
+  "conj": ""
+ },
+ {
+  "id": "EL10",
+  "needs": [
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   },
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Squeezed hard enough, certain crystals might give up a current of their own."
+ },
+ {
+  "id": "EL11",
+  "needs": [
+   {
+    "label": "Refrigeration",
+    "ref": "TH02",
+    "alt": false
+   },
+   {
+    "label": "Electromagnetism",
+    "ref": "EL03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Cooled far enough, some metals might carry a current with no loss at all."
+ },
+ {
+  "id": "TR01",
+  "needs": [
+   {
+    "label": "Basic Counting",
+    "ref": "SO01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from each Trade Route; unlocks the Trade screen",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TR02",
+  "needs": [
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   },
+   {
+    "label": "Copper Working",
+    "ref": "ME01",
+    "alt": false
+   }
+  ],
+  "fx": "Market (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Standard coin, standard price.",
+  "conj": ""
+ },
+ {
+  "id": "TR03",
+  "needs": [
+   {
+    "label": "Currency",
+    "ref": "TR02",
+    "alt": false
+   },
+   {
+    "label": "Herd Animal Domestication",
+    "ref": "AH02",
+    "alt": true
+   },
+   {
+    "label": "Camel Domestication",
+    "ref": "AH05",
+    "alt": true
+   }
+  ],
+  "fx": "Caravansary (building): +1 Gold, +1 Gold per Trade Route, +1 Gold from Desert tiles",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TR05",
+  "needs": [
+   {
+    "label": "Currency",
+    "ref": "TR02",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "+25% Gold from Trade Routes",
+  "fx2": "",
+  "opens": "",
+  "flav": "Value travels without the coin.",
+  "conj": ""
+ },
+ {
+  "id": "TR06",
+  "needs": [
+   {
+    "label": "Letter of Credit",
+    "ref": "TR05",
+    "alt": false
+   },
+   {
+    "label": "Banking",
+    "ref": "SO11",
+    "alt": false
+   }
+  ],
+  "fx": "Trading Company (building): +3 Gold, +2 Gold from each Trade Route",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TR10",
+  "needs": [
+   {
+    "label": "Letter of Credit",
+    "ref": "TR05",
+    "alt": false
+   },
+   {
+    "label": "Probability Theory",
+    "ref": "MA06",
+    "alt": false
+   },
+   {
+    "label": "Statistics",
+    "ref": "MA09",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A price might be agreed today for a harvest not yet sown."
+ },
+ {
+  "id": "TR17",
+  "needs": [
+   {
+    "label": "Caravansary",
+    "ref": "TR03",
+    "alt": false
+   },
+   {
+    "label": "Currency",
+    "ref": "TR02",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Passed from caravan to caravan, goods might cross a whole continent."
+ },
+ {
+  "id": "FA01",
+  "needs": [
+   {
+    "label": "Seed Saving",
+    "ref": "G02",
+    "alt": false
+   },
+   {
+    "label": "A river or fresh water",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Food from Farms on fresh water in all cities",
+  "fx2": "",
+  "opens": "Water Management",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "FA02",
+  "needs": [
+   {
+    "label": "Seed Saving",
+    "ref": "G02",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Food from Wheat tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "The soil no longer tires.",
+  "conj": ""
+ },
+ {
+  "id": "FA03",
+  "needs": [
+   {
+    "label": "Seed Saving",
+    "ref": "G02",
+    "alt": false
+   },
+   {
+    "label": "Herd Animal Domestication",
+    "ref": "AH02",
+    "alt": false
+   },
+   {
+    "label": "Botanical Classification",
+    "ref": "G07",
+    "alt": true
+   },
+   {
+    "label": "Irrigation and Crop Rotation",
+    "ref": "FA01",
+    "alt": true
+   }
+  ],
+  "fx": "+1 Food from Plantation tiles; +1 Production from Pasture tiles; War Dog (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Improved varieties of every cultivated crop.",
+  "conj": ""
+ },
+ {
+  "id": "FA10",
+  "needs": [
+   {
+    "label": "Irrigation",
+    "ref": "FA01",
+    "alt": false
+   },
+   {
+    "label": "Periodic Table",
+    "ref": "CH06",
+    "alt": false
+   }
+  ],
+  "fx": "Hydroponics Lab (building): +2 Food, -10% Food consumption by Population",
+  "fx2": "",
+  "opens": "",
+  "flav": "Food without soil.",
+  "conj": ""
+ },
+ {
+  "id": "FA16",
+  "needs": [
+   {
+    "label": "Saltpeter Mining",
+    "ref": "MI08",
+    "alt": false
+   },
+   {
+    "label": "Crop Rotation",
+    "ref": "FA02",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Food from Farm tiles in all cities while you hold Saltpeter, until Catalysis",
+  "fx2": "",
+  "opens": "",
+  "flav": "Before 1913 the world's fields were fed from Chilean nitrate and Peruvian guano.",
+  "conj": ""
+ },
+ {
+  "id": "CP13",
+  "needs": [
+   {
+    "label": "Vacuum Tube",
+    "ref": "EN01",
+    "alt": true
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A machine of shafts and currents might act out an equation, not count it."
+ },
+ {
+  "id": "SF01",
+  "needs": [
+   {
+    "label": "A coastal or river city",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Fishing Boats (improvement), Work Boats (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF02",
+  "needs": [
+   {
+    "label": "Reed/Log Raft",
+    "ref": "SF01",
+    "alt": false
+   },
+   {
+    "label": "Tool Knapping",
+    "ref": "S01",
+    "alt": false
+   }
+  ],
+  "fx": "Enables embarkation for land units",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF03",
+  "needs": [
+   {
+    "label": "Dugout Canoe",
+    "ref": "SF02",
+    "alt": false
+   },
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   }
+  ],
+  "fx": "Lighthouse (building), The Great Lighthouse (wonder), Port (building)",
+  "fx2": "+1 Movement for Embarked units; Port: +1 Gold, +1 Gold from Water resource tiles",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF04",
+  "needs": [
+   {
+    "label": "Sail Invention",
+    "ref": "SF03",
+    "alt": false
+   },
+   {
+    "label": "Star Tracking",
+    "ref": "O01",
+    "alt": false
+   }
+  ],
+  "fx": "Enables Embarked units and Work Boats to enter ocean tiles",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF05",
+  "needs": [
+   {
+    "label": "Sail Invention",
+    "ref": "SF03",
+    "alt": false
+   },
+   {
+    "label": "Post and Lintel",
+    "ref": "CO02",
+    "alt": false
+   }
+  ],
+  "fx": "Trireme (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF08",
+  "needs": [
+   {
+    "label": "Geological Observation",
+    "ref": "O08",
+    "alt": false
+   },
+   {
+    "label": "Celestial Navigation",
+    "ref": "SF04",
+    "alt": false
+   }
+  ],
+  "fx": "Harbor (building); +1 Movement for Water units",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF09",
+  "needs": [
+   {
+    "label": "Compass",
+    "ref": "SF08",
+    "alt": false
+   },
+   {
+    "label": "Trireme/Galley Construction",
+    "ref": "SF05",
+    "alt": false
+   },
+   {
+    "label": "Iron Smelting",
+    "ref": "ME04",
+    "alt": false
+   }
+  ],
+  "fx": "Caravel (unit), Galleass (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF10",
+  "needs": [
+   {
+    "label": "Trireme/Galley Construction",
+    "ref": "SF05",
+    "alt": false
+   },
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   }
+  ],
+  "fx": "Drydock (building): +25% Production when constructing Water units in this city",
+  "fx2": "Water units adjacent to this city heal +10 HP per turn when healing",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF11",
+  "needs": [
+   {
+    "label": "Caravel/Deep Ocean Ship",
+    "ref": "SF09",
+    "alt": false
+   },
+   {
+    "label": "Cannons",
+    "ref": "WA22",
+    "alt": false
+   }
+  ],
+  "fx": "Frigate (unit), Privateer (unit)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "SF12",
+  "needs": [
+   {
+    "label": "Ship of the Line",
+    "ref": "SF11",
+    "alt": false
+   },
+   {
+    "label": "Blast Furnace",
+    "ref": "ME08",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A hull sheathed in iron plate might shrug off shot that splinters oak."
+ },
+ {
+  "id": "SF19",
+  "needs": [
+   {
+    "label": "Caravel/Deep Ocean Ship",
+    "ref": "SF09",
+    "alt": false
+   },
+   {
+    "label": "Clockwork",
+    "ref": "MC05",
+    "alt": false
+   }
+  ],
+  "fx": "Seaport (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "Harrison's marine chronometer, 1761: a ship that always knows where it is.",
+  "conj": ""
+ },
+ {
+  "id": "O01",
+  "needs": [],
+  "fx": "+1 Movement for Scout units",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O02",
+  "needs": [
+   {
+    "label": "Star Tracking",
+    "ref": "O01",
+    "alt": false
+   }
+  ],
+  "fx": "+5% growth in all cities; +1 Sight for Water units",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O03",
+  "needs": [],
+  "fx": "Camp (improvement)",
+  "fx2": "",
+  "opens": "Animal Husbandry",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O04",
+  "needs": [
+   {
+    "label": "Star Tracking",
+    "ref": "O01",
+    "alt": false
+   },
+   {
+    "label": "A coastal city",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Tidal Weir (building): +1 Food from Fish tiles in this city",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O05",
+  "needs": [
+   {
+    "label": "Star Tracking",
+    "ref": "O01",
+    "alt": false
+   },
+   {
+    "label": "Basic Counting",
+    "ref": "SO01",
+    "alt": false
+   }
+  ],
+  "fx": "+2 Faith in capital",
+  "fx2": "",
+  "opens": "Mathematics",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O06",
+  "needs": [
+   {
+    "label": "Star Tracking",
+    "ref": "O01",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "The Oracle (wonder), National College (national wonder), +5% Insight to all foci",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O07",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   },
+   {
+    "label": "Herbal Medicine",
+    "ref": "G03",
+    "alt": false
+   }
+  ],
+  "fx": "No buildings, units or bonuses of its own.",
+  "fx2": "",
+  "opens": "Medicine",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O08",
+  "needs": [
+   {
+    "label": "Ore Identification",
+    "ref": "S04",
+    "alt": false
+   }
+  ],
+  "fx": "Shows Strategic resources within 10 tiles; +1 Production from Quarry and Iron tiles",
+  "fx2": "+1 Gold from all Dye Works buildings; +1 Culture and +1 Happiness in capital",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "O09",
+  "needs": [
+   {
+    "label": "Animal Behavior Study",
+    "ref": "O03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "If we knew where the herds go each season, we could be waiting for them."
+ },
+ {
+  "id": "O12",
+  "needs": [
+   {
+    "label": "Weather Prediction",
+    "ref": "O02",
+    "alt": false
+   },
+   {
+    "label": "Oxygen Theory",
+    "ref": "CH05",
+    "alt": false
+   },
+   {
+    "label": "Calculus",
+    "ref": "MA05",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "If the air's weight and warmth were measured, storms might be foretold."
+ },
+ {
+  "id": "G01",
+  "needs": [],
+  "fx": "Forager's Hut (building): +1 Food",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "G02",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   }
+  ],
+  "fx": "Farm (improvement)",
+  "fx2": "",
+  "opens": "Farming",
+  "flav": "The moment someone realised that seeds could be planted deliberately.",
+  "conj": ""
+ },
+ {
+  "id": "G03",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   }
+  ],
+  "fx": "Herbalist (building)",
+  "fx2": "Military units adjacent to this city heal +5 HP per turn when healing",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "G04",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   },
+   {
+    "label": "Controlled Fire",
+    "ref": "F01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from Wine tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "Beer may have driven civilisation.",
+  "conj": ""
+ },
+ {
+  "id": "G05",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Gold from Silk tiles in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "G06",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "The moulds that spoil our bread may have uses we have not yet guessed."
+ },
+ {
+  "id": "G07",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   },
+   {
+    "label": "Writing",
+    "ref": "SO04",
+    "alt": false
+   }
+  ],
+  "fx": "Garden (building), Plantation (improvement), +10% Insight to Farming and Medicine",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "G10",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Certain resins and leaves bring visions; our priests might learn their use."
+ },
+ {
+  "id": "WM01",
+  "needs": [
+   {
+    "label": "Irrigation",
+    "ref": "FA01",
+    "alt": false
+   },
+   {
+    "label": "Quarrying",
+    "ref": "S03",
+    "alt": false
+   }
+  ],
+  "fx": "+1 Production in cities on River tiles; +1 Gold from each Trade Route",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WM02",
+  "needs": [
+   {
+    "label": "Canal Building",
+    "ref": "WM01",
+    "alt": false
+   },
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   }
+  ],
+  "fx": "Aqueduct (building), Hanging Gardens (wonder), Remove Marsh (improvement)",
+  "fx2": "+1 Food from Flood plains tiles in all cities",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WM05",
+  "needs": [
+   {
+    "label": "Canal Building",
+    "ref": "WM01",
+    "alt": false
+   },
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   }
+  ],
+  "fx": "Water Mill (building)",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "WM06",
+  "needs": [
+   {
+    "label": "Aqueduct",
+    "ref": "WM02",
+    "alt": false
+   },
+   {
+    "label": "Reinforced Concrete",
+    "ref": "CO11",
+    "alt": false
+   },
+   {
+    "label": "Electric Generator",
+    "ref": "EL06",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "A wall of concrete across the valley might hold back the whole river."
+ },
+ {
+  "id": "WM09",
+  "needs": [
+   {
+    "label": "Irrigation",
+    "ref": "FA01",
+    "alt": false
+   },
+   {
+    "label": "Canal Building",
+    "ref": "WM01",
+    "alt": false
+   },
+   {
+    "label": "A river valley",
+    "ref": "",
+    "alt": false
+   },
+   {
+    "label": "Tropical or temperate lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Paddy Field (improvement), Rice Granary (building, replaces Granary)",
+  "fx2": "+1 Food from Paddy Field tiles in all cities",
+  "opens": "",
+  "flav": "The rice civilisations of East and Southeast Asia.",
+  "conj": ""
+ },
+ {
+  "id": "WM11",
+  "needs": [
+   {
+    "label": "Canal Building",
+    "ref": "WM01",
+    "alt": false
+   },
+   {
+    "label": "Arch Construction",
+    "ref": "CO03",
+    "alt": false
+   },
+   {
+    "label": "Caravansary",
+    "ref": "TR03",
+    "alt": false
+   },
+   {
+    "label": "A river in your lands",
+    "ref": "",
+    "alt": false
+   }
+  ],
+  "fx": "Pound Lock (building): +2 Gold, +2 Production from each Trade Route",
+  "fx2": "",
+  "opens": "",
+  "flav": "Canal Mania, 1790s: one horse pulled 30 tons by barge, but only 1 ton by road cart.",
+  "conj": ""
+ },
+ {
+  "id": "WM12",
+  "needs": [
+   {
+    "label": "Water Mill",
+    "ref": "WM05",
+    "alt": false
+   },
+   {
+    "label": "Tidal Patterns",
+    "ref": "O04",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Sea water trapped behind a sluice gate might turn a wheel as a river does."
+ },
+ {
+  "id": "TX01",
+  "needs": [
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": true
+   },
+   {
+    "label": "Herd Animal Domestication",
+    "ref": "AH02",
+    "alt": true
+   }
+  ],
+  "fx": "Weaver (building): +1 Gold; +1 Production from Sheep tiles in all cities",
+  "fx2": "+1 Happiness in cities on Tundra tiles",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TX02",
+  "needs": [
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   },
+   {
+    "label": "Plant Identification",
+    "ref": "G01",
+    "alt": false
+   }
+  ],
+  "fx": "Dye Works (building): +2 Gold, +1 Gold from Dyes tiles in this city",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TX05",
+  "needs": [
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   },
+   {
+    "label": "Gearing",
+    "ref": "MC03",
+    "alt": false
+   }
+  ],
+  "fx": "Textile Mill (building): +2 Gold, +1 Gold from Cotton tiles in this city",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "TX08",
+  "needs": [
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   },
+   {
+    "label": "Polymer Science",
+    "ref": "CH11",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Threads of pure carbon, set in resin, might prove stronger than steel."
+ },
+ {
+  "id": "TX10",
+  "needs": [
+   {
+    "label": "Weaving",
+    "ref": "TX01",
+    "alt": false
+   },
+   {
+    "label": "Canal Building",
+    "ref": "WM01",
+    "alt": true
+   },
+   {
+    "label": "Kiln Construction",
+    "ref": "F02",
+    "alt": true
+   }
+  ],
+  "fx": "+15% Production when constructing Library buildings in all cities",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": ""
+ },
+ {
+  "id": "GN02",
+  "needs": [
+   {
+    "label": "Germ Theory",
+    "ref": "MD05",
+    "alt": false
+   },
+   {
+    "label": "Selective Breeding",
+    "ref": "FA03",
+    "alt": false
+   },
+   {
+    "label": "Organic Chemistry",
+    "ref": "CH07",
+    "alt": false
+   },
+   {
+    "label": "Telescope",
+    "ref": "OP03",
+    "alt": false
+   }
+  ],
+  "fx": "",
+  "fx2": "",
+  "opens": "",
+  "flav": "",
+  "conj": "Heredity must be written in a molecule; if we saw its shape, we could read it."
+ }
+]

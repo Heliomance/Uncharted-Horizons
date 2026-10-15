@@ -133,7 +133,7 @@ class Component extends DCLogic {
       const g = { studying: r.status === 'studying', waiting: r.status === 'waiting', unreach: r.status === 'unreach', closed: r.status === 'closed', notTaken: r.status === 'not_taken', endeavour: r.status === 'endeavour' };
       const eraStyle = TAG_BASE + 'border-radius:4px;padding:0 4px;' + (ERA_TAG[r.status] || '');
       const home = fv && r.focus !== fv ? ' · home: ' + r.focus : '';
-      const line2 = (r.status === 'owned' || r.status === 'not_taken' ? (r.fx || '') : (r.conj ? '“' + r.conj + '”' : '')) + home;
+      const line2 = (r.status === 'owned' ? (r.fx || '') : (r.conj ? '“' + r.conj + '”' : '')) + home;
       return { name: r.name, style: style, cardStyle: cardStyle, g: g, tags: tags, era: { show: live, text: AB[r.era], style: eraStyle },
         line2: line2, line2Style: 'display:block;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0.92',
         aria: r.name + ' — ' + STATUS_LABEL[r.status] + ' — ' + r.focus + ', ' + r.era + ' era' + (tags.length ? ' — ' + tags.map(t => t.text).join(', ') : ''),
@@ -268,12 +268,15 @@ class Component extends DCLogic {
       if (!r.needs || !r.needs.length) return;
       const parts = [lead || 'Needs '];
       r.needs.forEach((n, i) => {
-        if (i) parts.push(n.alt && r.needs[i - 1].alt ? ' or ' : ' + ');
+        const prevAlt = i > 0 && r.needs[i - 1].alt, nextAlt = i + 1 < r.needs.length && r.needs[i + 1].alt;
+        if (i) parts.push(n.alt && prevAlt ? ' or ' : ' + ');
+        if (n.alt && !prevAlt && nextAlt) parts.push('(');
         const met = n.ref ? owned.has(n.ref) : true;
         parts.push({ text: met ? '✓ ' : '✗ ', style: 'color:' + (met ? '#65DC72' : '#FF6B6B') });
         let t = n.label;
         if (!met && n.ref && byId[n.ref] && byId[n.ref].status === 'studying') t += ' (under study in ' + byId[n.ref].focus + ')';
         parts.push(t);
+        if (n.alt && prevAlt && !nextAlt) parts.push(')');
       });
       line(parts);
     };

@@ -1,0 +1,2862 @@
+===== t226 (a1)
+--- AE01 [owned] Hot Air Balloon Aeronautics · Early Modern era
+    Discovered on turn 202. Observation Balloon (unit)
+    Needs ✓ Controlled Fire + ✓ Weaving + ✓ Scientific Method
+    The Montgolfiers flew in 1783, before oxygen chemistry was accepted.
+    ACTIONS: [disabled] Discovered
+--- AE02 [studying] Dirigible/Airship Aeronautics · Modern era
+    Being studied in Aeronautics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Hot Air Balloon + (✓ Internal Combustion Engine or ✓ Electric Generator)
+    “A gas bag with an engine and a rudder might be steered against the wind.”
+    ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- AE03 [studying] Heavier-Than-Air Flight Aeronautics · Modern era
+    Being studied in Aeronautics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Internal Combustion Engine + ✓ Basic Algebra
+    “With a light enough engine, a fixed wing might lift a machine into the air.”
+    ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- AE09 [owned] Ornithopter Aeronautics · Early Modern era
+    Discovered on turn 191. Ornithopter (unit)
+    A rare find.
+    Needs ✓ Animal Behavior Study + ✓ Gearing + ✓ Weaving
+    Flight before the combustion engine.
+    ACTIONS: [disabled] Discovered
+--- AH01 [owned] Dog Domestication Animal Husbandry · Primitive era
+    Discovered on turn 28. +1 Sight for Scout units; +1 Food from Deer tiles in all cities
+    Needs ✓ Animal Behavior Study
+    The first animal people ever domesticated.
+    ACTIONS: [disabled] Discovered
+--- AH02 [owned] Herd Animal Domestication Animal Husbandry · Primitive era
+    Discovered on turn 15. Pasture (improvement)
+    Needs ✓ Animal Behavior Study
+    ACTIONS: [disabled] Discovered
+--- AH03 [owned] Horse Domestication Animal Husbandry · Ancient era
+    Discovered on turn 72. Shows Horses on the map; Stable (building); Circus Maximus (national wonder)
+    +1 Production from Horses tiles in all cities
+    Needs ✓ Animal Behavior Study + ✓ Grassland in your lands
+    The horse transformed warfare.
+    ACTIONS: [disabled] Discovered
+--- AH05 [closed] Camel Domestication Animal Husbandry · Ancient era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Animal Behavior Study + ✓ Desert in your lands
+    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “The desert beast that stores its water might carry our goods.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 37 Insight · about 1 turn
+--- AH06 [closed] Elephant Domestication Animal Husbandry · Ancient era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Animal Behavior Study + ✓ Tropical forest in your lands
+    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “The great beasts of the forest might be tamed to haul and to carry.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 37 Insight · about 1 turn
+--- AH11 [owned] Veterinary Medicine Animal Husbandry · Classical era
+    Discovered on turn 129. Veterinary College (building)
+    Needs ✓ Selective Breeding + ✓ Surgical Techniques
+    ACTIONS: [disabled] Discovered
+--- CH01 [owned] Alchemy Chemistry · Classical era
+    Discovered on turn 63. +1 Gold from Salt tiles in all cities
+    Needs ✓ Copper Working + ✓ Natural Philosophy
+    ACTIONS: [disabled] Discovered
+--- CH04 [owned] Distillation Chemistry · Medieval era
+    Discovered on turn 89. Distillery (building); Whisky (resource) in cities working a Peat Cutting
+    Needs ✓ Alchemy + ✓ Controlled Fire
+    ACTIONS: [disabled] Discovered
+--- CH05 [owned] Oxygen Theory Chemistry · Early Modern era
+    Discovered on turn 139. +1 Production from all Forge buildings
+    Needs ✓ Scientific Method + ✓ Distillation
+    The older phlogiston account described this same chemistry through missing oxygen.
+    ACTIONS: [disabled] Discovered
+--- CH06 [owned] Periodic Table Chemistry · Modern era
+    Discovered on turn 157. Research Lab (building); +1 Science from Strategic resource tiles in all cities
+    +1 Gold from Gems tiles in all cities
+    Needs ✓ Oxygen Theory + ✓ Basic Algebra
+    You finally know what you're looking for.
+    ACTIONS: [disabled] Discovered
+--- CH07 [owned] Organic Chemistry Chemistry · Modern era
+    Discovered on turn 199. Pharmaceutical Works (building); Cristo Redentor (world wonder)
+    Needs ✓ Periodic Table
+    ACTIONS: [disabled] Discovered
+--- CH08 [owned] Explosives (non-gunpowder) Chemistry · Modern era · also reached by Mining
+    Discovered on turn 216. Artillery (unit); -25% construction time for Mine improvements
+    Needs ✓ Organic Chemistry + ✓ Distillation
+    ACTIONS: [disabled] Discovered
+--- CH09 [owned] Petrochemistry Chemistry · Modern era
+    Discovered on turn 213. Refinery (building), which needs Oil
+    Needs ✓ Organic Chemistry + ✓ Petroleum Discovery
+    ACTIONS: [disabled] Discovered
+--- CH09-W [owned] Bio-Organic Synthesis Chemistry · Modern era
+    Discovered on turn 211. Bio-Refinery (building)
+    Needs ✓ Organic Chemistry + ✓ Selective Breeding
+    Nature made polymers first. What if we learned from it better?
+    ACTIONS: [disabled] Discovered
+--- CH11 [owned] Polymer Science Chemistry · Modern era
+    Discovered on turn 223. Infantry (unit); +15% Production when constructing Land units in all cities
+    Opens the Materials Science focus.
+    Needs ✓ Organic Chemistry + (✓ Petrochemistry or ✓ Bio-Organic Synthesis)
+    ACTIONS: [disabled] Discovered
+--- CH12 [owned] Catalysis Chemistry · Modern era · also reached by Farming
+    Discovered on turn 203. +1 Food from Farm tiles in all cities
+    Needs ✓ Periodic Table
+    ACTIONS: [disabled] Discovered
+--- CH13 [owned] Rocket Propellant Chemistry · Modern era
+    Discovered on turn 194. Rocket Artillery, Mobile SAM (units); Propellant Works (building)
+    Opens the Rocketry focus.
+    Needs (✓ Explosives (non-gunpowder) or ✓ Gunpowder) + ✓ Laws of Thermodynamics
+    ACTIONS: [disabled] Discovered
+--- CH14 [closed] Photochemistry Chemistry · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Periodic Table + ✓ Telescope
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Light darkens salts of silver; perhaps it could be made to fix an image.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- CH15 [owned] Greek Alchemical Tradition Chemistry · Classical era
+    Discovered on turn 82. Alchemist's Guild (building); reveals Distillation centuries early
+    A rare find.
+    Needs ✓ Alchemy + ✓ Formal Logic + ✓ Monumental Architecture
+    Alexandrian alchemists achieving practical results.
+    ACTIONS: [disabled] Discovered
+--- CH19 [owned] Systematic Element Analysis Chemistry · Early Modern era
+    Discovered on turn 139. Analytical Laboratory (national wonder)
+    Needs ✓ Distillation + ✓ Scientific Method
+    The question every natural philosopher asked: what is matter made of?
+    ACTIONS: [disabled] Discovered
+--- CH25 [owned] Organic Synthesis Attempt Chemistry · Modern era
+    Discovered on turn 211. Synthesis Laboratory (national wonder)
+    Needs ✓ Organic Chemistry
+    In 1828 Wöhler made urea, a product of living bodies, from lifeless salts.
+    ACTIONS: [disabled] Discovered
+--- CH28 [studying] Helium Extraction Chemistry · Modern era
+    Being studied in Chemistry: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Periodic Table + ✓ Spectroscopy
+    “A gas first seen only in the Sun's light may be drawn from our own wells.”
+    ACTIONS: Fund Chemistry | [disabled] Grand Endeavour only for ideas not yet occurred
+--- CO01 [owned] Mud Brick Construction Construction · Primitive era
+    Discovered on turn 33. Granary (building)
+    Needs ✓ Seed Saving
+    Sun-dried brick bound with the straw of the first harvests.
+    ACTIONS: [disabled] Discovered
+--- CO02 [owned] Post and Lintel Construction · Ancient era
+    Discovered on turn 37. Colosseum (building); Lumber mill (improvement)
+    Needs ✓ Quarrying
+    ACTIONS: [disabled] Discovered
+--- CO03 [owned] Arch Construction Construction · Ancient era
+    Discovered on turn 38. Road (improvement); Post Office (building)
+    Roads connect tiles across rivers; +5% Production when constructing buildings
+    Needs ✓ Quarrying + ✓ Geometry
+    The arch spans wider rooms, and carries the road across the river.
+    ACTIONS: [disabled] Discovered
+--- CO04 [owned] Roman Concrete Construction · Classical era
+    Discovered on turn 103. Concrete Works (building)
+    Needs ✓ Arch Construction + ✓ Volcanic Ash Processing
+    Seawater-proof harbours, from a recipe later lost for a millennium.
+    ACTIONS: [disabled] Discovered
+--- CO05 [not_taken] Corbel Arch/Vault Construction · Ancient era
+    Glimpsed by our scholars. Path not taken: Arch Construction was discovered first, so this will never be developed.
+    A thing your civilisation glimpsed and let slip.
+    “Stones stepped inward, course by course, until they meet.”
+    ACTIONS: [disabled] Never developed
+--- CO06 [owned] Flying Buttress Construction · Medieval era
+    Discovered on turn 123. Notre Dame, Taj Mahal, Porcelain Tower (world wonders)
+    +15% Production when constructing Universities
+    Needs ✓ Arch Construction + ✓ Basic Algebra
+    Walls that lean on air: the masons who raised the cathedrals raised the colleges.
+    ACTIONS: [disabled] Discovered
+--- CO07 [closed] Earthquake-Resistant Design Construction · Classical era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Post and Lintel + ✓ Earthquake-prone lands
+    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Timber that bends where stone would crack might ride out the earthquakes.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 168 Insight · about 1 turn
+--- CO09 [closed] Suspension Bridge Construction · Medieval era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Arch Construction + (✓ Steel Production or ✓ Weaving)
+    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “A road hung from cables might cross a gorge no arch could span.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 371 Insight · about 1 turn
+--- CO10 [owned] Iron-Frame Construction Construction · Early Modern era
+    Discovered on turn 129. Factory (building)
+    Needs ✓ Blast Furnace + ✓ Arch Construction
+    ACTIONS: [disabled] Discovered
+--- CO11 [owned] Reinforced Concrete Construction · Modern era
+    Discovered on turn 210. +10% Production when constructing buildings
+    Improves movement speed on roads
+    Needs ✓ Bessemer Process + (✓ Roman Concrete or ✓ Oxygen Theory)
+    Steel and concrete build fast and stand hard: Portland cement and Bessemer steel.
+    ACTIONS: [disabled] Discovered
+--- CO13 [waiting] Geodesic Structures Construction · Atomic era
+    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Needs ✓ Reinforced Concrete + ✓ Basic Algebra
+    “A dome of light struts, all triangles, might roof an arena in any climate.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 5,340 Insight · about 8 turns
+--- CO17 [waiting] Sealed Environments Construction · Modern era
+    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Needs ✓ Reinforced Concrete + ✓ Oxygen Theory + ✓ Glassmaking
+    “A hull sealed tight, with air of its own, might keep a crew alive under water.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- CO23 [owned] Railway Network Construction · Early Modern era
+    Discovered on turn 198. Railroad (improvement); Railway Station (building)
+    Neuschwanstein (world wonder)
+    Needs ✓ Steam Engine + ✓ Arch Construction + ✓ Blast Furnace
+    The defining infrastructure of the industrial age: distance stops mattering.
+    ACTIONS: [disabled] Discovered
+--- CO24 [owned] Concentric Fortification Construction · Medieval era
+    Discovered on turn 122. Castle (building); Alhambra (world wonder)
+    Needs ✓ Fortification Design + ✓ Arch Construction
+    Rings of walls and flanking towers: Krak des Chevaliers, Edward I’s Welsh castles.
+    ACTIONS: [disabled] Discovered
+--- CO25 [owned] Star Fort Construction · Early Modern era
+    Discovered on turn 195. Arsenal (building); Kremlin (world wonder)
+    Needs ✓ Fortification Design + (✓ Cannons or ✓ Trebuchet)
+    The trace italienne: low, angled bastions that turn a bombardment aside.
+    ACTIONS: [disabled] Discovered
+--- CO26 [waiting] Ring Fortress Construction · Modern era
+    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Needs ✓ Star Fort + ✓ Reinforced Concrete
+    “A ring of detached forts in concrete and steel might stand up to any shell.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- CP13 [studying] Analog Computing Mastery Computing · Modern era
+    Being studied in Computing: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Vacuum Tube + ✓ Calculus
+    “A machine of shafts and currents might act out an equation, not count it.”
+    ACTIONS: Fund Computing | [disabled] Grand Endeavour only for ideas not yet occurred
+--- CU02 [owned] Monumental Architecture Philosophy and the Arts · Ancient era
+    Discovered on turn 64. Temple (building); Stonehenge, The Pyramids, Mausoleum of Halicarnassus (wonders)
+    -25% Culture cost of natural border growth in all cities
+    Needs ✓ Post and Lintel + ✓ Specialization of Labor
+    ACTIONS: [disabled] Discovered
+--- CU03 [owned] Artistic Tradition Philosophy and the Arts · Ancient era
+    Discovered on turn 54. Great Artist is earned 10% faster
+    Needs ✓ Storytelling + ✓ A luxury resource in your lands
+    ACTIONS: [disabled] Discovered
+--- CU04 [owned] Musical Instruments Philosophy and the Arts · Primitive era
+    Discovered on turn 27. Great Prophet is earned 10% faster
+    Needs ✓ Storytelling + ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- CU05 [owned] Theater Philosophy and the Arts · Classical era
+    Discovered on turn 65. Amphitheater (building); a drama festival (event)
+    Needs ✓ Writing + ✓ Artistic Tradition
+    ACTIONS: [disabled] Discovered
+--- CU06 [owned] University Philosophy and the Arts · Medieval era
+    Discovered on turn 148. University (building); Angkor Wat (wonder); Oxford University (national wonder)
+    Needs ✓ Writing + ✓ Formal Logic + ✓ Printing Press
+    ACTIONS: [disabled] Discovered
+--- CU07 [owned] Renaissance Philosophy and the Arts · Early Modern era
+    Discovered on turn 198. Empire enters a 10-turn Golden Age; Opera House and Theatre (buildings)
+    Hermitage (national wonder); Sistine Chapel (wonder)
+    Needs ✓ University + ✓ Formal Logic + ✓ Letter of Credit
+    ACTIONS: [disabled] Discovered
+--- CU14 [owned] Historiography Philosophy and the Arts · Classical era
+    Discovered on turn 110. National Epic (national wonder)
+    Needs ✓ Writing + ✓ Artistic Tradition
+    Herodotus and Thucydides wrote their histories in the 5th century BC.
+    ACTIONS: [disabled] Discovered
+--- CU15 [owned] Scholastic Theology Philosophy and the Arts · Medieval era
+    Discovered on turn 130. Hagia Sophia, Great Mosque of Djenne (wonders); Grand Temple (national wonder)
+    Needs ✓ Monumental Architecture + ✓ Formal Logic
+    In the age of Aquinas and the kalam, faith was argued by logic.
+    ACTIONS: [disabled] Discovered
+--- EL02 [owned] Voltaic Pile (Battery) Electricity · Early Modern era
+    Discovered on turn 120. +1 Gold from Silver, Gold Ore and Luxury resource tiles in all cities
+    +1 Culture from all Museum buildings
+    Needs ✓ Natural Philosophy + ✓ Distillation + ✓ Copper Working
+    Galvani's frogs and Volta's pile were one line of experiment.
+    ACTIONS: [disabled] Discovered
+--- EL03 [owned] Electromagnetism Electricity · Early Modern era
+    Discovered on turn 136. Great Scientist is earned 10% faster
+    Needs ✓ Voltaic Pile (Battery) + ✓ Calculus
+    Two forces found to be one.
+    ACTIONS: [disabled] Discovered
+--- EL04 [owned] Telegraph Electricity · Early Modern era
+    Discovered on turn 167. Telegraph Office (building): +1 Gold, +1 Gold from each Trade Route, +3 City strength
+    Needs ✓ Voltaic Pile (Battery) + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- EL06 [owned] Electric Generator Electricity · Modern era
+    Discovered on turn 194. -25% construction time for Railroad improvements
+    Opens the Electronics focus.
+    Needs ✓ Electromagnetism + ✓ Turbine Design
+    The motor is the generator run backwards.
+    ACTIONS: [disabled] Discovered
+--- EL07 [owned] Power Grid Electricity · Modern era
+    Discovered on turn 196. +2 Production and +1 Happiness in cities connected to the capital
+    A further +3 Production in connected cities without a Power Plant
+    Needs ✓ Electric Generator + ✓ Iron-Frame Construction
+    The grid, and electric light.
+    ACTIONS: [disabled] Discovered
+--- EL09 [owned] Wireless Transmission Electricity · Modern era
+    Discovered on turn 193. Radio Transmitter (building); Telephone Exchange (building)
+    Needs ✓ Electromagnetism + ✓ Calculus + ✓ Precision Machining
+    Bell and Marconi: telecommunication by wire and without.
+    ACTIONS: [disabled] Discovered
+--- EL10 [closed] Piezoelectricity Electricity · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Electromagnetism + ✓ Periodic Table
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Squeezed hard enough, certain crystals might give up a current of their own.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- EL11 [closed] Superconductivity Electricity · Atomic era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Refrigeration + ✓ Electromagnetism
+    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    “Cooled far enough, some metals might carry a current with no loss at all.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 5,340 Insight · about 8 turns
+--- EN01 [owned] Vacuum Tube Electronics · Modern era
+    Discovered on turn 187. +15% Production when constructing Air units in all cities
+    Needs ✓ Electromagnetism + ✓ Glassmaking
+    A heated filament boils electrons into the bulb; a charged grid steers them.
+    ACTIONS: [disabled] Discovered
+--- EN02 [studying] Transistor Electronics · Atomic era
+    Being studied in Electronics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Vacuum Tube + ✓ Wave-Particle Duality
+    “A sliver of crystal might do the work of a vacuum tube, smaller and cooler.”
+    ACTIONS: Fund Electronics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- EN04 [closed] Radar Electronics · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Vacuum Tube + ✓ Wireless Transmission
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Radio waves bounced off distant aircraft might find them before any eye can.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- EN11 [closed] Radio Electronics · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Vacuum Tube + ✓ Wireless Transmission + ✓ Lens Grinding
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Voices and music might be carried through the air to every home.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- ES03 [studying] Coal Power Plant Energy Systems · Modern era
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Turbine Design + ✓ Blast Furnace
+    “Steam raised by coal fires might spin great turbines and light a whole city.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- ES03-W [studying] Biomass Power Plant Energy Systems · Modern era · also reached by Farming
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Competes with Coal Power Plant, also under study: if that comes first, this is never developed.
+    Needs ✓ Turbine Design + ✓ Wood Gas Production + ✓ Selective Breeding
+    “Crops and timber grown for burning could turn a turbine as well as coal.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- ES09 [closed] Geothermal Power Energy Systems · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Deep Shaft Mining + ✓ Laws of Thermodynamics
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “The heat that stirs our volcanoes might be drawn up to turn our turbines.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- ES10 [studying] Tidal Power Energy Systems · Atomic era
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Tidal Patterns + ✓ Turbine Design
+    “The sea rises and falls by the clock; that rhythm might be made to work.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- ES13 [studying] Biomass/Biogas Energy Systems · Modern era · also reached by Chemistry, Farming
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Distillation + ✓ Organic Chemistry
+    “Rotting waste gives off a gas that burns; our refuse might light our cities.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- F01 [owned] Controlled Fire Fire · Primitive era
+    Discovered on turn 2. +1 Production in all cities; +1 Food from Tundra tiles in all cities
+    Fire: the foundation of civilisation.
+    ACTIONS: [disabled] Discovered
+--- F02 [owned] Kiln Construction Fire · Primitive era
+    Discovered on turn 11. Shrine (building); +25% City Strength from defensive buildings
+    Needs ✓ Controlled Fire
+    ACTIONS: [disabled] Discovered
+--- F03 [owned] Charcoal Production Fire · Primitive era
+    Discovered on turn 10. +25% Production when constructing Melee units in all cities
+    -25% maintenance on road & railroads; +10% Strength for Water units
+    Needs ✓ Controlled Fire
+    ACTIONS: [disabled] Discovered
+--- F04 [owned] Smelting Discovery Fire · Primitive era
+    Discovered on turn 15. +1 Production from Copper tiles; +1 Gold from Gold Ore tiles, in all cities
+    Opens the Metallurgy focus.
+    Needs ✓ Charcoal Production + ✓ Ore Identification
+    The moment someone put green rock near hot charcoal.
+    ACTIONS: [disabled] Discovered
+--- F05 [owned] Signal Fires Fire · Ancient era
+    Discovered on turn 57. Signal Fire (improvement, on Hills)
+    Needs ✓ Controlled Fire + ✓ Tribal Law
+    ACTIONS: [disabled] Discovered
+--- F07 [owned] Advanced Pyrotechnics Fire · Medieval era
+    Discovered on turn 140. Fireworks Ground (building, requires Saltpeter)
+    Needs ✓ Charcoal Production + ✓ Geological Observation
+    ACTIONS: [disabled] Discovered
+--- F16 [owned] Turbary Fire · Ancient era
+    Discovered on turn 151. Peat Cutting (improvement, on Marsh)
+    Needs ✓ Charcoal Production + ✓ Marsh in your lands
+    Pliny described the Chauci burning peat in the first century AD.
+    ACTIONS: [disabled] Discovered
+--- FA01 [owned] Irrigation Farming · Primitive era
+    Discovered on turn 17. +1 Food from Farms on fresh water in all cities
+    Opens the Water Management focus.
+    Needs ✓ Seed Saving + ✓ A river or fresh water
+    ACTIONS: [disabled] Discovered
+--- FA02 [owned] Crop Rotation Farming · Ancient era
+    Discovered on turn 82. +1 Food from Wheat tiles in all cities
+    Needs ✓ Seed Saving
+    The soil no longer tires.
+    ACTIONS: [disabled] Discovered
+--- FA03 [owned] Selective Breeding Farming · Ancient era · also reached by Animal Husbandry
+    Discovered on turn 95. +1 Food from Plantation tiles; +1 Production from Pasture tiles; War Dog (unit)
+    Needs ✓ Seed Saving + ✓ Herd Animal Domestication + (✓ Botanical Classification or ✓ Irrigation and Crop Rotation)
+    Improved varieties of every cultivated crop.
+    ACTIONS: [disabled] Discovered
+--- FA10 [owned] Hydroponics Farming · Modern era
+    Discovered on turn 223. Hydroponics Lab (building): +2 Food, -10% Food consumption by Population
+    Needs ✓ Irrigation + ✓ Periodic Table
+    Food without soil.
+    ACTIONS: [disabled] Discovered
+--- FA16 [owned] Nitrate Fertiliser Farming · Early Modern era
+    Discovered on turn 187. +1 Food from Farm tiles in all cities while you hold Saltpeter, until Catalysis
+    Superseded by Catalysis: its buildings are no longer available.
+    Needs ✓ Saltpeter Mining + ✓ Crop Rotation
+    Before 1913 the world's fields were fed from Chilean nitrate and Peruvian guano.
+    ACTIONS: [disabled] Discovered
+--- G01 [owned] Plant Identification Foraging · Primitive era
+    Discovered on turn 3. Forager's Hut (building): +1 Food
+    ACTIONS: [disabled] Discovered
+--- G02 [owned] Seed Saving Foraging · Primitive era
+    Discovered on turn 14. Farm (improvement)
+    Opens the Farming focus.
+    Needs ✓ Plant Identification
+    The moment someone realised that seeds could be planted deliberately.
+    ACTIONS: [disabled] Discovered
+--- G03 [owned] Herbal Medicine Foraging · Primitive era
+    Discovered on turn 14. Herbalist (building)
+    Military units adjacent to this city heal +5 HP per turn when healing
+    Needs ✓ Plant Identification
+    ACTIONS: [disabled] Discovered
+--- G04 [owned] Fermentation Foraging · Primitive era
+    Discovered on turn 21. +1 Gold from Wine tiles in all cities
+    Needs ✓ Plant Identification + ✓ Controlled Fire
+    Beer may have driven civilisation.
+    ACTIONS: [disabled] Discovered
+--- G05 [owned] Insect Cultivation Foraging · Primitive era
+    Discovered on turn 33. +1 Gold from Silk tiles in all cities
+    Needs ✓ Plant Identification
+    ACTIONS: [disabled] Discovered
+--- G06 [closed] Mycological Knowledge Foraging · Ancient era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Plant Identification
+    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “The moulds that spoil our bread may have uses we have not yet guessed.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 37 Insight · about 1 turn
+--- G07 [owned] Botanical Classification Foraging · Classical era
+    Discovered on turn 128. Garden (building), Plantation (improvement), +10% Insight to Farming and Medicine
+    Needs ✓ Plant Identification + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- G10 [closed] Psychoactive Plant Knowledge Foraging · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Plant Identification
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Certain resins and leaves bring visions; our priests might learn their use.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
+--- GN02 [closed] DNA Structure Genetics · Atomic era
+    Learned of from another civilisation. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Germ Theory + ✓ Selective Breeding + ✓ Organic Chemistry + ✓ Telescope
+    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    “Heredity must be written in a molecule; if we saw its shape, we could read it.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 5,340 Insight · about 8 turns
+--- MA01 [owned] Geometry Mathematics · Ancient era
+    Discovered on turn 36. -25% construction time for improvements; +1 Gold from all Markets
+    Opens the Mechanics focus.
+    Needs ✓ Basic Counting + ✓ Celestial Mathematics
+    Surveyed land is improved faster; place value keeps the market’s accounts.
+    ACTIONS: [disabled] Discovered
+--- MA03 [owned] Basic Algebra Mathematics · Classical era
+    Discovered on turn 57. +5% Production when constructing buildings
+    +10% Strength for Siege units; +1 Culture from all World Wonders
+    Needs ✓ Geometry
+    Algebra and trigonometry, the mathematics of Alexandria and Baghdad.
+    ACTIONS: [disabled] Discovered
+--- MA05 [owned] Calculus Mathematics · Early Modern era
+    Discovered on turn 114. +1 Range for Siege units; +15% Insight to the physical foci
+    Needs ✓ Basic Algebra + ✓ Natural Philosophy
+    Trajectories solved: the path of a shot worked out before it is fired.
+    ACTIONS: [disabled] Discovered
+--- MA06 [owned] Probability Theory Mathematics · Early Modern era
+    Discovered on turn 141. +1 Gold from all Banks; +10% Gold in all cities
+    Needs ✓ Basic Algebra
+    Insurance priced by probability: risk, priced and pooled.
+    ACTIONS: [disabled] Discovered
+--- MA07 [owned] Binary Mathematics Mathematics · Early Modern era
+    Discovered on turn 141. Cipher Office (building)
+    Needs ✓ Geometry + ✓ Formal Logic
+    ACTIONS: [disabled] Discovered
+--- MA08 [owned] Non-Euclidean Geometry Mathematics · Early Modern era
+    Discovered on turn 143. +10% Gold from Trade Routes
+    Needs ✓ Geometry + ✓ Calculus
+    Accurate maps, shortest paths.
+    ACTIONS: [disabled] Discovered
+--- MA09 [owned] Statistics Mathematics · Modern era
+    Discovered on turn 160. +5% Production in all cities
+    Needs ✓ Probability Theory
+    Quality control: a factory’s output judged from a sample.
+    ACTIONS: [disabled] Discovered
+--- MA11 [closed] Fractal Mathematics Mathematics · Atomic era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Calculus + ✓ Non-Euclidean Geometry
+    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    “Coastlines and mountains might follow a mathematics of their own.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 5,340 Insight · about 8 turns
+--- MA13 [owned] Topology Mathematics · Modern era
+    Discovered on turn 164. +1 Gold, +1 Production from each Trade Route
+    -10% maintenance cost for buildings
+    Needs ✓ Non-Euclidean Geometry + ✓ Basic Algebra + ✓ Formal Logic
+    This bore on the question of how to exceed the speed of light.
+    Administration by set and rule: Cantor and Poincaré, the new mathematics.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- MC01 [owned] Wheel Mechanics · Primitive era
+    Discovered on turn 16. +1 Movement for Civilian units
+    Needs ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- MC03 [owned] Gearing Mechanics · Ancient era
+    Discovered on turn 40. -25% construction time for Mine and Farm improvements
+    +10% Production when building wonders in all cities
+    Needs ✓ Wheel + ✓ Geometry
+    The crane lifts what the arm cannot.
+    ACTIONS: [disabled] Discovered
+--- MC04 [owned] Windmill Mechanics · Medieval era · also reached by Energy Systems
+    Discovered on turn 136. Windmill (building)
+    Needs ✓ Gearing + ✓ Sail Invention
+    ACTIONS: [disabled] Discovered
+--- MC05 [owned] Clockwork Mechanics · Medieval era
+    Discovered on turn 140. Great Engineer is earned 10% faster
+    Needs ✓ Gearing + ✓ Steel Production
+    The clockmaker, the first precision engineer.
+    ACTIONS: [disabled] Discovered
+--- MC06 [owned] Printing Press Mechanics · Medieval era
+    Discovered on turn 140. +10% Science in all cities; Leaning Tower of Pisa (world wonder)
+    Knowledge Diffusion: ideas widely held abroad now reach you in print
+    Needs ✓ Gearing + ✓ Paper Making + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- MC08 [owned] Steam Engine Mechanics · Early Modern era
+    Discovered on turn 140. Steam Works (building); Big Ben (world wonder)
+    Opens the Thermodynamics focus.
+    Needs ✓ Blast Furnace + ✓ Water Mill + ✓ Scientific Method
+    Watt's separate condenser (1769) began as a repair to a model Newcomen engine.
+    ACTIONS: [disabled] Discovered
+--- MC09 [owned] Internal Combustion Engine Mechanics · Modern era · also reached by Chemistry
+    Discovered on turn 220. Landship, Tank, Anti-Tank Gun (units); Distillery Fuel Depot (building)
+    Distillery Fuel Depot: 1 Oil and -20% growth while its city works 3 Farms
+    Needs ✓ Steam Engine + (✓ Petroleum Discovery and Petrochemistry or ✓ Distillation and Organic Chemistry)
+    Fuel-starved Europe ran its cars on alcohol and wood gas in the Second World War.
+    ACTIONS: [disabled] Discovered
+--- MC10 [owned] Precision Machining Mechanics · Early Modern era
+    Discovered on turn 151. Great War Infantry (unit); Statue of Liberty (world wonder)
+    +10% Production when constructing Military units in all cities
+    Needs ✓ Clockwork + ✓ Steel Production
+    Interchangeable parts.
+    ACTIONS: [disabled] Discovered
+--- MC11 [owned] Assembly Line Mechanics · Modern era
+    Discovered on turn 200. Machine Gun (unit); +15% Production when constructing buildings
+    +25% Production when constructing a Military Base
+    Needs ✓ Precision Machining + ✓ Specialization of Labor
+    The line moves; the workers stand.
+    ACTIONS: [disabled] Discovered
+--- MC19 [owned] Crank and Connecting Rod Mechanics · Medieval era
+    Discovered on turn 140. Workshop (building)
+    Needs ✓ Gearing + ✓ Water Mill
+    Al-Jazari (1206): rotation turned into strokes, for mills that saw, hammer and pump.
+    ACTIONS: [disabled] Discovered
+--- MD01 [owned] Surgical Techniques Medicine · Ancient era
+    Discovered on turn 72. Surgery (building)
+    Needs ✓ Herbal Medicine
+    Trepanation is Neolithic: surgery predates comparative anatomy by millennia.
+    ACTIONS: [disabled] Discovered
+--- MD03 [owned] Anatomy Study Medicine · Classical era
+    Discovered on turn 136. Medical School (building)
+    Needs ✓ Comparative Anatomy + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- MD04 [owned] Vaccination Medicine · Early Modern era · also reached by Animal Husbandry
+    Discovered on turn 191. +10% growth in all cities
+    Needs ✓ Anatomy Study + ✓ Herd Animal Domestication
+    The milkmaid observation: the plague years end.
+    ACTIONS: [disabled] Discovered
+--- MD05 [owned] Germ Theory Medicine · Modern era
+    Discovered on turn 199. Hospital (building); +10% growth in all cities
+    Needs ✓ Anatomy Study + ✓ Scientific Method + ✓ Telescope
+    The microbe is the culprit.
+    ACTIONS: [disabled] Discovered
+--- MD06 [studying] Antibiotics Medicine · Atomic era
+    Being studied in Medicine: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Germ Theory + ✓ Organic Chemistry
+    “A compound that kills germs but spares the patient might cure infection.”
+    ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MD07 [studying] Anaesthesia Medicine · Modern era
+    Being studied in Medicine: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Surgical Techniques + ✓ Distillation
+    “Distilled vapours might put a patient beyond pain while the surgeon works.”
+    ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MD08 [closed] Prosthetics Medicine · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Anatomy Study + ✓ Gearing
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Geared limbs of wood and metal might send the wounded back to the line.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- MD15 [owned] Contagion Experiments Medicine · Early Modern era
+    Discovered on turn 180. Contagion Laboratory (national wonder)
+    Needs ✓ Anatomy Study + ✓ Scientific Method
+    Pasteur’s swan-neck flask, and controlled exposure.
+    ACTIONS: [disabled] Discovered
+--- ME-B [owned] Bellows Metallurgy · Ancient era
+    Discovered on turn 34. Forge (building): +15% Production when building land units
+    Forge: +1 Production from Iron tiles in this city
+    Needs ✓ Copper Working + ✓ Weaving
+    Forced air changes everything about metallurgy.
+    ACTIONS: [disabled] Discovered
+--- ME01 [owned] Copper Working Metallurgy · Primitive era
+    Discovered on turn 19. Copper Warrior (unit), which requires Copper
+    Needs ✓ Smelting Discovery
+    The first worked metal, in the first metal hand.
+    ACTIONS: [disabled] Discovered
+--- ME02 [owned] Bronze Alloy Metallurgy · Ancient era
+    Discovered on turn 40. Statue of Zeus (world wonder); +10% Strength for Melee units
+    Needs ✓ Copper Working + ✓ Copper in your territory
+    Bronze arms and armour.
+    ACTIONS: [disabled] Discovered
+--- ME04 [owned] Iron Smelting Metallurgy · Ancient era
+    Discovered on turn 41. Swordsman (unit); Colossus (world wonder)
+    Needs ✓ Charcoal Production + ✓ Bellows + ✓ Iron in your territory
+    The Iron Age begins.
+    ACTIONS: [disabled] Discovered
+--- ME05 [owned] Steel Production Metallurgy · Classical era
+    Discovered on turn 75. Pikeman (unit); +1 Gold from Iron tiles in all cities
+    Needs ✓ Iron Smelting + (✓ Coal Discovery or ✓ Charcoal Production) + ✓ Bellows
+    China cast iron and made steel from it in the same centuries.
+    ACTIONS: [disabled] Discovered
+--- ME08 [owned] Blast Furnace Metallurgy · Medieval era
+    Discovered on turn 81. Ironworks (national wonder), which requires Coal; Charcoal Kiln (building)
+    Charcoal Kiln: 1 Coal, -10% Production; needs 3 worked Forest, Jungle or Peat Cutting
+    Needs ✓ Iron Smelting + ✓ Post and Lintel + (✓ Coal Discovery or ✓ Charcoal Production)
+    Sweden ran charcoal blast furnaces into the 19th century.
+    ACTIONS: [disabled] Discovered
+--- ME09 [owned] Crucible Steel Metallurgy · Medieval era
+    Discovered on turn 156. +10% Strength for Melee units
+    Needs ✓ Steel Production + ✓ Alchemy
+    The finest pre-industrial steel.
+    ACTIONS: [disabled] Discovered
+--- ME12 [owned] Bessemer Process Metallurgy · Modern era
+    Discovered on turn 180. Battleship (unit); +1 Production from Iron tiles in all cities
+    Needs ✓ Blast Furnace + ✓ Oxygen Theory
+    Cheap steel: steel hulls and steel rails.
+    ACTIONS: [disabled] Discovered
+--- ME13 [owned] Aluminium Extraction Metallurgy · Modern era
+    Discovered on turn 176. Shows Aluminum on the map; +1 Production from Aluminum tiles in all cities
+    Needs ✓ Electromagnetism + ✓ Periodic Table
+    ACTIONS: [disabled] Discovered
+--- ME17 [owned] Assaying Metallurgy · Classical era
+    Discovered on turn 81. Mint (building)
+    Needs ✓ Currency + ✓ Natural Philosophy
+    Archimedes and the crown (c. 250 BC).
+    ACTIONS: [disabled] Discovered
+--- ME18 [owned] Plate Armour Metallurgy · Medieval era
+    Discovered on turn 140. Longswordsman (unit); Armory (building)
+    Needs ✓ Steel Production + ✓ Water Mill
+    Steel beaten to shape under water-driven hammers, 14th–15th century.
+    ACTIONS: [disabled] Discovered
+--- MI05 [owned] Deep Shaft Mining Mining · Ancient era
+    Discovered on turn 63. Shows Silver and Salt on the map; +1 Production from Mine tiles
+    Needs ✓ Ore Identification + ✓ Mud Brick Construction
+    Going underground changes everything.
+    ACTIONS: [disabled] Discovered
+--- MI06 [owned] Coal Discovery Mining · Medieval era
+    Discovered on turn 146. Shows Coal on the map; +1 Production from Coal tiles
+    Needs ✓ Deep Shaft Mining
+    The fuel of the industrial revolution.
+    ACTIONS: [disabled] Discovered
+--- MI06B [owned] Volcanic Ash Processing Mining · Ancient era
+    Discovered on turn 47. Pozzolana Works (building); +1 Food from Volcanic tiles
+    Needs ✓ Ore Identification + ✓ Volcanic region in your lands
+    Fertile ash for the fields, and a binding powder for the builders.
+    ACTIONS: [disabled] Discovered
+--- MI07 [owned] Petroleum Discovery Mining · Early Modern era
+    Discovered on turn 151. Shows Oil on the map; Oil well, Offshore Platform (improvements)
+    +1 Gold from Oil tiles
+    Needs ✓ Deep Shaft Mining + ✓ Geological Observation
+    Kerosene for the lamps, before any engine wanted the oil.
+    ACTIONS: [disabled] Discovered
+--- MI08 [owned] Saltpeter Mining Mining · Medieval era
+    Discovered on turn 135. Shows Saltpeter on the map; +1 Unit Supply per city
+    Needs ✓ Deep Shaft Mining
+    Nitre for the army: preserved rations, and gunpowder.
+    ACTIONS: [disabled] Discovered
+--- MI10 [studying] Uranium Discovery Mining · Modern era
+    Being studied in Mining: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Deep Shaft Mining + ✓ Radioactivity
+    “The ore that darkens a sealed photographic plate might lie in our own hills.”
+    ACTIONS: Fund Mining | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MI11 [studying] Rare Earth Extraction Mining · Atomic era
+    Being studied in Mining: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Deep Shaft Mining + ✓ Periodic Table
+    “Rare metals hidden in dull-looking ores might be separated out, one by one.”
+    ACTIONS: Fund Mining | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MI13 [owned] Wood Gas Production Mining · Early Modern era · also reached by Chemistry
+    Discovered on turn 191. -25% construction time for Lumber mills
+    Needs ✓ Charcoal Production + ✓ Oxygen Theory
+    Wood-gas lorries were common in fuel-starved Europe in the Second World War.
+    ACTIONS: [disabled] Discovered
+--- MS02 [studying] Nanotechnology Materials Science · Atomic era
+    Being studied in Materials Science: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Quantum Mechanics Formalism + ✓ Organic Chemistry
+    “If atoms can be counted, perhaps they can be set in place one by one.”
+    ACTIONS: Fund Materials Science | [disabled] Grand Endeavour only for ideas not yet occurred
+--- NP01 [owned] Radioactivity Nuclear Physics · Modern era
+    Discovered on turn 187. +1 Gold from Uranium tiles in all cities
+    Needs ✓ Periodic Table + ✓ Spectroscopy
+    ACTIONS: [disabled] Discovered
+--- NP02 [owned] Atomic Model Nuclear Physics · Modern era
+    Discovered on turn 191. Nuclear Physics Lab (building)
+    Needs ✓ Radioactivity + ✓ Calculus + ✓ Electromagnetism
+    ACTIONS: [disabled] Discovered
+--- NP12 [studying] Particle Laboratories Nuclear Physics · Space era
+    Being studied in Nuclear Physics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Atomic Model + ✓ Particle Accelerator
+    “Accelerators housed in great laboratories might become a home for big science.”
+    ACTIONS: Fund Nuclear Physics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- O01 [owned] Star Tracking Observation · Primitive era
+    Discovered on turn 7. +1 Movement for Scout units
+    ACTIONS: [disabled] Discovered
+--- O02 [owned] Weather Prediction Observation · Primitive era
+    Discovered on turn 21. +5% growth in all cities; +1 Sight for Water units
+    Needs ✓ Star Tracking
+    ACTIONS: [disabled] Discovered
+--- O03 [owned] Animal Behavior Study Observation · Primitive era
+    Discovered on turn 6. Camp (improvement)
+    Opens the Animal Husbandry focus.
+    ACTIONS: [disabled] Discovered
+--- O04 [owned] Tidal Patterns Observation · Primitive era
+    Discovered on turn 21. Tidal Weir (building): +1 Food from Fish tiles in this city
+    Needs ✓ Star Tracking + ✓ A coastal city
+    ACTIONS: [disabled] Discovered
+--- O05 [owned] Celestial Mathematics Observation · Ancient era
+    Discovered on turn 29. +2 Faith in capital
+    Opens the Mathematics focus.
+    Needs ✓ Star Tracking + ✓ Basic Counting
+    ACTIONS: [disabled] Discovered
+--- O06 [owned] Natural Philosophy Observation · Classical era
+    Discovered on turn 51. The Oracle (wonder), National College (national wonder), +5% Insight to all foci
+    Needs ✓ Star Tracking + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- O07 [owned] Comparative Anatomy Observation · Classical era
+    Discovered on turn 120. No buildings, units or bonuses of its own.
+    Opens the Medicine focus.
+    Needs ✓ Animal Behavior Study + ✓ Herbal Medicine
+    ACTIONS: [disabled] Discovered
+--- O08 [owned] Geological Observation Observation · Ancient era
+    Discovered on turn 26. Shows Strategic resources within 10 tiles; +1 Production from Quarry and Iron tiles
+    +1 Gold from all Dye Works buildings; +1 Culture and +1 Happiness in capital
+    Needs ✓ Ore Identification
+    ACTIONS: [disabled] Discovered
+--- O09 [closed] Migratory Pattern Mapping Observation · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Animal Behavior Study
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “If we knew where the herds go each season, we could be waiting for them.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
+--- O12 [studying] Atmospheric Science Observation · Modern era
+    Being studied in Observation: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Weather Prediction + ✓ Oxygen Theory + ✓ Calculus
+    “If the air's weight and warmth were measured, storms might be foretold.”
+    ACTIONS: Fund Observation | [disabled] Grand Endeavour only for ideas not yet occurred
+--- OP01 [owned] Glassmaking Optics · Ancient era
+    Discovered on turn 32. +15% Production when constructing Lighthouses
+    Needs ✓ Kiln Construction + ✓ Desert or coast in your lands
+    Glass for the lantern.
+    ACTIONS: [disabled] Discovered
+--- OP02 [owned] Lens Grinding Optics · Medieval era
+    Discovered on turn 73. +1 Science from every Scientist; +1 Culture from every Artist
+    Needs ✓ Glassmaking + ✓ Geometry
+    Spectacles double a scholar’s working life.
+    ACTIONS: [disabled] Discovered
+--- OP03 [owned] Telescope Optics · Early Modern era
+    Discovered on turn 117. Observatory (building); +1 Sight for Water units
+    -25% enemy spy effectiveness in all cities
+    Needs ✓ Lens Grinding
+    The same lens-makers made telescope and microscope: Janssen, around 1590.
+    ACTIONS: [disabled] Discovered
+--- OP07 [studying] Laser Optics · Atomic era
+    Being studied in Optics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Lens Grinding + ✓ Quantum Mechanics Formalism
+    “Atoms made to shine in step might force light into a single voice.”
+    ACTIONS: Fund Optics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- OP08 [owned] Spectroscopy Optics · Modern era
+    Discovered on turn 184. +1 Gold from Mine tiles
+    Needs ✓ Telescope + ✓ Periodic Table
+    Ore composition read without sampling.
+    ACTIONS: [disabled] Discovered
+--- OP10 [owned] Semaphore Optics · Early Modern era
+    Discovered on turn 181. Semaphore Tower (improvement)
+    Needs ✓ Telescope + ✓ Writing
+    A message across a province in an afternoon.
+    ACTIONS: [disabled] Discovered
+--- PH01 [owned] Formal Logic Philosophy and the Arts · Classical era
+    Discovered on turn 66. +1 Science from every specialist in all cities; -25% enemy spy effectiveness
+    Gifts of Gold to City-States generate +25% more Influence
+    Needs ✓ Natural Philosophy
+    ACTIONS: [disabled] Discovered
+--- PH04 [owned] Scientific Method Philosophy and the Arts · Early Modern era
+    Discovered on turn 134. +25% Science in all cities; Experimental Laboratory (building)
+    Experiment ability (spend Gold on a revealed breakthrough)
+    Needs ✓ Formal Logic
+    ACTIONS: [disabled] Discovered
+--- PH08 [owned] Dialectical Thinking Philosophy and the Arts · Early Modern era
+    Discovered on turn 134. Resting point for Influence with City-States is increased by 10
+    Synthesis ability (once each era, retry a breakthrough whose moment passed)
+    Needs ✓ Formal Logic
+    ACTIONS: [disabled] Discovered
+--- PH09 [closed] Existentialism Philosophy and the Arts · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Formal Logic
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “If life has no given purpose, each of us may have to make one.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- PH10 [studying] Information Theory Philosophy and the Arts · Atomic era
+    Being studied in Philosophy and the Arts: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Formal Logic + ✓ Binary Mathematics
+    “Information itself might be measured, counted out in yes-or-no answers.”
+    ACTIONS: Fund Philosophy and the Arts | [disabled] Grand Endeavour only for ideas not yet occurred
+--- PH11 [studying] Systems Thinking Philosophy and the Arts · Atomic era
+    Being studied in Philosophy and the Arts: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Scientific Method + ✓ Statistics
+    “A city, a market or a forest might be understood only as a whole.”
+    ACTIONS: Fund Philosophy and the Arts | [disabled] Grand Endeavour only for ideas not yet occurred
+--- PH14 [owned] The Enlightenment Philosophy and the Arts · Early Modern era New
+    Discovered on turn 226. Museum (building); The Louvre (wonder)
+    Needs ✓ Scientific Method + ✓ Renaissance
+    The British Museum was founded in 1753; the Encyclopédie began to appear in 1751.
+    ACTIONS: [disabled] Discovered
+--- QP01 [owned] Wave-Particle Duality Quantum Physics · Modern era
+    Discovered on turn 195. +10% Strength for cities
+    Needs ✓ Atomic Model + ✓ Telescope
+    ACTIONS: [disabled] Discovered
+--- QP02 [owned] Quantum Mechanics Formalism Quantum Physics · Atomic era
+    Discovered on turn 200. Great Engineer is earned 10% faster; triggers the Quantum Strangeness event
+    Needs ✓ Wave-Particle Duality + ✓ Calculus + ✓ Topology
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- QP03 [owned] Quantum Electrodynamics Quantum Physics · Atomic era
+    Discovered on turn 207. +10% Insight to Electronics
+    Needs ✓ Quantum Mechanics Formalism + ✓ Electromagnetism
+    ACTIONS: [disabled] Discovered
+--- QP04 [owned] Particle Accelerator Quantum Physics · Atomic era
+    Discovered on turn 206. Particle Accelerator (national wonder)
+    Needs ✓ Quantum Mechanics Formalism + ✓ Electromagnetism + ✓ Power Grid
+    ACTIONS: [disabled] Discovered
+--- QP05 [owned] Quantum Field Theory Quantum Physics · Atomic era
+    Discovered on turn 210. No buildings, units or bonuses of its own.
+    Needs ✓ Quantum Electrodynamics + ✓ Topology
+    ACTIONS: [disabled] Discovered
+--- QP06 [studying] Standard Model Completion Quantum Physics · Atomic era
+    Being studied in Quantum Physics, which you fund: it takes Insight every turn.
+    Needs ✓ Quantum Field Theory + ✓ Particle Accelerator
+    “A complete list of the particles and forces may be within our grasp.”
+    ACTIONS: [disabled] Funded | [disabled] Grand Endeavour only for ideas not yet occurred
+--- QP08 [studying] Quantum Gravity Theory Quantum Physics · Space era
+    Being studied in Quantum Physics, which you fund: it takes Insight every turn.
+    Needs ✓ Quantum Field Theory + ✓ General Relativity + ✓ Particle Accelerator
+    “Gravity and the quantum might yet be written in a single account.”
+    ACTIONS: [disabled] Funded | [disabled] Grand Endeavour only for ideas not yet occurred
+--- QP12 [owned] Casimir Effect Amplification Quantum Physics · Space era
+    Discovered on turn 224. No buildings, units or bonuses of its own.
+    Needs ✓ Quantum Field Theory + ✓ Precision Machining
+    ACTIONS: [disabled] Discovered
+--- RC01 [owned] Special Relativity Relativity & Cosmology · Modern era
+    Discovered on turn 169. +10% Gold from Trade Routes; +10% Insight to Nuclear Physics
+    Needs ✓ Non-Euclidean Geometry + ✓ Electromagnetism
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- RC02 [owned] General Relativity Relativity & Cosmology · Modern era
+    Discovered on turn 186. No buildings, units or bonuses of its own.
+    Needs ✓ Special Relativity + ✓ Non-Euclidean Geometry
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- RC04 [studying] Black Hole Thermodynamics Relativity & Cosmology · Atomic era
+    Being studied in Relativity & Cosmology: it takes a share of that focus’s Insight every turn.
+    Needs ✓ General Relativity + ✓ Quantum Field Theory + ✓ Laws of Thermodynamics
+    “Even a star collapsed beyond all light might have a temperature.”
+    ACTIONS: Fund Relativity & Cosmology | [disabled] Grand Endeavour only for ideas not yet occurred
+--- RK02 [owned] Liquid Fuel Rocket Rocketry · Modern era
+    Discovered on turn 222. Guided Missile (unit)
+    Needs ✓ Rocket Propellant + ✓ Laws of Thermodynamics + (✓ Petrochemistry or ✓ Bio-Organic Synthesis)
+    Guidance is what liquid fuel makes possible.
+    ACTIONS: [disabled] Discovered
+--- RK03 [studying] Multi-Stage Rocket Rocketry · Atomic era
+    Being studied in Rocketry: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Liquid Fuel Rocket
+    “A rocket that sheds its spent stages as it climbs might reach orbit.”
+    ACTIONS: Fund Rocketry | [disabled] Grand Endeavour only for ideas not yet occurred
+--- S01 [owned] Tool Knapping Stonework · Primitive era
+    Discovered on turn 4. Warrior, Scout (units); Remove Forest, Remove Jungle (improvements)
+    ACTIONS: [disabled] Discovered
+--- S02 [owned] Grinding & Polishing Stonework · Primitive era
+    Discovered on turn 31. -25% construction time for Quarry improvements
+    Needs ✓ Tool Knapping
+    The Neolithic revolution in tool quality.
+    ACTIONS: [disabled] Discovered
+--- S03 [owned] Quarrying Stonework · Ancient era
+    Discovered on turn 33. Walls, Stone Works (buildings); Quarry (improvement)
+    Opens the Construction focus.
+    Needs ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- S04 [owned] Ore Identification Stonework · Primitive era
+    Discovered on turn 9. Mine (improvement); shows Copper, Gold Ore, Gems and Iron on the map
+    Opens the Mining focus.
+    Needs ✓ Tool Knapping
+    Suddenly you see where the wealth is buried.
+    ACTIONS: [disabled] Discovered
+--- S05 [closed] Obsidian Working Stonework · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Tool Knapping + ✓ Volcanic region in your lands
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Volcanic glass might flake to an edge keener than any blade we can forge.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
+--- S07 [closed] Flint Knapping Mastery Stonework · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Tool Knapping
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Flint shaped with patience might give our arrows truer, keener points.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 12 Insight · about 1 turn
+--- S08 [owned] Jade/Gemstone Working Stonework · Ancient era
+    Discovered on turn 60. Jeweler (building), which provides Jewelry (resource)
+    Needs ✓ Grinding & Polishing
+    ACTIONS: [disabled] Discovered
+--- SF01 [owned] Reed/Log Raft Seafaring · Primitive era
+    Discovered on turn 5. Fishing Boats (improvement), Work Boats (unit)
+    Needs ✓ A coastal or river city
+    ACTIONS: [disabled] Discovered
+--- SF02 [owned] Dugout Canoe Seafaring · Primitive era
+    Discovered on turn 36. Enables embarkation for land units
+    Needs ✓ Reed/Log Raft + ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- SF03 [owned] Sail Invention Seafaring · Ancient era
+    Discovered on turn 64. Lighthouse (building), The Great Lighthouse (wonder), Port (building)
+    +1 Movement for Embarked units; Port: +1 Gold, +1 Gold from Water resource tiles
+    Needs ✓ Dugout Canoe + ✓ Weaving
+    ACTIONS: [disabled] Discovered
+--- SF04 [owned] Celestial Navigation Seafaring · Ancient era
+    Discovered on turn 89. Enables Embarked units and Work Boats to enter ocean tiles
+    Needs ✓ Sail Invention + ✓ Star Tracking
+    ACTIONS: [disabled] Discovered
+--- SF05 [owned] Trireme/Galley Construction Seafaring · Classical era
+    Discovered on turn 123. Trireme (unit)
+    Needs ✓ Sail Invention + ✓ Post and Lintel
+    ACTIONS: [disabled] Discovered
+--- SF08 [owned] Compass Seafaring · Medieval era
+    Discovered on turn 146. Harbor (building); +1 Movement for Water units
+    Needs ✓ Geological Observation + ✓ Celestial Navigation
+    ACTIONS: [disabled] Discovered
+--- SF09 [owned] Caravel/Deep Ocean Ship Seafaring · Medieval era
+    Discovered on turn 169. Caravel (unit), Galleass (unit)
+    Needs ✓ Compass + ✓ Trireme/Galley Construction + ✓ Iron Smelting
+    ACTIONS: [disabled] Discovered
+--- SF10 [owned] Drydock Seafaring · Medieval era
+    Discovered on turn 152. Drydock (building): +25% Production when constructing Water units in this city
+    Water units adjacent to this city heal +10 HP per turn when healing
+    Needs ✓ Trireme/Galley Construction + ✓ Arch Construction
+    ACTIONS: [disabled] Discovered
+--- SF11 [owned] Ship of the Line Seafaring · Early Modern era
+    Discovered on turn 194. Frigate (unit), Privateer (unit)
+    Needs ✓ Caravel/Deep Ocean Ship + ✓ Cannons
+    ACTIONS: [disabled] Discovered
+--- SF12 [closed] Ironclad Seafaring · Modern era New
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Ship of the Line + ✓ Blast Furnace
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “A hull sheathed in iron plate might shrug off shot that splinters oak.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- SF19 [owned] Longitude Seafaring · Early Modern era
+    Discovered on turn 200. Seaport (building)
+    Needs ✓ Caravel/Deep Ocean Ship + ✓ Clockwork
+    Harrison's marine chronometer, 1761: a ship that always knows where it is.
+    ACTIONS: [disabled] Discovered
+--- SO01 [owned] Basic Counting Social Organization · Primitive era
+    Discovered on turn 6. +25% Gold from Trade Routes
+    ACTIONS: [disabled] Discovered
+--- SO02 [owned] Storytelling Social Organization · Primitive era
+    Discovered on turn 8. Monument (building)
+    ACTIONS: [disabled] Discovered
+--- SO03 [owned] Tribal Law Social Organization · Primitive era
+    Discovered on turn 17. +1 Happiness in capital; +1 Unit Supply per city
+    Needs ✓ Basic Counting + ✓ Storytelling
+    ACTIONS: [disabled] Discovered
+--- SO04 [owned] Writing Social Organization · Ancient era
+    Discovered on turn 31. Library (building); The Great Library (world wonder)
+    Enables establishment of embassies
+    Opens the Trade focus.
+    Needs ✓ Basic Counting + ✓ Storytelling
+    ACTIONS: [disabled] Discovered
+--- SO05 [owned] Specialization of Labor Social Organization · Ancient era
+    Discovered on turn 35. +1 Production from every specialist in all cities
+    The funded focus now receives 80% of Insight, up from 50%
+    Needs ✓ Tribal Law + ✓ Population 5 in a city
+    ACTIONS: [disabled] Discovered
+--- SO06 [owned] Codified Law Social Organization · Ancient era
+    Discovered on turn 63. Courthouse (building)
+    Needs ✓ Writing + ✓ Tribal Law
+    ACTIONS: [disabled] Discovered
+--- SO08 [owned] Census Social Organization · Classical era
+    Discovered on turn 124. +1 Gold per 4 population in all cities
+    Needs ✓ Writing + ✓ Basic Counting
+    ACTIONS: [disabled] Discovered
+--- SO10 [owned] Guilds Social Organization · Medieval era
+    Discovered on turn 167. Guild Hall (building); Machu Picchu (world wonder)
+    Enables conversion of city production to Gold
+    Needs ✓ Specialization of Labor + ✓ Codified Law
+    ACTIONS: [disabled] Discovered
+--- SO11 [owned] Banking Social Organization · Medieval era
+    Discovered on turn 130. Bank, Coffee House (buildings); Forbidden Palace (world wonder)
+    National Treasury (national wonder)
+    Needs ✓ Writing + ✓ Currency
+    ACTIONS: [disabled] Discovered
+--- SO16 [owned] Public Education Social Organization · Early Modern era
+    Discovered on turn 188. Public School (building); +2 Unit Supply per city
+    Constabulary, Police Station (buildings) when espionage is enabled
+    Needs ✓ Scientific Method + ✓ Printing Press
+    Prussia made schooling compulsory in 1763, and other states followed.
+    ACTIONS: [disabled] Discovered
+--- TH01 [owned] Laws of Thermodynamics Thermodynamics · Early Modern era
+    Discovered on turn 146. +1 Production from all Steam Works buildings
+    Needs ✓ Steam Engine + ✓ Scientific Method
+    The kinetic theory of heat: heat is motion.
+    ACTIONS: [disabled] Discovered
+--- TH02 [owned] Refrigeration Thermodynamics · Modern era
+    Discovered on turn 190. Stadium (building); +1 Gold from all Factory buildings
+    15% Food is carried over after population increases in all cities
+    Needs ✓ Laws of Thermodynamics + ✓ Distillation + ✓ Periodic Table
+    Linde built the refrigerator and then liquefied air.
+    ACTIONS: [disabled] Discovered
+--- TH03 [owned] Turbine Design Thermodynamics · Modern era
+    Discovered on turn 190. +15% Production when constructing Water units in all cities
+    +1 Happiness in cities on Snow tiles
+    Needs ✓ Laws of Thermodynamics + ✓ Gearing + ✓ Bessemer Process
+    ACTIONS: [disabled] Discovered
+--- TH05 [owned] Carnot Efficiency Thermodynamics · Early Modern era
+    Discovered on turn 188. +1 Production from every Engineer
+    Needs ✓ Laws of Thermodynamics + ✓ Calculus
+    The engineer who knows the limit gets closest to it.
+    ACTIONS: [disabled] Discovered
+--- TH08 [owned] Stirling Engine Mastery Thermodynamics · Early Modern era · also reached by Energy Systems, Mechanics
+    Discovered on turn 188. Stirling Works (building): a power plant that needs no fuel resource
+    Needs ✓ Laws of Thermodynamics + ✓ Steam Engine
+    Less power, but it burns anything.
+    ACTIONS: [disabled] Discovered
+--- TH09 [owned] Caloric Theory Thermodynamics · Early Modern era
+    Discovered on turn 187. +1 Production from all Steam Works buildings
+    Dead end: Mechanical Equivalent of Heat reported that heat is motion, not a fluid.
+    Needs ✓ Steam Engine + ✓ Natural Philosophy
+    Heat as a weightless fluid — wrong in our world.
+    ACTIONS: [disabled] Discovered
+--- TH10 [owned] Mechanical Equivalent of Heat Thermodynamics · Early Modern era
+    Discovered on turn 188. Joule Laboratory (national wonder)
+    Needs (✓ Laws of Thermodynamics or ✓ Caloric Theory) + ✓ Basic Algebra
+    Joule’s paddle-wheel and Rumford’s cannon: friction makes heat without limit.
+    ACTIONS: [disabled] Discovered
+--- TH15 [closed] Waste-Heat Recovery Thermodynamics · Space era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Turbine Design + ✓ Carnot Efficiency
+    As an Endeavour: 21,827 Insight, twice today’s price, falling as development catches up.
+    “The heat our factories throw away might be caught and set to work.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 21,827 Insight · about 32 turns
+--- TR01 [owned] Barter System Trade · Primitive era
+    Discovered on turn 31. +1 Gold from each Trade Route; unlocks the Trade screen
+    Needs ✓ Basic Counting
+    ACTIONS: [disabled] Discovered
+--- TR02 [owned] Currency Trade · Ancient era
+    Discovered on turn 70. Market (building)
+    Needs ✓ Writing + ✓ Copper Working
+    Standard coin, standard price.
+    ACTIONS: [disabled] Discovered
+--- TR03 [owned] Caravansary Trade · Ancient era
+    Discovered on turn 91. Caravansary (building): +1 Gold, +1 Gold per Trade Route, +1 Gold from Desert tiles
+    Needs ✓ Currency + (✓ Herd Animal Domestication or ✗ Camel Domestication)
+    ACTIONS: [disabled] Discovered
+--- TR05 [owned] Letter of Credit Trade · Medieval era
+    Discovered on turn 153. +25% Gold from Trade Routes
+    Needs ✓ Currency + ✓ Writing
+    Value travels without the coin.
+    ACTIONS: [disabled] Discovered
+--- TR06 [owned] Joint Stock Company Trade · Early Modern era
+    Discovered on turn 198. Trading Company (building): +3 Gold, +2 Gold from each Trade Route
+    Needs ✓ Letter of Credit + ✓ Banking
+    ACTIONS: [disabled] Discovered
+--- TR10 [studying] Futures Market Trade · Modern era
+    Being studied in Trade: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Letter of Credit + ✓ Probability Theory + ✓ Statistics
+    “A price might be agreed today for a harvest not yet sown.”
+    ACTIONS: Fund Trade | [disabled] Grand Endeavour only for ideas not yet occurred
+--- TR17 [closed] Long-Distance Trade Trade · Classical era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Caravansary + ✓ Currency
+    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Passed from caravan to caravan, goods might cross a whole continent.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 168 Insight · about 1 turn
+--- TX01 [owned] Weaving Textiles & Materials · Primitive era
+    Discovered on turn 12. Weaver (building): +1 Gold; +1 Production from Sheep tiles in all cities
+    +1 Happiness in cities on Tundra tiles
+    Needs (✓ Plant Identification or ✓ Herd Animal Domestication)
+    ACTIONS: [disabled] Discovered
+--- TX02 [owned] Dyeing Textiles & Materials · Ancient era
+    Discovered on turn 63. Dye Works (building): +2 Gold, +1 Gold from Dyes tiles in this city
+    Needs ✓ Weaving + ✓ Plant Identification
+    ACTIONS: [disabled] Discovered
+--- TX05 [owned] Cotton Gin Textiles & Materials · Early Modern era
+    Discovered on turn 200. Textile Mill (building): +2 Gold, +1 Gold from Cotton tiles in this city
+    Needs ✓ Weaving + ✓ Gearing
+    ACTIONS: [disabled] Discovered
+--- TX08 [studying] Carbon Fiber Textiles & Materials · Atomic era
+    Being studied in Textiles & Materials: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Organic Chemistry + ✓ Polymer Science
+    “Threads of pure carbon, set in resin, might prove stronger than steel.”
+    ACTIONS: Fund Textiles & Materials | [disabled] Grand Endeavour only for ideas not yet occurred
+--- TX10 [owned] Paper Making Textiles & Materials · Ancient era
+    Discovered on turn 67. +15% Production when constructing Library buildings in all cities
+    Needs ✓ Weaving + (✓ Canal Building or ✓ Kiln Construction)
+    ACTIONS: [disabled] Discovered
+--- WA01 [owned] Formation Fighting Warfare · Ancient era
+    Discovered on turn 73. Spearman (unit); Barracks (building)
+    Needs ✓ Tribal Law
+    Men who fight as one.
+    ACTIONS: [disabled] Discovered
+--- WA03 [owned] Archery Warfare · Primitive era
+    Discovered on turn 21. Archer (unit); Temple of Artemis (world wonder)
+    Needs ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- WA04 [owned] Composite Bow Warfare · Ancient era
+    Discovered on turn 63. Composite Bowman (unit)
+    Needs ✓ Archery + ✓ Herd Animal Domestication
+    ACTIONS: [disabled] Discovered
+--- WA05 [owned] Siege Warfare Warfare · Classical era
+    Discovered on turn 112. Catapult (unit)
+    Needs ✓ Formation Fighting + ✓ Post and Lintel
+    Walls stop being final.
+    ACTIONS: [disabled] Discovered
+--- WA06 [owned] Fortification Design Warfare · Ancient era
+    Discovered on turn 93. Fort (improvement); Great Wall (world wonder)
+    Needs ✓ Arch Construction + ✓ Formation Fighting
+    ACTIONS: [disabled] Discovered
+--- WA07 [owned] Cavalry Tactics Warfare · Ancient era
+    Discovered on turn 89. Horseman (unit); +10% to Flank Attack bonuses
+    Needs ✓ Formation Fighting + ✓ Horse Domestication
+    Riders who strike where the line bends.
+    ACTIONS: [disabled] Discovered
+--- WA08 [not_taken] Chariot Warfare Warfare · Ancient era
+    Glimpsed by our scholars. Path not taken: Cavalry Tactics was discovered first, so this will never be developed.
+    A thing your civilisation glimpsed and let slip.
+    “A light cart behind fast horses might carry a man with a bow into battle.”
+    ACTIONS: [disabled] Never developed
+--- WA09 [owned] Crossbow Warfare · Medieval era
+    Discovered on turn 129. Crossbowman (unit)
+    Needs ✓ Composite Bow + ✓ Gearing
+    ACTIONS: [disabled] Discovered
+--- WA10 [owned] Gunpowder Warfare · Medieval era · also reached by Chemistry
+    Discovered on turn 151. Musketman (unit, requires Saltpeter); Himeji Castle (world wonder)
+    Needs ✓ Advanced Pyrotechnics + ✓ Saltpeter Mining + ✓ Geological Observation
+    ACTIONS: [disabled] Discovered
+--- WA11 [owned] Trebuchet Warfare · Medieval era
+    Discovered on turn 155. Trebuchet (unit)
+    Needs ✓ Siege Warfare + ✓ Geometry
+    ACTIONS: [disabled] Discovered
+--- WA13 [closed] Guerrilla Tactics Warfare · Classical era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Formation Fighting + ✓ Forest, jungle or mountains in your lands
+    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Small bands who know the hills and forests might bleed a larger army.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 168 Insight · about 1 turn
+--- WA16 [owned] Rifling Warfare · Early Modern era
+    Discovered on turn 188. Rifleman (unit); Gatling Gun (unit)
+    Needs ✓ Gunpowder + ✓ Steel Production
+    ACTIONS: [disabled] Discovered
+--- WA22 [owned] Cannons Warfare · Medieval era
+    Discovered on turn 162. Cannon (unit, requires Saltpeter)
+    Needs ✓ Gunpowder + (✓ Steel Production or ✓ Blast Furnace)
+    Medieval walls stop mattering.
+    ACTIONS: [disabled] Discovered
+--- WA26 [owned] Professional Army Warfare · Classical era
+    Discovered on turn 139. Terracotta Army (world wonder); Heroic Epic (national wonder)
+    Needs ✓ Formation Fighting + ✓ Iron Smelting + ✓ Census
+    The Marian reforms (107 BC): soldiers by trade, not by levy.
+    ACTIONS: [disabled] Discovered
+--- WA27 [owned] Stirrup Warfare · Medieval era
+    Discovered on turn 135. Knight (unit)
+    Needs ✓ Cavalry Tactics + ✓ Iron Smelting
+    The stirrup spread west across Eurasia between the 6th and 8th centuries.
+    ACTIONS: [disabled] Discovered
+--- WA28 [owned] Drill and Discipline Warfare · Early Modern era
+    Discovered on turn 186. Military Academy (building); Brandenburg Gate (world wonder)
+    Cavalry (unit); Lancer (unit); +25% Strength for Gunpowder units vs Mounted units
+    Needs ✓ Formation Fighting + ✓ Scientific Method
+    Maurice of Nassau’s drill (1590s), written from the classical manuals.
+    ACTIONS: [disabled] Discovered
+--- WM01 [owned] Canal Building Water Management · Ancient era
+    Discovered on turn 39. +1 Production in cities on River tiles; +1 Gold from each Trade Route
+    Needs ✓ Irrigation + ✓ Quarrying
+    ACTIONS: [disabled] Discovered
+--- WM02 [owned] Aqueduct Water Management · Ancient era
+    Discovered on turn 58. Aqueduct (building), Hanging Gardens (wonder), Remove Marsh (improvement)
+    +1 Food from Flood plains tiles in all cities
+    Needs ✓ Canal Building + ✓ Arch Construction
+    ACTIONS: [disabled] Discovered
+--- WM05 [owned] Water Mill Water Management · Classical era · also reached by Energy Systems
+    Discovered on turn 60. Water Mill (building)
+    Needs ✓ Canal Building + ✓ Gearing
+    ACTIONS: [disabled] Discovered
+--- WM06 [studying] Dam Construction Water Management · Modern era
+    Being studied in Water Management: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Aqueduct + ✓ Reinforced Concrete + ✓ Electric Generator
+    “A wall of concrete across the valley might hold back the whole river.”
+    ACTIONS: Fund Water Management | [disabled] Grand Endeavour only for ideas not yet occurred
+--- WM09 [owned] Rice Paddy Mastery Water Management · Ancient era
+    Discovered on turn 58. Paddy Field (improvement), Rice Granary (building, replaces Granary)
+    +1 Food from Paddy Field tiles in all cities
+    Unique to your civilisation: it cannot be traded or stolen, and never diffuses.
+    Needs ✓ Irrigation + ✓ Canal Building + ✓ A river valley + ✓ Tropical or temperate lands
+    The rice civilisations of East and Southeast Asia.
+    ACTIONS: [disabled] Discovered
+--- WM11 [owned] Industrial Canal Network Water Management · Early Modern era
+    Discovered on turn 194. Pound Lock (building): +2 Gold, +2 Production from each Trade Route
+    Superseded by Railway Network: its buildings are no longer available.
+    Needs ✓ Canal Building + ✓ Arch Construction + ✓ Caravansary + ✓ A river in your lands
+    Canal Mania, 1790s: one horse pulled 30 tons by barge, but only 1 ton by road cart.
+    ACTIONS: [disabled] Discovered
+--- WM12 [closed] Tidal Mill Water Management · Medieval era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Water Mill + ✓ Tidal Patterns
+    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Sea water trapped behind a sluice gate might turn a wheel as a river does.”
+    ACTIONS: Synthesis once this era · unused | Begin Grand Endeavour 371 Insight · about 1 turn
+--- MD20 [waiting] Phage Therapy Medicine · Modern era
+    Revealed by Germ Theory. Awaiting the idea: no Insight, however hard Medicine is funded, until the idea occurs.
+    Needs ✓ Germ Theory + ✓ Telescope
+    Competes with Antibiotics, under study: if that comes first, this is never developed.
+    “Viruses that prey on bacteria might be bred to fight infection.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- ES05 [waiting] Oil Power Plant Energy Systems · Modern era
+    Revealed by Turbine Design. Awaiting the idea: no Insight, however hard Energy Systems is funded, until the idea occurs.
+    Needs ✓ Turbine Design + (✓ Petroleum Discovery or ✓ Internal Combustion Engine)
+    “Oil already drives our engines; it might drive a turbine as readily as coal.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 2,447 Insight · about 4 turns
+--- RK09 [waiting] Ion Drive Rocketry · Space era
+    Revealed by Quantum Electrodynamics. Awaiting the idea: no Insight, however hard Rocketry is funded, until the idea occurs.
+    Needs ✓ Liquid Fuel Rocket + ✓ Electric Generator + ✓ Quantum Electrodynamics
+    “A faint, endless push of charged atoms might carry a craft to other planets.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Begin Grand Endeavour 21,827 Insight · about 32 turns
+--- RC03 [unreach] Gravitational Waves Detection Relativity & Cosmology · Atomic era
+    Revealed by General Relativity. Not yet reachable: a prerequisite must be discovered first.
+    Needs ✓ General Relativity + ✗ Laser (under study in Optics) + ✓ Precision Machining
+    It cannot be a Grand Endeavour until Laser is discovered.
+    “If space itself can ripple, a fine enough instrument might hear it.”
+    ACTIONS: Fund Optics | [disabled] Grand Endeavour needs Laser first
+--- AE13 [unreach] Rigid Airship Aeronautics · Modern era
+    Seen in use by another civilisation. Not yet reachable: a prerequisite must be discovered first.
+    Needs ✗ Dirigible/Airship (under study in Aeronautics) + ✓ Aluminium Extraction
+    It cannot be a Grand Endeavour until Dirigible/Airship is discovered.
+    “A frame of light metal around great gas cells could cross an ocean.”
+    ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour needs Dirigible/Airship first
+--- Aeronautics [focus] Aeronautics not funded
+    Under study here: Dirigible/Airship, Heavier-Than-Air Flight.
+    Tends to help with air units and sight. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Aeronautics | Add to queue
+--- Animal Husbandry [focus] Animal Husbandry not funded
+    Nothing revealed is under study here.
+    Tends to help with mounted units and food. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Animal Husbandry | Add to queue
+--- Chemistry [focus] Chemistry not funded
+    Under study here: Helium Extraction, Biomass/Biogas.
+    Tends to help with materials, fuels and medicines. Modifiers: +20% volcanic region, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Chemistry | Add to queue
+--- Computing [focus] Computing not funded
+    Under study here: Analog Computing Mastery.
+    Tends to help with science and administration. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Computing | Add to queue
+--- Construction [focus] Construction not funded
+    Nothing revealed is under study here.
+    Tends to help with buildings and defences. Modifiers: +20% river start, +25% earthquake-prone land, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Construction | Add to queue
+--- Electricity [focus] Electricity not funded
+    Nothing revealed is under study here.
+    Tends to help with power and communication. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Electricity | Add to queue
+--- Electronics [focus] Electronics not funded
+    Under study here: Transistor.
+    Tends to help with detection and devices. Modifiers: +10% Quantum Electrodynamics, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Electronics | Add to queue
+--- Energy Systems [focus] Energy Systems not funded · queued 2nd
+    Under study here: Coal Power Plant, Biomass Power Plant, Tidal Power, Biomass/Biogas.
+    Tends to help with power and production. Modifiers: +5% Natural Philosophy (all foci).
+    Queued 2nd: funding moves here when Quantum Physics has no revealed work under study.
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Energy Systems | Remove from queue
+--- Farming [focus] Farming not funded
+    Under study here: Biomass Power Plant, Biomass/Biogas.
+    Tends to help with food and growth. Modifiers: +20% river start, +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Farming | Add to queue
+--- Fire [focus] Fire not funded
+    Nothing revealed is under study here.
+    Tends to help with production and early weapons. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Fire | Add to queue
+--- Foraging [focus] Foraging not funded
+    Nothing revealed is under study here.
+    Tends to help with food and medicine. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Foraging | Add to queue
+--- Genetics [focus] Genetics not funded
+    Nothing revealed is under study here.
+    Tends to help with health and food. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Genetics | Add to queue
+--- Materials Science [focus] Materials Science not funded
+    Under study here: Nanotechnology.
+    Tends to help with production and protection. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Materials Science | Add to queue
+--- Mathematics [focus] Mathematics not funded
+    Nothing revealed is under study here.
+    Tends to help with science and engineering. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Mathematics | Add to queue
+--- Mechanics [focus] Mechanics not funded
+    Nothing revealed is under study here.
+    Tends to help with production and machines. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Mechanics | Add to queue
+--- Medicine [focus] Medicine not funded · queued 3rd
+    Under study here: Antibiotics, Anaesthesia.
+    Tends to help with health and growth. Modifiers: +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Queued 3rd: funding moves here when Quantum Physics has no revealed work under study.
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Medicine | Remove from queue
+--- Metallurgy [focus] Metallurgy not funded
+    Nothing revealed is under study here.
+    Tends to help with weapons, armour and production. Modifiers: +20% volcanic region, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Metallurgy | Add to queue
+--- Mining [focus] Mining not funded
+    Under study here: Uranium Discovery, Rare Earth Extraction.
+    Tends to help with resources and production. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Mining | Add to queue
+--- Nuclear Physics [focus] Nuclear Physics not funded
+    Under study here: Particle Laboratories.
+    Tends to help with power and weapons. Modifiers: +10% Special Relativity, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Nuclear Physics | Add to queue
+--- Observation [focus] Observation not funded
+    Under study here: Atmospheric Science.
+    Tends to help with science and knowing the land. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Observation | Add to queue
+--- Optics [focus] Optics not funded
+    Under study here: Laser.
+    Tends to help with sight and instruments. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Optics | Add to queue
+--- Philosophy and the Arts [focus] Philosophy and the Arts not funded
+    Under study here: Information Theory, Systems Thinking.
+    Tends to help with culture, faith and learning. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Philosophy and the Arts | Add to queue
+--- Quantum Physics [focus] Quantum Physics funded · 80% of your Insight
+    Under study here: Standard Model Completion, Quantum Gravity Theory.
+    Tends to help with science and instruments. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: [disabled] Funded
+--- Relativity & Cosmology [focus] Relativity & Cosmology not funded
+    Under study here: Black Hole Thermodynamics.
+    Tends to help with science and trade. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Relativity & Cosmology | Add to queue
+--- Rocketry [focus] Rocketry not funded
+    Under study here: Multi-Stage Rocket.
+    Tends to help with launches and missiles. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Rocketry | Add to queue
+--- Seafaring [focus] Seafaring not funded
+    Nothing revealed is under study here.
+    Tends to help with ships and sea trade. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Seafaring | Add to queue
+--- Social Organization [focus] Social Organization not funded
+    Nothing revealed is under study here.
+    Tends to help with government and specialists. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Social Organization | Add to queue
+--- Stonework [focus] Stonework not funded
+    Nothing revealed is under study here.
+    Tends to help with building and tools. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Stonework | Add to queue
+--- Textiles & Materials [focus] Textiles & Materials not funded
+    Under study here: Carbon Fiber.
+    Tends to help with trade goods and equipment. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Textiles & Materials | Add to queue
+--- Thermodynamics [focus] Thermodynamics not funded
+    Nothing revealed is under study here.
+    Tends to help with engines and power. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Thermodynamics | Add to queue
+--- Trade [focus] Trade not funded
+    Under study here: Futures Market.
+    Tends to help with gold and trade routes. Modifiers: +20% river start, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Trade | Add to queue
+--- Warfare [focus] Warfare not funded
+    Nothing revealed is under study here.
+    Tends to help with military units and tactics. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Warfare | Add to queue
+--- Water Management [focus] Water Management not funded
+    Under study here: Dam Construction.
+    Tends to help with food and water power. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Water Management | Add to queue
+--- funding [funding] Insight 853 a turn, equal to your science
+    80% (683) goes to the funded focus, since Specialization of Labor; before it, 50%.
+    The other 20% (171) spreads to foci with work under study. Switching loses nothing.
+    Queue: 2 Energy Systems, 3 Medicine. It moves on when the funded focus has no revealed work under study.
+    Diffusion: after the press (Printing Press). Theories reveal their applications (Scientific Method).
+    Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
+    ACTIONS: [disabled] Funded: Quantum Physics
+--- era [era] Modern era entered by count
+    You enter an era when you hold enough breakthroughs from it or later.
+    The Atomic era needs 6 from the Atomic era or later: you hold 5.
+    Synthesis can be used once in each era: unused in the Modern era.
+    ACTIONS: 
+===== t231 (a3)
+--- AE01 [owned] Hot Air Balloon Aeronautics · Early Modern era
+    Discovered on turn 202. Observation Balloon (unit)
+    Needs ✓ Controlled Fire + ✓ Weaving + ✓ Scientific Method
+    The Montgolfiers flew in 1783, before oxygen chemistry was accepted.
+    ACTIONS: [disabled] Discovered
+--- AE02 [studying] Dirigible/Airship Aeronautics · Modern era
+    Being studied in Aeronautics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Hot Air Balloon + (✓ Internal Combustion Engine or ✓ Electric Generator)
+    “A gas bag with an engine and a rudder might be steered against the wind.”
+    ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- AE03 [studying] Heavier-Than-Air Flight Aeronautics · Modern era
+    Being studied in Aeronautics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Internal Combustion Engine + ✓ Basic Algebra
+    “With a light enough engine, a fixed wing might lift a machine into the air.”
+    ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- AE09 [owned] Ornithopter Aeronautics · Early Modern era
+    Discovered on turn 191. Ornithopter (unit)
+    A rare find.
+    Needs ✓ Animal Behavior Study + ✓ Gearing + ✓ Weaving
+    Flight before the combustion engine.
+    ACTIONS: [disabled] Discovered
+--- AH01 [owned] Dog Domestication Animal Husbandry · Primitive era
+    Discovered on turn 28. +1 Sight for Scout units; +1 Food from Deer tiles in all cities
+    Needs ✓ Animal Behavior Study
+    The first animal people ever domesticated.
+    ACTIONS: [disabled] Discovered
+--- AH02 [owned] Herd Animal Domestication Animal Husbandry · Primitive era
+    Discovered on turn 15. Pasture (improvement)
+    Needs ✓ Animal Behavior Study
+    ACTIONS: [disabled] Discovered
+--- AH03 [owned] Horse Domestication Animal Husbandry · Ancient era
+    Discovered on turn 72. Shows Horses on the map; Stable (building); Circus Maximus (national wonder)
+    +1 Production from Horses tiles in all cities
+    Needs ✓ Animal Behavior Study + ✓ Grassland in your lands
+    The horse transformed warfare.
+    ACTIONS: [disabled] Discovered
+--- AH05 [closed] Camel Domestication Animal Husbandry · Ancient era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Animal Behavior Study + ✓ Desert in your lands
+    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “The desert beast that stores its water might carry our goods.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 37 Insight · about 1 turn
+--- AH06 [closed] Elephant Domestication Animal Husbandry · Ancient era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Animal Behavior Study + ✓ Tropical forest in your lands
+    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “The great beasts of the forest might be tamed to haul and to carry.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 37 Insight · about 1 turn
+--- AH11 [owned] Veterinary Medicine Animal Husbandry · Classical era
+    Discovered on turn 129. Veterinary College (building)
+    Needs ✓ Selective Breeding + ✓ Surgical Techniques
+    ACTIONS: [disabled] Discovered
+--- CH01 [owned] Alchemy Chemistry · Classical era
+    Discovered on turn 63. +1 Gold from Salt tiles in all cities
+    Needs ✓ Copper Working + ✓ Natural Philosophy
+    ACTIONS: [disabled] Discovered
+--- CH04 [owned] Distillation Chemistry · Medieval era
+    Discovered on turn 89. Distillery (building); Whisky (resource) in cities working a Peat Cutting
+    Needs ✓ Alchemy + ✓ Controlled Fire
+    ACTIONS: [disabled] Discovered
+--- CH05 [owned] Oxygen Theory Chemistry · Early Modern era
+    Discovered on turn 139. +1 Production from all Forge buildings
+    Needs ✓ Scientific Method + ✓ Distillation
+    The older phlogiston account described this same chemistry through missing oxygen.
+    ACTIONS: [disabled] Discovered
+--- CH06 [owned] Periodic Table Chemistry · Modern era
+    Discovered on turn 157. Research Lab (building); +1 Science from Strategic resource tiles in all cities
+    +1 Gold from Gems tiles in all cities
+    Needs ✓ Oxygen Theory + ✓ Basic Algebra
+    You finally know what you're looking for.
+    ACTIONS: [disabled] Discovered
+--- CH07 [owned] Organic Chemistry Chemistry · Modern era
+    Discovered on turn 199. Pharmaceutical Works (building); Cristo Redentor (world wonder)
+    Needs ✓ Periodic Table
+    ACTIONS: [disabled] Discovered
+--- CH08 [owned] Explosives (non-gunpowder) Chemistry · Modern era · also reached by Mining
+    Discovered on turn 216. Artillery (unit); -25% construction time for Mine improvements
+    Needs ✓ Organic Chemistry + ✓ Distillation
+    ACTIONS: [disabled] Discovered
+--- CH09 [owned] Petrochemistry Chemistry · Modern era
+    Discovered on turn 213. Refinery (building), which needs Oil
+    Needs ✓ Organic Chemistry + ✓ Petroleum Discovery
+    ACTIONS: [disabled] Discovered
+--- CH09-W [owned] Bio-Organic Synthesis Chemistry · Modern era
+    Discovered on turn 211. Bio-Refinery (building)
+    Needs ✓ Organic Chemistry + ✓ Selective Breeding
+    Nature made polymers first. What if we learned from it better?
+    ACTIONS: [disabled] Discovered
+--- CH11 [owned] Polymer Science Chemistry · Modern era
+    Discovered on turn 223. Infantry (unit); +15% Production when constructing Land units in all cities
+    Opens the Materials Science focus.
+    Needs ✓ Organic Chemistry + (✓ Petrochemistry or ✓ Bio-Organic Synthesis)
+    ACTIONS: [disabled] Discovered
+--- CH12 [owned] Catalysis Chemistry · Modern era · also reached by Farming
+    Discovered on turn 203. +1 Food from Farm tiles in all cities
+    Needs ✓ Periodic Table
+    ACTIONS: [disabled] Discovered
+--- CH13 [owned] Rocket Propellant Chemistry · Modern era
+    Discovered on turn 194. Rocket Artillery, Mobile SAM (units); Propellant Works (building)
+    Opens the Rocketry focus.
+    Needs (✓ Explosives (non-gunpowder) or ✓ Gunpowder) + ✓ Laws of Thermodynamics
+    ACTIONS: [disabled] Discovered
+--- CH14 [closed] Photochemistry Chemistry · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Periodic Table + ✓ Telescope
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Light darkens salts of silver; perhaps it could be made to fix an image.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- CH15 [owned] Greek Alchemical Tradition Chemistry · Classical era
+    Discovered on turn 82. Alchemist's Guild (building); reveals Distillation centuries early
+    A rare find.
+    Needs ✓ Alchemy + ✓ Formal Logic + ✓ Monumental Architecture
+    Alexandrian alchemists achieving practical results.
+    ACTIONS: [disabled] Discovered
+--- CH19 [owned] Systematic Element Analysis Chemistry · Early Modern era
+    Discovered on turn 139. Analytical Laboratory (national wonder)
+    Needs ✓ Distillation + ✓ Scientific Method
+    The question every natural philosopher asked: what is matter made of?
+    ACTIONS: [disabled] Discovered
+--- CH25 [owned] Organic Synthesis Attempt Chemistry · Modern era
+    Discovered on turn 211. Synthesis Laboratory (national wonder)
+    Needs ✓ Organic Chemistry
+    In 1828 Wöhler made urea, a product of living bodies, from lifeless salts.
+    ACTIONS: [disabled] Discovered
+--- CH28 [studying] Helium Extraction Chemistry · Modern era
+    Being studied in Chemistry: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Periodic Table + ✓ Spectroscopy
+    “A gas first seen only in the Sun's light may be drawn from our own wells.”
+    ACTIONS: Fund Chemistry | [disabled] Grand Endeavour only for ideas not yet occurred
+--- CO01 [owned] Mud Brick Construction Construction · Primitive era
+    Discovered on turn 33. Granary (building)
+    Needs ✓ Seed Saving
+    Sun-dried brick bound with the straw of the first harvests.
+    ACTIONS: [disabled] Discovered
+--- CO02 [owned] Post and Lintel Construction · Ancient era
+    Discovered on turn 37. Colosseum (building); Lumber mill (improvement)
+    Needs ✓ Quarrying
+    ACTIONS: [disabled] Discovered
+--- CO03 [owned] Arch Construction Construction · Ancient era
+    Discovered on turn 38. Road (improvement); Post Office (building)
+    Roads connect tiles across rivers; +5% Production when constructing buildings
+    Needs ✓ Quarrying + ✓ Geometry
+    The arch spans wider rooms, and carries the road across the river.
+    ACTIONS: [disabled] Discovered
+--- CO04 [owned] Roman Concrete Construction · Classical era
+    Discovered on turn 103. Concrete Works (building)
+    Needs ✓ Arch Construction + ✓ Volcanic Ash Processing
+    Seawater-proof harbours, from a recipe later lost for a millennium.
+    ACTIONS: [disabled] Discovered
+--- CO05 [not_taken] Corbel Arch/Vault Construction · Ancient era
+    Glimpsed by our scholars. Path not taken: Arch Construction was discovered first, so this will never be developed.
+    A thing your civilisation glimpsed and let slip.
+    “Stones stepped inward, course by course, until they meet.”
+    ACTIONS: [disabled] Never developed
+--- CO06 [owned] Flying Buttress Construction · Medieval era
+    Discovered on turn 123. Notre Dame, Taj Mahal, Porcelain Tower (world wonders)
+    +15% Production when constructing Universities
+    Needs ✓ Arch Construction + ✓ Basic Algebra
+    Walls that lean on air: the masons who raised the cathedrals raised the colleges.
+    ACTIONS: [disabled] Discovered
+--- CO07 [closed] Earthquake-Resistant Design Construction · Classical era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Post and Lintel + ✓ Earthquake-prone lands
+    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Timber that bends where stone would crack might ride out the earthquakes.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 168 Insight · about 1 turn
+--- CO09 [closed] Suspension Bridge Construction · Medieval era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Arch Construction + (✓ Steel Production or ✓ Weaving)
+    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “A road hung from cables might cross a gorge no arch could span.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 371 Insight · about 1 turn
+--- CO10 [owned] Iron-Frame Construction Construction · Early Modern era
+    Discovered on turn 129. Factory (building)
+    Needs ✓ Blast Furnace + ✓ Arch Construction
+    ACTIONS: [disabled] Discovered
+--- CO11 [owned] Reinforced Concrete Construction · Modern era
+    Discovered on turn 210. +10% Production when constructing buildings
+    Improves movement speed on roads
+    Needs ✓ Bessemer Process + (✓ Roman Concrete or ✓ Oxygen Theory)
+    Steel and concrete build fast and stand hard: Portland cement and Bessemer steel.
+    ACTIONS: [disabled] Discovered
+--- CO13 [studying] Geodesic Structures Construction · Atomic era New
+    Being studied in Construction: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Reinforced Concrete + ✓ Basic Algebra
+    “A dome of light struts, all triangles, might roof an arena in any climate.”
+    ACTIONS: Fund Construction | [disabled] Grand Endeavour only for ideas not yet occurred
+--- CO17 [waiting] Sealed Environments Construction · Modern era
+    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Needs ✓ Reinforced Concrete + ✓ Oxygen Theory + ✓ Glassmaking
+    “A hull sealed tight, with air of its own, might keep a crew alive under water.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+--- CO23 [owned] Railway Network Construction · Early Modern era
+    Discovered on turn 198. Railroad (improvement); Railway Station (building)
+    Neuschwanstein (world wonder)
+    Needs ✓ Steam Engine + ✓ Arch Construction + ✓ Blast Furnace
+    The defining infrastructure of the industrial age: distance stops mattering.
+    ACTIONS: [disabled] Discovered
+--- CO24 [owned] Concentric Fortification Construction · Medieval era
+    Discovered on turn 122. Castle (building); Alhambra (world wonder)
+    Needs ✓ Fortification Design + ✓ Arch Construction
+    Rings of walls and flanking towers: Krak des Chevaliers, Edward I’s Welsh castles.
+    ACTIONS: [disabled] Discovered
+--- CO25 [owned] Star Fort Construction · Early Modern era
+    Discovered on turn 195. Arsenal (building); Kremlin (world wonder)
+    Needs ✓ Fortification Design + (✓ Cannons or ✓ Trebuchet)
+    The trace italienne: low, angled bastions that turn a bombardment aside.
+    ACTIONS: [disabled] Discovered
+--- CO26 [waiting] Ring Fortress Construction · Modern era
+    Glimpsed by our scholars. Awaiting the idea: no Insight, however hard Construction is funded, until the idea occurs.
+    Needs ✓ Star Fort + ✓ Reinforced Concrete
+    “A ring of detached forts in concrete and steel might stand up to any shell.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+--- CP13 [studying] Analog Computing Mastery Computing · Modern era
+    Being studied in Computing: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Vacuum Tube + ✓ Calculus
+    “A machine of shafts and currents might act out an equation, not count it.”
+    ACTIONS: Fund Computing | [disabled] Grand Endeavour only for ideas not yet occurred
+--- CU02 [owned] Monumental Architecture Philosophy and the Arts · Ancient era
+    Discovered on turn 64. Temple (building); Stonehenge, The Pyramids, Mausoleum of Halicarnassus (wonders)
+    -25% Culture cost of natural border growth in all cities
+    Needs ✓ Post and Lintel + ✓ Specialization of Labor
+    ACTIONS: [disabled] Discovered
+--- CU03 [owned] Artistic Tradition Philosophy and the Arts · Ancient era
+    Discovered on turn 54. Great Artist is earned 10% faster
+    Needs ✓ Storytelling + ✓ A luxury resource in your lands
+    ACTIONS: [disabled] Discovered
+--- CU04 [owned] Musical Instruments Philosophy and the Arts · Primitive era
+    Discovered on turn 27. Great Prophet is earned 10% faster
+    Needs ✓ Storytelling + ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- CU05 [owned] Theater Philosophy and the Arts · Classical era
+    Discovered on turn 65. Amphitheater (building); a drama festival (event)
+    Needs ✓ Writing + ✓ Artistic Tradition
+    ACTIONS: [disabled] Discovered
+--- CU06 [owned] University Philosophy and the Arts · Medieval era
+    Discovered on turn 148. University (building); Angkor Wat (wonder); Oxford University (national wonder)
+    Needs ✓ Writing + ✓ Formal Logic + ✓ Printing Press
+    ACTIONS: [disabled] Discovered
+--- CU07 [owned] Renaissance Philosophy and the Arts · Early Modern era
+    Discovered on turn 198. Empire enters a 10-turn Golden Age; Opera House and Theatre (buildings)
+    Hermitage (national wonder); Sistine Chapel (wonder)
+    Needs ✓ University + ✓ Formal Logic + ✓ Letter of Credit
+    ACTIONS: [disabled] Discovered
+--- CU14 [owned] Historiography Philosophy and the Arts · Classical era
+    Discovered on turn 110. National Epic (national wonder)
+    Needs ✓ Writing + ✓ Artistic Tradition
+    Herodotus and Thucydides wrote their histories in the 5th century BC.
+    ACTIONS: [disabled] Discovered
+--- CU15 [owned] Scholastic Theology Philosophy and the Arts · Medieval era
+    Discovered on turn 130. Hagia Sophia, Great Mosque of Djenne (wonders); Grand Temple (national wonder)
+    Needs ✓ Monumental Architecture + ✓ Formal Logic
+    In the age of Aquinas and the kalam, faith was argued by logic.
+    ACTIONS: [disabled] Discovered
+--- EL02 [owned] Voltaic Pile (Battery) Electricity · Early Modern era
+    Discovered on turn 120. +1 Gold from Silver, Gold Ore and Luxury resource tiles in all cities
+    +1 Culture from all Museum buildings
+    Needs ✓ Natural Philosophy + ✓ Distillation + ✓ Copper Working
+    Galvani's frogs and Volta's pile were one line of experiment.
+    ACTIONS: [disabled] Discovered
+--- EL03 [owned] Electromagnetism Electricity · Early Modern era
+    Discovered on turn 136. Great Scientist is earned 10% faster
+    Needs ✓ Voltaic Pile (Battery) + ✓ Calculus
+    Two forces found to be one.
+    ACTIONS: [disabled] Discovered
+--- EL04 [owned] Telegraph Electricity · Early Modern era
+    Discovered on turn 167. Telegraph Office (building): +1 Gold, +1 Gold from each Trade Route, +3 City strength
+    Needs ✓ Voltaic Pile (Battery) + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- EL06 [owned] Electric Generator Electricity · Modern era
+    Discovered on turn 194. -25% construction time for Railroad improvements
+    Opens the Electronics focus.
+    Needs ✓ Electromagnetism + ✓ Turbine Design
+    The motor is the generator run backwards.
+    ACTIONS: [disabled] Discovered
+--- EL07 [owned] Power Grid Electricity · Modern era
+    Discovered on turn 196. +2 Production and +1 Happiness in cities connected to the capital
+    A further +3 Production in connected cities without a Power Plant
+    Needs ✓ Electric Generator + ✓ Iron-Frame Construction
+    The grid, and electric light.
+    ACTIONS: [disabled] Discovered
+--- EL09 [owned] Wireless Transmission Electricity · Modern era
+    Discovered on turn 193. Radio Transmitter (building); Telephone Exchange (building)
+    Needs ✓ Electromagnetism + ✓ Calculus + ✓ Precision Machining
+    Bell and Marconi: telecommunication by wire and without.
+    ACTIONS: [disabled] Discovered
+--- EL10 [closed] Piezoelectricity Electricity · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Electromagnetism + ✓ Periodic Table
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Squeezed hard enough, certain crystals might give up a current of their own.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- EL11 [endeavour] Superconductivity Electricity · Atomic era · Grand Endeavour
+    64% complete — 3,415 of 5,340 Insight; about 3 more turns at 683 a turn. It cannot fail.
+    It takes the funded share; the 20% spread still reaches your other foci.
+    Milestones at 25%, 50% and 75% may bring spin-offs. Committed on turn 226.
+    Stopping it lets its progress decay slowly; you can resume it later.
+    ACTIONS: [disabled] Endeavour under way 64% | Stop the Endeavour
+--- EN01 [owned] Vacuum Tube Electronics · Modern era
+    Discovered on turn 187. +15% Production when constructing Air units in all cities
+    Needs ✓ Electromagnetism + ✓ Glassmaking
+    A heated filament boils electrons into the bulb; a charged grid steers them.
+    ACTIONS: [disabled] Discovered
+--- EN02 [studying] Transistor Electronics · Atomic era
+    Being studied in Electronics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Vacuum Tube + ✓ Wave-Particle Duality
+    “A sliver of crystal might do the work of a vacuum tube, smaller and cooler.”
+    ACTIONS: Fund Electronics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- EN04 [closed] Radar Electronics · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Vacuum Tube + ✓ Wireless Transmission
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Radio waves bounced off distant aircraft might find them before any eye can.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- EN11 [closed] Radio Electronics · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Vacuum Tube + ✓ Wireless Transmission + ✓ Lens Grinding
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Voices and music might be carried through the air to every home.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- ES03 [studying] Coal Power Plant Energy Systems · Modern era
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Turbine Design + ✓ Blast Furnace
+    “Steam raised by coal fires might spin great turbines and light a whole city.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- ES03-W [studying] Biomass Power Plant Energy Systems · Modern era · also reached by Farming
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Competes with Coal Power Plant, also under study: if that comes first, this is never developed.
+    Needs ✓ Turbine Design + ✓ Wood Gas Production + ✓ Selective Breeding
+    “Crops and timber grown for burning could turn a turbine as well as coal.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- ES09 [closed] Geothermal Power Energy Systems · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Deep Shaft Mining + ✓ Laws of Thermodynamics
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “The heat that stirs our volcanoes might be drawn up to turn our turbines.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- ES10 [studying] Tidal Power Energy Systems · Atomic era
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Tidal Patterns + ✓ Turbine Design
+    “The sea rises and falls by the clock; that rhythm might be made to work.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- ES13 [studying] Biomass/Biogas Energy Systems · Modern era · also reached by Chemistry, Farming
+    Being studied in Energy Systems: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Distillation + ✓ Organic Chemistry
+    “Rotting waste gives off a gas that burns; our refuse might light our cities.”
+    ACTIONS: Fund Energy Systems | [disabled] Grand Endeavour only for ideas not yet occurred
+--- F01 [owned] Controlled Fire Fire · Primitive era
+    Discovered on turn 2. +1 Production in all cities; +1 Food from Tundra tiles in all cities
+    Fire: the foundation of civilisation.
+    ACTIONS: [disabled] Discovered
+--- F02 [owned] Kiln Construction Fire · Primitive era
+    Discovered on turn 11. Shrine (building); +25% City Strength from defensive buildings
+    Needs ✓ Controlled Fire
+    ACTIONS: [disabled] Discovered
+--- F03 [owned] Charcoal Production Fire · Primitive era
+    Discovered on turn 10. +25% Production when constructing Melee units in all cities
+    -25% maintenance on road & railroads; +10% Strength for Water units
+    Needs ✓ Controlled Fire
+    ACTIONS: [disabled] Discovered
+--- F04 [owned] Smelting Discovery Fire · Primitive era
+    Discovered on turn 15. +1 Production from Copper tiles; +1 Gold from Gold Ore tiles, in all cities
+    Opens the Metallurgy focus.
+    Needs ✓ Charcoal Production + ✓ Ore Identification
+    The moment someone put green rock near hot charcoal.
+    ACTIONS: [disabled] Discovered
+--- F05 [owned] Signal Fires Fire · Ancient era
+    Discovered on turn 57. Signal Fire (improvement, on Hills)
+    Needs ✓ Controlled Fire + ✓ Tribal Law
+    ACTIONS: [disabled] Discovered
+--- F07 [owned] Advanced Pyrotechnics Fire · Medieval era
+    Discovered on turn 140. Fireworks Ground (building, requires Saltpeter)
+    Needs ✓ Charcoal Production + ✓ Geological Observation
+    ACTIONS: [disabled] Discovered
+--- F16 [owned] Turbary Fire · Ancient era
+    Discovered on turn 151. Peat Cutting (improvement, on Marsh)
+    Needs ✓ Charcoal Production + ✓ Marsh in your lands
+    Pliny described the Chauci burning peat in the first century AD.
+    ACTIONS: [disabled] Discovered
+--- FA01 [owned] Irrigation Farming · Primitive era
+    Discovered on turn 17. +1 Food from Farms on fresh water in all cities
+    Opens the Water Management focus.
+    Needs ✓ Seed Saving + ✓ A river or fresh water
+    ACTIONS: [disabled] Discovered
+--- FA02 [owned] Crop Rotation Farming · Ancient era
+    Discovered on turn 82. +1 Food from Wheat tiles in all cities
+    Needs ✓ Seed Saving
+    The soil no longer tires.
+    ACTIONS: [disabled] Discovered
+--- FA03 [owned] Selective Breeding Farming · Ancient era · also reached by Animal Husbandry
+    Discovered on turn 95. +1 Food from Plantation tiles; +1 Production from Pasture tiles; War Dog (unit)
+    Needs ✓ Seed Saving + ✓ Herd Animal Domestication + (✓ Botanical Classification or ✓ Irrigation and Crop Rotation)
+    Improved varieties of every cultivated crop.
+    ACTIONS: [disabled] Discovered
+--- FA10 [owned] Hydroponics Farming · Modern era
+    Discovered on turn 223. Hydroponics Lab (building): +2 Food, -10% Food consumption by Population
+    Needs ✓ Irrigation + ✓ Periodic Table
+    Food without soil.
+    ACTIONS: [disabled] Discovered
+--- FA16 [owned] Nitrate Fertiliser Farming · Early Modern era
+    Discovered on turn 187. +1 Food from Farm tiles in all cities while you hold Saltpeter, until Catalysis
+    Superseded by Catalysis: its buildings are no longer available.
+    Needs ✓ Saltpeter Mining + ✓ Crop Rotation
+    Before 1913 the world's fields were fed from Chilean nitrate and Peruvian guano.
+    ACTIONS: [disabled] Discovered
+--- G01 [owned] Plant Identification Foraging · Primitive era
+    Discovered on turn 3. Forager's Hut (building): +1 Food
+    ACTIONS: [disabled] Discovered
+--- G02 [owned] Seed Saving Foraging · Primitive era
+    Discovered on turn 14. Farm (improvement)
+    Opens the Farming focus.
+    Needs ✓ Plant Identification
+    The moment someone realised that seeds could be planted deliberately.
+    ACTIONS: [disabled] Discovered
+--- G03 [owned] Herbal Medicine Foraging · Primitive era
+    Discovered on turn 14. Herbalist (building)
+    Military units adjacent to this city heal +5 HP per turn when healing
+    Needs ✓ Plant Identification
+    ACTIONS: [disabled] Discovered
+--- G04 [owned] Fermentation Foraging · Primitive era
+    Discovered on turn 21. +1 Gold from Wine tiles in all cities
+    Needs ✓ Plant Identification + ✓ Controlled Fire
+    Beer may have driven civilisation.
+    ACTIONS: [disabled] Discovered
+--- G05 [owned] Insect Cultivation Foraging · Primitive era
+    Discovered on turn 33. +1 Gold from Silk tiles in all cities
+    Needs ✓ Plant Identification
+    ACTIONS: [disabled] Discovered
+--- G06 [closed] Mycological Knowledge Foraging · Ancient era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Plant Identification
+    As an Endeavour: 37 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “The moulds that spoil our bread may have uses we have not yet guessed.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 37 Insight · about 1 turn
+--- G07 [owned] Botanical Classification Foraging · Classical era
+    Discovered on turn 128. Garden (building), Plantation (improvement), +10% Insight to Farming and Medicine
+    Needs ✓ Plant Identification + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- G10 [closed] Psychoactive Plant Knowledge Foraging · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Plant Identification
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Certain resins and leaves bring visions; our priests might learn their use.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
+--- GN02 [closed] DNA Structure Genetics · Atomic era
+    Learned of from another civilisation. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Germ Theory + ✓ Selective Breeding + ✓ Organic Chemistry + ✓ Telescope
+    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    “Heredity must be written in a molecule; if we saw its shape, we could read it.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 5,340 Insight · about 8 turns
+--- MA01 [owned] Geometry Mathematics · Ancient era
+    Discovered on turn 36. -25% construction time for improvements; +1 Gold from all Markets
+    Opens the Mechanics focus.
+    Needs ✓ Basic Counting + ✓ Celestial Mathematics
+    Surveyed land is improved faster; place value keeps the market’s accounts.
+    ACTIONS: [disabled] Discovered
+--- MA03 [owned] Basic Algebra Mathematics · Classical era
+    Discovered on turn 57. +5% Production when constructing buildings
+    +10% Strength for Siege units; +1 Culture from all World Wonders
+    Needs ✓ Geometry
+    Algebra and trigonometry, the mathematics of Alexandria and Baghdad.
+    ACTIONS: [disabled] Discovered
+--- MA05 [owned] Calculus Mathematics · Early Modern era
+    Discovered on turn 114. +1 Range for Siege units; +15% Insight to the physical foci
+    Needs ✓ Basic Algebra + ✓ Natural Philosophy
+    Trajectories solved: the path of a shot worked out before it is fired.
+    ACTIONS: [disabled] Discovered
+--- MA06 [owned] Probability Theory Mathematics · Early Modern era
+    Discovered on turn 141. +1 Gold from all Banks; +10% Gold in all cities
+    Needs ✓ Basic Algebra
+    Insurance priced by probability: risk, priced and pooled.
+    ACTIONS: [disabled] Discovered
+--- MA07 [owned] Binary Mathematics Mathematics · Early Modern era
+    Discovered on turn 141. Cipher Office (building)
+    Needs ✓ Geometry + ✓ Formal Logic
+    ACTIONS: [disabled] Discovered
+--- MA08 [owned] Non-Euclidean Geometry Mathematics · Early Modern era
+    Discovered on turn 143. +10% Gold from Trade Routes
+    Needs ✓ Geometry + ✓ Calculus
+    Accurate maps, shortest paths.
+    ACTIONS: [disabled] Discovered
+--- MA09 [owned] Statistics Mathematics · Modern era
+    Discovered on turn 160. +5% Production in all cities
+    Needs ✓ Probability Theory
+    Quality control: a factory’s output judged from a sample.
+    ACTIONS: [disabled] Discovered
+--- MA11 [closed] Fractal Mathematics Mathematics · Atomic era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Calculus + ✓ Non-Euclidean Geometry
+    As an Endeavour: 5,340 Insight, twice today’s price, falling as development catches up.
+    “Coastlines and mountains might follow a mathematics of their own.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 5,340 Insight · about 8 turns
+--- MA13 [owned] Topology Mathematics · Modern era
+    Discovered on turn 164. +1 Gold, +1 Production from each Trade Route
+    -10% maintenance cost for buildings
+    Needs ✓ Non-Euclidean Geometry + ✓ Basic Algebra + ✓ Formal Logic
+    This bore on the question of how to exceed the speed of light.
+    Administration by set and rule: Cantor and Poincaré, the new mathematics.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- MC01 [owned] Wheel Mechanics · Primitive era
+    Discovered on turn 16. +1 Movement for Civilian units
+    Needs ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- MC03 [owned] Gearing Mechanics · Ancient era
+    Discovered on turn 40. -25% construction time for Mine and Farm improvements
+    +10% Production when building wonders in all cities
+    Needs ✓ Wheel + ✓ Geometry
+    The crane lifts what the arm cannot.
+    ACTIONS: [disabled] Discovered
+--- MC04 [owned] Windmill Mechanics · Medieval era · also reached by Energy Systems
+    Discovered on turn 136. Windmill (building)
+    Needs ✓ Gearing + ✓ Sail Invention
+    ACTIONS: [disabled] Discovered
+--- MC05 [owned] Clockwork Mechanics · Medieval era
+    Discovered on turn 140. Great Engineer is earned 10% faster
+    Needs ✓ Gearing + ✓ Steel Production
+    The clockmaker, the first precision engineer.
+    ACTIONS: [disabled] Discovered
+--- MC06 [owned] Printing Press Mechanics · Medieval era
+    Discovered on turn 140. +10% Science in all cities; Leaning Tower of Pisa (world wonder)
+    Knowledge Diffusion: ideas widely held abroad now reach you in print
+    Needs ✓ Gearing + ✓ Paper Making + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- MC08 [owned] Steam Engine Mechanics · Early Modern era
+    Discovered on turn 140. Steam Works (building); Big Ben (world wonder)
+    Opens the Thermodynamics focus.
+    Needs ✓ Blast Furnace + ✓ Water Mill + ✓ Scientific Method
+    Watt's separate condenser (1769) began as a repair to a model Newcomen engine.
+    ACTIONS: [disabled] Discovered
+--- MC09 [owned] Internal Combustion Engine Mechanics · Modern era · also reached by Chemistry
+    Discovered on turn 220. Landship, Tank, Anti-Tank Gun (units); Distillery Fuel Depot (building)
+    Distillery Fuel Depot: 1 Oil and -20% growth while its city works 3 Farms
+    Needs ✓ Steam Engine + (✓ Petroleum Discovery and Petrochemistry or ✓ Distillation and Organic Chemistry)
+    Fuel-starved Europe ran its cars on alcohol and wood gas in the Second World War.
+    ACTIONS: [disabled] Discovered
+--- MC10 [owned] Precision Machining Mechanics · Early Modern era
+    Discovered on turn 151. Great War Infantry (unit); Statue of Liberty (world wonder)
+    +10% Production when constructing Military units in all cities
+    Needs ✓ Clockwork + ✓ Steel Production
+    Interchangeable parts.
+    ACTIONS: [disabled] Discovered
+--- MC11 [owned] Assembly Line Mechanics · Modern era
+    Discovered on turn 200. Machine Gun (unit); +15% Production when constructing buildings
+    +25% Production when constructing a Military Base
+    Needs ✓ Precision Machining + ✓ Specialization of Labor
+    The line moves; the workers stand.
+    ACTIONS: [disabled] Discovered
+--- MC19 [owned] Crank and Connecting Rod Mechanics · Medieval era
+    Discovered on turn 140. Workshop (building)
+    Needs ✓ Gearing + ✓ Water Mill
+    Al-Jazari (1206): rotation turned into strokes, for mills that saw, hammer and pump.
+    ACTIONS: [disabled] Discovered
+--- MD01 [owned] Surgical Techniques Medicine · Ancient era
+    Discovered on turn 72. Surgery (building)
+    Needs ✓ Herbal Medicine
+    Trepanation is Neolithic: surgery predates comparative anatomy by millennia.
+    ACTIONS: [disabled] Discovered
+--- MD03 [owned] Anatomy Study Medicine · Classical era
+    Discovered on turn 136. Medical School (building)
+    Needs ✓ Comparative Anatomy + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- MD04 [owned] Vaccination Medicine · Early Modern era · also reached by Animal Husbandry
+    Discovered on turn 191. +10% growth in all cities
+    Needs ✓ Anatomy Study + ✓ Herd Animal Domestication
+    The milkmaid observation: the plague years end.
+    ACTIONS: [disabled] Discovered
+--- MD05 [owned] Germ Theory Medicine · Modern era
+    Discovered on turn 199. Hospital (building); +10% growth in all cities
+    Needs ✓ Anatomy Study + ✓ Scientific Method + ✓ Telescope
+    The microbe is the culprit.
+    ACTIONS: [disabled] Discovered
+--- MD06 [studying] Antibiotics Medicine · Atomic era
+    Being studied in Medicine: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Germ Theory + ✓ Organic Chemistry
+    “A compound that kills germs but spares the patient might cure infection.”
+    ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MD07 [studying] Anaesthesia Medicine · Modern era
+    Being studied in Medicine: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Surgical Techniques + ✓ Distillation
+    “Distilled vapours might put a patient beyond pain while the surgeon works.”
+    ACTIONS: Fund Medicine | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MD08 [closed] Prosthetics Medicine · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Anatomy Study + ✓ Gearing
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “Geared limbs of wood and metal might send the wounded back to the line.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- MD15 [owned] Contagion Experiments Medicine · Early Modern era
+    Discovered on turn 180. Contagion Laboratory (national wonder)
+    Needs ✓ Anatomy Study + ✓ Scientific Method
+    Pasteur’s swan-neck flask, and controlled exposure.
+    ACTIONS: [disabled] Discovered
+--- ME-B [owned] Bellows Metallurgy · Ancient era
+    Discovered on turn 34. Forge (building): +15% Production when building land units
+    Forge: +1 Production from Iron tiles in this city
+    Needs ✓ Copper Working + ✓ Weaving
+    Forced air changes everything about metallurgy.
+    ACTIONS: [disabled] Discovered
+--- ME01 [owned] Copper Working Metallurgy · Primitive era
+    Discovered on turn 19. Copper Warrior (unit), which requires Copper
+    Needs ✓ Smelting Discovery
+    The first worked metal, in the first metal hand.
+    ACTIONS: [disabled] Discovered
+--- ME02 [owned] Bronze Alloy Metallurgy · Ancient era
+    Discovered on turn 40. Statue of Zeus (world wonder); +10% Strength for Melee units
+    Needs ✓ Copper Working + ✓ Copper in your territory
+    Bronze arms and armour.
+    ACTIONS: [disabled] Discovered
+--- ME04 [owned] Iron Smelting Metallurgy · Ancient era
+    Discovered on turn 41. Swordsman (unit); Colossus (world wonder)
+    Needs ✓ Charcoal Production + ✓ Bellows + ✓ Iron in your territory
+    The Iron Age begins.
+    ACTIONS: [disabled] Discovered
+--- ME05 [owned] Steel Production Metallurgy · Classical era
+    Discovered on turn 75. Pikeman (unit); +1 Gold from Iron tiles in all cities
+    Needs ✓ Iron Smelting + (✓ Coal Discovery or ✓ Charcoal Production) + ✓ Bellows
+    China cast iron and made steel from it in the same centuries.
+    ACTIONS: [disabled] Discovered
+--- ME08 [owned] Blast Furnace Metallurgy · Medieval era
+    Discovered on turn 81. Ironworks (national wonder), which requires Coal; Charcoal Kiln (building)
+    Charcoal Kiln: 1 Coal, -10% Production; needs 3 worked Forest, Jungle or Peat Cutting
+    Needs ✓ Iron Smelting + ✓ Post and Lintel + (✓ Coal Discovery or ✓ Charcoal Production)
+    Sweden ran charcoal blast furnaces into the 19th century.
+    ACTIONS: [disabled] Discovered
+--- ME09 [owned] Crucible Steel Metallurgy · Medieval era
+    Discovered on turn 156. +10% Strength for Melee units
+    Needs ✓ Steel Production + ✓ Alchemy
+    The finest pre-industrial steel.
+    ACTIONS: [disabled] Discovered
+--- ME12 [owned] Bessemer Process Metallurgy · Modern era
+    Discovered on turn 180. Battleship (unit); +1 Production from Iron tiles in all cities
+    Needs ✓ Blast Furnace + ✓ Oxygen Theory
+    Cheap steel: steel hulls and steel rails.
+    ACTIONS: [disabled] Discovered
+--- ME13 [owned] Aluminium Extraction Metallurgy · Modern era
+    Discovered on turn 176. Shows Aluminum on the map; +1 Production from Aluminum tiles in all cities
+    Needs ✓ Electromagnetism + ✓ Periodic Table
+    ACTIONS: [disabled] Discovered
+--- ME17 [owned] Assaying Metallurgy · Classical era
+    Discovered on turn 81. Mint (building)
+    Needs ✓ Currency + ✓ Natural Philosophy
+    Archimedes and the crown (c. 250 BC).
+    ACTIONS: [disabled] Discovered
+--- ME18 [owned] Plate Armour Metallurgy · Medieval era
+    Discovered on turn 140. Longswordsman (unit); Armory (building)
+    Needs ✓ Steel Production + ✓ Water Mill
+    Steel beaten to shape under water-driven hammers, 14th–15th century.
+    ACTIONS: [disabled] Discovered
+--- MI05 [owned] Deep Shaft Mining Mining · Ancient era
+    Discovered on turn 63. Shows Silver and Salt on the map; +1 Production from Mine tiles
+    Needs ✓ Ore Identification + ✓ Mud Brick Construction
+    Going underground changes everything.
+    ACTIONS: [disabled] Discovered
+--- MI06 [owned] Coal Discovery Mining · Medieval era
+    Discovered on turn 146. Shows Coal on the map; +1 Production from Coal tiles
+    Needs ✓ Deep Shaft Mining
+    The fuel of the industrial revolution.
+    ACTIONS: [disabled] Discovered
+--- MI06B [owned] Volcanic Ash Processing Mining · Ancient era
+    Discovered on turn 47. Pozzolana Works (building); +1 Food from Volcanic tiles
+    Needs ✓ Ore Identification + ✓ Volcanic region in your lands
+    Fertile ash for the fields, and a binding powder for the builders.
+    ACTIONS: [disabled] Discovered
+--- MI07 [owned] Petroleum Discovery Mining · Early Modern era
+    Discovered on turn 151. Shows Oil on the map; Oil well, Offshore Platform (improvements)
+    +1 Gold from Oil tiles
+    Needs ✓ Deep Shaft Mining + ✓ Geological Observation
+    Kerosene for the lamps, before any engine wanted the oil.
+    ACTIONS: [disabled] Discovered
+--- MI08 [owned] Saltpeter Mining Mining · Medieval era
+    Discovered on turn 135. Shows Saltpeter on the map; +1 Unit Supply per city
+    Needs ✓ Deep Shaft Mining
+    Nitre for the army: preserved rations, and gunpowder.
+    ACTIONS: [disabled] Discovered
+--- MI10 [studying] Uranium Discovery Mining · Modern era
+    Being studied in Mining: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Deep Shaft Mining + ✓ Radioactivity
+    “The ore that darkens a sealed photographic plate might lie in our own hills.”
+    ACTIONS: Fund Mining | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MI11 [studying] Rare Earth Extraction Mining · Atomic era
+    Being studied in Mining: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Deep Shaft Mining + ✓ Periodic Table
+    “Rare metals hidden in dull-looking ores might be separated out, one by one.”
+    ACTIONS: Fund Mining | [disabled] Grand Endeavour only for ideas not yet occurred
+--- MI13 [owned] Wood Gas Production Mining · Early Modern era · also reached by Chemistry
+    Discovered on turn 191. -25% construction time for Lumber mills
+    Needs ✓ Charcoal Production + ✓ Oxygen Theory
+    Wood-gas lorries were common in fuel-starved Europe in the Second World War.
+    ACTIONS: [disabled] Discovered
+--- MS02 [studying] Nanotechnology Materials Science · Atomic era
+    Being studied in Materials Science: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Quantum Mechanics Formalism + ✓ Organic Chemistry
+    “If atoms can be counted, perhaps they can be set in place one by one.”
+    ACTIONS: Fund Materials Science | [disabled] Grand Endeavour only for ideas not yet occurred
+--- NP01 [owned] Radioactivity Nuclear Physics · Modern era
+    Discovered on turn 187. +1 Gold from Uranium tiles in all cities
+    Needs ✓ Periodic Table + ✓ Spectroscopy
+    ACTIONS: [disabled] Discovered
+--- NP02 [owned] Atomic Model Nuclear Physics · Modern era
+    Discovered on turn 191. Nuclear Physics Lab (building)
+    Needs ✓ Radioactivity + ✓ Calculus + ✓ Electromagnetism
+    ACTIONS: [disabled] Discovered
+--- NP12 [studying] Particle Laboratories Nuclear Physics · Space era
+    Being studied in Nuclear Physics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Atomic Model + ✓ Particle Accelerator
+    “Accelerators housed in great laboratories might become a home for big science.”
+    ACTIONS: Fund Nuclear Physics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- O01 [owned] Star Tracking Observation · Primitive era
+    Discovered on turn 7. +1 Movement for Scout units
+    ACTIONS: [disabled] Discovered
+--- O02 [owned] Weather Prediction Observation · Primitive era
+    Discovered on turn 21. +5% growth in all cities; +1 Sight for Water units
+    Needs ✓ Star Tracking
+    ACTIONS: [disabled] Discovered
+--- O03 [owned] Animal Behavior Study Observation · Primitive era
+    Discovered on turn 6. Camp (improvement)
+    Opens the Animal Husbandry focus.
+    ACTIONS: [disabled] Discovered
+--- O04 [owned] Tidal Patterns Observation · Primitive era
+    Discovered on turn 21. Tidal Weir (building): +1 Food from Fish tiles in this city
+    Needs ✓ Star Tracking + ✓ A coastal city
+    ACTIONS: [disabled] Discovered
+--- O05 [owned] Celestial Mathematics Observation · Ancient era
+    Discovered on turn 29. +2 Faith in capital
+    Opens the Mathematics focus.
+    Needs ✓ Star Tracking + ✓ Basic Counting
+    ACTIONS: [disabled] Discovered
+--- O06 [owned] Natural Philosophy Observation · Classical era
+    Discovered on turn 51. The Oracle (wonder), National College (national wonder), +5% Insight to all foci
+    Needs ✓ Star Tracking + ✓ Writing
+    ACTIONS: [disabled] Discovered
+--- O07 [owned] Comparative Anatomy Observation · Classical era
+    Discovered on turn 120. No buildings, units or bonuses of its own.
+    Opens the Medicine focus.
+    Needs ✓ Animal Behavior Study + ✓ Herbal Medicine
+    ACTIONS: [disabled] Discovered
+--- O08 [owned] Geological Observation Observation · Ancient era
+    Discovered on turn 26. Shows Strategic resources within 10 tiles; +1 Production from Quarry and Iron tiles
+    +1 Gold from all Dye Works buildings; +1 Culture and +1 Happiness in capital
+    Needs ✓ Ore Identification
+    ACTIONS: [disabled] Discovered
+--- O09 [closed] Migratory Pattern Mapping Observation · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Animal Behavior Study
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “If we knew where the herds go each season, we could be waiting for them.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
+--- O12 [studying] Atmospheric Science Observation · Modern era
+    Being studied in Observation: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Weather Prediction + ✓ Oxygen Theory + ✓ Calculus
+    “If the air's weight and warmth were measured, storms might be foretold.”
+    ACTIONS: Fund Observation | [disabled] Grand Endeavour only for ideas not yet occurred
+--- OP01 [owned] Glassmaking Optics · Ancient era
+    Discovered on turn 32. +15% Production when constructing Lighthouses
+    Needs ✓ Kiln Construction + ✓ Desert or coast in your lands
+    Glass for the lantern.
+    ACTIONS: [disabled] Discovered
+--- OP02 [owned] Lens Grinding Optics · Medieval era
+    Discovered on turn 73. +1 Science from every Scientist; +1 Culture from every Artist
+    Needs ✓ Glassmaking + ✓ Geometry
+    Spectacles double a scholar’s working life.
+    ACTIONS: [disabled] Discovered
+--- OP03 [owned] Telescope Optics · Early Modern era
+    Discovered on turn 117. Observatory (building); +1 Sight for Water units
+    -25% enemy spy effectiveness in all cities
+    Needs ✓ Lens Grinding
+    The same lens-makers made telescope and microscope: Janssen, around 1590.
+    ACTIONS: [disabled] Discovered
+--- OP07 [studying] Laser Optics · Atomic era
+    Being studied in Optics: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Lens Grinding + ✓ Quantum Mechanics Formalism
+    “Atoms made to shine in step might force light into a single voice.”
+    ACTIONS: Fund Optics | [disabled] Grand Endeavour only for ideas not yet occurred
+--- OP08 [owned] Spectroscopy Optics · Modern era
+    Discovered on turn 184. +1 Gold from Mine tiles
+    Needs ✓ Telescope + ✓ Periodic Table
+    Ore composition read without sampling.
+    ACTIONS: [disabled] Discovered
+--- OP10 [owned] Semaphore Optics · Early Modern era
+    Discovered on turn 181. Semaphore Tower (improvement)
+    Needs ✓ Telescope + ✓ Writing
+    A message across a province in an afternoon.
+    ACTIONS: [disabled] Discovered
+--- PH01 [owned] Formal Logic Philosophy and the Arts · Classical era
+    Discovered on turn 66. +1 Science from every specialist in all cities; -25% enemy spy effectiveness
+    Gifts of Gold to City-States generate +25% more Influence
+    Needs ✓ Natural Philosophy
+    ACTIONS: [disabled] Discovered
+--- PH04 [owned] Scientific Method Philosophy and the Arts · Early Modern era
+    Discovered on turn 134. +25% Science in all cities; Experimental Laboratory (building)
+    Experiment ability (spend Gold on a revealed breakthrough)
+    Needs ✓ Formal Logic
+    ACTIONS: [disabled] Discovered
+--- PH08 [owned] Dialectical Thinking Philosophy and the Arts · Early Modern era
+    Discovered on turn 134. Resting point for Influence with City-States is increased by 10
+    Synthesis ability (once each era, retry a breakthrough whose moment passed)
+    Needs ✓ Formal Logic
+    ACTIONS: [disabled] Discovered
+--- PH09 [closed] Existentialism Philosophy and the Arts · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Formal Logic
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “If life has no given purpose, each of us may have to make one.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- PH10 [owned] Information Theory Philosophy and the Arts · Atomic era New
+    Discovered on turn 229. Great Scientist is earned 10% faster
+    Needs ✓ Formal Logic + ✓ Binary Mathematics
+    ACTIONS: [disabled] Discovered
+--- PH11 [studying] Systems Thinking Philosophy and the Arts · Atomic era
+    Being studied in Philosophy and the Arts: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Scientific Method + ✓ Statistics
+    “A city, a market or a forest might be understood only as a whole.”
+    ACTIONS: Fund Philosophy and the Arts | [disabled] Grand Endeavour only for ideas not yet occurred
+--- PH14 [owned] The Enlightenment Philosophy and the Arts · Early Modern era
+    Discovered on turn 226. Museum (building); The Louvre (wonder)
+    Needs ✓ Scientific Method + ✓ Renaissance
+    The British Museum was founded in 1753; the Encyclopédie began to appear in 1751.
+    ACTIONS: [disabled] Discovered
+--- QP01 [owned] Wave-Particle Duality Quantum Physics · Modern era
+    Discovered on turn 195. +10% Strength for cities
+    Needs ✓ Atomic Model + ✓ Telescope
+    ACTIONS: [disabled] Discovered
+--- QP02 [owned] Quantum Mechanics Formalism Quantum Physics · Atomic era
+    Discovered on turn 200. Great Engineer is earned 10% faster; triggers the Quantum Strangeness event
+    Needs ✓ Wave-Particle Duality + ✓ Calculus + ✓ Topology
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- QP03 [owned] Quantum Electrodynamics Quantum Physics · Atomic era
+    Discovered on turn 207. +10% Insight to Electronics
+    Needs ✓ Quantum Mechanics Formalism + ✓ Electromagnetism
+    ACTIONS: [disabled] Discovered
+--- QP04 [owned] Particle Accelerator Quantum Physics · Atomic era
+    Discovered on turn 206. Particle Accelerator (national wonder)
+    Needs ✓ Quantum Mechanics Formalism + ✓ Electromagnetism + ✓ Power Grid
+    ACTIONS: [disabled] Discovered
+--- QP05 [owned] Quantum Field Theory Quantum Physics · Atomic era
+    Discovered on turn 210. No buildings, units or bonuses of its own.
+    Needs ✓ Quantum Electrodynamics + ✓ Topology
+    ACTIONS: [disabled] Discovered
+--- QP06 [owned] Standard Model Completion Quantum Physics · Atomic era New
+    Discovered on turn 228. Standard Model Institute (national wonder)
+    Needs ✓ Quantum Field Theory + ✓ Particle Accelerator
+    ACTIONS: [disabled] Discovered
+--- QP08 [owned] Quantum Gravity Theory Quantum Physics · Space era New
+    Discovered on turn 228. Reveals every strategic resource within a 20-tile radius
+    Needs ✓ Quantum Field Theory + ✓ General Relativity + ✓ Particle Accelerator
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- QP12 [owned] Casimir Effect Amplification Quantum Physics · Space era
+    Discovered on turn 224. No buildings, units or bonuses of its own.
+    Needs ✓ Quantum Field Theory + ✓ Precision Machining
+    ACTIONS: [disabled] Discovered
+--- RC01 [owned] Special Relativity Relativity & Cosmology · Modern era
+    Discovered on turn 169. +10% Gold from Trade Routes; +10% Insight to Nuclear Physics
+    Needs ✓ Non-Euclidean Geometry + ✓ Electromagnetism
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- RC02 [owned] General Relativity Relativity & Cosmology · Modern era
+    Discovered on turn 186. No buildings, units or bonuses of its own.
+    Needs ✓ Special Relativity + ✓ Non-Euclidean Geometry
+    This bore on the question of how to exceed the speed of light.
+    ACTIONS: [disabled] Discovered | Open the FTL screen
+--- RC04 [studying] Black Hole Thermodynamics Relativity & Cosmology · Atomic era
+    Being studied in Relativity & Cosmology: it takes a share of that focus’s Insight every turn.
+    Needs ✓ General Relativity + ✓ Quantum Field Theory + ✓ Laws of Thermodynamics
+    “Even a star collapsed beyond all light might have a temperature.”
+    ACTIONS: Fund Relativity & Cosmology | [disabled] Grand Endeavour only for ideas not yet occurred
+--- RK02 [owned] Liquid Fuel Rocket Rocketry · Modern era
+    Discovered on turn 222. Guided Missile (unit)
+    Needs ✓ Rocket Propellant + ✓ Laws of Thermodynamics + (✓ Petrochemistry or ✓ Bio-Organic Synthesis)
+    Guidance is what liquid fuel makes possible.
+    ACTIONS: [disabled] Discovered
+--- RK03 [studying] Multi-Stage Rocket Rocketry · Atomic era
+    Being studied in Rocketry: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Liquid Fuel Rocket
+    “A rocket that sheds its spent stages as it climbs might reach orbit.”
+    ACTIONS: Fund Rocketry | [disabled] Grand Endeavour only for ideas not yet occurred
+--- S01 [owned] Tool Knapping Stonework · Primitive era
+    Discovered on turn 4. Warrior, Scout (units); Remove Forest, Remove Jungle (improvements)
+    ACTIONS: [disabled] Discovered
+--- S02 [owned] Grinding & Polishing Stonework · Primitive era
+    Discovered on turn 31. -25% construction time for Quarry improvements
+    Needs ✓ Tool Knapping
+    The Neolithic revolution in tool quality.
+    ACTIONS: [disabled] Discovered
+--- S03 [owned] Quarrying Stonework · Ancient era
+    Discovered on turn 33. Walls, Stone Works (buildings); Quarry (improvement)
+    Opens the Construction focus.
+    Needs ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- S04 [owned] Ore Identification Stonework · Primitive era
+    Discovered on turn 9. Mine (improvement); shows Copper, Gold Ore, Gems and Iron on the map
+    Opens the Mining focus.
+    Needs ✓ Tool Knapping
+    Suddenly you see where the wealth is buried.
+    ACTIONS: [disabled] Discovered
+--- S05 [closed] Obsidian Working Stonework · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Tool Knapping + ✓ Volcanic region in your lands
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Volcanic glass might flake to an edge keener than any blade we can forge.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
+--- S07 [closed] Flint Knapping Mastery Stonework · Primitive era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Tool Knapping
+    As an Endeavour: 12 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Flint shaped with patience might give our arrows truer, keener points.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 12 Insight · about 1 turn
+--- S08 [owned] Jade/Gemstone Working Stonework · Ancient era
+    Discovered on turn 60. Jeweler (building), which provides Jewelry (resource)
+    Needs ✓ Grinding & Polishing
+    ACTIONS: [disabled] Discovered
+--- SF01 [owned] Reed/Log Raft Seafaring · Primitive era
+    Discovered on turn 5. Fishing Boats (improvement), Work Boats (unit)
+    Needs ✓ A coastal or river city
+    ACTIONS: [disabled] Discovered
+--- SF02 [owned] Dugout Canoe Seafaring · Primitive era
+    Discovered on turn 36. Enables embarkation for land units
+    Needs ✓ Reed/Log Raft + ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- SF03 [owned] Sail Invention Seafaring · Ancient era
+    Discovered on turn 64. Lighthouse (building), The Great Lighthouse (wonder), Port (building)
+    +1 Movement for Embarked units; Port: +1 Gold, +1 Gold from Water resource tiles
+    Needs ✓ Dugout Canoe + ✓ Weaving
+    ACTIONS: [disabled] Discovered
+--- SF04 [owned] Celestial Navigation Seafaring · Ancient era
+    Discovered on turn 89. Enables Embarked units and Work Boats to enter ocean tiles
+    Needs ✓ Sail Invention + ✓ Star Tracking
+    ACTIONS: [disabled] Discovered
+--- SF05 [owned] Trireme/Galley Construction Seafaring · Classical era
+    Discovered on turn 123. Trireme (unit)
+    Needs ✓ Sail Invention + ✓ Post and Lintel
+    ACTIONS: [disabled] Discovered
+--- SF08 [owned] Compass Seafaring · Medieval era
+    Discovered on turn 146. Harbor (building); +1 Movement for Water units
+    Needs ✓ Geological Observation + ✓ Celestial Navigation
+    ACTIONS: [disabled] Discovered
+--- SF09 [owned] Caravel/Deep Ocean Ship Seafaring · Medieval era
+    Discovered on turn 169. Caravel (unit), Galleass (unit)
+    Needs ✓ Compass + ✓ Trireme/Galley Construction + ✓ Iron Smelting
+    ACTIONS: [disabled] Discovered
+--- SF10 [owned] Drydock Seafaring · Medieval era
+    Discovered on turn 152. Drydock (building): +25% Production when constructing Water units in this city
+    Water units adjacent to this city heal +10 HP per turn when healing
+    Needs ✓ Trireme/Galley Construction + ✓ Arch Construction
+    ACTIONS: [disabled] Discovered
+--- SF11 [owned] Ship of the Line Seafaring · Early Modern era
+    Discovered on turn 194. Frigate (unit), Privateer (unit)
+    Needs ✓ Caravel/Deep Ocean Ship + ✓ Cannons
+    ACTIONS: [disabled] Discovered
+--- SF12 [closed] Ironclad Seafaring · Modern era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Ship of the Line + ✓ Blast Furnace
+    As an Endeavour: 2,447 Insight, twice today’s price; about 4 turns at 683 a turn.
+    “A hull sheathed in iron plate might shrug off shot that splinters oak.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 2,447 Insight · about 4 turns
+--- SF19 [owned] Longitude Seafaring · Early Modern era
+    Discovered on turn 200. Seaport (building)
+    Needs ✓ Caravel/Deep Ocean Ship + ✓ Clockwork
+    Harrison's marine chronometer, 1761: a ship that always knows where it is.
+    ACTIONS: [disabled] Discovered
+--- SO01 [owned] Basic Counting Social Organization · Primitive era
+    Discovered on turn 6. +25% Gold from Trade Routes
+    ACTIONS: [disabled] Discovered
+--- SO02 [owned] Storytelling Social Organization · Primitive era
+    Discovered on turn 8. Monument (building)
+    ACTIONS: [disabled] Discovered
+--- SO03 [owned] Tribal Law Social Organization · Primitive era
+    Discovered on turn 17. +1 Happiness in capital; +1 Unit Supply per city
+    Needs ✓ Basic Counting + ✓ Storytelling
+    ACTIONS: [disabled] Discovered
+--- SO04 [owned] Writing Social Organization · Ancient era
+    Discovered on turn 31. Library (building); The Great Library (world wonder)
+    Enables establishment of embassies
+    Opens the Trade focus.
+    Needs ✓ Basic Counting + ✓ Storytelling
+    ACTIONS: [disabled] Discovered
+--- SO05 [owned] Specialization of Labor Social Organization · Ancient era
+    Discovered on turn 35. +1 Production from every specialist in all cities
+    The funded focus now receives 80% of Insight, up from 50%
+    Needs ✓ Tribal Law + ✓ Population 5 in a city
+    ACTIONS: [disabled] Discovered
+--- SO06 [owned] Codified Law Social Organization · Ancient era
+    Discovered on turn 63. Courthouse (building)
+    Needs ✓ Writing + ✓ Tribal Law
+    ACTIONS: [disabled] Discovered
+--- SO08 [owned] Census Social Organization · Classical era
+    Discovered on turn 124. +1 Gold per 4 population in all cities
+    Needs ✓ Writing + ✓ Basic Counting
+    ACTIONS: [disabled] Discovered
+--- SO10 [owned] Guilds Social Organization · Medieval era
+    Discovered on turn 167. Guild Hall (building); Machu Picchu (world wonder)
+    Enables conversion of city production to Gold
+    Needs ✓ Specialization of Labor + ✓ Codified Law
+    ACTIONS: [disabled] Discovered
+--- SO11 [owned] Banking Social Organization · Medieval era
+    Discovered on turn 130. Bank, Coffee House (buildings); Forbidden Palace (world wonder)
+    National Treasury (national wonder)
+    Needs ✓ Writing + ✓ Currency
+    ACTIONS: [disabled] Discovered
+--- SO16 [owned] Public Education Social Organization · Early Modern era
+    Discovered on turn 188. Public School (building); +2 Unit Supply per city
+    Constabulary, Police Station (buildings) when espionage is enabled
+    Needs ✓ Scientific Method + ✓ Printing Press
+    Prussia made schooling compulsory in 1763, and other states followed.
+    ACTIONS: [disabled] Discovered
+--- TH01 [owned] Laws of Thermodynamics Thermodynamics · Early Modern era
+    Discovered on turn 146. +1 Production from all Steam Works buildings
+    Needs ✓ Steam Engine + ✓ Scientific Method
+    The kinetic theory of heat: heat is motion.
+    ACTIONS: [disabled] Discovered
+--- TH02 [owned] Refrigeration Thermodynamics · Modern era
+    Discovered on turn 190. Stadium (building); +1 Gold from all Factory buildings
+    15% Food is carried over after population increases in all cities
+    Needs ✓ Laws of Thermodynamics + ✓ Distillation + ✓ Periodic Table
+    Linde built the refrigerator and then liquefied air.
+    ACTIONS: [disabled] Discovered
+--- TH03 [owned] Turbine Design Thermodynamics · Modern era
+    Discovered on turn 190. +15% Production when constructing Water units in all cities
+    +1 Happiness in cities on Snow tiles
+    Needs ✓ Laws of Thermodynamics + ✓ Gearing + ✓ Bessemer Process
+    ACTIONS: [disabled] Discovered
+--- TH05 [owned] Carnot Efficiency Thermodynamics · Early Modern era
+    Discovered on turn 188. +1 Production from every Engineer
+    Needs ✓ Laws of Thermodynamics + ✓ Calculus
+    The engineer who knows the limit gets closest to it.
+    ACTIONS: [disabled] Discovered
+--- TH08 [owned] Stirling Engine Mastery Thermodynamics · Early Modern era · also reached by Energy Systems, Mechanics
+    Discovered on turn 188. Stirling Works (building): a power plant that needs no fuel resource
+    Needs ✓ Laws of Thermodynamics + ✓ Steam Engine
+    Less power, but it burns anything.
+    ACTIONS: [disabled] Discovered
+--- TH09 [owned] Caloric Theory Thermodynamics · Early Modern era
+    Discovered on turn 187. +1 Production from all Steam Works buildings
+    Dead end: Mechanical Equivalent of Heat reported that heat is motion, not a fluid.
+    Needs ✓ Steam Engine + ✓ Natural Philosophy
+    Heat as a weightless fluid — wrong in our world.
+    ACTIONS: [disabled] Discovered
+--- TH10 [owned] Mechanical Equivalent of Heat Thermodynamics · Early Modern era
+    Discovered on turn 188. Joule Laboratory (national wonder)
+    Needs (✓ Laws of Thermodynamics or ✓ Caloric Theory) + ✓ Basic Algebra
+    Joule’s paddle-wheel and Rumford’s cannon: friction makes heat without limit.
+    ACTIONS: [disabled] Discovered
+--- TH15 [closed] Waste-Heat Recovery Thermodynamics · Space era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Turbine Design + ✓ Carnot Efficiency
+    As an Endeavour: 21,827 Insight, twice today’s price, falling as development catches up.
+    “The heat our factories throw away might be caught and set to work.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 21,827 Insight · about 32 turns
+--- TR01 [owned] Barter System Trade · Primitive era
+    Discovered on turn 31. +1 Gold from each Trade Route; unlocks the Trade screen
+    Needs ✓ Basic Counting
+    ACTIONS: [disabled] Discovered
+--- TR02 [owned] Currency Trade · Ancient era
+    Discovered on turn 70. Market (building)
+    Needs ✓ Writing + ✓ Copper Working
+    Standard coin, standard price.
+    ACTIONS: [disabled] Discovered
+--- TR03 [owned] Caravansary Trade · Ancient era
+    Discovered on turn 91. Caravansary (building): +1 Gold, +1 Gold per Trade Route, +1 Gold from Desert tiles
+    Needs ✓ Currency + (✓ Herd Animal Domestication or ✗ Camel Domestication)
+    ACTIONS: [disabled] Discovered
+--- TR05 [owned] Letter of Credit Trade · Medieval era
+    Discovered on turn 153. +25% Gold from Trade Routes
+    Needs ✓ Currency + ✓ Writing
+    Value travels without the coin.
+    ACTIONS: [disabled] Discovered
+--- TR06 [owned] Joint Stock Company Trade · Early Modern era
+    Discovered on turn 198. Trading Company (building): +3 Gold, +2 Gold from each Trade Route
+    Needs ✓ Letter of Credit + ✓ Banking
+    ACTIONS: [disabled] Discovered
+--- TR10 [studying] Futures Market Trade · Modern era
+    Being studied in Trade: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Letter of Credit + ✓ Probability Theory + ✓ Statistics
+    “A price might be agreed today for a harvest not yet sown.”
+    ACTIONS: Fund Trade | [disabled] Grand Endeavour only for ideas not yet occurred
+--- TR17 [closed] Long-Distance Trade Trade · Classical era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Caravansary + ✓ Currency
+    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Passed from caravan to caravan, goods might cross a whole continent.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 168 Insight · about 1 turn
+--- TX01 [owned] Weaving Textiles & Materials · Primitive era
+    Discovered on turn 12. Weaver (building): +1 Gold; +1 Production from Sheep tiles in all cities
+    +1 Happiness in cities on Tundra tiles
+    Needs (✓ Plant Identification or ✓ Herd Animal Domestication)
+    ACTIONS: [disabled] Discovered
+--- TX02 [owned] Dyeing Textiles & Materials · Ancient era
+    Discovered on turn 63. Dye Works (building): +2 Gold, +1 Gold from Dyes tiles in this city
+    Needs ✓ Weaving + ✓ Plant Identification
+    ACTIONS: [disabled] Discovered
+--- TX05 [owned] Cotton Gin Textiles & Materials · Early Modern era
+    Discovered on turn 200. Textile Mill (building): +2 Gold, +1 Gold from Cotton tiles in this city
+    Needs ✓ Weaving + ✓ Gearing
+    ACTIONS: [disabled] Discovered
+--- TX08 [studying] Carbon Fiber Textiles & Materials · Atomic era
+    Being studied in Textiles & Materials: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Organic Chemistry + ✓ Polymer Science
+    “Threads of pure carbon, set in resin, might prove stronger than steel.”
+    ACTIONS: Fund Textiles & Materials | [disabled] Grand Endeavour only for ideas not yet occurred
+--- TX10 [owned] Paper Making Textiles & Materials · Ancient era
+    Discovered on turn 67. +15% Production when constructing Library buildings in all cities
+    Needs ✓ Weaving + (✓ Canal Building or ✓ Kiln Construction)
+    ACTIONS: [disabled] Discovered
+--- WA01 [owned] Formation Fighting Warfare · Ancient era
+    Discovered on turn 73. Spearman (unit); Barracks (building)
+    Needs ✓ Tribal Law
+    Men who fight as one.
+    ACTIONS: [disabled] Discovered
+--- WA03 [owned] Archery Warfare · Primitive era
+    Discovered on turn 21. Archer (unit); Temple of Artemis (world wonder)
+    Needs ✓ Tool Knapping
+    ACTIONS: [disabled] Discovered
+--- WA04 [owned] Composite Bow Warfare · Ancient era
+    Discovered on turn 63. Composite Bowman (unit)
+    Needs ✓ Archery + ✓ Herd Animal Domestication
+    ACTIONS: [disabled] Discovered
+--- WA05 [owned] Siege Warfare Warfare · Classical era
+    Discovered on turn 112. Catapult (unit)
+    Needs ✓ Formation Fighting + ✓ Post and Lintel
+    Walls stop being final.
+    ACTIONS: [disabled] Discovered
+--- WA06 [owned] Fortification Design Warfare · Ancient era
+    Discovered on turn 93. Fort (improvement); Great Wall (world wonder)
+    Needs ✓ Arch Construction + ✓ Formation Fighting
+    ACTIONS: [disabled] Discovered
+--- WA07 [owned] Cavalry Tactics Warfare · Ancient era
+    Discovered on turn 89. Horseman (unit); +10% to Flank Attack bonuses
+    Needs ✓ Formation Fighting + ✓ Horse Domestication
+    Riders who strike where the line bends.
+    ACTIONS: [disabled] Discovered
+--- WA08 [not_taken] Chariot Warfare Warfare · Ancient era
+    Glimpsed by our scholars. Path not taken: Cavalry Tactics was discovered first, so this will never be developed.
+    A thing your civilisation glimpsed and let slip.
+    “A light cart behind fast horses might carry a man with a bow into battle.”
+    ACTIONS: [disabled] Never developed
+--- WA09 [owned] Crossbow Warfare · Medieval era
+    Discovered on turn 129. Crossbowman (unit)
+    Needs ✓ Composite Bow + ✓ Gearing
+    ACTIONS: [disabled] Discovered
+--- WA10 [owned] Gunpowder Warfare · Medieval era · also reached by Chemistry
+    Discovered on turn 151. Musketman (unit, requires Saltpeter); Himeji Castle (world wonder)
+    Needs ✓ Advanced Pyrotechnics + ✓ Saltpeter Mining + ✓ Geological Observation
+    ACTIONS: [disabled] Discovered
+--- WA11 [owned] Trebuchet Warfare · Medieval era
+    Discovered on turn 155. Trebuchet (unit)
+    Needs ✓ Siege Warfare + ✓ Geometry
+    ACTIONS: [disabled] Discovered
+--- WA13 [closed] Guerrilla Tactics Warfare · Classical era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Formation Fighting + ✓ Forest, jungle or mountains in your lands
+    As an Endeavour: 168 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Small bands who know the hills and forests might bleed a larger army.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 168 Insight · about 1 turn
+--- WA16 [owned] Rifling Warfare · Early Modern era
+    Discovered on turn 188. Rifleman (unit); Gatling Gun (unit)
+    Needs ✓ Gunpowder + ✓ Steel Production
+    ACTIONS: [disabled] Discovered
+--- WA22 [owned] Cannons Warfare · Medieval era
+    Discovered on turn 162. Cannon (unit, requires Saltpeter)
+    Needs ✓ Gunpowder + (✓ Steel Production or ✓ Blast Furnace)
+    Medieval walls stop mattering.
+    ACTIONS: [disabled] Discovered
+--- WA26 [owned] Professional Army Warfare · Classical era
+    Discovered on turn 139. Terracotta Army (world wonder); Heroic Epic (national wonder)
+    Needs ✓ Formation Fighting + ✓ Iron Smelting + ✓ Census
+    The Marian reforms (107 BC): soldiers by trade, not by levy.
+    ACTIONS: [disabled] Discovered
+--- WA27 [owned] Stirrup Warfare · Medieval era
+    Discovered on turn 135. Knight (unit)
+    Needs ✓ Cavalry Tactics + ✓ Iron Smelting
+    The stirrup spread west across Eurasia between the 6th and 8th centuries.
+    ACTIONS: [disabled] Discovered
+--- WA28 [owned] Drill and Discipline Warfare · Early Modern era
+    Discovered on turn 186. Military Academy (building); Brandenburg Gate (world wonder)
+    Cavalry (unit); Lancer (unit); +25% Strength for Gunpowder units vs Mounted units
+    Needs ✓ Formation Fighting + ✓ Scientific Method
+    Maurice of Nassau’s drill (1590s), written from the classical manuals.
+    ACTIONS: [disabled] Discovered
+--- WM01 [owned] Canal Building Water Management · Ancient era
+    Discovered on turn 39. +1 Production in cities on River tiles; +1 Gold from each Trade Route
+    Needs ✓ Irrigation + ✓ Quarrying
+    ACTIONS: [disabled] Discovered
+--- WM02 [owned] Aqueduct Water Management · Ancient era
+    Discovered on turn 58. Aqueduct (building), Hanging Gardens (wonder), Remove Marsh (improvement)
+    +1 Food from Flood plains tiles in all cities
+    Needs ✓ Canal Building + ✓ Arch Construction
+    ACTIONS: [disabled] Discovered
+--- WM05 [owned] Water Mill Water Management · Classical era · also reached by Energy Systems
+    Discovered on turn 60. Water Mill (building)
+    Needs ✓ Canal Building + ✓ Gearing
+    ACTIONS: [disabled] Discovered
+--- WM06 [studying] Dam Construction Water Management · Modern era
+    Being studied in Water Management: it takes a share of that focus’s Insight every turn.
+    Needs ✓ Aqueduct + ✓ Reinforced Concrete + ✓ Electric Generator
+    “A wall of concrete across the valley might hold back the whole river.”
+    ACTIONS: Fund Water Management | [disabled] Grand Endeavour only for ideas not yet occurred
+--- WM09 [owned] Rice Paddy Mastery Water Management · Ancient era
+    Discovered on turn 58. Paddy Field (improvement), Rice Granary (building, replaces Granary)
+    +1 Food from Paddy Field tiles in all cities
+    Unique to your civilisation: it cannot be traded or stolen, and never diffuses.
+    Needs ✓ Irrigation + ✓ Canal Building + ✓ A river valley + ✓ Tropical or temperate lands
+    The rice civilisations of East and Southeast Asia.
+    ACTIONS: [disabled] Discovered
+--- WM11 [owned] Industrial Canal Network Water Management · Early Modern era
+    Discovered on turn 194. Pound Lock (building): +2 Gold, +2 Production from each Trade Route
+    Superseded by Railway Network: its buildings are no longer available.
+    Needs ✓ Canal Building + ✓ Arch Construction + ✓ Caravansary + ✓ A river in your lands
+    Canal Mania, 1790s: one horse pulled 30 tons by barge, but only 1 ton by road cart.
+    ACTIONS: [disabled] Discovered
+--- WM12 [closed] Tidal Mill Water Management · Medieval era
+    Glimpsed by our scholars. Its moment passed — only an Endeavour is certain. It takes no Insight now.
+    Needs ✓ Water Mill + ✓ Tidal Patterns
+    As an Endeavour: 371 Insight, twice today’s price; about 1 turn at 683 a turn.
+    “Sea water trapped behind a sluice gate might turn a wheel as a river does.”
+    ACTIONS: Synthesis once this era · unused | Replace the Endeavour 371 Insight · about 1 turn
+--- MD20 [waiting] Phage Therapy Medicine · Modern era
+    Revealed by Germ Theory. Awaiting the idea: no Insight, however hard Medicine is funded, until the idea occurs.
+    Needs ✓ Germ Theory + ✓ Telescope
+    Competes with Antibiotics, under study: if that comes first, this is never developed.
+    “Viruses that prey on bacteria might be bred to fight infection.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+--- ES05 [waiting] Oil Power Plant Energy Systems · Modern era
+    Revealed by Turbine Design. Awaiting the idea: no Insight, however hard Energy Systems is funded, until the idea occurs.
+    Needs ✓ Turbine Design + (✓ Petroleum Discovery or ✓ Internal Combustion Engine)
+    “Oil already drives our engines; it might drive a turbine as readily as coal.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 2,447 Insight · about 4 turns
+--- RK09 [waiting] Ion Drive Rocketry · Space era
+    Revealed by Quantum Electrodynamics. Awaiting the idea: no Insight, however hard Rocketry is funded, until the idea occurs.
+    Needs ✓ Liquid Fuel Rocket + ✓ Electric Generator + ✓ Quantum Electrodynamics
+    “A faint, endless push of charged atoms might carry a craft to other planets.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 21,827 Insight · about 32 turns
+--- RC03 [unreach] Gravitational Waves Detection Relativity & Cosmology · Atomic era
+    Revealed by General Relativity. Not yet reachable: a prerequisite must be discovered first.
+    Needs ✓ General Relativity + ✗ Laser (under study in Optics) + ✓ Precision Machining
+    It cannot be a Grand Endeavour until Laser is discovered.
+    “If space itself can ripple, a fine enough instrument might hear it.”
+    ACTIONS: Fund Optics | [disabled] Grand Endeavour needs Laser first
+--- AE13 [unreach] Rigid Airship Aeronautics · Modern era
+    Seen in use by another civilisation. Not yet reachable: a prerequisite must be discovered first.
+    Needs ✗ Dirigible/Airship (under study in Aeronautics) + ✓ Aluminium Extraction
+    It cannot be a Grand Endeavour until Dirigible/Airship is discovered.
+    “A frame of light metal around great gas cells could cross an ocean.”
+    ACTIONS: Fund Aeronautics | [disabled] Grand Endeavour needs Dirigible/Airship first
+--- QP09 [waiting] String Theory Validation Quantum Physics · Space era New
+    Revealed by Quantum Gravity Theory. Awaiting the idea: no Insight, however hard Quantum Physics is funded, until the idea occurs.
+    Needs ✓ Quantum Gravity Theory + ✓ Topology + ✓ Particle Accelerator
+    “Each particle might be a tiny string, vibrating in its own note.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 21,827 Insight · about 32 turns
+--- QP10 [waiting] Loop Quantum Gravity Quantum Physics · Space era New
+    Revealed by Quantum Gravity Theory. Awaiting the idea: no Insight, however hard Quantum Physics is funded, until the idea occurs.
+    Needs ✓ Quantum Gravity Theory + ✓ Non-Euclidean Geometry
+    “The fabric of space might be knitted from loops of the gravitational field.”
+    ACTIONS: Experiment 300 Gold · Scientific Method | Replace the Endeavour 21,827 Insight · about 32 turns
+--- Aeronautics [focus] Aeronautics not funded
+    Under study here: Dirigible/Airship, Heavier-Than-Air Flight.
+    Tends to help with air units and sight. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Aeronautics sets the Endeavour aside | Add to queue
+--- Animal Husbandry [focus] Animal Husbandry not funded
+    Nothing revealed is under study here.
+    Tends to help with mounted units and food. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Animal Husbandry sets the Endeavour aside | Add to queue
+--- Chemistry [focus] Chemistry not funded
+    Under study here: Helium Extraction, Biomass/Biogas.
+    Tends to help with materials, fuels and medicines. Modifiers: +20% volcanic region, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Chemistry sets the Endeavour aside | Add to queue
+--- Computing [focus] Computing not funded
+    Under study here: Analog Computing Mastery.
+    Tends to help with science and administration. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Computing sets the Endeavour aside | Add to queue
+--- Construction [focus] Construction not funded
+    Under study here: Geodesic Structures.
+    Tends to help with buildings and defences. Modifiers: +20% river start, +25% earthquake-prone land, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Construction sets the Endeavour aside | Add to queue
+--- Electricity [focus] Electricity not funded
+    Nothing revealed is under study here.
+    Tends to help with power and communication. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Electricity sets the Endeavour aside | Add to queue
+--- Electronics [focus] Electronics not funded
+    Under study here: Transistor.
+    Tends to help with detection and devices. Modifiers: +10% Quantum Electrodynamics, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Electronics sets the Endeavour aside | Add to queue
+--- Energy Systems [focus] Energy Systems not funded · queued 3rd
+    Under study here: Coal Power Plant, Biomass Power Plant, Tidal Power, Biomass/Biogas.
+    Tends to help with power and production. Modifiers: +5% Natural Philosophy (all foci).
+    Queued 3rd: funding moves here when the Endeavour has no revealed work under study.
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Energy Systems sets the Endeavour aside | Remove from queue
+--- Farming [focus] Farming not funded
+    Under study here: Biomass Power Plant, Biomass/Biogas.
+    Tends to help with food and growth. Modifiers: +20% river start, +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Farming sets the Endeavour aside | Add to queue
+--- Fire [focus] Fire not funded
+    Nothing revealed is under study here.
+    Tends to help with production and early weapons. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Fire sets the Endeavour aside | Add to queue
+--- Foraging [focus] Foraging not funded
+    Nothing revealed is under study here.
+    Tends to help with food and medicine. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Foraging sets the Endeavour aside | Add to queue
+--- Genetics [focus] Genetics not funded
+    Nothing revealed is under study here.
+    Tends to help with health and food. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Genetics sets the Endeavour aside | Add to queue
+--- Materials Science [focus] Materials Science not funded
+    Under study here: Nanotechnology.
+    Tends to help with production and protection. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Materials Science sets the Endeavour aside | Add to queue
+--- Mathematics [focus] Mathematics not funded
+    Nothing revealed is under study here.
+    Tends to help with science and engineering. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Mathematics sets the Endeavour aside | Add to queue
+--- Mechanics [focus] Mechanics not funded
+    Nothing revealed is under study here.
+    Tends to help with production and machines. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Mechanics sets the Endeavour aside | Add to queue
+--- Medicine [focus] Medicine not funded · queued 4th
+    Under study here: Antibiotics, Anaesthesia.
+    Tends to help with health and growth. Modifiers: +10% Botanical Classification, +5% Natural Philosophy (all foci).
+    Queued 4th: funding moves here when the Endeavour has no revealed work under study.
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Medicine sets the Endeavour aside | Remove from queue
+--- Metallurgy [focus] Metallurgy not funded
+    Nothing revealed is under study here.
+    Tends to help with weapons, armour and production. Modifiers: +20% volcanic region, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Metallurgy sets the Endeavour aside | Add to queue
+--- Mining [focus] Mining not funded
+    Under study here: Uranium Discovery, Rare Earth Extraction.
+    Tends to help with resources and production. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Mining sets the Endeavour aside | Add to queue
+--- Nuclear Physics [focus] Nuclear Physics not funded
+    Under study here: Particle Laboratories.
+    Tends to help with power and weapons. Modifiers: +10% Special Relativity, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Nuclear Physics sets the Endeavour aside | Add to queue
+--- Observation [focus] Observation not funded
+    Under study here: Atmospheric Science.
+    Tends to help with science and knowing the land. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Observation sets the Endeavour aside | Add to queue
+--- Optics [focus] Optics not funded
+    Under study here: Laser.
+    Tends to help with sight and instruments. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Optics sets the Endeavour aside | Add to queue
+--- Philosophy and the Arts [focus] Philosophy and the Arts not funded
+    Under study here: Systems Thinking.
+    Tends to help with culture, faith and learning. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Philosophy and the Arts sets the Endeavour aside | Add to queue
+--- Quantum Physics [focus] Quantum Physics not funded · queued 2nd
+    Nothing revealed is under study here.
+    Tends to help with science and instruments. Modifiers: +5% Natural Philosophy (all foci).
+    Queued 2nd: funding moves here when the Endeavour has no revealed work under study.
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Quantum Physics sets the Endeavour aside | Remove from queue
+--- Relativity & Cosmology [focus] Relativity & Cosmology not funded
+    Under study here: Black Hole Thermodynamics.
+    Tends to help with science and trade. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Relativity & Cosmology sets the Endeavour aside | Add to queue
+--- Rocketry [focus] Rocketry not funded
+    Under study here: Multi-Stage Rocket.
+    Tends to help with launches and missiles. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Rocketry sets the Endeavour aside | Add to queue
+--- Seafaring [focus] Seafaring not funded
+    Nothing revealed is under study here.
+    Tends to help with ships and sea trade. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Seafaring sets the Endeavour aside | Add to queue
+--- Social Organization [focus] Social Organization not funded
+    Nothing revealed is under study here.
+    Tends to help with government and specialists. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Social Organization sets the Endeavour aside | Add to queue
+--- Stonework [focus] Stonework not funded
+    Nothing revealed is under study here.
+    Tends to help with building and tools. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Stonework sets the Endeavour aside | Add to queue
+--- Textiles & Materials [focus] Textiles & Materials not funded
+    Under study here: Carbon Fiber.
+    Tends to help with trade goods and equipment. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Textiles & Materials sets the Endeavour aside | Add to queue
+--- Thermodynamics [focus] Thermodynamics not funded
+    Nothing revealed is under study here.
+    Tends to help with engines and power. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Thermodynamics sets the Endeavour aside | Add to queue
+--- Trade [focus] Trade not funded
+    Under study here: Futures Market.
+    Tends to help with gold and trade routes. Modifiers: +20% river start, +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Trade sets the Endeavour aside | Add to queue
+--- Warfare [focus] Warfare not funded
+    Nothing revealed is under study here.
+    Tends to help with military units and tactics. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Warfare sets the Endeavour aside | Add to queue
+--- Water Management [focus] Water Management not funded
+    Under study here: Dam Construction.
+    Tends to help with food and water power. Modifiers: +5% Natural Philosophy (all foci).
+    Switching loses nothing: every breakthrough keeps its progress.
+    ACTIONS: Fund Water Management sets the Endeavour aside | Add to queue
+--- funding [funding] Insight 853 a turn, equal to your science
+    The Endeavour takes 80% (683) since Specialization of Labor; before it, 50%.
+    The other 20% (171) spreads to foci with work under study. Switching loses nothing.
+    Queue: 2 Quantum Physics, 3 Energy Systems, 4 Medicine. It moves on when the funded focus has no revealed work under study.
+    Diffusion: after the press (Printing Press). Theories reveal their applications (Scientific Method).
+    Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
+    ACTIONS: [disabled] Grand Endeavour
+--- era [era] Atomic era entered by count
+    You enter an era when you hold enough breakthroughs from it or later.
+    You entered the Atomic era with your 6th breakthrough from it or later.
+    The Space era needs 4 from the Space era: you hold 2.
+    Synthesis can be used once in each era: unused in the Atomic era.
+    ACTIONS: 
