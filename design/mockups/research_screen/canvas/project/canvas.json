@@ -31,7 +31,7 @@
    "y": 0,
    "w": 1440,
    "h": 810,
-   "title": "3 · Funding a focus while an Endeavour runs",
+   "title": "3 · Funding a focus while an Endeavour runs (popup)",
    "is_interactive": true
   },
   "Focus_view.dc.html": {
@@ -47,7 +47,7 @@
    "y": 930,
    "w": 1300,
    "h": 600,
-   "title": "5 · Phone: Unciv Small, landscape, 44-px targets",
+   "title": "5 · Phone: Unciv Small, landscape, 44-px rows and buttons",
    "is_interactive": true
   },
   "Status_key.dc.html": {
