@@ -1,0 +1,188 @@
+The FTL methods brought into sync (15 Oct 2026, on v3.125): every setting measured for design/notes/ftl_sync_report_20261015.md.
+All 15 victory conditions, three benchmark players, 60 games a cell (2,700 games a setting; A+B pools two seed sets, 5,400),
+none unfinished in any setting. Settings (exported for compare_settings.sh, which passes the environment on):
+  F1  ROWX=MS17:1.5,QM-E23:1,CP10:1,NP15:5,TH20:6,ES18:4 (v3.125's rivals)
+  F2  SETCELL='MS17|4|(QP11 or QM-E06) + (QP12 or QM-E13);AE20|4|QM-E19 + AE14;CP10|4|((QP07 + CP01) or GN10)' ROWX=NP15:5,TH20:6,ES18:4
+  F3  F2's SETCELL, ROWX=NP15:5,TH20:6,ES18:4,QM-E23:1.5,MA15:1.5
+  F4  F2's SETCELL, ROWX=NP15:5,TH20:6,ES18:5,QM-E23:1,MA15:1 WROWX=5 SPACEPRICE=1.1, rivals made under it (POOLTAG=F4)
+  F5  F3's settings and SPACEPRICE=1.1, rivals made under it (POOLTAG=F5); F5b the same with SEED0=37000 TRUTHSEED=91
+  V125b  v3.125 with SEED0=37000 TRUTHSEED=91
+
+== the spread between methods (ftl_sync.py), single seed sets
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), F1 304 (-1), F2 302 (-3), F3 301 (-4), F4@1.1 303 (-2))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    F1     field   301 | Warp   -4 (68%)  Wormh   +6 (33%)  Hyper   +0 (54%)  Tachy   -3 (65%)  Tunne   +3 (31%) | max   6, rms  3.9
+    F2     field   299 | Warp   -3 (64%)  Wormh   +4 (39%)  Hyper   +2 (42%)  Tachy   -2 (59%)  Tunne   +2 (46%) | max   4, rms  2.8
+    F3     field   299 | Warp   -3 (65%)  Wormh   +4 (37%)  Hyper   +2 (46%)  Tachy   -2 (60%)  Tunne   +2 (42%) | max   4, rms  2.6
+    F4@1.1 field   301 | Warp   -3 (54%)  Wormh   +6 (37%)  Hyper   +0 (49%)  Tachy   -3 (62%)  Tunne   +0 (49%) | max   6, rms  3.3
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    F1     field   304 | Warp   -4 (76%)  Wormh   +8 (32%)  Hyper   +0 (53%)  Tachy   -3 (63%)  Plenu  +12 (26%) | max  12, rms  6.9
+    F2     field   302 | Warp   -2 (69%)  Wormh   +1 (45%)  Hyper   +4 (47%)  Tachy   -1 (57%)  Plenu   +6 (31%) | max   6, rms  3.3
+    F3     field   301 | Warp   -1 (68%)  Wormh   +2 (46%)  Hyper   +2 (48%)  Tachy   +0 (54%)  Plenu   +6 (33%) | max   6, rms  3.2
+    F4@1.1 field   304 | Warp   -1 (53%)  Wormh   +2 (43%)  Hyper   +0 (56%)  Tachy   -3 (62%)  Plenu   +4 (36%) | max   4, rms  2.3
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    F1     field   307 | Warp   -4 (64%)  Wormh   +8 (34%)  Hyper   +0 (52%)  Tachy   -6 (68%)  Plenu   +6 (32%) | max   8, rms  5.3
+    F2     field   304 | Warp   -2 (56%)  Wormh   -1 (51%)  Hyper   +2 (45%)  Tachy   -2 (62%)  Plenu   +6 (35%) | max   6, rms  3.1
+    F3     field   304 | Warp   +1 (51%)  Wormh   -1 (48%)  Hyper   -3 (54%)  Tachy   -3 (62%)  Plenu   +6 (35%) | max   6, rms  3.3
+    F4@1.1 field   304 | Warp   -2 (56%)  Wormh   +2 (41%)  Hyper   -3 (57%)  Tachy   -3 (60%)  Plenu   +5 (36%) | max   5, rms  3.2
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), F1 307 (+2), F2 305 (+0), F3 305 (+0), F4@1.1 306 (+1))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    F1     field   304 | Warp   -3 (67%)  Wormh   +6 (36%)  Hyper   +5 (45%)  Tachy   -2 (62%)  Tunne   +2 (40%) | max   6, rms  3.9
+    F2     field   303 | Warp   -2 (58%)  Wormh   -0 (51%)  Hyper   +5 (39%)  Tachy   -2 (56%)  Tunne   +1 (46%) | max   5, rms  2.5
+    F3     field   303 | Warp   -0 (56%)  Wormh   +0 (50%)  Hyper   +2 (42%)  Tachy   -2 (56%)  Tunne   +1 (46%) | max   2, rms  1.2
+    F4@1.1 field   305 | Warp   +4 (39%)  Wormh   +0 (48%)  Hyper   +0 (45%)  Tachy   -3 (57%)  Tunne   -3 (61%) | max   4, rms  2.6
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    F1     field   306 | Warp   -5 (77%)  Wormh   +9 (32%)  Hyper   +4 (46%)  Tachy   -1 (60%)  Plenu   +8 (36%) | max   9, rms  6.0
+    F2     field   306 | Warp   -5 (70%)  Wormh   -2 (50%)  Hyper   +1 (38%)  Tachy   +0 (47%)  Plenu   +0 (45%) | max   5, rms  2.5
+    F3     field   305 | Warp   -4 (68%)  Wormh   -0 (48%)  Hyper   +2 (39%)  Tachy   +1 (46%)  Plenu   -0 (49%) | max   4, rms  2.1
+    F4@1.1 field   307 | Warp   +3 (38%)  Wormh   -1 (59%)  Hyper   -2 (59%)  Tachy   -4 (64%)  Plenu   +5 (30%) | max   5, rms  3.3
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    F1     field   310 | Warp   +0 (56%)  Wormh   -0 (49%)  Hyper   +2 (43%)  Tachy   -6 (67%)  Plenu   +4 (35%) | max   6, rms  3.4
+    F2     field   307 | Warp   +2 (45%)  Wormh   -3 (63%)  Hyper   +2 (42%)  Tachy   -2 (59%)  Plenu   +3 (41%) | max   3, rms  2.4
+    F3     field   307 | Warp   +2 (46%)  Wormh   -3 (61%)  Hyper   +4 (40%)  Tachy   -2 (59%)  Plenu   +2 (43%) | max   4, rms  2.6
+    F4@1.1 field   309 | Warp   +1 (41%)  Wormh   -4 (67%)  Hyper   +3 (36%)  Tachy   -6 (64%)  Plenu   +2 (42%) | max   6, rms  3.6
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), F1 381 (+1), F2 379 (-1), F3 378 (-2), F4@1.1 380 (+0))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    F1     field   376 | Warp   -1 (58%)  Wormh   +1 (47%)  Hyper   +6 (38%)  Tachy   -1 (62%)  Tunne   +1 (44%) | max   6, rms  2.6
+    F2     field   377 | Warp   +0 (52%)  Wormh   -4 (61%)  Hyper   +4 (35%)  Tachy   -2 (57%)  Tunne   +0 (45%) | max   4, rms  2.8
+    F3     field   376 | Warp   +1 (50%)  Wormh   -3 (60%)  Hyper   +4 (39%)  Tachy   -1 (56%)  Tunne   +1 (44%) | max   4, rms  2.5
+    F4@1.1 field   377 | Warp   +7 (38%)  Wormh   +0 (55%)  Hyper   +2 (45%)  Tachy   -1 (54%)  Tunne   -2 (59%) | max   7, rms  3.4
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    F1     field   381 | Warp   -7 (77%)  Wormh   +8 (38%)  Hyper   +4 (44%)  Tachy   -2 (57%)  Plenu   +7 (33%) | max   8, rms  5.9
+    F2     field   379 | Warp   -5 (70%)  Wormh   -2 (56%)  Hyper   +5 (36%)  Tachy   +1 (47%)  Plenu   +2 (41%) | max   5, rms  3.6
+    F3     field   378 | Warp   -4 (69%)  Wormh   -2 (55%)  Hyper   +6 (35%)  Tachy   +2 (46%)  Plenu   +2 (45%) | max   6, rms  3.5
+    F4@1.1 field   381 | Warp   +2 (46%)  Wormh   -3 (60%)  Hyper   +0 (52%)  Tachy   -4 (55%)  Plenu   +3 (37%) | max   4, rms  2.5
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    F1     field   384 | Warp   +1 (53%)  Wormh   -0 (51%)  Hyper   +0 (47%)  Tachy   -4 (63%)  Plenu   +6 (35%) | max   6, rms  3.3
+    F2     field   381 | Warp   +1 (48%)  Wormh   -5 (66%)  Hyper   +5 (36%)  Tachy   -2 (59%)  Plenu   +4 (41%) | max   5, rms  3.9
+    F3     field   380 | Warp   +2 (46%)  Wormh   -4 (65%)  Hyper   +3 (42%)  Tachy   -2 (56%)  Plenu   +5 (41%) | max   5, rms  3.4
+    F4@1.1 field   382 | Warp   +4 (40%)  Wormh   -6 (66%)  Hyper   +6 (42%)  Tachy   -5 (59%)  Plenu   +3 (44%) | max   6, rms  4.9
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%
+  F1     largest  7.3, rms  4.6; win shares 26%-77%
+  F2     largest  4.8, rms  3.0; win shares 31%-70%
+  F3     largest  4.6, rms  2.7; win shares 33%-69%
+  F4@1.1 largest  5.1, rms  3.2; win shares 30%-67%
+
+== v3.125 against the recommended package, two seed sets each
+
+=== expert (all 15 conditions against base Civ V's 305: V125+V125b 304 (-1), F5+F5b@1.1 302 (-3))
+  familiar
+    V125+V125b field   301 | Warp   -5 (73%)  Wormh  +12 (27%)  Hyper   +1 (47%)  Tachy   -5 (74%)  Tunne   +7 (30%) | max  12, rms  7.0
+    F5+F5b@1.1 field   301 | Warp   -2 (54%)  Wormh   +3 (40%)  Hyper   +1 (44%)  Tachy   -3 (62%)  Tunne   +0 (50%) | max   3, rms  2.1
+  Process
+    V125+V125b field   304 | Warp   -5 (77%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -4 (68%)  Plenu  +13 (28%) | max  13, rms  8.5
+    F5+F5b@1.1 field   304 | Warp   -2 (56%)  Wormh   +2 (46%)  Hyper   -0 (53%)  Tachy   -2 (58%)  Plenu   +4 (37%) | max   4, rms  2.7
+  Substance
+    V125+V125b field   307 | Warp   -5 (68%)  Wormh   +8 (33%)  Hyper   +4 (44%)  Tachy   -8 (74%)  Plenu   +7 (31%) | max   8, rms  6.4
+    F5+F5b@1.1 field   304 | Warp   -0 (55%)  Wormh   -0 (51%)  Hyper   +2 (47%)  Tachy   -2 (60%)  Plenu   +4 (36%) | max   4, rms  2.2
+
+=== novice (all 15 conditions against base Civ V's 305: V125+V125b 307 (+2), F5+F5b@1.1 306 (+1))
+  familiar
+    V125+V125b field   304 | Warp   -4 (69%)  Wormh  +10 (29%)  Hyper   +5 (45%)  Tachy   -5 (67%)  Tunne   +4 (40%) | max  10, rms  6.0
+    F5+F5b@1.1 field   305 | Warp   +3 (44%)  Wormh   +1 (48%)  Hyper   +3 (38%)  Tachy   -4 (60%)  Tunne   -2 (59%) | max   4, rms  2.7
+  Process
+    V125+V125b field   306 | Warp   -5 (78%)  Wormh   +6 (33%)  Hyper   +1 (49%)  Tachy   -3 (64%)  Plenu  +13 (26%) | max  13, rms  6.8
+    F5+F5b@1.1 field   307 | Warp   +2 (45%)  Wormh   -2 (61%)  Hyper   +1 (43%)  Tachy   -4 (62%)  Plenu   +3 (39%) | max   4, rms  2.6
+  Substance
+    V125+V125b field   311 | Warp   -2 (60%)  Wormh   +1 (42%)  Hyper   +1 (46%)  Tachy   -8 (71%)  Plenu   +5 (31%) | max   8, rms  4.2
+    F5+F5b@1.1 field   308 | Warp   +2 (44%)  Wormh   -3 (65%)  Hyper   +3 (40%)  Tachy   -4 (60%)  Plenu   +2 (42%) | max   4, rms  2.8
+
+=== average (all 15 conditions against base Civ V's 380: V125+V125b 381 (+1), F5+F5b@1.1 380 (+0))
+  familiar
+    V125+V125b field   378 | Warp   -4 (67%)  Wormh   +8 (36%)  Hyper   +3 (41%)  Tachy   -6 (67%)  Tunne   +4 (39%) | max   8, rms  5.3
+    F5+F5b@1.1 field   377 | Warp   +4 (42%)  Wormh   -1 (55%)  Hyper   +1 (45%)  Tachy   -1 (50%)  Tunne   -2 (58%) | max   4, rms  2.0
+  Process
+    V125+V125b field   381 | Warp   -7 (78%)  Wormh   +8 (36%)  Hyper   +4 (47%)  Tachy   -4 (64%)  Plenu  +13 (25%) | max  13, rms  7.8
+    F5+F5b@1.1 field   380 | Warp   +1 (47%)  Wormh   -3 (67%)  Hyper   +4 (39%)  Tachy   -3 (59%)  Plenu   +4 (38%) | max   4, rms  3.3
+  Substance
+    V125+V125b field   384 | Warp   -2 (60%)  Wormh   +3 (43%)  Hyper   +1 (49%)  Tachy   -7 (67%)  Plenu   +7 (31%) | max   7, rms  4.7
+    F5+F5b@1.1 field   382 | Warp   +3 (44%)  Wormh   -8 (71%)  Hyper   +5 (38%)  Tachy   -5 (57%)  Plenu   +3 (41%) | max   8, rms  5.1
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125+V125b largest 10.1, rms  6.3; win shares 25%-78%
+  F5+F5b@1.1 largest  4.3, rms  2.8; win shares 36%-71%
+
+== the races taken apart under the recommended package (ftl_balance.py cmpF5, the first seed set)
+
+=== expert
+== familiar (field median 301)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            298       -2    251     272   282    282   73%/  3%/ 23%   MS08 (63%, 288), ES18 (37%, 274)           bubble (92%)
+  Wormhole        304       +2    251     273   288    288   75%/  3%/ 22%   MS17 (58%, 289), MS08 (42%, 284)           throat (95%)
+  Hyperspace      302       +0    251     271   283    286   75%/ 23%/  2%   MA19 (100%, 283)                           leak (48%)
+  Tunnelling      301       +0    251     266   284    285   82%/ 18%/  0%   CP21 (97%, 284), QP14 (3%, 271)            coherence (100%)
+  Tachyonic       299       -2    251     271   282    282   98%/  2%/  0%   NP15 (90%, 282), SE02 (10%, 283)           tachDE (48%)
+== Process (field median 304)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            301       -3    251     276   285    285   75%/  0%/ 25%   MS08 (60%, 288), ES18 (40%, 280)           bubble (88%)
+  Wormhole        304       +0    251     274   288    288   78%/  0%/ 22%   MS17 (63%, 289), MS08 (37%, 288)           throat (88%)
+  Hyperspace      302       -2    251     276   284    286   83%/ 17%/  0%   MA19 (100%, 284)                           strata (45%)
+  Tachyonic       301       -3    252     274   285    285   97%/  3%/  0%   TH20 (80%, 286), SE02 (20%, 281)           superlum (47%)
+  Plenum          308       +4    252     273   292    292   97%/  0%/  3%   QM-E23 (58%, 292), AE20 (42%, 293)         coupling (93%)
+== Substance (field median 304)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            302       -2    252     278   286    286   78%/  0%/ 22%   MS08 (52%, 287), ES18 (48%, 282)           bubble (92%)
+  Wormhole        304       +0    251     274   288    288   88%/  3%/  8%   MS17 (70%, 290), MS08 (30%, 286)           throat (88%)
+  Hyperspace      304       +0    251     276   286    288   85%/ 13%/  2%   MA19 (100%, 286)                           dark (53%)
+  Tachyonic       302       -2    251     276   285    286   95%/  2%/  3%   TH20 (77%, 288), SE02 (23%, 284)           superlum (48%)
+  Plenum          306       +2    251     274   290    290   92%/  0%/  8%   QM-E23 (63%, 292), AE20 (37%, 290)         coupling (83%)
+
+=== novice
+== familiar (field median 305)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            308       +2    253     278   292    292   87%/  0%/ 13%   ES18 (77%, 292), MS08 (23%, 291)           bubble (100%)
+  Wormhole        306       +0    252     275   290    290   75%/  0%/ 25%   MS17 (62%, 292), MS08 (38%, 288)           throat (100%)
+  Hyperspace      310       +5    253     274   294    294   98%/  0%/  2%   MA19 (100%, 294)                           dark (73%)
+  Tunnelling      302       -3    253     269   286    286   97%/  3%/  0%   CP21 (100%, 286)                           coherence (100%)
+  Tachyonic       302       -4    253     272   286    286   98%/  2%/  0%   NP15 (95%, 286), SE02 (5%, 277)            tachDE (80%)
+== Process (field median 308)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            310       +2    259     278   294    294   88%/  2%/ 10%   ES18 (78%, 294), MS08 (22%, 296)           bubble (97%)
+  Wormhole        305       -3    258     278   289    289   82%/  0%/ 18%   MS17 (62%, 289), MS08 (38%, 288)           throat (93%)
+  Hyperspace      308       +0    261     280   292    292   93%/  3%/  3%   MA19 (100%, 292)                           leak (47%)
+  Tachyonic       303       -5    256     276   287    287   98%/  2%/  0%   TH20 (78%, 289), SE02 (22%, 281)           superlum (58%)
+  Plenum          310       +2    260     277   294    294   97%/  2%/  2%   QM-E23 (83%, 294), AE20 (17%, 294)         coupling (93%)
+== Substance (field median 308)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            309       +1    260     286   293    293   87%/  2%/ 12%   ES18 (78%, 294), MS08 (22%, 289)           bubble (98%)
+  Wormhole        304       -4    259     277   288    288   85%/  2%/ 13%   MS17 (73%, 289), MS08 (27%, 284)           throat (97%)
+  Hyperspace      312       +4    257     280   294    296   85%/ 15%/  0%   MA19 (100%, 294)                           dark (72%)
+  Tachyonic       304       -4    257     275   288    288   98%/  2%/  0%   TH20 (62%, 293), SE02 (38%, 284)           superlum (47%)
+  Plenum          312       +4    258     280   296    296   97%/  0%/  3%   QM-E23 (77%, 296), AE20 (23%, 290)         coupling (97%)
+
+=== average
+== familiar (field median 377)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            384       +6    315     347   364    364   87%/  2%/ 12%   ES18 (72%, 365), MS08 (28%, 361)           bubble (100%)
+  Wormhole        376       -1    314     340   357    357   67%/  2%/ 32%   MS08 (52%, 355), MS17 (48%, 358)           throat (100%)
+  Hyperspace      381       +4    315     340   361    361  100%/  0%/  0%   MA19 (95%, 363), ES06/ES07/ES14/ES08 (5%, 342)   dark (75%)
+  Tunnelling      375       -2    317     336   354    354   95%/  5%/  0%   CP21 (100%, 354)                           coherence (100%)
+  Tachyonic       376       -1    315     338   356    356  100%/  0%/  0%   NP15 (98%, 356), SE02 (2%, 350)            tachDE (60%)
+== Process (field median 380)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            381       +1    323     342   362    362   88%/  2%/ 10%   ES18 (78%, 360), MS08 (22%, 366)           bubble (95%)
+  Wormhole        377       -3    320     344   358    358   78%/  0%/ 22%   MS17 (63%, 360), MS08 (37%, 356)           throat (90%)
+  Hyperspace      386       +6    325     348   365    366   95%/  5%/  0%   MA19 (100%, 365)                           leak (37%)
+  Tachyonic       378       -2    324     345   357    358   98%/  2%/  0%   TH20 (90%, 358), SE02 (10%, 348)           superlum (65%)
+  Plenum          384       +4    324     344   365    365   98%/  0%/  2%   QM-E23 (80%, 366), AE20 (20%, 364)         coupling (98%)
+== Substance (field median 382)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            384       +2    324     352   365    365   90%/  2%/  8%   ES18 (85%, 366), MS08 (15%, 360)           bubble (100%)
+  Wormhole        374       -8    323     346   355    355   88%/  0%/ 12%   MS17 (82%, 356), MS08 (18%, 349)           throat (100%)
+  Hyperspace      387       +5    322     350   367    367   92%/  8%/  0%   MA19 (100%, 367)                           dark (58%)
+  Tachyonic       377       -5    323     343   357    357  100%/  0%/  0%   TH20 (62%, 363), SE02 (38%, 353)           catalogue (47%)
+  Plenum          384       +2    322     348   365    365   95%/  0%/  5%   QM-E23 (73%, 366), AE20 (27%, 362)         coupling (100%)
