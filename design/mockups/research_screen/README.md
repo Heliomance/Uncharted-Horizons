@@ -29,14 +29,12 @@ Every artboard except the key is the one component in `Main.dc.html` with a diff
   border pattern (solid, dashed, dotted), shape and glyph, never by hue alone. Filters and collapsible sections keep 250
   rows legible.
 - **The bottom bar** is Unciv's Close | description | action. It explains why each breakthrough is or is not progressing
-  and what can be done: fund its focus, Experiment, Synthesis, or a Grand Endeavour (offered only for ideas that have not
-  occurred).
+  and what can be done: fund its focus, or a Grand Endeavour (offered only for ideas that have not occurred).
 - **The opening** (artboard 8). While the board holds 16 breakthroughs or fewer it shows them as cards grouped by
   focus, each with its speculative description; beyond that it compacts to chips. The funding slot asks for the first
   choice, and the Owned section says why it is empty. The screen offers only what the civilisation's discoveries allow:
-  a 50/50 split before Specialization of Labor (80/20 after), Experiment and Synthesis only once Scientific Method and
-  Dialectical Thinking are owned, and the Faster than light button only after Special Relativity (§4). Nothing on it
-  names a breakthrough the player has not seen.
+  a 50/50 split before Specialization of Labor (80/20 after), and the Faster than light button only after Special
+  Relativity (§4). Nothing on it names a breakthrough the player has not seen.
 - **Hidden information** stays hidden: no odds, hidden meters, window lengths, tiers on revealed rows, per-focus spread,
   unknown breakthroughs, World Truths or FTL results.
 
@@ -47,16 +45,18 @@ From `build_spec.md` §11, with the review's changes:
 - Status 4 reads "Its moment passed — only an Endeavour is certain", true even though diffusion can still bring it.
 - Rows under study show no progress at all (the meter is hidden); tiers appear only as Rare and Unique on owned rows.
 - No per-focus Insight figures (they would reveal hidden occurrence); only the funded share and the total spread.
-- Experiment acts on ideas awaiting their moment, Synthesis on ideas whose moment passed, with no size of effect shown.
 - The queue moves on when the funded focus has no revealed work under study.
 - "Not yet reachable" and "Path not taken" are statuses; Dead end, Superseded, Rival, Rare, Unique, FTL and New are tags.
 - The era shown is the era entered by count; "ahead of its time" appears only in Endeavour prices.
 - Breakthrough IDs are never shown. Only foci the civilisation has entered are listed.
-- Experiment costs 300 Gold, a placeholder (the document gives no price), and can be used once per breakthrough per turn.
 - On turn 1 nothing is funded until the player picks a focus. What happens to the funded half if they never pick is
   undecided, so the screen does not say.
 - "Not yet reachable" rests on §1.4's "Discovered or Revealed" wording, which the document contradicts; see
   `design/notes/deferred_tasks.md`, *Decide how far the One-Step Horizon reaches*.
+
+The Experiment and Synthesis abilities were removed from the design on 15 October (v3.113) and from the screen with
+them. The records of how the screen was made (`requirements.json` R102 and R103, `build_spec.md`, the reviews) predate
+that and still describe them.
 
 ## The data
 

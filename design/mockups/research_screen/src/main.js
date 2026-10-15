@@ -61,7 +61,7 @@ function initState(props) {
   const v = viewOf(props), s = D.snap[v.snap];
   return { snap: v.snap, sel: isPhone(props) && v.snap !== 't001' ? { kind: 'row', id: 'QP06' } : v.sel, focusView: v.focusView || null, filter: null, collapsed: {},
     funded: s.funded, queue: s.queue.slice(), endeavour: s.endeavour ? Object.assign({}, s.endeavour) : null, popup: v.popup || null,
-    synthesisUsed: false, experimented: {}, asides: {}, notice: null };
+    asides: {}, notice: null };
 }
 
 class Component extends DCLogic {
@@ -389,11 +389,8 @@ class Component extends DCLogic {
       } else if (r.status === 'waiting') {
         line([src + 'Awaiting the idea: no Insight until the idea occurs.']);
         rival(); needsLine(r);
-        if (S.experiment) line(['Experiment (300 Gold) may help the idea occur; it is not certain.']);
         quote(r.conj);
-        const done = st.experimented[r.id];
-        if (S.experiment) { act('primary', done ? 'Experiment made' : 'Experiment', done ? 'this turn' : '300 Gold', done ? null : () => this.setState({ popup: { kind: 'experiment', id: r.id } }), !!done); enBtn(r); }
-        else enBtn(r, 'primary');
+        enBtn(r, 'primary');
       } else if (r.status === 'unreach') {
         line([src + 'Not yet reachable: a prerequisite must be discovered first.']);
         needsLine(r);
@@ -409,10 +406,8 @@ class Component extends DCLogic {
         if (aside) { b.meta += ' · Endeavour set aside'; line(['Endeavour set aside at ' + aside.pct + '%: ' + fmt(aside.paid) + ' of ' + fmt(aside.price) + ' Insight paid. It decays slowly; resuming needs ' + fmt(aside.price - aside.paid) + ' more.']); }
         else line([ahead ? 'As an Endeavour: ' + fmt(p.price) + ' Insight; dearer while it is ahead of its time. Fixed once begun.'
           : 'As an Endeavour: ' + fmt(p.price) + ' Insight, double the usual cost; about ' + turns(p.turns) + ' at ' + fmt(this.share()) + ' a turn.']);
-        if (S.synthesis) line(['Synthesis (once an era) gives its moment another chance; it is not certain.']);
         quote(r.conj);
-        if (S.synthesis) { act('primary', 'Synthesis', st.synthesisUsed ? 'used this era' : 'once this era · unused', st.synthesisUsed ? null : () => this.setState({ popup: { kind: 'synthesis', id: r.id } }), st.synthesisUsed); enBtn(r); }
-        else enBtn(r, 'primary');
+        enBtn(r, 'primary');
       } else if (r.status === 'not_taken') {
         line([src + 'Path not taken: ' + r.instead + ' came first, so this will never be developed.']);
         grey('A thing your civilisation glimpsed and let slip.');
@@ -455,8 +450,6 @@ class Component extends DCLogic {
     } else if (sel.kind === 'era') {
       b.title = S.era + ' era'; b.meta = S.eraMeta || 'entered by count';
       S.eraLines.forEach(t => line([t]));
-      const ab = [S.experiment ? 'Experiment (Scientific Method)' : '', S.synthesis ? 'Synthesis (Dialectical Thinking), ' + (st.synthesisUsed ? 'used' : 'unused') + ' this era' : ''].filter(Boolean);
-      if (ab.length) line(['Abilities: ' + ab.join(' · ') + '.']);
     }
     return b;
   }
@@ -489,16 +482,6 @@ class Component extends DCLogic {
       const r = byId[p.id], it = st.asides[p.id];
       return { show: true, title: 'Resume the Endeavour?', body: 'The ' + r.name + ' Endeavour resumes at ' + it.pct + '% and takes the funded share again.' + (en ? ' The ' + byId[en.id].name + ' Endeavour is set aside at ' + en.pct + '%.' : '') + (st.funded ? ' ' + st.funded + ' goes back to the head of the queue.' : ''),
         ok: { label: 'Resume the Endeavour', onClick: () => this.resumeEndeavour(p.id) }, cancel: cancel };
-    }
-    if (p.kind === 'synthesis') {
-      const r = byId[p.id];
-      return { show: true, title: 'Use Synthesis on ' + r.name + '?', body: 'Synthesis can be used once in each era. It gives this idea’s moment another chance; the idea may still not occur.',
-        ok: { label: 'Use Synthesis', onClick: () => this.setState({ popup: null, synthesisUsed: true }) }, cancel: cancel };
-    }
-    if (p.kind === 'experiment') {
-      const r = byId[p.id];
-      return { show: true, title: 'Experiment on ' + r.name + '?', body: 'An experiment costs 300 Gold. It may help the idea occur; it is not certain.',
-        ok: { label: 'Spend 300 Gold', onClick: () => { const x = Object.assign({}, st.experimented); x[p.id] = true; this.setState({ popup: null, experimented: x }); } }, cancel: cancel };
     }
     const r = byId[p.id], pr = this.price(r), f = st.funded;
     const body = (p.kind === 'replace' ? 'The Endeavour on ' + byId[en.id].name + ' is set aside at ' + en.pct + '%; its progress decays slowly, and you can resume it later. ' : '') +

@@ -60,7 +60,7 @@ def build():
     rows, snaps = {}, {}
     for m, S in DATA.items():
         snap = dict(turn=S['turn'], insight=S['insight'], funded=S['funded'], queue=S['queue'], foci=S['foci'], badges=S['badges'],
-                    endeavour=S['endeavour'], split=S['split'], experiment=S['experiment'], synthesis=S['synthesis'], ftl=S['ftl'], rows=[], **ERA[m])
+                    endeavour=S['endeavour'], split=S['split'], ftl=S['ftl'], rows=[], **ERA[m])
         for r in S['rows']:
             st = {k: r[k] for k in STATIC if k in r}
             if isinstance(r.get('needs'), str): st['needs_name'] = r['needs']

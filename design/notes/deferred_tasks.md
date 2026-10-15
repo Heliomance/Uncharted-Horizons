@@ -1,5 +1,13 @@
 # Deferred Tasks — Uncharted Horizons
 
+## 2026-10-15: Decide whether Dialectical Thinking keeps its row
+- **Surfaced during:** v3.113, which removed the Synthesis ability from PH08 (and Experiment from PH04).
+- **Location:** PH08 Dialectical Thinking (UNCOMMON, Early Modern, Philosophy and the Arts).
+- **Issue:** what is left is ⟨Resting point for Influence with City-States is increased by [10]⟩, which Radio (EN11) and Talking Drum Networks (CU13, a UNIQUE's civ unique) also grant, and Satellite Communications (RK16) and Aether Telegraphy (QM-E18) grant at 5. No row needs PH08. Since v3.80 a row must justify its existence.
+- **Suggested fix (Claude's recommendation):** remove the row; no effect that fits the name is both distinctive and available without a new mechanic. If an Early Modern UNCOMMON is wanted in the focus, ⟨[-10]% Culture cost of adopting new Policies⟩ ("opposed proposals reconciled into reform") is an existing Unciv template that no row uses yet.
+- **Not affected:** Scientific Method (PH04) stands on its own (the tree's largest empire-wide Science bonus, the era's Science landmark, 12 dependent rows). Its §1.4 role, theory revealing its applications from then on, has almost no data behind it (about ten rows reveal named breakthroughs, none of them as a theory's applications) and is not simulated; that belongs with the One-Step entry below.
+- **Next:** Tamsin decides; removing the row also means the tree viewer's layout and the mockup's data drop PH08.
+
 ## 2026-10-15: Decide how far the One-Step Horizon reaches
 - **Surfaced during:** Tamsin's question why the research-screen mockup needs a "Not yet reachable" status (a check of the document by three independent readers).
 - **Location:** §1.4 (*The One-Step Horizon rule*, *CORE breakthroughs reveal themselves*), §1.5, §7.0 (`Reveals`), the v3.58 changelog entry.
@@ -11,9 +19,9 @@
 
 ## 2026-10-15: Decide what the research-screen mockup chose for you
 - **Surfaced during:** the research-screen mockup (`design/mockups/research_screen/`, canvas linked in its README).
-- **Issue:** to draw the screen, the mockup had to answer open questions: Endeavours only for ideas that have not occurred; no progress shown on rows under study; no per-focus Insight; what Experiment and Synthesis act on in the window model; the queue rule; which statuses are statuses and which are tags. The list is in the mockup's README, *Choices the mockup makes*, and the full set in `build_spec.md` §11.
+- **Issue:** to draw the screen, the mockup had to answer open questions: Endeavours only for ideas that have not occurred; no progress shown on rows under study; no per-focus Insight; the queue rule; which statuses are statuses and which are tags. The list is in the mockup's README, *Choices the mockup makes*, and the full set in `build_spec.md` §11.
 - **Also found:** §1.2 refers to "the research-screen concept", which does not exist; §1.3's modifier table names foci that do not exist (Woodworking, Diplomacy); "Explosives (non-gunpowder)" carries a world-truth hint in its name; Calculus gives "+15% Insight to the physical foci", a set the document never defines.
-- **Also chosen, not in the document:** Experiment's price of 300 Gold is a placeholder, though the screen does not say so, and the mockup allows one Experiment per breakthrough per turn. On turn 1 (the *Start* artboard) nothing is funded until the player picks a focus; what happens to the funded half if they never pick is undecided. Experiment and Synthesis were written for the roll model (PH04, PH08: "boost one Revealed breakthrough's roll", "re-roll one failed breakthrough"); if rediscovery on demand is adopted, Synthesis as drawn overlaps it.
+- **Also chosen, not in the document:** on turn 1 (the *Start* artboard) nothing is funded until the player picks a focus; what happens to the funded half if they never pick is undecided. (Experiment and Synthesis, which the mockup had to interpret, were removed from the design in v3.113.)
 - **Next:** Tamsin confirms or changes each choice; §1.4 and §1.5 then get the screen's rules written in.
 
 ## 2026-09-24: Resolve UNIQUE buildings that replace a base the nation already replaces

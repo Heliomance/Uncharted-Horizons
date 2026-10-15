@@ -89,9 +89,9 @@ def load(mode):
         if alt in byid and prim in byid and byid[alt]['status'] not in ('owned', 'not_taken') and byid[prim]['status'] != 'owned':
             byid[alt]['tags'].append('Rival'); byid[prim]['tags'].append('Rival'); byid[prim]['rivalOf'] = byid[alt]['name']
     owned = {r['id'] for r in rows if r['status'] == 'owned'}
-    # what the civilisation's discoveries allow: the 80/20 split (SO05; 50/50 before it), Experiment (PH04), Synthesis (PH08),
-    # and the Faster than light screen, which opens with Special Relativity (RC01, section 4)
-    unlocked = dict(split=0.8 if 'SO05' in owned else 0.5, experiment='PH04' in owned, synthesis='PH08' in owned, ftl='RC01' in owned)
+    # what the civilisation's discoveries allow: the 80/20 split (SO05; 50/50 before it), and the Faster than light screen,
+    # which opens with Special Relativity (RC01, section 4)
+    unlocked = dict(split=0.8 if 'SO05' in owned else 0.5, ftl='RC01' in owned)
     return dict(turn=S['turn'], era={'t231': 'Atomic', 't001': 'Primitive'}.get(mode, 'Modern'), insight=S['insight_per_turn'], funded=funded, **unlocked,
                 queue=queue, foci=sorted(set(NORM(f) for f in S['foci_entered']) - NOT_ENTERED), badges={f: n for f, n in badges.items() if f not in NOT_ENTERED},
                 endeavour=dict(id='EL11', pct=64, paid=3415, price=5340, committed=226, aside=False) if mode == 't231' else None, rows=rows)

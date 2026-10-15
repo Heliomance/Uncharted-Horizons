@@ -2726,7 +2726,7 @@
    }
   ],
   "fx": "+25% Science in all cities; Experimental Laboratory (building)",
-  "fx2": "Experiment ability (spend Gold on a revealed breakthrough)",
+  "fx2": "",
   "opens": "",
   "flav": "",
   "conj": ""
@@ -2741,7 +2741,7 @@
    }
   ],
   "fx": "Resting point for Influence with City-States is increased by 10",
-  "fx2": "Synthesis ability (once each era, retry a breakthrough whose moment passed)",
+  "fx2": "",
   "opens": "",
   "flav": "",
   "conj": ""
