@@ -7,7 +7,8 @@ Tamsin asked which breakthroughs can be had an era or more before their own era,
 ## Status
 
 - **Adopted in v3.115 (15 October):** sixteen of the nineteen prerequisites in section 1, all but Scientific Method, Comparative Anatomy and the Windmill (section 5). Measured on the document against v3.114, two seed sets of 2,700 games each: victory medians within three turns (the expert one to three turns sooner, the novice and average players within a turn), and unfinished games 13 → 19 and 16 → 12, 29 against 31 of 5,400. Every unfinished game, before and after, is a STANDARD build-list idea that never occurred; none involves a changed row. Results: `…_cmpB0…` and `…_cmpA16…`, and `…_cmpB0s2…` and `…_cmpA16s2…` (`SEED0=27000`).
-- **Still open:** the three in section 5; the four rows in section 3; the time limit for the fourteen in section 2.
+- **Decided in v3.116:** the three in section 5. The University no longer requires the Printing Press, Scientific Method requires both, and Comparative Anatomy is merged into Anatomy Study; the Windmill's Water Mill proposal is withdrawn. Light check (familiar world, 900 games, against v3.115): medians within one turn, 3 unfinished games against 10.
+- **Still open:** the four rows in section 3; the time limit for the fourteen in section 2; whether the University's era label moves to Classical.
 - `EARLYFIX=1` now adds only the four not adopted (Comparative Anatomy, the Windmill, Scientific Method and the Ornithopter's gate).
 
 ## Results
@@ -101,7 +102,7 @@ Points for Tamsin within this group:
 
 ## 5. The three held back (follow-up, 15 October)
 
-Tamsin adopted the other sixteen in v3.115 and asked about these three.
+Tamsin adopted the other sixteen in v3.115 and asked about these three. Outcome (v3.116): the University change in `UNIV=2`'s form, Scientific Method after the University and the press; Comparative Anatomy merged into Anatomy Study; the Windmill's Water Mill withdrawn.
 
 ### Scientific Method after the University, with the University no longer after the Printing Press
 

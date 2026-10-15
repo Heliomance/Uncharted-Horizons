@@ -55,7 +55,10 @@ From `build_spec.md` §11, with the review's changes:
   `design/notes/deferred_tasks.md`, *Decide how far the One-Step Horizon reaches*.
 
 The Experiment and Synthesis abilities were removed from the design on 15 October (v3.113) and from the screen with
-them; Dialectical Thinking was removed in v3.114 and is dropped from the snapshots, which predate it. The records of how the screen was made (`requirements.json` R102 and R103, `build_spec.md`, the reviews) predate
+them; Dialectical Thinking was removed in v3.114 and is dropped from the snapshots, which predate it. The simulated game
+was played on v3.114, so the screen shows that version's prerequisites: the sixteen added in v3.115 and the University
+and Scientific Method changes of v3.116 are not in it, and Comparative Anatomy, merged into Anatomy Study in v3.116, still
+appears (owned on turn 120, 89 turns after Herbal Medicine and Writing had opened Medicine). The records of how the screen was made (`requirements.json` R102 and R103, `build_spec.md`, the reviews) predate
 that and still describe them.
 
 ## The data

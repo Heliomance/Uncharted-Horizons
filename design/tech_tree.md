@@ -1,4 +1,4 @@
-# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.115)
+# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.116)
 
 ## 1. System Overview
 
@@ -177,7 +177,7 @@ Every breakthrough, per civilisation, is in one of three states:
 
 **The One-Step Horizon rule.** Revelation only ever reaches one step past the civilisation's frontier: a breakthrough can be Revealed only if all of its prerequisite breakthroughs are already Discovered or Revealed, and theory reveals only its *direct* applications, never transitive descendants. You can reveal mechanical computation; you cannot reveal what lies three steps beyond it. Nobody in 1950, however well-funded, glimpses the smartphone. The horizon recedes as you advance, and the far side is always dark. This rule is what preserves "seventy years ago nobody knew" for the entire game, no matter how experienced the player.
 
-**CORE breakthroughs reveal themselves.** A CORE breakthrough becomes Revealed automatically the moment all its prerequisite breakthroughs are Discovered and its environmental prerequisites are met — the furthest reach the One-Step Horizon permits, and the one exception to the rule that revelation is rare before the Scientific Method. It gives the player back the agency to aim: a civilisation that knows Writing, Formal Logic and the Printing Press sees the University waiting in Philosophy and the Arts, and can choose to fund it. It costs little surprise, since the discovery roll still decides *when* it fires, and serendipity lives in the STANDARD, UNCOMMON and RARE tiers. Because CORE now means *visible and aimable*, the tier is reserved for what a civilisation genuinely cannot do without (see the tier review, v3.59).
+**CORE breakthroughs reveal themselves.** A CORE breakthrough becomes Revealed automatically the moment all its prerequisite breakthroughs are Discovered and its environmental prerequisites are met — the furthest reach the One-Step Horizon permits, and the one exception to the rule that revelation is rare before the Scientific Method. It gives the player back the agency to aim: a civilisation that knows Writing and Formal Logic sees the University waiting in Philosophy and the Arts, and can choose to fund it. It costs little surprise, since the discovery roll still decides *when* it fires, and serendipity lives in the STANDARD, UNCOMMON and RARE tiers. Because CORE now means *visible and aimable*, the tier is reserved for what a civilisation genuinely cannot do without (see the tier review, v3.59).
 
 **Serendipitous accidents.** Each turn there is a small chance — scaled by the Insight a focus receives from the spread — of a discovery roll in a *non-focused* Focus Area the civilisation qualifies for. Penicillin was not the funded programme; it was the mess on the bench.
 
@@ -305,7 +305,6 @@ The Space era's span is provisional. The FTL endgame (§4) widened the era with 
 | O04 | **Tidal Patterns** | STANDARD | Primitive | O01 + Coastal location | **Tidal Weir**ⁿ [10/0; ⟨[+1 Food] from [Fish] tiles [in this city]⟩; ⟨Must be next to [Coast]⟩]. | |
 | O05 | **Celestial Mathematics** | CORE | Ancient | O01 + SO01 (Basic Counting) | *Unlocks* **Mathematics** focus; ⟨[+2 Faith] [in capital]⟩ (foretold eclipses). |  |
 | O06 | **Natural Philosophy** | CORE | Classical | O01 + SO04 (Writing) | **The Oracle** (world wonder); **National College** (national wonder — the Academy); +5% Insight to all foci. |  |
-| O07 | **Comparative Anatomy** | CORE | Classical | O03 + G03 (Herbal Medicine) | *Unlocks* **Medicine** focus. | |
 | O08 | **Geological Observation** | CORE | Ancient | S04 (Ore Identification) | ⟨Reveal up to [all] [Strategic resource] within a [10] tile radius⟩ (a Triggerable map reveal on discovery — the deposits Ore Identification missed); ⟨[+1 Production] from [Quarry] tiles [in all cities]⟩; ⟨[+1 Production] from [Iron] tiles [in all cities]⟩ (magnetic ore sorting); ⟨[+1 Culture] [in capital]⟩ — the lodestone, a geological curiosity (Magnetism Discovery, merged here in v3.100). Prerequisite for the Compass (SF08). ⟨[+1 Gold] from all [Dye Works] buildings⟩ (bleaching); ⟨[+1 Happiness] [in capital]⟩ (antiseptic, and matches that strike anywhere) — sulphur, gathered where the vents and springs bring it up (Sulfur Mining, merged here in v3.102). Knowledge, not a resource: sulfur was always the *available* half of gunpowder. Prerequisite for Advanced Pyrotechnics (F07) and Gunpowder (WA10). |  |
 | O09 | **Migratory Pattern Mapping** | UNCOMMON | Primitive | O03 | **Circus**; ⟨[+1 Food] from [Camp] tiles [in all cities]⟩ — knowing where the herds will be. |  |
 | O10 | **Antikythera-Style Mechanism** | RARE | Classical | O05 + MC03 (Gearing) | **Antikythera Engine**ⁿ [national wonder; 120/0; +3 Science, +2 Culture; ⟨[+15]% [Science] [in this city]⟩]; +15% Insight to Mathematics and Observation. **Seed of the Antikythera chain** (O13/O14/O15). | What if the Antikythera tradition continued? |
@@ -567,9 +566,9 @@ The Space era's span is provisional. The FTL endgame (§4) widened the era with 
 | PH01 | **Formal Logic** | CORE | Classical | O06 | ⟨Gifts of Gold to City-States generate [+25]% more Influence⟩ — the structured argument persuades. ⟨[+1 Science] from every specialist [in all cities]⟩; ⟨[-25]% enemy spy effectiveness [in all cities]⟩ (`<when espionage is enabled>`) — scepticism as defence: Aristotle's logic and his account of knowledge (Epistemology, merged here in v3.105). | |
 | PH12 | **Harmonious Inquiry** | UNIQUE | Classical | O06 (Natural Philosophy) + Diverse biome (3+ terrain types) | **Academy of Harmony**ⁿ [100/1; +2 Science, +1 Culture; ⟨[+1 Science] for every known Natural Wonder⟩]. Civ unique: ⟨[+2 Science] for every known Natural Wonder⟩ — inquiry that walks the whole world. (Approximates the design's per-terrain-type bonus, which has no direct template.) | Chinese natural philosophy, Greek peripatetic tradition. |
 | CU05 | **Theater** | STANDARD | Classical | SO04 + CU03 | **Amphitheater**; the drama festival via `Events.json`. (The Opera House, the Celtic Ceilidh Hall, the Sistine Chapel and the Theatre belong to the Renaissance, CU07.) |  |
-| CU06 | **University** | CORE | Medieval | SO04 + PH01 (Formal Logic — epistemology) + MC06 (Printing Press) | **University** (and the Siamese **Wat**); **Angkor Wat** (world wonder); **Oxford University** (national wonder — a great seat of learning, built on recovered knowledge: the Translation Movement, merged here in v3.100). (The theology wonders are Scholastic Theology's, CU15.) |  |
+| CU06 | **University** | CORE | Medieval | SO04 + PH01 (Formal Logic — epistemology) | **University** (and the Siamese **Wat**); **Angkor Wat** (world wonder); **Oxford University** (national wonder — a great seat of learning, built on recovered knowledge: the Translation Movement, merged here in v3.100). (The theology wonders are Scholastic Theology's, CU15.) | Bologna (1088), Paris and Oxford (12th c.), three centuries before the press. |
 | CU11 | **Courtly Love Tradition** | UNIQUE | Medieval | CU03 (Artistic Tradition) + CU05 (Theater) + SO06 (Codified Law) | **Royal Court**ⁿ [replaces Amphitheater; 100/2; requires a **Monument** in this city; +3 Culture; Great Artist points 2]. Civ unique: ⟨When declaring friendship, both parties gain a [15]% boost to great person generation⟩ — courtship, made diplomacy. | European/Japanese/Persian courtly poetry and culture. |
-| PH04 | **Scientific Method** | CORE | Early Modern | PH01 | ⟨[+25]% [Science] [in all cities]⟩ — Insight *is* science, so the design's game-changing bonus is this one legal unique. **Experimental Laboratory**ⁿ [190/2; requires a **University** in this city; +2 Science; Scientist ×1] — the experiment as institution (Empiricism, merged here in v3.100: Bacon's empiricism was the method). | Game-changing. |
+| PH04 | **Scientific Method** | CORE | Early Modern | PH01 + CU06 (University — the schools where natural philosophy was taught) + MC06 (Printing Press — observations fixed, shared and checked) | ⟨[+25]% [Science] [in all cities]⟩ — Insight *is* science, so the design's game-changing bonus is this one legal unique. **Experimental Laboratory**ⁿ [190/2; requires a **University** in this city; +2 Science; Scientist ×1] — the experiment as institution (Empiricism, merged here in v3.100: Bacon's empiricism was the method). | Game-changing. |
 | CU07 | **Renaissance** | STANDARD | Early Modern | CU06 + PH01 (Formal Logic — epistemology) + TR05 | ⟨Empire enters a [10]-turn Golden Age⟩ (a Triggerable on discovery — the Renaissance itself); **Hermitage** (national wonder); **Opera House** (and the Celtic **Ceilidh Hall**); **Theatre**; **Sistine Chapel** (world wonder) — music and drama for a paying public: opera began in Renaissance Florence, and the Sistine ceiling dates from 1512 (Opera, merged here in v3.100). |  |
 | PH09 | **Existentialism** | UNCOMMON | Modern | PH01 (Formal Logic — epistemology) + PH14 (The Enlightenment — the rational order it answered) | ⟨[+2 Culture] from every [Artist]⟩ — the movement finds its voices. Existential-crisis events via `Events.json`. |  |
 | PH10 | **Information Theory** | CORE | Atomic | PH01 + MA07 (Binary Math) + EN01 (Vacuum Tube — the telephone and radio circuits it measured) | ⟨[Great Scientist] is earned [+10]% faster⟩ — information made measurable. Prerequisite for Computing. | |
@@ -581,13 +580,13 @@ The Space era's span is provisional. The FTL endgame (§4) widened the era with 
 ---
 
 ### FOCUS: MEDICINE 💊
-*Available from: O07 (Comparative Anatomy) or G03 (Herbal Medicine) + SO04 (Writing)*
+*Available from: G03 (Herbal Medicine) + SO04 (Writing)*
 
 | # | Breakthrough | Cat. | Era | Prerequisites | Unlocks | Notes |
 |---|---|---|---|---|---|---|
 | MD01 | **Surgical Techniques** | STANDARD | Ancient | G03 (Herbal Medicine) | **Surgery**ⁿ [20/0; requires a **Herbalist** in this city; ⟨[Military] Units adjacent to this city heal [+10] HP per turn when healing⟩]. (Hospital moves to Germ Theory, MD05, in §7 — its +5 Food is a Modern-era yield.) | Surgery predates comparative anatomy by millennia — trepanation is Neolithic — so it rests on herbal medicine; the Medicine focus's own route (Herbal Medicine + Writing) keeps it Ancient. |
 | MD02 | **Quarantine Protocols** | STANDARD | Classical | MD01 + SO08 (Census) | **Quarantine Station**ⁿ [25/0; ⟨[+10]% growth [in this city]⟩]. | |
-| MD03 | **Anatomy Study** | CORE | Classical | O07 + SO04 (Writing) | **Medical School**ⁿ [50/1; requires a **Library** in this city; Scientist ×1; ⟨[Military] Units adjacent to this city heal [+5] HP per turn when healing⟩]. Foundation of advanced medicine. | |
+| MD03 | **Anatomy Study** | CORE | Classical | O03 (Animal Behavior Study) + G03 (Herbal Medicine) + O06 (Natural Philosophy — Alcmaeon's and Aristotle's dissections) | **Medical School**ⁿ [50/1; requires a **Library** in this city; Scientist ×1; ⟨[Military] Units adjacent to this city heal [+5] HP per turn when healing⟩]. Foundation of advanced medicine. The body learned by dissection, animal first: Aristotle compared animals, Herophilus dissected human bodies at Alexandria, and Galen's anatomy was largely of apes and pigs (Comparative Anatomy, merged here in v3.116). | |
 | MD04 | **Vaccination** | STANDARD | Early Modern | MD03 + AH02 (Herd Animal Domestication — the milkmaid observation) + PH04 (Scientific Method — Jenner's trial) | ⟨[+10]% growth [in all cities]⟩ — the plague years end. *Also discoverable through Animal Husbandry (the milkmaid observation).* |  |
 | MD05 | **Germ Theory** | CORE | Modern | MD03 + PH04 (Scientific Method) + OP03 (Telescope — the microscope) | **Hospital**; ⟨[+10]% growth [in all cities]⟩ (sanitation). Grants DISEASE_THEORY token *if validated*. **Frontier Question FQ10:** resolved by MD15. In Germ worlds (~60%) MD05 validates; in Miasma/Humoral worlds it dead-ends and MD16/MD17 serve instead. | In most universes, the microbe is the culprit. |
 | MD06 | **Antibiotics** | STANDARD | Atomic | MD05 (Germ Theory validated) + CH07 (Organic Chemistry) | **Medical Lab**; ⟨All newly-trained [Military] units [in all cities] receive the [Medic] promotion⟩. **Germ-exclusive.** Grants MASS_MEDICINE (germ route). The primary of the infection Competing Solution; Phage Therapy (MD20) is its alternative. The canonical Medical Lab gains ⟨Remove [Phage Institute] [in this city]⟩ through the ruleset derivation: a city holds one or the other, and switches by building the other. | The magic bullet — but only if microbes are the enemy. |
@@ -1878,8 +1877,8 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 | Metric | Count |
 |---|---|
 | Focus Areas | 35 (5 starting + 31 unlockable) |
-| Total Breakthroughs | ~545 |
-| CORE Breakthroughs | ~142 |
+| Total Breakthroughs | ~544 |
+| CORE Breakthroughs | ~141 |
 | STANDARD Breakthroughs | ~254 |
 | UNCOMMON Breakthroughs | ~56 |
 | RARE Breakthroughs | ~39 |
@@ -2068,6 +2067,15 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 ---
 
 ## Changelog from v2.0 — Game Design Pass
+
+### v3.116 — The University Before the Press; Comparative Anatomy Merged
+
+- **The University no longer requires the Printing Press.** Bologna (1088), Paris and Oxford came three centuries before Gutenberg, so the requirement ran history backwards. The University now needs Writing and Formal Logic, the grammar and logic its arts course was built on. It can therefore be had from the Classical era, one era early at the era premium, alongside the first schools of higher learning (Nalanda; Constantinople, 425; al-Qarawiyyin, 859; al-Azhar, 970). Its era stays Medieval.
+- **Scientific Method requires the University and the Printing Press**, the two institutions it waited on: the universities, where natural philosophy was taught from about 1200 and most of the seventeenth century's founders trained, and the press, which made observations fixed, shared and checkable. On Formal Logic alone it was available from the Classical era, two eras early; it is now available from the Medieval era, and the Experimental Laboratory's University is certain to come first.
+- **What depends on them.** The University is now on every route to 310 rows (3 before) and the Printing Press to 309 (5 before): Scientific Method and everything after it, and for the University also the Renaissance. All are Early Modern or later, while both rows are Medieval and CORE, so they arrive first and no timing moves. §1.4's example of a CORE row revealing itself now has the University waiting on Writing and Formal Logic.
+- **Comparative Anatomy (O07) is merged into Anatomy Study (MD03).** Since its Anatomy Theatre was cut (v3.88), its only benefit was opening the Medicine focus, which Herbal Medicine and Writing also open, normally first. Its only dependent was Anatomy Study, which covers the same Classical tradition. Anatomy Study now requires Animal Behavior Study, Herbal Medicine and Natural Philosophy (which brings Writing), so it is still available from the Classical era and nothing downstream moves. The Medicine focus opens with Herbal Medicine and Writing.
+- **Measured** (familiar world, three benchmark players, 900 games, against v3.115 with the same seeds): victory medians within one turn; 3 unfinished games against 10, all STANDARD build-list ideas that never occurred.
+- ~544 breakthroughs (CORE ~141).
 
 ### v3.115 — Sixteen Missing Enablers
 
