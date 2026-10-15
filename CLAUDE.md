@@ -2,6 +2,14 @@
 
 A fork of Unciv (Kotlin/libGDX) that replaces the technology tree with a discovery-based research system: focus areas, breakthroughs, World Truths and an FTL endgame. The game code is still upstream Unciv; so far the work is design, done with Tamsin, whose design it is.
 
+## The hardest design constraint: a science victory takes as long as base Civ V's
+
+**A science victory must take as long as it does in base Civ V, for the same player on the same economy, and never longer. This is absolute.** The fork changes only the research system. Domination, cultural and diplomatic victories are unchanged and balanced against base Civ V's game length, so a longer science victory makes science unviable as a victory condition. (Tamsin, 15 October 2026, after it had been compromised more than once.)
+
+- **Never trade it away.** No other goal outranks it: not the pace of discoveries, prices, the FTL puzzle's feel, incidental discoveries or any lever's elegance. Never offer "accept a longer science victory" as an option, and never call a measurement that runs longer "close enough". If a change you want lengthens the science victory, find what pays the turns back, or drop the change.
+- **The reference** is base Civ V's science victory simulated on the same income. `design/simulator/power/base_race.py` runs Unciv's Gods & Kings tree to a launched spaceship, for a player who researches only what the ship needs and builds the Apollo Program and the six parts. On the simulator's economies (15 October 2026) that's **turn 305 on the good economy and 380 on the average one**. Re-run it whenever the simulated income or the ship's construction changes, and use its figures, not the era model's 320, which is base Civ V's whole-tree research time rather than its victory.
+- **The check:** every benchmark player's median victory, with the ship's construction costed (`victory.py`), must be no later than the reference for its economy: the expert and the novice against the good economy's, the average player against the average one's. Parity means matching it, not merely staying under it, so a science victory markedly shorter than base Civ V's is also a problem to report. Report every victory measurement against the reference.
+
 ## The repository is the only memory
 
 Each cloud session starts in a fresh container with a fresh clone of the repository. Anything not committed and pushed is lost when the session ends: tools, results, notes, parked tasks. Commit and push as you go.
