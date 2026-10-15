@@ -10,7 +10,7 @@ from results saved with SAVE_T=1 and ACCT=<path>:
   the share of its Space-era breakthroughs each player holds before its development reaches the Space era;
   the share of the Insight spent studying each era's rows that the ahead-of-time premium takes (Grand Endeavours are
   priced separately and not included);
-  discoveries a turn (diffusion included) while development is in each of the last three eras.
+  discoveries a turn while development is in each era, the civilisation's own and those diffused from rivals.
 Victory adds the prototype, priced at PROTOX (default 5) x the Space era's price (SPACEPRICE, default the finalised design's)
 with the premium at the finish, paid from the active share of the Insight then; the SS FTL Drive (4 turns, 5 for the
 average player, one fewer where exotic components exist) and a turn to launch. The fixed figure (5 / 6 turns) is the old one.
@@ -65,7 +65,7 @@ label, cells = sys.argv[1].lstrip('_'), [c.split(':') for c in sys.argv[2:]]
 for code, name, econ, proto, drive in PLAYERS:
     d, inc = clock(econ); start = {e: reach(d, i) for i, e in enumerate(EO)}; t_space = start['Space']
     rows = {k: [] for k in NAMES}; entry = {e: [] for e in ENTRY}; early, unfinished, n = [], 0, 0
-    att, prem, pace = {}, {}, {e: [0, 0] for e in EO[SPACE - 2:]}
+    att, prem, pace = {}, {}, {e: [0, 0, 0] for e in EO}
     for w, m in cells:
         games = json.load(open(os.path.join(HERE, 'results', f'w7f_{w}_{label}{code}_{m}.json')))
         accts = json.load(open(os.path.join(HERE, 'results', f'acct_{label}{code}_{w}_{m}.json')))
@@ -85,9 +85,11 @@ for code, name, econ, proto, drive in PLAYERS:
             for e, need in ENTRY.items():
                 ts = sorted(t for k, t in g['t'].items() if era(k) >= EO.index(e))
                 if len(ts) >= need: entry[e].append(ts[need - 1])
-            for e in pace:   # discoveries while development is in era e, up to the finish
+            diffused = {k for _, k in (g.get('diffs') or [])}
+            for e in pace:   # discoveries while development is in era e, up to the finish: the civilisation's own, and diffused
                 lo = start[e]; hi = min(start[EO[EO.index(e) + 1]] if EO.index(e) + 1 < len(EO) else fin, fin)
-                pace[e][0] += sum(1 for t in g['t'].values() if lo < t <= hi); pace[e][1] += max(hi - lo, 0)
+                got = [k for k, t in g['t'].items() if lo < t <= hi]
+                pace[e][0] += sum(1 for k in got if k not in diffused); pace[e][1] += sum(1 for k in got if k in diffused); pace[e][2] += max(hi - lo, 0)
     print(f'\n{name.upper()} ({n} games, {unfinished} unfinished; economy x{econ}): development enters the Atomic era on turn '
           f"{start['Atomic']}, the Space era on {t_space}, and ends it on {reach(d, SPACE + 1)}")
     for k, v in rows.items():
@@ -96,5 +98,5 @@ for code, name, econ, proto, drive in PLAYERS:
     print(f'  Space-era breakthroughs held at the finish that came before development reached the Space era: {100 * med(early):.0f}% (median)')
     print('  the premium\'s share of the Insight spent on study, by era of the row: ' +
           ', '.join(f'{e} {100 * prem.get(e, 0) / att[e]:.0f}%' for e in EO if att.get(e, 0) > 0 and EO.index(e) >= SPACE - 2))
-    print('  discoveries a turn while development is in each era (diffusion included): ' +
-          ', '.join(f'{e} {a / b:.2f}' for e, (a, b) in pace.items() if b))
+    print('  discoveries a turn while development is in each era, own + diffused: ' +
+          ', '.join(f'{e} {a / c:.2f} + {b / c:.2f}' for e, (a, b, c) in pace.items() if c))

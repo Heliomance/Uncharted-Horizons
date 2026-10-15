@@ -177,7 +177,7 @@ HF.EXPCAP = float(os.environ['EXPCAP']) if os.environ.get('EXPCAP') else None; H
 if 'w' in _L: BUILD['Wormhole'].append(['MS17'])   # Wormhole's engineering row outside its tests (its price: prices.py)
 if 'y' in _L and world is None: BUILD['Tachyonic'] = [g for g in BUILD['Tachyonic'] if g != ['NP11']]   # scenario: atomic Tachyonic without NP11 in its build
 SEED0 = int(os.environ.get('SEED0', '17000'))
-POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool.json")) if os.environ.get('DIFF') == '1' else None
+POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool{os.environ.get('POOLTAG', '')}.json")) if os.environ.get('DIFF') == '1' else None   # POOLTAG: rivals made under the same settings (make_pool.sh)
 CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))   # the discovery model (the workshop's candidate)
 if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its price calibration
 if os.environ.get('ERAHOLD'): CFG['era_hold'] = os.environ['ERAHOLD']   # start|clock: no window closes before its row's era has begun
