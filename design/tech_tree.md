@@ -1,4 +1,4 @@
-# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.117)
+# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.118)
 
 ## 1. System Overview
 
@@ -760,7 +760,7 @@ The Space era's span is provisional. The FTL endgame (§4) widened the era with 
 
 | # | Breakthrough | Cat. | Era | Prerequisites | Unlocks | Notes |
 |---|---|---|---|---|---|---|
-| OP01 | **Glassmaking** | CORE | Ancient | F02 (Kiln Construction) + Desert or Coast tile in territory | ⟨[+15]% Production when constructing [Lighthouse] buildings [in all cities]⟩ — glass for the lantern. Requires a Desert or Coast tile in territory (Civ V has no Sand resource). | |
+| OP01 | **Glassmaking** | CORE | Ancient | F02 (Kiln Construction) + (F03 (Charcoal Production — potash from wood ash) or Desert/coast tile in territory) | ⟨[+15]% Production when constructing [Lighthouse] buildings [in all cities]⟩ — glass for the lantern. Two traditions: soda glass, fluxed with natron or the ash of salt-loving plants from desert and shore (Egypt, Rome, Venice); and potash glass, fluxed with wood ash, the forest glass of inland Europe (Theophilus, c. 1120: two parts beechwood ash to one of sand washed from a river), later Bohemian crystal. The silica is everywhere: river sand, crushed quartz pebbles, sandstone (Civ V has no Sand resource). | Inland China made glass with lead and barium (Warring States). |
 | OP02 | **Lens Grinding** | CORE | Medieval | OP01 + MA01 (Geometry) | ⟨[+1 Science] from every [Scientist]⟩ — spectacles double a scholar's working life. ⟨[+1 Culture] from every [Artist]⟩ — the projected image, traced (Camera Obscura, merged here in v3.101: the same lenses, the same era). | |
 | OP03 | **Telescope** | CORE | Early Modern | OP02 | **Observatory**; ⟨[+1] Sight <for [Water] units>⟩ (spotting). ⟨[-25]% enemy spy effectiveness [in all cities]⟩ (`<when espionage is enabled>` — forensics): the same lens-makers made both, Janssen around 1590 (Microscope, merged here in v3.105). Unlocks the Germ Theory path (MD05). |  |
 | OP07 | **Laser** | CORE | Atomic | OP02 + (QP02 Quantum Mechanics, or QM-E03 Resonant-State Computing) | Coherent light — a *phenomenon*, dual-framed by account. *Atomic:* stimulated emission (quantum). *Elemental:* a resonant cavity forces the aether / fire-phase into a single pure mode — a "Resonant Ray" (Substance) / "Harmonic Ray" (Process), drawing on QM-E03. Either way: ; ⟨[+10]% Strength <for [Ranged] units>⟩ (laser targeting). | Light forced into a single voice — whether by quantum leap or by resonance. |
@@ -1471,7 +1471,7 @@ Note that fusion is **not** a Removal Truth in the current model: it is governed
 Truths combine: ~2% chance of Enhanced Springs + No Fossil Fuels ("clockpunk"), ~3% chance of Antikythera + Enhanced Springs ("mechanical computing"), etc. All twelve axes (Section 5) are sampled together, subject to master-axis derivation and constraint-checking. FTL method selection (FQ1) is *not* independent of the other axes: it is sampled after the Matter axis (FQ9), from the five methods valid for that world (D atomic-only, F elemental-only), and then derives the frontier truths as Principle 3 (Section 5) describes.
 
 ### Guaranteed Path Integrity
-1. At least one complete path from Primitive to Interstellar using only CORE breakthroughs, regardless of which World Truths are set
+1. At least one complete path from Primitive to Interstellar using only CORE breakthroughs, regardless of which World Truths are set. No terrain condition stands on it (v3.117–v3.118): its only environmental conditions are iron in territory, which trade or conquest can supply (§1.2), and a city of five (Specialization of Labor)
 2. Exactly one FTL method viable per game, its build and prove rows always CORE or STANDARD *in that world*. Six methods exist; Tunnelling is atomic-only and Plenum elemental-only (a matter-axis mirror pair), so each world offers five candidates. World creation draws the viable method and the world's conditions by §4's *Generation Rules*, whose guarantee keeps the viable method's build and prove rows reachable whatever the world's other truths; the universal methods' atomic rows resolve to their Quintessic equivalents per *FTL in Elemental Worlds* (§4). Power for the brute-force methods (W9) is always reachable: three ES06 Nuclear Fission Plants (CORE) match one advanced fission plant, as do ES14 Advanced Fission or ES08 Fusion alone; in elemental worlds, ES15 Quintessic Plants or QM-E05 (Re-Tempering Reactor).
 3. At least one energy path to Space-era power levels — the Nuclear Fission Plant (ES06, CORE) in Corpuscular worlds, the Quintessic Power Plant (ES15) fed by Bound-Energy Release (QM-E02, CORE) in Elemental worlds
 4. Writing (SO04) or alternative (SO09) always available
@@ -2067,6 +2067,14 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 ---
 
 ## Changelog from v2.0 — Game Design Pass
+
+### v3.118 — Glass Without a Shore
+
+- **Glassmaking no longer needs a desert or coast tile.** It requires Kiln Construction and either Charcoal Production or a desert or coast tile: the two traditions of glass. Soda glass took its flux from natron and the ash of salt-loving plants of desert and shore (Egypt, Rome, Venice). Potash glass took it from wood ash: the forest glass of inland Europe (Theophilus, c. 1120: two parts beechwood ash to one of sand washed from a river), later Bohemian crystal. The silica was never the difficulty: river sand, crushed quartz pebbles and sandstone are found almost everywhere, and inland China made glass with lead and barium.
+- **Why:** a terrain condition cannot be met by trade, and Glassmaking opens the Optics focus and stands on every route to 152 rows (27 CORE): the Telescope, the Vacuum Tube, the Programmable Computer, nuclear fission, the quantum chain, Quantum Gravity Theory and Orbital Assembly. A civilisation with neither a desert nor a coast could not win in an atomic world, and in an elemental one only by Warp or Wormhole.
+- **In practice the gate is gone,** since Charcoal Production is a Primitive CORE row with no terrain condition; the shore keeps its story, not an advantage. Inland, the Lighthouse bonus does nothing, but opening the Optics focus is the row's benefit (v3.84). The tools read the row as Kiln Construction plus Charcoal Production, as they read every environmental alternative.
+- **Guarantee Rule 1** now says what v3.117 and this change make true: no terrain condition stands on the CORE path to Interstellar. Its only environmental conditions are iron in territory, which trade or conquest can supply, and a city of five.
+- ~544 breakthroughs.
 
 ### v3.117 — The Windmill, the Dry Country's Mill
 
