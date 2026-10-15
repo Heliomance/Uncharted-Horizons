@@ -48,7 +48,7 @@ closure=[(k,p) for k,c in rows.items() if c[2]=='CORE' for p in required(c[4]) i
 orgaps=[(k,tm.strip()[:45]) for k,c in rows.items() if c[2]=='CORE' for tm in terms(c[4])
         if re.search(r'\bor\b',tm) and (ids:=[x for x in re.findall(IDRX,tm) if x in rows]) and not any(rows[x][2]=='CORE' for x in ids)]
 SUB={'CH20','CH21','CH27','QM-E09','QM-E10','QM-E26'}; PRO={'CH22','CH23','CH24','CH26','TR16','QM-E11','QM-E24','QM-E25'}
-ATOM={k for k in rows if k.startswith(('NP','QP'))}|{'EN02','EN08','EN09','CP10','GN10','MI10','ES06','ES08','ES12','ES14','CH06'}
+ATOM={k for k in rows if k.startswith(('NP','QP'))}|{'EN02','EN08','EN09','CP10','GN10','ES06','ES08','ES12','ES14','CH06'}
 QM={k for k in rows if k.startswith('QM-E')}
 exists={'Corpuscular':lambda k:k not in SUB|PRO|QM,'Substance':lambda k:k not in ATOM|PRO,'Process':lambda k:k not in ATOM|SUB}
 gap=[]

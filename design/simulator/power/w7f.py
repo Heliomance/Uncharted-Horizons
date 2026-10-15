@@ -41,6 +41,7 @@ def smart_targets(reqs, have):
         if k in have: return frozenset()
         if k not in _rows: return None
         if k in lost and k not in gl and k not in dif and k not in dun: return None   # an idea that isn't coming
+        if k in S_.get('locked', ()) and k != S_.get('end_k'): return None   # an alternative locked out by its primary (Competing Solutions)
         memo[k] = frozenset([k]); req = {k}
         for grp in _rows[k]['pre']:
             best = None
@@ -102,11 +103,11 @@ def hint_pick(reqs, have):
 import prices; prices.apply(HF, _rows)   # the agreed design's prices: Space-era price and row multipliers (prices.py)
 COST = {k: _cost(k) for k in _rows}      # each row's price, fixed for the run (smart_targets sums these millions of times)
 if world is None:
-    BUILD = {'Warp': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['ES06', 'ES07', 'ES14', 'ES08'], ['ES18']], 'Wormhole': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['RC04'], ['QP12'], ['MA13']],
+    BUILD = {'Warp': [['RC01'], ['QP08'], ['QP11'], ['MS08'], ['ES06', 'ES07', 'ES14', 'ES08'], ['ES18']], 'Wormhole': [['RC01'], ['QP08'], ['QP11'], ['MS08'], ['RC04'], ['QP12'], ['MA13']],
              'Hyperspace': [['QP08'], ['MA13'], ['ES06', 'ES07', 'ES14', 'ES08'], ['MA19']], 'Tunnelling': [['QP02'], ['CP10'], ['MS02', 'GN05'], ['QP14'], ['CP21']],
              'Tachyonic': [['QP06'], ['QP08'], ['NP11'], ['SE02'], ['ES06', 'ES07', 'ES14', 'ES08'], ['NP15']]}
 else:
-    BUILD = {'Warp': [['RC02'], ['QM-E27'], ['QM-E06'], ['MS08'], ['ES07', 'ES15', 'QM-E05'], ['ES18']], 'Wormhole': [['RC02'], ['QM-E27'], ['QM-E06'], ['MS08'], ['RC04'], ['QM-E13'], ['MA13']],
+    BUILD = {'Warp': [['RC01'], ['QM-E27'], ['QM-E06'], ['MS08'], ['ES07', 'ES15', 'QM-E05'], ['ES18']], 'Wormhole': [['RC01'], ['QM-E27'], ['QM-E06'], ['MS08'], ['RC04'], ['QM-E13'], ['MA13']],
              'Hyperspace': [['QM-E27'], ['MA13'], ['ES07', 'ES15', 'QM-E05'], ['MA19']], 'Tachyonic': [['QM-E17'], ['QM-E27'], ['ES07', 'ES15', 'QM-E05'], ['SE02'], ['TH20']],
              'Plenum': [['QM-E27'], ['MS02'], ['QM-E19'], ['QM-E23'], ['AE20']]}
 import os
@@ -305,7 +306,9 @@ def play(s, m, a):
         why['_end'] = f"stopped turn {log[-1][0] if log else '?'}, development {log[-1][1]:.2f}" if log else ''
     if os.environ.get('ACCT'):                    # ACCT=<path>: the engine's accounts, written separately below
         diag = dict(diag or {}, _acct=dict(HF.run.acct, lost_at=HF.run.lost_at, opened=HF.run.opened, occ=HF.run.occ, cert=state['cert'][0] if state['cert'] else None, built=built))
-    return dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
+    rec = dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
+    if HF.COMPETE: rec['locked'] = sorted(HF.run.locked)   # Competing Solutions: the alternatives this civilisation locked out
+    return rec
 WORKERS = int(os.environ.get('WORKERS') or os.cpu_count() or 1)   # games played in parallel, one process each (WORKERS=1: one after another)
 if WORKERS > 1 and len(DRAWS) > 1 and not os.environ.get('TRACE'):
     import multiprocessing

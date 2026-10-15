@@ -62,6 +62,8 @@ The standard run is 60 games of one FTL method in one world, played by the exper
 | `base_race.py` | Base Civ V's science victory on Unciv's Gods & Kings tree, run on the simulator's income, for comparison with the fork's. |
 | `row_survey.py` | One line of data per row for the row survey: tier, era, grants, dependents, the victory rows it must precede, and how often and when each player discovers it. |
 | `make_pool.sh` | Rebuilds the rivals that knowledge diffusion replays, under a run's prices and eras (`POOLTAG`). |
+| `competing.py` | Competing Solutions (§1.2, §6): each alternative's ×1.5 detour margin, and the lock-out the harness applies when a civilisation discovers the primary first (`COMPETE`, on by default since v3.124). |
+| `confirm_report.py` | The parity check for a design version: every player's victory on all 15 conditions against base Civ V's, unfinished games, the prototype and the Drive, the late pace and the lock-outs. |
 | `era_pace.py` | Turns per discovery while development is in each era, beside base Civ V's turns per tech on the same income. |
 | `smooth.py`, `smooth_screen.sh`, `smooth_report.py`, `discovery_mix.py` | The era-smoothing pass: settings for a set of era price multipliers, a three-condition screen of them, its victory, era-alignment and discovery-count report, and where each era's discoveries come from (`results/smooth_20261015.txt`). |
 | `ledger.py`, `ledger2.py` – `ledger6.py` | The power ledgers: per-city building power by era, which the era model reads. |

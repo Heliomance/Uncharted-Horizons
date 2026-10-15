@@ -1,8 +1,10 @@
 """The agreed design's research prices, applied to the harness exactly as the FTL runner (w7f.py) applies them: the Space
 era's price per discovery (SPACEPRICE) and the price multipliers of Space-era rows: the signature fields' rows at 2.5x,
 the W18 pools at 2.5x with capstones at 4x, and the round-two settings. LEVERS letters as in docs/WORKSPACE.md; the
-finalised design's are the defaults (defaults.py). Any script that runs the harness on the agreed design calls apply()."""
+finalised design's are the defaults (defaults.py). Any script that runs the harness on the agreed design calls apply(),
+which also applies the Competing Solutions' margins and lock-outs (competing.py, COMPETE)."""
 import os
+import competing
 
 SIG = ('CP16', 'CP21', 'CP10', 'AE14', 'AE20', 'MS08', 'QM-E23', 'ES22', 'ES18', 'ES14', 'ES08', 'MA15', 'MA19', 'NP11', 'NP15', 'TH20')
 POOL_ROWS = ('CP17', 'CP18', 'CP19', 'CP20', 'CP15', 'CP09', 'ES17', 'ES19', 'ES20', 'ES11', 'MS10', 'MS11', 'MS12', 'MS13', 'MS16', 'MA16', 'MA17',
@@ -39,3 +41,4 @@ def apply(HF, rows):
     if 'u' in L: HF.COSTMULT['CP16'] = 1.0    # round two: Tunnelling's Planetary Data Networks at 1x
     if 'k' in L: HF.COSTMULT['TH20'] = 4.0    # round two: elemental Tachyonic's Boundary Ring at 4x
     if 'm' in L: HF.COSTMULT['CP10'] = 2.0    # agreed nudge: Tunnelling's Quantum Computing at 2x
+    competing.apply(HF, rows)   # Competing Solutions: each alternative's detour margin, and the lock-outs (COMPETE)

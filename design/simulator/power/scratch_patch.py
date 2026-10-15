@@ -16,9 +16,9 @@ def add_after(anchor, rid, name, tier, era, pre, eff):
     L.insert(row(anchor)+1, f'| {rid} | **{name}** | {tier} | {era} | {pre} | {eff} | |')
 setcell('QM-E23',2,'STANDARD'); setcell('QM-E23',4,'QM-E19 + RK07 + AE14')
 setcell('QP11',4,'QP08 + QP12 (Casimir Effect Amplification) + MS02 (Nanotechnology)')
-setcell('QM-E27',4,'QM-E04 (Unified Field) + RC02 (General Relativity) + MA13 (Topology)')
+setcell('QM-E27',4,'QM-E04 (Unified Field) + RC01 (Relativity) + MA13 (Topology)')
 setcell('QP14',4,'(QP07 or GN10) + RK16')
-setcell('RC05',4,'RC02 + RK05 + (QP08 or QM-E27)')
+setcell('RC05',4,'RC01 + RK05 + (QP08 or QM-E27)')
 setcell('CP10',4,'((QP07 + CP01) or GN10) + CP16')
 add_after('RC10','RC11','Gravitational Leakage Survey','STANDARD','Space',f'RC03 + {LEAK}','(scratch)')
 add_after('CP15','CP16','Planetary Data Networks','STANDARD','Space','CP04 + CP07','(scratch)')
@@ -40,7 +40,7 @@ add_after('TH03','TH20','Boundary Ring','STANDARD','Space','QM-E05 + EL11','(scr
 LEVERS=os.environ.get('LEVERS','')
 if 'b' in LEVERS: setcell('MS02',2,'CORE')
 if 'c' in LEVERS: setcell('QM-E06',4,'QM-E27 (Plenum Gravitation) + (CH21 or CH23 or MS02)')
-if 'r' in LEVERS: setcell('RC06',4,'RC02 + RK05 + (QP08 or QM-E27)')
+if 'r' in LEVERS: setcell('RC06',4,'RC01 + RK05 + (QP08 or QM-E27)')
 if 'w' in LEVERS: add_after('MS08','MS17','Transformation Media','STANDARD','Space','MS08 + (QP12 or QM-E13)','(scratch)')   # Wormhole's engineering row
 if 'g' in LEVERS: setcell('ES18',4,'EL11 + EL07')                                  # Warp: no Smart Grid gate
 if 'n' in LEVERS: setcell('NP15',4,'EL11 + (ES06 or ES14 or ES08)')
@@ -65,8 +65,8 @@ if 'q' in LEVERS:   # the W18 signature pools, as settled in the direction docum
     S('AE14','AE15','Jet-Stream Navigation','AE14'); S('AE15','AE16','Airborne Assault Doctrine','AE14'); S('AE16','AE17','Air Mobility','AE14')
     S('AE17','AE18','Sky Carriers','AE14 + AE12'); S('AE18','AE19','Suborbital Point-to-Point Transport','AE16 + AE15'); move_row('QM-E23','AE20')
 if 'v' in LEVERS:   # each unified theory also needs its ontology's big instrument
-    setcell('QP08',4,'QP05 + RC02 (General Relativity) + QP04 (Particle Accelerator)')
-    setcell('QM-E27',4,'QM-E04 (Unified Field) + RC02 (General Relativity) + MA13 (Topology) + QM-E08 (Boundary Furnace)')   # W6 keeps MA13 (v3.112)
+    setcell('QP08',4,'QP05 + RC01 (Relativity) + QP04 (Particle Accelerator)')
+    setcell('QM-E27',4,'QM-E04 (Unified Field) + RC01 (Relativity) + MA13 (Topology) + QM-E08 (Boundary Furnace)')   # W6 keeps MA13 (v3.112)
 if 'V' in LEVERS:   # ...and the two instruments become CORE, so a CORE theory never waits on a missable idea
     setcell('QP04',2,'CORE'); setcell('QM-E08',2,'CORE')
 if 'z' in LEVERS:   # ASSUMED Space-era pools for the agreed non-FTL fields (deferred entry 24): sizes and shape only, for measurement

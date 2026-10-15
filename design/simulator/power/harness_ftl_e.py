@@ -54,6 +54,9 @@ class P:
 
 # W7f copy with three switches: POLICY (focus choice), ATTN (attention weights), END_MULT (Grand Endeavours). Measurement copy of harness2: a research-target hook (TARGET_FN), W16's funded-focus rule (FUNDED), price multipliers (COSTMULT).
 TARGET_FN = None; FUNDED = set(); COSTMULT = {}
+COMPETE = {}   # Competing Solutions (section 1.2; competing.py): {alternative: primary}. A civilisation that discovers the primary first
+               # locks the alternative out for good: it never occurs, is never studied, diffuses or comes back. An Endeavour already
+               # running on it carries on (Grand Endeavours suspend lock-out). Empty (COMPETE=0): no lock-out, as before v3.124
 POLICY = 'waiting'; ATTN = {}; END_MULT = None; END_LOG = []; END_RULE = 'naive'; END_ONLY = None; END_AFTER = None; END_FROM = None; RUN_ON = False; STOP_FN = None
 DIFF = None; DIFF_LOG = []
 DIFF_WAIT = 10; DIFF_WAIT_NET = 5; DIFF_SHARE = 0.5   # section 1.2: turns after the Printing Press, after the Internet; the share of contacts that must hold it
@@ -140,6 +143,9 @@ def run(prm, seed, max_turns=450):
             for opt in grp:
                 for p in opt: dependents.setdefault(p, []).append(k)
     met = {k for k in IDS if prereqs_met(k, have)}; new_rows = []         # rows whose prerequisites are met: only grows, as `have` does
+    alts_of = {}                                                          # Competing Solutions: primary -> its alternatives
+    for a_, p_ in COMPETE.items(): alts_of.setdefault(p_, []).append(a_)
+    locked = set()                                                        # alternatives locked out: their primary came first
     focus_ins = {}; progress = {}; need = {}; line = {}; opened = {}; occurred = set(); elig_since = {}; occ_turn = {}
     acct = {'income': 0.0, 'lost_empty': 0.0, 'lost_cap': 0.0, 'banked_end': 0.0, 'premium_dilution': 0.0, 'attention': 0.0, 'saturation': 0.0, 'linear': 0.0,
             'att_era': {}, 'prem_era': {}}   # by the era of the row studied: Insight spent on study, and the premium's share of it (accounting only)
@@ -156,7 +162,7 @@ def run(prm, seed, max_turns=450):
     held = set()                                                               # (accounting only) ideas the funded focus kept open past their window
     era_start = []                                                             # era_start[i]: the turn development reached era i
     lost_at = {}                                                               # (accounting only) when each idea was lost: turn, its window, whether it was a target
-    STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
+    STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred, locked=locked, end_k=None)   # what a player can infer, for the detective
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}; debt = 0.0; cool_until = 0   # debt: a crash programme's price still to repay; cool_until: END_COOLDOWN
     pause_until = 0; end_urgent = False; end_tstudy = 0.0; end_t0 = 0   # URGENT: the debt's last turn; the running Endeavour's estimate and start
     cum_all = 0.0                                                          # all the Insight ever produced (INCOME_FULL)
@@ -175,7 +181,7 @@ def run(prm, seed, max_turns=450):
             for k in dependents.get(p, ()):
                 if k not in met and prereqs_met(k, have): met.add(k)
         new_rows = []
-        disc = [k for k in IDS if k not in have and k in met and FOCUS[k] != blocked]
+        disc = [k for k in IDS if k not in have and k in met and FOCUS[k] != blocked and (k not in locked or k == end_k)]   # a locked-out alternative only by Endeavour
         diff_due = []; obs = set()
         if DIFF:                                   # knowledge diffusion (section 1.2): contacted rivals, Printing Press, Internet
             if contact_turn is None and any(ERA_I[k] >= DIFF['contact_era'] for k in have): contact_turn = turn
@@ -238,6 +244,7 @@ def run(prm, seed, max_turns=450):
         waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the simulated player's sense of where work waits
         def aw(k): return TARGET[ROWS[k]['tier']] if prm.tier_attention else 1.0   # attention weight of an idea under study
         pull = waiting if prm.tier_attention else {f: sum((1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the rule: each focus's draw on the spread
+        STATE['end_k'] = end_k                                             # (a running Endeavour keeps its target open: lock-out suspended)
         if prm.player == 'specialist' and 'Mathematics' in pool: active = 'Mathematics'
         else: active = _ftl_active(waiting, pool, have)
         def est_price(k): return PRICE[ROWS[k]['era']] * prm.scale * prm.premium ** max(0.0, ERA_I[k] - d)
@@ -427,6 +434,9 @@ def run(prm, seed, max_turns=450):
             emptied = [f for f, u in unused.items() if u > 1e-9 and not [k for k in pool.get(f, []) if k not in have and k not in found]]
             bank += sum(unused[f] for f in emptied); acct['recovered'] = acct.get('recovered', 0) + sum(unused[f] for f in emptied)
         for k in found: have[k] = (turn, d); new_rows.append(k)
+        for k in found:                                                   # Competing Solutions: a primary found first locks its alternatives out
+            for a_ in alts_of.get(k, ()):
+                if a_ not in have: locked.add(a_)
         if m != 'T':
             for k in live: att_hist[k] = (att_hist.get(k, []) + [att_turn.get(k, 0.0)])[-3:]
         log.append((turn, d, len(found)))
@@ -437,7 +447,7 @@ def run(prm, seed, max_turns=450):
                               glim=sorted(glimpsed - _gl0), fund=_fund))
     acct.update(held_open=len(held), held_occurred=len(held & occurred), held_lost=len(held & lost),
                 lost_standard=sum(1 for k in lost if ROWS[k]['tier'] == 'STANDARD'))   # (accounting only)
-    acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered; run.lost_at = lost_at
+    acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered; run.lost_at = lost_at; run.locked = locked
     return have, log
 
 def lateness(prm, n=6, seed0=100):

@@ -15,13 +15,13 @@ For every row of the design document, one line of tab-separated data:
   share of games in which it is discovered by the race's finish, in the worlds where it exists (familiar, Process,
   Substance), the share of those discoveries that came by diffusion, and the median turn.
 Rows of World Truth branches no benchmark world uses (Miasma, Humoral, Caloric, Vitalist, Gravitic) have no measurements.
-Usage: python3 row_survey.py [label, default cmpV123] > results/row_survey_<label>.tsv
+Usage: python3 row_survey.py [label, default cmpV124] > results/row_survey_<label>.tsv
 """
 import sys, os, re, json, collections, statistics as st
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import gen_data as G, reach as R, worlds as WD
 
-label = sys.argv[1] if len(sys.argv) > 1 else 'cmpV123'
+label = sys.argv[1] if len(sys.argv) > 1 else 'cmpV124'
 WORLDS = {'familiar': None, 'Process': 'Process', 'Substance': 'Substance'}
 METHODS = {'familiar': ['Warp', 'Wormhole', 'Hyperspace', 'Tachyonic', 'Tunnelling'],
            'Process': ['Warp', 'Wormhole', 'Hyperspace', 'Tachyonic', 'Plenum'], 'Substance': ['Warp', 'Wormhole', 'Hyperspace', 'Tachyonic', 'Plenum']}
@@ -29,13 +29,13 @@ PLAYERS = ['X', 'N', 'A']
 
 # The victory's rows, as w7f.py has them (atomic world, then elemental): each method's build (groups of alternatives), the
 # hosts of the conditions it is tested on, and the unified theory.
-BUILD = {'atomic': {'Warp': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['ES06', 'ES07', 'ES14', 'ES08'], ['ES18']],
-                    'Wormhole': [['RC02'], ['QP08'], ['QP11'], ['MS08'], ['RC04'], ['QP12'], ['MA13'], ['MS17']],
+BUILD = {'atomic': {'Warp': [['RC01'], ['QP08'], ['QP11'], ['MS08'], ['ES06', 'ES07', 'ES14', 'ES08'], ['ES18']],
+                    'Wormhole': [['RC01'], ['QP08'], ['QP11'], ['MS08'], ['RC04'], ['QP12'], ['MA13'], ['MS17']],
                     'Hyperspace': [['QP08'], ['MA13'], ['ES06', 'ES07', 'ES14', 'ES08'], ['MA19']],
                     'Tunnelling': [['QP02'], ['CP10'], ['MS02', 'GN05'], ['QP14'], ['CP21']],
                     'Tachyonic': [['QP06'], ['QP08'], ['NP11'], ['SE02'], ['ES06', 'ES07', 'ES14', 'ES08'], ['NP15']]},
-         'elemental': {'Warp': [['RC02'], ['QM-E27'], ['QM-E06'], ['MS08'], ['ES07', 'ES15', 'QM-E05'], ['ES18']],
-                       'Wormhole': [['RC02'], ['QM-E27'], ['QM-E06'], ['MS08'], ['RC04'], ['QM-E13'], ['MA13'], ['MS17']],
+         'elemental': {'Warp': [['RC01'], ['QM-E27'], ['QM-E06'], ['MS08'], ['ES07', 'ES15', 'QM-E05'], ['ES18']],
+                       'Wormhole': [['RC01'], ['QM-E27'], ['QM-E06'], ['MS08'], ['RC04'], ['QM-E13'], ['MA13'], ['MS17']],
                        'Hyperspace': [['QM-E27'], ['MA13'], ['ES07', 'ES15', 'QM-E05'], ['MA19']],
                        'Tachyonic': [['QM-E17'], ['QM-E27'], ['ES07', 'ES15', 'QM-E05'], ['SE02'], ['TH20']],
                        'Plenum': [['QM-E27'], ['MS02'], ['QM-E19'], ['QM-E23'], ['AE20']]}}

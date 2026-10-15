@@ -1,0 +1,539 @@
+id	name	focus	tier	era	world	competing	base_objects	new_objects	uniques	focus_unlocks	reveals	dependents	sure_descendants	victory	speeds_ship	X_share	X_diffused	X_turn	N_share	N_diffused	N_turn	A_share	A_diffused	A_turn
+F01	Controlled Fire	Fire	CORE	Primitive			0	0	2	0	0	9	370	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	2	1.00	0.00	9	1.00	0.00	11
+F02	Kiln Construction	Fire	CORE	Primitive			2	0	1	0	0	3	151	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	10	1.00	0.00	16	1.00	0.00	20
+F03	Charcoal Production	Fire	CORE	Primitive			0	0	3	0	0	11	360	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	10	1.00	0.00	16	1.00	0.00	20
+F04	Smelting Discovery	Fire	CORE	Primitive			0	0	2	1	0	1	348	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	19	1.00	0.00	26	1.00	0.00	33
+F05	Signal Fires	Fire	STANDARD	Ancient			0	1	2	0	0	1	1			1.00	0.00	72	1.00	0.00	50	1.00	0.00	62
+F06	Greek Fire	Fire	UNCOMMON	Classical			0	1	3	0	0	1	1			0.56	0.28	111	0.59	0.24	100	0.58	0.29	134
+F07	Advanced Pyrotechnics	Fire	CORE	Medieval			1	1	0	0	0	1	8			1.00	0.07	111	1.00	0.02	130	1.00	0.01	162
+F09	Controlled Burn Agriculture	Fire	UNCOMMON	Primitive			0	0	3	0	0	0	0			0.42	0.21	35	0.42	0.22	36	0.45	0.20	43
+F10	Thermal Lance	Fire	RARE	Ancient			0	0	1	0	0	0	0			0.08	0.00	84	0.06	0.00	74	0.09	0.00	96
+F11	Volcanic Forge Tradition	Fire	UNIQUE	Classical			0	1	4	0	0	0	0			0.07	0.00	109	0.07	0.00	100	0.08	0.00	129
+F15	Signal Fire Network	Fire	UNIQUE	Ancient			0	1	2	0	0	0	0			0.02	0.00	99	0.05	0.00	89	0.05	0.00	112
+F16	Turbary	Fire	STANDARD	Ancient			0	1	2	0	0	0	0			0.98	0.11	64	0.98	0.13	50	0.98	0.13	63
+G01	Plant Identification	Foraging	CORE	Primitive			0	1	0	0	0	14	207	Generation Ship; Hyperspace build (atomic); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	4	1.00	0.00	9	1.00	0.00	12
+G02	Seed Saving	Foraging	CORE	Primitive			1	0	0	1	0	9	173	Generation Ship; Hyperspace build (atomic); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	13	1.00	0.00	16	1.00	0.00	19
+G03	Herbal Medicine	Foraging	CORE	Primitive			0	1	1	0	0	5	42	Generation Ship		1.00	0.00	14	1.00	0.00	16	1.00	0.00	19
+G04	Fermentation	Foraging	STANDARD	Primitive			0	0	1	0	0	0	0			1.00	0.17	31	1.00	0.19	32	1.00	0.15	40
+G05	Insect Cultivation	Foraging	UNCOMMON	Primitive			0	0	1	0	0	1	1			0.55	0.30	35	0.47	0.39	36	0.52	0.34	44
+G06	Mycological Knowledge	Foraging	UNCOMMON	Ancient			0	1	2	0	0	0	0			0.58	0.31	71	0.65	0.31	63	0.60	0.34	75
+G07	Botanical Classification	Foraging	CORE	Classical			2	0	0	0	0	1	0			1.00	0.05	110	1.00	0.00	95	1.00	0.00	118
+G08	Three Sisters Agriculture	Foraging	UNIQUE	Primitive			0	1	3	0	0	0	0			0.05	0.00	36	0.04	0.00	34	0.03	0.00	44
+G09	Permaculture Principles	Foraging	RARE	Primitive			0	1	2	0	0	0	0			0.06	0.00	34	0.09	0.00	33	0.12	0.00	43
+G10	Psychoactive Plant Knowledge	Foraging	UNCOMMON	Primitive			0	0	1	0	0	0	0			0.47	0.23	33	0.45	0.22	34	0.46	0.22	41
+G11	Jungle Canopy Living	Foraging	UNIQUE	Primitive			0	1	2	0	0	0	0			0.06	0.00	33	0.05	0.00	32	0.07	0.00	42
+G12	Dreamtime Pathways	Foraging	UNIQUE	Primitive			0	2	5	0	0	0	0			0.05	0.00	34	0.07	0.00	34	0.09	0.00	41
+G13	Sacred Grove Tradition	Foraging	UNIQUE	Primitive			0	1	3	0	0	0	0			0.08	0.00	32	0.06	0.00	32	0.05	0.00	43
+S01	Tool Knapping	Stonework	CORE	Primitive			4	0	0	0	0	9	434	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	5	1.00	0.00	9	1.00	0.00	12
+S02	Grinding & Polishing	Stonework	STANDARD	Primitive			0	0	1	0	0	1	1			1.00	0.00	23	1.00	0.00	26	1.00	0.00	32
+S03	Quarrying	Stonework	CORE	Ancient			4	0	0	1	0	5	191	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	32	1.00	0.00	50	1.00	0.00	65
+S04	Ore Identification	Stonework	CORE	Primitive			5	0	0	1	1	4	358	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	13	1.00	0.00	15	1.00	0.00	18
+S05	Obsidian Working	Stonework	UNCOMMON	Primitive			1	2	0	0	1	1	1			0.35	0.00	27	0.33	0.00	32	0.35	0.00	40
+S07	Flint Knapping Mastery	Stonework	UNCOMMON	Primitive			0	0	1	0	0	0	0			0.51	0.24	31	0.48	0.30	36	0.52	0.28	41
+S08	Jade/Gemstone Working	Stonework	UNCOMMON	Ancient			0	1	3	0	0	0	0			0.70	0.41	81	0.75	0.41	76	0.72	0.44	93
+S09	Geopolymer Concrete	Stonework	RARE	Ancient			0	1	1	0	0	0	0			0.11	0.00	79	0.08	0.00	75	0.08	0.00	95
+S10	Obsidian Trade Empire	Stonework	UNIQUE	Ancient			0	1	3	0	0	0	0			0.01	0.00	80	0.02	0.00	70	0.01	0.00	95
+S11	Megalithic Observatory	Stonework	UNIQUE	Ancient			0	1	2	0	0	0	0			0.05	0.00	99	0.03	0.00	92	0.03	0.00	105
+O01	Star Tracking	Observation	CORE	Primitive			0	0	1	0	0	8	395	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	6	1.00	0.00	3	1.00	0.00	4
+O02	Weather Prediction	Observation	STANDARD	Primitive			0	0	2	0	0	1	1			1.00	0.11	28	1.00	0.13	17	1.00	0.12	20
+O03	Animal Behavior Study	Observation	CORE	Primitive			1	0	0	1	0	12	66	Generation Ship		1.00	0.00	7	1.00	0.00	3	1.00	0.00	4
+O04	Tidal Patterns	Observation	STANDARD	Primitive			0	1	2	0	0	3	3			1.00	0.00	30	1.00	0.01	16	1.00	0.00	19
+O05	Celestial Mathematics	Observation	CORE	Ancient			0	0	1	1	0	3	362	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	38	1.00	0.00	35	1.00	0.00	45
+O06	Natural Philosophy	Observation	CORE	Classical			2	0	0	0	0	9	334	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	62	1.00	0.00	98	1.00	0.00	125
+O08	Geological Observation	Observation	CORE	Ancient			0	0	6	0	0	5	16			1.00	0.00	41	1.00	0.00	36	1.00	0.00	45
+O09	Migratory Pattern Mapping	Observation	UNCOMMON	Primitive			1	0	1	0	0	2	2			0.66	0.38	35	0.66	0.43	33	0.71	0.37	37
+O10	Antikythera-Style Mechanism	Observation	RARE	Classical			1	1	1	0	0	3	3			0.12	0.00	119	0.10	0.00	115	0.06	0.00	142
+O13	Mechanical Ephemeris	Observation	STANDARD	Classical			0	1	2	0	0	0	0			0.11	0.00	133	0.10	0.00	120	0.05	0.00	145
+O14	Tide Computing Engine	Observation	STANDARD	Medieval			1	1	4	0	0	0	0			0.10	0.00	145	0.08	0.00	133	0.06	0.00	167
+O15	Mechanical Weather Predictor	Observation	STANDARD	Early Modern			0	1	2	0	0	0	0			0.10	0.00	189	0.09	0.00	189	0.05	0.00	240
+O16	Sacred Astronomy Tradition	Observation	UNIQUE	Primitive			0	1	2	0	0	0	0			0.05	0.00	33	0.06	0.00	27	0.06	0.00	34
+SO01	Basic Counting	Social Organization	CORE	Primitive			0	0	1	0	0	7	433	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	7	1.00	0.00	6	1.00	0.00	7
+SO02	Storytelling	Social Organization	CORE	Primitive			2	0	0	0	0	7	392	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	7	1.00	0.00	6	1.00	0.00	7
+SO03	Tribal Law	Social Organization	CORE	Primitive			0	0	2	0	0	5	52	Generation Ship; Tachyonic build (atomic); Tachyonic build (elemental); a test (atomic); a test (elemental)		1.00	0.00	23	1.00	0.00	18	1.00	0.00	22
+SO04	Writing	Social Organization	CORE	Ancient			2	0	1	1	0	14	361	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	37	1.00	0.00	37	1.00	0.00	47
+SO05	Specialization of Labor	Social Organization	CORE	Ancient			0	0	1	0	0	4	26	Generation Ship; Tachyonic build (atomic); Tachyonic build (elemental); a test (atomic); a test (elemental)		1.00	0.00	40	1.00	0.00	41	1.00	0.00	50
+SO06	Codified Law	Social Organization	STANDARD	Ancient			1	0	0	0	0	5	5			1.00	0.00	71	1.00	0.00	54	1.00	0.00	65
+SO08	Census	Social Organization	STANDARD	Classical			0	0	1	0	0	4	4			1.00	0.00	104	1.00	0.00	69	1.00	0.00	86
+SO09	Quipu/Non-Written Recording	Social Organization	UNIQUE	Ancient			0	1	3	1	0	0	0			0.07	0.00	45	0.07	0.00	48	0.08	0.00	55
+SO10	Guilds	Social Organization	STANDARD	Medieval			1	1	2	0	0	0	0			1.00	0.19	113	1.00	0.12	110	1.00	0.16	139
+SO11	Banking	Social Organization	CORE	Medieval			6	0	0	0	0	3	48	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tunnelling build (atomic); a test (atomic)		1.00	0.00	109	1.00	0.00	110	1.00	0.00	139
+SO13	Meritocratic Civil Service	Social Organization	UNCOMMON	Classical			1	1	2	0	0	0	0			0.36	0.05	120	0.42	0.05	89	0.50	0.03	107
+SO14	Oral Epic Tradition	Social Organization	UNIQUE	Ancient			1	1	1	0	0	0	0			0.05	0.00	94	0.06	0.00	73	0.06	0.00	92
+SO16	Public Education	Social Organization	CORE	Early Modern			3	0	1	0	0	0	0			1.00	0.14	187	1.00	0.05	183	1.00	0.05	227
+FA01	Irrigation	Farming	CORE	Primitive			0	0	1	1	0	8	21			1.00	0.00	19	1.00	0.00	28	1.00	0.00	34
+FA02	Crop Rotation	Farming	STANDARD	Ancient			0	0	1	0	0	3	2			1.00	0.00	54	1.00	0.00	65	1.00	0.00	80
+FA03	Selective Breeding	Farming	STANDARD	Ancient			0	1	3	0	0	7	24	Generation Ship		1.00	0.00	75	1.00	0.00	78	1.00	0.00	96
+FA06	Nitrogen Fixation Awareness	Farming	UNCOMMON	Ancient			0	0	1	0	0	0	0			0.49	0.43	98	0.55	0.49	96	0.57	0.40	103
+FA07	Chinampa (Floating Gardens)	Farming	UNIQUE	Ancient			0	1	2	0	0	0	0			0.06	0.00	68	0.06	0.00	67	0.05	0.00	85
+FA09	Greenhouse Cultivation	Farming	UNCOMMON	Early Modern			0	1	3	0	0	0	0			0.46	0.13	186	0.49	0.19	149	0.51	0.17	178
+FA10	Hydroponics	Farming	UNCOMMON	Modern			0	1	1	0	0	1	1			0.60	0.30	252	0.59	0.37	249	0.62	0.35	308
+FA11	Vertical Farming	Farming	UNCOMMON	Space			0	0	1	0	0	0	0			0.01	0.00	296	0.03	0.00	297	0.02	0.00	364
+FA13	Flood Harvest Tradition	Farming	UNIQUE	Ancient			0	1	3	0	0	0	0			0.06	0.00	69	0.06	0.00	69	0.06	0.00	85
+FA14	Pastoral Nomadism	Farming	UNIQUE	Primitive			0	1	2	0	0	0	0			0.04	0.00	42	0.05	0.00	36	0.05	0.00	45
+FA15	Mountain Terrace Farming	Farming	UNIQUE	Ancient			0	1	2	0	0	0	0			0.08	0.00	70	0.05	0.00	71	0.08	0.00	87
+FA16	Nitrate Fertiliser	Farming	STANDARD	Early Modern		yes	1	0	1	0	0	0	0			0.56	0.01	189	0.57	0.02	174	0.55	0.00	221
+AH01	Dog Domestication	Animal Husbandry	STANDARD	Primitive			0	0	2	0	0	0	0			1.00	0.17	32	1.00	0.13	18	1.00	0.14	20
+AH02	Herd Animal Domestication	Animal Husbandry	CORE	Primitive			1	0	0	0	0	6	31	Generation Ship		1.00	0.00	20	1.00	0.00	8	1.00	0.00	9
+AH03	Horse Domestication	Animal Husbandry	CORE	Ancient			3	0	1	0	1	4	5			1.00	0.00	64	1.00	0.00	48	1.00	0.00	60
+AH05	Camel Domestication	Animal Husbandry	UNCOMMON	Ancient			0	1	2	0	0	1	0			0.50	0.28	76	0.49	0.25	64	0.55	0.21	78
+AH06	Elephant Domestication	Animal Husbandry	UNCOMMON	Ancient			1	1	3	0	0	1	1			0.68	0.42	82	0.71	0.44	69	0.68	0.46	91
+AH07	Falconry	Animal Husbandry	UNCOMMON	Classical			0	0	2	0	0	0	0			0.18	0.00	108	0.13	0.00	85	0.22	0.00	105
+AH08	Carrier Pigeon Networks	Animal Husbandry	STANDARD	Medieval			0	1	2	0	0	0	0			0.62	0.05	148	0.62	0.03	134	0.65	0.04	168
+AH10	Llama/Alpaca Domestication	Animal Husbandry	UNIQUE	Primitive			0	2	3	0	0	0	0			0.05	0.00	34	0.06	0.00	32	0.08	0.00	40
+AH11	Veterinary Medicine	Animal Husbandry	STANDARD	Classical			0	1	2	0	0	0	0			1.00	0.17	116	1.00	0.16	104	1.00	0.11	126
+AH12	Reindeer Herding	Animal Husbandry	UNIQUE	Primitive			0	2	4	0	0	0	0			0.05	0.00	33	0.05	0.00	31	0.10	0.00	41
+AH13	Steppe Rider Tradition	Animal Husbandry	UNIQUE	Ancient			1	2	4	0	0	0	0			0.06	0.00	94	0.05	0.00	78	0.07	0.00	95
+AH14	War Elephant Tradition	Animal Husbandry	UNIQUE	Classical			1	2	5	0	0	0	0			0.01	0.00	115	0.04	0.00	102	0.04	0.00	124
+MI05	Deep Shaft Mining	Mining	CORE	Ancient			2	0	1	0	1	10	66	Hyperspace build (atomic); Tachyonic build (atomic); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	52	1.00	0.00	51	1.00	0.00	64
+MI06	Coal Discovery	Mining	CORE	Medieval			2	0	2	0	1	2	0			1.00	0.12	108	1.00	0.00	110	1.00	0.00	137
+MI06B	Volcanic Ash Processing	Mining	STANDARD	Ancient			0	1	3	0	0	1	1			1.00	0.00	53	1.00	0.00	43	1.00	0.00	54
+MI07	Petroleum Discovery	Mining	CORE	Early Modern			4	0	2	0	1	3	1			1.00	0.05	151	1.00	0.52	161	1.00	0.57	197
+MI08	Saltpeter Mining	Mining	CORE	Medieval			1	1	1	0	1	3	10			1.00	0.00	107	1.00	0.01	119	1.00	0.03	154
+MI11	Rare Earth Extraction	Mining	CORE	Atomic			1	1	1	0	1	0	0			0.91	0.34	266	0.98	0.15	259	0.97	0.22	325
+MI12	Asteroid Prospecting	Mining	STANDARD	Space			0	1	5	0	0	1	2			0.07	0.00	295	0.05	0.00	302	0.03	0.00	379
+MI13	Wood Gas Production	Mining	STANDARD	Early Modern			1	0	1	0	0	1	1			1.00	0.18	170	1.00	0.14	165	1.00	0.18	209
+MI14	Deep Earth Tradition	Mining	UNIQUE	Ancient			0	1	2	0	0	0	0			0.04	0.00	78	0.03	0.00	84	0.06	0.00	97
+ME01	Copper Working	Metallurgy	CORE	Primitive			1	1	0	0	0	6	347	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	22	1.00	0.00	34	1.00	0.00	43
+ME-B	Bellows	Metallurgy	CORE	Ancient			1	0	2	0	0	4	194	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	42	1.00	0.00	46	1.00	0.00	55
+ME02	Bronze Alloy	Metallurgy	STANDARD	Ancient			2	0	1	0	0	2	1			1.00	0.00	46	1.00	0.00	46	1.00	0.00	56
+ME04	Iron Smelting	Metallurgy	CORE	Ancient			2	0	0	0	0	6	191	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	50	1.00	0.00	64	1.00	0.00	79
+ME05	Steel Production	Metallurgy	CORE	Classical			1	0	1	0	0	12	62	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship		1.00	0.00	77	1.00	0.00	97	1.00	0.00	121
+ME06	Damascus/Wootz Steel	Metallurgy	UNIQUE	Classical			1	1	3	0	0	1	0			0.06	0.00	95	0.07	0.00	110	0.06	0.00	143
+ME08	Blast Furnace	Metallurgy	CORE	Medieval			2	1	4	0	0	7	147	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	96	1.00	0.00	106	1.00	0.00	132
+ME09	Crucible Steel	Metallurgy	UNCOMMON	Medieval			0	0	1	0	0	0	0			0.55	0.21	139	0.48	0.26	137	0.48	0.24	169
+ME12	Bessemer Process	Metallurgy	CORE	Modern			1	0	1	0	0	5	93	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.00	165	1.00	0.21	184	1.00	0.26	228
+ME13	Aluminium Extraction	Metallurgy	CORE	Modern			1	0	1	0	1	1	3			1.00	0.74	195	1.00	0.36	191	1.00	0.40	237
+ME14	Titanium Working	Metallurgy	UNCOMMON	Atomic			1	0	1	0	0	2	1			0.53	0.49	272	0.56	0.62	259	0.57	0.59	321
+ME15	Memory Alloys	Metallurgy	RARE	Atomic			0	1	2	0	0	0	0			0.01	0.00	294	0.02	0.00	294	0.01	0.00	357
+ME16	Sacred Bronze Tradition	Metallurgy	UNIQUE	Ancient			1	1	2	0	0	0	0			0.03	0.00	88	0.05	0.00	89	0.04	0.00	106
+ME17	Assaying	Metallurgy	STANDARD	Classical			1	0	0	0	0	0	0			1.00	0.16	92	1.00	0.19	107	1.00	0.18	136
+ME18	Plate Armour	Metallurgy	CORE	Medieval			2	0	0	0	0	0	0			1.00	0.27	112	1.00	0.00	108	1.00	0.01	135
+CO01	Mud Brick Construction	Construction	CORE	Primitive			1	0	0	0	0	7	73	Hyperspace build (atomic); Tachyonic build (atomic); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	27	1.00	0.00	32	1.00	0.00	40
+CO02	Post and Lintel	Construction	CORE	Ancient			3	0	0	0	0	7	167	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	46	1.00	0.00	56	1.00	0.00	72
+CO03	Arch Construction	Construction	CORE	Ancient		yes	1	1	4	0	0	11	59	Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.00	53	1.00	0.00	65	1.00	0.00	81
+CO04	Roman Concrete	Construction	STANDARD	Classical			0	1	1	0	0	1	0			1.00	0.15	80	1.00	0.13	77	1.00	0.10	96
+CO05	Corbel Arch/Vault	Construction	STANDARD	Ancient		yes	1	1	2	0	0	0	0			0.71	0.00	51	0.49	0.00	63	0.49	0.00	78
+CO06	Flying Buttress	Construction	STANDARD	Medieval			3	0	1	0	0	0	0			1.00	0.17	128	1.00	0.14	116	1.00	0.17	144
+CO07	Earthquake-Resistant Design	Construction	UNCOMMON	Classical			0	1	2	0	0	0	0			0.76	0.47	108	0.79	0.46	103	0.79	0.50	132
+CO08	Modular Construction	Construction	RARE	Ancient			0	0	1	0	0	0	0			0.10	0.00	71	0.08	0.00	65	0.10	0.00	80
+CO09	Suspension Bridge	Construction	UNCOMMON	Medieval			0	0	2	0	0	0	0			0.47	0.16	128	0.48	0.16	110	0.48	0.17	136
+CO10	Iron-Frame Construction	Construction	CORE	Early Modern			1	0	1	0	0	2	38	Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.00	133	1.00	0.04	134	1.00	0.06	167
+CO11	Reinforced Concrete	Construction	STANDARD	Modern			0	0	2	0	0	7	19	Generation Ship; Tachyonic build (atomic); Tachyonic build (elemental); a test (atomic); a test (elemental)		1.00	0.01	195	1.00	0.86	211	1.00	0.88	262
+CO13	Geodesic Structures	Construction	UNCOMMON	Atomic			0	0	1	0	0	1	3			0.29	0.06	273	0.40	0.06	261	0.34	0.04	326
+CO14	3D Printed Construction	Construction	RARE	Atomic			0	0	1	0	0	0	0			0.02	0.00	294	0.03	0.00	286	0.03	0.00	360
+CO15	Orbital Construction	Construction	STANDARD	Space			0	1	1	0	0	2	2			0.01	0.00	301	0.02	0.00	298	0.01	0.00	381
+CO23	Railway Network	Construction	CORE	Early Modern		yes	2	1	1	0	0	0	0			1.00	0.09	185	1.00	0.05	182	1.00	0.06	227
+CO18	Coral Architecture	Construction	UNIQUE	Ancient			0	2	2	0	0	0	0			0.08	0.00	56	0.06	0.00	64	0.05	0.00	81
+CO19	Crannog Lake Dwelling	Construction	UNIQUE	Ancient			0	1	3	0	0	0	0			0.06	0.00	55	0.07	0.00	62	0.06	0.00	76
+CO20	Earthquake Mastery	Construction	UNIQUE	Classical			0	1	2	0	0	0	0			0.06	0.00	98	0.08	0.00	95	0.07	0.00	122
+CO21	Ceremonial Road Network	Construction	UNIQUE	Classical			0	2	2	0	0	0	0			0.06	0.00	112	0.06	0.00	101	0.10	0.00	124
+CO22	Mound Builder Tradition	Construction	UNIQUE	Ancient			0	2	1	0	0	0	0			0.06	0.00	68	0.06	0.00	63	0.05	0.00	78
+CO24	Concentric Fortification	Construction	CORE	Medieval			3	0	0	0	0	0	0			1.00	0.00	127	1.00	0.00	106	1.00	0.00	132
+CO25	Star Fort	Construction	STANDARD	Early Modern			2	0	0	0	0	1	1			1.00	0.43	169	1.00	0.18	142	1.00	0.20	176
+CO26	Ring Fortress	Construction	STANDARD	Modern			2	1	0	0	0	0	0			0.99	0.28	250	1.00	0.19	246	0.99	0.23	306
+SF01	Reed/Log Raft	Seafaring	CORE	Primitive			2	0	0	0	0	2	20			1.00	0.00	12	1.00	0.00	10	1.00	0.00	13
+SF02	Dugout Canoe	Seafaring	CORE	Primitive			0	0	1	0	0	1	18			1.00	0.00	32	1.00	0.00	31	1.00	0.00	40
+SF03	Sail Invention	Seafaring	CORE	Ancient			2	1	3	0	0	3	17			1.00	0.00	68	1.00	0.00	66	1.00	0.00	83
+SF04	Celestial Navigation	Seafaring	CORE	Ancient			1	0	1	0	0	3	9			1.00	0.00	85	1.00	0.00	69	1.00	0.00	86
+SF05	Trireme/Galley Construction	Seafaring	STANDARD	Classical			1	0	0	0	0	4	11			1.00	0.03	111	1.00	0.00	79	1.00	0.00	98
+SF06	Polynesian Wayfinding	Seafaring	UNIQUE	Ancient			0	1	4	0	0	0	0			0.02	0.00	98	0.05	0.00	85	0.06	0.00	102
+SF07	Viking Longship	Seafaring	UNIQUE	Medieval			0	1	3	0	0	1	1			0.09	0.00	139	0.07	0.00	113	0.05	0.00	140
+SF08	Compass	Seafaring	CORE	Medieval			1	0	1	0	0	1	7			1.00	0.09	135	1.00	0.00	105	1.00	0.00	131
+SF09	Caravel/Deep Ocean Ship	Seafaring	STANDARD	Medieval			2	0	0	0	0	2	6			1.00	0.27	154	1.00	0.01	133	1.00	0.01	165
+SF10	Drydock	Seafaring	STANDARD	Medieval			1	1	3	0	0	1	1			1.00	0.24	143	1.00	0.10	113	1.00	0.14	141
+SF11	Ship of the Line	Seafaring	STANDARD	Early Modern			2	0	0	0	0	1	4			1.00	0.17	194	1.00	0.02	178	1.00	0.02	226
+SF12	Ironclad	Seafaring	STANDARD	Modern			2	0	0	0	0	2	3			1.00	0.23	247	1.00	0.05	232	1.00	0.07	293
+SF13	Submarine	Seafaring	STANDARD	Modern			1	0	1	0	0	1	1			0.89	0.23	270	0.97	0.06	256	0.97	0.07	320
+SF14	Nuclear Submarine	Seafaring	STANDARD	Atomic			2	0	0	0	0	0	0			0.21	0.04	292	0.46	0.05	283	0.35	0.02	354
+SF15	Ekranoplan	Seafaring	RARE	Atomic			0	1	2	0	0	0	0			0.03	0.00	287	0.08	0.00	267	0.05	0.00	326
+SF16	Dhow Monsoon Trading	Seafaring	UNIQUE	Classical			0	2	6	0	0	0	0			0.03	0.00	132	0.07	0.00	96	0.08	0.00	129
+SF17	Reed Boat Mastery	Seafaring	UNIQUE	Primitive			0	2	3	0	0	0	0			0.04	0.00	36	0.06	0.00	34	0.04	0.00	43
+SF19	Longitude	Seafaring	STANDARD	Early Modern			1	0	0	0	0	0	0			0.99	0.18	193	0.99	0.12	159	0.99	0.14	199
+WA01	Formation Fighting	Warfare	CORE	Ancient			3	0	0	0	0	9	17			1.00	0.00	64	1.00	0.00	45	1.00	0.00	56
+WA03	Archery	Warfare	CORE	Primitive			2	0	0	0	0	2	5			1.00	0.00	24	1.00	0.00	22	1.00	0.00	27
+WA04	Composite Bow	Warfare	STANDARD	Ancient			1	0	0	0	0	2	3			1.00	0.00	69	1.00	0.00	50	1.00	0.00	62
+WA05	Siege Warfare	Warfare	STANDARD	Classical			1	0	0	0	0	1	1			1.00	0.01	105	1.00	0.00	75	1.00	0.00	94
+WA06	Fortification Design	Warfare	CORE	Ancient			2	0	0	0	0	4	5			1.00	0.00	78	1.00	0.00	67	1.00	0.00	83
+WA07	Cavalry Tactics	Warfare	STANDARD	Ancient		yes	1	0	1	0	0	2	2			1.00	0.00	82	1.00	0.00	64	1.00	0.00	78
+WA08	Chariot Warfare	Warfare	STANDARD	Ancient		yes	2	0	0	0	0	0	0			0.60	0.00	80	0.55	0.00	60	0.62	0.00	73
+WA09	Crossbow	Warfare	STANDARD	Medieval			1	0	0	0	0	1	1			1.00	0.22	115	1.00	0.03	122	1.00	0.04	152
+WA10	Gunpowder	Warfare	CORE	Medieval			4	0	0	0	0	3	7			1.00	0.47	129	1.00	0.01	133	1.00	0.01	165
+WA11	Trebuchet	Warfare	STANDARD	Medieval			1	0	0	0	0	1	0			1.00	0.26	135	1.00	0.00	111	1.00	0.00	140
+WA12	Greek Fire Naval Warfare	Warfare	UNCOMMON	Classical			0	1	2	0	0	0	0			0.06	0.00	115	0.11	0.00	110	0.09	0.00	134
+WA13	Guerrilla Tactics	Warfare	UNCOMMON	Classical			0	1	2	0	0	0	0			0.52	0.21	110	0.49	0.24	76	0.56	0.21	91
+WA14	Mongol Combined Arms	Warfare	UNIQUE	Medieval			1	2	5	0	0	0	0			0.04	0.00	152	0.07	0.00	133	0.07	0.00	165
+WA16	Rifling	Warfare	CORE	Early Modern			2	0	0	0	0	0	0			1.00	0.28	176	1.00	0.01	143	1.00	0.01	177
+WA17	Repeating Crossbow (Chu-Ko-Nu)	Warfare	RARE	Medieval			0	1	1	0	0	0	0			0.06	0.00	147	0.08	0.00	139	0.05	0.00	167
+WA18	Pneumatic Weaponry	Warfare	RARE	Early Modern			0	1	1	0	0	0	0			0.10	0.00	195	0.08	0.00	193	0.10	0.00	236
+WA19	Railgun Concept	Warfare	RARE	Modern			1	1	1	0	0	1	0			0.11	0.00	246	0.09	0.00	244	0.09	0.00	305
+WA20	Drone Warfare	Warfare	CORE	Atomic			3	1	1	0	0	1	0			0.66	0.26	279	0.87	0.11	269	0.78	0.16	337
+WA21	Powered Armor	Warfare	RARE	Atomic			2	0	1	0	0	0	0			0.01	0.00	293	0.01	0.00	301	0.01	0.00	369
+WA22	Cannons	Warfare	STANDARD	Medieval			2	0	0	0	0	2	5			1.00	0.41	146	1.00	0.13	138	1.00	0.13	172
+WA23	Bushido Warrior Code	Warfare	UNIQUE	Medieval			0	1	3	0	0	0	0			0.06	0.00	115	0.05	0.00	132	0.07	0.00	163
+WA24	Fortified Border Tradition	Warfare	UNIQUE	Classical			0	1	1	0	0	0	0			0.05	0.00	112	0.06	0.00	95	0.03	0.00	107
+WA25	Berserker Tradition	Warfare	UNIQUE	Medieval			1	2	3	0	0	0	0			0.01	0.00	151	0.00	0.00	134	0.00	0.00	160
+WA26	Professional Army	Warfare	STANDARD	Classical			2	0	0	0	0	0	0			1.00	0.22	115	1.00	0.15	83	1.00	0.12	102
+WA27	Stirrup	Warfare	STANDARD	Medieval			1	0	0	0	0	1	1			1.00	0.36	123	1.00	0.00	108	1.00	0.01	132
+WA28	Drill and Discipline	Warfare	STANDARD	Early Modern			4	0	1	0	0	0	0			1.00	0.22	190	1.00	0.17	186	1.00	0.18	233
+MA01	Geometry	Mathematics	CORE	Ancient			0	0	2	0	0	10	361	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	48	1.00	0.00	59	1.00	0.00	75
+MA03	Basic Algebra	Mathematics	CORE	Classical			0	0	3	0	0	8	259	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	65	1.00	0.00	96	1.00	0.00	119
+MA05	Calculus	Mathematics	CORE	Early Modern			0	0	1	1	0	13	206	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	140	1.00	0.46	151	1.00	0.56	187
+MA06	Probability Theory	Mathematics	STANDARD	Early Modern			0	0	2	0	0	2	39	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tunnelling build (atomic); a test (atomic)		1.00	0.22	140	1.00	0.14	139	1.00	0.16	174
+MA07	Binary Mathematics	Mathematics	CORE	Early Modern			0	1	1	0	0	5	66	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental)		1.00	0.93	136	1.00	0.17	136	1.00	0.27	168
+MA08	Non-Euclidean Geometry	Mathematics	CORE	Early Modern			0	0	1	0	0	5	84	FTL screen; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	146	1.00	0.38	160	1.00	0.47	196
+MA09	Statistics	Mathematics	STANDARD	Modern			0	0	1	0	0	7	38	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tunnelling build (atomic); a test (atomic)		1.00	0.31	176	1.00	0.29	184	1.00	0.33	230
+MA11	Fractal Mathematics	Mathematics	UNCOMMON	Atomic			0	0	1	0	0	0	0			0.23	0.06	273	0.29	0.07	279	0.30	0.05	344
+MA12	Mayan Vigesimal Mathematics	Mathematics	UNIQUE	Ancient			0	1	1	0	0	0	0			0.06	0.00	65	0.08	0.00	86	0.04	0.00	108
+MA13	Topology	Mathematics	CORE	Modern			0	0	2	0	0	9	50	Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.18	175	1.00	0.71	190	1.00	0.74	237
+MA14	Chaos Theory	Mathematics	UNCOMMON	Atomic			0	0	2	0	0	1	0			0.25	0.03	273	0.30	0.04	277	0.28	0.02	346
+MA15	Optimisation Theory	Mathematics	STANDARD	Space			0	0	1	0	0	7	8	Hyperspace build (atomic); Hyperspace build (elemental)		0.47	0.01	272	0.26	0.24	283	0.24	0.24	351
+MA19	Higher-Dimensional Geometry	Mathematics	STANDARD	Space			0	0	1	0	0	1	1	Hyperspace build (atomic); Hyperspace build (elemental)		0.30	0.00	289	0.20	0.02	296	0.20	0.02	364
+MA16	Operations Research	Mathematics	STANDARD	Space			0	0	1	0	0	0	0			0.16	0.00	291	0.09	0.01	292	0.08	0.00	364
+MA17	Lifecycle Engineering	Mathematics	STANDARD	Space			0	0	1	0	0	0	0			0.15	0.00	290	0.08	0.00	292	0.09	0.00	362
+MA18	Logistics Optimisation	Mathematics	STANDARD	Space			0	0	1	0	0	0	0			0.14	0.00	291	0.09	0.00	292	0.10	0.00	362
+MA22	Auction Theory	Mathematics	STANDARD	Space			0	0	1	0	0	0	0			0.14	0.00	292	0.10	0.03	291	0.09	0.00	360
+MA23	Post-Quantum Cryptography	Mathematics	STANDARD	Space			0	0	2	0	0	0	0			0.14	0.00	291	0.09	0.01	291	0.09	0.00	362
+MA20	Computational Proof	Mathematics	STANDARD	Space			0	0	1	0	0	1	1			0.14	0.00	290	0.08	0.03	293	0.09	0.00	360
+MA21	Automated Mathematics	Mathematics	STANDARD	Space			0	0	2	0	0	0	0			0.00			0.00			0.00		
+CU04	Musical Instruments	Philosophy And The Arts	STANDARD	Primitive			0	0	1	0	0	1	1			1.00	0.00	31	1.00	0.00	30	1.00	0.00	38
+CU12	Sacred Dance Tradition	Philosophy And The Arts	UNIQUE	Primitive			0	1	1	0	0	0	0			0.04	0.00	45	0.03	0.00	46	0.05	0.00	60
+CU13	Talking Drum Networks	Philosophy And The Arts	UNIQUE	Primitive			0	1	2	0	0	0	0			0.07	0.00	34	0.07	0.00	31	0.08	0.00	40
+CU02	Monumental Architecture	Philosophy And The Arts	CORE	Ancient			6	0	1	0	0	6	6			1.00	0.00	69	1.00	0.00	61	1.00	0.00	78
+CU03	Artistic Tradition	Philosophy And The Arts	STANDARD	Ancient			0	0	1	0	0	4	4			1.00	0.00	64	1.00	0.00	53	1.00	0.00	68
+CU10	Sacred River Tradition	Philosophy And The Arts	UNIQUE	Ancient			1	1	2	0	0	0	0			0.04	0.00	95	0.05	0.00	88	0.05	0.00	102
+PH01	Formal Logic	Philosophy And The Arts	CORE	Classical			0	0	3	0	0	12	312	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	72	1.00	0.00	110	1.00	0.00	138
+PH12	Harmonious Inquiry	Philosophy And The Arts	UNIQUE	Classical			0	1	2	0	0	0	0			0.06	0.00	98	0.04	0.00	111	0.04	0.00	140
+CU05	Theater	Philosophy And The Arts	STANDARD	Classical			1	0	0	0	0	1	1			1.00	0.00	84	1.00	0.00	80	1.00	0.00	98
+CU06	University	Philosophy And The Arts	CORE	Medieval			4	0	0	0	0	2	304	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	102	1.00	0.00	120	1.00	0.00	148
+CU11	Courtly Love Tradition	Philosophy And The Arts	UNIQUE	Medieval			1	1	1	0	0	0	0			0.05	0.00	128	0.05	0.00	114	0.07	0.00	136
+PH04	Scientific Method	Philosophy And The Arts	CORE	Early Modern			1	1	1	0	0	14	302	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	130	1.00	0.05	140	1.00	0.05	174
+CU07	Renaissance	Philosophy And The Arts	STANDARD	Early Modern			5	0	1	0	0	1	2			1.00	0.07	191	1.00	0.00	183	1.00	0.00	229
+PH09	Existentialism	Philosophy And The Arts	UNCOMMON	Modern			0	0	1	0	0	0	0			0.36	0.28	257	0.43	0.19	248	0.45	0.19	309
+PH10	Information Theory	Philosophy And The Arts	CORE	Atomic			0	0	1	0	0	1	63	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental)		1.00	0.06	222	1.00	0.82	233	1.00	0.84	290
+PH11	Systems Thinking	Philosophy And The Arts	UNCOMMON	Atomic			0	0	2	0	0	0	0			0.47	0.19	235	0.49	0.24	261	0.44	0.23	326
+CU14	Historiography	Philosophy And The Arts	STANDARD	Classical			1	0	0	0	0	0	0			1.00	0.15	85	1.00	0.11	78	1.00	0.13	99
+CU15	Scholastic Theology	Philosophy And The Arts	STANDARD	Medieval			3	0	0	0	0	0	0			1.00	0.18	104	1.00	0.15	122	1.00	0.13	149
+PH14	The Enlightenment	Philosophy And The Arts	STANDARD	Early Modern			2	0	0	0	0	1	1			1.00	0.10	213	1.00	0.02	196	1.00	0.01	244
+MD01	Surgical Techniques	Medicine	STANDARD	Ancient			1	1	1	0	0	4	4			1.00	0.00	67	1.00	0.00	66	1.00	0.00	85
+MD02	Quarantine Protocols	Medicine	STANDARD	Classical			0	1	1	0	0	0	0			1.00	0.19	128	1.00	0.15	99	1.00	0.12	125
+MD03	Anatomy Study	Medicine	CORE	Classical			1	1	1	0	0	8	35	Generation Ship		1.00	0.00	110	1.00	0.00	107	1.00	0.00	136
+MD04	Vaccination	Medicine	STANDARD	Early Modern			0	0	1	0	0	0	0			1.00	0.19	160	1.00	0.16	156	1.00	0.12	189
+MD05	Germ Theory	Medicine	CORE	Modern			2	0	1	0	0	4	22	Generation Ship		1.00	0.50	221	1.00	0.11	187	1.00	0.13	235
+MD06	Antibiotics	Medicine	STANDARD	Atomic	Germ	yes	2	0	2	0	0	2	0			0.70	0.24	275	0.89	0.11	255	0.86	0.12	323
+MD07	Anaesthesia	Medicine	STANDARD	Modern			0	0	1	0	0	0	0			1.00	0.35	222	1.00	0.16	193	1.00	0.16	240
+MD08	Prosthetics	Medicine	UNCOMMON	Modern			0	0	1	0	0	1	1			0.50	0.20	236	0.55	0.19	184	0.52	0.21	227
+MD09	Trepanation Tradition	Medicine	RARE	Ancient			0	0	2	0	0	0	0			0.06	0.00	96	0.07	0.00	82	0.09	0.00	108
+MD10	Traditional Medicine Integration	Medicine	UNIQUE	Classical			0	1	2	0	0	0	0			0.03	0.00	131	0.03	0.00	122	0.03	0.00	151
+MD11	Gene Therapy	Medicine	STANDARD	Atomic			0	0	1	0	0	2	2			0.11	0.00	297	0.20	0.01	293	0.12	0.02	364
+MD12	Cybernetic Enhancement	Medicine	RARE	Atomic			0	1	2	0	0	0	0			0.01	0.00	283	0.02	0.00	280	0.01	0.00	364
+MD13	Cryogenic Preservation	Medicine	UNCOMMON	Space			0	1	1	0	0	0	0			0.00			0.00	0.00	313	0.00	0.00	382
+MD14	Hot Spring Healing Tradition	Medicine	UNIQUE	Ancient			0	2	3	0	0	0	0			0.09	0.00	70	0.05	0.00	69	0.08	0.00	85
+MD15	Contagion Experiments	Medicine	CORE	Early Modern			1	1	1	0	0	2	4			1.00	0.07	154	1.00	0.00	146	1.00	0.00	181
+MD16	Miasma Engineering	Medicine	STANDARD	Modern	Miasma		1	1	3	0	0	2	0											
+MD17	Humoral Medicine	Medicine	STANDARD	Modern	Humoral		0	1	1	0	0	1	2											
+MD18	Humoral Pharmacology	Medicine	STANDARD	Modern	Humoral		1	1	3	0	0	3	1											
+MD19	Temperament Engineering	Medicine	UNCOMMON	Atomic	Humoral		4	4	12	0	0	0	0											
+MD20	Phage Therapy	Medicine	STANDARD	Modern	Germ	yes	3	1	3	0	0	1	1			0.80	0.30	261	0.86	0.06	220	0.87	0.09	279
+MD21	Engineered Phages	Medicine	STANDARD	Space	Germ		0	0	1	0	0	0	0			0.00	0.00	304	0.00	0.00	302	0.00	0.00	380
+MD-V01	Vital Essence Medicine	Medicine	STANDARD	Atomic	Vitalist		0	1	2	0	0	0	0											
+TR01	Barter System	Trade	STANDARD	Primitive			0	0	1	0	0	6	6			1.00	0.00	32	1.00	0.00	31	1.00	0.00	40
+TR02	Currency	Trade	CORE	Ancient			2	0	0	0	0	5	53	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tunnelling build (atomic); a test (atomic)		1.00	0.00	66	1.00	0.00	66	1.00	0.00	83
+TR03	Caravansary	Trade	STANDARD	Ancient			0	1	2	0	0	3	3			1.00	0.00	93	1.00	0.00	79	1.00	0.00	99
+TR05	Letter of Credit	Trade	STANDARD	Medieval			0	0	1	0	0	4	8			1.00	0.07	141	1.00	0.02	134	1.00	0.01	167
+TR06	Joint Stock Company	Trade	STANDARD	Early Modern			1	1	1	0	0	2	2			1.00	0.10	191	1.00	0.01	184	1.00	0.03	230
+TR08	Cowrie Shell Currency	Trade	UNIQUE	Ancient			0	1	2	0	0	0	0			0.07	0.00	68	0.08	0.00	63	0.08	0.00	78
+TR09	Free Trade Agreements	Trade	STANDARD	Modern			1	0	1	0	0	0	0			0.98	0.34	247	1.00	0.16	231	0.99	0.20	294
+TR10	Futures Market	Trade	UNCOMMON	Modern			1	1	1	0	0	0	0			0.47	0.18	249	0.45	0.19	239	0.46	0.18	299
+TR11	Caravan Oasis Network	Trade	UNIQUE	Ancient			0	2	3	0	0	0	0			0.00	0.00	96	0.02	0.00	92	0.02	0.00	116
+TR12	Potlatch Economy	Trade	UNIQUE	Ancient			0	1	1	0	0	0	0			0.07	0.00	72	0.06	0.00	64	0.06	0.00	78
+TR14	Bazaar Economy	Trade	UNIQUE	Classical			0	1	2	0	0	0	0			0.05	0.00	111	0.05	0.00	90	0.05	0.00	113
+TR15	Post-Scarcity Economics	Trade	RARE	Space			0	0	2	0	0	0	0			0.01	0.00	301	0.01	0.00	293	0.00	0.00	370
+TR16	Phase Exchange	Trade	UNCOMMON	Modern	Process		0	1	1	0	0	0	0			0.59	0.34	252	0.67	0.33	238	0.65	0.34	284
+TR17	Long-Distance Trade	Trade	STANDARD	Classical			2	0	0	0	0	0	0			1.00	0.23	121	1.00	0.17	108	1.00	0.16	134
+TX01	Weaving	Textiles & Materials	CORE	Primitive			0	1	2	0	0	11	352	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	13	1.00	0.00	23	1.00	0.00	29
+TX02	Dyeing	Textiles & Materials	STANDARD	Ancient			0	1	1	0	0	1	1			1.00	0.00	42	1.00	0.00	51	1.00	0.00	63
+TX03	Silk Production	Textiles & Materials	UNIQUE	Ancient			0	1	3	0	0	0	0			0.02	0.00	74	0.00	0.00	78	0.02	0.00	86
+TX05	Cotton Gin	Textiles & Materials	STANDARD	Early Modern			1	1	1	0	0	0	0			1.00	0.39	185	1.00	0.26	176	1.00	0.25	221
+TX08	Carbon Fiber	Textiles & Materials	CORE	Atomic			0	1	3	0	0	3	28	Plenum build (elemental); a test (elemental)		0.92	0.16	235	0.98	0.69	240	0.97	0.71	299
+TX10	Paper Making	Textiles & Materials	CORE	Ancient			0	0	1	0	0	1	304	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	38	1.00	0.00	46	1.00	0.00	58
+TX11	Tapa Cloth Tradition	Textiles & Materials	UNIQUE	Primitive			0	1	2	0	0	0	0			0.04	0.00	35	0.06	0.00	38	0.05	0.00	48
+TX12	Imperial Dye Mastery	Textiles & Materials	UNIQUE	Ancient			0	1	2	0	0	0	0			0.06	0.00	77	0.04	0.00	74	0.07	0.00	98
+WM01	Canal Building	Water Management	CORE	Ancient			0	0	2	0	0	7	14			1.00	0.00	47	1.00	0.00	69	1.00	0.00	87
+WM02	Aqueduct	Water Management	CORE	Ancient			4	0	1	0	0	5	5			1.00	0.00	71	1.00	0.00	73	1.00	0.00	90
+WM03	Qanat System	Water Management	UNIQUE	Ancient			0	1	3	0	0	0	0			0.06	0.00	59	0.07	0.00	64	0.06	0.00	80
+WM05	Water Mill	Water Management	CORE	Classical			1	0	0	0	0	5	1			1.00	0.00	74	1.00	0.00	112	1.00	0.00	139
+WM06	Dam Construction	Water Management	STANDARD	Modern			2	0	1	0	0	0	0			0.97	0.23	252	0.97	0.25	250	0.98	0.23	312
+WM07	Desalination	Water Management	UNCOMMON	Atomic			0	1	2	0	0	0	0			0.36	0.23	270	0.47	0.18	250	0.44	0.16	309
+WM08	Stepwell Architecture	Water Management	UNIQUE	Ancient			0	1	2	0	0	0	0			0.05	0.00	96	0.03	0.00	90	0.05	0.00	115
+WM09	Rice Paddy Mastery	Water Management	UNIQUE	Ancient			0	2	2	0	0	0	0			0.05	0.00	72	0.05	0.00	87	0.05	0.00	111
+WM10	Ice Architecture	Water Management	UNIQUE	Ancient			0	1	4	0	0	0	0			0.04	0.00	98	0.04	0.00	90	0.05	0.00	116
+WM11	Industrial Canal Network	Water Management	STANDARD	Early Modern		yes	1	1	3	0	0	0	0			0.01	0.00	189	0.03	0.00	184	0.02	0.00	231
+WM12	Tidal Mill	Water Management	UNCOMMON	Medieval			0	1	2	0	0	0	0			0.52	0.19	140	0.44	0.34	142	0.46	0.29	172
+MC01	Wheel	Mechanics	CORE	Primitive			0	0	1	0	0	3	336	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	16	1.00	0.00	29	1.00	0.00	38
+MC03	Gearing	Mechanics	CORE	Classical			0	0	3	0	0	17	334	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	67	1.00	0.00	96	1.00	0.00	119
+MC04	Windmill	Mechanics	CORE	Medieval			1	0	0	0	0	4	0			1.00	0.02	98	1.00	0.00	100	1.00	0.00	125
+MC05	Clockwork	Mechanics	CORE	Medieval			0	0	1	0	0	5	56	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship		1.00	0.00	100	1.00	0.00	103	1.00	0.00	128
+MC06	Printing Press	Mechanics	CORE	Medieval			1	0	1	0	0	2	303	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	96	1.00	0.00	100	1.00	0.00	124
+MC07	Hero's Aeolipile (Early Steam)	Mechanics	RARE	Classical			1	1	0	1	0	1	2			0.12	0.00	95	0.09	0.00	107	0.08	0.00	137
+MC08	Steam Engine	Mechanics	CORE	Early Modern		yes	3	1	2	0	0	6	131	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	140	1.00	0.64	152	1.00	0.71	188
+MC09	Internal Combustion Engine	Mechanics	CORE	Modern		yes	5	1	2	0	0	4	17	Plenum build (elemental); a test (elemental)		1.00	0.20	195	1.00	0.57	199	1.00	0.59	246
+MC10	Precision Machining	Mechanics	CORE	Early Modern			2	0	1	0	0	8	51	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship		1.00	0.57	139	1.00	0.28	140	1.00	0.38	173
+MC11	Assembly Line	Mechanics	STANDARD	Modern			1	0	2	0	0	2	16	Generation Ship; Tachyonic build (atomic); Tachyonic build (elemental); a test (atomic); a test (elemental)		1.00	0.77	187	1.00	0.76	187	1.00	0.77	232
+MC12	Robotics	Mechanics	STANDARD	Atomic			1	0	1	0	0	5	14	Generation Ship; Tachyonic build (atomic); Tachyonic build (elemental); a test (atomic); a test (elemental)	Spaceship Factory	1.00	0.17	255	1.00	0.96	262	1.00	0.97	326
+MC13	Perpetual Motion Understanding	Mechanics	RARE	Classical			0	0	2	0	0	0	0			0.11	0.00	95	0.03	0.00	112	0.04	0.00	146
+MC14	Babbage Mechanical Computer	Mechanics	RARE	Early Modern			0	1	1	0	0	2	1			0.07	0.00	190	0.08	0.00	187	0.10	0.00	232
+MC15	Mainspring Energy Storage	Mechanics	RARE	Medieval			1	1	1	0	0	2	3			0.08	0.00	138	0.07	0.00	137	0.08	0.00	166
+MC16	Clockwork Automaton	Mechanics	STANDARD	Medieval			1	3	3	0	0	1	1			0.07	0.00	150	0.06	0.02	140	0.07	0.00	171
+MC17	Spring-Powered Vehicle	Mechanics	STANDARD	Early Modern			1	0	1	0	0	0	0			0.07	0.00	187	0.06	0.00	151	0.08	0.00	182
+MC18	Clockwork Analytical Engine	Mechanics	STANDARD	Early Modern			0	1	1	0	0	0	0			0.00	0.00	220	0.00	0.00	189	0.01	0.00	226
+MC19	Crank and Connecting Rod	Mechanics	CORE	Medieval			2	0	0	0	0	0	0			1.00	0.04	99	1.00	0.00	111	1.00	0.00	136
+TH01	Laws of Thermodynamics	Thermodynamics	CORE	Early Modern			1	0	1	0	0	11	113	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	146	1.00	0.50	161	1.00	0.51	198
+TH02	Refrigeration	Thermodynamics	STANDARD	Modern			1	0	2	0	0	4	17	Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental)		1.00	0.08	190	1.00	0.19	194	1.00	0.15	241
+TH03	Turbine Design	Thermodynamics	CORE	Modern			0	0	2	0	0	12	70	Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.00	183	1.00	0.40	199	1.00	0.44	249
+TH20	Boundary Ring / Cycle-Limit Ring	Thermodynamics	STANDARD	Space	Elemental		0	0	1	0	0	0	0	Tachyonic build (elemental)		0.33	0.03	283	0.32	0.06	286	0.26	0.04	354
+TH15	Waste-Heat Recovery	Thermodynamics	STANDARD	Space			0	0	1	0	0	4	6			0.30	0.04	280	0.32	0.05	285	0.22	0.05	350
+TH16	Heat Pump Networks	Thermodynamics	STANDARD	Space			0	0	1	0	0	1	1			0.03	0.00	297	0.04	0.00	297	0.01	0.00	366
+TH17	Supercritical Power Cycles	Thermodynamics	STANDARD	Space			0	0	1	0	0	1	2			0.02	0.00	296	0.04	0.00	294	0.02	0.00	365
+TH18	Deep Cryogenics	Thermodynamics	STANDARD	Space			0	0	1	0	0	1	2			0.02	0.00	302	0.03	0.00	295	0.02	0.00	363
+TH19	Permafrost Engineering	Thermodynamics	STANDARD	Space			0	0	2	0	0	0	0			0.05	0.00	296	0.06	0.00	294	0.03	0.00	367
+TH21	Atmospheric Heat Management	Thermodynamics	STANDARD	Space			0	0	1	0	0	1	1			0.00			0.00			0.00	0.00	363
+TH22	Geoengineering Programme	Thermodynamics	STANDARD	Space			0	0	1	0	0	0	0			0.00			0.00			0.00		
+TH05	Carnot Efficiency	Thermodynamics	STANDARD	Early Modern			0	0	1	0	0	2	8			1.00	0.06	180	1.00	0.15	180	1.00	0.11	218
+TH08	Stirling Engine Mastery	Thermodynamics	STANDARD	Early Modern		yes	3	1	2	0	0	0	0			0.90	0.06	181	0.86	0.02	180	0.89	0.02	220
+TH09	Caloric Theory	Thermodynamics	STANDARD	Early Modern			1	0	1	0	0	2	3			0.98	0.26	166	0.99	0.22	164	0.99	0.21	200
+TH10	Mechanical Equivalent of Heat	Thermodynamics	CORE	Early Modern			1	1	1	0	0	0	0			1.00	0.00	170	1.00	0.00	168	1.00	0.00	206
+TH11	Caloric Storage	Thermodynamics	STANDARD	Modern	Caloric		1	5	14	0	0	2	2											
+TH12	Caloric Projection	Thermodynamics	STANDARD	Modern	Caloric		0	2	3	0	0	0	0											
+TH13	The Weight of the Air	Thermodynamics	STANDARD	Classical			0	1	1	0	0	1	1			0.12	0.00	122	0.09	0.00	118	0.08	0.00	147
+TH14	Atmospheric Engine	Thermodynamics	STANDARD	Medieval		yes	2	1	5	0	0	0	0			0.01	0.00	138	0.07	0.00	137	0.07	0.00	168
+CH01	Alchemy	Chemistry	CORE	Classical			0	0	1	0	0	7	289	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	69	1.00	0.00	107	1.00	0.00	134
+CH04	Distillation	Chemistry	CORE	Medieval			0	2	2	0	0	10	276	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	101	1.00	0.00	127	1.00	0.01	155
+CH05	Oxygen Theory	Chemistry	CORE	Early Modern			0	0	1	0	0	7	240	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	137	1.00	0.12	146	1.00	0.13	181
+CH06	Periodic Table	Chemistry	CORE	Modern			2	0	2	0	0	15	204	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.62	172	1.00	0.29	171	1.00	0.30	212
+CH07	Organic Chemistry	Chemistry	CORE	Modern			2	1	0	0	0	12	102	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship		1.00	0.78	188	1.00	0.37	184	1.00	0.43	228
+CH08	Explosives (non-gunpowder)	Chemistry	STANDARD	Modern			1	0	1	0	0	1	0			1.00	0.68	206	1.00	0.31	200	1.00	0.28	245
+CH09	Petrochemistry	Chemistry	STANDARD	Modern		yes	1	1	2	0	0	3	0			1.00	0.51	203	1.00	0.34	201	1.00	0.26	247
+CH09-W	Bio-Organic Synthesis	Chemistry	STANDARD	Modern		yes	1	1	1	0	0	2	0			0.19	0.07	202	0.41	0.02	197	0.44	0.01	243
+CH11	Polymer Science	Chemistry	CORE	Modern			1	0	1	1	0	3	29	Plenum build (elemental); a test (elemental)		1.00	0.56	217	1.00	0.35	209	1.00	0.34	259
+CH12	Catalysis	Chemistry	STANDARD	Modern		yes	0	0	1	0	0	0	0			0.99	0.45	198	0.99	0.19	187	0.99	0.17	231
+CH13	Rocket Propellant	Chemistry	CORE	Modern			3	1	1	1	0	1	34	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental); the ship		1.00	0.76	177	1.00	0.30	175	1.00	0.28	215
+CH14	Photochemistry	Chemistry	UNCOMMON	Modern			0	1	1	0	0	0	0			0.58	0.30	228	0.60	0.37	236	0.61	0.33	257
+CH15	Greek Alchemical Tradition	Chemistry	RARE	Classical			0	1	0	0	0	0	0			0.09	0.00	99	0.02	0.00	121	0.05	0.00	149
+CH19	Systematic Element Analysis	Chemistry	CORE	Early Modern			1	1	1	0	0	3	37	Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (elemental); Warp build (elemental); Wormhole build (elemental); a test (elemental); unified theory		1.00	0.02	137	1.00	0.01	145	1.00	0.04	180
+CH20	Transmutation Practice	Chemistry	STANDARD	Early Modern	Substance		10	14	23	0	0	4	4			1.00	0.14	150	1.00	0.31	162	1.00	0.25	199
+CH21	Philosopher's Stone	Chemistry	STANDARD	Modern	Substance		0	1	3	0	0	2	1			1.00	0.50	188	1.00	0.24	182	1.00	0.27	224
+CH22	Five-Phase Theory	Chemistry	STANDARD	Early Modern	Process		0	0	0	0	0	6	7			1.00	0.12	150	1.00	0.30	162	1.00	0.24	199
+CH23	Generative Cycle Engine	Chemistry	STANDARD	Early Modern	Process		10	9	13	0	0	3	2			1.00	0.60	182	1.00	0.29	175	1.00	0.18	214
+CH24	Phase-Destruction Warfare	Chemistry	STANDARD	Modern	Process		0	2	2	0	0	1	1			1.00	0.62	195	1.00	0.15	182	1.00	0.13	226
+CH25	Organic Synthesis Attempt	Chemistry	CORE	Modern			1	1	1	0	0	1	4			1.00	0.37	202	1.00	0.01	190	1.00	0.00	235
+CH26	Closed-Loop Calorimetry	Chemistry	STANDARD	Early Modern	Process		0	1	1	0	0	0	0			1.00	0.57	186	1.00	0.25	177	1.00	0.23	218
+CH27	Formless Reserve	Chemistry	STANDARD	Modern	Substance		0	1	1	0	0	0	0			0.97	0.33	225	0.99	0.29	220	0.99	0.30	273
+CH28	Helium Extraction	Chemistry	UNCOMMON	Modern			1	0	0	0	0	0	0			0.53	0.38	252	0.54	0.41	252	0.55	0.37	314
+OP01	Glassmaking	Optics	CORE	Ancient			0	0	1	0	0	6	149	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	51	1.00	0.00	63	1.00	0.00	80
+OP02	Lens Grinding	Optics	CORE	Medieval			0	0	2	0	0	3	140	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	104	1.00	0.03	127	1.00	0.08	161
+OP03	Telescope	Optics	CORE	Early Modern			1	0	2	0	0	7	138	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.66	135	1.00	0.61	143	1.00	0.69	176
+OP07	Laser	Optics	CORE	Atomic			0	0	1	0	0	5	7	a test (atomic); a test (elemental)		1.00	0.00	230	1.00	0.99	246	1.00	0.99	305
+OP08	Spectroscopy	Optics	CORE	Modern			0	0	1	0	0	3	128	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.01	191	1.00	0.69	202	1.00	0.76	250
+OP09	Ibn al-Haytham's Optics	Optics	RARE	Medieval			0	1	0	0	0	0	0			0.12	0.00	108	0.09	0.00	134	0.05	0.00	165
+OP10	Semaphore	Optics	STANDARD	Early Modern			0	1	2	0	0	0	0			0.99	0.17	188	1.00	0.14	177	0.99	0.17	220
+EL02	Voltaic Pile (Battery)	Electricity	CORE	Early Modern			0	0	4	0	0	5	182	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	126	1.00	0.32	140	1.00	0.35	173
+EL03	Electromagnetism	Electricity	CORE	Early Modern			0	0	1	0	0	12	180	FTL screen; Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	146	1.00	0.53	160	1.00	0.60	197
+EL04	Telegraph	Electricity	STANDARD	Early Modern			0	1	1	0	0	1	0			1.00	0.26	149	1.00	0.33	157	1.00	0.30	192
+EL06	Electric Generator	Electricity	CORE	Modern			0	0	1	1	0	5	41	Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.00	186	1.00	0.30	209	1.00	0.39	261
+EL07	Power Grid	Electricity	CORE	Modern		yes	0	0	3	0	0	4	36	Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); unified theory		1.00	0.00	188	1.00	0.17	217	1.00	0.29	272
+EL08	Baghdad Battery	Electricity	RARE	Classical			0	0	2	0	0	0	0			0.11	0.00	116	0.06	0.00	121	0.05	0.00	157
+EL09	Wireless Transmission	Electricity	STANDARD	Modern			0	2	4	0	0	4	6	Tunnelling build (atomic); a test (atomic)		1.00	0.16	186	1.00	0.14	197	1.00	0.14	245
+EL10	Piezoelectricity	Electricity	UNCOMMON	Modern			0	1	1	0	0	0	0			0.54	0.22	223	0.56	0.25	213	0.54	0.24	260
+EL11	Superconductivity	Electricity	STANDARD	Atomic			0	0	2	0	0	8	11	Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental)		1.00	0.10	224	1.00	0.26	227	1.00	0.26	282
+EL12	Room Temperature Superconductor	Electricity	RARE	Atomic			1	0	2	0	0	2	1			0.06	0.00	280	0.03	0.00	286	0.04	0.00	354
+EL14	Direct-Current Stations	Electricity	STANDARD	Modern		yes	5	1	4	0	0	0	0			0.06	0.00	189	0.11	0.00	220	0.11	0.00	272
+EN01	Vacuum Tube	Electronics	CORE	Modern			0	0	1	0	0	6	90	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental); the ship		1.00	0.27	191	1.00	0.86	195	1.00	0.89	242
+EN02	Transistor	Electronics	CORE	Atomic	Atomic		0	0	0	1	0	4	0			1.00	0.00	218	1.00	0.33	229	1.00	0.37	283
+EN03	Integrated Circuit	Electronics	CORE	Atomic			1	1	0	0	0	8	33	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental); the ship		1.00	0.07	236	1.00	0.35	240	1.00	0.42	299
+EN04	Radar	Electronics	STANDARD	Modern			5	1	0	0	0	1	1			1.00	0.15	232	1.00	0.07	221	1.00	0.06	274
+EN06	Semiconductor Mastery	Electronics	STANDARD	Atomic			4	2	1	0	0	5	8			0.96	0.36	251	0.99	0.36	251	0.98	0.42	313
+EN07	MEMS	Electronics	UNCOMMON	Atomic			0	0	1	0	0	0	0			0.13	0.01	284	0.15	0.05	287	0.11	0.13	358
+EN09	Spintronics	Electronics	RARE	Atomic	Atomic		0	0	2	0	0	0	0			0.00	0.00	293	0.02	0.00	286	0.04	0.00	348
+EN10	Miniaturization	Electronics	STANDARD	Atomic			1	0	2	0	0	3	3			0.48	0.24	284	0.65	0.21	281	0.53	0.23	350
+EN11	Radio	Electronics	STANDARD	Modern			5	0	2	0	0	1	2	Tunnelling build (atomic); a test (atomic)		1.00	0.25	231	1.00	0.26	219	1.00	0.22	272
+CP01	Programmable Computer	Computing	CORE	Atomic		yes	0	0	2	0	0	13	62	Generation Ship; Hyperspace build (atomic); Hyperspace build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental)		1.00	0.06	241	1.00	0.20	244	1.00	0.22	305
+CP04	Internet	Computing	CORE	Atomic			1	1	6	0	0	2	13	Tunnelling build (atomic); a test (atomic)		0.96	0.19	265	1.00	0.04	250	1.00	0.05	311
+CP06	Cryptography	Computing	STANDARD	Atomic			1	0	2	0	0	1	1			0.90	0.38	271	0.97	0.24	257	0.97	0.20	318
+CP07	Artificial Intelligence (Narrow)	Computing	STANDARD	Atomic		yes	1	1	2	0	0	5	23	Generation Ship; Tunnelling build (atomic); a test (atomic)		0.91	0.37	270	0.98	0.29	257	0.97	0.30	319
+CP08	Machine Learning	Computing	STANDARD	Atomic			0	0	2	0	0	3	6			0.59	0.37	278	0.75	0.25	273	0.70	0.26	337
+CP09	Artificial General Intelligence	Computing	UNCOMMON	Space			0	0	1	0	0	2	2			0.01	0.00	298	0.04	0.00	292	0.03	0.00	361
+CP10	Quantum Computing	Computing	STANDARD	Space	Atomic		0	0	1	0	0	1	1	Tunnelling build (atomic); a test (atomic)		0.37	0.29	287	0.37	0.25	288	0.25	0.22	356
+CP11	Neural Interface	Computing	RARE	Atomic			0	1	3	0	0	0	0			0.03	0.00	281	0.04	0.00	283	0.04	0.00	346
+CP12	Sentient AI	Computing	RARE	Space			1	0	1	0	0	0	0			0.00			0.00			0.00		
+CP13	Analog Computing Mastery	Computing	STANDARD	Modern		yes	1	0	3	0	0	1	2			0.96	0.10	240	0.97	0.02	236	0.99	0.01	293
+CP14	Perceptron Machines	Computing	STANDARD	Atomic		yes	4	1	1	0	0	1	1			0.50	0.26	266	0.75	0.04	248	0.80	0.02	308
+CP15	Neuromorphic Processors	Computing	STANDARD	Space			2	1	1	0	0	1	0			0.16	0.01	287	0.42	0.01	277	0.40	0.01	343
+CP16	Planetary Data Networks	Computing	STANDARD	Space			0	0	1	0	0	5	7	Tunnelling build (atomic); a test (atomic)		0.44	0.28	273	0.56	0.32	274	0.48	0.38	339
+CP17	AI Advisory Council	Computing	STANDARD	Space			0	0	2	0	0	1	1			0.12	0.07	290	0.16	0.08	292	0.10	0.02	358
+CP18	Autonomous Logistics	Computing	STANDARD	Space			0	0	1	0	0	1	1			0.13	0.12	293	0.15	0.08	292	0.09	0.07	360
+CP19	Cyber Operations	Computing	STANDARD	Space			0	0	3	0	0	0	0			0.12	0.10	292	0.14	0.06	291	0.10	0.06	362
+CP20	Digital Twins	Computing	STANDARD	Space			0	0	1	0	0	0	0			0.12	0.02	290	0.14	0.01	291	0.09	0.02	361
+CP22	Autonomous Economy	Computing	STANDARD	Space			0	0	2	0	0	0	0			0.00	0.00	304	0.03	0.00	298	0.02	0.00	368
+CP21	Macroscopic Quantum Control	Computing	STANDARD	Space	Atomic		0	1	1	0	0	0	0	Tunnelling build (atomic); a test (atomic)		0.25	0.07	296	0.23	0.15	300	0.21	0.15	371
+NP01	Radioactivity	Nuclear Physics	CORE	Modern	Atomic		1	0	1	0	1	2	42	Hyperspace build (atomic); Tachyonic build (atomic); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	186	1.00	0.45	210	1.00	0.60	259
+NP02	Atomic Model	Nuclear Physics	CORE	Modern	Atomic		1	1	0	0	0	5	41	Hyperspace build (atomic); Tachyonic build (atomic); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	190	1.00	0.10	214	1.00	0.18	266
+NP03	Nuclear Fission	Nuclear Physics	CORE	Atomic	Atomic		0	0	1	0	0	7	10			1.00	0.00	221	1.00	0.02	241	1.00	0.03	299
+NP04	Nuclear Fusion	Nuclear Physics	STANDARD	Atomic	Atomic	yes	1	0	0	0	0	6	3			0.97	0.03	265	0.95	0.08	249	0.90	0.08	306
+NP05	Nuclear Weapons	Nuclear Physics	STANDARD	Atomic	Atomic		3	0	0	0	0	3	1			0.97	0.01	265	0.96	0.03	256	0.94	0.06	315
+NP06	Thermonuclear Weapon	Nuclear Physics	STANDARD	Atomic	Atomic		2	0	0	0	0	0	0			0.43	0.11	283	0.57	0.06	276	0.49	0.06	336
+NP07	Breeder Reactor	Nuclear Physics	UNCOMMON	Atomic	Atomic		0	0	1	0	0	1	5			0.42	0.10	270	0.39	0.10	272	0.45	0.09	328
+NP08	Thorium Reactor	Nuclear Physics	STANDARD	Atomic	Atomic	yes	3	1	3	0	0	1	0			0.00	0.00	272	0.20	0.00	251	0.25	0.00	312
+NP09	Compact Fusion	Nuclear Physics	RARE	Space	Atomic		1	1	4	0	0	0	0			0.00			0.00			0.00		
+NP10	Cold Fusion	Nuclear Physics	RARE	Atomic	Atomic		0	1	0	0	0	0	0			0.07	0.00	241	0.09	0.00	248	0.10	0.00	302
+NP11	Antimatter Production	Nuclear Physics	STANDARD	Space	Atomic		0	0	1	0	0	0	0	Tachyonic build (atomic)		0.66	0.03	276	0.64	0.11	276	0.58	0.07	344
+NP15	Superconducting Storage Rings	Nuclear Physics	STANDARD	Space			0	0	1	0	0	1	2	Tachyonic build (atomic)		0.20	0.00	277	0.18	0.01	279	0.15	0.01	348
+NP12	Particle Laboratories	Nuclear Physics	STANDARD	Space	Atomic		0	0	1	0	0	1	2			0.79	0.19	275	0.85	0.30	275	0.77	0.29	342
+NP13	Hardened Shelters	Nuclear Physics	STANDARD	Space	Atomic		0	0	3	0	0	1	1			0.06	0.00	298	0.14	0.00	286	0.09	0.00	355
+NP16	Particle-Beam Weapons	Nuclear Physics	STANDARD	Space			0	0	1	0	0	1	1			0.01	0.00	298	0.01	0.00	293	0.01	0.00	376
+NP17	Particle-Beam Artillery	Nuclear Physics	STANDARD	Space	Atomic		0	1	0	0	0	0	0			0.00			0.00			0.00		
+NP-F01	Advanced Fuel Cycles	Nuclear Physics	STANDARD	Atomic	Atomic	yes	1	0	1	0	0	3	4			0.00			0.02	0.00	281	0.03	0.00	337
+NP-F02	Micro-Fission Reactors	Nuclear Physics	STANDARD	Atomic	Atomic		2	1	4	0	0	1	1			0.00			0.00			0.00	0.00	347
+NP-F03	Fission Fragment Propulsion	Nuclear Physics	STANDARD	Space	Atomic		0	0	1	0	0	0	0		propulsion	0.00			0.00	0.00	278	0.01	0.00	351
+NP-F04	Quantum Fission Cascade	Nuclear Physics	RARE	Space	Atomic		2	1	3	0	0	0	0			0.00			0.00			0.00		
+QM-E01	Fundamental Matter Theory	Quintessic Physics	CORE	Modern	Elemental		1	1	0	0	0	5	26	Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (elemental); Warp build (elemental); Wormhole build (elemental); a test (elemental); unified theory		1.00	0.00	167	1.00	0.71	192	1.00	0.70	238
+QM-E02	Bound-Energy Release	Quintessic Physics	CORE	Atomic	Elemental		0	0	1	0	0	6	16	Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (elemental); Warp build (elemental); Wormhole build (elemental); a test (elemental); unified theory		1.00	0.00	209	1.00	0.00	207	1.00	0.01	259
+QM-E03	Resonant-State Computing	Quintessic Physics	CORE	Atomic	Elemental		0	0	0	1	0	5	0			1.00	0.00	213	1.00	0.04	221	1.00	0.05	276
+QM-E04	Unified Field Theory (Elemental)	Quintessic Physics	CORE	Atomic	Elemental		0	0	0	0	0	11	17	Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (elemental); Warp build (elemental); Wormhole build (elemental); a test (elemental); unified theory		1.00	0.00	209	1.00	0.01	207	1.00	0.02	259
+QM-E05	Re-Tempering Reactor	Quintessic Physics	STANDARD	Space	Elemental		1	1	3	0	0	6	3	Tachyonic build (elemental)		1.00	0.04	252	1.00	0.09	248	1.00	0.14	310
+QM-E06	Exotic Matter (Elemental)	Quintessic Physics	STANDARD	Space	Elemental		0	1	1	0	0	1	0	Warp build (elemental); Wormhole build (elemental); a test (elemental)		0.97	0.20	267	0.99	0.16	267	0.99	0.15	334
+QM-E08	Boundary Furnace / Cycle-Limit Observatory	Quintessic Physics	CORE	Atomic	Elemental		0	1	1	0	0	3	9	Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (elemental); Warp build (elemental); Wormhole build (elemental); a test (elemental); unified theory		1.00	0.00	216	1.00	0.14	231	1.00	0.20	287
+QM-E09	Incorruptible Matter	Quintessic Physics	STANDARD	Modern	Elemental		0	0	2	0	0	0	0			0.50	0.13	201	0.50	0.17	205	0.50	0.18	254
+QM-E10	Temperament Medicine	Quintessic Physics	STANDARD	Atomic	Elemental		0	1	4	0	0	0	0			0.50	0.13	242	0.50	0.10	226	0.50	0.11	282
+QM-E11	Full-Cycle Coupling (The Great Wheel)	Quintessic Physics	STANDARD	Modern	Elemental		1	1	3	0	0	0	0			0.50	0.34	201	0.50	0.18	192	0.50	0.17	236
+QM-E12	Higher Strata Theory	Quintessic Physics	STANDARD	Space	Elemental		0	0	0	0	0	0	0	a test (elemental)		0.97	0.24	267	0.99	0.33	269	0.99	0.33	335
+QM-E13	Aetheric Vacuum (Void-Cycle Tap)	Quintessic Physics	STANDARD	Space	Elemental		0	0	0	0	0	2	1	Wormhole build (elemental)		1.00	0.10	252	1.00	0.13	246	1.00	0.15	305
+QM-E14	Limiting Fineness	Quintessic Physics	CORE	Modern	Elemental		0	0	1	0	0	3	2			1.00	0.00	202	1.00	0.09	208	1.00	0.11	259
+QM-E16	Boundary Survey	Quintessic Physics	CORE	Modern	Elemental		1	0	1	0	1	1	0			1.00	0.00	200	1.00	0.00	194	1.00	0.00	240
+QM-E17	Complete Catalogue (Complete Phase Codex)	Quintessic Physics	STANDARD	Atomic	Elemental		0	1	0	0	0	1	1	Tachyonic build (elemental); a test (elemental)		1.00	0.12	244	1.00	0.20	246	1.00	0.20	303
+QM-E18	Aether Telegraphy (Flow Signalling)	Quintessic Physics	STANDARD	Atomic	Elemental		0	1	2	0	0	0	0			1.00	0.13	243	1.00	0.10	228	1.00	0.12	282
+QM-E19	Celestial Current Survey	Quintessic Physics	STANDARD	Space	Elemental		1	1	1	0	0	1	2	Plenum build (elemental); a test (elemental)		0.94	0.26	267	0.97	0.27	268	0.97	0.22	334
+QM-E20	Quintessic Warhead	Quintessic Physics	STANDARD	Atomic	Elemental		2	0	0	0	0	2	0			1.00	0.04	242	1.00	0.03	227	1.00	0.01	282
+QM-E21	Compact Re-Tempering Reactor (Compact Cycle Reactor)	Quintessic Physics	RARE	Space	Elemental		1	1	4	0	0	0	0			0.02	0.00	271	0.03	0.00	275	0.02	0.00	340
+QM-E24	Self-Renewing Structures	Quintessic Physics	STANDARD	Modern	Elemental		0	2	5	0	0	0	0			0.50	0.22	203	0.50	0.17	191	0.50	0.16	236
+QM-E25	Counter-Cycle Reversal	Quintessic Physics	RARE	Space	Elemental		0	0	2	0	0	0	0			0.01	0.00	263	0.02	0.00	272	0.03	0.00	333
+QM-E26	Dissonance Weaponry	Quintessic Physics	UNCOMMON	Atomic	Elemental		0	2	3	0	0	0	0			0.45	0.11	245	0.82	0.05	250	0.83	0.06	309
+QM-E27	Plenum Gravitation	Quintessic Physics	CORE	Space	Elemental		0	0	1	0	0	9	7	Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (elemental); Warp build (elemental); Wormhole build (elemental); a test (elemental); unified theory		1.00	0.00	251	1.00	0.49	258	1.00	0.67	324
+QM-E28	Beyond the Catalogue (Beyond the Codex)	Quintessic Physics	STANDARD	Space	Elemental		0	1	0	0	0	0	0	a test (elemental)		0.91	0.22	267	0.89	0.28	269	0.89	0.21	333
+QP01	Wave-Particle Duality	Quantum Physics	CORE	Modern	Atomic		0	0	1	0	0	2	24	Hyperspace build (atomic); Tachyonic build (atomic); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	193	1.00	0.02	217	1.00	0.06	269
+QP02	Quantum Mechanics Formalism	Quantum Physics	CORE	Atomic	Atomic		0	0	2	0	0	10	22	Hyperspace build (atomic); Tachyonic build (atomic); Tunnelling build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	207	1.00	0.99	233	1.00	0.98	289
+QP04	Particle Accelerator	Quantum Physics	CORE	Atomic	Atomic		0	1	1	0	0	6	11	Hyperspace build (atomic); Tachyonic build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	212	1.00	0.16	237	1.00	0.21	295
+QP05	Quantum Field Theory	Quantum Physics	CORE	Atomic	Atomic		0	0	0	0	0	6	8	Hyperspace build (atomic); Tachyonic build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	212	1.00	0.24	238	1.00	0.23	295
+QP06	Standard Model Completion	Quantum Physics	STANDARD	Atomic	Atomic		0	1	0	0	0	1	1	Tachyonic build (atomic); a test (atomic)		1.00	0.13	236	1.00	0.39	250	1.00	0.23	309
+QP07	Quantum Entanglement Mastery	Quantum Physics	CORE	Space	Atomic		0	1	3	0	0	3	1			1.00	0.18	252	1.00	0.43	252	1.00	0.34	312
+QP08	Quantum Gravity Theory	Quantum Physics	CORE	Space	Atomic		0	0	1	0	0	9	5	Hyperspace build (atomic); Tachyonic build (atomic); Warp build (atomic); Wormhole build (atomic); a test (atomic); unified theory		1.00	0.00	251	1.00	0.46	254	1.00	0.47	317
+QP09	String Theory Validation	Quantum Physics	STANDARD	Space	Atomic		0	0	0	0	0	0	0			0.91	0.41	263	0.90	0.31	263	0.91	0.22	326
+QP10	Loop Quantum Gravity	Quantum Physics	STANDARD	Space	Atomic		0	0	0	0	0	0	0			0.82	0.35	265	0.82	0.23	264	0.85	0.19	328
+QP11	Exotic Matter Synthesis	Quantum Physics	STANDARD	Space	Atomic		0	1	1	0	0	1	0	Warp build (atomic); Wormhole build (atomic); a test (atomic)		0.91	0.19	264	0.92	0.12	266	0.93	0.07	329
+QP12	Casimir Effect Amplification	Quantum Physics	STANDARD	Space	Atomic		0	0	0	0	0	3	2	Warp build (atomic); Wormhole build (atomic); a test (atomic)		1.00	0.09	252	1.00	0.35	256	1.00	0.33	318
+QP13	Hidden Variable Discovery	Quantum Physics	RARE	Space	Atomic		1	1	1	0	0	0	0			0.04	0.00	271	0.04	0.00	262	0.04	0.00	324
+QP14	Quantum Communication	Quantum Physics	STANDARD	Space			0	0	2	0	0	0	0	Tunnelling build (atomic); a test (atomic)		0.25	0.36	269	0.24	0.35	269	0.24	0.31	335
+QP15	Beyond the Standard Model	Quantum Physics	STANDARD	Space	Atomic		0	1	0	0	0	0	0	a test (atomic)		0.95	0.43	264	0.93	0.35	265	0.96	0.31	329
+RC01	Relativity	Relativity & Cosmology	CORE	Modern			0	0	1	0	0	8	28	FTL screen; Hyperspace build (atomic); Hyperspace build (elemental); Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental); the ship; unified theory		1.00	0.00	176	1.00	0.91	197	1.00	0.94	244
+RC03	Gravitational Waves Detection	Relativity & Cosmology	STANDARD	Atomic			0	1	0	0	0	1	1	a test (atomic); a test (elemental)		1.00	0.17	245	0.99	0.75	257	1.00	0.76	319
+RC04	Black Hole Thermodynamics	Relativity & Cosmology	STANDARD	Atomic			1	0	0	0	0	0	0	Wormhole build (atomic); Wormhole build (elemental)		0.98	0.10	235	0.99	0.34	257	1.00	0.31	319
+RC05	Dark Matter Identification	Relativity & Cosmology	STANDARD	Space			0	1	1	0	0	0	0	a test (atomic); a test (elemental)		0.93	0.29	266	0.97	0.48	271	0.96	0.43	337
+RC06	Dark Energy Understanding	Relativity & Cosmology	STANDARD	Space			0	0	0	0	0	0	0	a test (atomic); a test (elemental)		0.96	0.32	267	0.98	0.46	270	0.97	0.41	336
+RC07	Closed Timelike Curves	Relativity & Cosmology	STANDARD	Space			1	0	0	0	0	0	0	a test (atomic); a test (elemental)		0.97	0.24	265	0.96	0.45	270	0.97	0.41	336
+RC08	Gravitational Coupling Experiment	Relativity & Cosmology	STANDARD	Space			1	0	1	0	0	1	2			0.81	0.31	268	0.86	0.38	272	0.84	0.33	338
+RC09	Inertial Dampening	Relativity & Cosmology	STANDARD	Space	Gravitic		0	1	2	0	0	1	1											
+RC10	Gravitic Lift	Relativity & Cosmology	STANDARD	Space	Gravitic		0	2	5	0	0	0	0		Gravitic Platform									
+RC11	Gravitational Leakage Survey	Relativity & Cosmology	STANDARD	Space			0	1	0	0	0	0	0	a test (atomic); a test (elemental)		0.28	0.22	280	0.19	0.35	287	0.19	0.26	356
+RK02	Liquid Fuel Rocket	Rocketry	CORE	Modern			1	0	0	0	0	6	33	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental); the ship		1.00	0.33	214	1.00	0.82	215	1.00	0.85	267
+RK03	Multi-Stage Rocket	Rocketry	CORE	Atomic			2	0	1	0	0	5	26	Generation Ship; Plenum build (elemental); Tachyonic build (atomic); Tachyonic build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental); the ship		1.00	0.19	230	1.00	0.84	238	1.00	0.86	296
+RK04	Orbital Mechanics	Rocketry	CORE	Atomic			1	1	2	0	0	2	2	the ship	propulsion	1.00	0.16	247	1.00	0.06	244	1.00	0.05	304
+RK05	Satellite Technology	Rocketry	CORE	Atomic			2	0	2	0	0	7	10	Plenum build (elemental); Tunnelling build (atomic); a test (atomic); a test (elemental); the ship		1.00	0.09	247	1.00	0.22	247	1.00	0.25	308
+RK06	Space Station	Rocketry	STANDARD	Space			0	1	2	0	0	0	0			0.00	0.00	306	0.00	0.00	301	0.00		
+RK07	Reusable Launch Vehicle	Rocketry	STANDARD	Space			0	1	5	0	0	3	4	Plenum build (elemental); a test (elemental)	Space Port	0.68	0.40	261	0.73	0.76	262	0.71	0.79	327
+RK08	Nuclear Thermal Rocket	Rocketry	UNCOMMON	Space			0	0	1	0	0	0	0		propulsion	0.38	0.34	273	0.42	0.34	269	0.40	0.34	332
+RK09	Ion Drive	Rocketry	STANDARD	Space			0	0	1	0	0	1	1		propulsion	0.96	0.19	256	0.91	0.30	257	0.90	0.26	319
+RK10	Fusion Drive	Rocketry	STANDARD	Space			0	0	1	0	0	0	0		propulsion	0.37	0.14	283	0.56	0.12	271	0.50	0.11	333
+RK11	Solar Sail	Rocketry	UNCOMMON	Space			0	0	1	0	0	0	0		propulsion	0.13	0.24	281	0.15	0.22	288	0.12	0.15	359
+RK12	Space Elevator	Rocketry	UNCOMMON	Space			0	1	4	0	0	0	0		Space Elevator	0.00			0.00	0.00	304	0.00		
+RK13	Orion Nuclear Pulse	Rocketry	RARE	Space			0	0	2	0	0	0	0		propulsion	0.04	0.00	276	0.04	0.00	273	0.05	0.00	334
+RK14	Bussard Ramjet	Rocketry	RARE	Space			0	0	1	0	0	0	0		propulsion	0.02	0.00	290	0.02	0.00	291	0.01	0.00	380
+RK15	Mass Driver	Rocketry	UNCOMMON	Space			0	1	5	0	0	0	0		Mass Driver	0.10	0.00	283	0.11	0.00	286	0.10	0.00	348
+RK16	Satellite Communications	Rocketry	STANDARD	Atomic			0	0	2	0	0	1	1	Tunnelling build (atomic); a test (atomic)		0.80	0.28	262	0.89	0.37	262	0.87	0.34	324
+RK17	Reconnaissance Satellites	Rocketry	STANDARD	Space			0	1	8	0	0	0	0			0.19	0.22	290	0.21	0.28	290	0.16	0.33	362
+MS01	Composite Materials	Materials Science	CORE	Atomic			0	1	2	0	0	12	25	Plenum build (elemental); a test (elemental)		0.84	0.18	244	0.96	0.46	250	0.92	0.55	308
+MS02	Nanotechnology / Fine Structuring	Materials Science	CORE	Atomic			0	0	2	0	0	9	16	Plenum build (elemental); Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental)		1.00	0.00	227	1.00	0.60	243	1.00	0.68	301
+MS03	Metamaterials	Materials Science	UNCOMMON	Atomic			0	0	2	0	0	1	0			0.18	0.07	280	0.37	0.05	277	0.39	0.04	345
+MS05	Self-Healing Materials	Materials Science	UNCOMMON	Atomic			0	1	3	0	0	0	0			0.40	0.22	275	0.51	0.16	275	0.53	0.17	343
+MS07	Programmable Matter	Materials Science	RARE	Space			1	1	2	0	0	0	0			0.00			0.00			0.00		
+MS08	Exotic Matter Engineering	Materials Science	STANDARD	Space			0	1	1	0	0	1	1	Warp build (atomic); Warp build (elemental); Wormhole build (atomic); Wormhole build (elemental); a test (atomic); a test (elemental)		0.60	0.17	282	0.64	0.12	282	0.60	0.08	350
+MS17	Transformation Media	Materials Science	STANDARD	Space			0	1	3	0	0	0	0	Wormhole build (atomic); Wormhole build (elemental)		0.21	0.15	295	0.22	0.16	298	0.21	0.09	362
+MS10	Structural Nanomaterials	Materials Science	STANDARD	Space			0	0	1	0	0	4	5			0.36	0.25	286	0.50	0.07	280	0.45	0.06	348
+MS11	Field Repair Systems	Materials Science	STANDARD	Space			0	1	1	0	0	1	1			0.06	0.00	298	0.16	0.00	288	0.15	0.00	358
+MS12	Signature Management	Materials Science	STANDARD	Space			0	0	2	0	0	0	0			0.06	0.02	298	0.15	0.00	289	0.15	0.00	357
+MS13	Adaptive Armour	Materials Science	STANDARD	Space			0	0	1	0	0	1	1			0.06	0.00	296	0.15	0.00	288	0.15	0.00	357
+MS16	Self-Sealing Hulls	Materials Science	STANDARD	Space			0	0	1	0	0	0	0			0.07	0.00	298	0.15	0.00	288	0.14	0.00	358
+MS15	Modular Platforms	Materials Science	STANDARD	Space			0	1	1	0	0	0	0			0.00	0.00	307	0.02	0.00	295	0.03	0.00	370
+GN02	DNA Structure	Genetics	STANDARD	Atomic			0	0	3	0	0	3	18	Generation Ship		0.77	0.51	263	0.91	0.38	257	0.87	0.40	320
+GN03	Genetic Engineering	Genetics	STANDARD	Atomic			0	0	2	0	0	4	15	Generation Ship		0.47	0.71	258	0.59	0.52	259	0.54	0.58	323
+GN04	Cloning	Genetics	UNCOMMON	Atomic			0	0	2	0	0	0	0			0.17	0.39	269	0.22	0.34	269	0.20	0.30	330
+GN05	Synthetic Biology	Genetics	STANDARD	Space			0	0	1	0	0	4	8	Generation Ship		0.05	0.20	300	0.08	0.20	300	0.05	0.29	370
+GN06	Human Genetic Enhancement	Genetics	UNCOMMON	Space			0	0	1	0	0	0	0			0.00	0.00	302	0.00	0.00	299	0.00		
+GN07	Extremophile Engineering	Genetics	STANDARD	Space			0	0	2	0	0	1	1			0.00	0.00	304	0.00	0.00	310	0.00		
+GN08	Bio-Computing	Genetics	RARE	Atomic			0	0	0	0	0	2	4			0.00	0.00	292	0.01	0.00	288	0.00	0.00	358
+GN09	Massively Parallel Bio-Processing	Genetics	STANDARD	Atomic			0	1	1	0	0	2	2			0.00	0.00	301	0.00	0.00	301	0.00	0.00	376
+GN10	Bio-Quantum Coherence	Genetics	STANDARD	Space	Atomic		1	0	1	0	0	2	0			0.00	0.00	300	0.00	0.00	297	0.00		
+GN11	Organic Neural Architecture	Genetics	STANDARD	Space			0	0	1	0	0	2	1			0.00			0.00			0.00		
+GN12	Vital Essence Isolation	Genetics	STANDARD	Modern	Vitalist		0	1	1	0	0	2	3											
+GN13	Animating Principle	Genetics	STANDARD	Atomic	Vitalist		0	1	4	0	0	1	1											
+GN14	Animate Intelligence	Genetics	UNCOMMON	Space	Vitalist		0	0	2	0	0	0	0											
+AE01	Hot Air Balloon	Aeronautics	STANDARD	Early Modern			0	1	2	0	0	1	4			1.00	0.10	190	1.00	0.08	188	1.00	0.07	234
+AE02	Dirigible/Airship	Aeronautics	STANDARD	Modern			1	1	2	0	0	1	3			1.00	0.27	223	1.00	0.18	216	1.00	0.17	267
+AE03	Heavier-Than-Air Flight	Aeronautics	CORE	Modern			4	0	0	0	0	6	16	Plenum build (elemental); a test (elemental)		1.00	0.19	203	1.00	0.34	208	1.00	0.35	258
+AE04	Jet Engine	Aeronautics	STANDARD	Modern			2	0	2	0	0	3	10	Plenum build (elemental); a test (elemental)		0.97	0.27	224	1.00	0.38	223	1.00	0.36	276
+AE05	Helicopter	Aeronautics	STANDARD	Modern			2	0	0	0	0	0	0			0.95	0.38	241	0.99	0.23	224	0.98	0.20	276
+AE07	Stealth Technology	Aeronautics	UNCOMMON	Atomic			2	0	0	0	0	0	0			0.32	0.20	269	0.48	0.12	266	0.48	0.11	329
+AE08	Scramjet	Aeronautics	UNCOMMON	Atomic			0	0	1	0	0	0	0			0.26	0.15	270	0.32	0.26	273	0.31	0.22	341
+AE09	Ornithopter	Aeronautics	RARE	Early Modern			0	1	2	0	0	0	0			0.12	0.00	182	0.09	0.00	167	0.12	0.00	213
+AE10	Flying Boat	Aeronautics	UNCOMMON	Modern			0	1	1	0	0	0	0			0.25	0.17	252	0.39	0.11	242	0.41	0.10	299
+AE11	Electric Aviation	Aeronautics	UNCOMMON	Atomic			0	1	0	0	0	0	0			0.07	0.00	289	0.12	0.00	292	0.11	0.00	362
+AE13	Rigid Airship	Aeronautics	STANDARD	Modern			0	1	2	0	0	1	2			0.98	0.15	257	0.99	0.08	243	1.00	0.06	300
+AE12	Grand Aerostat	Aeronautics	STANDARD	Atomic			0	1	2	0	0	1	1			0.65	0.23	276	0.80	0.13	270	0.73	0.13	333
+AE14	Aerospace Industry	Aeronautics	STANDARD	Space			0	0	1	0	0	6	7	Plenum build (elemental); a test (elemental)		0.68	0.22	262	0.75	0.70	268	0.71	0.72	333
+AE15	Jet-Stream Navigation	Aeronautics	STANDARD	Space			0	0	1	0	0	1	1			0.28	0.15	287	0.32	0.21	288	0.24	0.17	360
+AE16	Airborne Assault Doctrine	Aeronautics	STANDARD	Space			0	0	1	0	0	1	1			0.30	0.22	286	0.32	0.29	289	0.27	0.19	357
+AE17	Air Mobility	Aeronautics	STANDARD	Space			0	0	1	0	0	0	0			0.30	0.17	286	0.32	0.23	289	0.27	0.19	358
+AE18	Sky Carriers	Aeronautics	STANDARD	Space			0	1	3	0	0	0	0			0.18	0.22	290	0.23	0.16	291	0.20	0.12	360
+AE19	Suborbital Point-to-Point Transport	Aeronautics	STANDARD	Space			0	0	2	0	0	0	0			0.03	0.00	301	0.06	0.00	300	0.07	0.00	373
+AE20	Current Rigging	Aeronautics	STANDARD	Space	Elemental		0	0	1	0	0	0	0	Plenum build (elemental); a test (elemental)		0.23	0.02	296	0.21	0.01	301	0.22	0.02	373
+QM-E23	Current Sail	Aeronautics	STANDARD	Space	Elemental		0	0	1	0	0	1	1	Plenum build (elemental); a test (elemental)	propulsion	0.39	0.15	288	0.36	0.19	290	0.33	0.09	362
+SE01	Life Support Systems	Space Engineering	STANDARD	Atomic			0	0	1	0	0	1	3	Generation Ship		0.91	0.23	266	0.97	0.14	261	0.97	0.18	325
+SE02	Orbital Assembly	Space Engineering	STANDARD	Space			0	1	3	0	0	6	10	Generation Ship; Tachyonic build (atomic); Tachyonic build (elemental); a test (atomic); a test (elemental)	Orbital Shipyard	0.83	0.24	270	0.74	0.53	279	0.73	0.52	344
+SE03	Radiation Shielding	Space Engineering	STANDARD	Space			1	0	0	0	0	0	0			0.56	0.37	275	0.64	0.41	275	0.62	0.38	342
+SE05	Closed-Loop Ecology	Space Engineering	STANDARD	Space			0	0	1	0	0	2	2	Generation Ship		0.00	0.00	299	0.00	0.00	306	0.00	0.00	363
+SE06	Orbital Resource Delivery	Space Engineering	STANDARD	Space			1	0	0	0	0	1	1			0.00	0.00	298	0.00	0.00	306	0.00		
+SE07	Planetary Engineering Theory	Space Engineering	STANDARD	Space			0	0	1	0	0	0	0			0.00			0.00			0.00		
+SE08	O'Neill Cylinder	Space Engineering	UNCOMMON	Space			0	1	2	0	0	0	0			0.00			0.00			0.00		
+SE09	Advanced Solar Power	Space Engineering	UNCOMMON	Space			0	1	2	0	0	0	0			0.01	0.00	299	0.01	0.00	310	0.01	0.00	382
+SE11	Generation Ship	Space Engineering	STANDARD	Space			1	2	4	0	0	0	0	Generation Ship		0.00			0.00			0.00		
+SE13	Planetary Defense	Space Engineering	STANDARD	Space			0	1	3	0	0	0	0			0.45	0.22	277	0.58	0.19	275	0.56	0.18	343
+ES03	Coal Power Plant	Energy Systems	STANDARD	Modern		yes	2	1	4	0	0	0	0			1.00	0.14	236	1.00	0.13	216	1.00	0.14	268
+ES03-W	Biomass Power Plant	Energy Systems	STANDARD	Modern		yes	2	1	3	0	0	0	0			0.35	0.00	234	0.48	0.01	212	0.48	0.00	264
+ES05	Oil Power Plant	Energy Systems	STANDARD	Modern		yes	2	1	4	0	0	0	0			0.99	0.14	236	0.99	0.14	216	0.99	0.14	267
+ES05-W	Alcohol/Biogas Power Plant	Energy Systems	STANDARD	Modern		yes	2	1	4	0	0	0	0			0.16	0.01	242	0.41	0.00	215	0.40	0.01	267
+ES06	Nuclear Fission Plant	Energy Systems	CORE	Atomic	Atomic	yes	2	0	2	0	0	3	1			1.00	0.00	240	1.00	0.03	249	0.99	0.04	310
+ES07	Solar Panel	Energy Systems	STANDARD	Atomic			1	0	2	0	0	1	1			0.63	0.22	277	0.79	0.20	271	0.74	0.17	334
+ES08	Fusion Reactor	Energy Systems	STANDARD	Space	Atomic	yes	2	1	3	0	0	2	0			0.21	0.00	290	0.36	0.01	282	0.25	0.00	349
+ES09	Geothermal Power	Energy Systems	UNCOMMON	Modern			1	1	4	0	0	0	0			0.62	0.31	227	0.67	0.31	213	0.67	0.33	261
+ES10	Tidal Power	Energy Systems	UNCOMMON	Atomic			1	1	4	0	0	0	0			0.53	0.19	253	0.56	0.18	252	0.58	0.18	313
+ES11	Beamed Power	Energy Systems	UNCOMMON	Space			0	0	1	0	0	0	0			0.08	0.28	289	0.10	0.24	290	0.09	0.19	360
+ES12	Zero-Point Energy	Energy Systems	RARE	Space	Atomic		0	1	3	0	0	1	0			0.01	0.00	288	0.01	0.00	286	0.01	0.00	349
+ES13	Biomass/Biogas	Energy Systems	STANDARD	Modern			2	1	3	0	0	1	0			1.00	0.41	236	1.00	0.14	209	1.00	0.14	258
+ES14	Advanced Fission	Energy Systems	STANDARD	Space	Atomic	yes	3	1	3	0	0	2	0			0.00			0.00			0.00		
+ES22	Smart Grid	Energy Systems	STANDARD	Space			0	0	1	0	0	3	4			0.19	0.27	286	0.41	0.23	285	0.32	0.20	352
+ES18	Superconducting Energy Storage	Energy Systems	STANDARD	Space			0	0	1	0	0	0	0	Warp build (atomic); Warp build (elemental)		0.66	0.07	272	0.63	0.20	282	0.57	0.17	351
+ES17	Grid-Scale Storage	Energy Systems	STANDARD	Space			0	1	1	0	0	1	2			0.02	0.00	298	0.04	0.00	296	0.04	0.00	367
+ES19	Electrified Industry	Energy Systems	STANDARD	Space			0	0	1	0	0	1	1			0.01	0.00	301	0.05	0.00	298	0.03	0.00	362
+ES20	Continental Interconnects	Energy Systems	STANDARD	Space			0	0	1	0	0	1	1			0.00			0.00			0.00	0.00	356
+ES21	Global Supergrid	Energy Systems	STANDARD	Space			0	0	1	0	0	0	0			0.00			0.00			0.00		
+QM-E07	Aether Tension Engine	Energy Systems	RARE	Space	Elemental		1	1	4	0	0	1	0			0.01	0.00	286	0.01	0.00	312	0.01	0.00	368
+ES15	Quintessic Power Plant	Energy Systems	STANDARD	Atomic	Elemental		1	1	5	0	0	0	0			0.95	0.16	249	0.99	0.12	249	0.99	0.15	313
+ES16	Caloric Engine Plant	Energy Systems	UNCOMMON	Modern	Caloric		1	1	4	0	0	0	0											

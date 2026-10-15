@@ -16,7 +16,7 @@ COND_WORDS = {'exotic': 'exotic matter holds', 'extradim': 'extra dimensions exi
               'coherence': 'macro-scale coherence', 'discrete': 'spacetime is discrete', 'hartman': 'the Hartman effect', 'tachDE': 'dark energy is a tachyonic field',
               'tachyon': 'a tachyonic sector exists'}
 METHODS = ['Warp', 'Wormhole', 'Hyperspace', 'Tunnelling', 'Tachyonic']
-PROPOSER = {'Tachyonic': 'RC01', 'Warp': 'RC02', 'Wormhole': 'RC02', 'Hyperspace': 'MA13', 'Tunnelling': 'QP02'}
+PROPOSER = {'Tachyonic': 'RC01', 'Warp': 'RC01', 'Wormhole': 'RC01', 'Hyperspace': 'MA13', 'Tunnelling': 'QP02'}
 recs = T['records']; disc_turn = {}
 for r in recs:
     for k in r['found']: disc_turn.setdefault(k, r['turn'])

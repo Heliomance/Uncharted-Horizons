@@ -1,5 +1,25 @@
 # Deferred Tasks — Uncharted Horizons
 
+## 2026-10-15: Tune the Competing Solutions' races
+- **Surfaced during:** v3.124, when the simulator began modelling lock-outs (`COMPETE=1`, `competing.py`).
+- **Issue:** §1.2 says the detour margin tunes each race so that "a civilisation pursuing both usually finds the primary first", the alternative being the road less travelled. Measured with lock-outs (`results/v3124_confirmation.txt`, all 15 victory conditions, 900 games a player), the races are lopsided both ways:
+  - **The alternative is almost never developed:** the Industrial Canal Network (1–3% of games), the Atmospheric Engine (1–7%), Advanced Fuel Cycles (0–3%, so the deep fission chain, §1.2's model case for a persisting alternative, is almost never taken), Direct-Current Stations (6–11%), and the Thorium Reactor (none of the expert's games, 20–25% of the others'). Advanced Fission is Space-era and never reached by the finish.
+  - **The alternative usually comes first:** Stirling Engine Mastery (84–90% before the Internal Combustion Engine), Analog Computing Mastery (71–90% before the Programmable Computer) and Phage Therapy (71–79% before Antibiotics), and Perceptron Machines for the novice and the average player (70–76%).
+  - **In between:** the Corbel Arch, Chariot Warfare, Bio-Organic Synthesis, the Biomass and Alcohol/Biogas Power Plants, and Nitrate Fertiliser (11–60%).
+- **Why the first group never comes first:** each primary there is CORE, so its idea occurs the moment its prerequisites are met, while the STANDARD alternative waits for its idea and costs ×1.5; the alternative wins only if its prerequisites come well before the primary's. The Thorium Reactor and the Nuclear Fission Plant open on the same discovery (Nuclear Fission), Direct-Current Stations and the Power Grid on the Electric Generator. The Atmospheric Engine (Medieval) is the Steam Engine's accelerator as well as its alternative, so it almost never accelerates anything.
+- **Suggested fix:** per group, decide how often the alternative should come first, then tune the margin (below ×1.5, or none), the alternative's prerequisites (opening it earlier than the primary), or the primary's tier. Some alternatives may be meant mainly for worlds without the primary (fusion-free worlds, no fossil fuels), which the simulator doesn't generate.
+- **Next:** Tamsin decides the intended frequencies.
+
+## 2026-10-15: Decide Ring Fortress
+- **Surfaced during:** the row survey (merge 7, or the alternative demotion to UNCOMMON). Tamsin asked what Ring Fortress and Reinforced Concrete do (answered 15 October).
+- **The rows:** Reinforced Concrete (CO11, Modern, STANDARD; Roman Concrete or Oxygen Theory, with Bessemer steel) grants +10% Production towards all buildings, the canonical road-speed unique, and makes Dams possible; since v3.124 the Submarine and Life Support Systems need it too, and Orbital Assembly, Geodesic Structures and Vertical Farming already did. It is discovered in every game. Ring Fortress (CO26, Modern, STANDARD; Star Fort and Reinforced Concrete) grants the canonical Military Base (city Strength +12, HP +25, needs an Arsenal) and the fork's Bunker (325 Production, upkeep 2, needs a Military Base; Strength +8, HP +50). Nothing depends on it, and 99–100% of games discover it by the race's finish.
+- **Options:** (a) merge it into Reinforced Concrete, the Military Base and Bunker moving there (Star Fort then no longer needed for them; about one fewer discovery a game); (b) demote it to UNCOMMON, the Military Base moving to Reinforced Concrete so that every civilisation keeps the canonical defensive line (about half a discovery); (c) keep it.
+- **Next:** Tamsin decides.
+
+## 2026-10-15: CORE rows that might be STANDARD
+- **Asked (Tamsin, 15 October):** is anything CORE that doesn't need to be? Answered the same day: by the CORE criteria (v3.59), every CORE row either meets one, is a prerequisite of a CORE row, or holds a §6 guarantee, except four that are CORE only because they are on an FTL route, which v3.59 deliberately left CORE: Quantum Entanglement Mastery (QP07; Tunnelling's route, through Quantum Computing and Quantum Communication), the Laser (OP07; needed by QP07, and on Hyperspace's leakage test through Gravitational Waves Detection), Composite Materials (MS01; on Plenum's build through Aerospace Industry) and Carbon Fiber (TX08; needed by MS01). As STANDARD, each would be missed in about 15% of games until rediscovery on demand brings it back, which delays the race in those games, on Tunnelling and Plenum, the slowest methods. The gain is about 0.15 fewer discoveries a game each. Claude's view: keep them CORE; measurable on request (one confirmation run).
+- **Next:** Tamsin decides whether to measure or leave them.
+
 ## 2026-10-15: Development's Space threshold and the victory target
 - **Surfaced during:** the Endeavour measurements. Tamsin: "I feel like the development thresholds aren't set right if the game is reliably ending before the space era even begins".
 - **Location:** §2's era spans (the Atomic/Space boundary at 143,768 Insight) and the Space era's price (×0.8 since v3.112); §7's era-model paragraph; the victory windows (`ftl_decisions_digest.md`).
@@ -70,6 +90,7 @@
   - Together, about 1.1 discoveries a turn from the Modern era on for the good economies, against about 1.25.
   - Found in passing: Aetheric Electrodynamics keeps a +2 Production from Factories that Quantum Electrodynamics has lost; Aetheric Vacuum lacks Casimir's report.
 - **Next:** Tamsin picks from the survey; then v3.124 applies the picks, re-solves the late prices for parity on all 15 conditions and reports the late pace. Optionally, the harness first models Competing Solutions' lock-outs.
+- **Done (15 October, v3.124):** Tamsin took merges 1–3, both cuts and all five demotions (Helium Extraction included: "Fine with the airship disaster being the most common outcome"), and asked for the fixes found in passing and for the simulator to model the lock-outs. Applied with both; the Space era's price ×1.05 restores parity: 305 / 307 / 379 on all 15 conditions (2,700 games, none unfinished). From the Modern era on, a good economy now makes 1.17 discoveries a turn counting rivals' knowledge (from 1.26), an average one 0.93 (from 1.01). One a turn would need about 17–19 fewer late discoveries a game. Open: Ring Fortress, and the Competing Solutions' races (both above).
 
 ## 2026-10-15: Rebalance the FTL methods for v3.122
 - **Surfaced during:** v3.122's confirmation (`results/v3122_confirmation.txt`).
@@ -330,6 +351,7 @@
 - **Location:** SF13 Submarine
 - **Issue:** the row says the Submarine is base-game `Invisible to others`; in both base rulesets (Gods & Kings and Vanilla) the Submarine unit *type* carries `Invisible to non-adjacent units`, with `Can see invisible [Submarine] units` and `Can enter ice tiles`. Nothing in the base rulesets uses `Invisible to others`. Destroyers and Missile Cruisers carry `Can see invisible [Submarine] units`.
 - **Suggested fix:** correct the note at the next tree revision.
+- **Done (15 October, v3.124):** the note now says the Submarine's base-game type is `Invisible to non-adjacent units`.
 
 ## 2026-10-13: Fork engine work and checks from the Space-era focus designs (FTL direction document, W18)
 - **Surfaced during:** the detailed passes over the signature and ship foci (W18)

@@ -712,7 +712,7 @@ Windows are counted in turns of the good economy's eras, so a slower economy get
 
 **Tier odds no longer weight attention** (decided by Tamsin, 14 October: rarer ideas pay for their rarity at occurrence, and gain nothing by being slower to finish). Once an idea has occurred, every tier is studied alike: within its focus, and in its focus's draw on the spread and spill-over (`tier_attention: false` in `w7c_cfg.json`, now the default). Measured: RARE rises from 5% to 7% of those that open; prices for mid-era arrivals ×0.77 instead of ×0.80; pooled victory medians 301 / 308 / 382 with 0 / 7 / 0 unfinished of 900; and the average player's Process-world Hyperspace outlier (402) disappears (383). The simulated player still uses the tier odds when choosing a focus.
 
-**Not modelled:** environmental prerequisites; Competing Solutions' lock-outs; the UNIQUE first-come rule and stacking penalty (a flat 6.5% stands in); theoretical revelation (*Reveals* lists); necessity modifiers; the per-city cost modifier; §1.3's environment weighting of the spread; and feedback from discoveries to income.
+**Not modelled:** environmental prerequisites; Competing Solutions' lock-outs (modelled since v3.124: `COMPETE=1`, `competing.py`); the UNIQUE first-come rule and stacking penalty (a flat 6.5% stands in); theoretical revelation (*Reveals* lists); necessity modifiers; the per-city cost modifier; §1.3's environment weighting of the spread; and feedback from discoveries to income.
 
 **A worked example.** A focus receives 100 Insight a turn. It has three STANDARD breakthroughs priced at 200 with meters of exactly 1: A is 60% done, B 10%, C new.
 

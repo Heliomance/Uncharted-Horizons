@@ -1,0 +1,77 @@
+v3.124 confirmed (15 Oct 2026): three merges (Relativity; Quantum Field Theory with Unified Field Theory (Elemental); Radioactivity
+with Uranium Discovery), two cuts (Sealed Environments, Atmospheric Science), five demotions to UNCOMMON (Desalination, Hydroponics,
+Flying Boat, Nuclear Thermal Rocket, Helium Extraction), Competing Solutions modelled (COMPETE=1, competing.py: each alternative's
+x1.5 detour margin while its primary exists, and its lock-out when the primary comes first), and the Space era's price x1.05.
+All 15 victory conditions, three benchmark players, 60 games a cell, 2,700 games, PYTHONHASHSEED=0, rivals made under the same
+settings. Made by (the defaults are v3.124's):
+  for w in familiar Process Substance; do bash make_pool.sh $w 124; done
+  for w in familiar Process Substance; do bash compare_settings.sh $w V124 SAVE_T=1; done
+  python3 confirm_report.py V124
+(the results files keep only what victory needs, without every discovery turn).
+Reference: base Civ V's science victory on the same income (base_race.py), 305 on a good economy, 380 on an average one.
+
+== familiar
+  expert   median 303, mean 304.6, unfinished 0 | Warp 301, Wormhole 310, Hyperspace 304, Tachyonic 296, Tunnelling 312 | from the Modern era: 122 discoveries in 105 turns
+  novice   median 306, mean 307.9, unfinished 0 | Warp 301, Wormhole 311, Hyperspace 311, Tachyonic 301, Tunnelling 316 | from the Modern era: 126 discoveries in 110 turns
+  average  median 376, mean 379.3, unfinished 0 | Warp 374, Wormhole 376, Hyperspace 380, Tachyonic 372, Tunnelling 391 | from the Modern era: 122 discoveries in 133 turns
+== Process
+  expert   median 306, mean 307.6, unfinished 0 | Warp 302, Wormhole 313, Hyperspace 308, Tachyonic 299, Plenum 318 | from the Modern era: 129 discoveries in 109 turns
+  novice   median 309, mean 310.3, unfinished 0 | Warp 303, Wormhole 312, Hyperspace 316, Tachyonic 301, Plenum 318 | from the Modern era: 133 discoveries in 112 turns
+  average  median 381, mean 383.7, unfinished 0 | Warp 377, Wormhole 383, Hyperspace 388, Tachyonic 374, Plenum 390 | from the Modern era: 132 discoveries in 138 turns
+== Substance
+  expert   median 305, mean 306.8, unfinished 0 | Warp 298, Wormhole 311, Hyperspace 309, Tachyonic 301, Plenum 312 | from the Modern era: 125 discoveries in 108 turns
+  novice   median 306, mean 309.0, unfinished 0 | Warp 303, Wormhole 313, Hyperspace 310, Tachyonic 301, Plenum 318 | from the Modern era: 130 discoveries in 111 turns
+  average  median 381, mean 383.9, unfinished 0 | Warp 374, Wormhole 382, Hyperspace 386, Tachyonic 374, Plenum 396 | from the Modern era: 129 discoveries in 138 turns
+
+== all 15 conditions
+expert   900 games, 0 unfinished: victory median 305 (+0 against 305), middle half 298-314, mean 306.3; prototype 5 turns, Drive 10; from the Modern era 125 discoveries in 108 turns (1.17 a turn); lock-outs a game 7.8 (5.8 from the Modern era)
+novice   900 games, 0 unfinished: victory median 307 (+2 against 305), middle half 301-317, mean 309.1; prototype 5 turns, Drive 10; from the Modern era 130 discoveries in 111 turns (1.17 a turn); lock-outs a game 7.1 (4.6 from the Modern era)
+average  900 games, 0 unfinished: victory median 379 (-1 against 380), middle half 374-390, mean 382.3; prototype 6 turns, Drive 12; from the Modern era 127 discoveries in 136 turns (0.93 a turn); lock-outs a game 6.9 (4.5 from the Modern era)
+
+== the Space price
+At the v3.123 Space price (x1), v3.124 measured 301 / 305 / 378 on all 15 conditions (expert / novice / average; none
+unfinished): the merges and lock-outs had shortened the science victory, leaving the expert 4 turns short. Screened on familiar
+Warp, Process Tachyonic and Substance Plenum (smooth_screen.sh, rivals under each setting): Space x1 300 / 302 / 375, x1.1
+302 / 306 / 377, x1.2 304 / 309 / 382. x1.05 re-centres it (above).
+
+== era alignment and discoveries a game (smooth_report.py cmpV124, all 15 conditions)
+  expert   victory 305 (+0 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +6, Classical -2, Medieval +0, Early Modern +2, Modern -2, Atomic -6, Space -8; discoveries a game by the finish 283 (243), 1.02 turns each
+  novice   victory 307 (+2 against base Civ V's 305), unfinished 0; enters each era by count minus development: Ancient +7, Classical +4, Medieval +2, Early Modern +6, Modern +2, Atomic +0, Space -7; discoveries a game by the finish 289 (240), 1.01 turns each
+  average  victory 379 (-1 against base Civ V's 380), unfinished 0; enters each era by count minus development: Ancient +9, Classical +5, Medieval +3, Early Modern +6, Modern +3, Atomic -1, Space -10; discoveries a game by the finish 288 (238), 1.26 turns each
+
+Turns per discovery while development is in each era (all discoveries; own only, without rivals' knowledge, in brackets),
+the fork to each player's race finish; base Civ V, turns per tech over the same stretch of research, on the same income.
+
+| Era | Expert | Novice | Average | Base Civ V, good economy | Base Civ V, average economy |
+|---|---|---|---|---|---|
+| Primitive | 1.1 (1.1) | 1.1 (1.1) | 1.4 (1.4) | 7.8 (4 techs) | 9.8 |
+| Ancient | 1.1 (1.1) | 1.0 (1.0) | 1.2 (1.2) | 3.0 (7 techs) | 3.7 |
+| Classical | 1.2 (1.2) | 1.4 (1.4) | 1.7 (1.7) | 3.7 (9 techs) | 4.6 |
+| Medieval | 1.1 (1.2) | 1.1 (1.1) | 1.3 (1.3) | 4.0 (10 techs) | 4.9 |
+| Early Modern | 1.2 (1.6) | 1.2 (1.6) | 1.5 (2.0) | 3.6 (16 techs) | 4.5 |
+| Modern | 0.9 (1.1) | 0.9 (1.2) | 1.1 (1.5) | 3.5 (13 techs) | 4.4 |
+| Atomic | 0.9 (1.0) | 0.8 (1.2) | 1.0 (1.6) | 4.4 (8 techs) | 5.5 |
+| Space | 0.8 (1.2) | 0.9 (1.3) | 1.2 (1.7) | 4.2 (8 techs) | 5.5 |
+
+== Competing Solutions
+Competing Solutions in v3.124 (all 15 victory conditions; the atomic-only groups in the familiar world only, 300 games a player).
+Each cell: locked out / discovered by the race's finish / discovered before its primary, expert, novice, average.
+
+| Alternative (primary) | Expert | Novice | Average |
+|---|---|---|---|
+| Corbel Arch/Vault (Arch Construction) | 29% / 71% / 60% | 51% / 49% / 33% | 51% / 49% / 34% |
+| Chariot Warfare (Cavalry Tactics) | 40% / 60% / 41% | 45% / 55% / 46% | 38% / 62% / 50% |
+| Industrial Canal Network (Railway Network) | 99% / 1% / 0% | 97% / 3% / 3% | 98% / 2% / 2% |
+| Atmospheric Engine (Steam Engine) | 99% / 1% / 1% | 93% / 7% / 7% | 93% / 7% / 7% |
+| Bio-Organic Synthesis (Petrochemistry) | 81% / 19% / 11% | 59% / 41% / 31% | 56% / 44% / 35% |
+| Biomass Power Plant (Coal Power Plant) | 65% / 35% / 28% | 53% / 48% / 39% | 53% / 48% / 40% |
+| Alcohol/Biogas Power Plant (Oil Power Plant) | 83% / 16% / 12% | 60% / 41% / 34% | 61% / 40% / 34% |
+| Advanced Fuel Cycles (Nuclear Fusion) | 97% / 0% / 0% | 93% / 2% / 1% | 88% / 3% / 3% |
+| Advanced Fission (Fusion Reactor) | 21% / 0% / 0% | 36% / 0% / 0% | 25% / 0% / 0% |
+| Thorium Reactor (Nuclear Fission Plant) | 100% / 0% / 0% | 80% / 20% / 19% | 76% / 25% / 22% |
+| Stirling Engine Mastery (Internal Combustion Engine) | 10% / 90% / 90% | 16% / 86% / 84% | 13% / 89% / 87% |
+| Analog Computing Mastery (Programmable Computer) | 4% / 96% / 71% | 3% / 97% / 83% | 1% / 99% / 90% |
+| Perceptron Machines (Artificial Intelligence (Narrow)) | 45% / 50% / 38% | 25% / 75% / 70% | 20% / 80% / 76% |
+| Phage Therapy (Antibiotics) | 14% / 80% / 71% | 13% / 86% / 73% | 12% / 87% / 79% |
+| Direct-Current Stations (Power Grid) | 94% / 6% / 2% | 89% / 11% / 3% | 89% / 11% / 3% |
+| Nitrate Fertiliser (Catalysis) | 43% / 56% / 54% | 43% / 57% / 56% | 45% / 55% / 53% |

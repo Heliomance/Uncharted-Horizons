@@ -1,6 +1,8 @@
 # Row survey: merges, rows that don't earn their place, demotions to UNCOMMON
 
-*Draft for Tamsin, 15 October 2026. Nothing here is applied: it's a list to choose from. Her request: "draft merge candidates, survey for technologies that don't earn their place, and ones that can be demoted to UNCOMMON".*
+*Draft for Tamsin, 15 October 2026. Her request: "draft merge candidates, survey for technologies that don't earn their place, and ones that can be demoted to UNCOMMON".*
+
+**Decided (15 October, Tamsin):** "happy with the three merges, the cuts, and the demotions. Fine with the airship disaster being the most common outcome." So merges 1–3, both cuts and all five demotions, Helium Extraction included, applied in v3.124 with the fixes found in passing. Merges 4–7 were not taken up; of merge 7 she asked what Ring Fortress and Reinforced Concrete do. On the Relativity merge: the FTL hypotheses' staggered proposals were never mechanical, only so that each theory arrived with the breakthrough that proposed it in real life, which the merged row still does. The simulator models the Competing Solutions' lock-outs since v3.124 (`COMPETE=1`).
 
 ## Why, and how much
 
