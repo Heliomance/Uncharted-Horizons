@@ -11,6 +11,7 @@ Everything about the fork's research system that isn't game code: the design doc
 | `verification-battery/` | 22 structural and Unciv-syntax checks on the design document. Run it after every edit. |
 | `simulator/` | The research and FTL-endgame simulator, its measurement scripts and every saved result. |
 | `wiki/` | The generator that builds the GitHub wiki from `tech_tree.md` (see below). |
+| `mockups/research_screen/` | The research-screen mockup (a Design canvas): its source, data, requirements and review. See its README. |
 
 ## Checking an edit
 

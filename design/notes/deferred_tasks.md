@@ -1,5 +1,11 @@
 # Deferred Tasks — Uncharted Horizons
 
+## 2026-10-15: Decide what the research-screen mockup chose for you
+- **Surfaced during:** the research-screen mockup (`design/mockups/research_screen/`, canvas linked in its README).
+- **Issue:** to draw the screen, the mockup had to answer open questions: Endeavours only for ideas that have not occurred; no progress shown on rows under study; no per-focus Insight; what Experiment and Synthesis act on in the window model; the queue rule; which statuses are statuses and which are tags. The list is in the mockup's README, *Choices the mockup makes*, and the full set in `build_spec.md` §11.
+- **Also found:** §1.2 refers to "the research-screen concept", which does not exist; §1.3's modifier table names foci that do not exist (Woodworking, Diplomacy); "Explosives (non-gunpowder)" carries a world-truth hint in its name; Calculus gives "+15% Insight to the physical foci", a set the document never defines.
+- **Next:** Tamsin confirms or changes each choice; §1.4 and §1.5 then get the screen's rules written in.
+
 ## 2026-09-24: Resolve UNIQUE buildings that replace a base the nation already replaces
 - **Surfaced during:** v3.57 (UNIQUE replacements made to replace via the unique-building cache)
 - **Location:** §7.0 "UNIQUE replacements must actually replace"; e.g. Egypt's Burial Tomb and the River Temple (CU10) both replace the Temple
