@@ -310,7 +310,7 @@ class Component extends DCLogic {
         needsLine(r);
         quote(r.conj);
         if (fundedHere) act('primary', 'Funded', '', null, true); else act('primary', 'Fund ' + r.focus, '', () => this.fund(r.focus));
-        enBtn(r);
+        act('secondary', 'Grand Endeavour', 'only for ideas not yet occurred', null, true);
       } else if (r.status === 'waiting') {
         line([src + 'Awaiting the idea: no Insight, however hard ' + r.focus + ' is funded, until the idea occurs.']);
         needsLine(r, 'Needs ');

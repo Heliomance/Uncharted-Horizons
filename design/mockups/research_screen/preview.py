@@ -64,10 +64,10 @@ def build(path, extra=None):
 <template id="tpl">{tpl}</template><div id="root"></div>
 <script>{ENGINE}
 {code}
-const comp = new Component({json.dumps(defaults)});
+window.comp = new Component({json.dumps(defaults)});
 window.__render = () => {{ const root = document.getElementById('root'); root.innerHTML = '';
-  expand(document.getElementById('tpl').content, comp.renderVals(), root); }};
-if (comp.componentDidMount) comp.componentDidMount();
+  expand(document.getElementById("tpl").content, window.comp.renderVals(), root); }};
+if (window.comp.componentDidMount) window.comp.componentDidMount();
 window.__render();
 </script></body></html>"""
 
