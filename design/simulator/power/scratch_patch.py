@@ -117,7 +117,5 @@ if os.environ.get('DRY') == '1':
     i = row('FA01'); c = L[i].split(' | '); c[5] = c[5] + ' *Wet only.*'; L[i] = ' | '.join(c)
 # (WINDFIX, the Windmill on Weaving and the industrial rows on the Water Mill or the Windmill, was adopted with a CORE
 # Windmill in v3.117 and retired.)
-# GEARCLASS=1 (15 October, Tamsin's question): Gearing (MC03) labelled Classical instead of Ancient
-if os.environ.get('GEARCLASS') == '1':
-    i = row('MC03'); c = L[i].split(' | '); assert c[3] == 'Ancient', c[3]; c[3] = 'Classical'; L[i] = ' | '.join(c)
+# (GEARCLASS, Gearing labelled Classical, was adopted in v3.119 and retired.)
 open(p,'w',encoding='utf-8').write('\n'.join(L)); print("scratch redesign in place")

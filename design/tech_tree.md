@@ -1,4 +1,4 @@
-# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.118)
+# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.119)
 
 ## 1. System Overview
 
@@ -675,7 +675,7 @@ The Space era's span is provisional. The FTL endgame (§4) widened the era with 
 | # | Breakthrough | Cat. | Era | Prerequisites | Unlocks | Notes |
 |---|---|---|---|---|---|---|
 | MC01 | **Wheel** | CORE | Primitive | S01 (Tool Knapping) | ⟨[+1] Movement <for [Civilian] units>⟩ (carts). | |
-| MC03 | **Gearing** | CORE | Ancient | MC01 + MA01 (Geometry) | ⟨[-25]% construction time for [Mine] improvements⟩ — geared hoists and windlasses sink the shafts faster. Gears turn everything that follows; the Workshop comes with the crank that turns their motion to work (MC19). ⟨[-25]% construction time for [Farm] improvements⟩ — the seed drill is a geared machine, Han-era in China (Mechanical Seed Drill, merged here in v3.101). ⟨[+10]% Production when constructing [All] wonders [in all cities]⟩ — the crane lifts what the arm cannot: lever, pulley and gear together, as in Hellenistic mechanics (Lever and Pulley, merged here in v3.102). |  |
+| MC03 | **Gearing** | CORE | Classical | MC01 + MA01 (Geometry) | ⟨[-25]% construction time for [Mine] improvements⟩ — geared hoists and windlasses sink the shafts faster. Gears turn everything that follows; the Workshop comes with the crank that turns their motion to work (MC19). ⟨[-25]% construction time for [Farm] improvements⟩ — the seed drill is a geared machine, Han-era in China (Mechanical Seed Drill, merged here in v3.101). ⟨[+10]% Production when constructing [All] wonders [in all cities]⟩ — the crane lifts what the arm cannot: lever, pulley and gear together, as in Hellenistic mechanics (Lever and Pulley, merged here in v3.102). | Toothed gears are Hellenistic and Han: Philo's geared water wheel (3rd c. BC), the Antikythera mechanism (2nd c. BC), Vitruvius's mill and hodometer; the lever and pulley are older (Classical since v3.119). |
 | MC04 | **Windmill** | CORE | Medieval | MC03 (Gearing) + TX01 (Weaving — the sails' cloth) | **Windmill** — the mill for country with no river to turn one. Where there is no Water Mill, it drives the industrial chain in its place: the crank (MC19), the Blast Furnace's bellows, Plate Armour's hammers and the Steam Engine's gearing. *Also discoverable through Energy Systems.* | CORE (v3.117) as the Water Mill's alternative for a civilisation without a river or water source. Sistan's vertical-axis mills (10th c.) needed no gears; the European post mill (1185) took the water mill's; the Dutch wind sawmill of the 1590s put a crankshaft on one. |
 | MC05 | **Clockwork** | CORE | Medieval | MC03 + ME05 (Steel) | ⟨[Great Engineer] is earned [+10]% faster⟩ — the clockmaker, the first precision engineer. | |
 | MC06 | **Printing Press** | CORE | Medieval | MC03 + TX10 (Paper Making) + SO04 (Writing) | ⟨[+10]% [Science] [in all cities]⟩ (Insight is science); **Leaning Tower of Pisa** (world wonder). Switches Knowledge Diffusion to its post-press phase (Section 1.2). The most important breakthrough in the game. | Most important breakthrough in the game. |
@@ -2067,6 +2067,14 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 ---
 
 ## Changelog from v2.0 — Game Design Pass
+
+### v3.119 — Gearing Is Classical
+
+- **Gearing (MC03) moves from the Ancient to the Classical era.** Toothed gears are Hellenistic and Han: Philo's geared water wheel (3rd century BC), the Antikythera mechanism (2nd century BC), Vitruvius's water mill and hodometer, and Han China's bronze gears. The row's own text already called its machines Hellenistic and Han-era; only the lever and pulley merged into it are older. It remains available from the Ancient era (the Wheel and Geometry), one era early at the era premium.
+- **Nothing breaks:** no Ancient row requires Gearing, and the battery's results are unchanged. Eight rows that could be had from the Ancient era now wait for the Classical: the Water Mill, Hero's Aeolipile and the Antikythera-Style Mechanism (now available in their own era), the Windmill, the Printing Press and the Crossbow (one era early instead of two), and the Cotton Gin and the Ornithopter (two instead of three). Rows available two or more eras early fall from 20 to 17.
+- **Measured** (familiar world, three benchmark players, 900 games, against v3.118 with the same seeds): victory medians unchanged; 8 unfinished games against 7, all STANDARD build-list ideas that never occurred.
+- **Not simulated:** Gearing's bonuses (faster Mines and Farms, +10% Production on wonders) arrive later in a typical game; Gearing now counts toward entering the Classical era; and Energy Systems' early route, Canal Building with Gearing, opens later.
+- ~544 breakthroughs.
 
 ### v3.118 — Glass Without a Shore
 
