@@ -143,7 +143,7 @@ HF.END_FROM = HF.EO.index('Space')
 HF.OBS = os.environ.get('OBS', '1') == '1'
 HF.W16 = os.environ.get('W16', '1') == '1'   # W16=0 switches off the Space era's funded-focus rule
 HF.END_UNOCCURRED_ONLY = os.environ.get('ENDUNOCC') == '1'   # Endeavours only on ideas that have not occurred
-HF.END_CREDIT = os.environ.get('ENDCREDIT') or None   # before|after: an Endeavour on an idea under study counts the study already done (harness_ftl_e.END_CREDIT)
+HF.END_CREDIT = os.environ.get('ENDCREDIT') or None   # before|after|meter: an Endeavour on an idea under study counts the study already done (harness_ftl_e.END_CREDIT)
 HF.END_CREDIT_FLOOR = float(os.environ.get('ENDFLOOR', '0'))   # with ENDCREDIT=before: the remaining work counts as at least this share of the price
 HF.SPREAD_FIX = os.environ.get('SPREADFIX', '1') == '1'   # while an Endeavour runs, the spread keeps only its own share; SPREADFIX=0 reproduces the fault in results before 14 Oct 2026
 _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn; UNCOMMON's is GLIMPSEU; RARE and UNIQUE are never glimpsed (14 Oct 2026)

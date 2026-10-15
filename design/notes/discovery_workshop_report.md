@@ -508,7 +508,8 @@ Tamsin's question: what if an Endeavour on an idea under study counts the study 
 - **now:** 2 × the price, from nothing;
 - **after:** 2 × the price − the study done (2 − *p*);
 - **before** (Tamsin's): 2 × (the price − the study done), never below nothing (2 − 2*p*);
-- **floor:** the same, the remaining work counted as at least half the price: 2 × max(1 − *p*, ½), "twice the work remaining, never less than the price".
+- **floor:** the same, the remaining work counted as at least half the price: 2 × max(1 − *p*, ½), "twice the work remaining, never less than the price";
+- **meter** (Tamsin's second proposal, once she saw that an Endeavour's price ignores the hidden factor): 2 × the price × the share of the idea's hidden meter still to fill, 2 × (1 − *p*/*m*), *m* being the meter in units of the price.
 
 **The meter remembers.** The price is the meter's average, but an idea still unfinished after long study probably has a large meter (Gamma, shape 4):
 
@@ -526,22 +527,24 @@ So "before" prices the remaining work as if the meter were exactly the price; pa
 
 **Per idea** (`endeavour_oracle.py`, the snapshots above without the wobble: 226,000 ideas under study, the expert, familiar world; an Endeavour always takes at least a turn):
 
-| | now | after | before | floor |
-|---|---|---|---|---|
-| Endeavour sooner than funding its focus | 12.2% | 14.4% | 18.4% | 17.1% |
-| … in the funded focus | 13.5% | 22.0% | 37.8% | 27.4% |
-| … in a focus of five or more | 51.7% | 56.5% | 61.8% | 60.7% |
-| Endeavour cheaper than the Insight study still needs | 2.8% | 5.4% | 14.5% | 7.5% |
-| … for ideas past three-quarters of their price | 0.6% | 7.9% | 62.9% | 11.4% |
-| … for ideas past their whole price (4.2% of ideas) | 0.3% | 23.5% | 100% (free) | 7.8% |
+| | now | after | before | floor | meter |
+|---|---|---|---|---|---|
+| Endeavour sooner than funding its focus | 12.2% | 14.4% | 18.4% | 17.1% | 16.0% |
+| … in the funded focus | 13.5% | 22.0% | 37.8% | 27.4% | 27.7% |
+| … in a focus of five or more | 51.7% | 56.5% | 61.8% | 60.7% | 63.3% |
+| Endeavour cheaper than the Insight study still needs | 2.8% | 5.4% | 14.5% | 7.5% | 5.4% |
+| … for ideas past three-quarters of their price | 0.6% | 7.9% | 62.9% | 11.4% | 7.9% |
+| … for ideas past their whole price (4.2% of ideas) | 0.3% | 23.5% | 100% (free) | 7.8% | 23.5% |
 
-When an Endeavour is sooner, it is sooner by about 2.5–3 turns under every rule.
+When an Endeavour is sooner, it is sooner by about 2.5–3 turns under every rule. Under "meter" (and "after", by the same algebra) an Endeavour is cheaper than study exactly when the meter came out above twice the price, 4.2% of draws (more among the ideas still under study at a given moment, since unlucky meters stay longest): the same ideas for which today's Endeavour is already cheaper than studying a fresh idea. In effect "meter" charges 2/*m* times the work actually left: twice for an average meter, less for an unlucky one, more for a lucky one, so it insures against a bad meter, and it is never free, since an idea with nothing left is discovered.
 
-**Whole games** (`ENDUNOCC=0` with `ENDCREDIT`, familiar world, 900 games a rule): the rule hardly matters to the simulated players. Allowed Endeavours on ideas under study, they lose about the same under every price, since stalling the rest of the focus is the real cost: victory medians, expert / novice / average, 297 / 301 / 374 not allowed; 297 / 306 / 380 from nothing; 296 / 305 / 379 after; 296 / 305 / 379 before; 296 / 305 / 379 floor. None unfinished. They start about 10 Endeavours a game when allowed, against 2 when not.
+**Whole games** (`ENDUNOCC=0` with `ENDCREDIT`, familiar world, 900 games a rule): the rule hardly matters to the simulated players. Allowed Endeavours on ideas under study, they lose about the same under every price, since stalling the rest of the focus is the real cost: victory medians, expert / novice / average, 297 / 301 / 374 not allowed; 297 / 306 / 380 from nothing; 296 / 305 / 379 after; 296 / 305 / 379 before; 296 / 305 / 379 floor; 296 / 305 / 379 meter. None unfinished. They start about 10 Endeavours a game when allowed, against 2 when not.
 
-**Claude's suggestion:** Tamsin's rule with the floor. It keeps most of the gain (17% against 18% of ideas sooner) and closes the loophole: under "before", a careful player could Endeavour every idea that passes its price for nothing and so cut off every unlucky meter, and the Endeavour would stop being insurance.
+**Claude's suggestion, first:** Tamsin's first rule with the floor. It keeps most of the gain (17% against 18% of ideas sooner) and closes the loophole: under "before", a careful player could Endeavour every idea that passes its price for nothing and so cut off every unlucky meter, and the Endeavour would stop being insurance.
 
-Results: `results/w7f_familiar_cmpEU0CA*`, `…cmpEU0CB*`, `…cmpEU0CF*`.
+**Then Tamsin's second rule, "meter", which Claude recommends over the floor:** as much gain (16% of ideas sooner, 28% in the funded focus, 63% in a focus of five or more), cheaper than study only for the meters above twice the price (5.4% against the floor's 7.5%), never free, and no arbitrary floor. The one consequence: an Endeavour's price shows how much of the idea's hidden meter is left, as a share, so a player who also sees the Insight spent could work the meter out.
+
+Results: `results/w7f_familiar_cmpEU0CA*`, `…cmpEU0CB*`, `…cmpEU0CF*`, `…cmpEU0CM*`.
 
 ## The candidate model, exactly (as the simulator runs it)
 

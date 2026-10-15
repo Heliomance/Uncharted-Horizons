@@ -15,8 +15,9 @@ Analyse:
     and income as they stand; `runs` draws, default 20, for meters not yet drawn), and compare when ordinary study
     discovers the idea with when a 2x Endeavour fed the same Insight would, under three costs: from nothing (2x the
     price, as now); the study already done taken off after the premium (2x the price - done); and taken off before it,
-    so the premium multiplies only the remaining work (2 x (the price - done), never below nothing); and that, with the
-    remaining work counted as at least half the price. An Endeavour always takes at least a turn.
+    so the premium multiplies only the remaining work (2 x (the price - done), never below nothing); that, with the
+    remaining work counted as at least half the price; and 2x the price x the share of the idea's hidden meter still to
+    fill. An Endeavour always takes at least a turn.
 Example (the expert, familiar world, every method; then delete results/w7f_familiar_oracle*.json, which w7f.py writes):
   cd design/simulator/power && for m in Warp Wormhole Hyperspace Tachyonic Tunnelling; do env PYTHONHASHSEED=0 DET=smart \
     ORSMART=1 PARALLEL=1 RUNON=1 DIFF=1 OBS=0 GLIMPSE=0.1 GLIMPSEU=0.03 END=2 ENDRULE=active INSTR_D=5 EXPFIX=1 \
@@ -97,15 +98,17 @@ def forward(items, F, runs, rng, tmax=400):
     return when, need
 
 
-RULES = ('now', 'after', 'before', 'floor')   # from nothing; study done off the 2x price; off the price before the 2x; the same, the
-                                              # remaining work counted as at least half the price
+RULES = ('now', 'after', 'before', 'floor', 'meter')   # from nothing; study done off the 2x price; off the price before the 2x; the same,
+                                              # the remaining work counted as at least half the price; 2x the price x the share of the
+                                              # hidden meter still to fill
 
 
 def costs(it):
     """the Endeavour's price under each rule, for one idea [k, progress, meter, price, est. price, cost multiplier, ...]"""
     full = it[5] * it[4]; done = it[1] * it[4]
     return {'now': END_MULT * full, 'after': max(END_MULT * full - done, 0.0), 'before': END_MULT * max(full - done, 0.0),
-            'floor': END_MULT * max(full - done, 0.5 * full)}
+            'floor': END_MULT * max(full - done, 0.5 * full),
+            'meter': END_MULT * full * (max(1.0 - it[1] / it[2], 0.0) if it[2] else 1.0)}
 
 
 def _analyse_file(args):

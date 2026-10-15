@@ -67,7 +67,8 @@ END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea 
                               # the simulated players keep to this (ENDUNOCC=1), since with nothing pressing they would only reorder research
 END_CREDIT = None    # an Endeavour on an idea under study: None, it starts from nothing (2x the price); 'before', the study already done
                      # comes off the price before the 2x premium, which then multiplies only the remaining work (Tamsin's question,
-                     # 15 Oct 2026); 'after', it comes off the 2x price. With either, the idea leaves ordinary study while the Endeavour runs
+                     # 15 Oct 2026); 'after', it comes off the 2x price; 'meter', 2x the price x the share of the idea's hidden meter still to
+                     # fill (Tamsin, the same day). With any of them, the idea leaves ordinary study while the Endeavour runs
 END_CREDIT_FLOOR = 0.0   # with END_CREDIT 'before': the remaining work counts as at least this share of the price (0.5: never less than half)
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
                      # one row of each needed), e.g. the FTL prototypes of the hypotheses still standing
@@ -196,6 +197,7 @@ def run(prm, seed, max_turns=450):
             full = COSTMULT.get(k, 1.0) * est_price(k); done = progress.get(k, 0.0) * est_price(k) if (END_CREDIT and k in occurred) else 0.0
             if END_CREDIT == 'before': return END_MULT * max(full - done, END_CREDIT_FLOOR * full)
             if END_CREDIT == 'after': return max(END_MULT * full - done, 0.0)
+            if END_CREDIT == 'meter' and k in occurred and k in need: return END_MULT * full * max(1.0 - progress.get(k, 0.0) / need[k], 0.0)
             return END_MULT * full
         if POLICY == 'cheapest' and FUNDED:      # smarter detective: fund the focus whose cheapest targeted row would finish soonest
             pri = (PRIORITY & FUNDED) if PRIORITY else FUNDED   # higher-priority targets (the tests) take the active focus when any is workable
