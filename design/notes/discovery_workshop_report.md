@@ -458,6 +458,45 @@ Measured on v3.120's defaults (the safety net, no W16), familiar world, 300 game
 
 With rediscovery carrying winnability, the rate no longer moves victory; it sets how often the player sees a goal ahead of its idea and how many Endeavour targets exist. By the window arithmetic (a Medieval STANDARD idea, 9.6% a turn over 19 turns), 10% previews about half of all STANDARD ideas before they occur and shows 86% of those that never occur; 3%, about a fifth and 43%; 1%, about one in thirteen and 17%. Results: `results/w7f_familiar_cmpG003X_*`, `…_cmpG001X_*`.
 
+## A wobble in the sharing, and Endeavours on ideas under study (15 October 2026)
+
+**Decided (Tamsin):** Grand Endeavours may again target an idea already under study, for needs the game situation creates: bomb shelters, the turn word comes that a rival has the bomb (v3.121). The simulated players keep `ENDUNOCC=1`, since with nothing pressing they would only reorder research. Open: whether the Insight already spent studying the idea counts towards the Endeavour.
+
+**The question.** Should a focus's Insight be shared with some randomness? Tamsin's first form, the shares as odds (all of a focus's Insight to one idea a turn, drawn by the shares), was dropped before it was measured: the leader's odds would snowball, so it would be funded fast while nothing else got anything. The form measured keeps a share for every idea but lets close ones swap places. Each turn, every idea's weight (progress + 0.1) is multiplied by a random factor, e^(s × a standard normal draw), before the focus's Insight is shared (`JITTER=s`, from its own random stream). At s = 0.5 the factor lies between ×0.61 and ×1.65 two turns in three.
+
+**Today's rule never swaps two ideas of the same price.** Each turn every weight in a focus grows by the same proportion (the focus's Insight ÷ its total weight ÷ the price), so two ideas' ratio is fixed until one is discovered. Only ideas of different prices can change places (different eras, or one further ahead of development), the cheaper gaining faster: without the wobble, all 5,950 changes of lead among 72,174 pairs studied side by side were between ideas of different eras. **Who is discovered first is already far from fixed, though,** because each meter is drawn at random: its 90th percentile is 3.8 times its 10th. Of two ideas that start within 25% of each other, the one behind is discovered first 44% of the time today.
+
+Pairs of ideas studied side by side in one focus (the expert, familiar world, 300 games a size), by how far ahead the leader was when they met:
+
+| Leader ahead by (share of pairs) | Lead changes at least once: s = 0 / 0.25 / 0.5 / 1.0 | The one behind discovered first: s = 0 / 0.25 / 0.5 / 1.0 |
+|---|---|---|
+| under ×1.25 (30%) | 17% / 46% / 53% / 61% | 44% / 45% / 45% / 47% |
+| ×1.25–1.5 (11%) | 12% / 17% / 24% / 35% | 29% / 31% / 32% / 35% |
+| ×1.5–2 (12%) | 9% / 9% / 12% / 20% | 22% / 22% / 24% / 27% |
+| ×2–4 (22%) | 2% / 2% / 3% / 6% | 13% / 13% / 15% / 18% |
+| ×4 or more (24%) | 0% / 0% / 0.1% / 0.3% | 3% / 3% / 4% / 5% |
+
+So the wobble does what was asked of it: close lines trade the lead, distant ones almost never. It moves the order of discovery only a few points, because the meters already shuffle it. The lead itself shows only if the research screen shows progress on rows under study (the mockup shows none).
+
+**The race does not move.** Victory medians, all three players, 900 games a world and size: familiar world 295–297 / 301 / 373–374 at every size against 297 / 301 / 374 today; Process and Substance at s = 0.5, 297 / 301 / 374 and 298 / 302 / 375, exactly as today. No game went unfinished in any of these 4,500.
+
+**Nor does the value of an Endeavour.** `endeavour_oracle.py` takes the state of every focus every ten turns in 300 expert games and asks, for each idea under study: if you needed this one now, would a 2× Endeavour fed the active share have it sooner than making its focus active? The focus is played forward on its own (no new ideas, prices and income as they stand), 100 times with the wobble.
+
+| Ideas in the focus | Ideas sampled | Endeavour sooner: s = 0 / 0.5 / 1.0 | If the Endeavour counted the study already done (s = 0) |
+|---|---|---|---|
+| 1 | 87,000 | 1.6% / 1.6% / 1.7% | 2.7% |
+| 2 | 71,000 | 8.3% / 8.4% / 9.1% | 10.8% |
+| 3–4 | 58,000 | 25.5% / 26.2% / 27.8% | 29.2% |
+| 5 or more | 11,000 | 51.7% / 51.2% / 51.3% | 56.7% |
+| all | 226,000 | 12.2% / 12.4% / 13.3% | 14.6% |
+| of them, in the funded focus | 11,000 | 13.5% / 13.4% / 13.7% | 22.5% |
+
+Crowding sets the value; the wobble hardly touches it. What the wobble does change is how predictable one idea's arrival is: in a focus of three or four, its slow outcomes (90th percentile) take on average 1.3 times its fast ones (10th) at s = 0.5 and 1.6 times at s = 1.0, where today the time is fixed once the meter is drawn. That is small beside the meter's own spread, which the player cannot see either. When an Endeavour is sooner, it is sooner by about 3 turns today and about 2 with the wobble (the wobble adds marginal cases).
+
+**The simulated players with Endeavours on ideas under study** (`ENDUNOCC=0`), familiar world, 900 games a setting: without the wobble, the expert gains nothing (297 either way) and the novice and the average player lose 5–6 turns (301 → 306, 374 → 380); at s = 0.5, much the same (297 → 296, 301 → 306, 373 → 381). None unfinished.
+
+Results: `results/w7f_familiar_cmpJIT25*`, `…cmpJIT50*`, `…cmpJIT100*`, `…cmpEU0*`, `…cmpEU0J50*`, `results/w7f_Process_cmpJIT50*`, `results/w7f_Substance_cmpJIT50*`. The oracle's snapshots are not kept (about 100 MB; `endeavour_oracle.py` regenerates them in about four minutes).
+
 ## The candidate model, exactly (as the simulator runs it)
 
 From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings.

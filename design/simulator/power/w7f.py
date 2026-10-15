@@ -167,6 +167,7 @@ if os.environ.get('ERAHOLDTIERS'): CFG['era_hold_tiers'] = tuple(os.environ['ERA
 if os.environ.get('FUNDEDWIN') == '1': CFG['funded_windows'] = True   # a STANDARD window stays open while its focus is funded
 if os.environ.get('REDISCOVER'): CFG['rediscover'] = float(os.environ['REDISCOVER'])   # rediscovery on demand (harness_ftl_e.P.rediscover)
 if os.environ.get('TIERATT'): CFG['tier_attention'] = os.environ['TIERATT'] == '1'   # tier odds weighting attention once an idea has occurred
+if os.environ.get('JITTER'): CFG['jitter'] = float(os.environ['JITTER'])   # a random wobble on each idea's share within its focus (harness_ftl_e.P.jitter)
 DRAWS = []   # each game's method and truth, drawn in order before any game is played, so that games can run in any order
 for s in range(N * len(COND)):
     m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m])

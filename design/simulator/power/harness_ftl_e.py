@@ -50,6 +50,9 @@ class P:
         self.rediscover_tiers = ('STANDARD',)
         self.tier_attention = True   # True: tier odds also weight attention once an idea has occurred (within its focus, and its focus's pull
                                      # on the spread and spill-over). False: once occurred, every tier is studied alike (Tamsin, 14 Oct 2026)
+        self.jitter = 0.0            # >0: each turn, every idea's weight within its focus (progress + momentum) is multiplied by
+                                     # e^(jitter x a standard normal draw) before the focus's Insight is shared. Every idea keeps a share,
+                                     # but two whose weights are close can swap places (Tamsin's question, 15 Oct 2026)
         self.__dict__.update(kw)
 
 # W7f copy with three switches: POLICY (focus choice), ATTN (attention weights), END_MULT (Grand Endeavours). Measurement copy of harness2: a research-target hook (TARGET_FN), W16's funded-focus rule (FUNDED), price multipliers (COSTMULT).
@@ -63,7 +66,8 @@ PRIORITY = set()   # targets that take the active focus first (the tests, during
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
 W16 = True           # W16: a Space-era STANDARD idea the player is pursuing (in FUNDED) occurs at once; False switches the rule off
 END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
-                              # never one already under study (Tamsin, 14 Oct 2026: reordering is never worth an Endeavour)
+                              # never one already under study. The design allows both since v3.121 (for needs the game situation creates);
+                              # the simulated players keep to this (ENDUNOCC=1), since with nothing pressing they would only reorder research
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
                      # one row of each needed), e.g. the FTL prototypes of the hypotheses still standing
 SPREAD_FIX = True    # while an Endeavour runs, the spread keeps only its own share (20%, or 50% before SO05). False reproduces the fault in
@@ -102,6 +106,7 @@ def run(prm, seed, max_turns=450):
     diff_since = {}; diff_unc = {}; contact_turn = None; cp04_turn = None
     glimpsed = set(); lost = set(); grng = random.Random(seed * 7919 + 13)   # its own stream: glimpses never perturb the game
     rrng = random.Random(seed * 104729 + 7); rediscovered = {}                  # rediscovery's own stream, and when each lost idea came back
+    jrng = random.Random(seed * 15485863 + 29)                                 # jitter's own stream (P.jitter)
     held = set()                                                               # (accounting only) ideas the funded focus kept open past their window
     era_start = []                                                             # era_start[i]: the turn development reached era i
     lost_at = {}                                                               # (accounting only) when each idea was lost: turn, its window, whether it was a target
@@ -115,7 +120,7 @@ def run(prm, seed, max_turns=450):
         if d >= SPAN_E and not RUN_ON: break                           # past the end of the tree (RUN_ON: carry on at the last era's income)
         if STOP_FN and STOP_FN(have): break                            # the measurement has what it needs
         blocked = prm.blocked_focus if (prm.blocked_focus and d < prm.unblock_dev) else None
-        att_turn = {}; end_done = None
+        att_turn = {}; end_done = None; wobble = {}                        # wobble: this turn's jitter factor for each idea (P.jitter)
         for p in new_rows:                                                 # recheck only the rows that depend on last turn's discoveries
             for k in dependents.get(p, ()):
                 if k not in met and prereqs_met(k, have): met.add(k)
@@ -290,7 +295,12 @@ def run(prm, seed, max_turns=450):
                     if left >= room: progress[k] = need[k]; found.append(k); left -= room; line[f] = None; acct['attention'] += room; acct['premium_dilution'] += room * (1 - 1 / prem(k))
                     else: progress[k] = progress.get(k, 0) + left / pk; acct['attention'] += left; acct['premium_dilution'] += left * (1 - 1 / prem(k)); left = 0.0
                 else:
-                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) for k in cands}; tot = sum(ws.values())
+                    ws = {k: aw(k) * (progress.get(k, 0) + prm.momentum) * ATTN.get(k, 1.0) for k in cands}
+                    if prm.jitter:               # this turn's wobble: drawn once per idea a turn, kept for any later spending this turn
+                        for k in cands:
+                            if k not in wobble: wobble[k] = math.exp(prm.jitter * jrng.gauss(0.0, 1.0))
+                            ws[k] *= wobble[k]
+                    tot = sum(ws.values())
                     spent = 0.0; done = []
                     for k in cands:
                         att = left * ws[k] / tot; pk = price(k); room = (need[k] - progress.get(k, 0)) * pk; att_turn[k] = att_turn.get(k, 0.0) + att
