@@ -58,6 +58,9 @@ POLICY = 'waiting'; ATTN = {}; END_MULT = None; END_LOG = []; END_RULE = 'naive'
 DIFF = None; DIFF_LOG = []
 ECON = 1.0   # income relative to the calibrated (good player's) economy
 STATE = {}   # live references to lost, glimpsed and diffusing ideas
+INSIGHT_CUT = 0.0    # >0: from the first discovery of era INSIGHT_CUT_FROM, this share of every turn's Insight is lost before it is
+INSIGHT_CUT_FROM = 'Atomic'   # allocated (development still counts it): Tamsin's question, 15 Oct 2026, what losing Insight costs late on
+INSIGHT_CUT_DEV = False       # True: the lost share does not count towards development either (the era clock slows)
 END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE 'request')
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
@@ -132,7 +135,9 @@ def run(prm, seed, max_turns=450):
     log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}; debt = 0.0; cool_until = 0   # debt: a crash programme's price still to repay; cool_until: END_COOLDOWN
     pause_until = 0; end_urgent = False; end_tstudy = 0.0; end_t0 = 0   # URGENT: the debt's last turn; the running Endeavour's estimate and start
     while turn < max_turns and len(have) < len(IDS):
-        turn += 1; inc = income(cum) * ECON; cum += inc; d = dev(cum); acct['income'] += inc   # ECON: the player's economy against the calibrated good player's
+        turn += 1; inc = income(cum) * ECON
+        cut = inc * INSIGHT_CUT if INSIGHT_CUT and any(ERA_I[k] >= EO.index(INSIGHT_CUT_FROM) for k in have) else 0.0   # lost before it is allocated
+        cum += inc - (cut if INSIGHT_CUT_DEV else 0.0); d = dev(cum); acct['income'] += inc; inc -= cut   # ECON: the player's economy against the calibrated good player's
         CLOCK['turn'] = turn
         if d >= SPACE_I and 'space_entry_turn' not in acct: acct['space_entry_turn'] = turn   # (accounting only) development reaches the Space era
         while len(era_start) < len(EO) and d >= len(era_start): era_start.append(turn)       # the turn development reached each era

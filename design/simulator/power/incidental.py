@@ -60,24 +60,24 @@ for label, pat in (a.split('=', 1) for a in sys.argv[2:]):
     print(f'  victory, median: non-racer {st.median(vn):.0f}, racer {st.median(vr):.0f}; the racer is sooner in '
           f'{100 * sum(1 for a, b in zip(vn, vr) if b < a) / len(done):.0f}% of pairs, later in {100 * sum(1 for a, b in zip(vn, vr) if b > a) / len(done):.0f}%')
     miss_same, extra_same, miss_own, extra_own = [], [], [], []
-    count_n_same, count_r, count_n_own = [], [], []
+    count_n_same, count_r, count_n_own, count_r_same = [], [], [], []
     freq = collections.Counter(); by_focus = collections.Counter(); by_era = collections.Counter(); by_tier = collections.Counter()
     gained = collections.Counter(); econ_same, econ_own = [], []
     for w, n, r in done:
-        fr, fn = finish(r), finish(n)
-        hr = held(r, fr); hn_same = held(n, fr); hn_own = held(n, fn)
-        ms = hn_same - hr; miss_same.append(len(ms)); extra_same.append(len(hr - hn_same))
+        fr, fn = finish(r), finish(n); T = min(fr, fn)   # each simulation stops at its own finish: compare where both ran
+        hr = held(r, fr); hr_same = held(r, T); hn_same = held(n, T); hn_own = held(n, fn)
+        ms = hn_same - hr_same; miss_same.append(len(ms)); extra_same.append(len(hr_same - hn_same))
         econ_same.append(len(ms & ECONOMIC)); econ_own.append(len((hn_own - hr) & ECONOMIC))
-        for k in hr - hn_same: gained[k] += 1
+        for k in hr_same - hn_same: gained[k] += 1
         miss_own.append(len(hn_own - hr)); extra_own.append(len(hr - hn_own))
-        count_n_same.append(len(hn_same)); count_r.append(len(hr)); count_n_own.append(len(hn_own))
+        count_n_same.append(len(hn_same)); count_r.append(len(hr)); count_n_own.append(len(hn_own)); count_r_same.append(len(hr_same))
         for k in ms:
             freq[k] += 1; row = G.ROWS.get(k, {})
             by_focus[row.get('focus', '?')] += 1; by_era[row.get('era', '?')] += 1; by_tier[row.get('tier', '?')] += 1
     N = len(done)
     print(f'  breakthroughs held at its own finish, median: non-racer {st.median(count_n_own):.0f}, racer {st.median(count_r):.0f}')
-    print(f'  at the racer\'s finish, the non-racer held a median {st.median(count_n_same):.0f}')
-    print(f'  the racer lacks, of what the non-racer held by the same turn: mean {st.mean(miss_same):.1f}, median {st.median(miss_same):.0f}, '
+    print(f'  at the earlier finish of each pair: non-racer {st.median(count_n_same):.0f}, racer {st.median(count_r_same):.0f} (medians)')
+    print(f'  at that turn the racer lacks, of what the non-racer held: mean {st.mean(miss_same):.1f}, median {st.median(miss_same):.0f}, '
           f'90th percentile {sorted(miss_same)[int(0.9 * (N - 1))]}; and holds {st.mean(extra_same):.1f} the non-racer did not')
     print(f'  at each one\'s own finish: lacks {st.mean(miss_own):.1f} the non-racer holds (median {st.median(miss_own):.0f}), holds {st.mean(extra_own):.1f} it does not')
     print(f'  of them with an economic effect (yields, growth, maintenance, trade): {st.mean(econ_same):.1f} at the same turn, {st.mean(econ_own):.1f} at its own finish')
@@ -88,7 +88,7 @@ for label, pat in (a.split('=', 1) for a in sys.argv[2:]):
     for k, c in freq.most_common(25):
         row = G.ROWS.get(k, {})
         print(f'    {100 * c / N:4.0f}%  {NAME.get(k, k)} ({k}) [{row.get("focus", "?")}, {row.get("era", "?")}, {row.get("tier", "?")}]{" (economic)" if k in ECONOMIC else ""} — {short(GIVES.get(k, ""))}')
-    print('  held by the racer at its finish but not by the non-racer at that turn, most often:')
+    print('  held by the racer at that turn but not by the non-racer, most often:')
     for k, c in gained.most_common(12):
         row = G.ROWS.get(k, {})
         print(f'    {100 * c / N:4.0f}%  {NAME.get(k, k)} ({k}) [{row.get("focus", "?")}, {row.get("era", "?")}, {row.get("tier", "?")}]')

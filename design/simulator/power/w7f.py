@@ -165,6 +165,8 @@ METHODS = [x for x in os.environ.get('METHODS', '').split(',') if x]
 _L = os.environ.get('LEVERS', '')
 PARALLEL = os.environ.get('PARALLEL') == '1'
 HF.ECON = float(os.environ.get('ECON', '1'))
+HF.INSIGHT_CUT = float(os.environ.get('INSIGHTCUT', '0')); HF.INSIGHT_CUT_FROM = os.environ.get('INSIGHTCUTFROM', 'Atomic')   # Insight lost late on (harness_ftl_e.INSIGHT_CUT)
+HF.INSIGHT_CUT_DEV = os.environ.get('INSIGHTCUTDEV') == '1'   # ...and not counted towards development
 HF.EXPCAP = float(os.environ['EXPCAP']) if os.environ.get('EXPCAP') else None; HF.EXPCAP_ERA = HF.EO.index(os.environ['EXPCAP_ERA']) if os.environ.get('EXPCAP_ERA') else None
 if 'w' in _L: BUILD['Wormhole'].append(['MS17'])   # Wormhole's engineering row outside its tests (its price: prices.py)
 if 'y' in _L and world is None: BUILD['Tachyonic'] = [g for g in BUILD['Tachyonic'] if g != ['NP11']]   # scenario: atomic Tachyonic without NP11 in its build
