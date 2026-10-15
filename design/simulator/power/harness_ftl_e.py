@@ -68,8 +68,16 @@ END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea 
 END_CREDIT = None    # an Endeavour on an idea under study: None, it starts from nothing (2x the price); 'before', the study already done
                      # comes off the price before the 2x premium, which then multiplies only the remaining work (Tamsin's question,
                      # 15 Oct 2026); 'after', it comes off the 2x price; 'meter', 2x the price x the share of the idea's hidden meter still to
-                     # fill (Tamsin, the same day). With any of them, the idea leaves ordinary study while the Endeavour runs
+                     # fill (Tamsin, the same day); 'true', the Insight its hidden meter still needs (unoccurred: the price). With any of them,
+                     # the idea leaves ordinary study while the Endeavour runs
 END_CREDIT_FLOOR = 0.0   # with END_CREDIT 'before': the remaining work counts as at least this share of the price (0.5: never less than half)
+END_SHARE = None     # the share of each turn's Insight an Endeavour receives: None, the active share (80%; 50% before SO05), the spread keeping
+                     # the rest; 1.0, all of it, the spread pausing too (Tamsin's urgent button, 15 Oct 2026)
+END_SPREAD = None    # the spread's share of the turn while an Endeavour runs: None, whatever the Endeavour leaves; 0.2 with END_SHARE 0.7, the
+                     # rest (10%) lost (Tamsin's model, 15 Oct 2026: 70% to the breakthrough, 20% to the spread, 10% lost, no premium)
+END_COOLDOWN = 0     # turns after an Endeavour ends (completed, repaid or dropped) before another may start (Tamsin's urgent button)
+END_NOW = False      # True: a crash programme. The Endeavour delivers its breakthrough the turn it starts; its price is then repaid from the
+                     # same share of the turns that follow, nothing else funded until it is paid (Tamsin's urgent button, 15 Oct 2026)
 GOALS_FN = None      # rediscovery: a function of `have` returning goals that also wait on ideas (each a list of prerequisite groups,
                      # one row of each needed), e.g. the FTL prototypes of the hypotheses still standing
 SPREAD_FIX = True    # while an Endeavour runs, the spread keeps only its own share (20%, or 50% before SO05). False reproduces the fault in
@@ -112,7 +120,7 @@ def run(prm, seed, max_turns=450):
     era_start = []                                                             # era_start[i]: the turn development reached era i
     lost_at = {}                                                               # (accounting only) when each idea was lost: turn, its window, whether it was a target
     STATE.clear(); STATE.update(lost=lost, glimpsed=glimpsed, diff=diff_since, diff_unc=diff_unc, occurred=occurred)   # what a player can infer, for the detective
-    log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}
+    log = []; active = None; end_k = None; end_prog = 0.0; end_cost = 0.0; att_hist = {}; debt = 0.0; cool_until = 0   # debt: a crash programme's price still to repay; cool_until: END_COOLDOWN
     while turn < max_turns and len(have) < len(IDS):
         turn += 1; inc = income(cum) * ECON; cum += inc; d = dev(cum); acct['income'] += inc   # ECON: the player's economy against the calibrated good player's
         CLOCK['turn'] = turn
@@ -198,6 +206,7 @@ def run(prm, seed, max_turns=450):
             if END_CREDIT == 'before': return END_MULT * max(full - done, END_CREDIT_FLOOR * full)
             if END_CREDIT == 'after': return max(END_MULT * full - done, 0.0)
             if END_CREDIT == 'meter' and k in occurred and k in need: return END_MULT * full * max(1.0 - progress.get(k, 0.0) / need[k], 0.0)
+            if END_CREDIT == 'true' and k in occurred and k in need: return END_MULT * max(need[k] - progress.get(k, 0.0), 0.0) * est_price(k)
             return END_MULT * full
         if POLICY == 'cheapest' and FUNDED:      # smarter detective: fund the focus whose cheapest targeted row would finish soonest
             pri = (PRIORITY & FUNDED) if PRIORITY else FUNDED   # higher-priority targets (the tests) take the active focus when any is workable
@@ -208,9 +217,9 @@ def run(prm, seed, max_turns=450):
             if not fc: fc = {f: min(est_rem(k) for k in ks if k in FUNDED and ok_p(k)) for f, ks in pool.items() if any(k in FUNDED and ok_p(k) for k in ks)}
             if fc: active = min(fc, key=fc.get)
             elif capped and waiting: active = max(waiting, key=waiting.get)   # nothing affordable to target: fund the most fruitful focus, as development catches up
-        sh = 0.8 if 'SO05' in have else 0.5
-        if end_k is not None and (end_k in have or (END_RULE != 'request' and end_k not in FUNDED)): END_LOG.append((turn, end_k, 'dropped')); end_k = None
-        if END_MULT and end_k is None and (END_FROM is None or any(ERA_I[k] >= END_FROM for k in have)) and (END_AFTER is None or END_AFTER in have):   # gate: first discovery of era END_FROM            # Grand Endeavour: commit to the targeted live row it saves most time on (at least a turn)
+        sh = 0.8 if 'SO05' in have else 0.5; es = END_SHARE or sh   # es: an Endeavour's share of the turn's Insight
+        if end_k is not None and (end_k in have or (END_RULE != 'request' and end_k not in FUNDED)): END_LOG.append((turn, end_k, 'dropped')); end_k = None; cool_until = turn + END_COOLDOWN
+        if END_MULT and end_k is None and debt <= 0 and turn >= cool_until and (END_FROM is None or any(ERA_I[k] >= END_FROM for k in have)) and (END_AFTER is None or END_AFTER in have):   # gate: first discovery of era END_FROM            # Grand Endeavour: commit to the targeted live row it saves most time on (at least a turn)
             if END_RULE == 'request' and END_REQUEST and END_REQUEST not in have and prereqs_met(END_REQUEST, have) and not (END_UNOCCURRED_ONLY and END_REQUEST in occurred):
                 end_k, end_cost, end_prog = END_REQUEST, end_price(END_REQUEST), 0.0; END_LOG.append((turn, END_REQUEST, 'start'))
                 _ek = 'end_on_occurred' if end_k in occurred else 'end_on_unoccurred'; acct[_ek] = acct.get(_ek, 0) + 1   # (accounting only)
@@ -229,14 +238,20 @@ def run(prm, seed, max_turns=450):
                 else:                             # Revealed by a rival, but the idea never occurred here: only diffusion or an Endeavour brings it
                     s0 = diff_since.get(k, diff_unc.get(k))
                     t_norm = max(0, (5 if cp04_turn is not None else 10) - (turn - s0)) if s0 is not None else float('inf')
-                cost = end_price(k); t_end = cost / max(inc * sh, 1e-9)
+                cost = end_price(k); t_end = 1.0 if END_NOW else cost / max(inc * es, 1e-9)
                 if t_norm - t_end >= 1.0 and (best is None or t_norm - t_end > best[0]): best = (t_norm - t_end, k, cost)
             if best:
                 end_k, end_cost, end_prog = best[1], best[2], 0.0; END_LOG.append((turn, end_k, 'start'))
                 _ek = 'end_on_occurred' if end_k in occurred else 'end_on_unoccurred'; acct[_ek] = acct.get(_ek, 0) + 1   # (accounting only)
-        if end_k is not None:                     # the Endeavour is the focus: it takes the active share; the spread still rolls
-            end_prog += inc * sh + bank; bank = 0.0; active = None
-            if end_prog >= end_cost: end_done = end_k; END_LOG.append((turn, end_k, 'done')); end_k = None
+        busy = end_k is not None or debt > 0          # an Endeavour, or a crash programme's repayment, holds the focus this turn
+        if end_k is not None and END_NOW:            # a crash programme: delivered now, repaid from the turns that follow
+            debt, end_done = end_cost, end_k; END_LOG.append((turn, end_k, 'done')); end_k = None
+        if debt > 0:
+            debt -= inc * es + bank; bank = 0.0; active = None
+            if debt <= 0: cool_until = turn + END_COOLDOWN
+        elif end_k is not None:                     # the Endeavour is the focus: it takes the active share; the spread still rolls
+            end_prog += inc * es + bank; bank = 0.0; active = None
+            if end_prog >= end_cost: end_done = end_k; END_LOG.append((turn, end_k, 'done')); end_k = None; cool_until = turn + END_COOLDOWN
         if active is not None:                    # (accounting only) turns a focus was funded, and how often the funded focus changed
             acct['focus_turns'] = acct.get('focus_turns', 0) + 1
             if active != funded: acct['focus_changes'] = acct.get('focus_changes', 0) + 1
@@ -246,7 +261,9 @@ def run(prm, seed, max_turns=450):
         flow = {}
         others = [f for f in open_foci if f != active and (prm.spread_floor > 0 or f in pool)]
         if active: flow[active] = inc * share + bank; bank = 0.0
-        elif not (SPREAD_FIX and (end_k is not None or end_done)): share = 0.0   # (no active focus: the spread takes everything)
+        elif not (SPREAD_FIX and (busy or end_done)): share = 0.0   # (no active focus: the spread takes everything)
+        elif END_SHARE: share = 1.0 - END_SPREAD if END_SPREAD is not None else END_SHARE   # the spread keeps END_SPREAD, or what the
+                                                       # Endeavour leaves (nothing, at 1.0); anything else is lost
         wt = {f: pull.get(f, 0) + prm.spread_floor for f in others}; tw = sum(wt.values()) or 1
         if end_k is not None or end_done: acct['endeavour_turns'] = acct.get('endeavour_turns', 0) + 1; acct['endeavour_extra'] = acct.get('endeavour_extra', 0.0) + inc * sh   # (accounting only)
         if not others: acct['spread_dropped'] = acct.get('spread_dropped', 0.0) + inc * (1 - share); acct['spread_dropped_turns'] = acct.get('spread_dropped_turns', 0) + 1   # (accounting only)

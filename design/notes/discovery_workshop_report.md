@@ -546,6 +546,55 @@ When an Endeavour is sooner, it is sooner by about 2.5–3 turns under every rul
 
 Results: `results/w7f_familiar_cmpEU0CA*`, `…cmpEU0CB*`, `…cmpEU0CF*`, `…cmpEU0CM*`.
 
+### An urgent button (15 October 2026)
+
+**Tamsin's aim:** an Endeavour should be viable as "I need this urgently", at the cost of overall progress. Her model of it is the Manhattan Project, which built the bomb far sooner than it would otherwise have come by taking every nuclear physicist in the country off whatever they were doing and putting them in one room.
+
+**Why today's Endeavour cannot be one.** It is fed the active share, the same Insight the idea's own focus would bring if funded, and it pays a premium on top. So it can beat switching to that focus only when the idea would get less than about half the focus's Insight: that is the 12–18% of the price rules above. To be fast it must give the one breakthrough more Insight a turn than its focus would, and charge its cost in a way that does not slow delivery.
+
+**Designs measured** (all but today's priced on what is left of the idea's meter):
+
+- **all income, 1.25× or 1.5×:** the Endeavour takes every Insight, the spread pausing too (`ENDSHARE=1`);
+- **crash programme, 2×:** delivered the turn it starts, its price then repaid from all research (`ENDNOW=1`);
+- **Tamsin's model, 70/20/10:** while an Endeavour runs, 70% of the turn's Insight goes into the breakthrough's meter, 20% to the spread as usual, and 10% is lost; no premium (`ENDSHARE=0.7 ENDSPREAD=0.2 ENDCREDIT=true END=1`); also 60/20/20 and 50/20/30.
+
+**Per idea** (`endeavour_oracle.py`: 152,000 ideas under study whose study would take two turns or more once their focus is funded, the expert's games, familiar world; nothing can beat one turn): how often an Endeavour gets the idea sooner than switching to its focus.
+
+| Design | All such ideas | Sharing its focus | Alone in its focus | Endeavour time ÷ study time (median) | Insight lost, in turns of income (median) |
+|---|---|---|---|---|---|
+| today: 2×, the active share | 18% | 25% | 3% | 1.43 | 1.56 |
+| all income, 1.25× | 72% | 82% | 50% | 0.60 | 0.22 |
+| crash programme, 2× | 100% | 100% | 100% | 0.25 | 1.18 |
+| **70/20/10** | **56%** | **77%** | **9%** | **0.75** (sharing: 0.64) | **0.30** |
+| 70/20/10, priced by the meter's share | 62% | 73% | 37% | 0.67 | 0.15 |
+| 60/20/20 | 47% | 65% | 8% | 1.00 | 0.60 |
+| 50/20/30 | 35% | 51% | 0% | 1.00 | 1.20 |
+
+Under 70/20/10 an idea alone in its focus is better served by funding that focus (80% of the turn against 70%), which is already the urgent button for a lone idea; the Endeavour is the button for one idea in a crowded field, and for a goal whose idea has not occurred.
+
+**Whole games** (familiar world, 900 games a design, Endeavours on ideas under study allowed; none unfinished):
+
+| Design | Expert | Novice | Average | Endeavours a game (expert / novice / average) |
+|---|---|---|---|---|
+| not allowed (today's default) | 297 | 301 | 374 | 2.0 / 2.1 / 2.0 |
+| allowed at today's 2×, priced by the meter's share | 296 | 305 | 379 | 10.3 / 9.5 / 10.0 |
+| all income, 1.25× | 287 | 300 | 372 | 13.7 / 10.7 / 11.6 |
+| all income, 1.5× | 292 | 302 | 374 | 12.7 / 10.7 / 11.5 |
+| crash programme, 2× | 292 | 304 | 375 | 12.3 / 10.5 / 11.3 |
+| 70/20/10 | 290 | 301 | 374 | 13.3 / 10.2 / 11.1 |
+| 70/20/10, priced by the meter's share | 290 | 301 | 374 | 13.1 / 10.2 / 11.1 |
+| 60/20/20 | 291 | 303 | 376 | 12.9 / 9.8 / 10.9 |
+| 50/20/30 | 294 | 304 | 378 | 12.1 / 9.7 / 10.6 |
+| 70/20/10, only for ideas that have not occurred | 295 | 299 | 372 | 1.9 / 2.2 / 2.1 |
+| **70/20/10, 10 turns between Endeavours** | **295** | **299** | **372** | **5.0 / 2.4 / 2.7** |
+| 70/20/10, 20 turns between Endeavours | 295 | 299 | 371 | 3.1 / 1.6 / 1.7 |
+
+**What this shows.** Any Endeavour fast enough to be an urgent button is also a racing tool: the FTL race is a chain of urgent targets, and the expert, who Endeavours whenever that saves a turn on a target, uses 70/20/10 thirteen times a game and wins 7 turns sooner. Lowering the 70% is a poor dial: at 50% the expert still gains 3 turns while the button is barely useful and the weaker players lose 3–4. A cooldown separates the two uses, since urgent use is occasional and racing use constant: with 10 turns between Endeavours every player finishes about 2 turns sooner than today, the same as when only ideas that have not occurred may be Endeavoured, so the 2 turns come from "no premium" making an Endeavour on a glimpsed idea cost its price rather than twice it. The simulator's economy does not depend on discoveries, so research paused elsewhere costs it nothing; in a real game the racing gain would be smaller.
+
+**Claude's recommendation:** 70/20/10 with a cooldown of 10 turns. To decide with it: whether ideas that have not occurred keep a premium (no premium lets a glimpse be bought at its price, so luck counts for less), and whether the 70% fills the true meter (its length then depends on the hidden meter) or a known price (the meter's share; the same results).
+
+Results: `results/w7f_familiar_cmpUA125*`, `…cmpUA150*`, `…cmpUC200*`, `…cmpT70*`, `…cmpT70S*`, `…cmpT60*`, `…cmpT50*`, `…cmpT70U*`, `…cmpT70C10*`, `…cmpT70C20*`.
+
 ## The candidate model, exactly (as the simulator runs it)
 
 From `design/simulator/power/harness_ftl_e.py` (`run()`), with `w7c_cfg.json` and the agreed settings.

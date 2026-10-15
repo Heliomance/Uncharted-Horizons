@@ -13,11 +13,11 @@ Analyse:
   python3 endeavour_oracle.py --analyse <path prefix> [runs]
     For every idea in every snapshot: make its focus active and play the focus forward on its own (no new ideas, prices
     and income as they stand; `runs` draws, default 20, for meters not yet drawn), and compare when ordinary study
-    discovers the idea with when a 2x Endeavour fed the same Insight would, under three costs: from nothing (2x the
-    price, as now); the study already done taken off after the premium (2x the price - done); and taken off before it,
-    so the premium multiplies only the remaining work (2 x (the price - done), never below nothing); that, with the
-    remaining work counted as at least half the price; and 2x the price x the share of the idea's hidden meter still to
-    fill. An Endeavour always takes at least a turn.
+    discovers the idea with when an Endeavour would, under each design in DESIGNS: today's (2x the price, from nothing,
+    fed the active share); priced by the share of the idea's hidden meter still to fill, fed the active share or the
+    whole income, at 2x, 1.5x or 1.25x; and a crash programme (delivered at once, its price repaid afterwards). An
+    Endeavour always takes at least a turn. (The other prices measured on 15 October, the study done taken off before or
+    after the premium, are in commit 2742a1a's version.)
 Example (the expert, familiar world, every method; then delete results/w7f_familiar_oracle*.json, which w7f.py writes):
   cd design/simulator/power && for m in Warp Wormhole Hyperspace Tachyonic Tunnelling; do env PYTHONHASHSEED=0 DET=smart \
     ORSMART=1 PARALLEL=1 RUNON=1 DIFF=1 OBS=0 GLIMPSE=0.1 GLIMPSEU=0.03 END=2 ENDRULE=active INSTR_D=5 EXPFIX=1 \
@@ -53,7 +53,7 @@ HOOK = (
     "                                     PRICE[ROWS[k]['era']] * prm.scale * prm.accel_price.get(k, 1.0) * prm.premium ** max(0.0, ERA_I[k] - d - prm.accelerate.get(k, 0.0)),\n"
     "                                     est_price(k), COSTMULT.get(k, 1.0), aw(k) * ATTN.get(k, 1.0), active == _f] for k in _u]\n"
     "            if _snap:\n"
-    "                with open(ORACLE_PATH + '.snap.' + _pid, 'a') as _fh: _fh.write(json.dumps([seed, turn, round(d, 3), _F, _snap]) + '\\n')\n")
+    "                with open(ORACLE_PATH + '.snap.' + _pid, 'a') as _fh: _fh.write(json.dumps([seed, turn, round(d, 3), _F, _snap, inc]) + '\\n')\n")
 
 
 def record():
@@ -98,65 +98,73 @@ def forward(items, F, runs, rng, tmax=400):
     return when, need
 
 
-RULES = ('now', 'after', 'before', 'floor', 'meter')   # from nothing; study done off the 2x price; off the price before the 2x; the same,
-                                              # the remaining work counted as at least half the price; 2x the price x the share of the
-                                              # hidden meter still to fill
-
-
-def costs(it):
-    """the Endeavour's price under each rule, for one idea [k, progress, meter, price, est. price, cost multiplier, ...]"""
-    full = it[5] * it[4]; done = it[1] * it[4]
-    return {'now': END_MULT * full, 'after': max(END_MULT * full - done, 0.0), 'before': END_MULT * max(full - done, 0.0),
-            'floor': END_MULT * max(full - done, 0.5 * full),
-            'meter': END_MULT * full * (max(1.0 - it[1] / it[2], 0.0) if it[2] else 1.0)}
+# Endeavour designs: (label, premium, the Insight it receives: 'active' (the active share) or a share of the whole income, delivered at
+# once?, what it costs: 'price' (from nothing), 'share' (the price x the share of the hidden meter still to fill) or 'true' (the
+# Insight the hidden meter still needs), share of the income lost while it runs)
+DESIGNS = (('today', 2.0, 'active', False, 'price', 0.0), ('all, 1.25x', 1.25, 1.0, False, 'share', 0.0),
+           ('crash, 2x', 2.0, 1.0, True, 'share', 0.0), ('70%, true', 1.0, 0.7, False, 'true', 0.1),
+           ('70%, share', 1.0, 0.7, False, 'share', 0.1), ('60%, true', 1.0, 0.6, False, 'true', 0.2),
+           ('50%, true', 1.0, 0.5, False, 'true', 0.3))
 
 
 def _analyse_file(args):
     import numpy as np
     path, runs = args
     rng = np.random.default_rng(abs(hash(os.path.basename(path))) % (2 ** 32))
-    rows = []   # one per idea: [ideas in its focus, funded focus?, progress / cost multiplier, study turns (median), then per rule:
-                #   P(Endeavour sooner), mean turns saved where sooner (0 if never), Endeavour turns, Endeavour price / Insight study still needs]
+    rows = []   # one per idea: [ideas in its focus, funded focus?, frontier?, study turns (median)] + per design [P(sooner), mean turns
+                #   saved, Endeavour turns, Insight beyond what study would spend, in turns of the whole income]
     for line in open(path):
-        seed, turn, d, F, snap = json.loads(line)
+        rec = json.loads(line)
+        if len(rec) < 6: sys.exit('snapshots without the income: record them again')
+        seed, turn, d, F, snap, inc = rec
         for f, items in snap.items():
             when, need = forward(items, F, runs, rng)
             for j, it in enumerate(items):
                 ts = when[:, j]; ts = np.where(np.isinf(ts), 401.0, ts)
-                left_ins = float(np.mean((need[:, j] - it[1]) * it[3]))   # Insight ordinary study still needs (its meter, hidden)
-                row = [len(items), bool(it[7]), it[1] / it[5], float(np.median(ts))]
-                for rule, c in costs(it).items():
-                    te = max(1, math.ceil(c / F - 1e-9))
-                    sooner = ts > te
-                    row += [float(sooner.mean()), float((ts - te)[sooner].mean()) if sooner.any() else 0.0, te, c / max(left_ins, 1e-9)]
+                left_ins = float(np.mean((need[:, j] - it[1]) * it[3]))      # Insight study still needs (the hidden meter's remainder)
+                full = it[5] * it[4]; share_left = max(1.0 - it[1] / it[2], 0.0) if it[2] else 1.0
+                row = [len(items), bool(it[7]), ERA_I.get(it[0], 0) >= int(d), float(np.median(ts))]
+                for label, prem, src, now, basis, lost in DESIGNS:
+                    rate = F if src == 'active' else inc * src
+                    if basis == 'true':                    # the meter itself: drawn per run where it has not been drawn yet
+                        costs = prem * np.maximum(need[:, j] - it[1], 0.0) * it[3]
+                    else:
+                        costs = np.full(runs, prem * full * (share_left if basis == 'share' else 1.0))
+                    te = np.ones(runs) if now else np.maximum(1, np.ceil(costs / rate - 1e-9))
+                    extra = float(np.mean(costs + lost * inc * te) - left_ins) / inc
+                    row += [float((ts > te).mean()), float((ts - te).mean()), float(np.median(te)), extra]
                 rows.append(row)
     return rows
 
 
+ERA_I = {}
+
+
 def analyse(prefix, runs):
     import numpy as np, multiprocessing
+    sys.path.insert(0, POWER); import harness as H0
+    ERA_I.update(H0.ERA_I)
     files = sorted(glob.glob(prefix + '.snap.*'))
-    with multiprocessing.Pool() as pool: parts = pool.map(_analyse_file, [(f, runs) for f in files])
+    with multiprocessing.get_context('fork').Pool() as pool: parts = pool.map(_analyse_file, [(f, runs) for f in files])
     rows = np.array([r for part in parts for r in part], dtype=float)
-    print(f"{len(rows)} ideas under study in {len(files)} snapshot files; {100 * np.mean(rows[:, 2] >= 1):.1f}% have had their whole price")
-    def line(label, m):
+    print(f"{len(rows)} ideas under study in {len(files)} snapshot files")
+    def block(label, m):
         r = rows[m]
         if not len(r): return
-        out = [f"  {label:24} {len(r):7d} ideas | study median {np.median(r[:, 3]):4.1f} turns"]
-        for i, rule in enumerate(RULES):
-            b = 4 + 4 * i; so = r[:, b]
-            gain = np.sum(so * r[:, b + 1]) / max(np.sum(so), 1e-9)
-            out.append(f"{rule}: sooner {100 * so.mean():5.1f}% by {gain:4.1f} turns, cheaper than study {100 * np.mean(r[:, b + 3] < 1):5.1f}%")
-        print(' | '.join(out))
-    n = rows[:, 0]
-    line('every idea', n >= 1)
-    line('alone in its focus', n == 1)
-    line('2 in its focus', n == 2)
-    line('3-4 in its focus', (n >= 3) & (n <= 4))
-    line('5 or more', n >= 5)
-    line('in the funded focus', rows[:, 1] == 1)
-    for lo, hi in ((0, 0.25), (0.25, 0.5), (0.5, 0.75), (0.75, 1.0), (1.0, 99)):
-        line(f'progress {lo:g}-{hi:g} of price', (rows[:, 2] >= lo) & (rows[:, 2] < hi))
+        print(f"  {label}: {len(r)} ideas; switching to their focus, study takes a median {np.median(r[:, 3]):.0f} turns")
+        for i, (name, *_) in enumerate(DESIGNS):
+            b = 4 + 4 * i
+            ratio = r[:, b + 2] / np.maximum(r[:, 3], 1)
+            print(f"    {name:12} sooner {100 * r[:, b].mean():5.1f}% | turns saved, mean {r[:, b + 1].mean():5.2f} | Endeavour time / study time, "
+                  f"median {np.median(ratio):4.2f} | extra Insight, in turns of the whole income: median {np.median(r[:, b + 3]):5.2f}, mean {r[:, b + 3].mean():5.2f}")
+    slow = rows[:, 3] >= 2; front = rows[:, 2] == 1
+    block('every idea under study', rows[:, 0] >= 1)
+    block('study would take 2 turns or more', slow)
+    block('frontier ideas (their era begun or ahead)', front)
+    block('frontier, study 2 turns or more', front & slow)
+    block('in the funded focus', rows[:, 1] == 1)
+    block('alone in its focus, study 2 turns or more', (rows[:, 0] == 1) & slow)
+    block('sharing its focus, study 2 turns or more', (rows[:, 0] >= 2) & slow)
     pairs = [json.loads(l) for f in sorted(glob.glob(prefix + '.pairs.*')) for l in open(f)]
     print(f"  pairs studied side by side: {len(pairs)}")
     for lo, hi in ((1, 1.25), (1.25, 1.5), (1.5, 2), (2, 4), (4, 1e9)):
