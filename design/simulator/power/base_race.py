@@ -86,18 +86,19 @@ def race(seq, inc_fn, econ):
         return (0.5 if done.get('Robotics', 10 ** 6) <= start else 0.0) + (0.25 if tech == last and done.get('Satellites', 10 ** 6) <= start else 0.0)
     parts = [build(max(done[u['requiredTech']], ap), cum_at[u['requiredTech']], bonus(u['requiredTech'], max(done[u['requiredTech']], ap))) for _, u in PARTS]
     return dict(research=max(done[t] for t in NEED), last=max(NEED, key=lambda t: done[t]), apollo=ap, victory=max(parts) + 1,
-                cost=sum(COST[t] for t in seq), cum=cum, prod=production(cum, econ))
+                cost=sum(COST[t] for t in seq), cum=cum, prod=production(cum, econ), done=done, cum_at=cum_at)
 
 
 ALL = [t for t in COST if t != 'Future Tech']
 BEE = closure(NEED)
-print(f"Unciv's Gods & Kings tree: {len(COST)} techs; the science victory needs {', '.join(sorted(NEED))}, whose prerequisites take "
-      f"{len(BEE)} techs costing {sum(COST[t] for t in BEE):,} of the {sum(COST[t] for t in ALL):,} without Future Tech")
-print(f"  techs left out by the beeline: {', '.join(sorted(set(ALL) - BEE))}")
-for label, inc_fn, econ in (("the simulator's good economy", income, 1.0), ("the simulator's average economy", income, 0.8),
-                            ("base Civ V's own economy (the era model, calibrated to 320)", base_income, 1.0)):
-    print(f"\n{label}:")
-    for name, seq in (('whole tree', order(ALL)), ('beeline', order(BEE))):
-        r = race(seq, inc_fn, econ)
-        print(f"  {name:10} research done turn {r['research']} (last: {r['last']}), Apollo Program built turn {r['apollo']}, "
-              f"spaceship complete and launched turn {r['victory']} (a city's Production then {r['prod']:.0f})")
+if __name__ == '__main__':
+    print(f"Unciv's Gods & Kings tree: {len(COST)} techs; the science victory needs {', '.join(sorted(NEED))}, whose prerequisites take "
+          f"{len(BEE)} techs costing {sum(COST[t] for t in BEE):,} of the {sum(COST[t] for t in ALL):,} without Future Tech")
+    print(f"  techs left out by the beeline: {', '.join(sorted(set(ALL) - BEE))}")
+    for label, inc_fn, econ in (("the simulator's good economy", income, 1.0), ("the simulator's average economy", income, 0.8),
+                                ("base Civ V's own economy (the era model, calibrated to 320)", base_income, 1.0)):
+        print(f"\n{label}:")
+        for name, seq in (('whole tree', order(ALL)), ('beeline', order(BEE))):
+            r = race(seq, inc_fn, econ)
+            print(f"  {name:10} research done turn {r['research']} (last: {r['last']}), Apollo Program built turn {r['apollo']}, "
+                  f"spaceship complete and launched turn {r['victory']} (a city's Production then {r['prod']:.0f})")
