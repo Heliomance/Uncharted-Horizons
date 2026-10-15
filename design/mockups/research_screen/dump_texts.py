@@ -1,5 +1,5 @@
 """Every sentence the mockup can show in its bottom bar: selects each breakthrough, each focus, the funding header and the
-era pill, in both snapshots (turn 226 and turn 231), and writes what the bar says, with the action buttons.
+era pill, in each snapshot (turn 226, turn 231 and turn 1), and writes what the bar says, with the action buttons.
 
 Usage: python3 dump_texts.py [out.txt]   (default: bar_texts.txt beside this file)
 """
@@ -21,7 +21,7 @@ READ = """() => { const bar = document.querySelector('[data-uh=bar]');
 
 with sync_playwright() as p:
     b = p.chromium.launch(); out = []
-    for view, snap in (('t226-main', 't226'), ('t231-endeavour', 't231')):
+    for view, snap in (('t226-main', 't226'), ('t231-endeavour', 't231'), ('t001-start', 't001')):
         html = preview.build(str(MAIN), {'view': view})
         tmp = HERE / f'_dump_{view}.html'; tmp.write_text(html, encoding='utf-8')
         pg = b.new_page(viewport={'width': 1440, 'height': 810}); pg.goto(tmp.as_uri()); pg.wait_for_timeout(200)

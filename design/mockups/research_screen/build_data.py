@@ -1,5 +1,5 @@
-"""The mockup's data: the two simulated snapshots (turn 226, and turn 231 with an Endeavour running) with the build spec's
-corrections applied (build_spec.md §8), written to mockup_data.json. Corrections cover what the engine does not model:
+"""The mockup's data: the three simulated snapshots (turn 1 before anything is discovered, turn 226, and turn 231 with an
+Endeavour running) with the build spec's corrections applied (build_spec.md §8), written to mockup_data.json. Corrections cover what the engine does not model:
 Competing Solutions lock-outs, superseded and dead-ended theories, theory-revealed rows, and rows a prerequisite still
 blocks. They are illustrative and marked `curated` in the output.
 """
@@ -46,7 +46,7 @@ COMPETES = {'ES03-W': 'ES03', 'MD20': 'MD06'}   # alternative -> primary, both r
 
 
 def load(mode):
-    S = json.load(open(os.path.join(HERE, 'endeavour_state.json' if mode == 't231' else 'late_game_state.json'), encoding='utf-8'))
+    S = json.load(open(os.path.join(HERE, {'t231': 'endeavour_state.json', 't001': 'start_state.json'}.get(mode, 'late_game_state.json')), encoding='utf-8'))
     rows = []
     for r in S['rows']:
         r = dict(r); r['focus'] = NORM(r['focus']); tags = []
@@ -69,13 +69,13 @@ def load(mode):
         r['tags'] = tags
         for k in ('target', 'ahead', 'new', 'unlocks', 'prereq', 'since', 'progress', 'closed_turn'): r.pop(k, None)
         rows.append(r)
-    for a in ADD_T226 + (ADD_T231 if mode == 't231' else []):
+    for a in (ADD_T226 if mode != 't001' else []) + (ADD_T231 if mode == 't231' else []):   # rows the engine does not reveal
         a = dict(a); a['tags'] = ['New'] if a.pop('new', False) else []; a['curated'] = True; rows.append(a)
     byid = {r['id']: r for r in rows}
     for alt, prim in COMPETES.items():
         if alt in byid and prim in byid and byid[alt]['status'] != 'owned': byid[alt]['competes'] = byid[prim]['name']
-    funded = None if mode == 't231' else 'Quantum Physics'
-    queue = ['Quantum Physics', 'Energy Systems', 'Medicine'] if mode == 't231' else ['Energy Systems', 'Medicine']
+    funded = {'t231': None, 't001': None}.get(mode, 'Quantum Physics')   # turn 1: the first choice is still to make
+    queue = {'t231': ['Quantum Physics', 'Energy Systems', 'Medicine'], 't001': []}.get(mode, ['Energy Systems', 'Medicine'])
     badges = {}
     for r in rows:
         if r['status'] == 'studying': badges[r['focus']] = badges.get(r['focus'], 0) + 1
@@ -88,13 +88,17 @@ def load(mode):
     for alt, prim in COMPETES.items():   # a revealed rival pair: both chips carry a Rival tag
         if alt in byid and prim in byid and byid[alt]['status'] not in ('owned', 'not_taken') and byid[prim]['status'] != 'owned':
             byid[alt]['tags'].append('Rival'); byid[prim]['tags'].append('Rival'); byid[prim]['rivalOf'] = byid[alt]['name']
-    return dict(turn=S['turn'], era='Atomic' if mode == 't231' else 'Modern', insight=S['insight_per_turn'], funded=funded,
+    owned = {r['id'] for r in rows if r['status'] == 'owned'}
+    # what the civilisation's discoveries allow: the 80/20 split (SO05; 50/50 before it), Experiment (PH04), Synthesis (PH08),
+    # and the Faster than light screen, which opens with Special Relativity (RC01, section 4)
+    unlocked = dict(split=0.8 if 'SO05' in owned else 0.5, experiment='PH04' in owned, synthesis='PH08' in owned, ftl='RC01' in owned)
+    return dict(turn=S['turn'], era={'t231': 'Atomic', 't001': 'Primitive'}.get(mode, 'Modern'), insight=S['insight_per_turn'], funded=funded, **unlocked,
                 queue=queue, foci=sorted(set(NORM(f) for f in S['foci_entered']) - NOT_ENTERED), badges={f: n for f, n in badges.items() if f not in NOT_ENTERED},
                 endeavour=dict(id='EL11', pct=64, paid=3415, price=5340, committed=226, aside=False) if mode == 't231' else None, rows=rows)
 
 
 if __name__ == '__main__':
-    out = {m: load(m) for m in ('t226', 't231')}
+    out = {m: load(m) for m in ('t226', 't231', 't001')}
     json.dump(out, open(os.path.join(HERE, 'mockup_data.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
     from collections import Counter
     for m, d in out.items(): print(m, dict(Counter(r['status'] for r in d['rows'])), len(d['rows']), 'rows;', len(d['foci']), 'foci')

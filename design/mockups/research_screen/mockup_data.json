@@ -4,6 +4,10 @@
   "era": "Modern",
   "insight": 853.3,
   "funded": "Quantum Physics",
+  "split": 0.8,
+  "experiment": true,
+  "synthesis": true,
+  "ftl": true,
   "queue": [
    "Energy Systems",
    "Medicine"
@@ -2647,6 +2651,10 @@
   "era": "Atomic",
   "insight": 853.3,
   "funded": null,
+  "split": 0.8,
+  "experiment": true,
+  "synthesis": true,
+  "ftl": true,
   "queue": [
    "Quantum Physics",
    "Energy Systems",
@@ -5324,6 +5332,108 @@
      "New"
     ],
     "curated": true
+   }
+  ]
+ },
+ "t001": {
+  "turn": 1,
+  "era": "Primitive",
+  "insight": 5.0,
+  "funded": null,
+  "split": 0.5,
+  "experiment": false,
+  "synthesis": false,
+  "ftl": false,
+  "queue": [],
+  "foci": [
+   "Fire",
+   "Foraging",
+   "Observation",
+   "Seafaring",
+   "Social Organization",
+   "Stonework"
+  ],
+  "badges": {
+   "Fire": 1,
+   "Foraging": 1,
+   "Observation": 2,
+   "Stonework": 1,
+   "Seafaring": 1,
+   "Social Organization": 2
+  },
+  "endeavour": null,
+  "rows": [
+   {
+    "id": "F01",
+    "name": "Controlled Fire",
+    "focus": "Fire",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "G01",
+    "name": "Plant Identification",
+    "focus": "Foraging",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "O01",
+    "name": "Star Tracking",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "O03",
+    "name": "Animal Behavior Study",
+    "focus": "Observation",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "S01",
+    "name": "Tool Knapping",
+    "focus": "Stonework",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "SF01",
+    "name": "Reed/Log Raft",
+    "focus": "Seafaring",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "SO01",
+    "name": "Basic Counting",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
+   },
+   {
+    "id": "SO02",
+    "name": "Storytelling",
+    "focus": "Social Organization",
+    "era": "Primitive",
+    "tier": "CORE",
+    "status": "studying",
+    "tags": []
    }
   ]
  }

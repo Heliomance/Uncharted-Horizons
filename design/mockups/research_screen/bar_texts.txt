@@ -2905,3 +2905,72 @@
     The Space era needs 4 from the Space era: you hold 2.
     Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
     ACTIONS: 
+===== t001 (t001-start)
+--- F01 [studying] Controlled Fire Fire · Primitive era
+    Being studied in Fire: it takes a share of that focus’s Insight every turn.
+    “The fire that lightning leaves might be fed, carried home and kept alive.”
+    ACTIONS: Fund Fire | [disabled] Grand Endeavour only for ideas not yet occurred
+--- G01 [studying] Plant Identification Foraging · Primitive era
+    Being studied in Foraging: it takes a share of that focus’s Insight every turn.
+    “Some plants feed us and some sicken us; there may be a way to tell them apart.”
+    ACTIONS: Fund Foraging | [disabled] Grand Endeavour only for ideas not yet occurred
+--- O01 [studying] Star Tracking Observation · Primitive era
+    Being studied in Observation: it takes a share of that focus’s Insight every turn.
+    “The stars rise in the same order every night; they might mark the seasons and the way home.”
+    ACTIONS: Fund Observation | [disabled] Grand Endeavour only for ideas not yet occurred
+--- O03 [studying] Animal Behavior Study Observation · Primitive era
+    Being studied in Observation: it takes a share of that focus’s Insight every turn.
+    “The herds come to the same water at the same hour; their ways might be learned.”
+    ACTIONS: Fund Observation | [disabled] Grand Endeavour only for ideas not yet occurred
+--- S01 [studying] Tool Knapping Stonework · Primitive era
+    Being studied in Stonework: it takes a share of that focus’s Insight every turn.
+    “A stone struck at the right angle might split into an edge sharper than any tooth.”
+    ACTIONS: Fund Stonework | [disabled] Grand Endeavour only for ideas not yet occurred
+--- SF01 [studying] Reed/Log Raft Seafaring · Primitive era
+    Being studied in Seafaring: it takes a share of that focus’s Insight every turn.
+    Needs ✓ A coastal or river city
+    “Logs float on the river; lashed together, they might carry us across.”
+    ACTIONS: Fund Seafaring | [disabled] Grand Endeavour only for ideas not yet occurred
+--- SO01 [studying] Basic Counting Social Organization · Primitive era
+    Being studied in Social Organization: it takes a share of that focus’s Insight every turn.
+    “Notches cut in a stick might keep track of days, of stores and of people.”
+    ACTIONS: Fund Social Organization | [disabled] Grand Endeavour only for ideas not yet occurred
+--- SO02 [studying] Storytelling Social Organization · Primitive era
+    Being studied in Social Organization: it takes a share of that focus’s Insight every turn.
+    “The elders’ tales might keep what they learned alive after they are gone.”
+    ACTIONS: Fund Social Organization | [disabled] Grand Endeavour only for ideas not yet occurred
+--- Fire [focus] Fire not funded
+    Under study here: Controlled Fire.
+    Tends to help with production and early weapons.
+    ACTIONS: Fund Fire | Add to queue
+--- Foraging [focus] Foraging not funded
+    Under study here: Plant Identification.
+    Tends to help with food and medicine. Modifiers: +20% diverse lands.
+    ACTIONS: Fund Foraging | Add to queue
+--- Observation [focus] Observation not funded
+    Under study here: Star Tracking, Animal Behavior Study.
+    Tends to help with science and knowing the land.
+    ACTIONS: Fund Observation | Add to queue
+--- Seafaring [focus] Seafaring not funded
+    Under study here: Reed/Log Raft.
+    Tends to help with ships and sea trade.
+    ACTIONS: Fund Seafaring | Add to queue
+--- Social Organization [focus] Social Organization not funded
+    Under study here: Basic Counting, Storytelling.
+    Tends to help with government and specialists.
+    ACTIONS: Fund Social Organization | Add to queue
+--- Stonework [focus] Stonework not funded
+    Under study here: Tool Knapping.
+    Tends to help with building and tools.
+    ACTIONS: Fund Stonework | Add to queue
+--- funding [funding] Insight 5 a turn, equal to your science
+    Pick a focus to fund: it takes half of your Insight, 2.5 a turn.
+    The other half, 2.5, spreads to foci with work under study, so none stands still.
+    Your people cannot yet direct their inquiry more sharply than that.
+    Queue: empty. Right-click a focus to queue what to fund next.
+    You have met no other civilisation yet, so no ideas reach you from abroad.
+    ACTIONS: [disabled] Pick a focus from the list on the left
+--- era [era] Primitive era the starting era
+    You enter an era when you hold enough breakthroughs from it or later.
+    The Ancient era needs 5 from the Ancient era or later: you hold 0.
+    ACTIONS: 

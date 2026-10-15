@@ -1,0 +1,301 @@
+{
+ "turn": 1,
+ "research_ends": null,
+ "method": null,
+ "era": "Primitive",
+ "development": 0.0,
+ "insight_per_turn": 5.0,
+ "funded_focus": null,
+ "endeavour": null,
+ "endeavour_progress": null,
+ "flow": {},
+ "foci": [
+  {
+   "name": "Fire",
+   "icon": "🔥"
+  },
+  {
+   "name": "Foraging",
+   "icon": "🌿"
+  },
+  {
+   "name": "Stonework",
+   "icon": "⛏️"
+  },
+  {
+   "name": "Observation",
+   "icon": "🔭"
+  },
+  {
+   "name": "Social Organization",
+   "icon": "👥"
+  },
+  {
+   "name": "Farming",
+   "icon": "🌾"
+  },
+  {
+   "name": "Animal Husbandry",
+   "icon": "🐎"
+  },
+  {
+   "name": "Mining",
+   "icon": "⛰️"
+  },
+  {
+   "name": "Metallurgy",
+   "icon": "⚒️"
+  },
+  {
+   "name": "Construction",
+   "icon": "🏗️"
+  },
+  {
+   "name": "Seafaring",
+   "icon": "⚓"
+  },
+  {
+   "name": "Warfare",
+   "icon": "⚔️"
+  },
+  {
+   "name": "Mathematics",
+   "icon": "📐"
+  },
+  {
+   "name": "Philosophy and The Arts",
+   "icon": "🎭"
+  },
+  {
+   "name": "Medicine",
+   "icon": "💊"
+  },
+  {
+   "name": "Trade",
+   "icon": "💰"
+  },
+  {
+   "name": "Textiles & Materials",
+   "icon": "🧵"
+  },
+  {
+   "name": "Water Management",
+   "icon": "💧"
+  },
+  {
+   "name": "Mechanics",
+   "icon": "⚙️"
+  },
+  {
+   "name": "Thermodynamics",
+   "icon": "🌡️"
+  },
+  {
+   "name": "Chemistry",
+   "icon": "🧪"
+  },
+  {
+   "name": "Optics",
+   "icon": "🔍"
+  },
+  {
+   "name": "Electricity",
+   "icon": "⚡"
+  },
+  {
+   "name": "Electronics",
+   "icon": "💻"
+  },
+  {
+   "name": "Computing",
+   "icon": "🖥️"
+  },
+  {
+   "name": "Nuclear Physics",
+   "icon": "☢️"
+  },
+  {
+   "name": "Quintessic Physics",
+   "icon": "✦"
+  },
+  {
+   "name": "Quantum Physics",
+   "icon": "🔬"
+  },
+  {
+   "name": "Relativity & Cosmology",
+   "icon": "🌌"
+  },
+  {
+   "name": "Rocketry",
+   "icon": "🚀"
+  },
+  {
+   "name": "Materials Science",
+   "icon": "🔬"
+  },
+  {
+   "name": "Genetics",
+   "icon": "🧬"
+  },
+  {
+   "name": "Aeronautics",
+   "icon": "✈️"
+  },
+  {
+   "name": "Space Engineering",
+   "icon": "🛰️"
+  },
+  {
+   "name": "Energy Systems",
+   "icon": "⚡"
+  }
+ ],
+ "counts": {
+  "owned": 0,
+  "studying": 8,
+  "waiting": 0,
+  "closed": 0,
+  "not_taken": 0
+ },
+ "hidden_under_study": 0,
+ "eligible_unseen": [],
+ "foci_entered": [
+  "Fire",
+  "Foraging",
+  "Observation",
+  "Seafaring",
+  "Social Organization",
+  "Stonework"
+ ],
+ "rows": [
+  {
+   "id": "F01",
+   "name": "Controlled Fire",
+   "focus": "Fire",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "G01",
+   "name": "Plant Identification",
+   "focus": "Foraging",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [
+    "Forager's Hut"
+   ],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "O01",
+   "name": "Star Tracking",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "O03",
+   "name": "Animal Behavior Study",
+   "focus": "Observation",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [
+    "Animal Husbandry",
+    "Camp"
+   ],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "S01",
+   "name": "Tool Knapping",
+   "focus": "Stonework",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [
+    "Warrior",
+    "Scout",
+    "Remove Forest",
+    "Remove Jungle"
+   ],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "SF01",
+   "name": "Reed/Log Raft",
+   "focus": "Seafaring",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "Coastal or River location",
+   "unlocks": [
+    "Fishing Boats",
+    "Work Boats"
+   ],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "SO01",
+   "name": "Basic Counting",
+   "focus": "Social Organization",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  },
+  {
+   "id": "SO02",
+   "name": "Storytelling",
+   "focus": "Social Organization",
+   "era": "Primitive",
+   "tier": "CORE",
+   "status": "studying",
+   "prereq": "None",
+   "unlocks": [
+    "Monument",
+    "Stele"
+   ],
+   "ahead": false,
+   "progress": 0.0,
+   "since": 1,
+   "target": false
+  }
+ ]
+}
