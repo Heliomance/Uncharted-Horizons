@@ -1,0 +1,46 @@
+Base Civ V's science victory against the fork's, on the same simulated income (15 Oct 2026; Tamsin's test).
+Base: base_race.py (Unciv's Gods & Kings tree, the Apollo Program and six parts built from the era model's base city Production,
++50% Spaceship Factory, +75% for the last part in the Hubble city). Fork: victory.py, the SS FTL Drive now built from Production
+(1,500 x1.20 in the best city at +125%, +15% for exotic methods) instead of a pencilled-in 4 turns (5 average).
+
+Unciv's Gods & Kings tree: 80 techs; the science victory needs Advanced Ballistics, Nanotechnology, Particle Physics, Rocketry, Satellites, whose prerequisites take 75 techs costing 168,370 of the 202,470 without Future Tech
+  techs left out by the beeline: Globalization, Lasers, Nuclear Fusion, Stealth
+
+the simulator's good economy:
+  whole tree research done turn 312 (last: Particle Physics), Apollo Program built turn 275, spaceship complete and launched turn 319 (a city's Production then 77)
+  beeline    research done turn 298 (last: Particle Physics), Apollo Program built turn 275, spaceship complete and launched turn 305 (a city's Production then 77)
+
+the simulator's average economy:
+  whole tree research done turn 389 (last: Particle Physics), Apollo Program built turn 341, spaceship complete and launched turn 397 (a city's Production then 62)
+  beeline    research done turn 372 (last: Particle Physics), Apollo Program built turn 341, spaceship complete and launched turn 380 (a city's Production then 62)
+
+base Civ V's own economy (the era model, calibrated to 320):
+  whole tree research done turn 317 (last: Particle Physics), Apollo Program built turn 277, spaceship complete and launched turn 324 (a city's Production then 77)
+  beeline    research done turn 301 (last: Particle Physics), Apollo Program built turn 277, spaceship complete and launched turn 308 (a city's Production then 77)
+
+The fork (all three players, all 15 victory conditions, 2,700 games each, none unfinished), victory medians expert / novice / average:
+  v3.122 (results _cmpV122): 327 / 332 / 412 (race finished 310 / 315 / 391; prototype 8 / 8 / 10 turns; Drive 8 / 8 / 10)
+  v3.121 (results _cmpP120, DEVENDS= SPACEPRICE=0.8): 303 / 307 / 380 (race finished 288 / 292 / 363; prototype 4; Drive 10 / 10 / 12)
+  (with the old pencilled-in Drive: v3.122 323 / 328 / 407; v3.121 297 / 301 / 374)
+
+== familiar
+expert:
+  v3.122         median 326, mean 327.5, unfinished 0 | Warp 317, Wormhole 331, Hyperspace 330, Tachyonic 321, Tunnelling 340
+novice:
+  v3.122         median 330, mean 333.1, unfinished 0 | Warp 325, Wormhole 342, Hyperspace 341, Tachyonic 322, Tunnelling 341
+average:
+  v3.122         median 409, mean 411.8, unfinished 0 | Warp 406, Wormhole 418, Hyperspace 412, Tachyonic 399, Tunnelling 424
+== Process
+expert:
+  v3.122         median 328, mean 330.3, unfinished 0 | Warp 320, Wormhole 338, Hyperspace 333, Tachyonic 322, Plenum 344
+novice:
+  v3.122         median 334, mean 335.0, unfinished 0 | Warp 330, Wormhole 350, Hyperspace 336, Tachyonic 323, Plenum 344
+average:
+  v3.122         median 414, mean 414.8, unfinished 0 | Warp 412, Wormhole 423, Hyperspace 416, Tachyonic 403, Plenum 425
+== Substance
+expert:
+  v3.122         median 328, mean 329.3, unfinished 0 | Warp 320, Wormhole 336, Hyperspace 333, Tachyonic 321, Plenum 338
+novice:
+  v3.122         median 331, mean 332.0, unfinished 0 | Warp 322, Wormhole 342, Hyperspace 333, Tachyonic 324, Plenum 338
+average:
+  v3.122         median 414, mean 414.2, unfinished 0 | Warp 402, Wormhole 428, Hyperspace 416, Tachyonic 403, Plenum 421

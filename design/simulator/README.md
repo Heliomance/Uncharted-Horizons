@@ -58,6 +58,8 @@ The standard run is 60 games of one FTL method in one world, played by the exper
 | `workshop_measures.py` | The discovery-model workshop's measures, rebuilt with rivals and diffusion: pace, tier rates, Insight, missed ideas, era entry, catch-up, accelerators, the premium's steepness, calibration (`results/workshop_<world>_<setting>_<label>.json`). |
 | `prices.py` | The agreed design's prices (Space-era price and row multipliers), shared by every script that runs the harness. |
 | `compare_settings.sh`, `victory_table.py` | Setting-against-setting FTL checks, and their victory table. |
+| `victory.py` | Every tool's victory turn: the race's finish, the prototype priced from the Space price, the SS FTL Drive built from Production, launch. |
+| `base_race.py` | Base Civ V's science victory on Unciv's Gods & Kings tree, run on the simulator's income, for comparison with the fork's. |
 | `ledger.py`, `ledger2.py` – `ledger6.py` | The power ledgers: per-city building power by era, which the era model reads. |
 | `defaults.py` | Where the tree is, and the finalised design's switches. |
 | `v112_stage1.py` – `v112_stage5.py`, `v112_tachyonic_fix.py`, `thin_batch*.py`, `stage*.py` and the other scripts that edit `tt.md` | The scripts that made past tree versions. They're a record, tied to the versions they edited and to the old workspace's `tt.md` and numbered copies, not something to re-run. |

@@ -1,0 +1,14 @@
+Unciv's Gods & Kings tree: 80 techs; the science victory needs Advanced Ballistics, Nanotechnology, Particle Physics, Rocketry, Satellites, whose prerequisites take 75 techs costing 168,370 of the 202,470 without Future Tech
+  techs left out by the beeline: Globalization, Lasers, Nuclear Fusion, Stealth
+
+the simulator's good economy:
+  whole tree research done turn 312 (last: Particle Physics), Apollo Program built turn 275, spaceship complete and launched turn 319 (a city's Production then 77)
+  beeline    research done turn 298 (last: Particle Physics), Apollo Program built turn 275, spaceship complete and launched turn 305 (a city's Production then 77)
+
+the simulator's average economy:
+  whole tree research done turn 389 (last: Particle Physics), Apollo Program built turn 341, spaceship complete and launched turn 397 (a city's Production then 62)
+  beeline    research done turn 372 (last: Particle Physics), Apollo Program built turn 341, spaceship complete and launched turn 380 (a city's Production then 62)
+
+base Civ V's own economy (the era model, calibrated to 320):
+  whole tree research done turn 317 (last: Particle Physics), Apollo Program built turn 277, spaceship complete and launched turn 324 (a city's Production then 77)
+  beeline    research done turn 301 (last: Particle Physics), Apollo Program built turn 277, spaceship complete and launched turn 308 (a city's Production then 77)
