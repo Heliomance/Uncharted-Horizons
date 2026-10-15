@@ -52,7 +52,7 @@ As of 2026-10-14. Everything here is **written into `tech_tree_v112.md`** (§4 a
 
 - **Power** (W9): only Warp, Hyperspace, Tachyonic; the prototype needs capacity worth one advanced fission plant = 8 points (Modern plants 1; ES06/ES07/ES15 3; ES14 8; ES08/QM-E05/RARE reactors 10); grid plants owned; shown only on the FTL screen; flavour, not a balance lever.
 - **W15 rules**: no single result settles a method; every method has ≥1 condition outside its build (Hail Mary always possible); conditions shared where physics allows; shapes vary by lane; **total time balanced** to the balance standard (§9), prototype cost flat; confirming is the normal path; the theory phase is judged by how it plays, not by length.
-- **W16 bad luck**: a Space-era row's occurrence window stays open for a civ **funding its focus**; incidental spread keeps normal windows; UNCOMMON/RARE/UNIQUE keep their odds; Endeavours are insurance (2×); diffusion is no safety net in the race (it recovers old rows earlier). An isolated civ may be unable to win alone: accepted. *Simulator note (14 Oct 2026):* the simulator runs a stronger form: a Space-era STANDARD row among the player's research targets occurs as soon as it is discoverable, whichever focus is funded. The rule as written here did nothing measurable for the simulated players, measured as part of a game-long funded-window rule. Which rule W16 is remains open; see the workshop report, *Funded windows instead of W16*.
+- **W16 bad luck — dropped (v3.120, 15 Oct 2026).** Replaced by rediscovery on demand (§1.2): a lost STANDARD idea comes back when something waits on it, FTL prototypes and open questions included, 10% a turn for each. With it every measured game finishes, isolated civilisations included; W16 then only bought speed (about 8 turns for the expert), and its written form (a funded focus keeps a Space-era window open) did nothing measurable. UNCOMMON/RARE/UNIQUE keep their odds; Endeavours (2×) only for revealed ideas that have not occurred.
 
 ## 6. Theory phase (W17)
 - Each unified theory needs its ontology's great instrument (QP08 ← QP04; QM-E27 ← QM-E08); both instruments CORE; QM-E08 needs EL07 (as QP04 does). Effect: first answer 5–7 turns after the theory; ontologies at parity.
@@ -92,8 +92,11 @@ As of 2026-10-14. Everything here is **written into `tech_tree_v112.md`** (§4 a
 - **Every tier studied alike once its idea has occurred** (Tamsin, 14 Oct 2026; now the simulator's default): pooled victory medians 301 / 308 / 382 (middle halves 297–304, 305–311, 380–386), unfinished 0 / 7 / 0 of 900; the Process-world Hyperspace outlier disappears (383).
 - **Endeavours re-measured with the fault fixed (14 Oct):** at 2×, reordering (85–90% of the benchmark players' Endeavours) costs 4–9 turns of victory; their only gain is rescuing the 6–8% of games that would otherwise stall. A candidate package (rediscovery on demand, and Endeavours only for revealed ideas that have not occurred): every game finishes, with contacts or isolated, and victory medians are 296 / 303 / 377 (atomic). See the workshop report, *Recovery*.
 
+- **The standard since v3.120** (the safety net adopted, W16 dropped; three worlds, 2,700 games): victory medians expert 297–298, novice 301–302, average 374–375, none unfinished. Within the targets (≈295 good economy; 360–375 average).
+
 ## 10. Discovery model and Endeavours
-- Candidate model ("Pmom") is the basis of comparison; §1.2 still describes the threshold model (rewrite deferred).
+- The candidate model ("Pmom") is written into §1.2 (v3.120).
+- **The safety net (v3.120):** rediscovery on demand; Grand Endeavours only for revealed ideas that have not occurred; no W16. Now the simulator's defaults (`REDISCOVER=0.1 ENDUNOCC=1 W16=0`). Three worlds, 2,700 games: none unfinished; victory medians expert 297–298, novice 301–302, average 374–375 (`results/w7f_<world>_cmpP120*`).
 - **Grand Endeavours 2×** (insurance, not a shortcut). **Proximity revelation** (provisional): each turn an eligible idea fails to occur, 10% chance it is glimpsed (Revealed, can be Endeavoured). Observational revelation reaches only what can be seen.
 - Knowledge diffusion as modelled: 5 rivals, contact at Early Modern; post-Printing-Press CORE/STANDARD arrive 10 turns after half have them; 5 turns after the Internet (UNCOMMON too).
 

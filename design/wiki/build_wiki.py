@@ -431,14 +431,17 @@ SECTION_PAGES = {'1': 'Discovery-Mechanics', '1.1': 'Discovery-Mechanics', '1.2'
 # Words near a section reference that point it at a more specific page (checked in order).
 SECTION_CONTEXT = {
     '1.2': [(r'airship disaster|confidence ladder', 'Competing-Solutions', 'Lost Confidence — the Airship Disaster'),
-            (r'multiplier', 'Breakthrough-Tiers', 'Cost Multipliers (World-Truth-conditional thresholds)'),
+            (r'head start|accelerat', 'Breakthrough-Tiers', 'Accelerators are head starts (decided 14 October 2026)'),
+            (r'multiplier', 'Breakthrough-Tiers', 'Cost Multipliers (World-Truth-conditional prices)'),
             (r'competing solution|locked out|lock-out|detour margin', 'Competing-Solutions', None),
             (r'diffusion|post-press|internet phase', 'Knowledge-Diffusion', None),
             (r'chain', 'Breakthrough-Tiers', 'RARE Gateway Chains'),
             (r'resource rule|trade (?:can supply|satisfies)|strategic re', 'Discovery-Mechanics', 'Strategic Resource Access'),
-            (r'50/50|80/20|routing|pacing', 'Discovery-Mechanics', 'Early-Game Pacing & Insight Routing'),
-            (r'calibration', 'Discovery-Mechanics', 'Insight Scale & Calibration'),
-            (r'roll', 'Discovery-Mechanics', 'Insight and Discovery'),
+            (r'50/50|80/20|routing|pacing|spread|spill', 'Discovery-Mechanics', 'The active focus and the spread'),
+            (r'calibration|premium|price|development', 'Discovery-Mechanics', 'Insight, development and price'),
+            (r'rediscover|glimpse|window|moment|occur', 'Discovery-Mechanics', 'Ideas and their moment'),
+            (r'meter|momentum|under study', 'Discovery-Mechanics', 'Study'),
+            (r'roll', 'Discovery-Mechanics', 'In brief'),
             (r'absent|absence|removal truth|dead-end|consolation|validate', 'Breakthrough-Tiers', 'How It Feels to the Player'),
             (r'\bcore\b|tier', 'Breakthrough-Tiers', None)],
     '4': [(r'elemental worlds', 'FTL-in-Elemental-Worlds', None),
@@ -817,10 +820,10 @@ class Wiki:
         mech = s1.child(r'^1\.2\b')
         promote_leadins(mech)
         groups = {
-            'Discovery-Mechanics': [r'^The Active Focus', r'^Insight and Discovery', r'^Early-Game Pacing', r'^Insight Scale',
-                                    r'^Strategic Resource Access'],
+            'Discovery-Mechanics': [r'^In brief', r'^The active focus', r'^Spill-over', r'^Insight, development',
+                                    r'^Ideas and their moment', r'^Study', r'^Strategic Resource Access'],
             'Breakthrough-Tiers': [r'^Breakthrough Tiers', r'^CORE means', r'^UNIQUE Scaling', r'^UNIQUE Design',
-                                   r'^How It Feels', r'^Cost Multipliers', r'^RARE Gateway'],
+                                   r'^How It Feels', r'^Cost Multipliers', r'^Accelerators', r'^RARE Gateway'],
             'Competing-Solutions': [r'^Competing Solutions', r'^Lost Confidence'],
             'Knowledge-Diffusion': [r'^Knowledge Diffusion'],
         }
