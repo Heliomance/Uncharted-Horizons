@@ -202,7 +202,7 @@ def run(prm, seed, max_turns=450):
                         s0 = diff_unc.setdefault(k, turn)
                         if turn - s0 >= DIFF_WAIT_NET: diff_due.append(k)
         for k in disc: opened.setdefault(k, turn)
-        if TRACE is not None: _occ0, _gl0, _fund0 = set(occurred), set(glimpsed), set(FUNDED)
+        if TRACE is not None: _occ0, _gl0, _fund0, _lost0, _seen0, _lk0 = set(occurred), set(glimpsed), set(FUNDED), set(lost), set(diff_since) | set(diff_unc), set(locked)
         # the moment: a non-CORE idea occurs to the civilisation with a small chance each turn while it lasts
         funded = active                                                    # the focus funded last turn (None while an Endeavour ran)
         if m != 'T':
@@ -444,7 +444,15 @@ def run(prm, seed, max_turns=450):
             _new = sorted(occurred - _occ0)
             TRACE.append(dict(turn=turn, d=d, found=list(found), diff=[k for k in found if k in diff_due], endv=[end_done] if end_done else [],
                               occ=[(k, 'core' if ROWS[k]['tier'] == 'CORE' else ('funded' if (k in _fund0 and ROWS[k]['tier'] == 'STANDARD' and ROWS[k]['era'] == 'Space') else 'chance')) for k in _new],
-                              glim=sorted(glimpsed - _gl0), fund=_fund))
+                              glim=sorted(glimpsed - _gl0), fund=_fund,
+                              # the rest of the research state, for the replay viewer (design/mockups/sim_web): ideas lost this turn, rows first seen in
+                              # rivals' hands, alternatives locked out, ideas rediscovered, the turn's Insight, the funded share and each focus's Insight, every
+                              # idea under study's hidden meter (progress / need) and a running Endeavour's progress
+                              lost=sorted(lost - _lost0), seen=sorted((set(diff_since) | set(diff_unc)) - _seen0), locked=sorted(locked - _lk0),
+                              redisc=sorted(k for k, tt in rediscovered.items() if tt == turn), inc=round(inc, 3), share=share,
+                              flow={f: round(v, 2) for f, v in flow.items()},
+                              prog={k: round(min(progress.get(k, 0.0) / need[k], 1.0), 3) for k in live if k not in have and need.get(k)},
+                              end=[end_k, round(end_prog / end_cost, 3) if end_cost else 0.0] if end_k is not None else None))
     acct.update(held_open=len(held), held_occurred=len(held & occurred), held_lost=len(held & lost),
                 lost_standard=sum(1 for k in lost if ROWS[k]['tier'] == 'STANDARD'))   # (accounting only)
     acct['banked_end'] = bank; acct['recovered_ideas'] = len(rediscovered); run.acct = acct; run.opened = opened; run.occ = occ_turn; run.rediscovered = rediscovered; run.lost_at = lost_at; run.locked = locked

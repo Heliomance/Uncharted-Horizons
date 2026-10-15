@@ -41,4 +41,6 @@ def apply(HF, rows):
     if 'u' in L: HF.COSTMULT['CP16'] = 1.0    # round two: Tunnelling's Planetary Data Networks at 1x
     if 'k' in L: HF.COSTMULT['TH20'] = 4.0    # round two: elemental Tachyonic's Boundary Ring at 4x
     if 'm' in L: HF.COSTMULT['CP10'] = 2.0    # agreed nudge: Tunnelling's Quantum Computing at 2x
+    for k, x in (i.split(':') for i in (os.environ.get('ROWX') or '').split(',') if i):   # ROWX=row:x,...: a variant's row multipliers (measurement)
+        HF.COSTMULT[k] = float(x)
     competing.apply(HF, rows)   # Competing Solutions: each alternative's detour margin, and the lock-outs (COMPETE)

@@ -118,4 +118,7 @@ if os.environ.get('DRY') == '1':
 # (WINDFIX, the Windmill on Weaving and the industrial rows on the Water Mill or the Windmill, was adopted with a CORE
 # Windmill in v3.117 and retired.)
 # (GEARCLASS, Gearing labelled Classical, was adopted in v3.119 and retired.)
+# SETCELL='ROW|column|text;...' (measurement): set a cell of the run's copy, e.g. a prerequisite (column 4) or a tier (column 2)
+for spec in [x for x in os.environ.get('SETCELL', '').split(';') if x.strip()]:
+    rid, col, val = spec.split('|', 2); setcell(rid.strip(), int(col), val.strip())
 open(p,'w',encoding='utf-8').write('\n'.join(L)); print("scratch redesign in place")

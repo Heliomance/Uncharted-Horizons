@@ -264,7 +264,10 @@ def play(s, m, a):
         for _T in range(1, (HF.TRACE[-1]['turn'] if HF.TRACE else 0) + 1):
             HF.CLOCK['turn'] = _T; _hT = {k: v for k, v in have.items() if v[0] <= _T}; _kn, _al, _ce = status(_hT, m, a); _alive[_T] = dict(alive=_al, known=_kn, certain=_ce)
         json.dump(dict(m=m, truth=a, seed=SEED0 + s, truthseed=int(os.environ.get('TRUTHSEED', '31')), records=HF.TRACE, alive=_alive, cert=state['cert'], ends=list(HF.END_LOG),
-                       instr={c: INSTR.get(c) for c in HOST} if 'INSTR' in globals() else {}, instr_d=INSTR_D, close=CLOSE, focus=dict(HF.FOCUS)), open(os.environ['TRACE'], 'w'))
+                       instr={c: INSTR.get(c) for c in HOST} if 'INSTR' in globals() else {}, instr_d=INSTR_D, close=CLOSE, focus=dict(HF.FOCUS),
+                       world=sys.argv[1], econ=HF.ECON, player=os.environ.get('PLAYER') or 'expert', game=s, built=(lambda b: None if b >= 10**6 else b)(max((min((t.get(o, 10**6) for o in g)) for g in BUILD[m]), default=10**6)), build={o: BUILD[o] for o in COND},
+                       cond=COND, host=HOST, settings={k: os.environ.get(k) for k in ('LEVERS', 'SPACEPRICE', 'POOLTAG', 'COMPETE', 'DEVENDS')}),
+                  open(os.environ['TRACE'], 'w'))
     diag = None
     if not state['cert']:
         kn, alive, _ = status(have, m, a)
