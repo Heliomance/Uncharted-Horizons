@@ -110,6 +110,16 @@ def _ftl_active(waiting, pool, have):
     return max(waiting, key=waiting.get) if waiting else None
 
 SPACE_I = EO.index('Space')   # development at which the Space era begins (era i spans development i to i + 1)
+SPACE_FROM = None    # the cumulative Insight at which development enters the Space era: None, the Atomic span's end (143,768; section 2).
+                     # Lower, development crosses the Atomic era faster and the Space era more slowly, both eras' outer ends unchanged;
+                     # income (the simulator's stand-in economy) and every price stay as they are (Tamsin, 15 Oct 2026: the development
+                     # thresholds look wrong if the game ends before the Space era begins)
+def dev_at(cum):
+    if SPACE_FROM is None: return dev(cum)
+    a0, s1 = Lg.ERA_END['Modern'], Lg.ERA_END['Space']
+    if a0 <= cum < SPACE_FROM: return SPACE_I - 1 + (cum - a0) / (SPACE_FROM - a0)
+    if SPACE_FROM <= cum <= s1: return SPACE_I + (cum - SPACE_FROM) / (s1 - SPACE_FROM)
+    return dev(cum)
 
 def run(prm, seed, max_turns=450):
     rng = random.Random(seed); m = prm.model
@@ -121,7 +131,8 @@ def run(prm, seed, max_turns=450):
                 for p in opt: dependents.setdefault(p, []).append(k)
     met = {k for k in IDS if prereqs_met(k, have)}; new_rows = []         # rows whose prerequisites are met: only grows, as `have` does
     focus_ins = {}; progress = {}; need = {}; line = {}; opened = {}; occurred = set(); elig_since = {}; occ_turn = {}
-    acct = {'income': 0.0, 'lost_empty': 0.0, 'lost_cap': 0.0, 'banked_end': 0.0, 'premium_dilution': 0.0, 'attention': 0.0, 'saturation': 0.0, 'linear': 0.0}
+    acct = {'income': 0.0, 'lost_empty': 0.0, 'lost_cap': 0.0, 'banked_end': 0.0, 'premium_dilution': 0.0, 'attention': 0.0, 'saturation': 0.0, 'linear': 0.0,
+            'att_era': {}, 'prem_era': {}}   # by the era of the row studied: Insight spent on study, and the premium's share of it (accounting only)
     if m == 'T':
         pos, _, focus_thr, _ = GN.generate(ROWS, prm.spill, rng, slack=0.0)
         total_thr = {k: total_gate(pos[k], prm.slack) for k in ROWS}
@@ -142,7 +153,7 @@ def run(prm, seed, max_turns=450):
     while turn < max_turns and len(have) < len(IDS):
         turn += 1; inc = income(cum_all if INCOME_FULL else cum) * ECON
         cut = inc * INSIGHT_CUT if INSIGHT_CUT and any(ERA_I[k] >= EO.index(INSIGHT_CUT_FROM) for k in have) else 0.0   # lost before it is allocated
-        cum_all += inc; cum += inc - (cut if INSIGHT_CUT_DEV else 0.0); d = dev(cum); acct['income'] += inc; inc -= cut   # ECON: the player's economy against the calibrated good player's
+        cum_all += inc; cum += inc - (cut if INSIGHT_CUT_DEV else 0.0); d = dev_at(cum); acct['income'] += inc; inc -= cut   # ECON: the player's economy against the calibrated good player's
         CLOCK['turn'] = turn
         if d >= SPACE_I and 'space_entry_turn' not in acct: acct['space_entry_turn'] = turn   # (accounting only) development reaches the Space era
         while len(era_start) < len(EO) and d >= len(era_start): era_start.append(turn)       # the turn development reached each era
@@ -348,6 +359,8 @@ def run(prm, seed, max_turns=450):
             def price(k):
                 return PRICE[ROWS[k]['era']] * prm.scale * prm.accel_price.get(k, 1.0) * prm.premium ** max(0.0, ERA_I[k] - d - prm.accelerate.get(k, 0.0))
             def prem(k): return prm.premium ** max(0.0, ERA_I[k] - d)
+            def by_era(k, x):   # accounting only: x Insight of study on k, and what the premium took of it, by k's era
+                e = ROWS[k]['era']; acct['att_era'][e] = acct['att_era'].get(e, 0.0) + x; acct['prem_era'][e] = acct['prem_era'].get(e, 0.0) + x * (1 - 1 / prem(k))
             if m == 'R':
                 w = {k: TARGET[ROWS[k]['tier']] for k in cands}; tot = sum(w.values())
                 left = 0.0
@@ -378,8 +391,8 @@ def run(prm, seed, max_turns=450):
                     spent = 0.0; done = []
                     for k in cands:
                         att = left * ws[k] / tot; pk = price(k); room = (need[k] - progress.get(k, 0)) * pk; att_turn[k] = att_turn.get(k, 0.0) + att
-                        if att >= room: progress[k] = need[k]; done.append(k); spent += room; acct['attention'] += room; acct['premium_dilution'] += room * (1 - 1 / prem(k))
-                        else: progress[k] = progress.get(k, 0) + att / pk; spent += att; acct['attention'] += att; acct['premium_dilution'] += att * (1 - 1 / prem(k))
+                        if att >= room: progress[k] = need[k]; done.append(k); spent += room; acct['attention'] += room; acct['premium_dilution'] += room * (1 - 1 / prem(k)); by_era(k, room)
+                        else: progress[k] = progress.get(k, 0) + att / pk; spent += att; acct['attention'] += att; acct['premium_dilution'] += att * (1 - 1 / prem(k)); by_era(k, att)
                     found.extend(done); left -= spent
                     if not done: left = 0.0; break
             return left

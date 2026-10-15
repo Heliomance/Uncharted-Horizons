@@ -167,6 +167,7 @@ METHODS = [x for x in os.environ.get('METHODS', '').split(',') if x]
 _L = os.environ.get('LEVERS', '')
 PARALLEL = os.environ.get('PARALLEL') == '1'
 HF.ECON = float(os.environ.get('ECON', '1'))
+HF.SPACE_FROM = float(os.environ['SPACEFROM']) if os.environ.get('SPACEFROM') else None   # where development enters the Space era (harness_ftl_e.SPACE_FROM)
 HF.INSIGHT_CUT = float(os.environ.get('INSIGHTCUT', '0')); HF.INSIGHT_CUT_FROM = os.environ.get('INSIGHTCUTFROM', 'Atomic')   # Insight lost late on (harness_ftl_e.INSIGHT_CUT)
 HF.INSIGHT_CUT_DEV = os.environ.get('INSIGHTCUTDEV') == '1'   # ...and not counted towards development
 HF.INCOME_FULL = os.environ.get('INCOMEFULL') == '1'   # income follows all Insight produced, not development (harness_ftl_e.INCOME_FULL)

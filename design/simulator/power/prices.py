@@ -24,6 +24,8 @@ def apply(HF, rows):
         for k in ('CP21', 'MS08', 'AE20'): HF.COSTMULT[k] = 1.0
     if not hasattr(HF, 'SPACE_BASE'): HF.SPACE_BASE = HF.PRICE['Space']
     HF.PRICE['Space'] = HF.SPACE_BASE * float(os.environ.get('SPACEPRICE') or 1.0)   # every Space-era row's cost derives from it
+    if not hasattr(HF, 'ATOMIC_BASE'): HF.ATOMIC_BASE = HF.PRICE['Atomic']
+    HF.PRICE['Atomic'] = HF.ATOMIC_BASE * float(os.environ.get('ATOMICPRICE') or 1.0)   # the Atomic era's, likewise (a redraw's experiments)
     if 'w' in L: HF.COSTMULT['MS17'] = float(os.environ.get('WROWX', '2.5'))      # Wormhole's engineering row outside its tests
     if 'x' in L: HF.COSTMULT['ES18'] = 1.0
     if 'p' in L: HF.COSTMULT['AE14'] = 1.0
