@@ -25,7 +25,7 @@ button:focus-visible{outline:2px solid #3A98DB !important;outline-offset:1px}
 a{color:#4893AF}a:hover{color:#FFFFFF}
 </style>
 </helmet>
-<div style="{{rootStyle}}">
+<div style="width:{{W}}px;height:{{H}}px;display:flex;position:relative;overflow:hidden;background:#000033;color:#FFFFFF;font-family:'DejaVu Sans UH','DejaVu Sans',sans-serif;font-size:14px;line-height:1.25">
 
 <!-- LEFT COLUMN: what is funded, and every focus the civilisation has entered -->
 <div style="{{L.leftStyle}}">
@@ -42,16 +42,16 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
       </span>
     </sc-if>
     <sc-if value="{{fund.isEndeavour}}" hint-placeholder-val="{{ false }}">
-      <span style="display:flex;flex-direction:column;justify-content:center;gap:4px;height:40px;box-sizing:border-box;border-radius:14px;background:#334D80;border:2px solid #FFFFFF;color:#FFFFFF;padding:0 8px 0 4px">
+      <span style="display:flex;flex-direction:column;justify-content:center;gap:4px;height:44px;box-sizing:border-box;border-radius:14px;background:#334D80;border:2px solid #FFFFFF;color:#FFFFFF;padding:0 8px 0 4px">
         <span style="display:flex;align-items:center;gap:5px;height:16px">
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="3" fill="#FFFFFF"></rect><path d="M3 12.5h10L8 3.5z" fill="#000033"></path></svg>
           <span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{fund.name}}</span>
           <span style="white-space:nowrap">{{fund.right}}</span>
         </span>
-        <span style="display:flex;align-items:center;gap:6px;height:12px;padding-left:2px">
-          <span style="font-size:12px;line-height:12px;white-space:nowrap">Endeavour</span>
+        <span style="display:flex;align-items:center;gap:6px;height:16px;padding-left:2px">
+          <span style="font-size:14px;line-height:16px;white-space:nowrap">Endeavour</span>
           <span style="flex:1;height:4px;background:rgba(255,255,255,0.25);border-radius:2px;position:relative"><span style="{{fund.barFill}}"></span></span>
-          <span style="font-size:12px;line-height:12px;white-space:nowrap">{{fund.done}}</span>
+          <span style="font-size:14px;line-height:16px;white-space:nowrap">{{fund.done}}</span>
         </span>
       </span>
     </sc-if>
@@ -74,7 +74,7 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
           <span style="margin-left:4px;height:15px;line-height:15px;border-radius:7.5px;padding:0 5px;background:#FFFFFF;color:#000033;flex:none">New</span>
         </sc-if>
         <sc-if value="{{f.showQueue}}" hint-placeholder-val="{{ false }}">
-          <span title="{{f.queueTitle}}" style="{{f.queueStyle}}">{{f.queueText}}</span>
+          <span title="{{f.queueTitle}}" style="margin-left:4px;height:17px;line-height:15px;box-sizing:border-box;border-radius:8.5px;padding:0 5px;border:1px solid #FFFFFF;color:#FFFFFF;flex:none;font-size:14px">{{f.queueText}}</span>
         </sc-if>
         <sc-if value="{{f.showBadge}}" hint-placeholder-val="{{ false }}">
           <span title="{{f.badgeTitle}}" style="{{f.badgeStyle}}">{{f.badge}}</span>
@@ -107,14 +107,14 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
       </button>
     </sc-for>
     <span style="flex:1"></span>
-    <sc-if value="{{L.ftlTop}}" hint-placeholder-val="{{ false }}"><button class="uh-btn" aria-label="Open the Faster than light screen" style="{{L.ftlTopStyle}}">Faster than light</button></sc-if>
+    <sc-if value="{{L.ftlTop}}" hint-placeholder-val="{{ false }}"><button class="uh-btn" aria-label="Open the Faster than light screen" onClick="{{notInMockup}}" style="height:44px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:14px;padding:0 14px;white-space:nowrap;margin-right:6px">Faster than light</button></sc-if>
     <button aria-label="{{era.aria}}" onClick="{{era.onClick}}" style="{{era.style}}">{{era.text}}</button>
   </div>
 
   <div class="uh-scroll" style="{{boardStyle}}">
     <!-- the focus view's header -->
     <sc-if value="{{fv.show}}" hint-placeholder-val="{{ false }}">
-      <div style="display:flex;align-items:center;gap:10px;height:30px;margin-bottom:6px">
+      <div style="{{L.fvHeadStyle}}">
         <button aria-pressed="{{fv.pressed}}" aria-label="{{fv.radioAria}}" onClick="{{fv.onFund}}" style="{{L.fvRadioStyle}}">
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#FFFFFF" stroke-width="1.5"></circle><circle cx="8" cy="8" r="3.5" fill="{{fv.dot}}"></circle></svg>
         </button>
@@ -177,7 +177,7 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
                   <sc-if value="{{c.era.show}}" hint-placeholder-val="{{ true }}"><span style="{{c.era.style}}">{{c.era.text}}</span></sc-if>
                   <sc-for list="{{c.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
                 </span>
-                <span style="{{c.line2Style}}">{{c.line2}}</span>
+                <span style="display:block;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0.92">{{c.line2}}</span>
               </button>
             </sc-for>
           </div>
@@ -226,7 +226,7 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
                     <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{c.name}}</span>
                     <sc-for list="{{c.tags}}" as="t" hint-placeholder-count="0"><span style="{{t.style}}">{{t.text}}</span></sc-for>
                   </span>
-                  <span style="{{c.line2Style}}">{{c.line2}}</span>
+                  <span style="display:block;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0.92">{{c.line2}}</span>
                 </button>
               </sc-for>
             </div>
@@ -241,8 +241,8 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
     <div style="height:3px;flex:none;box-sizing:border-box;background:#334D80;border-top:1px solid #19263F;border-bottom:1px solid #19263F"></div>
     <div data-uh="bar" style="{{L.barStyle}}">
       <div style="{{L.leftBtnsStyle}}">
-        <button class="uh-btn" style="{{L.closeStyle}}">Close</button>
-        <sc-if value="{{L.ftlBottom}}" hint-placeholder-val="{{ true }}"><button class="uh-btn" aria-label="Open the Faster than light screen" style="width:180px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center">Faster than light</button></sc-if>
+        <button class="uh-btn" onClick="{{notInMockup}}" style="{{L.closeStyle}}">Close</button>
+        <sc-if value="{{L.ftlBottom}}" hint-placeholder-val="{{ true }}"><button class="uh-btn" aria-label="Open the Faster than light screen" onClick="{{notInMockup}}" style="width:180px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center">Faster than light</button></sc-if>
       </div>
       <div class="uh-scroll" style="{{L.descStyle}}">
         <div style="display:flex;align-items:center;height:24px;white-space:nowrap">
@@ -271,14 +271,14 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
       <div style="{{L.actsStyle}}">
         <sc-if value="{{bar.primary.show}}" hint-placeholder-val="{{ true }}">
           <button class="uh-btn" disabled="{{bar.primary.disabled}}" onClick="{{bar.primary.onClick}}" style="{{bar.primary.style}}">
-            <span style="display:block;font-size:18px;line-height:20px">{{bar.primary.l1}}</span>
-            <sc-if value="{{bar.primary.l2}}" hint-placeholder-val="{{ false }}"><span style="display:block;font-size:14px;line-height:16px">{{bar.primary.l2}}</span></sc-if>
+            <span style="display:block;max-width:100%;font-size:18px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{bar.primary.l1}}</span>
+            <sc-if value="{{bar.primary.l2}}" hint-placeholder-val="{{ false }}"><span style="display:block;max-width:100%;font-size:14px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{bar.primary.l2}}</span></sc-if>
           </button>
         </sc-if>
         <sc-if value="{{bar.secondary.show}}" hint-placeholder-val="{{ true }}">
           <button class="uh-btn" disabled="{{bar.secondary.disabled}}" onClick="{{bar.secondary.onClick}}" style="{{bar.secondary.style}}">
-            <span style="display:block;font-size:18px;line-height:20px">{{bar.secondary.l1}}</span>
-            <sc-if value="{{bar.secondary.l2}}" hint-placeholder-val="{{ false }}"><span style="display:block;font-size:14px;line-height:16px">{{bar.secondary.l2}}</span></sc-if>
+            <span style="display:block;max-width:100%;font-size:18px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{bar.secondary.l1}}</span>
+            <sc-if value="{{bar.secondary.l2}}" hint-placeholder-val="{{ false }}"><span style="display:block;max-width:100%;font-size:14px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{bar.secondary.l2}}</span></sc-if>
           </button>
         </sc-if>
       </div>
@@ -286,15 +286,24 @@ a{color:#4893AF}a:hover{color:#FFFFFF}
   </sc-if>
 </div>
 
+<!-- a notice for controls that lead off this screen -->
+<sc-if value="{{notice}}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(128,128,128,0.5);display:flex;align-items:center;justify-content:center">
+    <div role="dialog" aria-modal="true" aria-label="Not in this mockup" style="width:520px;max-width:calc(100% - 32px);box-sizing:border-box;background:rgba(0,32,66,0.95);border-radius:15px;padding:24px;display:flex;flex-direction:column;gap:16px;align-items:center">
+      <div style="font-size:18px;line-height:24px;text-align:center">{{notice}}</div>
+      <button class="uh-btn" onClick="{{closeNotice}}" style="min-width:160px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center;box-shadow:0 0 0 2px #FFFFFF">OK</button>
+    </div>
+  </div>
+</sc-if>
 <!-- confirmation popups -->
 <sc-if value="{{popup.show}}" hint-placeholder-val="{{ false }}">
-  <div style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(128,128,128,0.5);display:flex;align-items:center;justify-content:center">
+  <div onKeyDown="{{popup.onKey}}" style="position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(128,128,128,0.5);display:flex;align-items:center;justify-content:center">
     <div role="dialog" aria-modal="true" aria-label="{{popup.title}}" style="width:620px;max-width:calc(100% - 32px);max-height:calc(100% - 32px);overflow:auto;box-sizing:border-box;background:rgba(0,32,66,0.95);border-radius:15px;padding:24px;display:flex;flex-direction:column;gap:12px">
       <div style="font-size:20px">{{popup.title}}</div>
       <div style="font-size:18px;line-height:24px;color:#FFFFFF">{{popup.body}}</div>
       <div style="display:flex;justify-content:center;gap:12px;margin-top:6px">
         <button class="uh-btn" onClick="{{popup.ok.onClick}}" style="min-width:250px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center;padding:0 13px 0 12px">{{popup.ok.label}}</button>
-        <button class="uh-btn" onClick="{{popup.cancel.onClick}}" style="min-width:250px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center;padding:0 13px 0 12px;box-shadow:0 0 0 2px #FFFFFF">{{popup.cancel.label}}</button>
+        <button class="uh-btn" ref="{{popup.cancelRef}}" onClick="{{popup.cancel.onClick}}" style="min-width:250px;height:50px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:18px;text-align:center;padding:0 13px 0 12px;box-shadow:0 0 0 2px #FFFFFF">{{popup.cancel.label}}</button>
       </div>
     </div>
   </div>

@@ -35,7 +35,7 @@ NOT_ENTERED = {'Computing'}
 DROP = {'CP13'}
 ROW_MULT = {'TH15': 2.5, 'NP12': 2.5}   # true row multipliers (W18) that an Endeavour price includes
 DEAD_END = {'TH09'}
-FTL = {'RC01', 'RC02', 'MA13', 'QP02', 'QP12'}   # proposals, and QP12, a build requirement met
+FTL = {'RC01', 'RC02', 'QP02', 'QP12'}   # illustrative: proposals after RC01, and QP12, a build requirement met (hint moves not tracked)
 # dual-path reach (R85), from §3's 'Also reachable in this focus' lists
 REACH = {'Farming': ['CH12', 'ES13', 'ES03-W'], 'Animal Husbandry': ['MD04', 'FA03'], 'Mining': ['CH08'],
          'Seafaring': ['F06'], 'Warfare': ['F06'], 'Mechanics': ['O15', 'TH08'],

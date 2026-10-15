@@ -511,9 +511,8 @@
     Discovered on turn 164. +1 Gold, +1 Production from each Trade Route
     -10% maintenance cost for buildings
     Needs ✓ Non-Euclidean Geometry + ✓ Basic Algebra + ✓ Formal Logic
-    This bore on the question of how to exceed the speed of light.
     Administration by set and rule: Cantor and Poincaré, the new mathematics.
-    ACTIONS: [disabled] Discovered | Open the FTL screen
+    ACTIONS: [disabled] Discovered
 --- MC01 [owned] Wheel Mechanics · Primitive era
     Discovered on turn 16. +1 Movement for Civilian units
     Needs ✓ Tool Knapping
@@ -750,7 +749,6 @@
     ACTIONS: [disabled] Discovered
 --- O07 [owned] Comparative Anatomy Observation · Classical era
     Discovered on turn 120. No buildings, units or bonuses of its own.
-    Opens the Medicine focus.
     Needs ✓ Animal Behavior Study + ✓ Herbal Medicine
     ACTIONS: [disabled] Discovered
 --- O08 [owned] Geological Observation Observation · Ancient era
@@ -999,7 +997,7 @@
 --- SO04 [owned] Writing Social Organization · Ancient era
     Discovered on turn 31. Library (building); The Great Library (world wonder)
     Enables establishment of embassies
-    Opens the Trade focus.
+    Opens the Trade and Medicine foci.
     Needs ✓ Basic Counting + ✓ Storytelling
     ACTIONS: [disabled] Discovered
 --- SO05 [owned] Specialization of Labor Social Organization · Ancient era
@@ -1310,8 +1308,7 @@
 --- Energy Systems [focus] Energy Systems not funded · queued 2nd
     Under study here: Coal Power Plant, Biomass Power Plant, Tidal Power, Biomass/Biogas.
     Tends to help with power and production. Modifiers: +5% Natural Philosophy (all foci).
-    Next in the queue: funding moves here when Quantum Physics has no revealed work under study.
-    Switching loses nothing: every breakthrough keeps its progress.
+    Next: funded when Quantum Physics has no revealed work under study.
     ACTIONS: Fund Energy Systems | Remove from queue
 --- Farming [focus] Farming not funded
     Under study here: Biomass Power Plant, Biomass/Biogas.
@@ -1352,7 +1349,6 @@
     Under study here: Antibiotics, Anaesthesia.
     Tends to help with health and growth. Modifiers: +20% diverse lands, +10% Botanical Classification, +5% Natural Philosophy (all foci).
     Queued 3rd: after Energy Systems.
-    Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Medicine | Remove from queue
 --- Metallurgy [focus] Metallurgy not funded
     Nothing revealed is under study here.
@@ -1441,14 +1437,13 @@
     ACTIONS: Fund Water Management | Add to queue
 --- funding [funding] Insight 853 a turn, equal to your science
     80% (683) goes to the funded focus, since Specialization of Labor; before it, 50%.
-    The other 20% (171) spreads to foci with work under study.
+    The other 20% (170) spreads to foci with work under study.
     Queue: 2 Energy Systems, 3 Medicine. It moves on when the funded focus has no revealed work under study.
     Diffusion: after the press. Theories reveal their applications (Scientific Method).
     ACTIONS: [disabled] Funded: Quantum Physics
 --- era [era] Modern era entered by count
     You enter an era when you hold enough breakthroughs from it or later.
     The Atomic era needs 6 from the Atomic era or later: you hold 5.
-    Synthesis can be used once in each era: unused in the Modern era.
     Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
     ACTIONS: 
 ===== t231 (t231-endeavour)
@@ -1911,7 +1906,7 @@
 --- GN02 [closed] DNA Structure Genetics · Atomic era
     Learned of from another civilisation. Its moment passed — only an Endeavour is certain.
     Needs ✓ Germ Theory + ✓ Selective Breeding + ✓ Organic Chemistry + ✓ Telescope
-    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    As an Endeavour: 5,340 Insight, double the usual cost; about 8 turns at 683 a turn.
     Synthesis (once an era) gives its moment another chance; it is not certain.
     “Heredity must be written in a molecule; if we saw its shape, we could read it.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 5,340 Insight · about 8 turns
@@ -1954,7 +1949,7 @@
 --- MA11 [closed] Fractal Mathematics Mathematics · Atomic era
     Glimpsed by our scholars. Its moment passed — only an Endeavour is certain.
     Needs ✓ Calculus + ✓ Non-Euclidean Geometry
-    As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.
+    As an Endeavour: 5,340 Insight, double the usual cost; about 8 turns at 683 a turn.
     Synthesis (once an era) gives its moment another chance; it is not certain.
     “Coastlines and mountains might follow a mathematics of their own.”
     ACTIONS: Synthesis once this era · unused | Replace the Endeavour 5,340 Insight · about 8 turns
@@ -1962,9 +1957,8 @@
     Discovered on turn 164. +1 Gold, +1 Production from each Trade Route
     -10% maintenance cost for buildings
     Needs ✓ Non-Euclidean Geometry + ✓ Basic Algebra + ✓ Formal Logic
-    This bore on the question of how to exceed the speed of light.
     Administration by set and rule: Cantor and Poincaré, the new mathematics.
-    ACTIONS: [disabled] Discovered | Open the FTL screen
+    ACTIONS: [disabled] Discovered
 --- MC01 [owned] Wheel Mechanics · Primitive era
     Discovered on turn 16. +1 Movement for Civilian units
     Needs ✓ Tool Knapping
@@ -2201,7 +2195,6 @@
     ACTIONS: [disabled] Discovered
 --- O07 [owned] Comparative Anatomy Observation · Classical era
     Discovered on turn 120. No buildings, units or bonuses of its own.
-    Opens the Medicine focus.
     Needs ✓ Animal Behavior Study + ✓ Herbal Medicine
     ACTIONS: [disabled] Discovered
 --- O08 [owned] Geological Observation Observation · Ancient era
@@ -2449,7 +2442,7 @@
 --- SO04 [owned] Writing Social Organization · Ancient era
     Discovered on turn 31. Library (building); The Great Library (world wonder)
     Enables establishment of embassies
-    Opens the Trade focus.
+    Opens the Trade and Medicine foci.
     Needs ✓ Basic Counting + ✓ Storytelling
     ACTIONS: [disabled] Discovered
 --- SO05 [owned] Specialization of Labor Social Organization · Ancient era
@@ -2759,7 +2752,8 @@
     Tends to help with buildings and defences. Modifiers: +20% river start, +25% earthquake-prone land, +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Construction sets the Endeavour aside | Add to queue
---- Electricity [focus] Electricity not funded
+--- Electricity [focus] Electricity holds the Grand Endeavour · 80% of your Insight
+    Grand Endeavour here: Superconductivity, 64% done.
     Nothing revealed is under study here.
     Tends to help with power and communication. Modifiers: +5% Natural Philosophy (all foci).
     Switching loses nothing: every breakthrough keeps its progress.
@@ -2773,7 +2767,6 @@
     Under study here: Coal Power Plant, Biomass Power Plant, Tidal Power, Biomass/Biogas.
     Tends to help with power and production. Modifiers: +5% Natural Philosophy (all foci).
     Queued 3rd: after the Endeavour ends, funding moves along the queue.
-    Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Energy Systems sets the Endeavour aside | Remove from queue
 --- Farming [focus] Farming not funded
     Under study here: Biomass Power Plant, Biomass/Biogas.
@@ -2814,7 +2807,6 @@
     Under study here: Antibiotics, Anaesthesia.
     Tends to help with health and growth. Modifiers: +20% diverse lands, +10% Botanical Classification, +5% Natural Philosophy (all foci).
     Queued 4th: after the Endeavour ends, funding moves along the queue.
-    Switching loses nothing: every breakthrough keeps its progress.
     ACTIONS: Fund Medicine sets the Endeavour aside | Remove from queue
 --- Metallurgy [focus] Metallurgy not funded
     Nothing revealed is under study here.
@@ -2849,8 +2841,7 @@
 --- Quantum Physics [focus] Quantum Physics not funded · queued 2nd
     Nothing revealed is under study here.
     Tends to help with science and instruments. Modifiers: +5% Natural Philosophy (all foci).
-    Queued 2nd: after the Endeavour ends, funding moves along the queue.
-    Switching loses nothing: every breakthrough keeps its progress.
+    Queued 2nd, but nothing revealed is under study here: the queue passes over it.
     ACTIONS: Fund Quantum Physics sets the Endeavour aside | Remove from queue
 --- Relativity & Cosmology [focus] Relativity & Cosmology not funded
     Under study here: Black Hole Thermodynamics.
@@ -2904,7 +2895,7 @@
     ACTIONS: Fund Water Management sets the Endeavour aside | Add to queue
 --- funding [funding] Insight 853 a turn, equal to your science
     The Endeavour takes 80% (683), since Specialization of Labor; before it, 50%.
-    The other 20% (171) spreads to foci with work under study.
+    The other 20% (170) spreads to foci with work under study.
     Queue: 2 Quantum Physics, 3 Energy Systems, 4 Medicine. After the Endeavour, it funds the first with revealed work under study.
     Diffusion: after the press. Theories reveal their applications (Scientific Method).
     ACTIONS: [disabled] Funded: Grand Endeavour
@@ -2912,6 +2903,5 @@
     You enter an era when you hold enough breakthroughs from it or later.
     You entered the Atomic era with your 6th breakthrough from it or later.
     The Space era needs 4 from the Space era: you hold 2.
-    Synthesis can be used once in each era: unused in the Atomic era.
     Abilities: Experiment (Scientific Method) · Synthesis (Dialectical Thinking), unused this era.
     ACTIONS: 

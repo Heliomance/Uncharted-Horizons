@@ -1,0 +1,266 @@
+{
+ "rechecks": [
+  {
+   "lens": "correctness",
+   "resolved": [
+    "Requirements B0 / Hidden M3 (Computing listed as an entered focus): RESOLVED. build_data.py drops Computing and CP13, leaving 32 foci, with Being studied at 25 (turn 226) and 23 (turn 231). I checked every remaining focus against the 'Available from' rules in tech_tree.md §3, and each one is legitimately open.",
+    "Requirements B1 (key examples contradicted the board): RESOLVED. Laser, Phage Therapy, Rigid Airship, Camel Domestication, Corbel Arch/Vault and Superconductivity (Endeavour 64%) all match the board. 'Set aside · 64%' is now a state the board can reach: Stop draws that tag on the chip. The Dead-end, Closed and Claimed rows no longer use board rows.",
+    "Hidden B0 (Loop Quantum Gravity shown as a known dead end in the key): RESOLVED. The example is now an unnamed 'A rival theory', and no QP09 or QP10 appears anywhere in the key.",
+    "Hidden M1 (Oral Epic Tradition named in the key): RESOLVED. A 'A glimpsed idea' placeholder replaces it. One residual remains, the 'such as Writing coming first' wording; see the minors.",
+    "Hidden M2 (Rice Paddy Mastery shown as Claimed): RESOLVED. The key no longer contradicts the board, which tags Rice Paddy Mastery '★ Unique'. The replacement name is a residual minor.",
+    "Requirements M2 (Moment-passed description cut off): RESOLVED. 'It takes no Insight now.' is gone, and the MD20 and AE13 first lines are shortened. I measured scrollHeight against clientHeight for every selection on both turns, on desktop and on phone: 0 overflow.",
+    "Requirements M3 (ringed badge looked like the queue disc): RESOLVED. The queue position is now a '2nd'/'3rd' outline pill placed before a plain 14-px count badge. The funded row's badge has no ring, and the key matches the board.",
+    "Requirements M4 / Hidden M4 (queue wording): RESOLVED in both depicted states. Turn 226: Energy Systems reads 'Next in the queue: funding moves here when Quantum Physics has no revealed work under study' and Medicine reads 'Queued 3rd: after Energy Systems'. Turn 231: each queued focus reads 'after the Endeavour ends, funding moves along the queue', and the funding header reads 'After the Endeavour, it funds the first with revealed work under study'. The Stop popup and stopEndeavour(null) now name and fund Energy Systems through nextFunded(). The key says 'no revealed work under study'. A residual in the state after Stop is reported below.",
+    "Requirements M5 (TH15 price left out its ×2.5): RESOLVED. The bar and button show 54,568 Insight, about 80 turns, through ROW_MULT.",
+    "Hidden M5 (FA16 'its buildings are no longer available'): RESOLVED. The line is now per row: FA16 reads '…its +1 Food from Farms passed to the Haber process', WM11 reads 'its Pound Lock can no longer be built', and the key reads 'A later solution took over what it gave.'",
+    "Also fixed from the first round (verified): the Stop and 'Fund …' exits no longer crash (no page errors in the stop, switch, resume, replace and begin flows); a Set-aside tag and a Resume action now exist; QP12 and, at turn 231, QP06 and QP08 carry the FTL tag; '+20% diverse lands' is added; the 'moment passed' header wording is used everywhere; the TH08 and CH09-W 'Persists' lines are added; the band count reads 'N owned · 2 not taken'; the pill reads 'Endeavour 64%'."
+   ],
+   "findings": [
+    {
+     "severity": "minor",
+     "where": "Turn-231 flows from the Endeavour artboards. src/main.js:93-96 (fund), 118-121 (stopEndeavour), 314-320 (queueLine), 425-429 (switch popup). Reproduced with preview.build: (a) comp.fund('Quantum Physics') then 'Fund Quantum Physics'; (b) Stop, then select the Quantum Physics focus.",
+     "problem": "The screen breaks its own queue rule in the states one click away. (a) The switch popup says 'Quantum Physics has nothing revealed under study, so its share would move along the queue'. stopEndeavour('Quantum Physics') then funds it anyway: the pill reads 'Quantum Physics 80% · 683', the bar reads 'funded · 80% of your Insight' and 'Nothing revealed is under study here', and Energy Systems reads 'Next in the queue: funding moves here when Quantum Physics has no revealed work under study', a condition that already holds. (b) After the default Stop, Energy Systems is funded, and Quantum Physics, queued 2nd with nothing under study, reads 'Next in the queue: funding moves here when Energy Systems has no revealed work under study'. Under the first-with-revealed-work rule funding would skip it and go to Medicine, which reads 'Queued 3rd: after Quantum Physics'.",
+     "fix": "In stopEndeavour(f), when f has no badge, fund nextFunded() and put f at the head of the queue, so the result matches the popup. In queueLine, when the focus has no badge, write 'Queued Nth: nothing revealed is under study here, so funding passes over it.' Name the effective predecessor for later foci, i.e. the nearest earlier queued focus that has a badge."
+    },
+    {
+     "severity": "minor",
+     "where": "Superconductivity after Stop or 'Fund …' at turn 231. src/main.js:367-376 (closed branch of describe), 303-308 (enBtn), 136 (Set aside tag).",
+     "problem": "After Stop, the bar ignores the set-aside Endeavour. It reads 'Its moment passed — only an Endeavour is certain' and 'As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.', and still offers Synthesis. Beside that, the button reads 'Resume the Endeavour · 2,029 Insight left'. The chip says 'Set aside · 64%', but 2,029 left of 5,340 means 62% done, and Resume then shows '62% done — 3,311'. The progress figures on one screen disagree, and the description never says progress exists.",
+     "fix": "Add a set-aside branch to describe(): 'Endeavour set aside at 64% on turn 231: its progress decays slowly. Resuming needs 2,029 Insight, about 3 turns.' Drop the full-price line, and the Synthesis offer if that is intended. Compute the chip's percentage and 'left' from the same decayed pct, or apply no decay until a turn passes."
+    },
+    {
+     "severity": "minor",
+     "where": "Turn-231 bar text for the Atomic-era Moment-passed rows GN02 DNA Structure and MA11 Fractal Mathematics (bar_texts.txt l.1914, l.1957). assemble.py:41 (t231 devEra='Modern'); src/main.js:370-372.",
+     "problem": "At turn 231 the era pill reads 'Atomic era', and these chips' 'Atom.' tags are in the current-era teal. Their price line still reads '5,340 Insight; dearer while it is ahead of its time'. The premium is computed against a hidden 'development' era (Modern) that the screen never shows, so the sentence contradicts the visible era.",
+     "fix": "Either reword in terms the screen shows, e.g. 'dearer while your research lags its era', or set the turn-231 devEra to Atomic and reprice Atomic rows at the plain 2× wording ('double the usual cost; about N turns'). Keep 'ahead of its time' only for rows of a later era than the pill."
+    },
+    {
+     "severity": "minor",
+     "where": "FTL tag set, build_data.py:38. MA13 Topology bar (bar_texts.txt l.514, l.1965); A2 Modern band.",
+     "problem": "§4 l.1140 computes the line from the FTL screen before and after the discovery, and the requirements say 'Before RC01, nothing may hint that FTL is a question at all'. MA13 was discovered on turn 164, before RC01 Special Relativity on turn 169, so its discovery changed nothing on the screen, yet it carries 'This bore on the question…'. The rule also counts 'a hint moving', and the set ignores that. For example, NP02 Atomic Model (turn 191) moved the QP08 hint from Nuclear Physics to Quantum Physics, and TH03 and EL07 moved the QP04 branch, yet none of them is tagged. The set is 'proposers plus build needs met', not the rule.",
+     "fix": "Drop FTL from MA13. Hyperspace's proposal is credited to RC01's discovery. Either add the hint-moving rows (at least NP02, TH03, EL07, and ME12/OP08 if their hint foci changed) or note in build_data.py that the set is illustrative and covers proposals and build needs only."
+    },
+    {
+     "severity": "minor",
+     "where": "Status key, Tags column 'Dead end' (Status_key.dc.html:116) against the 'Dead end (known)' status row (l.106).",
+     "problem": "The tag definition reads 'Owned, but an experiment reported against it; what stands is listed'. The status row just above shows the same 'Dead end' tag on a not-owned, Awaiting-bodied theory whose 'consolation remains'. The key contradicts itself on what the tag means.",
+     "fix": "Define the tag for both cases, e.g. 'An experiment reported against this theory: if owned, what stands is listed; if not, only its consolation remains.'"
+    },
+    {
+     "severity": "minor",
+     "where": "Status key, Tags column 'Rival' (Status_key.dc.html:115).",
+     "problem": "'One of two revealed rival solutions: whichever comes first decides' implies a symmetric lock-out. Under §1.2 l.89 only the alternative can ever be locked out. If Biomass Power Plant or Phage Therapy comes first, Coal Power Plant or Antibiotics still arrives, and the alternative persists. The bar texts are correct and asymmetric, but the key tells the player that funding Energy Systems could lose Coal Power Plant.",
+     "fix": "'One of a revealed rival pair: if the usual solution comes first, the other is never developed.'"
+    },
+    {
+     "severity": "minor",
+     "where": "Status key 'Claimed' row (Status_key.dc.html:108) and 'Closed for good' sentence (l.107).",
+     "problem": "'Megalithic Observatory' is a real UNIQUE (S11). In this world it is Unknown, and its prerequisites CU02, O01 and a coastal start are all met, so the key names an unrevealed row this civilisation could have found. 'Such as Writing coming first' paraphrases SO14's own negative prerequisite. In this game Writing came on turn 31, so the line says a Unique was closed to the player. Both rows are labelled 'Other games', but the other two 'Other games' rows use placeholders.",
+     "fix": "Use placeholders as the other rows do: 'A rival's Unique' for Claimed. Drop 'such as Writing coming first', or use an invented example."
+    },
+    {
+     "severity": "minor",
+     "where": "Funding pill and funding description, both turns (a1/a3: '853 Insight a turn', '80% · 683', '20% · 171'). src/main.js:85-86.",
+     "problem": "Insight is 853.3: share = round(682.64) = 683 and spread = round(170.66) = 171, which sum to 854 against the 853 shown.",
+     "fix": "Compute spread as fmt(insight) − share, which gives 170, or round the insight before splitting it."
+    },
+    {
+     "severity": "minor",
+     "where": "O07 Comparative Anatomy bar, both turns (bar_texts.txt l.752-753, l.2203-2204); texts.json O07 'opens'.",
+     "problem": "The bar reads 'No buildings, units or bonuses of its own. Opens the Medicine focus.' Medicine is also available from G03 Herbal Medicine + SO04 Writing (tech_tree.md l.585). Those were owned on turns 14 and 31, and the screen shows both, so Medicine opened 89 turns before Comparative Anatomy (turn 120). The claim is false for the depicted game.",
+     "fix": "Compute 'Opens the X focus' from the snapshot: the row whose discovery completed the focus's first-met condition. Move the Medicine line to SO04 Writing ('Opens the Trade and Medicine foci') and drop it from O07."
+    },
+    {
+     "severity": "minor",
+     "where": "Focus 'Modifiers:' lines (assemble.py:32 MODS) against MA05 Calculus bar ('+15% Insight to the physical foci').",
+     "problem": "This was first-round hidden minor 7, only half fixed. 'Diverse lands' was added, but no focus lists Calculus. Quantum Physics, Nuclear Physics, Electricity and Thermodynamics show only Natural Philosophy, which contradicts the owned Calculus text.",
+     "fix": "Add '+15% Calculus' to the foci the design counts as physical, and define that set in tech_tree.md if it is undefined."
+    },
+    {
+     "severity": "minor",
+     "where": "CH08 'Explosives (non-gunpowder)': A2 Modern band chip, CH08 bar, and the CH13 needs line (bar_texts.txt l.79, l.105).",
+     "problem": "This was first-round requirements minor 11 and is unchanged. The parenthesis is a design label, and on a player-facing name it points to the existence of gunpowder-less worlds, a Removal Truth.",
+     "fix": "Show it as 'Chemical Explosives' or 'Dynamite', as first proposed, after Tamsin chooses."
+    },
+    {
+     "severity": "minor",
+     "where": "MC09 Internal Combustion Engine and FA03 Selective Breeding needs lines (bar_texts.txt l.405, l.550). src/main.js:286-301.",
+     "problem": "This was first-round requirements minor 10 and is unchanged. '(✓ Petroleum Discovery and Petrochemistry or ✓ Distillation and Organic Chemistry)' and '(✓ Botanical Classification or ✓ Irrigation and Crop Rotation)' put one tick on a two-row group, so the second member's state and the grouping are unreadable.",
+     "fix": "Split nested groups into refs with a tick each: '((✓ Petroleum Discovery + ✓ Petrochemistry) or (✓ Distillation + ✓ Organic Chemistry))'."
+    }
+   ],
+   "verdict": "Ready to show Tamsin. Every first-review blocker and major in the requirements and hidden-information lenses is fixed, and I checked each fix against the renders, the source and every line of bar_texts.txt. No unrevealed row is named on the board or in any bar text; the one EN02 'opens Computing' entry is never printed. No odds, windows or tiers appear on revealed rows. FTL appears only as the tag, its line and the button. QP09 and QP10 are shown identically, with no rival or exclusivity hint. Prices include the TH15 multiplier. The description pane never overflows, on any of the roughly 290 selections per turn, on desktop or phone. What remains are 12 minors. Two are new problems in states reached by clicking Stop or 'Fund Quantum Physics' on the Endeavour artboards: the queue rule and the set-aside bar contradict the shown state. The others are wording and consistency errors: 'ahead of its time' on current-era rows at turn 231, the FTL tag on MA13, the key's 'Dead end' and 'Rival' definitions, the key naming the real Unique Megalithic Observatory, 683 + 171 ≠ 853, and O07 claiming to open Medicine. Three first-round minors are still open: Calculus missing from the modifiers, 'Explosives (non-gunpowder)', and the nested needs grouping. None of these blocks a showing."
+  },
+  {
+   "lens": "interaction",
+   "resolved": [
+    "Visual blocker / usability blocker (Stop or switch-away blanks the artboard): resolved. Stop -> Stop, the A3b 'Fund Energy Systems', switching to Quantum Physics, Resume, Replace and Begin all ran on desktop and phone with no page error (the only console error is the canvas font blob, which can't load locally). The stopped row returns to Moment passed with a 'Set aside · 64%' tag.",
+    "Requirements blocker and hidden majors 3 (Computing entered): resolved. The list has 32 foci, with no Computing row and no CP13. Being studied is 25 at turn 226 and 23 at turn 231.",
+    "Requirements blocker, hidden blocker and hidden majors 1-2 (Status key examples): resolved. The key now shows 'A rival theory', 'A glimpsed idea' and 'Megalithic Observatory', and its Set-aside example matches what Stop produces at turn 231.",
+    "Requirements major 2, visual major 1, usability majors 7 and 8 (description bar overflow): resolved for every default selection. I measured scrollHeight against clientHeight for all 284 selections at turn 226 and 286 at turn 231: none overflow on desktop (barH 136), and no description overflows on phone (barH 174). One case remains, listed below.",
+    "Requirements major 3 and usability major 2 (badge ring vs queue disc): resolved. The funded badge is a plain navy pill, the queue position is a '2nd'/'3rd' outline tag, and the count badges stay in one column.",
+    "Visual major 2 (teal meaning 'queued'): resolved. The queued-row fill is gone.",
+    "Visual major 3 (pyramid vs flask): resolved. The Endeavour glyph is a white rounded square with a solid navy pyramid in all six places and in the pill.",
+    "Requirements major 4, hidden major 4, usability majors 4 and 5 (queue wording and Stop target): resolved. The Stop popup reads 'Funding goes to Energy Systems, the first queued focus with revealed work under study', stopEndeavour(null) funds Energy Systems, Medicine reads 'Queued 3rd: after Energy Systems', and the turn-231 lines speak of after the Endeavour.",
+    "Requirements major 5 (TH15 price): resolved. The bar and button read 54,568 Insight, about 80 turns.",
+    "Hidden major 5 (FA16 superseded text): resolved. The text is per row, and the key reads 'A later solution took over what it gave.'",
+    "Usability major 3 (funding header during an Endeavour): resolved. The pill carries an 'Endeavour' caption and a progress bar, and the funding description's action reads 'Funded: Grand Endeavour'. (A text-size regression is listed below.)",
+    "Usability major 6 (Experiment and Synthesis): resolved. The bar explains each one, each has a confirmation popup, and the state updates: 'Experiment made · this turn', and Synthesis shows 'used this era' on every Moment passed row.",
+    "Usability major 1 (no way to resume): partly resolved. Stop and switch-away now give a Set-aside tag and a working Resume. Replace still loses the progress (the major finding below).",
+    "Format major 0 (view Tweak inert): resolved in logic. componentDidUpdate resets state when view or phone changes; I checked this by calling it in the preview, not in the real canvas runtime.",
+    "Format major 1 (static style holes): NOT resolved, though it is outside this lens. Main.template.html still has 50 whole-value style holes, among them rootStyle, L.leftStyle, L.listStyle, L.topStyle and boardStyle."
+   ],
+   "findings": [
+    {
+     "severity": "major",
+     "where": "src/main.js:108-112 (beginEndeavour overwrites state.endeavour), 451-455 (Replace popup body), 74-81 (rowsNow), 303-313 (enBtn); artboards 2 and 3 (any Replace), and Begin while an Endeavour is set aside",
+     "problem": "Replace and Begin destroy the progress of the old Endeavour, although the screen promises it can be resumed. tech_tree.md l.195 says 'Progress decays slowly rather than vanishing; a resumed Endeavour picks up most of its prior work.' Verified at turn 231: select Radar, then Replace the Endeavour. The popup says 'The Endeavour on Superconductivity stops at 64%; its progress decays slowly, and you can resume it later.' After confirming, Superconductivity is a plain Moment passed chip with no Set-aside tag, and its button offers 'Replace the Endeavour · 5,340 Insight' at full price. Likewise: Stop (Set aside · 60%), select Radar, Begin. The 60% disappears, and the Begin popup gives no warning.",
+     "fix": "Keep set-aside Endeavours apart from the running one: state.asides = {id: {pct, paid, price}}. In beginEndeavour, first move any current Endeavour, running or aside, into asides with aside:true. In rowsNow, push 'Set aside' for every id in asides, and in chipOf read the pct from asides[r.id]. In enBtn, offer Resume when asides[r.id] exists (as a Replace-style resume while another Endeavour runs). resumeEndeavour(id) moves the running one into asides. Then click Replace, then Resume Superconductivity, and check that it comes back near 64%."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:113-117 (resumeEndeavour), 306 (enBtn 'left'), 136 (Set aside tag)",
+     "problem": "The decay is charged at every resume, even within one turn. After Stop, the chip reads 'Set aside · 64%' but the button reads 'Resume the Endeavour · 2,029 Insight left' (that is, 62%). Stop then Resume twice in the same turn takes the Endeavour from 64% to 60% with no turn passing.",
+     "fix": "Make the tag and the button use the same figure, and only charge decay for turns elapsed. In a mockup with no turn advance, resume at the set-aside pct: 1,922 Insight left. Alternatively, apply the 2% once when setting aside, so the tag reads 'Set aside · 62%'."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:367-376 (describe, closed branch) for a set-aside row; artboard 2 after Stop",
+     "problem": "The description of a set-aside row never mentions its Endeavour. Under the Resume button reading '2,029 Insight left', the bar still says 'As an Endeavour: 5,340 Insight; dearer while it is ahead of its time. Fixed once begun.', and the meta line has no Set-aside marker.",
+     "fix": "When the row is set aside, replace the price line with e.g. 'Set aside on turn 231 at 64%: 3,415 of 5,340 Insight paid; it decays slowly. Resuming needs 1,922 more.', and append ' · Endeavour set aside' to b.meta."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:425-430 (switch popup), 118-121 (stopEndeavour(p.focus)), 226-231 (funding pill)",
+     "problem": "Funding a focus that has nothing under study shows a state that contradicts the popup. At turn 231, clicking Quantum Physics' radio opens a popup saying 'Quantum Physics has nothing revealed under study, so its share would move along the queue.' After confirming, the pill reads 'Quantum Physics 80% · 683' and the list fills Quantum Physics as funded. The same happens without any popup at turn 226 when a badge-less focus such as Fire is funded.",
+     "fix": "Show where the share actually goes. Either have fund() and stopEndeavour(f) set funded to the focus while the pill shows 'Quantum Physics → Energy Systems 80% · 683', or keep the chosen focus at the head of the queue and fund nextFunded(). Pick one, and make the popup sentence match it."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:318 (the 'Next in the queue' line) and 399 (the grey 'Switching loses nothing' line); DESK.barH 136 (main.js:18)",
+     "problem": "Reordering the queue can still clip the description. When any of 11 foci is moved to next in the queue at turn 226 (Chemistry, Construction, Electronics, Farming, Fire, Foraging, Medicine, Metallurgy, Nuclear Physics, Observation, Trade), the 'Next in the queue: funding moves here when Quantum Physics has no revealed work under study.' line wraps with the Modifiers line, and the pane overflows by 18 px. The last line is cut through its glyphs with no fade cue. Reproduce: open Medicine, then Move Medicine up the queue.",
+     "fix": "Drop the 'Switching loses nothing' line from focus descriptions, as the first review suggested; the funding description can carry it. Or shorten the queue line to 'Next: funded when Quantum Physics has no revealed work under study.' Also add the fade cue (mask-image:linear-gradient(to bottom,#000 calc(100% - 18px),transparent)) whenever scrollHeight > clientHeight."
+    },
+    {
+     "severity": "minor",
+     "where": "Phone: PHONE.btnW 240 (main.js:19), BTN (main.js:56), act labels at main.js:311 and 401",
+     "problem": "On phone, action-button text spills out of its 46-px pill. 'Replace the Endeavour / 54,568 Insight · about 80 / turns' (TH15, RK09, QP09, QP10 at turn 231; Begin for TH15 and RK09 at turn 226) and 'Fund Philosophy and the Arts / sets the Endeavour aside' (also Relativity & Cosmology, Social Organization, Textiles & Materials, Water Management during the Endeavour) wrap to 3 lines that overrun the button's top and bottom edges. 11 selections are affected; rendered in f5_phone_th15.png and f5_phone_pha.png.",
+     "fix": "On phone, use 'Fund this focus' as l1 (the bar title already names the focus), and give l1 and l2 white-space:nowrap;overflow:hidden;text-overflow:ellipsis. Shorten l2 to '54,568 Insight · ~80 turns', or widen PHONE.btnW to 270 (the description column keeps 587 px)."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:117 (focus-view header div height:30px) with L.fvRadioStyle and L.backStyle at 44 px on phone (main.js:265-266)",
+     "problem": "In the phone focus view, the 44-px radio and the '× All foci' button sit in a 30-px header row, so they overhang it by 7 px at top and bottom. The board's overflow clips the top: '× All foci' renders with a flat, cut-off top edge at y 56, its unclipped box overlaps the era pill above by 1 px, and the top 7 px of both hit areas are lost.",
+     "fix": "Make the header row height phone ? 48 : 30 (an L.fvHeadStyle), or give the board padding-top:8px on phone."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:171 (SECTIONS filter) and SEG (main.js:48); artboard 2 with any status segment pressed",
+     "problem": "With any status filter on, the running Grand Endeavour disappears from the board, and no segment brings it back. At turn 231, pressing 'Being studied' or 'Moment passed' hides the Endeavour section. On phone, filtering Passed and then beginning an Endeavour on Superconductivity makes the chip vanish at the moment it is committed.",
+     "fix": "Always show the Grand Endeavour section regardless of st.filter: (s.st === 'endeavour' || !st.filter || st.filter === s.st)."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:92 (openFocus keeps st.filter), 171 and 199",
+     "problem": "The first review's empty-board case still occurs by a different route. Press 'Not yet reachable 2' on the full board, then open Energy Systems. The board under the header 'Energy Systems 6 here' is completely empty, with no message. Disabling zero-count segments only stops the filter being chosen inside the focus view.",
+     "fix": "In openFocus, clear the filter when the focus has no rows of the filtered status. Or render a grey line 'No <status> rows in <focus>. Clear filter' when sections and owned are both empty."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:52 and 54 (font-size:12px in the Endeavour pill); build_spec.md:66",
+     "problem": "Fixing the funding pill introduced 12-px text: the 'Endeavour' caption and the '64%' beside the bar. The spec says sizes are only 14 px and 18 px, 'Nothing is smaller', and the first review had already flagged a 12-px badge for this reason.",
+     "fix": "Use 14 px with line-height 14 and raise the pill from 40 to 44 px. Or drop the caption, label the first line 'Endeavour: Superconductivity', and keep only the bar and a 14-px '64%'."
+    },
+    {
+     "severity": "minor",
+     "where": "assemble.py ERA eraLines (the 'Synthesis can be used once in each era: unused in the … era.' line) against main.js:414",
+     "problem": "After Synthesis is used, the era description contradicts itself. It says 'Synthesis can be used once in each era: unused in the Modern era.' and, two lines later, 'Abilities: … Synthesis (Dialectical Thinking), used this era.'",
+     "fix": "Remove the static Synthesis line from both ERA eraLines lists; the live Abilities line already states it."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:391-395 (describe, focus branch); artboard 2, Electricity focus",
+     "problem": "The focus that holds the running Endeavour describes itself as idle. At turn 231, the Electricity row carries the Endeavour glyph, and its focus view lists the Endeavour card. Its bar, though, reads 'not funded' and 'Nothing revealed is under study here.', with no mention that 80% of Insight is going into Superconductivity there.",
+     "fix": "When a running Endeavour's row belongs to f, set meta to 'holds the Grand Endeavour · 80% of your Insight' and add 'Grand Endeavour here: Superconductivity, 64% done.'"
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:365 (unreach primary 'Fund <needs_focus>')",
+     "problem": "The button stays live after it has done its job. Select Gravitational Waves Detection and click 'Fund Optics': Optics becomes funded, but the primary still reads 'Fund Optics', enabled, while Laser's own bar now says 'Funded'.",
+     "fix": "If r.needs_focus === st.funded && !en, render act('primary', 'Optics funded', '', null, true)."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:244 (Close), 110 and 245 (Faster than light); src/main.js:346 ('Open the FTL screen' act(..., null, false))",
+     "problem": "These buttons still look enabled on interactive artboards but do nothing when clicked (the first review's format minor 3, now fixed only for Experiment and Synthesis). Clicking Close, either Faster than light, or 'Open the FTL screen' (QP12, QP06, the FTL-tagged owned rows) produces no response.",
+     "fix": "Give them a one-line popup, 'The Faster than light screen is not part of this mockup.' with OK. Or render them disabled with l2 'not in this mockup'."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:291-298 (dialog); no keydown or focus handling in main.js",
+     "problem": "The white ring on 'Keep the Endeavour'/'Cancel' suggests a default, but focus never enters the dialog. Enter and Escape do nothing, and Tab walks the board behind the veil, although the dialog is aria-modal.",
+     "fix": "Focus the safe button on open (ref={{popup.cancelRef}} calling el.focus()). Add onKeyDown on the overlay: Escape closes, Enter activates the focused button."
+    }
+   ],
+   "verdict": "Nearly ready, with one major left. Every blocker from the first review is fixed. I clicked through every flow on desktop and phone with no page error and no blank screen: fund, right-click queue and unqueue, move in the queue, every filter including a disabled one, collapsing sections and bands, the focus view and back, chips of every status, Begin, Replace, Stop, Resume, the switch-away popup, Experiment and Synthesis. Nearly all the first-round majors in this lens are fixed too. The bar no longer overflows for any default selection (0 of 284 and 0 of 286 on desktop; no description overflow on phone). The badge and queue marks are distinct, the Endeavour glyph is distinct, the Stop target is right, and Experiment and Synthesis work. The remaining major is that Replace (and Begin while an Endeavour is set aside) throws away the old Endeavour's progress, although its popup says it can be resumed, against tech_tree.md l.195. The minors are mostly state-coherence edges (the set-aside figure and its description, funding an empty focus, filters hiding the Endeavour or emptying the focus view, a stale Synthesis line, the Electricity focus text, a stale 'Fund Optics' button, dead Close and Faster-than-light buttons, no keyboard handling in popups) and a few visual regressions (12-px text in the Endeavour pill, phone action-button labels spilling out of their pills, the clipped phone focus-view header, an 18-px clip when certain foci are moved to next in the queue). Outside this lens I noticed that format major 1, the static style holes, is still open. The scripts and renders are in /tmp/claude-0/-home-user-Uncharted-Horizons/ffab2c8f-97b2-5cca-83ad-f0d7b939b828/scratchpad/rc/."
+  },
+  {
+   "lens": "format",
+   "resolved": [
+    "Format major, 'the view Tweak does nothing': resolved. componentDidUpdate(prev) now compares prev.view and phone and re-runs initState. I checked it in the canvas's own dc-runtime.js, which is byte-identical to the published artifact-type/dc-runtime.js. The runtime passes the host's previous props, and these carry view and phone as top-level keys. Calling __dcSetProps on Main switched it correctly to t231-endeavour, t226-focus-energy, t231-switch-away (the popup opens), phone on and off (1300×600 and back to 1440×810) and t226-whole-board (1440×2040). Setting the default view again keeps the user's selection. The enum values are readable now and match VIEWS.",
+    "Format minor, path-d holes in the chevrons: resolved. They are now two literal SVGs, each in its own sc-if. All seven artboards load with zero console messages; the first round had two errors.",
+    "Format minor, onContextMenu on a div and the radiogroup roles: resolved. The handler is on the radio and name buttons, and the div carries no role or handler. Right-clicking the Chemistry name queued it 4th and right-clicking the Farming radio queued it 5th. The contextmenu event reaches the document with defaultPrevented=true, so the native menu is suppressed.",
+    "Format minor, the wrapper should pass a boolean phone: resolved. With phone=\"{{ true }}\" on the dc-import, the child receives typeof boolean, value true (checked with an instrumented copy). Endeavour and the other wrappers pass only view.",
+    "Visual and usability blockers, the screen blanks after leaving an Endeavour: resolved. In the real runtime: Endeavour, then Stop, then confirm leaves 2,207 nodes and no errors. The funding pill shows Energy Systems, Superconductivity shows as Moment passed with Set aside, and Resume brings it back at 62%. Switch_away, then 'Fund Energy Systems', does the same with no errors.",
+    "Requirements blocker and hidden major, Computing listed although nothing opened it: resolved. Both turns list 32 foci, Computing is not among them, and CP13 is not in the data.",
+    "Requirements blocker, plus the hidden-lens blocker and its two majors on the Status key examples: resolved. The examples are now 'A rival theory', 'A glimpsed idea' and 'Megalithic Observatory', which is not on the board. Neither QP09 nor QP10 appears, and the Radar and Rice Paddy contradictions are gone.",
+    "Description-overflow majors (requirements, visual, and both usability ones, desktop and phone): resolved. I clicked every chip, focus, the funding header and the era pill in the real runtime: 0 of about 287 selections overflow the description pane on Main (turn 226), Endeavour (turn 231) or Phone.",
+    "Badge-versus-queue ambiguity majors (requirements, usability) and the teal major (visual): resolved. Queue position is now an outlined '2nd' tag, the funded row's count badge has no ring, and queued rows have no teal fill.",
+    "Queue-wording majors (requirements, hidden, usability) and the usability major on exits that fund an empty focus: resolved. 'Next in the queue…' and 'Queued 3rd: after Energy Systems.' are fixed. At turn 231 the lines read 'after the Endeavour ends, funding moves along the queue' and the funding description reads '…funds the first with revealed work under study'. The Stop popup and stopEndeavour now name and fund Energy Systems.",
+    "TH15 price major: resolved. The price uses the row's ×2.5 multiplier: 54,568 Insight, about 80 turns.",
+    "Visual major, Endeavour glyph too close to the flask: resolved. It is now a rounded square with a solid pyramid everywhere.",
+    "Usability majors on the funding header during an Endeavour, Experiment and Synthesis, and resuming: resolved. The pill shows the 80% share, with an 'Endeavour' caption, a bar and 64%. The funding action reads 'Funded: Grand Endeavour'. Experiment and Synthesis are explained in the bar, confirmed in popups, and disabled after use. A set-aside Endeavour shows 'Set aside · N%' and offers 'Resume the Endeavour'.",
+    "Hidden major, FA16's Superseded text: resolved. The text is now per row: 'Superseded by Catalysis (turn 203): its +1 Food from Farms passed to the Haber process.'"
+   ],
+   "findings": [
+    {
+     "severity": "major",
+     "where": "src/Main.template.html, whole-value style holes: l.28 rootStyle, 31, 63, 66, 69, 77 (f.queueStyle), 97, 114, 131, 143/203, 147/207, 180/229 (c.line2Style), 242–271 (bar boxes), 268. Also src/main.js:151, 222, 254 and 270, and canvas/project/Status_key.dc.html l.21, 29, 30, 43, 57 and 63. Carried over from the first format review; not addressed.",
+     "problem": "This first-round major was not touched by the fix round, and the count has gone from 45 to 51 whole-value style holes. format.md allows a style hole only for live, state-driven values or a declared tweak prop, never for static theme tokens. Several holes are constant strings:\n- c.line2Style (main.js:151);\n- f.queueStyle (main.js:222), new in this round;\n- L.ftlTopStyle (main.js:254).\nrootStyle (main.js:270) carries the static background, colour and font. Every style on the Status key is static, and that artboard has no props at all. Holding these as holes keeps Tamsin from restyling the elements in the properties panel, which edits only literal inline styles, and the board paints unstyled while it streams in. Nothing breaks at runtime.",
+     "fix": "Make the constant ones literal: l.77, l.180, l.229, the FTL top button, and every chip, tag and row style on Status_key, either written out or branched with sc-if. Where only numbers vary with phone or view, interpolate just the numbers. For example, l.28 becomes style=\"width: {{L.w}}px; height: {{L.h}}px; display: flex; position: relative; overflow: hidden; background: #000033; color: #FFFFFF; font-family: 'DejaVu Sans UH','DejaVu Sans',sans-serif; font-size: 14px; line-height: 1.25\". Treat l.31, 63, 66, 69, 97, 131, 143, 147 and 242–271 the same way. Keep whole-value holes only for the genuinely state-driven ones: f.rowStyle, c.style, c.cardStyle, sg.style, band.style, fund.style, fund.barFill and bar.primary/secondary.style."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:13–25, the <helmet> of Main.dc.html, which the five wrapper artboards dc-import. Carried over; not addressed.",
+     "problem": "SKILL.md limits an imported file's helmet to a font <link>, an uploaded @font-face and body{margin:0}. Main's helmet still holds:\n- a body background;\n- the global button reset;\n- the .uh-* hover and active rules;\n- button:focus-visible;\n- the scrollbar rules;\n- the a/a:hover colours.\nThe runtime copies them into each importer today, so the five wrappers render correctly, but they depend on rules the format does not promise to carry.",
+     "fix": "Move the button reset into the inline styles: add background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer to BTN, chipBase, the L.* button strings and the literal button styles. Cut Main's helmet down to the @font-face and body{margin:0}, with the background going on the root. Keep the hover rules only if you accept the deviation, and record that you have."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:244 (Close), :110 (phone 'Faster than light'), :245 (desktop 'Faster than light'); src/main.js:346 (act('secondary', 'Open the FTL screen', '', null, false))",
+     "problem": "Partly fixed: Experiment and Synthesis now confirm and take effect. These four buttons are still enabled, look live and have no handler, on artboards marked is_interactive. In the real runtime Close reports disabled=false and clicking it does nothing.",
+     "fix": "Give them disabled=\"{{ true }}\", or a computed disabled hole, plus the disabled fill #252B3E. For 'Open the FTL screen', pass true as act()'s fifth argument and set l2 to 'not in this mockup'. Alternatively, open a one-line popup such as 'The FTL screen is not part of this mockup.'"
+    },
+    {
+     "severity": "minor",
+     "where": "canvas/project/canvas.json, board title '5 · Phone: Unciv Small, landscape, 44-px rows and buttons' (the README says the same); src/main.js:19 (PHONE chipH 36, runLH 36, secH 40); src/main.js:186 (era-band header fixed at height:24px)",
+     "problem": "Partly fixed: the segments, queue arrows, back button, radios, focus rows and era pill are now 44 px. Measured on the Phone artboard in the real runtime, though:\n- the 250 breakthrough chips (buttons) are 36 px;\n- the 135 run-label buttons are 36 px;\n- the 5 section headers are 40 px;\n- the 8 era-band headers are 24 px.\nThat contradicts the board title and the canvas rule that touch targets are at least 44 px.",
+     "fix": "Set PHONE.secH and runLH to 44, and make the band header's height M-dependent (44 on the phone). For chips, either set chipH to 44 or keep the 36-px pill inside a 44-px transparent button (padding 4px 0). Alternatively, retitle the board '44-px focus rows and action buttons'."
+    },
+    {
+     "severity": "minor",
+     "where": "src/main.js:40–48 (STATUS_LABEL, SECTIONS titles and why-lines, SEG labels), :368 (status-4 sentence); canvas/project/Status_key.dc.html:97–128 (every label and sentence). Carried over; not addressed.",
+     "problem": "Copy that Tamsin is still deciding on lives only in JS strings, so she cannot retype it on the canvas. This includes the status names and the status-4 wording, which was itself a decision. That wording also exists in three forms: 'revealed, its moment passed: only an Endeavour is certain' (SECTIONS), 'Its moment passed — only an Endeavour is certain' (describe) and 'Revealed, its moment passed: only an Endeavour is certain.' (key). The Status key is a static artboard with no props, yet all of its text comes from renderVals.",
+     "fix": "Write Status_key.dc.html as literal markup: eleven status rows, nine tag rows and six focus-list rows, with no sc-for. In Main, put the five section headers and the segment labels in fixed sc-if blocks with literal titles and why-lines. At minimum, define each status's wording once in main.js and reuse it in SECTIONS, STATUS_LABEL and describe()."
+    },
+    {
+     "severity": "minor",
+     "where": "src/Main.template.html:52 and :54 (the 'Endeavour' caption and the '64%' figure in the funding pill, a3 and a3b)",
+     "problem": "Both use font-size:12px. build_spec §1 allows only 14 px and 18 px, with nothing smaller. The first review's 12-px finding was fixed for the badges, but this new caption brings 12-px text back.",
+     "fix": "Set both to 14 px, with line-height 16, and raise the pill from 40 px to about 44 px. Or move the progress into the name line ('Superconductivity · 64%') and keep only the 4-px bar below it."
+    }
+   ],
+   "verdict": "From the canvas-format lens this is ready to show Tamsin. All seven artboards keep the rules that fail silently:\n- the exact support.js head line;\n- every element closed and every attribute quoted;\n- holes that are dotted lookups or literals only;\n- hint attributes on every sc-if and sc-for;\n- whole-value event attributes;\n- classic `class Component extends DCLogic` with no script-built DOM;\n- valid data-props JSON;\n- no emoji (★ ✓ ✗ are text dingbats in the font subset);\n- inline SVG icons and real buttons;\n- the font as a /_blob/ @font-face;\n- dc-import never self-closed and no prop named name.\n\nI checked this with a static linter and by running all seven in the canvas's own dc-runtime.js, which is byte-identical to the published one. Every artboard loads with zero console messages and the font loads. Main.dc.html matches what assemble.py builds from src/. The published project files are byte-for-byte the same size as the local ones.\n\nEvery new construct works in the real runtime:\n- **componentDidUpdate re-init:** switching view or phone resets the scene.\n- **Disabled holes:** there is no disabled attribute when the value is false, and the button is disabled when it is true.\n- **Ref callback:** the phone focus list scrolls to 765 px, both in the wrapper and after toggling phone through the Tweak.\n- **phone=\"{{ true }}\":** the child receives a real boolean.\n- **onContextMenu on both buttons:** right-click queues the focus and suppresses the native menu.\n\nAll first-review blockers are fixed, and so are all majors except one. The format major on static tokens in style holes was not addressed and has grown from 45 to 51 holes. It breaks nothing, but it keeps those styles out of the properties panel. Five minors remain:\n- Main's over-full helmet;\n- four live-looking buttons that do nothing;\n- phone targets below the 44 px the board title promises;\n- status copy that exists only in JS, with the status-4 wording in three variants;\n- 12-px text reintroduced in the Endeavour pill."
+  }
+ ]
+}

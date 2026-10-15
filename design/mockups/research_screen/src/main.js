@@ -59,7 +59,7 @@ function initState(props) {
   const v = viewOf(props), s = D.snap[v.snap];
   return { snap: v.snap, sel: isPhone(props) ? { kind: 'row', id: 'QP06' } : v.sel, focusView: v.focusView || null, filter: null, collapsed: {},
     funded: s.funded, queue: s.queue.slice(), endeavour: s.endeavour ? Object.assign({}, s.endeavour) : null, popup: v.popup || null,
-    synthesisUsed: false, experimented: {} };
+    synthesisUsed: false, experimented: {}, asides: {}, notice: null };
 }
 
 class Component extends DCLogic {
@@ -75,7 +75,8 @@ class Component extends DCLogic {
     const S = this.snapData(), en = this.state.endeavour;
     return S.rows.map(r => {
       const x = Object.assign({}, D.rows[r.id], r, { tags: (r.tags || []).slice() });
-      if (en && en.id === r.id) { if (en.aside) x.tags.push('Set aside'); else x.status = 'endeavour'; }
+      if (en && en.id === r.id && !en.aside) x.status = 'endeavour';
+      else if (this.state.asides[r.id]) x.tags.push('Set aside');
       return x;
     });
   }
@@ -83,13 +84,17 @@ class Component extends DCLogic {
   price(r) { const p = (D.prices[r.era] || 0) * (r.mult || 1); return { price: p, turns: Math.max(1, Math.round(p / this.share())) }; }
   insight() { return this.snapData().insight; }
   share() { return Math.round(this.insight() * 0.8); }
-  spread() { return Math.round(this.insight() * 0.2); }
-  queueStart() { return this.state.funded || (this.state.endeavour && !this.state.endeavour.aside) ? 2 : 1; }
+  spread() { return Math.round(this.insight()) - this.share(); }
+  queueStart() { return this.state.funded || this.running() ? 2 : 1; }
+  running() { const en = this.state.endeavour; return en && !en.aside ? en : null; }
   nextFunded() { const b = this.snapData().badges; return this.state.queue.find(f => b[f]) || null; }
 
   // ---------------------------------------------------------------- actions
   select(sel) { this.setState({ sel: sel }); }
-  openFocus(f) { this.setState({ sel: { kind: 'focus', id: f }, focusView: f }); }
+  openFocus(f) {
+    const k = this.state.filter, has = !k || this.rowsNow().some(r => r.status === k && (r.focus === f || (r.also || []).includes(f)));
+    this.setState({ sel: { kind: 'focus', id: f }, focusView: f, filter: has ? k : null });
+  }
   fund(f) {
     const en = this.state.endeavour;
     if (en && !en.aside) { this.setState({ popup: { kind: 'switch', focus: f } }); return; }
@@ -105,19 +110,22 @@ class Component extends DCLogic {
     if (i < 0 || j < 0 || j >= q.length) return;
     q[i] = q[j]; q[j] = f; this.setState({ queue: q });
   }
+  // a stopped or replaced Endeavour is set aside with its progress (it would decay slowly as turns pass; no turn passes here)
+  asidesWith(en) { const a = Object.assign({}, this.state.asides); if (en) a[en.id] = { pct: en.pct, paid: en.paid, price: en.price, committed: en.committed, turn: this.snapData().turn }; return a; }
   beginEndeavour(id) {
     const r = this.rowsNow().find(x => x.id === id), p = this.price(r).price, f = this.state.funded;
-    this.setState({ endeavour: { id: id, pct: 0, paid: 0, price: p, committed: this.snapData().turn, aside: false }, funded: null,
+    this.setState({ asides: this.asidesWith(this.running()), endeavour: { id: id, pct: 0, paid: 0, price: p, committed: this.snapData().turn, aside: false }, funded: null,
       queue: f ? [f].concat(this.state.queue.filter(x => x !== f)) : this.state.queue, popup: null, sel: { kind: 'row', id: id } });
   }
-  resumeEndeavour() {
-    const en = this.state.endeavour, f = this.state.funded, pct = Math.max(0, en.pct - 2);
-    this.setState({ endeavour: Object.assign({}, en, { aside: false, pct: pct, paid: Math.round(en.price * pct / 100) }), funded: null,
-      queue: f ? [f].concat(this.state.queue.filter(x => x !== f)) : this.state.queue, popup: null });
+  resumeEndeavour(id) {
+    const a = Object.assign({}, this.asidesWith(this.running())), it = a[id], f = this.state.funded;
+    delete a[id];
+    this.setState({ asides: a, endeavour: { id: id, pct: it.pct, paid: it.paid, price: it.price, committed: it.committed, aside: false }, funded: null,
+      queue: f ? [f].concat(this.state.queue.filter(x => x !== f)) : this.state.queue, popup: null, sel: { kind: 'row', id: id } });
   }
   stopEndeavour(fundFocus) {
-    const en = this.state.endeavour, q = this.state.queue, next = fundFocus || this.nextFunded();
-    this.setState({ endeavour: Object.assign({}, en, { aside: true }), funded: next, queue: q.filter(x => x !== next), popup: null });
+    const q = this.state.queue, next = fundFocus || this.nextFunded();
+    this.setState({ asides: this.asidesWith(this.running()), endeavour: null, funded: next, queue: q.filter(x => x !== next), popup: null });
   }
 
   // ---------------------------------------------------------------- view model
@@ -125,7 +133,7 @@ class Component extends DCLogic {
     const st = this.state, S = this.snapData(), rows = this.rowsNow(), byId = {}, owned = this.ownedIds();
     rows.forEach(r => { byId[r.id] = r; });
     const view = viewOf(this.props), whole = !!view.whole, cur = S.era, phone = isPhone(this.props), M = phone ? PHONE : DESK;
-    const en = st.endeavour && !st.endeavour.aside ? st.endeavour : null;
+    const en = this.running();
     const sel = st.sel || {}, selRow = sel.kind === 'row' ? byId[sel.id] : null;
     const prereqOfSel = new Set(selRow && selRow.needs ? selRow.needs.filter(n => n.ref).map(n => n.ref) : []);
     const fv = st.focusView;
@@ -133,7 +141,7 @@ class Component extends DCLogic {
 
     const chipOf = r => {
       const live = r.status !== 'owned' && r.status !== 'not_taken';
-      const tags = (r.tags || []).map(t => ({ text: t === 'Unique' ? '★ Unique' : t === 'Set aside' ? 'Set aside · ' + st.endeavour.pct + '%' : t, style: TAG_BASE + (TAG[t] || TAG.Superseded) }));
+      const tags = (r.tags || []).map(t => ({ text: t === 'Unique' ? '★ Unique' : t === 'Set aside' ? 'Set aside · ' + st.asides[r.id].pct + '%' : t, style: TAG_BASE + (TAG[t] || TAG.Superseded) }));
       if (r.status === 'not_taken') tags.push({ text: 'Path not taken', style: TAG_BASE + TAG['Path not taken'] });
       if (r.status === 'endeavour' && en) tags.push({ text: 'Endeavour ' + en.pct + '%', style: TAG_BASE + TAG.Endeavour });
       const lead = r.status === 'owned' ? 9 : 3, trail = (live || tags.length) ? 3 : 9;
@@ -148,7 +156,7 @@ class Component extends DCLogic {
       const home = fv && r.focus !== fv ? 'home: ' + r.focus + ' · ' : '';
       const line2 = home + (r.status === 'owned' ? (r.fx || '') : (r.conj ? '“' + r.conj + '”' : ''));
       return { name: r.name, style: style, cardStyle: cardStyle, g: g, tags: tags, era: { show: live, text: AB[r.era], style: eraStyle },
-        line2: line2, line2Style: 'display:block;height:18px;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0.92',
+        line2: line2,
         aria: r.name + ' — ' + STATUS_LABEL[r.status] + ' — ' + r.focus + ', ' + r.era + ' era' + (tags.length ? ' — ' + tags.map(t => t.text).join(', ') : ''),
         onClick: () => this.select({ kind: 'row', id: r.id }) };
     };
@@ -168,7 +176,7 @@ class Component extends DCLogic {
     // sections
     const visible = rows.filter(inFocus);
     const counts = {}; visible.forEach(r => { counts[r.status] = (counts[r.status] || 0) + 1; });
-    const sections = SECTIONS.filter(s => (counts[s.st] || 0) > 0 && (!st.filter || st.filter === s.st)).map(s => {
+    const sections = SECTIONS.filter(s => (counts[s.st] || 0) > 0 && (s.st === 'endeavour' || !st.filter || st.filter === s.st)).map(s => {
       const list = visible.filter(r => r.status === s.st), open = !st.collapsed[s.st];
       return { title: s.title, count: list.length, why: s.why, expandedStr: open ? 'true' : 'false', open: open, shut: !open,
         onToggle: toggle(s.st), g: { endeavour: s.st === 'endeavour', studying: s.st === 'studying', waiting: s.st === 'waiting', unreach: s.st === 'unreach', closed: s.st === 'closed' },
@@ -218,8 +226,7 @@ class Component extends DCLogic {
         showPyramid: !!holdsEn, showNew: (S.newFoci || []).includes(f),
         showBadge: !!badges[f], badge: badges[f] || 0, badgeTitle: (badges[f] || 0) + ' revealed under study that funding ' + f + ' advances',
         badgeStyle: 'margin-left:4px;min-width:20px;height:17px;line-height:17px;box-sizing:border-box;border-radius:8.5px;padding:0 5px;text-align:center;flex:none;font-size:14px;' + (isF ? 'background:#000033;color:#FFFFFF;' : 'background:#4893AF;color:#000033;'),
-        showQueue: isQ, queueText: ORD(qi + q0), queueTitle: 'queued ' + ORD(qi + q0),
-        queueStyle: 'margin-left:4px;height:17px;line-height:15px;box-sizing:border-box;border-radius:8.5px;padding:0 5px;border:1px solid #FFFFFF;color:#FFFFFF;flex:none;font-size:14px' };
+        showQueue: isQ, queueText: ORD(qi + q0), queueTitle: 'queued ' + ORD(qi + q0) };
     });
 
     // funding header
@@ -251,7 +258,6 @@ class Component extends DCLogic {
       radioStyle: 'width:' + (phone ? 44 : 22) + 'px;height:' + M.rowH + 'px;flex:none;display:flex;align-items:center;justify-content:center',
       topStyle: 'height:' + (phone ? 56 : 46) + 'px;flex:none;box-sizing:border-box;padding:' + (phone ? '6px 16px 0 16px' : '8px 16px 0 16px') + ';display:flex;align-items:flex-start;gap:' + (phone ? 6 : 4) + 'px',
       segLabels: true, ftlTop: phone, ftlBottom: !phone,
-      ftlTopStyle: 'height:44px;border-radius:20px;background:#334D80;color:#FFFFFF;font-size:14px;padding:0 14px;white-space:nowrap;margin-right:6px',
       secHeadStyle: 'display:flex;align-items:center;height:' + M.secH + 'px;margin-bottom:' + (phone ? 4 : 3) + 'px;white-space:nowrap',
       showWhy: !phone,
       runsStyle: 'display:flex;flex-wrap:wrap;gap:' + M.gapY + 'px ' + M.runGap + 'px;align-items:flex-start;margin-bottom:2px',
@@ -264,10 +270,11 @@ class Component extends DCLogic {
       moveStyle: 'width:' + (tgt || 24) + 'px;height:' + (tgt || 24) + 'px;border-radius:' + (tgt || 24) / 2 + 'px;background:#334D80;display:flex;align-items:center;justify-content:center;margin-left:6px;flex:none',
       backStyle: 'height:' + (tgt || 30) + 'px;border-radius:' + (tgt || 30) / 2 + 'px;background:#334D80;color:#FFFFFF;padding:0 13px',
       fvRadioStyle: 'width:' + (tgt || 20) + 'px;height:' + (tgt || 20) + 'px;display:flex;align-items:center;justify-content:center',
+      fvHeadStyle: 'display:flex;align-items:center;gap:10px;height:' + (phone ? 48 : 30) + 'px;margin-bottom:6px',
     };
     return {
-      L: L,
-      rootStyle: 'width:' + M.w + 'px;height:' + h + 'px;display:flex;position:relative;overflow:hidden;background:#000033;color:#FFFFFF;font-family:' + FONT + ';font-size:14px;line-height:1.25',
+      L: L, W: M.w, H: h, notice: st.notice, closeNotice: () => this.setState({ notice: null }),
+      notInMockup: () => this.setState({ notice: 'The Faster than light screen, and leaving this screen, are not part of this mockup.' }),
       boardStyle: 'flex:1;min-height:0;box-sizing:border-box;padding:0 10px 0 16px;' + (whole ? 'overflow:visible' : 'overflow-y:auto'),
       fund: fund, foci: foci, showHint: !phone && S.foci.length <= 33, segs: segs, era: era, fv: fvm, sections: sections, owned: ownedVM,
       bar: Object.assign({ show: !whole }, this.describe(byId, owned, en, M)), popup: this.popupVM(byId, en),
@@ -301,22 +308,26 @@ class Component extends DCLogic {
     };
     const quote = t => t && grey('“' + t + '”');
     const enBtn = r => {
-      const aside = st.endeavour && st.endeavour.aside && st.endeavour.id === r.id;
+      const aside = st.asides[r.id];
       if (aside) {
-        const left = st.endeavour.price * (100 - Math.max(0, st.endeavour.pct - 2)) / 100;
-        act('secondary', 'Resume the Endeavour', fmt(left) + ' Insight left · about ' + turns(Math.max(1, Math.ceil(left / this.share()))), () => this.setState({ popup: { kind: 'resume' } }));
+        const left = aside.price - aside.paid;
+        act('secondary', en ? 'Resume instead' : 'Resume the Endeavour', fmt(left) + ' Insight left · about ' + turns(Math.max(1, Math.ceil(left / this.share()))), () => this.setState({ popup: { kind: 'resume', id: r.id } }));
         return;
       }
       const p = this.price(r);
       act('secondary', en ? 'Replace the Endeavour' : 'Begin Grand Endeavour', fmt(p.price) + ' Insight · about ' + turns(p.turns),
         () => this.setState({ popup: { kind: en ? 'replace' : 'begin', id: r.id } }));
     };
+    const badges = S.badges;
     const queueLine = f => {
       const qi = st.queue.indexOf(f);
       if (qi < 0) return;
+      if (!badges[f]) { line(['Queued ' + ORD(qi + q0) + ', but nothing revealed is under study here: the queue passes over it.']); return; }
+      const ahead = st.queue.slice(0, qi).filter(x => badges[x]);
       if (en) line(['Queued ' + ORD(qi + q0) + ': after the Endeavour ends, funding moves along the queue.']);
-      else if (qi === 0) line(['Next in the queue: funding moves here when ' + st.funded + ' has no revealed work under study.']);
-      else line(['Queued ' + ORD(qi + q0) + ': after ' + st.queue[qi - 1] + '.']);
+      else if (ahead.length) line(['Queued ' + ORD(qi + q0) + ': after ' + ahead[ahead.length - 1] + '.']);
+      else if (st.funded && !badges[st.funded]) line(['Next: funded next turn, as ' + st.funded + ' has no revealed work under study.']);
+      else line(['Next: funded when ' + st.funded + ' has no revealed work under study.']);
     };
 
     if (sel.kind === 'row' && byId[sel.id]) {
@@ -333,7 +344,7 @@ class Component extends DCLogic {
       if (r.status === 'owned') {
         line(['Discovered on turn ' + r.turn + '. ' + (r.fx || '')]);
         if (r.fx2) line([r.fx2]);
-        if (r.opens) line(['Opens the ' + r.opens + ' focus.']);
+        if (r.opens) line(['Opens the ' + r.opens + (r.opens.includes(' and ') ? ' foci.' : ' focus.')]);
         if (r.superseded) line([r.superseded]);
         if (r.persists) line([r.persists]);
         if (tags.includes('Dead end')) line(['Dead end: Mechanical Equivalent of Heat reported that heat is motion, not a fluid.']);
@@ -343,7 +354,7 @@ class Component extends DCLogic {
         if (tags.includes('FTL')) line(['This bore on the question of how to exceed the speed of light.']);
         if (r.flav) grey(r.flav);
         act('primary', 'Discovered', '', null, true);
-        if (tags.includes('FTL')) act('secondary', 'Open the FTL screen', '', null, false);
+        if (tags.includes('FTL')) act('secondary', 'Open the FTL screen', '', () => this.setState({ notice: 'The Faster than light screen is not part of this mockup.' }), false);
       } else if (r.status === 'studying') {
         line([fundedHere ? 'Being studied in ' + r.focus + ', which you fund: it takes Insight every turn.' : 'Being studied in ' + r.focus + ': it takes a share of that focus’s Insight every turn.']);
         rival(); needsLine(r); if (also) line([also]); quote(r.conj);
@@ -362,13 +373,15 @@ class Component extends DCLogic {
         needsLine(r);
         line(['It cannot be a Grand Endeavour until ' + (r.needs_name || 'its prerequisites') + ' ' + (r.needs_name ? 'is' : 'are') + ' discovered.']);
         quote(r.conj);
-        if (r.needs_focus) act('primary', 'Fund ' + r.needs_focus, '', () => this.fund(r.needs_focus)); else act('primary', 'Not yet reachable', '', null, true);
+        if (r.needs_focus && r.needs_focus === st.funded && !en) act('primary', r.needs_focus + ' funded', '', null, true);
+        else if (r.needs_focus) act('primary', 'Fund ' + r.needs_focus, '', () => this.fund(r.needs_focus)); else act('primary', 'Not yet reachable', '', null, true);
         act('secondary', 'Grand Endeavour', 'needs ' + (r.needs_name || 'a prerequisite') + ' first', null, true);
       } else if (r.status === 'closed') {
         line([src + 'Its moment passed — only an Endeavour is certain.']);
         needsLine(r);
-        const p = this.price(r), ahead = EO.indexOf(r.era) > EO.indexOf(S.devEra);
-        line([ahead ? 'As an Endeavour: ' + fmt(p.price) + ' Insight; dearer while it is ahead of its time. Fixed once begun.'
+        const p = this.price(r), ahead = EO.indexOf(r.era) > EO.indexOf(S.era), aside = st.asides[r.id];
+        if (aside) { b.meta += ' · Endeavour set aside'; line(['Endeavour set aside at ' + aside.pct + '%: ' + fmt(aside.paid) + ' of ' + fmt(aside.price) + ' Insight paid. It decays slowly; resuming needs ' + fmt(aside.price - aside.paid) + ' more.']); }
+        else line([ahead ? 'As an Endeavour: ' + fmt(p.price) + ' Insight; dearer while it is ahead of its time. Fixed once begun.'
           : 'As an Endeavour: ' + fmt(p.price) + ' Insight, double the usual cost; about ' + turns(p.turns) + ' at ' + fmt(this.share()) + ' a turn.']);
         line(['Synthesis (once an era) gives its moment another chance; it is not certain.']);
         quote(r.conj);
@@ -388,17 +401,18 @@ class Component extends DCLogic {
         act('secondary', 'Stop the Endeavour', '', () => this.setState({ popup: { kind: 'stop' } }));
       }
     } else if (sel.kind === 'focus') {
-      const f = sel.id, isF = f === st.funded && !en, qi = st.queue.indexOf(f);
+      const f = sel.id, isF = f === st.funded && !en, qi = st.queue.indexOf(f), holds = en && byId[en.id] && byId[en.id].focus === f;
       G.focus = true; b.dot = isF ? '#FFFFFF' : 'none'; b.title = f;
-      b.meta = isF ? 'funded · 80% of your Insight' : 'not funded' + (qi >= 0 ? ' · queued ' + ORD(qi + q0) : '');
+      b.meta = isF ? 'funded · 80% of your Insight' : holds ? 'holds the Grand Endeavour · 80% of your Insight' : 'not funded' + (qi >= 0 ? ' · queued ' + ORD(qi + q0) : '');
+      if (holds) line(['Grand Endeavour here: ' + byId[en.id].name + ', ' + en.pct + '% done.']);
       const studying = Object.values(byId).filter(r => r.status === 'studying' && (r.focus === f || (r.also || []).includes(f))).map(r => r.name);
       line([studying.length ? 'Under study here: ' + studying.join(', ') + '.' : 'Nothing revealed is under study here.']);
       const mods = (D.mods[f] || []).concat(D.mods['*'] || []);
       line(['Tends to help with ' + (D.help[f] || 'a little of everything') + '.' + (mods.length ? ' Modifiers: ' + mods.join(', ') + '.' : '')]);
       queueLine(f);
-      grey('Switching loses nothing: every breakthrough keeps its progress.');
+      if (qi < 0) grey('Switching loses nothing: every breakthrough keeps its progress.');
       if (qi >= 0) b.move = { show: true, upAria: 'Move ' + f + ' up the queue', downAria: 'Move ' + f + ' down the queue', onUp: () => this.moveQueue(f, -1), onDown: () => this.moveQueue(f, 1) };
-      if (isF) act('primary', 'Funded', '', null, true); else act('primary', 'Fund ' + f, en ? 'sets the Endeavour aside' : '', () => this.fund(f));
+      if (isF) act('primary', 'Funded', '', null, true); else act('primary', M === PHONE ? 'Fund this focus' : 'Fund ' + f, en ? 'sets the Endeavour aside' : '', () => this.fund(f));
       if (!isF) act('secondary', qi >= 0 ? 'Remove from queue' : 'Add to queue', '', () => this.toggleQueue(f));
     } else if (sel.kind === 'funding') {
       G.insight = true; b.title = 'Insight'; b.meta = fmt(this.insight()) + ' a turn, equal to your science';
@@ -419,13 +433,20 @@ class Component extends DCLogic {
   popupVM(byId, en) {
     const p = this.state.popup, st = this.state;
     if (!p) return { show: false, ok: {}, cancel: {} };
+    const vm = this.popupBody(byId, en, p, st);
+    vm.onKey = e => { if (e && e.key === 'Escape') this.setState({ popup: null }); };
+    vm.cancelRef = el => { if (el && this._focused !== p) { this._focused = p; el.focus(); } };
+    return vm;
+  }
+
+  popupBody(byId, en, p, st) {
     const keep = { label: 'Keep the Endeavour', onClick: () => this.setState({ popup: null }) };
     const cancel = { label: 'Cancel', onClick: () => this.setState({ popup: null }) };
     const badges = this.snapData().badges;
     if (p.kind === 'switch') {
       const r = byId[en.id], empty = !badges[p.focus];
       return { show: true, title: 'Fund ' + p.focus + ' instead?', body: 'The ' + r.name + ' Endeavour stops at ' + en.pct + '%. Its progress then decays slowly, and you can resume it later.' +
-        (empty ? ' ' + p.focus + ' has nothing revealed under study, so its share would move along the queue.' : ''),
+        (empty ? ' ' + p.focus + ' has nothing revealed under study: Insight it cannot use spills to foci that can.' : ''),
         ok: { label: 'Fund ' + p.focus, onClick: () => this.stopEndeavour(p.focus) }, cancel: keep };
     }
     if (p.kind === 'stop') {
@@ -434,9 +455,9 @@ class Component extends DCLogic {
         ok: { label: 'Stop the Endeavour', onClick: () => this.stopEndeavour(null) }, cancel: keep };
     }
     if (p.kind === 'resume') {
-      const r = byId[st.endeavour.id];
-      return { show: true, title: 'Resume the Endeavour?', body: 'The ' + r.name + ' Endeavour resumes where its progress has decayed to, and takes the funded share again.' + (st.funded ? ' ' + st.funded + ' goes back to the head of the queue.' : ''),
-        ok: { label: 'Resume the Endeavour', onClick: () => this.resumeEndeavour() }, cancel: cancel };
+      const r = byId[p.id], it = st.asides[p.id];
+      return { show: true, title: 'Resume the Endeavour?', body: 'The ' + r.name + ' Endeavour resumes at ' + it.pct + '% and takes the funded share again.' + (en ? ' The ' + byId[en.id].name + ' Endeavour is set aside at ' + en.pct + '%.' : '') + (st.funded ? ' ' + st.funded + ' goes back to the head of the queue.' : ''),
+        ok: { label: 'Resume the Endeavour', onClick: () => this.resumeEndeavour(p.id) }, cancel: cancel };
     }
     if (p.kind === 'synthesis') {
       const r = byId[p.id];
@@ -449,7 +470,7 @@ class Component extends DCLogic {
         ok: { label: 'Spend 300 Gold', onClick: () => { const x = Object.assign({}, st.experimented); x[p.id] = true; this.setState({ popup: null, experimented: x }); } }, cancel: cancel };
     }
     const r = byId[p.id], pr = this.price(r), f = st.funded;
-    const body = (p.kind === 'replace' ? 'The Endeavour on ' + byId[en.id].name + ' stops at ' + en.pct + '%; its progress decays slowly, and you can resume it later. ' : '') +
+    const body = (p.kind === 'replace' ? 'The Endeavour on ' + byId[en.id].name + ' is set aside at ' + en.pct + '%; its progress decays slowly, and you can resume it later. ' : '') +
       'A Grand Endeavour on ' + r.name + ' takes the funded share, ' + fmt(this.share()) + ' a turn, for about ' + turns(pr.turns) + ': ' + fmt(pr.price) + ' Insight in all, fixed now. It cannot fail.' + (f ? ' ' + f + ' goes back to the head of the queue.' : '');
     return { show: true, title: p.kind === 'replace' ? 'Replace the Endeavour?' : 'Begin a Grand Endeavour?', body: body,
       ok: { label: 'Begin Grand Endeavour', onClick: () => this.beginEndeavour(p.id) }, cancel: p.kind === 'replace' ? keep : cancel };

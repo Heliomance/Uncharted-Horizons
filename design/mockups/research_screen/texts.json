@@ -373,7 +373,7 @@
   ],
   "fx": "Library (building); The Great Library (world wonder)",
   "fx2": "Enables establishment of embassies",
-  "opens": "Trade",
+  "opens": "Trade and Medicine",
   "flav": "",
   "conj": ""
  },
@@ -4579,7 +4579,7 @@
   ],
   "fx": "No buildings, units or bonuses of its own.",
   "fx2": "",
-  "opens": "Medicine",
+  "opens": "",
   "flav": "",
   "conj": ""
  },

@@ -36,13 +36,11 @@ MODS = {'*': ['+5% Natural Philosophy (all foci)'], 'Farming': ['+20% river star
 ERA = {
     't226': dict(era='Modern', devEra='Modern', eraText='Modern era · 5 of 6 toward Atomic', eraShort='Modern · 5/6 to Atomic', newFoci=['Materials Science'], eraLines=[
         'You enter an era when you hold enough breakthroughs from it or later.',
-        'The Atomic era needs 6 from the Atomic era or later: you hold 5.',
-        'Synthesis can be used once in each era: unused in the Modern era.']),
+        'The Atomic era needs 6 from the Atomic era or later: you hold 5.']),
     't231': dict(era='Atomic', devEra='Modern', eraText='Atomic era · 2 of 4 toward Space', eraShort='Atomic · 2/4 to Space', newFoci=[], eraLines=[
         'You enter an era when you hold enough breakthroughs from it or later.',
         'You entered the Atomic era with your 6th breakthrough from it or later.',
-        'The Space era needs 4 from the Space era: you hold 2.',
-        'Synthesis can be used once in each era: unused in the Atomic era.']),
+        'The Space era needs 4 from the Space era: you hold 2.']),
 }
 STATIC = ('name', 'focus', 'era', 'src', 'also', 'competes', 'rivalOf', 'instead', 'by', 'needs_focus', 'superseded', 'persists', 'mult')
 

@@ -1060,9 +1060,7 @@
     "tier": "CORE",
     "status": "owned",
     "turn": 164,
-    "tags": [
-     "FTL"
-    ]
+    "tags": []
    },
    {
     "id": "MC01",
@@ -3714,9 +3712,7 @@
     "tier": "CORE",
     "status": "owned",
     "turn": 164,
-    "tags": [
-     "FTL"
-    ]
+    "tags": []
    },
    {
     "id": "MC01",
