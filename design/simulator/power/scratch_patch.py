@@ -1,6 +1,6 @@
 """Apply the agreed FTL redesign (as it affects the evidence) to a run's private copy of the tree, $UH_TREE, for
 measurement. scratch_run.sh makes the copy from the design document and deletes it afterwards."""
-import os, sys
+import os, re, sys
 import defaults   # the finalised design's switches, wherever they aren't set
 p = os.environ.get('UH_TREE', '')
 if not p or os.path.realpath(p) == os.path.realpath(defaults.CANONICAL):
@@ -93,7 +93,9 @@ if 'z' in LEVERS:   # ASSUMED Space-era pools for the agreed non-FTL fields (def
             add_after(prev, rid, f'{fname} Space {j} (assumed)', 'STANDARD', 'Space', pre, '(assumed pool)'); prev = rid
                 # atomic Tachyonic shaped like its elemental mirror   # dark energy waits on expansion surveys, not on RC05
 # EARLYFIX=1: the prerequisites proposed by the review of rows available two or more eras early
-# (design/notes/early_rows_review.md), for measurement; each goes in before any commentary after a dash
+# (design/notes/early_rows_review.md), for measurement; each goes in before any commentary after a dash. v3.115 adopted
+# sixteen of them, so on today's tree it adds the other four (Comparative Anatomy, the Windmill, Scientific Method and
+# the Ornithopter's gate) and skips any prerequisite a row already has.
 EARLY = {'ME08': ['WM05'], 'MI08': ['CH01'], 'F07': ['MI08'], 'MC04': ['WM05'], 'MI07': ['MC08'], 'O07': ['O06'],
          'AE09': ['AE01'], 'WM11': ['TR06'], 'MD04': ['PH04'], 'TR05': ['SO11'], 'MA05': ['PH04'], 'MA06': ['SO11'],
          'PH04': ['CU06'], 'PH09': ['PH14'], 'PH10': ['EN01'], 'MA11': ['CP01'], 'MD07': ['CH05'], 'FA11': ['EN06'],
@@ -104,5 +106,15 @@ if os.environ.get('EARLYFIX') == '1':
         for j, ch in enumerate(pre):
             d += ch == '('; d -= ch == ')'
             if d == 0 and pre.startswith(' — ', j): cut = j; break
+        adds = [a for a in adds if not re.search(rf'\b{a}\b', pre)]
         c[4] = pre[:cut] + ''.join(f' + {a}' for a in adds) + pre[cut:]; L[i] = ' | '.join(c)
+# UNIV=1: Scientific Method requires the University, and the University no longer requires the Printing Press (Tamsin's
+# question of 15 October); UNIV=2 as 1, with Scientific Method also requiring the Printing Press
+if os.environ.get('UNIV') in ('1', '2'):
+    i = row('CU06'); c = L[i].split(' | ')
+    assert ' + MC06 (Printing Press)' in c[4], c[4]
+    c[4] = c[4].replace(' + MC06 (Printing Press)', ''); L[i] = ' | '.join(c)
+    i = row('PH04'); c = L[i].split(' | ')
+    assert c[4] == 'PH01', c[4]
+    c[4] = 'PH01 + CU06 (University)' + (' + MC06 (Printing Press)' if os.environ['UNIV'] == '2' else ''); L[i] = ' | '.join(c)
 open(p,'w',encoding='utf-8').write('\n'.join(L)); print("scratch redesign in place")

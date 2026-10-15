@@ -4,6 +4,12 @@ Tamsin asked which breakthroughs can be had an era or more before their own era,
 
 **Method.** `design/simulator/power/early_availability.py` lists the 38 rows. Five researchers took a share each, by theme, and checked history against sources where unsure (links in the per-row notes). Every proposed prerequisite was then checked against the document's rules: no prerequisite from a later era than the row; a CORE row gains only CORE prerequisites; the prerequisite exists in every world the row does; no cycles. The battery passes unchanged with all of them applied. History is the researchers', spot-checked, not verified line by line.
 
+## Status
+
+- **Adopted in v3.115 (15 October):** sixteen of the nineteen prerequisites in section 1, all but Scientific Method, Comparative Anatomy and the Windmill (section 5). Measured on the document against v3.114, two seed sets of 2,700 games each: victory medians within three turns (the expert one to three turns sooner, the novice and average players within a turn), and unfinished games 13 → 19 and 16 → 12, 29 against 31 of 5,400. Every unfinished game, before and after, is a STANDARD build-list idea that never occurred; none involves a changed row. Results: `…_cmpB0…` and `…_cmpA16…`, and `…_cmpB0s2…` and `…_cmpA16s2…` (`SEED0=27000`).
+- **Still open:** the three in section 5; the four rows in section 3; the time limit for the fourteen in section 2.
+- `EARLYFIX=1` now adds only the four not adopted (Comparative Anatomy, the Windmill, Scientific Method and the Ornithopter's gate).
+
 ## Results
 
 - **Not actually early: 1.** The Ornithopter (AE09) cannot be studied before Aeronautics opens, with the Hot Air Balloon or the Internal Combustion Engine. The counting tool and the simulator both ignore focus gates.
@@ -92,6 +98,31 @@ Points for Tamsin within this group:
 ## 4. Not early
 
 | Ornithopter (AE09) | RARE | Early Modern | Aeronautics opens only with the Hot Air Balloon (Early Modern) or the Internal Combustion Engine. Adding the Hot Air Balloon as a prerequisite would only make the gate explicit (the only pre-engine flapping flight, Degen's in 1808, had a balloon carrying half its weight). |
+
+## 5. The three held back (follow-up, 15 October)
+
+Tamsin adopted the other sixteen in v3.115 and asked about these three.
+
+### Scientific Method after the University, with the University no longer after the Printing Press
+
+- **History.** The University's requirement of the press is backwards. Bologna (1088), Paris (c. 1150–1200) and Oxford (from 1167) came three centuries before Gutenberg (c. 1450), and the universities' own book trade, the stationers' *pecia* copying system of the 13th century, was part of the market the press later served. Older institutions of higher learning are earlier still: the Pandidakterion of Constantinople (425), Nalanda (5th c.), al-Qarawiyyin (859) and al-Azhar (970), all Early Medieval, which §2 places in the Classical era.
+- **Structure** (`UNIV=1` in `scratch_patch.py`). The University needs only Writing and Formal Logic, so it is available from the Classical era, one era early. Scientific Method moves from the Classical era (two early) to the Medieval (one early). No other row's availability moves. Rows that cannot be had without the University: 3 → 310 (every row after Scientific Method). Without the Printing Press: 5 → 1 (Public Education, which names it directly). The battery passes unchanged, and the Experimental Laboratory's University is now certain to come first.
+- **What it gives up.** The review named two institutional enablers of the method: the universities, and the press, which made observations fixed, cumulative and checkable. Under this variant the method needs only the first. `UNIV=2` keeps both (Scientific Method after the University and the press): the press then becomes an ancestor of 309 rows again, with no change to any row's availability, since both are Medieval.
+- **Measured** (`UNIV=1` against the v3.115 document, both seed sets, 5,400 games): victory medians within one turn for every player in every world, and 19 unfinished games against 31, all STANDARD build-list ideas that never occurred. The University variant costs the FTL race nothing; the drop in unfinished games is probably noise. Results: `…_cmpU1…` and `…_cmpU1s2…`.
+
+### Comparative Anatomy (O07)
+
+- **What it is.** Named for the discipline of comparing animal bodies, which as a discipline is Cuvier's (*Leçons d'anatomie comparée*, 1800–05). As a Classical row it stands for its beginnings: Alcmaeon's and Aristotle's animal dissections, and Galen's anatomy, which was largely of apes and pigs.
+- **What it does.** Nothing of its own. Its only benefit is opening the Medicine focus, which Herbal Medicine plus Writing also open, and normally first: Writing is an Ancient CORE row, while Comparative Anatomy is a Classical row whose price carries the era premium until the Classical era (reasoned, not measured: the simulator ignores focus gates). Structurally it is a single gate: its only dependent is Anatomy Study (MD03), and through it 36 rows (Germ Theory, Vaccination, the Medical School).
+- **How it got here.** The first draft (13 February) made it STANDARD, with the Medicine focus, better unit healing and an Anatomist specialist. It is CORE because it opens a focus, the first of v3.59's criteria. On 27 September the consolidation cut its building, the Anatomy Theatre (a Scientist-slot shell), and kept the row because it "unlocks Medicine".
+- **Verdict:** not justified as it stands. It duplicates Anatomy Study, which is Classical too and covers the same tradition (Herophilus and Erasistratus; Galen).
+- **Suggested fix:** merge it into Anatomy Study: Anatomy Study requires Animal Behavior Study (O03) + Herbal Medicine (G03) + Natural Philosophy (O06, which brings Writing), and the Medicine focus opens with Herbal Medicine + Writing alone. Anatomy Study stays available from the Classical era, as today, and nothing downstream moves. The tree loses one CORE row (~544). If a separate row is wanted instead, it would need a benefit of its own (v3.84), and its name fits the Early Modern discipline better than a Classical one.
+
+### The Windmill (MC04)
+
+- **History.** Partly. The European post mill (Weedley, Yorkshire, 1185) took the water mill's right-angle gearing and millstones and replaced the wheel with sails, so in Europe the geared water mill was its technical parent. But the windmill spread where water power was lacking or taken (flat, dry or freezing country, and streams whose mills a lord owned), and the earlier Persian mill of Sistan (first secure records in the 10th century) needed no gearing at all: its sails turned a vertical shaft straight into the millstone. What both needed was the mill and the sail, and the row's present prerequisites, Gearing and Sail Invention, already say exactly that.
+- **Verdict:** the Water Mill proposal is withdrawn; the remaining earliness is demand, for the time limit (which would open it in the Classical era, where the Sistan mills fall).
+- **One change worth making:** today the Windmill already needs water, indirectly. Sail Invention needs the Dugout Canoe, which needs the Reed/Log Raft and its "Coastal or River location". Civ V's Windmill is the mill for cities with no river, so the dry inland civilisation that most needs it cannot have it. Weaving (TX01, CORE, Primitive) in place of Sail Invention keeps the cloth (Sail Invention itself needs Weaving), drops the coast, and changes no availability: the row stays Ancient-available. The wider problem, terrain conditions on CORE rows that gate the industrial chain and the FTL race, is in `design/notes/deferred_tasks.md`, *Decide the terrain conditions on CORE rows*.
 
 ## Side findings
 
