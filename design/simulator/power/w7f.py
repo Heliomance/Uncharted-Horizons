@@ -178,6 +178,12 @@ HF.INCOME_FULL = os.environ.get('INCOMEFULL') == '1'   # income follows all Insi
 HF.EXPCAP = float(os.environ['EXPCAP']) if os.environ.get('EXPCAP') else None; HF.EXPCAP_ERA = HF.EO.index(os.environ['EXPCAP_ERA']) if os.environ.get('EXPCAP_ERA') else None
 if 'w' in _L: BUILD['Wormhole'].append(['MS17'])   # Wormhole's engineering row outside its tests (its price: prices.py)
 if 'y' in _L and world is None: BUILD['Tachyonic'] = [g for g in BUILD['Tachyonic'] if g != ['NP11']]   # scenario: atomic Tachyonic without NP11 in its build
+FTL_ROWS = ({o for gs in BUILD.values() for g in gs for o in g} | {h for cs in COND.values() for c in cs for h in HOST[c]}
+            | {u for cs in COND.values() for c in cs for u in INSTR.get(c, [])} | {CLOSE})   # every breakthrough the FTL screen names in this world
+HF.FTL_OCC = os.environ.get('FTLOCC') == '1'   # FTL-related ideas occur as soon as their prerequisites are met and their focus is funded (harness_ftl_e.FTL_OCC)
+HF.FTL_ROWS = frozenset(FTL_ROWS); HF.FTL_OCC_FROM = os.environ.get('FTLOCCFROM') or None   # FTLOCCFROM=RC01: only once the FTL screen is open
+TOVICTORY = os.environ.get('TOVICTORY') == '1'   # with RUNON=1: play each game on to its launch turn (victory.py) instead of stopping at the race's finish
+if TOVICTORY: import victory as V
 SEED0 = int(os.environ.get('SEED0', '17000'))
 POOL = json.load(open(f"/home/user/Uncharted-Horizons/design/simulator/power/results/w7f_{sys.argv[1]}_pool{os.environ.get('POOLTAG', '')}.json")) if os.environ.get('DIFF') == '1' else None   # POOLTAG: rivals made under the same settings (make_pool.sh)
 CFG = json.load(open('/home/user/Uncharted-Horizons/design/simulator/power/w7c_cfg.json'))   # the discovery model (the workshop's candidate)
@@ -251,6 +257,16 @@ def play(s, m, a):
         HF.TARGET_FN = lambda have, _sp=_sp: smart_targets([[k] for k in _sp if k not in have], have)
     HF.RUN_ON = os.environ.get('RUNON') == '1'
     HF.STOP_FN = (lambda have, m=m, state=state: state['cert'] is not None and all(any(o in have for o in g) for g in BUILD[m])) if HF.RUN_ON else None
+    HF.PROTO_UNTIL = None
+    if HF.RUN_ON and TOVICTORY:   # play on to the launch: the prototype (from the funded share), then the SS FTL Drive (from Production), as victory.py costs them
+        def stop(have, m=m, state=state):
+            if state.get('vt') is None:
+                if not (state['cert'] is not None and all(any(o in have for o in g) for g in BUILD[m])): return False
+                fin = max(state['cert'][0], max(min(have[o][0] for o in g if o in have) for g in BUILD[m]))
+                proto = fin + V.prototype_turns(fin, HF.ECON); state['vt'] = proto + V.drive_turns(proto, HF.ECON, m in V.EXOTIC) + 1
+                HF.PROTO_UNTIL = proto
+            return HF.CLOCK['turn'] > state['vt']
+        HF.STOP_FN = stop
     if os.environ.get('PLAYER') in ('generalist', 'aspirant', 'specialist'): HF.STOP_FN = None
     if POOL is not None:                  # five rivals with the same viable method, replayed from the pool (different seeds)
         pm = [r for r in POOL if r['m'] == m]; j0 = (s // len(COND)) * 5
@@ -309,7 +325,7 @@ def play(s, m, a):
         why['_end'] = f"stopped turn {log[-1][0] if log else '?'}, development {log[-1][1]:.2f}" if log else ''
     if os.environ.get('ACCT'):                    # ACCT=<path>: the engine's accounts, written separately below
         diag = dict(diag or {}, _acct=dict(HF.run.acct, lost_at=HF.run.lost_at, opened=HF.run.opened, occ=HF.run.occ, cert=state['cert'][0] if state['cert'] else None, built=built))
-    rec = dict(seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
+    rec = dict(vt=state.get('vt'), seq=state.get('seq'), truth=a, t=(t if os.environ.get('SAVE_T') == '1' else None), diffs=list(HF.DIFF_LOG), why=why, gate=gate, ends=[e for e in HF.END_LOG], m=m, space=space, close=t.get(CLOSE), built=built, cert=state['cert'][0] if state['cert'] else None, results=state['cert'][1] if state['cert'] else None, diag=diag)
     if HF.COMPETE: rec['locked'] = sorted(HF.run.locked)   # Competing Solutions: the alternatives this civilisation locked out
     return rec
 WORKERS = int(os.environ.get('WORKERS') or os.cpu_count() or 1)   # games played in parallel, one process each (WORKERS=1: one after another)

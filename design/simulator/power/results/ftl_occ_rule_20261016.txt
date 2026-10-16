@@ -1,0 +1,271 @@
+FTL-related ideas occurring as soon as their prerequisites are met while their focus is funded (Tamsin, 16 Oct 2026: "What
+happens if specifically ftl-related ideas occur as soon as two things are simultaneously true: all prereqs are met, and the
+focus it belongs to is funded? ... include details of how it changes the ratio of ftl-related to non-ftl-related
+breakthroughs discovered on the path to victory").
+
+CAVEAT (Tamsin, the same day): the benchmark players choose what to fund partly from hidden information, which ideas have
+occurred, though a player cannot know that for an idea that is not revealed. Everything below was measured with the players
+as they then were (v3.125's), the baseline included, so the comparisons are like for like; the figures are to be re-measured
+with players who decide on what the screens show (VISIBLE, deferred_tasks.md).
+
+The rule as simulated (w7f.py FTLOCC=1; harness_ftl_e.FTL_OCC):
+- FTL-related = every breakthrough the FTL screen names in the world: each method's build needs, the breakthroughs that test
+  its conditions, the instruments' breakthroughs and the unified theory (atomic 30, of which 25 STANDARD; elemental 26, 22
+  STANDARD; the CORE ones already occur at once). It applies from the start of the game, not only once the screen is open.
+- Once this turn's funded focus is settled (an Endeavour or the prototype funds none), each of its FTL-related ideas whose
+  prerequisites are met occurs at once and takes its share that turn; one whose moment had passed comes back the same way.
+- The players use it: choosing a focus, they count the FTL ideas that funding it would make occur as if under study (the
+  FTL screen's "progress is possible now in X" invites exactly that).
+- Rivals are made under the same rule (make_pool.sh <world> FO FTLOCC=1).
+- TOVICTORY=1 plays each game on past the race's finish to its launch turn (victory.py): the prototype takes the funded share
+  (80%), the spread goes on, then the SS FTL Drive turns with ordinary research. Races are identical to the stopped games.
+
+== 1. Balance and parity (all 15 conditions, three players, 60 games a cell, none unfinished; ftl_sync.py)
+   Setting                                       Largest  RMS   Win shares  Victory (305 / 305 / 380)
+   v3.125                                          9.7    6.1   25-80%      304 / 307 / 381
+   The rule (FO)                                   2.6    1.6   22-70%      296 / 297 / 369   outside the 5-turn limit
+   The rule, Space price x1.5 (FOS15; own rivals)  3.7    2.0   25-70%      302 / 303 / 378   at parity
+   The rule, Space price x1.9 (FOS19; own rivals)  5.4    3.0   26-74%      309 / 310 / 387   the average player outside
+   The slowest method left is Tunnelling (+2 to +4): its Planetary Data Networks (CP16) is not named on the FTL screen, so
+   the rule does not reach it (19 turns from available to discovered, against 2-6 for every named step).
+
+== 2. What is discovered on the path to victory, mean a game (ftl_share.py; played on to the launch with TOVICTORY=1)
+   The whole path, to the launch:            FTL     non-FTL (Space-era / earlier)   FTL share   Space era: FTL share
+     expert   v3.125 (launch 304)            22.5    273.8 (18.0 / 255.8)            7.6%        46%
+              the rule (296)                 21.0    259.0 ( 9.2 / 249.8)            7.5%        60%
+              the rule at parity (302)       20.5    257.9 ( 7.5 / 250.4)            7.4%        64%
+     novice   v3.125 (307)                   22.3    277.4 (19.4 / 258.0)            7.4%        44%
+              the rule (297)                 21.3    264.0 (10.6 / 253.3)            7.5%        57%
+              the rule at parity (303)       20.8    262.7 ( 8.6 / 254.2)            7.4%        61%
+     average  v3.125 (381)                   22.1    276.9 (18.2 / 258.7)            7.4%        45%
+              the rule (369)                 21.1    264.4 (10.6 / 253.7)            7.4%        57%
+              the rule at parity (378)       20.6    263.3 ( 8.5 / 254.7)            7.3%        61%
+   At the same turn (v3.125 counted at the rule's launch turns 296 / 297 / 369, against the rule at its launch): v3.125 holds
+   21.0 / 20.7 / 20.5 FTL and 12.4 / 13.7 / 12.9 non-FTL Space-era breakthroughs, against the rule's 21.0 / 21.3 / 21.1 and
+   9.2 / 10.6 / 10.6. Of the expert's Space-era loss (18.0 -> 9.2), about 3 is the rule crowding the funded fields at the
+   same turn and the rest the shorter game; at parity the dearer Space era takes about 6 more.
+   Earlier, by turn 270 / 271 / 338 (when 10% of the rule's races had finished): the rule +1.6 / +2.5 / +2.4 FTL and -3.3 /
+   -3.0 / -2.9 non-FTL (-0.7 / -0.6 / -0.7 Space-era).
+
+== 3. Spreads in full
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), FO 296 (-9))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    FO     field   293 | Warp   -3 (68%)  Wormh   -1 (62%)  Hyper   -1 (60%)  Tachy   +2 (38%)  Tunne   +4 (22%) | max   4, rms  2.4
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    FO     field   296 | Warp   -3 (68%)  Wormh   -1 (60%)  Hyper   +0 (46%)  Tachy   +1 (42%)  Plenu   +1 (34%) | max   3, rms  1.5
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    FO     field   296 | Warp   -1 (62%)  Wormh   +0 (54%)  Hyper   +0 (55%)  Tachy   +1 (42%)  Plenu   +2 (37%) | max   2, rms  1.1
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), FO 297 (-8))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    FO     field   295 | Warp   -2 (58%)  Wormh   -2 (65%)  Hyper   -1 (57%)  Tachy   +1 (45%)  Tunne   +2 (26%) | max   2, rms  1.9
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    FO     field   297 | Warp   -1 (64%)  Wormh   -1 (61%)  Hyper   +0 (48%)  Tachy   +0 (42%)  Plenu   +2 (35%) | max   2, rms  0.9
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    FO     field   297 | Warp   +0 (57%)  Wormh   +0 (55%)  Hyper   +0 (48%)  Tachy   +1 (42%)  Plenu   +1 (48%) | max   1, rms  0.6
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), FO 369 (-11))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    FO     field   367 | Warp   -2 (57%)  Wormh   -4 (68%)  Hyper   -1 (52%)  Tachy   +0 (47%)  Tunne   +4 (25%) | max   4, rms  2.9
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    FO     field   370 | Warp   -2 (70%)  Wormh   -1 (62%)  Hyper   +1 (44%)  Tachy   +2 (39%)  Plenu   +3 (36%) | max   3, rms  1.9
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    FO     field   371 | Warp   -1 (60%)  Wormh   -2 (59%)  Hyper   +0 (48%)  Tachy   +0 (44%)  Plenu   +2 (40%) | max   2, rms  1.4
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  FO     largest  2.6, rms  1.6; win shares 22%-70%; unfinished 0 of 2700 games
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), FOS15@1.5 302 (-3), FOS19@1.9 309 (+4))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    FOS15@1.5 field   300 | Warp   -1 (57%)  Wormh   -2 (61%)  Hyper   -2 (63%)  Tachy   +2 (38%)  Tunne   +3 (31%) | max   3, rms  2.1
+    FOS19@1.9 field   305 | Warp   -1 (60%)  Wormh   -1 (61%)  Hyper   -1 (62%)  Tachy   +2 (41%)  Tunne   +7 (26%) | max   7, rms  3.3
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    FOS15@1.5 field   303 | Warp   -1 (63%)  Wormh   -1 (54%)  Hyper   +0 (55%)  Tachy   +0 (47%)  Plenu   +4 (32%) | max   4, rms  1.7
+    FOS19@1.9 field   310 | Warp   -2 (61%)  Wormh   +0 (52%)  Hyper   -2 (62%)  Tachy   +2 (39%)  Plenu   +4 (35%) | max   4, rms  2.3
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    FOS15@1.5 field   303 | Warp   -1 (59%)  Wormh   +0 (51%)  Hyper   -1 (59%)  Tachy   +1 (44%)  Plenu   +4 (38%) | max   4, rms  1.9
+    FOS19@1.9 field   311 | Warp   -2 (63%)  Wormh   +0 (51%)  Hyper   -2 (58%)  Tachy   +2 (45%)  Plenu   +5 (33%) | max   5, rms  2.7
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), FOS15@1.5 303 (-2), FOS19@1.9 310 (+5))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    FOS15@1.5 field   302 | Warp   -1 (54%)  Wormh   +0 (59%)  Hyper   -1 (58%)  Tachy   +1 (38%)  Tunne   +0 (40%) | max   1, rms  0.8
+    FOS19@1.9 field   308 | Warp   +0 (47%)  Wormh   -3 (65%)  Hyper   -2 (63%)  Tachy   +2 (43%)  Tunne   +4 (33%) | max   4, rms  2.4
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    FOS15@1.5 field   304 | Warp   -0 (50%)  Wormh   -2 (65%)  Hyper   -2 (62%)  Tachy   +0 (47%)  Plenu   +4 (26%) | max   4, rms  2.3
+    FOS19@1.9 field   311 | Warp   +2 (40%)  Wormh   +0 (53%)  Hyper   -4 (74%)  Tachy   +1 (47%)  Plenu   +3 (36%) | max   4, rms  2.4
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    FOS15@1.5 field   304 | Warp   +2 (47%)  Wormh   -1 (61%)  Hyper   +0 (52%)  Tachy   +0 (56%)  Plenu   +4 (34%) | max   4, rms  2.2
+    FOS19@1.9 field   312 | Warp   +2 (44%)  Wormh   -1 (56%)  Hyper   -2 (61%)  Tachy   -2 (59%)  Plenu   +6 (29%) | max   6, rms  2.9
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), FOS15@1.5 378 (-2), FOS19@1.9 387 (+7))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    FOS15@1.5 field   376 | Warp   +0 (47%)  Wormh   -4 (70%)  Hyper   -2 (55%)  Tachy   +1 (46%)  Tunne   +2 (32%) | max   4, rms  2.2
+    FOS19@1.9 field   384 | Warp   +2 (41%)  Wormh   -5 (69%)  Hyper   -2 (58%)  Tachy   -2 (54%)  Tunne   +6 (28%) | max   6, rms  3.6
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    FOS15@1.5 field   379 | Warp   +1 (49%)  Wormh   -2 (63%)  Hyper   -1 (64%)  Tachy   +0 (50%)  Plenu   +6 (25%) | max   6, rms  2.9
+    FOS19@1.9 field   388 | Warp   +1 (44%)  Wormh   -2 (56%)  Hyper   -3 (70%)  Tachy   +1 (45%)  Plenu   +5 (35%) | max   5, rms  2.8
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    FOS15@1.5 field   381 | Warp   +2 (43%)  Wormh   -3 (62%)  Hyper   -1 (54%)  Tachy   -1 (53%)  Plenu   +3 (37%) | max   3, rms  2.2
+    FOS19@1.9 field   390 | Warp   +1 (46%)  Wormh   -2 (59%)  Hyper   -3 (59%)  Tachy   -2 (58%)  Plenu   +9 (28%) | max   9, rms  4.4
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  FOS15@1.5 largest  3.7, rms  2.0; win shares 25%-70%; unfinished 0 of 2700 games
+  FOS19@1.9 largest  5.4, rms  3.0; win shares 26%-74%; unfinished 0 of 2700 games
+
+== 4. Discoveries in full (V125T, FOT, FOS15T: TOVICTORY=1 SAVE_T=1)
+Breakthroughs held at the race's finish, mean a game (all 15 conditions, 900 games a player and setting).
+FTL own = the working method's needs and tests; FTL other = the other hypotheses'; non-FTL split Space / earlier eras.
+
+=== expert
+  V125T            to the race's finish         turn   288 | FTL  20.4 (own  8.6, other 11.8) | non-FTL 261.7 (Space 11.2, earlier 250.5) | FTL share  7.2%, FTL:non-FTL 1:12.8 | Space era: FTL 13.5, non-FTL 11.2 ( 55% FTL) | from rivals 40.4
+  V125T              of which after the screen  turn   288 | FTL  18.7 (own  8.0, other 10.8) | non-FTL 110.8 (Space 11.2, earlier  99.6) | FTL share 14.5%, FTL:non-FTL 1: 5.9 | Space era: FTL 13.5, non-FTL 11.2 ( 55% FTL) | from rivals 30.2
+  V125T            to the launch                turn   304 | FTL  22.5 (own  9.1, other 13.4) | non-FTL 273.8 (Space 18.0, earlier 255.8) | FTL share  7.6%, FTL:non-FTL 1:12.2 | Space era: FTL 15.2, non-FTL 18.0 ( 46% FTL) | from rivals 45.0
+  V125T              of which after the screen  turn   304 | FTL  20.8 (own  8.4, other 12.4) | non-FTL 122.9 (Space 18.0, earlier 104.9) | FTL share 14.5%, FTL:non-FTL 1: 5.9 | Space era: FTL 15.2, non-FTL 18.0 ( 46% FTL) | from rivals 34.8
+  FOT              to the race's finish         turn   276 | FTL  18.7 (own  8.4, other 10.3) | non-FTL 243.9 (Space  5.0, earlier 238.9) | FTL share  7.1%, FTL:non-FTL 1:13.1 | Space era: FTL 12.4, non-FTL  5.0 ( 71% FTL) | from rivals 32.0
+  FOT                of which after the screen  turn   276 | FTL  17.0 (own  7.7, other  9.2) | non-FTL  93.0 (Space  5.0, earlier  88.0) | FTL share 15.4%, FTL:non-FTL 1: 5.5 | Space era: FTL 12.4, non-FTL  5.0 ( 71% FTL) | from rivals 21.9
+  FOT              to the launch                turn   296 | FTL  21.0 (own  9.0, other 12.0) | non-FTL 259.0 (Space  9.2, earlier 249.8) | FTL share  7.5%, FTL:non-FTL 1:12.3 | Space era: FTL 13.9, non-FTL  9.2 ( 60% FTL) | from rivals 37.0
+  FOT                of which after the screen  turn   296 | FTL  19.3 (own  8.3, other 11.0) | non-FTL 108.1 (Space  9.2, earlier  98.9) | FTL share 15.1%, FTL:non-FTL 1: 5.6 | Space era: FTL 13.9, non-FTL  9.2 ( 60% FTL) | from rivals 26.8
+  FOS15T           to the race's finish         turn   284 | FTL  18.7 (own  8.4, other 10.3) | non-FTL 245.8 (Space  4.9, earlier 240.9) | FTL share  7.1%, FTL:non-FTL 1:13.1 | Space era: FTL 12.3, non-FTL  4.9 ( 72% FTL) | from rivals 33.9
+  FOS15T             of which after the screen  turn   284 | FTL  17.0 (own  7.8, other  9.2) | non-FTL  94.9 (Space  4.9, earlier  90.0) | FTL share 15.2%, FTL:non-FTL 1: 5.6 | Space era: FTL 12.3, non-FTL  4.9 ( 72% FTL) | from rivals 23.8
+  FOS15T           to the launch                turn   302 | FTL  20.5 (own  9.0, other 11.5) | non-FTL 257.9 (Space  7.5, earlier 250.4) | FTL share  7.4%, FTL:non-FTL 1:12.6 | Space era: FTL 13.4, non-FTL  7.5 ( 64% FTL) | from rivals 38.5
+  FOS15T             of which after the screen  turn   302 | FTL  18.8 (own  8.3, other 10.5) | non-FTL 107.0 (Space  7.5, earlier  99.5) | FTL share 15.0%, FTL:non-FTL 1: 5.7 | Space era: FTL 13.4, non-FTL  7.5 ( 64% FTL) | from rivals 28.3
+
+=== novice
+  V125T            to the race's finish         turn   291 | FTL  20.5 (own  8.9, other 11.6) | non-FTL 267.6 (Space 12.6, earlier 255.0) | FTL share  7.1%, FTL:non-FTL 1:13.1 | Space era: FTL 13.4, non-FTL 12.6 ( 52% FTL) | from rivals 48.5
+  V125T              of which after the screen  turn   291 | FTL  18.5 (own  8.1, other 10.5) | non-FTL  89.1 (Space 12.6, earlier  76.5) | FTL share 17.2%, FTL:non-FTL 1: 4.8 | Space era: FTL 13.4, non-FTL 12.6 ( 52% FTL) | from rivals 33.9
+  V125T            to the launch                turn   307 | FTL  22.3 (own  9.2, other 13.2) | non-FTL 277.4 (Space 19.4, earlier 258.0) | FTL share  7.4%, FTL:non-FTL 1:12.4 | Space era: FTL 15.0, non-FTL 19.4 ( 44% FTL) | from rivals 51.2
+  V125T              of which after the screen  turn   307 | FTL  20.4 (own  8.4, other 12.0) | non-FTL  98.9 (Space 19.4, earlier  79.5) | FTL share 17.1%, FTL:non-FTL 1: 4.8 | Space era: FTL 15.0, non-FTL 19.4 ( 44% FTL) | from rivals 36.7
+  FOT              to the race's finish         turn   278 | FTL  19.4 (own  8.8, other 10.6) | non-FTL 253.2 (Space  5.6, earlier 247.6) | FTL share  7.1%, FTL:non-FTL 1:13.1 | Space era: FTL 12.5, non-FTL  5.6 ( 69% FTL) | from rivals 43.9
+  FOT                of which after the screen  turn   278 | FTL  17.5 (own  8.0, other  9.5) | non-FTL  74.7 (Space  5.6, earlier  69.1) | FTL share 19.0%, FTL:non-FTL 1: 4.3 | Space era: FTL 12.5, non-FTL  5.6 ( 69% FTL) | from rivals 29.3
+  FOT              to the launch                turn   297 | FTL  21.3 (own  9.1, other 12.2) | non-FTL 264.0 (Space 10.6, earlier 253.3) | FTL share  7.5%, FTL:non-FTL 1:12.4 | Space era: FTL 14.1, non-FTL 10.6 ( 57% FTL) | from rivals 45.6
+  FOT                of which after the screen  turn   297 | FTL  19.4 (own  8.4, other 11.1) | non-FTL  85.5 (Space 10.6, earlier  74.8) | FTL share 18.5%, FTL:non-FTL 1: 4.4 | Space era: FTL 14.1, non-FTL 10.6 ( 57% FTL) | from rivals 31.1
+  FOS15T           to the race's finish         turn   286 | FTL  19.5 (own  8.8, other 10.6) | non-FTL 254.9 (Space  5.3, earlier 249.6) | FTL share  7.1%, FTL:non-FTL 1:13.1 | Space era: FTL 12.5, non-FTL  5.3 ( 70% FTL) | from rivals 45.5
+  FOS15T             of which after the screen  turn   286 | FTL  17.6 (own  8.1, other  9.5) | non-FTL  76.4 (Space  5.3, earlier  71.1) | FTL share 18.7%, FTL:non-FTL 1: 4.3 | Space era: FTL 12.5, non-FTL  5.3 ( 70% FTL) | from rivals 31.0
+  FOS15T           to the launch                turn   303 | FTL  20.8 (own  9.1, other 11.7) | non-FTL 262.7 (Space  8.6, earlier 254.2) | FTL share  7.4%, FTL:non-FTL 1:12.6 | Space era: FTL 13.6, non-FTL  8.6 ( 61% FTL) | from rivals 47.0
+  FOS15T             of which after the screen  turn   303 | FTL  18.9 (own  8.3, other 10.6) | non-FTL  84.2 (Space  8.6, earlier  75.7) | FTL share 18.4%, FTL:non-FTL 1: 4.4 | Space era: FTL 13.6, non-FTL  8.6 ( 61% FTL) | from rivals 32.4
+
+=== average
+  V125T            to the race's finish         turn   361 | FTL  20.2 (own  8.8, other 11.4) | non-FTL 267.1 (Space 11.8, earlier 255.3) | FTL share  7.0%, FTL:non-FTL 1:13.2 | Space era: FTL 13.1, non-FTL 11.8 ( 53% FTL) | from rivals 49.6
+  V125T              of which after the screen  turn   361 | FTL  18.3 (own  8.0, other 10.3) | non-FTL  88.0 (Space 11.8, earlier  76.2) | FTL share 17.2%, FTL:non-FTL 1: 4.8 | Space era: FTL 13.1, non-FTL 11.8 ( 53% FTL) | from rivals 34.0
+  V125T            to the launch                turn   381 | FTL  22.1 (own  9.1, other 13.0) | non-FTL 276.9 (Space 18.2, earlier 258.7) | FTL share  7.4%, FTL:non-FTL 1:12.5 | Space era: FTL 14.8, non-FTL 18.2 ( 45% FTL) | from rivals 52.5
+  V125T              of which after the screen  turn   381 | FTL  20.2 (own  8.3, other 11.8) | non-FTL  97.8 (Space 18.2, earlier  79.6) | FTL share 17.1%, FTL:non-FTL 1: 4.8 | Space era: FTL 14.8, non-FTL 18.2 ( 45% FTL) | from rivals 37.0
+  FOT              to the race's finish         turn   347 | FTL  19.3 (own  8.8, other 10.5) | non-FTL 254.2 (Space  5.8, earlier 248.3) | FTL share  7.1%, FTL:non-FTL 1:13.2 | Space era: FTL 12.4, non-FTL  5.8 ( 68% FTL) | from rivals 45.5
+  FOT                of which after the screen  turn   347 | FTL  17.4 (own  8.0, other  9.4) | non-FTL  75.1 (Space  5.8, earlier  69.3) | FTL share 18.8%, FTL:non-FTL 1: 4.3 | Space era: FTL 12.4, non-FTL  5.8 ( 68% FTL) | from rivals 29.9
+  FOT              to the launch                turn   369 | FTL  21.1 (own  9.1, other 12.0) | non-FTL 264.4 (Space 10.6, earlier 253.7) | FTL share  7.4%, FTL:non-FTL 1:12.5 | Space era: FTL 13.9, non-FTL 10.6 ( 57% FTL) | from rivals 47.0
+  FOT                of which after the screen  turn   369 | FTL  19.2 (own  8.4, other 10.9) | non-FTL  85.3 (Space 10.6, earlier  74.7) | FTL share 18.4%, FTL:non-FTL 1: 4.4 | Space era: FTL 13.9, non-FTL 10.6 ( 57% FTL) | from rivals 31.4
+  FOS15T           to the race's finish         turn   357 | FTL  19.4 (own  8.8, other 10.6) | non-FTL 255.6 (Space  5.4, earlier 250.2) | FTL share  7.0%, FTL:non-FTL 1:13.2 | Space era: FTL 12.4, non-FTL  5.4 ( 70% FTL) | from rivals 47.0
+  FOS15T             of which after the screen  turn   357 | FTL  17.5 (own  8.0, other  9.4) | non-FTL  76.6 (Space  5.4, earlier  71.1) | FTL share 18.6%, FTL:non-FTL 1: 4.4 | Space era: FTL 12.4, non-FTL  5.4 ( 70% FTL) | from rivals 31.4
+  FOS15T           to the launch                turn   378 | FTL  20.6 (own  9.1, other 11.5) | non-FTL 263.3 (Space  8.5, earlier 254.7) | FTL share  7.3%, FTL:non-FTL 1:12.8 | Space era: FTL 13.4, non-FTL  8.5 ( 61% FTL) | from rivals 48.4
+  FOS15T             of which after the screen  turn   378 | FTL  18.7 (own  8.3, other 10.4) | non-FTL  84.2 (Space  8.5, earlier  75.7) | FTL share 18.2%, FTL:non-FTL 1: 4.5 | Space era: FTL 13.4, non-FTL  8.5 ( 61% FTL) | from rivals 32.9
+
+
+== 5. Which breakthroughs move: share of games holding each at the race's finish, expert, v3.125 -> the rule
+
+== FTL-related: share of all games holding each at the race's finish, V125 -> FO (largest falls, then largest rises)
+   ES07    Solar Panel                            Energy Systems         64% ->   19%
+   ES18    Superconducting Energy Storage         Energy Systems         66% ->   24%
+   SE02    Orbital Assembly                       Space Engineering      88% ->   52%
+   ES15    Quintessic Power Plant                 Energy Systems         62% ->   46%
+   NP15    Superconducting Storage Rings          Nuclear Physics        19% ->    8%
+   MA19    Higher-Dimensional Geometry            Mathematics            31% ->   20%
+   TH20    Boundary Ring / Cycle-Limit Ring       Thermodynamics         24% ->   13%
+   QM-E23  Current Sail                           Aeronautics            23% ->   14%
+   MS08    Exotic Matter Engineering              Materials Science      62% ->   53%
+   ES08    Fusion Reactor                         Energy Systems          7% ->    1%
+   GN05    Synthetic Biology                      Genetics                6% ->    0%
+   CP10    Quantum Computing                      Computing              12% ->    7%
+   ...
+   RC05    Dark Matter Identification             Relativity & Cosmolo   93% ->   95%
+   QP11    Exotic Matter Synthesis                Quantum Physics        31% ->   33%
+   QM-E12  Higher Strata Theory                   Quintessic Physics     63% ->   65%
+   RC06    Dark Energy Understanding              Relativity & Cosmolo   94% ->   96%
+   QP09    String Theory Validation               Quantum Physics        30% ->   33%
+   QP15    Beyond the Standard Model              Quantum Physics        27% ->   33%
+   QM-E28  Beyond the Catalogue (Beyond the Codex Quintessic Physics     58% ->   64%
+   QP14    Quantum Communication                  Quantum Physics        22% ->   29%
+
+== non-FTL, Space era: share of all games holding each at the race's finish, V125 -> FO (largest falls, then largest rises)
+   CP16    Planetary Data Networks                Computing              45% ->   12%
+   RC08    Gravitational Coupling Experiment      Relativity & Cosmolo   82% ->   49%
+   SE13    Planetary Defense                      Space Engineering      49% ->   17%
+   SE03    Radiation Shielding                    Space Engineering      55% ->   25%
+   MA15    Optimisation Theory                    Mathematics            48% ->   21%
+   RK10    Fusion Drive                           Rocketry               42% ->   18%
+   AE17    Air Mobility                           Aeronautics            30% ->    6%
+   AE16    Airborne Assault Doctrine              Aeronautics            30% ->    7%
+   AE15    Jet-Stream Navigation                  Aeronautics            28% ->    8%
+   RK17    Reconnaissance Satellites              Rocketry               19% ->    0%
+   TH15    Waste-Heat Recovery                    Thermodynamics         32% ->   13%
+   ES22    Smart Grid                             Energy Systems         18% ->    0%
+   ...
+   ES20    Continental Interconnects              Energy Systems          0% ->    0%
+   RK06    Space Station                          Rocketry                0% ->    0%
+   MA21    Automated Mathematics                  Mathematics             0% ->    0%
+   GN06    Human Genetic Enhancement              Genetics                0% ->    0%
+   MS15    Modular Platforms                      Materials Science       0% ->    0%
+   ES12    Zero-Point Energy                      Energy Systems          0% ->    0%
+   TH21    Atmospheric Heat Management            Thermodynamics          0% ->    0%
+   QP07    Quantum Entanglement Mastery           Quantum Physics        33% ->   33%
+
+== non-FTL, earlier eras: share of all games holding each at the race's finish, V125 -> FO (largest falls, then largest rises)
+   CP06    Cryptography                           Computing              91% ->   42%
+   WA20    Drone Warfare                          Warfare                64% ->   16%
+   MD06    Antibiotics                            Medicine               75% ->   28%
+   CP07    Artificial Intelligence (Narrow)       Computing              90% ->   43%
+   CP08    Machine Learning                       Computing              52% ->   10%
+   RK16    Satellite Communications               Rocketry               85% ->   46%
+   CP04    Internet                               Computing              96% ->   58%
+   EN10    Miniaturization                        Electronics            48% ->   11%
+   SF13    Submarine                              Seafaring              90% ->   56%
+   AE12    Grand Aerostat                         Aeronautics            61% ->   28%
+   SE01    Life Support Systems                   Space Engineering      95% ->   64%
+   GN02    DNA Structure                          Genetics               81% ->   50%
+   ...
+   WA11    Trebuchet                              Warfare               100% ->  100%
+   AH14    War Elephant Tradition                 Animal Husbandry        1% ->    1%
+   QM-E04  Unified Field Theory (Elemental)       Quintessic Physics     67% ->   67%
+   MC07    Hero's Aeolipile (Early Steam)         Mechanics              12% ->   12%
+   CU07    Renaissance                            Philosophy And The A  100% ->  100%
+   NP08    Thorium Reactor                        Nuclear Physics         0% ->    0%
+   CH09    Petrochemistry                         Chemistry             100% ->  100%
+   CP13    Analog Computing Mastery               Computing              95% ->   97%
+
+== 6. The expert's chain steps under the rule (ftl_balance.py --chains cmpFO X)
+
+=== expert: median discovery turn of each build row, and (in brackets) median turns from its prerequisites met to it
+  familiar  Warp       RC01 177 (30) | QP08 251 (37) | QP11 260 (9) | MS08 268 (7) | ES06 239 (19) | ES07 268 (28) | ES08 270 (46) | ES18 271 (49) | EL11 224 (32)
+  familiar  Wormhole   RC01 176 (28) | QP08 251 (38) | QP11 262 (9) | MS08 268 (7) | RC04 234 (22) | QP12 251 (38) | MA13 173 (27) | MS17 273 (4)
+  familiar  Hyperspace QP08 251 (38) | MA13 173 (27) | ES06 239 (18) | ES07 260 (23) | MA19 272 (2) | MA15 270 (31)
+  familiar  Tunnelling QP02 207 (14) | CP10 276 (3) | MS02 228 (20) | QP14 265 (5) | CP21 279 (2) | CP16 272 (19) | QP07 252 (24)
+  familiar  Tachyonic  QP06 235 (22) | QP08 250 (38) | SE02 266 (14) | ES06 240 (18) | ES07 280 (6) | NP15 274 (35) | EL11 222 (32)
+  Process   Warp       RC01 175 (28) | QM-E27 251 (34) | QM-E06 264 (13) | MS08 271 (5) | ES07 273 (33) | ES15 255 (47) | QM-E05 250 (40) | ES18 274 (48) | EL11 226 (34)
+  Process   Wormhole   RC01 176 (29) | QM-E27 252 (34) | QM-E06 265 (13) | MS08 270 (6) | RC04 234 (24) | QM-E13 250 (40) | MA13 175 (29) | MS17 276 (6)
+  Process   Hyperspace QM-E27 252 (34) | MA13 176 (30) | ES07 268 (31) | ES15 243 (34) | QM-E05 251 (40) | MA19 277 (2) | MA15 275 (32)
+  Process   Tachyonic  QM-E17 246 (28) | QM-E27 252 (35) | ES07 267 (27) | ES15 244 (36) | QM-E05 250 (39) | SE02 271 (12) | TH20 278 (28) | EL11 226 (35)
+  Process   Plenum     QM-E27 252 (35) | MS02 229 (20) | QM-E19 266 (12) | QM-E23 276 (9) | AE20 280 (3) | AE14 264 (21) | RK07 263 (18)
+  Substance Warp       RC01 174 (26) | QM-E27 252 (34) | QM-E06 265 (13) | MS08 272 (8) | ES07 275 (31) | ES15 247 (39) | QM-E05 250 (40) | ES18 276 (49) | EL11 226 (36)
+  Substance Wormhole   RC01 175 (29) | QM-E27 252 (35) | QM-E06 266 (14) | MS08 272 (5) | RC04 234 (25) | QM-E13 250 (42) | MA13 175 (28) | MS17 278 (5)
+  Substance Hyperspace QM-E27 252 (34) | MA13 176 (30) | ES07 266 (16) | ES15 244 (36) | QM-E05 251 (40) | MA19 276 (2) | MA15 275 (31)
+  Substance Tachyonic  QM-E17 247 (28) | QM-E27 252 (33) | ES07 275 (37) | ES15 244 (35) | QM-E05 250 (40) | SE02 271 (12) | TH20 279 (28) | EL11 226 (36)
+  Substance Plenum     QM-E27 252 (34) | MS02 228 (20) | QM-E19 265 (10) | QM-E23 277 (7) | AE20 280 (3) | AE14 265 (26) | RK07 262 (22)

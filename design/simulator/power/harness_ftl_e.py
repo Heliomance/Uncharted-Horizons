@@ -71,6 +71,11 @@ END_REQUEST = None   # a row the player asks to pursue as an Endeavour (END_RULE
 PRIORITY = set()   # targets that take the active focus first (the tests, during the investigation)
 EXPCAP = None; EXPCAP_ERA = None   # premium cap: never make a target the active focus while its premium exceeds EXPCAP (only while development is below era index EXPCAP_ERA, if set)
 W16 = True           # W16: a Space-era STANDARD idea the player is pursuing (in FUNDED) occurs at once; False switches the rule off
+FTL_OCC = False      # FTLOCC: an FTL-related idea (FTL_ROWS: every breakthrough the FTL screen names) occurs as soon as its prerequisites are
+FTL_ROWS = frozenset()  # met while its focus is the funded focus, in the turn it is funded; a lost one comes back the same way (Tamsin's question,
+FTL_OCC_FROM = None  # 16 Oct 2026). FTL_OCC_FROM: a row that must be held first (e.g. RC01, the FTL screen), or None
+PROTO_UNTIL = None   # TOVICTORY (w7f.py): the game plays on past the race's finish to the launch; until this turn the prototype takes the
+                     # funded share (no focus is funded, no Endeavour starts) and the spread goes on, as during an Endeavour
 END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
                               # never one already under study. The design allows both since v3.121 (for needs the game situation creates);
                               # the simulated players keep to this (ENDUNOCC=1), since with nothing pressing they would only reorder research
@@ -245,9 +250,14 @@ def run(prm, seed, max_turns=450):
         waiting = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the simulated player's sense of where work waits
         def aw(k): return TARGET[ROWS[k]['tier']] if prm.tier_attention else 1.0   # attention weight of an idea under study
         pull = waiting if prm.tier_attention else {f: sum((1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in pool.items()}   # the rule: each focus's draw on the spread
+        ready_ftl = [k for k in disc if k in FTL_ROWS and k not in occurred] if (FTL_OCC and m != 'T' and (FTL_OCC_FROM is None or FTL_OCC_FROM in have)) else []
+        if ready_ftl:   # FTLOCC: funding a focus makes its ready FTL ideas occur, so a player choosing a focus counts them as if under study
+            cpool = {f: pool.get(f, []) + [k for k in ready_ftl if FOCUS[k] == f] for f in set(pool) | {FOCUS[k] for k in ready_ftl}}
+            waiting_c = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in cpool.items()}
+        else: cpool, waiting_c = pool, waiting
         STATE['end_k'] = end_k                                             # (a running Endeavour keeps its target open: lock-out suspended)
         if prm.player == 'specialist' and 'Mathematics' in pool: active = 'Mathematics'
-        else: active = _ftl_active(waiting, pool, have)
+        else: active = _ftl_active(waiting_c, cpool, have)
         def est_price(k): return PRICE[ROWS[k]['era']] * prm.scale * prm.premium ** max(0.0, ERA_I[k] - d)
         def est_rem(k): return max(COSTMULT.get(k, 1.0) - progress.get(k, 0.0), 0.2) * est_price(k)
         def end_price(k):                         # a Grand Endeavour's cost: 2x the price, less any study already done (END_CREDIT)
@@ -283,12 +293,12 @@ def run(prm, seed, max_turns=450):
             capped = EXPCAP is not None and (EXPCAP_ERA is None or d < EXPCAP_ERA)
             ok_p = (lambda k: prm.premium ** max(0.0, ERA_I[k] - d) <= EXPCAP) if capped else (lambda k: True)
             pri = {k for k in pri if ok_p(k)}
-            fc = {f: min(est_rem(k) for k in ks if k in pri) for f, ks in pool.items() if any(k in pri for k in ks)}
-            if not fc: fc = {f: min(est_rem(k) for k in ks if k in FUNDED and ok_p(k)) for f, ks in pool.items() if any(k in FUNDED and ok_p(k) for k in ks)}
+            fc = {f: min(est_rem(k) for k in ks if k in pri) for f, ks in cpool.items() if any(k in pri for k in ks)}
+            if not fc: fc = {f: min(est_rem(k) for k in ks if k in FUNDED and ok_p(k)) for f, ks in cpool.items() if any(k in FUNDED and ok_p(k) for k in ks)}
             if fc: active = min(fc, key=fc.get)
-            elif capped and waiting: active = max(waiting, key=waiting.get)   # nothing affordable to target: fund the most fruitful focus, as development catches up
+            elif capped and waiting_c: active = max(waiting_c, key=waiting_c.get)   # nothing affordable to target: fund the most fruitful focus, as development catches up
         sh = 0.8 if 'SO05' in have else 0.5; es = END_SHARE or sh   # es: an Endeavour's share of the turn's Insight
-        pausing = turn <= pause_until; started = False   # pausing: an urgent Endeavour's debt is being paid
+        pausing = turn <= pause_until or (PROTO_UNTIL is not None and turn <= PROTO_UNTIL); started = False   # pausing: an urgent Endeavour's debt is being paid, or the prototype is being built
         if end_k is not None and (end_k in have or (END_RULE != 'request' and end_k not in FUNDED)): END_LOG.append((turn, end_k, 'dropped')); end_k = None; cool_until = turn + END_COOLDOWN; end_urgent = False
         if END_MULT and end_k is None and debt <= 0 and not pausing and turn >= cool_until and (END_FROM is None or any(ERA_I[k] >= END_FROM for k in have)) and (END_AFTER is None or END_AFTER in have):   # gate: first discovery of era END_FROM            # Grand Endeavour: commit to the targeted live row it saves most time on (at least a turn)
             if END_RULE == 'request' and END_REQUEST and END_REQUEST not in have and prereqs_met(END_REQUEST, have) and not (END_UNOCCURRED_ONLY and END_REQUEST in occurred):
@@ -332,6 +342,11 @@ def run(prm, seed, max_turns=450):
                 end_done = end_k; END_LOG.append((turn, end_k, 'done')); end_k = None; cool_until = turn + END_COOLDOWN
                 if end_urgent: pause_until = turn + math.ceil(URGENT_DEBT * max(0.0, end_tstudy - (turn - end_t0 + 1)) - 1e-9); end_urgent = False
         elif pausing: active = None                 # an urgent Endeavour's debt: no focus is funded; the spread goes on
+        if ready_ftl and active is not None:        # FTLOCC: the funded focus's ready FTL ideas occur now and take their share this turn
+            for k in ready_ftl:
+                if FOCUS[k] == active and k not in occurred:
+                    occurred.add(k); occ_turn[k] = turn; lost.discard(k); live.append(k); pool.setdefault(active, []).append(k)
+                    acct['ftl_occ'] = acct.get('ftl_occ', 0) + 1   # (accounting only)
         if active is not None:                    # (accounting only) turns a focus was funded, and how often the funded focus changed
             acct['focus_turns'] = acct.get('focus_turns', 0) + 1
             if active != funded: acct['focus_changes'] = acct.get('focus_changes', 0) + 1
