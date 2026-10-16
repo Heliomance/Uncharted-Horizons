@@ -21,6 +21,7 @@ Each cloud session starts in a fresh container with a fresh clone of the reposit
 - `design/tech_tree.md`: the design document, and the single source of truth. The GitHub wiki is generated from it.
 - `design/notes/deferred_tasks.md`: parked work. Add to it and mark items done there, not in any list outside the repository.
 - `design/notes/ftl_decisions_digest.md`: every settled FTL-endgame decision. Read it before touching §4.
+- `design/notes/ftl_history.md`: what changed in the FTL puzzle and its costs, when, why, and what each round measured. Add each new round to it.
 - `design/notes/discovery_workshop_report.md`: the candidate discovery model that every measurement since 1 October uses.
 - `design/verification-battery/`, `design/simulator/`, `design/wiki/`: the tools. `design/README.md` explains each.
 - `docs/Modders/` (`uniques.md`, `Unique-parameters.md`) and `android/assets/jsons/Civ V - Gods & Kings/`: Unciv's unique templates and rulesets, which every effect in the document must be written against.

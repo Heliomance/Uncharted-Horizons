@@ -118,3 +118,4 @@ As of 2026-10-14. Everything here is **written into `tech_tree_v112.md`** (§4 a
 - Tree: `design/tech_tree.md` (v3.112 when this digest was written: 544 rows; §4 = the design). Built by `design/simulator/power/v112_stage1–5.py`.
 - Simulation: the full design (`LEVERS=abcrwgpnyhukqvVm WROWX=4 SPACEPRICE=0.8`) is the simulator's default; runners `runcell.sh` (expert), `runnov.sh` (novice), `runavg.sh` (average), each `<world> <method> <suffix>`; victory = max(certainty, build) + prototype (5/6) + Drive (4/5, −1 for Warp/Wormhole/Plenum) + 1. Workspace guide: `design/simulator/docs/WORKSPACE.md`.
 - Deferred list: `design/notes/deferred_tasks.md`.
+- History of the FTL rounds and costs (what changed when, and why the balance drifted): `design/notes/ftl_history.md`.

@@ -7,6 +7,7 @@ Everything about the fork's research system that isn't game code: the design doc
 | `tech_tree.md` | **The tech-tree design document, and the source of truth.** One Markdown file, v3.112. |
 | `notes/deferred_tasks.md` | Work parked for later, with the reasons. Keep parked items here, in the repository, so they survive session resets. |
 | `notes/ftl_decisions_digest.md` | Every finalised FTL-endgame decision in compact form. Read it before working on §4. |
+| `notes/ftl_history.md` | The FTL puzzle's and its costs' history: each round, what changed, why, what it measured, and what later undid it. |
 | `notes/discovery_workshop_report.md` | The 1 October discovery-model workshop. Every measurement since uses its candidate model. |
 | `verification-battery/` | 22 structural and Unciv-syntax checks on the design document. Run it after every edit. |
 | `simulator/` | The research and FTL-endgame simulator, its measurement scripts and every saved result. |
