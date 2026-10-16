@@ -55,15 +55,16 @@
    - to ×2 (v3.122), for base Civ V's game lengths as then understood (320 / 400): 3–12 turns over that target, and 22–32 over the science-victory reference adopted next;
    - to ×1 (v3.123), for parity with base Civ V's science victory (305 / 380);
    - to ×1.05 (v3.124), to re-centre parity after merges and lock-outs shortened the race.
-5. **Three ways to level the methods have been measured; none is adopted.** They were measured with different players, so their figures don't compare directly:
+5. **Four ways to level the methods have been measured; none is adopted.** Some were measured with different players, so their figures don't all compare directly:
 
    | Way | Players | Spread | Victory |
    |---|---|---|---|
    | Shorten the deep chains (the sync report) | the old players | 10.1 → 5.0 | 303 / 307 / 380 |
    | The funded-focus rule, with the FTL rows ×1.4 | players who see only the screens | 17.8 → 4.7 | 301 / 305 / 380 |
    | The 14-turn Space-era window | the old players | 9.7 → 6.7 | 301 / 302 / 376 |
+   | The Space era as the endgame: windows never close, 15–20% a turn | players who see only the screens | 17.8 → 10.3–9.3 | 302 / 305 / 379 to 301 / 303 / 377 |
 
-   The funded-focus rule makes FTL ideas occur once their prerequisites are met and their focus is funded. Its cost: the non-FTL Space-era breakthroughs held at launch fall from 22–24 a game to 13.5–15.
+   The funded-focus rule makes FTL ideas occur once their prerequisites are met and their focus is funded. Its cost: the non-FTL Space-era breakthroughs held at launch fall from 22–24 a game to 13.5–15. The endgame rule keeps more of them (16–18 at 15–20% a turn) but levels less: Plenum and Tunnelling stay 6–11 turns slow.
 
 ## Timeline
 
@@ -99,6 +100,7 @@ Times are UTC. Spreads are those computed on 16 October (see above).
 | 15 Oct, 22:51 | v3.125 | Ring Fortress merged into Reinforced Concrete. | | 304 / 307 / 381; spread 10.1 |
 | 15–16 Oct | sync report | Proposed: three prerequisite changes, three dearer last rows, Space ×1.1. | Tamsin asked for the methods in sync | 303 / 307 / 380; spread at victory 10.1 → 5.0 on 5,400 games; not adopted |
 | 16 Oct | analyses | Found: the weaker players' Endeavour rule never ran, and why the methods drifted. Measured: the funded-focus rule, and players who see only the screens. | Tamsin's questions | visible players: 310 / 312 / 386, spread 17.8; with the rule and the FTL rows ×1.4: 301 / 305 / 380 and 4.7; not adopted |
+| 16 Oct, evening | the endgame test | Space-era windows never close, and a Space-era idea's chance a turn is set directly (6.6% to 100% tested). | Tamsin: treat the Space era "as the endgame" | at 15–20% a turn, with visible players: 302 / 305 / 379 to 301 / 303 / 377, spread 10.3–9.3; not adopted |
 
 ## What the costs have been
 
@@ -522,6 +524,28 @@ At 18:29 the Drive was built from Production too. Tamsin, 18:22: "we've not been
   - The price is the Space era's other content: the non-FTL Space-era breakthroughs held at launch fall from 22–24 a game to 13.5–15.
   - The reason: today a player studies a signature field's other ideas while the field's FTL idea waits to occur, and the rule removes that wait.
 
+### 16 October, evening: the Space era as the endgame
+
+- **The question.** Tamsin: "Let's try treating the space era differently, as the endgame. Test what happens if space era windows never close, and rather than calculating discovery chances from window length, adjust them directly as a lever."
+- **The rule tested** (`SPACEOCC`). No Space-era idea is ever lost, and a Space-era STANDARD idea occurs with a set chance each turn once its breakthrough is discoverable.
+- **Measured** with players who see only the screens and rivals made under each setting (`results/space_endgame_20261016.txt`):
+
+  | Chance a turn | Spread | Victory (305 / 305 / 380) | Non-FTL Space-era breakthroughs at launch |
+  |---|---|---|---|
+  | today (a 28-turn window) | 17.8 | 310 / 312 / 386 | 22–24 |
+  | 6.6%, never closing | 14.1 | 312 / 314 / 389 | 24–26 |
+  | 10% | 12.3 | 305 / 308 / 381 | 19–20 |
+  | 15% | 10.3 | 302 / 305 / 379 | 17–18 |
+  | 20% | 9.3 | 301 / 303 / 377 | 16–17 |
+  | 30% | 8.2 | 301 / 303 / 377 | 15–16 |
+  | 50% | 8.3 | 300 / 302 / 375 | 14–16 |
+  | 100% | 7.1 | 299 / 301 / 376 | 14–15 |
+
+- **Reading.**
+  - From 10% to 50% the science victory is within the limit, so the rule also cures the visible-information players' overrun.
+  - The spread falls to about 9 and then stops falling: from 15% up, Plenum and Tunnelling are the methods furthest from the field in every player and world. Their routes run through rows the FTL screen doesn't name, and through dearer rows studied one after another, which a faster chance can't reach.
+  - Warp stays 3–4 turns quick. Wormhole, Hyperspace and Tachyonic come within about 2 turns of the field.
+
 ## Where it stands
 
 **Decisions for Tamsin:**
@@ -536,6 +560,7 @@ At 18:29 the Drive was built from Production too. Tamsin, 18:22: "we've not been
      - The funded-focus rule with the FTL rows ×1.4, measured with visible-information players. It leaves Plenum (+2 to +6) and Tunnelling (+3 to +4) slowest, because Aerospace Industry, Reusable Launch Vehicle and Planetary Data Networks are on their routes but not named on the FTL screen.
      - A shorter Space-era window. It would mean sizing the Space era's windows at less than half the era (§1.2). The 14-turn window measured 301 / 302 / 376 and 6.7, inside the limit, but only with the old players.
      - A W16-like rule. As simulated it is 6–10 turns too short; nothing milder has been measured.
+     - The Space era as the endgame: windows that never close, with a chance a turn of 15–20%. At parity with visible-information players, spread 9–10; Plenum and Tunnelling would still need their own fix.
 3. **The weaker players.** Whether their Endeavour rule runs as scripted (`ENDREQ=1`), and whether their ties are broken in a fixed order, which would end the hash seed's effect.
 
 **Never measured:**

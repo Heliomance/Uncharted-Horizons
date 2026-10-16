@@ -1,0 +1,150 @@
+The Space era as the endgame: windows that never close, with a chance a turn set directly (16 Oct 2026, v3.126).
+Tamsin: "Let's try treating the space era differently, as the endgame. Test what happens if space era windows never close, and
+rather than calculating discovery chances from window length, adjust them directly as a lever."
+
+== The rule (harness_ftl_e.P.space_open / space_chance; w7f.py SPACEOPEN=1, SPACEOCC=p or tier:p,...)
+- A Space-era idea's window never closes, so no Space-era idea is ever lost and rediscovery is never needed there.
+- A Space-era STANDARD idea occurs with chance p each turn once its breakthrough is discoverable (p is the lever), instead of the
+  chance derived from its window (today 28 turns, 6.6% a turn, 85% within the window). UNCOMMON, RARE and UNIQUE Space-era ideas
+  keep their chances a turn (0.91%, 0.19%, 0.12%) and also never close; their windows already span the Space era, so that changes
+  almost nothing within a game's length.
+- Settings: VIS = today's rules; S066, S10, S15, S20, S30, S50, S100 = SPACEOCC 0.066 (today's chance a turn), 0.10 ... 1.0.
+- Every setting: players who decide on visible information only (VISIBLE=1, Tamsin's rule of 16 Oct: the expert knows the fixed
+  foundations, the novice only the screens), rivals made under the same switches (make_pool.sh <world> <label> VISIBLE=1 ...),
+  all 15 victory conditions, three players, 60 games a cell, 2,700 games a setting, TOVICTORY=1 SAVE_T=1, PYTHONHASHSEED=0.
+  The baseline (VIS) reproduces visible_players_20261016.txt exactly.
+
+== 1. Balance and parity (ftl_sync.py; spread = mean over worlds and players of the largest method-to-field deviation, at victory)
+   === expert (all 15 conditions against base Civ V's 305: VIS 310 (+5), S066 312 (+7), S10 305 (+0), S15 302 (-3), S20 301 (-4), S30 301 (-4), S50 300 (-4), S100 299 (-6))
+   === novice (all 15 conditions against base Civ V's 305: VIS 312 (+7), S066 314 (+9), S10 308 (+3), S15 305 (+0), S20 303 (-2), S30 303 (-2), S50 302 (-3), S100 301 (-4))
+   === average (all 15 conditions against base Civ V's 380: VIS 386 (+6), S066 389 (+9), S10 381 (+1), S15 379 (-1), S20 377 (-3), S30 377 (-3), S50 375 (-5), S100 376 (-4))
+ === summary: mean over worlds and players of the largest deviation (rms)
+   VIS    largest 17.8, rms  9.7; win shares 13%-75%; unfinished 0 of 2700 games
+   S066   largest 14.1, rms  8.6; win shares 15%-75%; unfinished 0 of 2700 games
+   S10    largest 12.3, rms  6.7; win shares 19%-75%; unfinished 0 of 2700 games
+   S15    largest 10.3, rms  5.4; win shares 14%-75%; unfinished 0 of 2700 games
+   S20    largest  9.3, rms  4.9; win shares 17%-83%; unfinished 0 of 2700 games
+   S30    largest  8.2, rms  4.2; win shares 16%-79%; unfinished 0 of 2700 games
+   S50    largest  8.3, rms  4.3; win shares 14%-86%; unfinished 0 of 2700 games
+   S100   largest  7.1, rms  4.0; win shares 16%-84%; unfinished 0 of 2700 games
+
+   Spread by player (mean over the three worlds of the largest method-to-field deviation, at victory)
+   setting   expert  novice  average
+   VIS         13.0    21.0    19.3
+   S066        11.0    17.7    13.7
+   S10         12.7    11.7    13.0
+   S15          9.7    10.3    11.0
+   S20          7.7     9.7    10.3
+   S30          7.3     8.3     9.0
+   S50          7.0     8.0    10.0
+   S100         6.0     6.7     8.0
+
+   Each method: mean turns from its world's field over the three players (and worlds), and its range of win shares
+   setting              Warp        Wormhole      Hyperspace       Tachyonic      Tunnelling          Plenum
+   VIS         -5.1 (61-68%)   +3.1 (32-58%)   +2.6 (45-53%)   -7.8 (67-75%)  +10.7 (30-35%)  +20.3 (13-23%)
+   S066        -6.7 (57-67%)   +6.0 (30-52%)   +2.0 (43-51%)   -8.8 (63-75%)   +6.3 (34-36%)  +15.0 (15-26%)
+   S10         -4.3 (60-75%)   +3.6 (33-50%)   +1.6 (43-58%)   -4.9 (65-71%)   +9.0 (29-31%)  +14.0 (19-22%)
+   S15         -3.8 (62-75%)   +0.9 (43-59%)   +1.9 (36-54%)   -3.6 (61-71%)   +8.7 (25-31%)  +11.2 (14-21%)
+   S20         -4.1 (60-83%)   +1.2 (42-58%)   +2.2 (37-52%)   -2.0 (55-68%)   +8.0 (28-32%)   +9.8 (17-20%)
+   S30         -3.2 (58-79%)   -0.6 (46-65%)   +1.4 (42-57%)   -2.1 (52-66%)   +5.7 (25-30%)   +9.3 (16-20%)
+   S50         -4.1 (61-86%)   +0.3 (44-58%)   +0.4 (41-61%)   -0.6 (50-61%)   +6.3 (26-28%)   +9.2 (14-20%)
+   S100        -4.7 (62-84%)   -1.6 (48-64%)   +1.1 (39-54%)   -0.3 (40-57%)   +3.3 (29-32%)   +8.2 (16-20%)
+
+== 2. The Space era on the path to victory (ftl_share.py --space; mean a game, at the launch)
+ 
+   (familiar: 106 Space-era breakthroughs exist, 22 of them FTL-related)
+   (Process: 98 Space-era breakthroughs exist, 19 of them FTL-related)
+   (Substance: 98 Space-era breakthroughs exist, 19 of them FTL-related)
+ 
+ === expert
+   setting    turn |  FTL ( own  oth) | non-FTL (sign evid ship else) | FTL share | phases FTL:non-FTL  before | race | after
+   VIS         310 | 15.4 ( 6.5  8.8) |    23.7 (14.0  1.4  6.5  1.7) |      39%  |  0.6:0.1  | 12.8:15.3 | 1.9:8.3 
+   S066        312 | 15.6 ( 6.5  9.1) |    24.9 (14.8  1.4  7.0  1.8) |      39%  |  0.6:0.1  | 13.2:16.7 | 1.8:8.1 
+   S10         305 | 14.6 ( 6.4  8.1) |    19.8 (11.3  1.3  6.0  1.1) |      42%  |  0.7:0.1  | 12.0:12.2 | 1.9:7.5 
+   S15         302 | 14.0 ( 6.4  7.6) |    17.4 ( 9.7  1.3  5.5  0.9) |      45%  |  0.9:0.2  | 11.1:10.0 | 1.9:7.2 
+   S20         301 | 13.6 ( 6.4  7.2) |    16.3 ( 8.9  1.3  5.3  0.8) |      45%  |  1.0:0.1  | 10.8:9.3  | 1.8:6.9 
+   S30         301 | 13.4 ( 6.4  6.9) |    15.4 ( 8.2  1.3  5.1  0.8) |      47%  |  1.0:0.1  | 10.5:8.8  | 1.9:6.5 
+   S50         300 | 13.2 ( 6.4  6.8) |    14.4 ( 7.2  1.3  5.2  0.8) |      48%  |  1.0:0.1  | 10.3:8.4  | 1.8:6.0 
+   S100        299 | 12.9 ( 6.3  6.6) |    14.0 ( 6.0  1.3  5.8  1.0) |      48%  |  1.2:0.1  | 10.0:8.0  | 1.7:5.9 
+ 
+ === novice
+   setting    turn |  FTL ( own  oth) | non-FTL (sign evid ship else) | FTL share | phases FTL:non-FTL  before | race | after
+   VIS         312 | 15.4 ( 6.6  8.9) |    24.4 (14.3  1.4  6.8  1.8) |      39%  |  0.8:0.9  | 12.9:15.4 | 1.7:8.0 
+   S066        314 | 15.6 ( 6.5  9.1) |    26.1 (15.3  1.4  7.4  2.0) |      37%  |  0.8:0.9  | 13.1:17.0 | 1.7:8.2 
+   S10         308 | 14.7 ( 6.5  8.2) |    20.3 (11.4  1.3  6.3  1.3) |      42%  |  1.1:1.2  | 11.8:11.7 | 1.8:7.5 
+   S15         305 | 14.2 ( 6.4  7.7) |    18.3 ( 9.9  1.3  5.9  1.1) |      44%  |  1.3:1.3  | 11.3:9.6  | 1.6:7.3 
+   S20         303 | 13.8 ( 6.4  7.4) |    16.9 ( 9.1  1.3  5.6  0.9) |      45%  |  1.4:1.5  | 10.9:8.5  | 1.5:6.9 
+   S30         303 | 13.7 ( 6.5  7.3) |    16.3 ( 8.6  1.3  5.4  1.0) |      46%  |  1.5:1.7  | 10.8:7.9  | 1.5:6.7 
+   S50         302 | 13.7 ( 6.5  7.2) |    15.6 ( 7.7  1.3  5.7  0.9) |      47%  |  1.4:1.7  | 10.9:7.5  | 1.4:6.4 
+   S100        301 | 13.7 ( 6.5  7.2) |    15.1 ( 6.5  1.3  6.2  1.1) |      47%  |  1.5:1.7  | 10.8:6.9  | 1.4:6.6 
+ 
+ === average
+   setting    turn |  FTL ( own  oth) | non-FTL (sign evid ship else) | FTL share | phases FTL:non-FTL  before | race | after
+   VIS         386 | 15.1 ( 6.6  8.5) |    22.3 (12.9  1.4  6.5  1.6) |      40%  |  1.0:1.1  | 12.3:13.2 | 1.8:7.9 
+   S066        389 | 15.3 ( 6.5  8.8) |    23.8 (13.8  1.4  6.9  1.6) |      39%  |  1.0:1.1  | 12.5:14.8 | 1.8:7.9 
+   S10         381 | 14.4 ( 6.4  7.9) |    19.1 (10.6  1.3  6.1  1.1) |      43%  |  1.3:1.5  | 11.3:10.4 | 1.7:7.2 
+   S15         379 | 13.9 ( 6.4  7.5) |    17.2 ( 9.2  1.3  5.7  0.9) |      45%  |  1.4:1.7  | 10.9:8.3  | 1.5:7.1 
+   S20         377 | 13.7 ( 6.4  7.3) |    16.6 ( 8.9  1.3  5.5  0.9) |      45%  |  1.5:1.8  | 10.8:8.0  | 1.4:6.8 
+   S30         377 | 13.6 ( 6.5  7.1) |    16.0 ( 8.4  1.3  5.3  0.9) |      46%  |  1.5:1.9  | 10.6:7.4  | 1.4:6.7 
+   S50         375 | 13.6 ( 6.5  7.1) |    15.2 ( 7.3  1.3  5.8  0.9) |      47%  |  1.5:1.7  | 10.7:7.1  | 1.4:6.4 
+   S100        376 | 13.5 ( 6.5  7.1) |    15.2 ( 6.3  1.3  6.4  1.1) |      47%  |  1.5:1.9  | 10.7:6.6  | 1.4:6.6 
+
+== 3. The expert's build rows: median discovery turn and, in brackets, median turns from prerequisites met (ftl_balance.py --chains)
+ -- VIS
+   familiar  Warp       RC01 187 (44) | QP08 250 (37) | QP11 276 (16) | MS08 288 (10) | ES06 244 (4) | ES07 276 (25) | ES08 301 (44) | ES18 280 (59) | EL11 219 (28)
+   familiar  Wormhole   RC01 188 (44) | QP08 251 (38) | QP11 269 (16) | MS08 286 (11) | RC04 247 (35) | QP12 252 (40) | MA13 171 (28) | MS17 304 (18)
+   familiar  Hyperspace QP08 250 (38) | MA13 170 (26) | ES06 243 (3) | ES07 287 (32) | ES08 307 (48) | MA19 294 (18) | MA15 279 (55)
+   familiar  Tunnelling QP02 207 (21) | CP10 292 (26) | MS02 240 (32) | GN05 269 (24) | QP14 278 (11) | CP21 306 (11) | CP16 264 (30) | QP07 260 (14)
+   familiar  Tachyonic  QP06 247 (33) | QP08 252 (38) | SE02 277 (26) | ES06 244 (4) | ES07 280 (37) | ES08 300 (48) | NP15 286 (42) | EL11 222 (28)
+   Process   Warp       RC01 180 (30) | QM-E27 251 (34) | QM-E06 269 (20) | MS08 286 (13) | ES07 288 (24) | ES15 232 (22) | QM-E05 251 (41) | ES18 281 (54) | EL11 227 (38)
+   Process   Wormhole   RC01 180 (32) | QM-E27 251 (36) | QM-E06 269 (18) | MS08 282 (12) | RC04 251 (40) | QM-E13 256 (46) | MA13 164 (16) | MS17 300 (16)
+   Process   Hyperspace QM-E27 250 (34) | MA13 165 (16) | ES07 282 (31) | ES15 232 (22) | QM-E05 251 (42) | MA19 289 (12) | MA15 277 (47)
+   Process   Tachyonic  QM-E17 245 (27) | QM-E27 252 (34) | ES07 286 (30) | ES15 234 (23) | QM-E05 252 (40) | SE02 277 (24) | TH20 284 (32) | EL11 228 (37)
+   Process   Plenum     QM-E27 251 (34) | MS02 236 (26) | QM-E19 272 (13) | QM-E23 295 (16) | AE20 306 (11) | AE14 267 (13) | RK07 275 (21)
+   Substance Warp       RC01 177 (27) | QM-E27 251 (36) | QM-E06 268 (17) | MS08 280 (10) | ES07 278 (24) | ES15 231 (22) | QM-E05 253 (42) | ES18 278 (52) | EL11 226 (28)
+   Substance Wormhole   RC01 178 (29) | QM-E27 251 (34) | QM-E06 267 (16) | MS08 276 (9) | RC04 245 (35) | QM-E13 252 (42) | MA13 164 (15) | MS17 289 (12)
+   Substance Hyperspace QM-E27 251 (34) | MA13 164 (16) | ES07 278 (23) | ES15 234 (24) | QM-E05 253 (42) | MA19 295 (12) | MA15 281 (55)
+   Substance Tachyonic  QM-E17 244 (26) | QM-E27 251 (34) | ES07 282 (26) | ES15 233 (24) | QM-E05 252 (41) | SE02 275 (24) | TH20 286 (32) | EL11 226 (28)
+   Substance Plenum     QM-E27 251 (34) | MS02 235 (24) | QM-E19 272 (15) | QM-E23 297 (16) | AE20 309 (10) | AE14 266 (12) | RK07 277 (22)
+ -- S20
+   familiar  Warp       RC01 187 (44) | QP08 251 (38) | QP11 272 (17) | MS08 277 (5) | ES06 244 (4) | ES07 280 (42) | ES08 293 (37) | ES18 278 (57) | EL11 219 (28)
+   familiar  Wormhole   RC01 188 (44) | QP08 251 (37) | QP11 268 (14) | MS08 274 (6) | RC04 251 (37) | QP12 251 (39) | MA13 171 (28) | MS17 287 (10)
+   familiar  Hyperspace QP08 251 (38) | MA13 170 (26) | ES06 244 (5) | ES07 291 (37) | ES08 295 (44) | MA19 288 (9) | MA15 278 (53)
+   familiar  Tunnelling QP02 207 (21) | CP10 285 (19) | MS02 240 (33) | GN05 258 (11) | QP14 275 (6) | CP21 292 (6) | CP16 264 (30) | QP07 264 (17)
+   familiar  Tachyonic  QP06 248 (34) | QP08 251 (38) | SE02 276 (25) | ES06 244 (5) | ES07 292 (46) | ES08 297 (49) | NP15 285 (39) | EL11 222 (29)
+   Process   Warp       RC01 180 (30) | QM-E27 252 (35) | QM-E06 268 (16) | MS08 275 (5) | ES07 280 (27) | ES15 234 (24) | QM-E05 251 (40) | ES18 277 (50) | EL11 226 (36)
+   Process   Wormhole   RC01 180 (32) | QM-E27 251 (35) | QM-E06 265 (15) | MS08 272 (6) | RC04 246 (36) | QM-E13 250 (40) | MA13 164 (16) | MS17 286 (12)
+   Process   Hyperspace QM-E27 251 (34) | MA13 165 (16) | ES07 292 (44) | ES15 232 (22) | QM-E05 250 (40) | MA19 286 (8) | MA15 277 (44)
+   Process   Tachyonic  QM-E17 246 (27) | QM-E27 251 (34) | ES07 290 (30) | ES15 235 (26) | QM-E05 251 (39) | SE02 275 (22) | TH20 284 (32) | EL11 227 (37)
+   Process   Plenum     QM-E27 251 (34) | MS02 234 (24) | QM-E19 267 (9) | QM-E23 287 (14) | AE20 293 (5) | AE14 263 (9) | RK07 272 (17)
+   Substance Warp       RC01 177 (27) | QM-E27 252 (36) | QM-E06 266 (15) | MS08 272 (6) | ES07 281 (20) | ES15 232 (22) | QM-E05 252 (41) | ES18 276 (49) | EL11 226 (27)
+   Substance Wormhole   RC01 178 (29) | QM-E27 252 (34) | QM-E06 265 (13) | MS08 272 (6) | RC04 246 (36) | QM-E13 252 (41) | MA13 164 (15) | MS17 286 (14)
+   Substance Hyperspace QM-E27 251 (34) | MA13 164 (16) | ES07 294 (39) | ES15 235 (24) | QM-E05 252 (41) | MA19 288 (10) | MA15 278 (50)
+   Substance Tachyonic  QM-E17 245 (28) | QM-E27 251 (34) | ES07 286 (30) | ES15 237 (26) | QM-E05 250 (40) | SE02 274 (21) | TH20 282 (31) | EL11 226 (31)
+   Substance Plenum     QM-E27 252 (35) | MS02 236 (26) | QM-E19 269 (10) | QM-E23 288 (14) | AE20 294 (6) | AE14 264 (7) | RK07 274 (18)
+
+== 4. Reading
+- Never-closing windows alone (S066, today's 6.6% a turn) narrow the spread from 17.8 to 14.1 but lengthen the science victory by
+  2-3 turns (312 / 314 / 389): today a stale idea comes back by rediscovery on demand, 10% a turn for each thing waiting on it,
+  which is sooner than it would occur at 6.6%.
+- Raising the chance narrows the spread quickly to about 10 at 15% a turn and 8-9 at 20-30%, then little more (8.3 at 50%, 7.1 at
+  100%). It also shortens the science victory, but by less: every setting from 10% to 50% is within the 5-turn limit for all three
+  players (10%: 305 / 308 / 381; 15%: 302 / 305 / 379; 20-30%: 301 / 303 / 377; 50%: 300 / 302 / 375, the average player at the
+  edge); at 100% the expert is 6 turns short. So the rule also cures the visible-information players' overrun (+5 / +7 / +6
+  today) without any price change.
+- What the chance cannot fix: from 15% up, the method furthest from its field is Plenum or Tunnelling, slow, in every player and
+  world. At 20-30%, Wormhole, Hyperspace and Tachyonic are within about 2 turns of their field, Warp 3-4 quick, Tunnelling 6-8 slow
+  and Plenum 9-10 slow. Their routes run through rows the FTL screen does not name (Aerospace Industry and Reusable Launch Vehicle
+  for Plenum, Planetary Data Networks for Tunnelling), which the expert finds 17-30 turns after their prerequisites are met, and
+  through study along dearer rows (Current Sail x2.5, Quantum Computing x2). That is a matter of guidance or of those rows, not of
+  occurrence.
+- The cost is the Space era's other content, because the race is shorter: non-FTL Space-era breakthroughs held at the launch fall
+  from 22-24 a game today (a game 5-7 turns too long) to about 19-20 at 10%, 17-18 at 15%, 16-17 at 20% and 15-16 at 30%. The
+  funded-focus rule at parity (visible_players_20261016.txt, VFP14) kept 13.5-15 with a spread of 4.7.
+
+== 5. Labels: _cmp<label><X|N|A>_<method> and pools _pool<label> (not kept: 106 MB). Each setting is remade, in
+   design/simulator/power, by (about 4.5 minutes on four cores; VIS without SPACEOCC):
+     for w in familiar Process Substance; do
+       bash make_pool.sh $w S20 VISIBLE=1 SPACEOCC=0.2
+       PYTHONHASHSEED=0 bash compare_settings.sh $w S20 VISIBLE=1 TOVICTORY=1 SAVE_T=1 POOLTAG=S20 SPACEOCC=0.2
+     done
