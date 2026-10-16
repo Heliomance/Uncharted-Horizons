@@ -161,7 +161,7 @@ _g = float(os.environ.get('GLIMPSE', '0'))   # STANDARD's glimpse chance a turn;
 HF.GLIMPSE = {t: _g for t in ('STANDARD', 'UNCOMMON', 'RARE', 'UNIQUE')} if os.environ.get('GLIMPSEALL') == '1' else \
     {'STANDARD': _g, 'UNCOMMON': float(os.environ.get('GLIMPSEU', '0')), 'RARE': 0.0, 'UNIQUE': 0.0}   # GLIMPSEALL=1: the old rule, one chance for every tier
 HF.END_AFTER = CLOSE if os.environ.get('ENDFROM') == 'theory' else None   # Endeavours only once the unified theory is known
-ENDRULE = os.environ.get('ENDRULE', 'naive'); HF.END_RULE = 'active' if ENDRULE in ('active', 'last') else 'naive'   # naive: vs observed rate; active: vs activating the row's focus; last: active, on the last missing piece only   # Endeavours chase FTL requirements once the Space era opens
+ENDRULE = os.environ.get('ENDRULE', 'naive'); HF.END_RULE = 'active' if ENDRULE in ('active', 'last') else ('request' if ENDRULE == 'request' and os.environ.get('ENDREQ') == '1' else 'naive')   # ENDREQ=1: ENDRULE=request takes effect (16 Oct 2026: without it the harness's request rule never runs, so runnov.sh's and runavg.sh's NOVEND/NOVFOCUS requests are ignored and their Endeavours follow the naive rule); naive: vs observed rate; active: vs activating the row's focus; last: active, on the last missing piece only   # Endeavours chase FTL requirements once the Space era opens
 ATT = 't' in os.environ.get('LEVERS', '')
 rng = random.Random(int(os.environ.get('TRUTHSEED', '31'))); out = []
 METHODS = [x for x in os.environ.get('METHODS', '').split(',') if x]

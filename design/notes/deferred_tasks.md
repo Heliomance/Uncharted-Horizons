@@ -1,5 +1,13 @@
 # Deferred Tasks — Uncharted Horizons
 
+## 2026-10-16: The novice's and the average player's Endeavours never followed their own rule
+- **Surfaced during:** the live-game mockup, whose engine is a line-by-line port of the simulator (`design/mockups/sim_web/`): its author found that `w7f.py` turned `ENDRULE=request` into the naive rule.
+- **Issue:** `runnov.sh` and `runavg.sh` set `ENDRULE=request NOVEND=10 NOVFOCUS=1`: the novice commissions an Endeavour on a revealed step that has held up the field it funds for 10 turns. The harness never ran that rule. Since the scripts were written, these two players' Endeavours have come from the naive rule instead (an Endeavour on a row lost, or seen in rivals' hands, whenever it beats waiting). Every novice and average-player figure so far, the parity confirmations included, was measured that way. Claude's error, in the tool.
+- **Measured** (`results/endreq_20261016.txt`; `ENDREQ=1` makes the request rule take effect; v3.125, all 15 conditions, 900 games a player): Endeavours a game fall from 5.0 to 2.0 (novice) and 5.1 to 2.2 (average player); victory **304 / 306 / 378** against 304 / 307 / 381 (expert / novice / average), still within 5 turns of base Civ V's 305 / 305 / 380; none unfinished; the spread between FTL methods narrows a little (largest deviation 9.7 → 8.4). The expert is unaffected (it uses `ENDRULE=last`).
+- **Also affected:** the workshop's findings on Endeavours for the weaker players (for instance `EU0`, that allowing Endeavours on ideas under study costs them 5–6 turns) rest on the naive rule.
+- **Suggested fix:** make `ENDREQ=1` the default, so the benchmark players do what their scripts say, with the next confirmation (v3.126 if the FTL rebalance is adopted), since it moves the novice's and average player's baselines by 1 and 3 turns.
+- **Next:** Tamsin decides.
+
 ## 2026-10-15: Audit the Competing Solutions
 - **Parked (15 October, Tamsin):** "park a competing solutions audit". The audit should take every group in §6 in turn: how often its alternative should come first, and whether it does (below); whether the margin, the alternative's prerequisites or the primary's tier should change to get there; whether *superseded* or *persists* still fits; how each behaves in worlds without its primary (Removal Truths, fusion-free worlds), which the simulator doesn't generate; accelerators that are also alternatives (the Atmospheric Engine); and whether an alternative almost never taken still earns its row.
 - **Surfaced during:** v3.124, when the simulator began modelling lock-outs (`COMPETE=1`, `competing.py`).

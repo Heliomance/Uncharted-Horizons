@@ -1,0 +1,44 @@
+The novice's and the average player's Endeavour rule (16 Oct 2026, v3.125). w7f.py turned ENDRULE=request into the naive rule, so
+runnov.sh's and runavg.sh's NOVEND/NOVFOCUS requests (an Endeavour on a revealed step that has held up the funded field for 10 turns)
+never took effect; their Endeavours came from the naive rule (rows lost or seen in rivals' hands, when an Endeavour beats waiting).
+Found by the engine port for the live-game mockup (design/mockups/sim_web). ENDREQ=1 makes the request rule take effect; the default is
+unchanged. EQ = compare_settings.sh <world> EQ with ENDREQ=1 exported, against V125 (v3.125's confirmation), one seed set, 60 games a cell.
+Endeavours a game (mean over all 15 conditions): novice 5.0 -> 2.0, average player 5.1 -> 2.2. The expert (ENDRULE=last) is unchanged.
+
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), EQ 304 (-1))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    EQ     field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    EQ     field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    EQ     field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), EQ 306 (+1))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    EQ     field   304 | Warp   -6 (69%)  Wormh   +6 (29%)  Hyper   +0 (49%)  Tachy   -6 (66%)  Tunne   +4 (37%) | max   6, rms  5.0
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    EQ     field   306 | Warp   -6 (76%)  Wormh   +6 (34%)  Hyper   +2 (51%)  Tachy   -4 (61%)  Plenu  +10 (28%) | max  10, rms  6.0
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    EQ     field   308 | Warp   -4 (64%)  Wormh   +4 (40%)  Hyper   +3 (47%)  Tachy   -5 (69%)  Plenu   +8 (30%) | max   8, rms  4.9
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), EQ 378 (-2))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    EQ     field   375 | Warp   -5 (67%)  Wormh   +3 (37%)  Hyper   +2 (42%)  Tachy   -5 (70%)  Tunne   +5 (34%) | max   5, rms  4.2
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    EQ     field   380 | Warp   -8 (76%)  Wormh   +2 (37%)  Hyper   +2 (46%)  Tachy   -4 (59%)  Plenu   +5 (32%) | max   8, rms  4.5
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    EQ     field   380 | Warp   -2 (60%)  Wormh   +3 (41%)  Hyper   +0 (49%)  Tachy   -4 (66%)  Plenu   +8 (33%) | max   8, rms  4.1
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  EQ     largest  8.4, rms  5.5; win shares 27%-78%; unfinished 0 of 2700 games
