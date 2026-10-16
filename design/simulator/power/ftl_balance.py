@@ -6,6 +6,8 @@ Reads results saved with SAVE_T=1 (results/w7f_<world>_<label><X|N|A>_<method>.j
 The definitions follow w7f.py with the agreed levers (MS17 in Wormhole's build, no NP11 in atomic Tachyonic's) and the
 instruments' 5 turns of construction (INSTR_D=5).
 Usage: python3 ftl_balance.py <label> [X|N|A ...]   e.g.  python3 ftl_balance.py cmpV125
+       python3 ftl_balance.py --chains <label> [X|N|A ...]: each build row's median discovery turn, and the median turns from its
+       prerequisites being met to its discovery (what the report on bringing the methods into sync quotes)
 """
 import sys, os, json, statistics as st, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
@@ -60,7 +62,28 @@ def analyse(g, ont, econ):
                 tail=v - fin)
 
 
+def chains(label, codes):
+    import gen_data as G
+    R = os.environ.get('RESULTS') or os.path.join(HERE, 'results')
+    met = lambda k, t: max((min((max((t.get(p, 10 ** 6) for p in opt), default=0) for opt in grp), default=0) for grp in G.ROWS[k]['pre']), default=0)
+    for code in codes:
+        print(f'\n=== {PLAYERS[code][0]}: median discovery turn of each build row, and (in brackets) median turns from its prerequisites met to it')
+        for w, ont in WORLDS.items():
+            for m, groups in BUILD[ont].items():
+                gs = json.load(open(os.path.join(R, f'w7f_{w}_{label}{code}_{m}.json')))
+                cells = []
+                EXTRA = {'Hyperspace': ['MA15'], 'Tunnelling': ['CP16', 'QP07'], 'Plenum': ['AE14', 'RK07'], 'Tachyonic': ['EL11'], 'Warp': ['EL11']}   # chain steps outside the build
+                for gr in groups + [[k] for k in EXTRA.get(m, [])]:
+                    for k in gr:
+                        ts = [g['t'][k] for g in gs if k in g['t']]
+                        if not ts: continue
+                        waits = [g['t'][k] - met(k, g['t']) for g in gs if k in g['t'] and met(k, g['t']) < 10 ** 6]
+                        cells.append(f'{k} {st.median(ts):.0f} ({st.median(waits):.0f})')
+                print(f'  {w:9} {m:10} ' + ' | '.join(cells))
+
+
 def main():
+    if sys.argv[1] == '--chains': return chains(sys.argv[2].lstrip('_'), sys.argv[3:] or ['X'])
     label = sys.argv[1].lstrip('_'); codes = sys.argv[2:] or ['X', 'N', 'A']
     R = os.environ.get('RESULTS') or os.path.join(HERE, 'results')
     for code in codes:

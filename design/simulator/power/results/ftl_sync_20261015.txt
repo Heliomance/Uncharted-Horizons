@@ -7,6 +7,9 @@ none unfinished in any setting. Settings (exported for compare_settings.sh, whic
   F4  F2's SETCELL, ROWX=NP15:5,TH20:6,ES18:5,QM-E23:1,MA15:1 WROWX=5 SPACEPRICE=1.1, rivals made under it (POOLTAG=F4)
   F5  F3's settings and SPACEPRICE=1.1, rivals made under it (POOLTAG=F5); F5b the same with SEED0=37000 TRUTHSEED=91
   V125b  v3.125 with SEED0=37000 TRUTHSEED=91
+  S   F2's SETCELL alone (the three prerequisite changes), rivals made under it (POOLTAG=S); Sb with SEED0=37000 TRUTHSEED=91
+  F2c F2's settings (SETCELL, ROWX=NP15:5,TH20:6,ES18:4), rivals made under it (POOLTAG=F2c); F2cb the second seed set
+  R   F2c with SPACEPRICE=1.1, rivals made under it (POOLTAG=R; the report's recommendation); Rb the second seed set
 
 == the spread between methods (ftl_sync.py), single seed sets
 
@@ -77,7 +80,7 @@ none unfinished in any setting. Settings (exported for compare_settings.sh, whic
   F3     largest  4.6, rms  2.7; win shares 33%-69%
   F4@1.1 largest  5.1, rms  3.2; win shares 30%-67%
 
-== v3.125 against the recommended package, two seed sets each
+== v3.125 against F5 (an earlier candidate; the recommendation is R, below), two seed sets each
 
 === expert (all 15 conditions against base Civ V's 305: V125+V125b 304 (-1), F5+F5b@1.1 302 (-3))
   familiar
@@ -116,7 +119,7 @@ none unfinished in any setting. Settings (exported for compare_settings.sh, whic
   V125+V125b largest 10.1, rms  6.3; win shares 25%-78%
   F5+F5b@1.1 largest  4.3, rms  2.8; win shares 36%-71%
 
-== the races taken apart under the recommended package (ftl_balance.py cmpF5, the first seed set)
+== the races taken apart under F5 (ftl_balance.py cmpF5, the first seed set)
 
 === expert
 == familiar (field median 301)
@@ -186,3 +189,204 @@ none unfinished in any setting. Settings (exported for compare_settings.sh, whic
   Hyperspace      387       +5    322     350   367    367   92%/  8%/  0%   MA19 (100%, 367)                           dark (58%)
   Tachyonic       377       -5    323     343   357    357  100%/  0%/  0%   TH20 (62%, 363), SE02 (38%, 353)           catalogue (47%)
   Plenum          384       +2    322     348   365    365   95%/  0%/  5%   QM-E23 (73%, 366), AE20 (27%, 362)         coupling (100%)
+
+== v3.125, the prerequisite changes alone (S), with the dearer fast rows (F2c), and the recommendation (R), two seed sets each (ftl_sync.py V125+V125b S+Sb F2c+F2cb R+Rb@1.1)
+
+
+=== expert (all 15 conditions against base Civ V's 305: V125+V125b 304 (-1), S+Sb 301 (-4), F2c+F2cb 301 (-4), R+Rb@1.1 303 (-2))
+  familiar
+    V125+V125b field   301 | Warp   -5 (73%)  Wormh  +12 (27%)  Hyper   +1 (47%)  Tachy   -5 (74%)  Tunne   +7 (30%) | max  12, rms  7.0
+    S+Sb   field   298 | Warp   -1 (63%)  Wormh   +6 (34%)  Hyper   +4 (34%)  Tachy   -2 (68%)  Tunne   +0 (51%) | max   6, rms  3.4
+    F2c+F2cb field   299 | Warp   -1 (61%)  Wormh   +6 (33%)  Hyper   +2 (44%)  Tachy   -2 (59%)  Tunne   -1 (54%) | max   6, rms  3.0
+    R+Rb@1.1 field   301 | Warp   -1 (56%)  Wormh   +6 (38%)  Hyper   +4 (41%)  Tachy   -3 (63%)  Tunne   +0 (53%) | max   6, rms  3.5
+  Process
+    V125+V125b field   304 | Warp   -5 (77%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -4 (68%)  Plenu  +13 (28%) | max  13, rms  8.5
+    S+Sb   field   302 | Warp   -1 (67%)  Wormh   +2 (47%)  Hyper   +4 (39%)  Tachy   -2 (67%)  Plenu   +6 (31%) | max   6, rms  3.5
+    F2c+F2cb field   303 | Warp   -2 (65%)  Wormh   +1 (45%)  Hyper   +2 (44%)  Tachy   -3 (61%)  Plenu   +4 (34%) | max   4, rms  2.6
+    R+Rb@1.1 field   304 | Warp   -3 (58%)  Wormh   +1 (48%)  Hyper   +1 (51%)  Tachy   -3 (60%)  Plenu   +5 (32%) | max   5, rms  3.0
+  Substance
+    V125+V125b field   307 | Warp   -5 (68%)  Wormh   +8 (33%)  Hyper   +4 (44%)  Tachy   -8 (74%)  Plenu   +7 (31%) | max   8, rms  6.4
+    S+Sb   field   303 | Warp   -1 (55%)  Wormh   +0 (49%)  Hyper   +2 (44%)  Tachy   -5 (69%)  Plenu   +7 (33%) | max   7, rms  4.0
+    F2c+F2cb field   304 | Warp   -1 (55%)  Wormh   +0 (49%)  Hyper   +1 (47%)  Tachy   -4 (65%)  Plenu   +6 (34%) | max   6, rms  3.3
+    R+Rb@1.1 field   304 | Warp   -1 (56%)  Wormh   -1 (52%)  Hyper   +3 (48%)  Tachy   -3 (59%)  Plenu   +4 (35%) | max   4, rms  2.7
+
+=== novice (all 15 conditions against base Civ V's 305: V125+V125b 307 (+2), S+Sb 304 (-1), F2c+F2cb 305 (+0), R+Rb@1.1 307 (+2))
+  familiar
+    V125+V125b field   304 | Warp   -4 (69%)  Wormh  +10 (29%)  Hyper   +5 (45%)  Tachy   -5 (67%)  Tunne   +4 (40%) | max  10, rms  6.0
+    S+Sb   field   301 | Warp   +0 (49%)  Wormh   +3 (41%)  Hyper   +1 (44%)  Tachy   -2 (58%)  Tunne   -1 (59%) | max   3, rms  1.6
+    F2c+F2cb field   302 | Warp   +0 (45%)  Wormh   +0 (46%)  Hyper   +0 (48%)  Tachy   -1 (49%)  Tunne   -2 (63%) | max   2, rms  1.0
+    R+Rb@1.1 field   305 | Warp   +2 (45%)  Wormh   +1 (48%)  Hyper   +5 (37%)  Tachy   -3 (61%)  Tunne   -2 (59%) | max   5, rms  2.9
+  Process
+    V125+V125b field   306 | Warp   -5 (78%)  Wormh   +6 (33%)  Hyper   +1 (49%)  Tachy   -3 (64%)  Plenu  +13 (26%) | max  13, rms  6.8
+    S+Sb   field   305 | Warp   -2 (62%)  Wormh   +0 (54%)  Hyper   +2 (40%)  Tachy   -3 (62%)  Plenu   +4 (32%) | max   4, rms  2.6
+    F2c+F2cb field   306 | Warp   -1 (58%)  Wormh   -2 (57%)  Hyper   +1 (43%)  Tachy   -2 (57%)  Plenu   +3 (36%) | max   3, rms  1.9
+    R+Rb@1.1 field   307 | Warp   +2 (45%)  Wormh   -2 (60%)  Hyper   +0 (51%)  Tachy   -4 (61%)  Plenu   +4 (33%) | max   4, rms  2.6
+  Substance
+    V125+V125b field   311 | Warp   -2 (60%)  Wormh   +1 (42%)  Hyper   +1 (46%)  Tachy   -8 (71%)  Plenu   +5 (31%) | max   8, rms  4.2
+    S+Sb   field   308 | Warp   +0 (52%)  Wormh   -5 (61%)  Hyper   +4 (39%)  Tachy   -6 (68%)  Plenu   +6 (31%) | max   6, rms  5.0
+    F2c+F2cb field   308 | Warp   +1 (48%)  Wormh   -5 (62%)  Hyper   +2 (42%)  Tachy   -5 (63%)  Plenu   +5 (35%) | max   5, rms  4.0
+    R+Rb@1.1 field   308 | Warp   +2 (46%)  Wormh   -3 (65%)  Hyper   +1 (42%)  Tachy   -4 (61%)  Plenu   +3 (35%) | max   4, rms  2.7
+
+=== average (all 15 conditions against base Civ V's 380: V125+V125b 381 (+1), S+Sb 377 (-3), F2c+F2cb 378 (-2), R+Rb@1.1 380 (+0))
+  familiar
+    V125+V125b field   378 | Warp   -4 (67%)  Wormh   +8 (36%)  Hyper   +3 (41%)  Tachy   -6 (67%)  Tunne   +4 (39%) | max   8, rms  5.3
+    S+Sb   field   373 | Warp   +0 (52%)  Wormh   +2 (49%)  Hyper   +5 (36%)  Tachy   -0 (53%)  Tunne   -2 (61%) | max   5, rms  2.6
+    F2c+F2cb field   374 | Warp   +0 (47%)  Wormh   +0 (53%)  Hyper   +4 (41%)  Tachy   +1 (44%)  Tunne   -3 (65%) | max   4, rms  2.1
+    R+Rb@1.1 field   377 | Warp   +4 (43%)  Wormh   -1 (56%)  Hyper   +4 (41%)  Tachy   -1 (51%)  Tunne   -2 (59%) | max   4, rms  2.8
+  Process
+    V125+V125b field   381 | Warp   -7 (78%)  Wormh   +8 (36%)  Hyper   +4 (47%)  Tachy   -4 (64%)  Plenu  +13 (25%) | max  13, rms  7.8
+    S+Sb   field   379 | Warp   -3 (61%)  Wormh   -3 (61%)  Hyper   +6 (36%)  Tachy   -3 (60%)  Plenu   +5 (31%) | max   6, rms  4.2
+    F2c+F2cb field   380 | Warp   -2 (57%)  Wormh   -4 (64%)  Hyper   +5 (37%)  Tachy   -4 (58%)  Plenu   +4 (35%) | max   5, rms  4.0
+    R+Rb@1.1 field   380 | Warp   +1 (46%)  Wormh   -3 (66%)  Hyper   +2 (47%)  Tachy   -3 (58%)  Plenu   +5 (33%) | max   5, rms  3.1
+  Substance
+    V125+V125b field   384 | Warp   -2 (60%)  Wormh   +3 (43%)  Hyper   +1 (49%)  Tachy   -7 (67%)  Plenu   +7 (31%) | max   7, rms  4.7
+    S+Sb   field   380 | Warp   +1 (48%)  Wormh   -6 (66%)  Hyper   +4 (42%)  Tachy   -4 (63%)  Plenu   +8 (31%) | max   8, rms  5.1
+    F2c+F2cb field   382 | Warp   +1 (46%)  Wormh   -7 (67%)  Hyper   +2 (44%)  Tachy   -3 (59%)  Plenu   +6 (34%) | max   7, rms  4.4
+    R+Rb@1.1 field   382 | Warp   +3 (42%)  Wormh   -8 (71%)  Hyper   +5 (43%)  Tachy   -5 (57%)  Plenu   +3 (37%) | max   8, rms  5.1
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125+V125b largest 10.1, rms  6.3; win shares 25%-78%; unfinished 0 of 5400 games
+  S+Sb   largest  5.7, rms  3.5; win shares 31%-69%; unfinished 0 of 5400 games
+  F2c+F2cb largest  4.6, rms  2.9; win shares 33%-67%; unfinished 0 of 5400 games
+  R+Rb@1.1 largest  5.0, rms  3.2; win shares 32%-71%; unfinished 0 of 5400 games
+
+== the build chains at v3.125 (ftl_balance.py --chains cmpV125 X N A, on the confirmation's full results, which keep each row's discovery turn)
+
+=== expert: median discovery turn of each build row, and (in brackets) median turns from its prerequisites met to it
+  familiar  Warp       RC01 177 (30) | QP08 251 (37) | QP11 266 (12) | MS08 277 (9) | ES06 238 (19) | ES07 284 (6) | ES08 280 (40) | ES18 269 (48) | EL11 223 (32)
+  familiar  Wormhole   RC01 176 (28) | QP08 251 (38) | QP11 266 (12) | MS08 280 (14) | RC04 234 (22) | QP12 252 (39) | MA13 173 (27) | MS17 297 (16)
+  familiar  Hyperspace QP08 250 (38) | MA13 173 (27) | ES06 238 (17) | ES07 284 (19) | ES08 283 (35) | MA19 288 (17) | MA15 271 (32)
+  familiar  Tunnelling QP02 207 (14) | CP10 282 (17) | MS02 227 (19) | GN05 297 (41) | QP14 269 (11) | CP21 292 (10) | CP16 265 (11) | QP07 251 (22)
+  familiar  Tachyonic  QP06 233 (20) | QP08 250 (37) | SE02 266 (15) | ES06 240 (19) | ES07 282 (10) | ES08 276 (44) | NP15 276 (36) | EL11 222 (32)
+  Process   Warp       RC01 175 (28) | QM-E27 250 (35) | QM-E06 266 (14) | MS08 280 (12) | ES07 272 (28) | ES15 244 (36) | QM-E05 252 (42) | ES18 273 (48) | EL11 224 (32)
+  Process   Wormhole   RC01 176 (29) | QM-E27 251 (35) | QM-E06 264 (14) | MS08 279 (10) | RC04 234 (25) | QM-E13 252 (44) | MA13 175 (29) | MS17 300 (21)
+  Process   Hyperspace QM-E27 251 (35) | MA13 176 (30) | ES07 275 (34) | ES15 254 (44) | QM-E05 252 (42) | MA19 289 (13) | MA15 273 (31)
+  Process   Tachyonic  QM-E17 243 (27) | QM-E27 251 (36) | ES07 268 (26) | ES15 246 (38) | QM-E05 254 (43) | SE02 272 (14) | TH20 281 (26) | EL11 225 (34)
+  Process   Plenum     QM-E27 252 (36) | MS02 227 (17) | QM-E19 268 (16) | QM-E23 286 (16) | AE20 298 (10) | AE14 262 (19) | RK07 260 (19)
+  Substance Warp       RC01 174 (26) | QM-E27 252 (35) | QM-E06 268 (16) | MS08 281 (11) | ES07 272 (30) | ES15 258 (50) | QM-E05 252 (42) | ES18 273 (49) | EL11 224 (34)
+  Substance Wormhole   RC01 175 (29) | QM-E27 251 (35) | QM-E06 266 (16) | MS08 282 (13) | RC04 237 (26) | QM-E13 252 (44) | MA13 175 (28) | MS17 300 (16)
+  Substance Hyperspace QM-E27 250 (34) | MA13 176 (30) | ES07 270 (32) | ES15 259 (49) | QM-E05 252 (44) | MA19 292 (16) | MA15 274 (33)
+  Substance Tachyonic  QM-E17 245 (28) | QM-E27 251 (34) | ES07 270 (30) | ES15 246 (37) | QM-E05 252 (43) | SE02 273 (16) | TH20 282 (28) | EL11 226 (35)
+  Substance Plenum     QM-E27 251 (35) | MS02 228 (20) | QM-E19 268 (15) | QM-E23 290 (19) | AE20 298 (8) | AE14 263 (22) | RK07 258 (20)
+
+=== novice: median discovery turn of each build row, and (in brackets) median turns from its prerequisites met to it
+  familiar  Warp       RC01 195 (34) | QP08 254 (13) | QP11 265 (10) | MS08 277 (10) | ES06 248 (7) | ES07 260 (12) | ES08 278 (34) | ES18 279 (38) | EL11 229 (34)
+  familiar  Wormhole   RC01 195 (33) | QP08 253 (12) | QP11 264 (9) | MS08 279 (15) | RC04 263 (22) | QP12 256 (16) | MA13 178 (17) | MS17 298 (16)
+  familiar  Hyperspace QP08 252 (10) | MA13 177 (14) | ES06 246 (6) | ES07 268 (15) | ES08 289 (44) | MA19 292 (10) | MA15 277 (45)
+  familiar  Tunnelling QP02 231 (14) | CP10 282 (17) | MS02 241 (11) | GN05 291 (36) | QP14 274 (11) | CP21 292 (10) | CP16 266 (13) | QP07 252 (10)
+  familiar  Tachyonic  QP06 249 (10) | QP08 251 (14) | SE02 273 (19) | ES06 251 (8) | ES07 259 (15) | ES08 268 (37) | NP15 281 (25) | EL11 240 (34)
+  Process   Warp       RC01 198 (36) | QM-E27 259 (26) | QM-E06 270 (11) | MS08 281 (11) | ES07 263 (17) | ES15 251 (42) | QM-E05 247 (35) | ES18 283 (50) | EL11 227 (30)
+  Process   Wormhole   RC01 196 (37) | QM-E27 259 (26) | QM-E06 268 (12) | MS08 283 (14) | RC04 256 (48) | QM-E13 246 (36) | MA13 194 (35) | MS17 297 (12)
+  Process   Hyperspace QM-E27 257 (22) | MA13 196 (34) | ES07 265 (15) | ES15 248 (36) | QM-E05 250 (38) | MA19 293 (7) | MA15 286 (37)
+  Process   Tachyonic  QM-E17 244 (14) | QM-E27 258 (24) | ES07 264 (16) | ES15 246 (30) | QM-E05 248 (36) | SE02 283 (16) | TH20 284 (32) | EL11 232 (34)
+  Process   Plenum     QM-E27 258 (26) | MS02 242 (33) | QM-E19 269 (10) | QM-E23 289 (20) | AE20 303 (10) | AE14 266 (16) | RK07 264 (14)
+  Substance Warp       RC01 196 (35) | QM-E27 260 (25) | QM-E06 265 (10) | MS08 286 (16) | ES07 268 (21) | ES15 251 (40) | QM-E05 248 (38) | ES18 290 (39) | EL11 244 (41)
+  Substance Wormhole   RC01 196 (37) | QM-E27 259 (26) | QM-E06 269 (10) | MS08 282 (14) | RC04 258 (54) | QM-E13 245 (40) | MA13 194 (34) | MS17 296 (14)
+  Substance Hyperspace QM-E27 258 (25) | MA13 194 (32) | ES07 266 (22) | ES15 248 (41) | QM-E05 248 (40) | MA19 294 (13) | MA15 284 (34)
+  Substance Tachyonic  QM-E17 247 (14) | QM-E27 258 (26) | ES07 266 (23) | ES15 250 (43) | QM-E05 246 (38) | SE02 278 (18) | TH20 286 (26) | EL11 259 (44)
+  Substance Plenum     QM-E27 258 (25) | MS02 241 (32) | QM-E19 270 (12) | QM-E23 292 (19) | AE20 300 (6) | AE14 262 (14) | RK07 264 (15)
+
+=== average: median discovery turn of each build row, and (in brackets) median turns from its prerequisites met to it
+  familiar  Warp       RC01 242 (44) | QP08 314 (18) | QP11 331 (12) | MS08 345 (14) | ES06 311 (7) | ES07 346 (16) | ES08 339 (50) | ES18 352 (38) | EL11 314 (62)
+  familiar  Wormhole   RC01 242 (43) | QP08 317 (18) | QP11 329 (11) | MS08 345 (16) | RC04 326 (27) | QP12 318 (21) | MA13 217 (18) | MS17 364 (16)
+  familiar  Hyperspace QP08 318 (18) | MA13 214 (17) | ES06 308 (7) | ES07 350 (20) | ES08 347 (69) | MA19 361 (14) | MA15 346 (58)
+  familiar  Tunnelling QP02 287 (17) | CP10 352 (21) | MS02 296 (11) | GN05 362 (43) | QP14 340 (14) | CP21 361 (12) | CP16 330 (17) | QP07 312 (14)
+  familiar  Tachyonic  QP06 310 (12) | QP08 313 (18) | SE02 338 (22) | ES06 309 (11) | ES07 328 (19) | ES08 335 (50) | NP15 349 (34) | EL11 278 (41)
+  Process   Warp       RC01 244 (46) | QM-E27 323 (35) | QM-E06 332 (11) | MS08 349 (18) | ES07 329 (21) | ES15 310 (52) | QM-E05 308 (42) | ES18 353 (66) | EL11 282 (35)
+  Process   Wormhole   RC01 244 (49) | QM-E27 323 (36) | QM-E06 332 (12) | MS08 349 (16) | RC04 320 (62) | QM-E13 307 (50) | MA13 240 (46) | MS17 369 (18)
+  Process   Hyperspace QM-E27 325 (35) | MA13 243 (47) | ES07 329 (20) | ES15 308 (50) | QM-E05 308 (46) | MA19 365 (10) | MA15 354 (46)
+  Process   Tachyonic  QM-E17 302 (16) | QM-E27 324 (34) | ES07 325 (20) | ES15 308 (44) | QM-E05 306 (46) | SE02 353 (20) | TH20 355 (44) | EL11 281 (34)
+  Process   Plenum     QM-E27 324 (36) | MS02 300 (40) | QM-E19 336 (12) | QM-E23 360 (24) | AE20 374 (15) | AE14 328 (22) | RK07 327 (18)
+  Substance Warp       RC01 244 (44) | QM-E27 324 (36) | QM-E06 336 (12) | MS08 356 (20) | ES07 326 (21) | ES15 312 (50) | QM-E05 314 (50) | ES18 360 (60) | EL11 280 (42)
+  Substance Wormhole   RC01 244 (49) | QM-E27 323 (38) | QM-E06 335 (12) | MS08 350 (18) | RC04 320 (64) | QM-E13 308 (50) | MA13 240 (45) | MS17 366 (16)
+  Substance Hyperspace QM-E27 322 (34) | MA13 240 (46) | ES07 335 (25) | ES15 310 (52) | QM-E05 309 (48) | MA19 364 (13) | MA15 350 (43)
+  Substance Tachyonic  QM-E17 304 (16) | QM-E27 323 (36) | ES07 326 (26) | ES15 310 (50) | QM-E05 310 (47) | SE02 347 (26) | TH20 357 (31) | EL11 318 (73)
+  Substance Plenum     QM-E27 322 (34) | MS02 299 (40) | QM-E19 334 (12) | QM-E23 360 (22) | AE20 371 (10) | AE14 326 (22) | RK07 329 (21)
+
+== the races taken apart under R (ftl_balance.py cmpR with SPACEPRICE=1.1, the first seed set), and the expert's chains under R (--chains, run on R's patched tree)
+
+=== expert
+== familiar (field median 301)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            300       -2    251     273   282    282   75%/  3%/ 22%   MS08 (63%, 286), ES18 (37%, 275)           bubble (93%)
+  Wormhole        306       +5    251     276   290    290   73%/  2%/ 25%   MS17 (53%, 292), MS08 (47%, 288)           throat (98%)
+  Hyperspace      305       +4    251     271   287    289   83%/ 12%/  5%   MA19 (100%, 287)                           leak (45%)
+  Tunnelling      301       +0    251     266   284    285   82%/ 15%/  3%   CP21 (95%, 284), QP14 (5%, 271)            coherence (100%)
+  Tachyonic       298       -2    251     270   282    282  100%/  0%/  0%   NP15 (93%, 281), SE02 (7%, 286)            tachDE (48%)
+== Process (field median 304)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            301       -3    251     277   285    285   75%/  0%/ 25%   MS08 (63%, 288), ES18 (37%, 282)           bubble (92%)
+  Wormhole        305       +1    251     275   289    289   78%/  2%/ 20%   MS17 (63%, 289), MS08 (37%, 288)           throat (92%)
+  Hyperspace      304       +0    251     275   288    288   82%/ 18%/  0%   MA19 (100%, 288)                           strata (43%)
+  Tachyonic       301       -3    252     274   285    285   97%/  3%/  0%   TH20 (82%, 286), SE02 (18%, 281)           superlum (48%)
+  Plenum          309       +5    252     273   293    293   93%/  0%/  7%   QM-E23 (62%, 293), AE20 (38%, 293)         coupling (95%)
+== Substance (field median 304)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            303       -2    252     278   287    287   80%/  0%/ 20%   MS08 (52%, 287), ES18 (48%, 282)           bubble (93%)
+  Wormhole        304       +0    251     274   288    288   88%/  3%/  8%   MS17 (72%, 290), MS08 (28%, 287)           throat (88%)
+  Hyperspace      306       +2    251     277   290    290   87%/ 12%/  2%   MA19 (100%, 290)                           dark (52%)
+  Tachyonic       301       -4    251     276   285    285   97%/  2%/  2%   TH20 (77%, 287), SE02 (23%, 284)           catalogue (45%)
+  Plenum          308       +3    251     274   292    292   93%/  0%/  7%   QM-E23 (70%, 292), AE20 (30%, 292)         coupling (83%)
+
+=== novice
+== familiar (field median 305)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            307       +2    253     278   291    291   87%/  0%/ 13%   ES18 (77%, 292), MS08 (23%, 291)           bubble (100%)
+  Wormhole        304       -0    252     275   288    288   75%/  0%/ 25%   MS17 (63%, 292), MS08 (37%, 287)           throat (100%)
+  Hyperspace      310       +5    253     274   294    294   97%/  3%/  0%   MA19 (97%, 294), ES06/ES07/ES14/ES08 (3%, 278)   dark (75%)
+  Tunnelling      302       -3    253     269   286    286   97%/  3%/  0%   CP21 (100%, 286)                           coherence (100%)
+  Tachyonic       302       -3    253     272   286    286   98%/  2%/  0%   NP15 (95%, 286), SE02 (5%, 277)            tachDE (80%)
+== Process (field median 307)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            310       +3    259     278   294    294   88%/  2%/ 10%   ES18 (78%, 293), MS08 (22%, 296)           bubble (97%)
+  Wormhole        305       -2    258     278   289    289   82%/  0%/ 18%   MS17 (63%, 289), MS08 (37%, 288)           throat (93%)
+  Hyperspace      307       +0    261     280   291    291   88%/ 10%/  2%   MA19 (100%, 291)                           dark (47%)
+  Tachyonic       303       -4    256     276   287    287   97%/  3%/  0%   TH20 (78%, 289), SE02 (22%, 281)           superlum (67%)
+  Plenum          312       +5    260     277   296    296   97%/  3%/  0%   QM-E23 (87%, 296), AE20 (13%, 295)         coupling (93%)
+== Substance (field median 308)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            308       +0    260     286   292    292   87%/  2%/ 12%   ES18 (78%, 294), MS08 (22%, 287)           bubble (98%)
+  Wormhole        303       -5    259     277   287    287   85%/  2%/ 13%   MS17 (75%, 289), MS08 (25%, 282)           throat (97%)
+  Hyperspace      310       +2    257     280   293    294   85%/ 13%/  2%   MA19 (100%, 293)                           dark (72%)
+  Tachyonic       304       -4    257     275   288    288   98%/  2%/  0%   TH20 (62%, 293), SE02 (38%, 284)           superlum (47%)
+  Plenum          312       +4    258     280   296    296  100%/  0%/  0%   QM-E23 (83%, 298), AE20 (17%, 290)         coupling (97%)
+
+=== average
+== familiar (field median 377)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            384       +6    315     347   364    364   85%/  2%/ 13%   ES18 (68%, 365), MS08 (32%, 364)           bubble (100%)
+  Wormhole        376       -1    314     340   357    357   65%/  2%/ 33%   MS08 (57%, 356), MS17 (43%, 358)           throat (100%)
+  Hyperspace      381       +4    315     340   361    361  100%/  0%/  0%   MA19 (98%, 361), ES06/ES07/ES14/ES08 (2%, 340)   dark (75%)
+  Tunnelling      375       -2    317     336   354    354   95%/  5%/  0%   CP21 (100%, 354)                           coherence (100%)
+  Tachyonic       376       -1    315     338   356    356  100%/  0%/  0%   NP15 (98%, 356), SE02 (2%, 350)            tachDE (60%)
+== Process (field median 379)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            381       +2    323     342   362    362   87%/  2%/ 12%   ES18 (77%, 360), MS08 (23%, 366)           bubble (95%)
+  Wormhole        377       -2    320     345   358    358   78%/  0%/ 22%   MS17 (63%, 360), MS08 (37%, 356)           throat (90%)
+  Hyperspace      382       +3    325     348   362    362   95%/  3%/  2%   MA19 (100%, 362)                           strata (33%)
+  Tachyonic       378       -2    324     345   357    358   98%/  2%/  0%   TH20 (90%, 358), SE02 (10%, 348)           superlum (73%)
+  Plenum          385       +6    324     344   366    366   98%/  0%/  2%   QM-E23 (83%, 366), AE20 (17%, 362)         coupling (98%)
+== Substance (field median 382)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            384       +2    324     352   366    366   90%/  0%/ 10%   ES18 (85%, 367), MS08 (15%, 360)           bubble (100%)
+  Wormhole        374       -8    323     346   355    355   88%/  0%/ 12%   MS17 (82%, 356), MS08 (18%, 349)           throat (100%)
+  Hyperspace      386       +4    322     350   366    366   92%/  7%/  2%   MA19 (100%, 366)                           dark (57%)
+  Tachyonic       377       -5    323     343   357    357  100%/  0%/  0%   TH20 (62%, 363), SE02 (38%, 353)           catalogue (47%)
+  Plenum          385       +3    322     348   366    366   97%/  0%/  3%   QM-E23 (83%, 368), AE20 (17%, 362)         coupling (100%)
+
+=== expert: median discovery turn of each build row, and (in brackets) median turns from its prerequisites met to it
+  familiar  Warp       RC01 178 (30) | QP08 251 (37) | QP11 264 (12) | MS08 280 (12) | ES06 239 (18) | ES07 277 (19) | ES08 275 (41) | ES18 272 (50) | EL11 222 (31)
+  familiar  Wormhole   RC01 178 (30) | QP08 251 (38) | QP11 264 (11) | MS08 282 (14) | RC04 234 (22) | QP12 252 (40) | MA13 179 (33) | MS17 283 (18)
+  familiar  Hyperspace QP08 251 (38) | MA13 178 (31) | ES06 239 (17) | ES07 291 (11) | ES08 288 (43) | MA19 287 (18) | MA15 269 (31)
+  familiar  Tunnelling QP02 207 (13) | CP10 271 (20) | MS02 226 (18) | GN05 287 (30) | QP14 267 (11) | CP21 284 (12) | CP16 281 (13) | QP07 251 (24)
+  familiar  Tachyonic  QP06 234 (21) | QP08 251 (38) | SE02 266 (16) | ES06 240 (18) | ES07 277 (26) | ES08 279 (45) | NP15 281 (40) | EL11 226 (32)
+  Process   Warp       RC01 175 (28) | QM-E27 251 (36) | QM-E06 266 (16) | MS08 284 (16) | ES07 275 (28) | ES15 244 (35) | QM-E05 251 (42) | ES18 277 (54) | EL11 224 (32)
+  Process   Wormhole   RC01 176 (29) | QM-E27 251 (36) | QM-E06 262 (10) | MS08 284 (16) | RC04 234 (25) | QM-E13 254 (44) | MA13 175 (29) | MS17 286 (20)
+  Process   Hyperspace QM-E27 251 (35) | MA13 176 (30) | ES07 276 (33) | ES15 251 (40) | QM-E05 252 (42) | MA19 288 (11) | MA15 272 (30)
+  Process   Tachyonic  QM-E17 243 (27) | QM-E27 252 (36) | ES07 270 (26) | ES15 246 (38) | QM-E05 253 (43) | SE02 276 (15) | TH20 285 (30) | EL11 225 (34)
+  Process   Plenum     QM-E27 252 (36) | MS02 227 (17) | QM-E19 268 (14) | QM-E23 289 (15) | AE20 289 (14) | AE14 261 (20) | RK07 269 (28)
+  Substance Warp       RC01 174 (26) | QM-E27 252 (36) | QM-E06 266 (15) | MS08 286 (13) | ES07 276 (32) | ES15 262 (53) | QM-E05 252 (43) | ES18 279 (56) | EL11 224 (34)
+  Substance Wormhole   RC01 175 (29) | QM-E27 251 (35) | QM-E06 266 (15) | MS08 280 (12) | RC04 237 (26) | QM-E13 252 (43) | MA13 175 (28) | MS17 287 (21)
+  Substance Hyperspace QM-E27 251 (35) | MA13 176 (30) | ES07 275 (33) | ES15 256 (47) | QM-E05 252 (42) | MA19 290 (16) | MA15 271 (30)
+  Substance Tachyonic  QM-E17 244 (28) | QM-E27 251 (34) | ES07 280 (34) | ES15 246 (38) | QM-E05 252 (43) | SE02 274 (16) | TH20 284 (31) | EL11 226 (35)
+  Substance Plenum     QM-E27 251 (35) | MS02 228 (20) | QM-E19 267 (14) | QM-E23 290 (17) | AE20 286 (14) | AE14 262 (22) | RK07 268 (28)

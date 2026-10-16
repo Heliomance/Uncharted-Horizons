@@ -32,11 +32,13 @@ def table(label):
     for code, name, econ, ref in PLAYERS:
         allv = []
         for w, ms in WORLDS.items():
-            v = {m: [x for lab in label.split('+') for x in (V.victory(g, econ) for g in json.load(open(os.path.join(R, f'w7f_{w}_cmp{lab}{code}_{m}.json')))) if x is not None] for m in ms}
+            raw = {m: [V.victory(g, econ) for lab in label.split('+') for g in json.load(open(os.path.join(R, f'w7f_{w}_cmp{lab}{code}_{m}.json')))] for m in ms}
+            unfinished = sum(x is None for xs in raw.values() for x in xs); games = sum(len(xs) for xs in raw.values())
+            v = {m: [x for x in xs if x is not None] for m, xs in raw.items()}
             field = [x for xs in v.values() for x in xs]; fm = st.median(field); allv += field
             dev = {m: st.median(xs) - fm for m, xs in v.items()}
             out[(name, w)] = dict(field=fm, dev=dev, win={m: wins(xs, field) for m, xs in v.items()},
-                                  maxdev=max(abs(d) for d in dev.values()), rms=math.sqrt(st.mean(d * d for d in dev.values())))
+                                  maxdev=max(abs(d) for d in dev.values()), rms=math.sqrt(st.mean(d * d for d in dev.values())), unfinished=unfinished, games=games)
         out[(name, 'all')] = dict(median=st.median(allv), ref=ref)
     return out
 
@@ -55,7 +57,8 @@ def main():
     print('\n=== summary: mean over worlds and players of the largest deviation (rms)')
     for lab in labels:
         rs = [T[lab][(n, w)] for _, n, _, _ in PLAYERS for w in WORLDS]
-        print(f'  {lab:6} largest {st.mean(r["maxdev"] for r in rs):4.1f}, rms {st.mean(r["rms"] for r in rs):4.1f}; win shares {min(min(r["win"].values()) for r in rs):.0%}-{max(max(r["win"].values()) for r in rs):.0%}')
+        print(f'  {lab:6} largest {st.mean(r["maxdev"] for r in rs):4.1f}, rms {st.mean(r["rms"] for r in rs):4.1f}; win shares {min(min(r["win"].values()) for r in rs):.0%}-{max(max(r["win"].values()) for r in rs):.0%}; '
+              f'unfinished {sum(r["unfinished"] for r in rs)} of {sum(r["games"] for r in rs)} games')
 
 
 if __name__ == '__main__':

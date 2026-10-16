@@ -1,95 +1,110 @@
 # The FTL methods' relative length, and how to bring them into sync
 
-*Report for Tamsin, 15 October 2026, on v3.125. Her request: "Re-analyse the FTL methods for relative length, and prepare a report on recommendations for bringing them into sync with each other." Nothing here is applied to the design document; the measurements use the simulator's switches (`ROWX`, `SETCELL`) on a private copy of the tree.*
+*Report for Tamsin, 15 October 2026, on v3.125. Her request: "Re-analyse the FTL methods for relative length, and prepare a report on recommendations for bringing them into sync with each other." Nothing here is applied to the design document: every measurement patches a private copy of the tree with the simulator's switches (`SETCELL`, `ROWX`). Two independent checks of an earlier draft against the data and the document found errors; they are corrected here, and the share of the improvement due to each change was measured separately (S, F2c, R below).
 
 ## In brief
 
-- **At v3.125 the methods are far apart.** For the expert, Wormhole, Tunnelling and Plenum finish 7–13 turns behind their world's field, while Warp and Tachyonic finish 4–8 turns ahead. Averaged over the three worlds and three benchmark players, the slowest or fastest method sits **10 turns** from the field, and methods win 25–78% of races against it, where 50% is neutral (§9 of the decisions digest).
-- **The cause is structural, not price.** Every method reaches the unified theory at about the same turn (250–252 for the expert), and nearly every race is then held up by engineering, not by the tests. What differs is how many Space-era rows each build needs *one after another* once the Space era opens. Each such row takes 12–20 turns: it shares its focus's Insight with that field's other Space-era rows, which number 6–11 in every signature field since W18.
-- **Recommendation: three prerequisite changes and five price changes, with the Space price ×1.1.** They more than halve the spread: averaged over worlds and players, the method furthest from its field goes from 10.1 to **4.3 turns** (RMS 6.3 → 2.8), and win shares from 25–78% to 36–71% (measured on 5,400 games a setting). Parity with base Civ V's science victory holds: **302 / 306 / 380** (expert / novice / average) against 305 / 305 / 380. The details, and which settled values they reopen, are below.
+- **At v3.125 the methods are far apart.** For the expert, Wormhole, Tunnelling and Plenum finish 7–13 turns behind their world's field and Warp and Tachyonic 4–8 turns ahead. Averaged over the three worlds and three benchmark players, the method furthest from its field sits **10 turns** away, and methods win 25–78% of races against the field, where 50% is neutral (the standard in §9 of the decisions digest).
+- **Why.** Every method reaches the unified theory at about the same turn, and engineering, not the tests, holds up 62–100% of races. Wormhole, Tunnelling and Plenum each need three Space-era rows one after another, and each step takes 8–21 turns once its prerequisites are met. Warp's and Tachyonic's last rows are available well before the Space era, wait for it, and are done soon after it opens.
+- **Recommendation:** shorten each three-step chain by one step (three prerequisite changes), price the two fast methods' last rows higher (three multipliers), and raise the Space price to ×1.1 to keep the expert well inside parity. Measured on 5,400 games a setting, with rivals rebuilt under it: the method furthest from its field goes from 10.1 to **5.0 turns** (RMS 6.3 → 3.2); methods more than 5 turns from their field go from 18 of the 45 combinations of world, method and player to **2**; win shares go from 25–78% to 32–71%; and victory is **303 / 307 / 380** (expert / novice / average) against base Civ V's 305 / 305 / 380, with no game unfinished. The prerequisite changes do most of it on their own (10.1 → 5.7).
 
 ## Why the methods differ
 
-The race, taken apart for the expert at v3.125 (all three worlds, 60 games each; `ftl_balance.py`, `results/v3125_confirmation.txt`):
+The race taken apart for the expert at v3.125 (all three worlds, 60 games each; `ftl_balance.py`, `results/v3125_confirmation.txt`):
 
 | Method | Unified theory | Certain | Build complete | Build is the last thing | What the build waits on last |
 |---|---|---|---|---|---|
-| Warp | 251–252 | 273–277 | 277–283 | 62–65% (35% both) | Exotic Matter Engineering, or Superconducting Energy Storage |
+| Warp | 250–252 | 273–277 | 277–283 | 62–65% (both at once 28–35%) | Exotic Matter Engineering (62–68%) or Superconducting Energy Storage |
 | Wormhole | 251 | 273–278 | 297–300 | 100% | Transformation Media |
 | Hyperspace | 250–251 | 271–276 | 288–292 | 78–97% | Higher-Dimensional Geometry |
 | Tunnelling | 250 | 268 | 292 | 90% | Macroscopic Quantum Control |
-| Tachyonic | 250–252 | 270–276 | 276–283 | 85–90% | Superconducting Storage Rings, or the Boundary Ring |
+| Tachyonic | 250–251 | 270–276 | 276–283 | 85–90% | Superconducting Storage Rings or the Boundary Ring (73–85%), else Orbital Assembly |
 | Plenum | 251–252 | 276–278 | 298 | 87–93% | Current Rigging |
 
-Certainty comes 10–25 turns before the build is complete, so the tests are not what holds methods back; the engineering is. The chains, with each row's median discovery turn (expert, v3.125):
+Certainty comes before the build is complete: by only 4–9 turns for Warp and Tachyonic, and by 13–27 turns for the other four. So the engineering, not the tests, sets most races.
 
-| Method | The build's chain after the theory |
+The engineering chains, with each row's median discovery turn and, in brackets, the median turns from its prerequisites being met to its discovery (expert, v3.125; `ftl_balance.py --chains`, recorded in `results/ftl_sync_20261015.txt`):
+
+| Method | The build's chain (the three worlds' range) |
 |---|---|
-| Tachyonic | Superconducting Storage Rings 276 (its prerequisites met by about 222), or the Boundary Ring 281 — **one** Space-era row, not waiting on the theory |
-| Warp | Exotic Matter Synthesis 266 → Exotic Matter Engineering 277–280; Superconducting Energy Storage 269–273 alongside — **two** |
-| Hyperspace | Optimisation Theory 271 → Higher-Dimensional Geometry 288 — **two**, not waiting on the theory |
-| Tunnelling | Planetary Data Networks 265 → Quantum Computing 282 → Macroscopic Quantum Control 292 — **three** |
-| Wormhole | Exotic Matter Synthesis 266 → Exotic Matter Engineering 280 → Transformation Media 297 — **three** |
-| Plenum | Celestial Current Survey 268 → Current Sail 286 → Current Rigging 298 — **three** |
+| Wormhole | Exotic Matter Synthesis or (Elemental) 264–268 (12–16) → Exotic Matter Engineering 279–282 (10–14) → Transformation Media ×4 297–300 (16–21): three steps after the theory |
+| Plenum | Celestial Current Survey 268 (15–16) → Current Sail ×2.5 286–290 (16–19) → Current Rigging 298 (8–10): three steps after the theory |
+| Tunnelling | Planetary Data Networks 265 (11) → Quantum Computing ×2 282 (17) → Macroscopic Quantum Control 292 (10): three steps, not waiting on the theory |
+| Warp | Exotic Matter Synthesis 266–268 → Exotic Matter Engineering 277–281 (9–12); alongside, Superconducting Energy Storage ×2.5 269–273, available from about turn 222 but waiting 48–49 turns |
+| Hyperspace | Optimisation Theory ×2.5 271–274, available from about 240 but waiting 31–33 turns → Higher-Dimensional Geometry 288–292 (13–17) |
+| Tachyonic | atomic: Superconducting Storage Rings ×2.5 276, available from about 240 but waiting 36 turns; elemental: Re-Tempering Reactor 252 → the Boundary Ring ×4 281–282 (26–28) |
 
-A Space-era row takes 12–20 turns even at ×1, because the funded focus divides its Insight among all its ideas under study, and since W18 each signature field has 6–11 Space-era rows (Computing 11, Materials Science 9, Mathematics 9, Aeronautics 6–8). The race is therefore set by **serial depth**: one row deep finishes about turn 276–283, two deep 277–292, three deep 292–300. Prices move a row's length much less than its place in the chain: in the first candidate below, the Current Sail at ×1 instead of ×2.5 did not move Plenum at all.
+For the novice and the average player the shape is the same (the record has their chains).
+
+Two things set the race. **Depth after the Space era opens:** each step of a chain takes 8–21 turns once available, about 8–17 at ×1 and 16–21 at ×2–×4, because the funded focus shares its Insight with all its ideas under study, and since W18 each signature field has 6–11 Space-era rows. Three-step chains therefore finish around turn 292–300. **Waiting for the Space era:** rows available before it (Superconducting Energy Storage, the Storage Rings, Optimisation Theory) wait 26–49 turns, because the expert does not pay their ahead-of-time premium early, so Warp's and Tachyonic's builds finish soon after the era opens, around 276–283, and Hyperspace's later because its second row only starts when Optimisation Theory is done. Prices matter too: in the first candidate, Transformation Media at ×1.5 brought Wormhole 3–6 turns earlier, and the Current Sail at ×1 brought the novice's and average player's Process Plenum 5–6 turns earlier, though not the expert's.
 
 ## What was measured
 
-All 15 victory conditions (three worlds, five methods each), the three benchmark players, 60 games a cell (2,700 games a setting), none unfinished in any setting. The spread is each method's victory median against its world's field (all its methods' games), averaged over the three worlds and three players: the largest deviation, its root mean square, and the range of win shares.
+All 15 victory conditions (three worlds, five methods each) and the three benchmark players, 60 games a cell; none unfinished in any setting. The spread is each method's victory median against its world's field (all its methods' games), averaged over the three worlds and three players: the largest deviation, its root mean square, and the range of win shares. "Own rivals" means the rivals that knowledge diffusion replays were rebuilt under the setting, as a confirmation needs.
 
-| Setting | What changes (from v3.125) | Largest | RMS | Win shares | Victory (expert / novice / average) |
-|---|---|---|---|---|---|
-| v3.125 | — | 9.7 | 6.1 | 25–80% | 304 / 307 / 381 |
-| F1: prices only | Transformation Media ×1.5, Current Sail ×1, Quantum Computing ×1; Superconducting Storage Rings ×5, the Boundary Ring ×6, Superconducting Energy Storage ×4 | 7.3 | 4.6 | 26–77% | 304 / 307 / 381 |
-| F2: structure | F1's three dearer rows, and the three prerequisite changes below | 4.8 | 3.0 | 31–70% | 302 / 305 / 379 |
-| F3 | F2, with the Current Sail ×1.5 and Optimisation Theory ×1.5 | 4.6 | 2.7 | 33–69% | 301 / 305 / 378 |
-| F4 | F3 trimmed further (Energy Storage ×5, Transformation Media ×5, Current Sail and Optimisation Theory ×1), Space price ×1.1, its own rivals | 5.1 | 3.2 | 30–67% | 303 / 306 / 380 |
-| v3.125, two seed sets | — | 10.1 | 6.3 | 25–78% | 304 / 307 / 381 |
-| **F5: recommended** | F3 with the Space price ×1.1, its own rivals; **two seed sets, 5,400 games** | **4.3** | **2.8** | **36–71%** | **302 / 306 / 380** |
+| Setting | What changes from v3.125 | Games | Largest | RMS | Win shares | Victory (expert / novice / average) |
+|---|---|---|---|---|---|---|
+| v3.125 | — | 5,400 | 10.1 | 6.3 | 25–78% | 304 / 307 / 381 |
+| F1 | prices only: Transformation Media ×1.5, Current Sail ×1, Quantum Computing ×1; Storage Rings ×5, Boundary Ring ×6, Energy Storage ×4 | 2,700 | 7.3 | 4.6 | 26–77% | 304 / 307 / 381 |
+| **S** | **the three prerequisite changes alone**, own rivals | 5,400 | **5.7** | **3.5** | 31–69% | 301 / 304 / 377 |
+| **F2c** | **S with Storage Rings ×5, Boundary Ring ×6, Energy Storage ×4**, own rivals | 5,400 | **4.6** | **2.9** | 33–67% | 301 / 305 / 378 |
+| **R: recommended** | **F2c with the Space price ×1.1**, own rivals | 5,400 | **5.0** | **3.2** | **32–71%** | **303 / 307 / 380** |
+| F3 | F2c's settings with v3.125's rivals, plus the Current Sail and Optimisation Theory at ×1.5 | 2,700 | 4.6 | 2.7 | 33–69% | 301 / 305 / 378 |
+| F4 | F3 trimmed (Energy Storage ×5, Transformation Media ×5, Current Sail and Optimisation Theory ×1), Space ×1.1, own rivals | 2,700 | 5.1 | 3.2 | 30–67% | 303 / 306 / 380 |
+| F5 | F3 with the Space price ×1.1, own rivals | 5,400 | 4.3 | 2.8 | 36–71% | 302 / 306 / 380 |
 
-F1 to F4 used v3.125's rivals except F4; F5 rebuilds them under its own settings, as a confirmation must. A method's median from 60 games carries about ±1.5 turns of noise, so differences of a turn or two between F2, F3 and F4 are not meaningful; F5 doubles the games to reduce it.
+A method's median from 60 games carries about ±1.5 turns of noise, so the 5,400-game settings are the ones to compare, and differences of half a turn in the averaged largest deviation (F2c's 4.6 against R's 5.0) are within it. Counting the combinations of world, method and player more than 5 turns from their field: 18 of 45 at v3.125, 8 under S, 4 under F2c, 2 under R. F3's and F5's two extra price changes (the Current Sail and Optimisation Theory at ×1.5) made no difference beyond that noise, so they are not recommended. F4 showed Superconducting Energy Storage at ×5 overshooting for the novice and the average player (Warp up to 7 turns slow), and Transformation Media at ×5 did nothing to the weaker players' quick Wormhole.
 
-Each method's victory against its world's field under F5, and at v3.125 (turns; two seed sets, 120 games a method; expert / novice / average):
+Each method's victory against its world's field at v3.125, under F2c and under R (turns; two seed sets, 120 games a method; expert / novice / average):
 
-| World | Warp | Wormhole | Hyperspace | Tachyonic | Tunnelling or Plenum |
-|---|---|---|---|---|---|
-| familiar, v3.125 | −5 / −4 / −4 | +12 / +10 / +8 | +1 / +5 / +3 | −5 / −5 / −6 | +7 / +4 / +4 |
-| familiar, F5 | −2 / +3 / +4 | +3 / +1 / −1 | +1 / +3 / +1 | −3 / −4 / −1 | +0 / −2 / −2 |
-| Process, v3.125 | −5 / −5 / −7 | +12 / +6 / +8 | +2 / +1 / +4 | −4 / −3 / −4 | +13 / +13 / +13 |
-| Process, F5 | −2 / +2 / +1 | +2 / −2 / −3 | −0 / +1 / +4 | −2 / −4 / −3 | +4 / +3 / +4 |
-| Substance, v3.125 | −5 / −2 / −2 | +8 / +1 / +3 | +4 / +1 / +1 | −8 / −8 / −7 | +7 / +5 / +7 |
-| Substance, F5 | −0 / +2 / +3 | −0 / −3 / −8 | +2 / +3 / +5 | −2 / −4 / −5 | +4 / +2 / +3 |
+| World | Setting | Warp | Wormhole | Hyperspace | Tachyonic | Tunnelling or Plenum |
+|---|---|---|---|---|---|---|
+| familiar | v3.125 | −5 / −4 / −4 | +12 / +10 / +8 | +1 / +5 / +3 | −5 / −5 / −6 | +7 / +4 / +4 |
+| | F2c | −1 / 0 / 0 | +6 / 0 / 0 | +2 / 0 / +4 | −2 / −1 / +1 | −1 / −2 / −3 |
+| | R | −1 / +2 / +4 | +6 / +1 / −1 | +4 / +5 / +4 | −3 / −3 / −1 | 0 / −2 / −2 |
+| Process | v3.125 | −5 / −5 / −7 | +12 / +6 / +8 | +2 / +1 / +4 | −4 / −3 / −4 | +13 / +13 / +13 |
+| | F2c | −2 / −1 / −2 | +1 / −2 / −4 | +2 / +1 / +5 | −3 / −2 / −4 | +4 / +3 / +4 |
+| | R | −3 / +2 / +1 | +1 / −2 / −3 | +1 / 0 / +2 | −3 / −4 / −3 | +5 / +4 / +5 |
+| Substance | v3.125 | −5 / −2 / −2 | +8 / +1 / +3 | +4 / +1 / +1 | −8 / −8 / −7 | +7 / +5 / +7 |
+| | F2c | −1 / +1 / +1 | 0 / −5 / −7 | +1 / +2 / +2 | −4 / −5 / −3 | +6 / +5 / +6 |
+| | R | −1 / +2 / +3 | −1 / −3 / −8 | +3 / +1 / +5 | −3 / −4 / −5 | +4 / +3 / +3 |
 
-Under F5 the expert's builds complete between turns 282 and 292 in every world (276–300 at v3.125), still bound by engineering in 73–98% of races, and certainty comes at 266–278 as before.
+Under R the expert's builds are complete between turns 282 and 293 in every world (276–300 at v3.125), still the last thing in 73–100% of races; certainty comes at 266–278 as before.
 
 ## Recommendations
 
-**1. Shorten the three-deep chains by one step** (the structural change; it does most of the work):
+**1. Shorten each three-step chain by one step** (S: 10.1 → 5.7 on its own):
 
-- **Transformation Media** (Wormhole's engineering row): needs *exotic matter itself* — Exotic Matter Synthesis, or Exotic Matter (Elemental) — with Casimir Effect Amplification or the Aetheric Vacuum, instead of Exotic Matter Engineering. Shaping a throat's geometry is a design problem for the material, as transformation optics is; it need not wait for the matter to be fabricated in quantity. Wormhole's build still needs Exotic Matter Engineering, so the two are studied side by side.
-- **Current Rigging** (Plenum's last row and the host of *the currents can be ridden*): needs the Celestial Current Survey and Aerospace Industry, instead of the Current Sail. The sail and the rigging become parallel parts of one craft; Plenum's build still needs both.
-- **Quantum Computing** (Tunnelling): needs Quantum Entanglement Mastery and the Programmable Computer (or Bio-Quantum Coherence), no longer Planetary Data Networks. A quantum computer needs entanglement and computing, not a planetary network; Planetary Data Networks stays the entry to the Computing pool.
+- **Transformation Media** (Wormhole's engineering row) needs the exotic-matter breakthrough itself — Exotic Matter Synthesis or Exotic Matter (Elemental), **validated** — with Casimir Effect Amplification or the Aetheric Vacuum, instead of Exotic Matter Engineering: `(QP11, validated, or QM-E06, validated) + (QP12 or QM-E13)`. Shaping a throat's geometry is a design problem for the material, as transformation optics and the Morris–Thorne geometry-first approach treat it, and need not wait for the matter to be fabricated in quantity. "Validated" keeps the row, and its Shockproof Walls and better Bomb Shelters, to worlds where exotic matter holds, as now (the measurements ran without it: the simulator does not model a row's validation, and in those worlds Wormhole is impossible anyway). Wormhole's build still needs Exotic Matter Engineering, so the two are studied side by side.
+- **Current Rigging** (Plenum's last row, host of *the currents can be ridden*) needs the Celestial Current Survey and Aerospace Industry, instead of the Current Sail. The sail and the rigging become parallel parts of one craft; Plenum's build still needs both.
+- **Quantum Computing** (Tunnelling) needs Quantum Entanglement Mastery and the Programmable Computer, or Bio-Quantum Coherence, and no longer Planetary Data Networks: a quantum computer needs entanglement and computing, not a planetary network. Planetary Data Networks stays the entry to the Computing pool, but it leaves Tunnelling's build.
 
-**2. Price the fast methods' last rows as capstones**, so that one-deep chains take about as long as two-deep ones:
+**2. Price the fast methods' last rows higher** (F2c: 5.7 → 4.6): Superconducting Storage Rings (atomic Tachyonic) ×2.5 → **×5** and the Boundary Ring (elemental Tachyonic) ×4 → **×6**, both above the ×4 capstone price; Superconducting Energy Storage (Warp) ×2.5 → **×4**, capstone price (for the expert it is Warp's last row only about a third of the time; for the weaker players most of the time).
 
-- Superconducting Storage Rings (atomic Tachyonic) ×2.5 → **×5**.
-- The Boundary Ring / Cycle-Limit Ring (elemental Tachyonic) ×4 → **×6**.
-- Superconducting Energy Storage (Warp) ×2.5 → **×4**.
+**3. The Space era's price ×1.05 → ×1.1** (1,469 → 1,539 per discovery), to re-centre parity. Parity holds without it (F2c: 301 / 305 / 378), but the expert then sits 4 turns early, close to the 5-turn limit; with it, R gives 303 / 307 / 380 (−2 / +2 / 0), and the prototype costs 5% more. It does not change the spread between methods beyond the noise. This one is a judgement between the two players' margins, so it is Tamsin's call; Claude recommends it.
 
-**3. Lighten two rows that now finish chains alongside others:** the Current Sail ×2.5 → **×1.5**, and Optimisation Theory (Hyperspace) ×2.5 → **×1.5**.
+**What these reopen.**
+- The decisions digest §9 (round two): the Boundary Ring at ×4 (now ×6), and "CP16 1×", a Tunnelling lever that loses its purpose once Planetary Data Networks leaves Tunnelling's build. Transformation Media ×4, Quantum Computing ×2 and the Storage Rings without Antimatter Production stay.
+- The digest §8 (W18) prices, "all 2.5× unless marked": the Storage Rings ×2.5 → ×5 and Superconducting Energy Storage ×2.5 → ×4. Also §8's structure of parallel rows opened by an entry row, since Quantum Computing would no longer sit behind Computing's entry.
+- §4's pricing rule ("engineering rows in the signature fields cost 2.5× and their capstones 4×"): two rows would cost more than a capstone.
+- §4's build table and the digest's §5, which read "CP10 Quantum Computing (after CP16 Planetary Data Networks)", and Planetary Data Networks' own note.
+- With recommendation 3, v3.124's Space price ×1.05.
 
-**4. The Space era's price ×1.05 → ×1.1** (1,469 → 1,539 per discovery), which restores parity: the changes speed up the slow methods more than they slow the fast ones, so without it the expert's science victory comes 4 turns early.
+Unchanged: the condition-hosting build rows (Macroscopic Quantum Control, Exotic Matter Engineering, Current Rigging) stay at ×1; every method keeps a condition outside its build (W15); the rows the FTL screen lists as each method's build needs stay the same; no CORE row gains a non-CORE prerequisite.
 
-**What these reopen.** The decisions digest's settled values (§9, round two) include Transformation Media at ×4 (unchanged here), the Boundary Ring at ×4 (now ×6), Quantum Computing at ×2 after Planetary Data Networks (still ×2; the prerequisite goes), and Superconducting Storage Rings without Antimatter Production (unchanged). The condition-hosting build rows (Macroscopic Quantum Control, Exotic Matter Engineering, Current Rigging) stay at ×1 as the digest requires. Every method keeps a condition outside its build (W15). The FTL screen's build lists don't change; only what each build need waits on does.
+**If adopted**, v3.126 would change: the prerequisite cells of Transformation Media, Current Rigging and Quantum Computing, with their notes; Planetary Data Networks' note; the multipliers on the Storage Rings, the Boundary Ring and Superconducting Energy Storage; §4's build table and its Prices sentence; with recommendation 3, §2's Space price and §4's prototype turns; and the digest's §5, §8, §9 and §10. Then the battery, the wiki check and a full confirmation with rebuilt rivals, as for every version.
 
 ## What remains
 
-- **Residuals.** After the changes most methods are within 3 turns of their world's field, against about 1–2 turns of noise. Patterns that remain: Tachyonic is still 1–5 turns quick for every player; Plenum 2–4 slow (its last two rows share Aeronautics with that field's Space-era pool, so the lever would be the pool's size, not a price); and with Transformation Media studied alongside Exotic Matter Engineering, Wormhole is now a few turns quick for the weaker players, 8 for the average player in the Substance world, the one deviation beyond 5. A second round could price the Tachyonic rings a little higher and Transformation Media a little higher for weaker players' sake; F4 shows the limits of such trims (Transformation Media ×5 and Energy Storage ×5 overshot).
-- **The simulator's limits.** The benchmark players fund one focus at a time and never weigh a build row above the other ideas in its focus, which is what makes depth matter so much. A human player who targets a build row within a field could shorten chains the simulated players can't; play will tell whether the depth effect is as strong. Production, wonders and military pressure are not modelled.
-- **If adopted**, it goes into the document as v3.126 (the three prerequisite cells, the five multipliers, §2's Space price, §4's balance table), with the battery, the wiki check and a full confirmation with rebuilt rivals, as for every version.
+- **Residuals.** Under R, the two combinations more than 5 turns from their field are the expert's Wormhole in the familiar world (+6) and the average player's Wormhole in the Substance world (−8). The patterns that remain:
+  - **Plenum** stays 3–5 turns slow for every player (win shares 32–37%). With the rigging made parallel, the Current Sail (×2.5) is now its last need in 62–87% of races, the sail and the rigging each taking about 15 turns once available, diluted by Aeronautics' Space-era pool. Lowering the sail to ×1.5 measured nothing (F3), so the remaining lever would be that pool's size or the Celestial Current Survey's place.
+  - **Tachyonic** stays 1–5 turns quick (win shares 51–63%), even at ×5 and ×6.
+  - **Hyperspace** is 0–5 turns slow: Optimisation Theory still waits about 30 turns for the Space era, then Higher-Dimensional Geometry takes 11–18.
+  - **Wormhole** splits by player: for the expert it is slow in the familiar world (+6), for the weaker players quick in the Substance world (−3 and −8), since Transformation Media is now studied alongside Exotic Matter Engineering.
+  A second round could take these on, but each is now within a few turns of noise, and play may show a human player's targeting shortens chains more than the simulated players' does.
+- **The simulator's limits.** The benchmark players fund one focus at a time and never weigh a build row above the other ideas in its focus, which is why chain depth matters so much; a human who sees the build needs on the FTL screen and targets them could shorten chains the simulated players can't. The expert also declines rows whose ahead-of-time premium is too steep, which is why Warp's and Tachyonic's last rows wait for the Space era. Production, wonders and military pressure are not modelled. Play will tell whether the depth effect is as strong as measured.
 
 ## Data
 
-- `design/simulator/power/ftl_balance.py` (each race taken apart), `ftl_sync.py` (the spread between methods), `results/ftl_sync_20261015.txt` (every setting above).
-- Settings, for re-measuring: F5 is `SETCELL='MS17|4|(QP11 or QM-E06) + (QP12 or QM-E13);AE20|4|QM-E19 + AE14;CP10|4|((QP07 + CP01) or GN10)' ROWX=NP15:5,TH20:6,ES18:4,QM-E23:1.5,MA15:1.5 SPACEPRICE=1.1`, with rivals from `make_pool.sh <world> F5` under the same settings.
+- `design/simulator/power/ftl_balance.py` (each race taken apart; `--chains` for the chain timings), `ftl_sync.py` (the spread between methods, with unfinished games counted), and `results/ftl_sync_20261015.txt` (every setting above, the chain timings, and each setting's exact switches). The settings' result files are not kept; the record holds their switches, to re-run with `compare_settings.sh` (seed sets: the defaults, and `SEED0=37000 TRUTHSEED=91`).
+- R is `SETCELL='MS17|4|(QP11 or QM-E06) + (QP12 or QM-E13);AE20|4|QM-E19 + AE14;CP10|4|((QP07 + CP01) or GN10)' ROWX=NP15:5,TH20:6,ES18:4 SPACEPRICE=1.1`, exported, with rivals from `make_pool.sh <world> R` under the same settings.
