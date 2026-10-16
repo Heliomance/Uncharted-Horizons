@@ -40,13 +40,15 @@
    - **Rivals from a pool made before round one.** At the final confirmation their diffusion finished half to three-quarters of the weaker players' Hyperspace, Plenum and Tunnelling builds. At round two it finished a third at most.
    - **A fault in the Endeavour split:** while an Endeavour ran, a player had 180% of its income, 21–30% more Insight over a game.
 
-   Each was put back on v3.125 one at a time, except the fault, which never was:
+   To find out how much of the drift each one explains, each was put back on a scratch copy of v3.125, one at a time. These were diagnostics, not proposals: the design and the simulator's defaults are unchanged. The fault was never put back.
 
-   | Put back | Spread | Victory | Within the limit? |
-   |---|---|---|---|
-   | W16 as the simulator had it | **2.9** | 6–10 turns shorter than base Civ V's | no |
-   | the 14-turn window | 6.7 | 301 / 302 / 376 | yes |
-   | the old pool | 8.0 | 306 / 310 / 385 | yes, at the edge |
+   | Put back, as a test | Spread | What it shows |
+   |---|---|---|
+   | W16 as the simulator had it | **2.9** | The waits in sequence are most of the drift. But this W16 was never the design's rule, and it makes victory 6–10 turns too short. |
+   | the 14-turn window | 6.7 | About a third of the drift is the window's length (see *Why the window's length matters*). |
+   | the old pool | 8.0 | Part of round two's balance came from rivals made under older, faster rules, who reached the deep chains' rows sooner than rivals playing by the current rules could. |
+
+   Of the three, only the window's length is a design choice. The old pool and the simulator's W16 were flaws in the old measurements; the rebuilt rivals, which play by the same rules as the player, are the better approximation of a real game, and they stay.
 
 4. **The prices moved for their own reasons, and neither caused the spread nor cured it.** A price moves every method about alike: v3.125 with the Space era back at ×0.8 still measures 9.7. The Space era's price went:
    - to ×0.8 (14 October), with the prototype from 9× to 5×, to reach a victory target that turned out to rest on a misreading;
@@ -153,9 +155,23 @@ These are the expert's median turns from the row before it in the chain to the s
 - At round two every method's build finished within a 7-turn band (turns 280–287 for the expert).
 - v3.122 also priced the Space era at ×2, so part of its lengthening is study, not waiting.
 
+### Why the window's length matters
+
+- **A shorter window doesn't make ideas go stale more often.** The chance each turn is set from the window's length, so that 85% of STANDARD ideas occur within their window and 15% don't, whatever its length (§1.2). What the length changes is how soon they occur:
+
+  | A Space-era STANDARD idea's window | Chance a turn | Mean wait, if it occurs | Mean wait, counting a stale idea's rediscovery |
+  |---|---|---|---|
+  | 14 turns (until v3.122) | 12.7% | 4–5 turns | 6–8 turns |
+  | 28 turns (since v3.122) | 6.6% | 9–10 turns | 13–14 turns |
+
+- **A stale idea costs more under a long window.** It is lost only when its window closes, and rediscovery on demand (10% a turn for each thing waiting on it) starts only then.
+- **Only rows whose windows open shortly before they are needed wait at all**, and those are the steps in a chain. A row that opens long before it is needed has occurred or gone stale by then, whatever the window's length, and a stale one comes back by rediscovery in either case.
+- **So a shorter window helps the deep chains most.** It saves them a few turns a step, and saves Warp's and Tachyonic's early-opening rows almost nothing, so the methods draw together.
+- **The window doubled in v3.122 as a side effect.** Windows are half an era, and the redraw made the Space era 56 turns instead of 28. Its effect on the FTL race wasn't looked at when it was made.
+
 ### Putting the old conditions back, one at a time
 
-On v3.125, each on all 15 victory conditions, with the players as they were, 2,700 games and none unfinished; spread measured at victory.
+Diagnostic runs on scratch copies of v3.125, to find out what each change since round two explains. None is a proposal, and nothing was changed in the design or the simulator's defaults. Each ran on all 15 victory conditions with the players as they were (2,700 games, none unfinished); the spread is measured at victory.
 
 | Put back on v3.125 | Spread | Victory (305 / 305 / 380) |
 |---|---|---|
@@ -173,6 +189,7 @@ On v3.125, each on all 15 victory conditions, with the players as they were, 2,7
 - The 14-turn window does about a third of it, inside the limit. The old era timing does about as much as its window.
 - The rivals and the expert's cap are smaller parts. The Space price and Endeavours on ideas under study change nothing.
 - The Endeavour fault was never put back.
+- Of these, only the window's length is a design choice. The old pool, the simulator's W16 and the old expert were features of the old measurements, not levers.
 
 ### What the measurements assumed
 
@@ -517,7 +534,7 @@ At 18:29 the Drive was built from Production too. Tamsin, 18:22: "we've not been
    - **Treat the depth.** The sync report's three prerequisite changes, three dearer rows and Space ×1.1, measured so far only with the old players.
    - **Remove the waits in sequence.**
      - The funded-focus rule with the FTL rows ×1.4, measured with visible-information players. It leaves Plenum (+2 to +6) and Tunnelling (+3 to +4) slowest, because Aerospace Industry, Reusable Launch Vehicle and Planetary Data Networks are on their routes but not named on the FTL screen.
-     - A shorter Space-era window. The 14-turn window measured 301 / 302 / 376 and 6.7, inside the limit, but only with the old players.
+     - A shorter Space-era window. It would mean sizing the Space era's windows at less than half the era (§1.2). The 14-turn window measured 301 / 302 / 376 and 6.7, inside the limit, but only with the old players.
      - A W16-like rule. As simulated it is 6–10 turns too short; nothing milder has been measured.
 3. **The weaker players.** Whether their Endeavour rule runs as scripted (`ENDREQ=1`), and whether their ties are broken in a fixed order, which would end the hash seed's effect.
 

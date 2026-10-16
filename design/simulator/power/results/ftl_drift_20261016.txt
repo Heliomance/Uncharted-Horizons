@@ -44,7 +44,7 @@ premium (the theory from about 230-244 to 250).
    W16 as simulated (W16=1), v3.125's rivals (DW16)             3.6    2.3   295 / 299 / 373  0
    W16 as simulated, rivals made under it (DW16p; make_pool W16) 2.9   1.8   295 / 299 / 372  0
    W16 as written (FUNDEDWIN=1) (DFW)                           9.7    6.2   304 / 307 / 380  0
-   Space-era window back to 28 turns, own rivals (DWIN;
+   Space-era windows back to 14 turns (an era of 28), own rivals (DWIN;
      WINTURNS=...,Space:28; make_pool WIN28)                    6.7    4.1   301 / 302 / 376  0
    The old era timing, own rivals (DTIME; DEVENDS= WINTURNS=
      ERAPRICE=, i.e. the era model for every era; make_pool OLDT) 6.6  4.2   307 / 308 / 384  0
