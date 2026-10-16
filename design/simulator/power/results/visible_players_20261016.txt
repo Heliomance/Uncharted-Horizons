@@ -1,0 +1,361 @@
+Simulated players who decide what to fund only on what the screens show, and the FTL funded-focus rule measured with them
+(16 Oct 2026, v3.125). Tamsin: "where a breakthrough isn't revealed, a player has no way to know whether it's occurred or not.
+And therefore can't make decisions on what to fund based on that." And: "the expert is allowed to know all *fixed* hidden
+information - the shape of the tech tree, prereqs, what is required for each victory, etc. No state, only the fixed
+foundations. the novice is not, they only know what's on the screen." And: "I'm more interested in space era ftl Vs non-ftl
+techs."
+
+== The audit: where the players used hidden information (harness_ftl_e.py, w7f.py)
+- "The most work waiting" (the rivals' choice, the novice's before the unified theory, every player's fallback) counted every
+  idea under study, revealed or not.
+- A target's focus was funded only once the target's idea had occurred, seen or not (_ftl_active, and the expert's choice).
+- The expert's cheapest-target estimate subtracted each idea's progress, which no screen shows (meters stay hidden, §6).
+- Target choice and the FTL screen's hints treated an unrevealed idea whose moment had passed as not coming.
+- The novice's Endeavour request treated an occurred idea as revealed.
+- Not leaks: the Endeavour choices (revealed ideas only), the spread's split between foci (the game's mechanic).
+
+== VISIBLE=1 (default off): every choice on visible information
+- Revealed = CORE ideas once discoverable, glimpsed ideas, breakthroughs seen in rivals' hands (theoretical revelation is not
+  modelled: the document's Reveals lists are not yet written). Revealed ideas under study count as work.
+- The expert keeps the fixed foundations (the tree, prerequisites, prices and multipliers, each method's build and tests, the
+  rules, so lock-outs follow from its own discoveries) and visible state (its discoveries, revealed ideas, test results,
+  development). An idea it knows of but cannot see counts as possibly under study, so it funds that idea's field; one it can
+  see is idle or lost does not; costs are full prices. The novice knows only the screens: the most revealed work under study
+  before the unified theory, then the field the FTL screen says progress is possible in; Endeavour requests on revealed ideas.
+- Rivals are made under the same setting. The default is unchanged (checked game for game on an expert and a novice cell).
+
+== 1. v3.125 with visible-information players (all 15 conditions, 60 games a cell, 2,700 games a setting, none unfinished)
+   Setting                                   Largest  RMS   Win shares  Victory (305 / 305 / 380)
+   v3.125 as measured (V125)                   9.7    6.1   25-80%      304 / 307 / 381
+   v3.125, visible players (VIS)              17.8    9.7   13-75%      310 / 312 / 386   novice and average player outside the limit
+   Plenum is the hardest hit (+12 to +26 against its field): for the novice in the Substance world its build completes on turn
+   323 against 300, Current Rigging the last need in every game. The steps that slow are on Plenum's route but off its FTL build:
+   Aerospace Industry 262 -> 286, Reusable Launch Vehicle 264 -> 283, Nanotechnology (CORE) 241 -> 253, and Relativity, which
+   opens the FTL screen, 196 -> 211; with no visible work in Aeronautics and Rocketry until the FTL screen points there, they get
+   only the spread. The unified theory comes slightly sooner (254 against 258).
+
+== 2. The FTL funded-focus rule (FTLOCC=1) with visible players, rivals made under each setting
+   Setting                                            Largest  RMS   Win shares  Victory (305 / 305 / 380)
+   The rule (VFO)                                       6.2    3.2   16-79%      297 / 299 / 373   too short
+   The rule, Space price x1.5 (VFS15)                   7.9    4.1   16-77%      303 / 307 / 383   at parity
+   The rule, FTL-related breakthroughs x1.4 (VFP14)     4.7    2.9   27-73%      301 / 305 / 380   at parity
+   The rule, FTL-related breakthroughs x2 (VFP2)        5.3    3.1   22-70%      309 / 315 / 393   too long for the weaker players
+   Plenum stays slowest (+2 to +10) and Tunnelling next: Aerospace Industry, Reusable Launch Vehicle and Planetary Data Networks
+   are on their routes but not named on the FTL screen, so the rule does not reach them.
+
+== 3. The Space era on the path to victory (ftl_share.py --space; mean a game, played on to the launch)
+Space-era breakthroughs held at the launch (games played on with TOVICTORY=1; otherwise at the race's finish), mean a game.
+FTL own / other: the working method's needs and tests / the other hypotheses'. Non-FTL by field: the FTL methods' signature
+fields (their W18 pools), the evidence fields (the tests' physics), the ship fields (Rocketry, Space Engineering), and elsewhere.
+Phases: before the unified theory | theory to the race's finish | the prototype and the Drive (finish to launch).
+
+  (familiar: 106 Space-era breakthroughs exist, 22 of them FTL-related)
+  (Process: 98 Space-era breakthroughs exist, 19 of them FTL-related)
+  (Substance: 98 Space-era breakthroughs exist, 19 of them FTL-related)
+
+=== expert
+  setting    turn |  FTL ( own  oth) | non-FTL (sign evid ship else) | FTL share | phases FTL:non-FTL  before | race | after
+  VIS         310 | 15.4 ( 6.5  8.8) |    23.7 (14.0  1.4  6.5  1.7) |      39%  |  0.6:0.1  | 12.8:15.3 | 1.9:8.3 
+  VFO         297 | 13.7 ( 6.4  7.2) |    12.4 ( 6.4  1.1  4.2  0.7) |      52%  |  1.1:0.1  | 10.2:5.8  | 2.4:6.6 
+  VFS15       303 | 12.7 ( 6.3  6.4) |    10.5 ( 4.9  1.0  4.0  0.6) |      55%  |  1.1:0.1  | 10.0:5.8  | 1.6:4.6 
+  VFP14       301 | 13.1 ( 6.3  6.7) |    13.5 ( 7.0  1.0  4.9  0.6) |      49%  |  1.2:0.4  | 10.0:6.7  | 1.8:6.3 
+  VFP2        309 | 12.4 ( 6.2  6.1) |    14.3 ( 7.4  1.0  5.2  0.7) |      46%  |  1.3:0.5  |  9.7:7.7  | 1.3:6.1 
+
+=== novice
+  setting    turn |  FTL ( own  oth) | non-FTL (sign evid ship else) | FTL share | phases FTL:non-FTL  before | race | after
+  VIS         312 | 15.4 ( 6.6  8.9) |    24.4 (14.3  1.4  6.8  1.8) |      39%  |  0.8:0.9  | 12.9:15.4 | 1.7:8.0 
+  VFO         299 | 14.2 ( 6.5  7.6) |    13.2 ( 6.7  1.0  4.7  0.8) |      52%  |  1.5:1.5  | 11.0:4.6  | 1.7:7.1 
+  VFS15       307 | 13.4 ( 6.4  6.9) |    11.4 ( 5.4  0.9  4.4  0.7) |      54%  |  1.4:1.4  | 10.8:4.9  | 1.1:5.1 
+  VFP14       305 | 13.8 ( 6.5  7.4) |    15.0 ( 8.0  1.0  5.4  0.8) |      48%  |  1.7:2.5  | 10.7:5.8  | 1.4:6.7 
+  VFP2        315 | 13.5 ( 6.4  7.1) |    17.0 ( 9.2  1.1  5.8  0.9) |      44%  |  1.9:3.5  | 10.5:7.3  | 1.1:6.3 
+
+=== average
+  setting    turn |  FTL ( own  oth) | non-FTL (sign evid ship else) | FTL share | phases FTL:non-FTL  before | race | after
+  VIS         386 | 15.1 ( 6.6  8.5) |    22.3 (12.9  1.4  6.5  1.6) |      40%  |  1.0:1.1  | 12.3:13.2 | 1.8:7.9 
+  VFO         373 | 14.1 ( 6.5  7.5) |    13.3 ( 6.9  1.0  4.7  0.7) |      51%  |  1.7:1.9  | 10.8:4.6  | 1.6:6.7 
+  VFS15       383 | 13.3 ( 6.5  6.9) |    11.6 ( 5.5  1.0  4.4  0.7) |      53%  |  1.6:1.7  | 10.7:5.0  | 1.0:4.9 
+  VFP14       380 | 13.6 ( 6.4  7.2) |    15.1 ( 8.0  1.0  5.3  0.7) |      47%  |  1.8:2.7  | 10.6:5.9  | 1.2:6.5 
+  VFP2        393 | 13.3 ( 6.4  6.9) |    16.8 ( 9.1  1.1  5.7  0.9) |      44%  |  2.0:3.8  | 10.4:7.2  | 0.9:5.9 
+
+   Reading: the rule moves the Space era from mostly incidental content to mostly the race. At parity with the FTL-related
+   breakthroughs x1.4, the non-FTL Space-era content held at the launch falls from 23.7 / 24.4 / 22.3 to 13.5 / 15.0 / 15.1
+   (expert / novice / average) and the FTL-related from about 15 to 13-14 (fewer hedges on other hypotheses); the FTL share of
+   the Space era rises from 39-40% to 47-49%. The loss is during the race (non-FTL found between the unified theory and the
+   finish: 15.3 / 15.4 / 13.2 -> 6.7 / 5.8 / 5.9) and in the FTL methods' own signature fields (14.0 / 14.3 / 12.9 -> 7.0 / 8.0
+   / 8.0). Mechanism: today a player funds a signature field while waiting for its FTL idea to occur, and the funded share
+   meanwhile studies that field's other Space-era ideas, the W18 pools' content; the rule makes the FTL idea occur at once, so
+   it takes the share, and the race is shorter. Re-centring with a dearer Space era (x1.5) costs more of that content (10.5 /
+   11.4 / 11.6), because it makes the content itself dearer; pricing only the FTL-related breakthroughs keeps the most.
+
+== 4. Which non-FTL Space-era breakthroughs move (share of games holding each at the launch, expert)
+-- v3.125 visible -> the rule (VFO)
+== non-FTL, Space era: share of all games holding each by the end of the record (the launch with TOVICTORY=1, else the race's finish), VIS -> VFO (largest falls, then largest rises)
+   RK07    Reusable Launch Vehicle                Rocketry               92% ->   54%
+   MA15    Optimisation Theory                    Mathematics            79% ->   44%
+   SE13    Planetary Defense                      Space Engineering      90% ->   55%
+   SE03    Radiation Shielding                    Space Engineering      89% ->   56%
+   ES22    Smart Grid                             Energy Systems         69% ->   37%
+   TH15    Waste-Heat Recovery                    Thermodynamics         79% ->   47%
+   MI12    Asteroid Prospecting                   Mining                 36% ->    5%
+   AE18    Sky Carriers                           Aeronautics            49% ->   20%
+   MS10    Structural Nanomaterials               Materials Science      75% ->   48%
+   AE16    Airborne Assault Doctrine              Aeronautics            56% ->   29%
+   MA16    Operations Research                    Mathematics            31% ->    5%
+   MA20    Computational Proof                    Mathematics            32% ->    6%
+   ...
+   GN11    Organic Neural Architecture            Genetics                1% ->    0%
+   NP17    Particle-Beam Artillery                Nuclear Physics         1% ->    0%
+   CP12    Sentient AI                            Computing               0% ->    0%
+   RK09    Ion Drive                              Rocketry              100% ->  100%
+   TH22    Geoengineering Programme               Thermodynamics          0% ->    0%
+   ES21    Global Supergrid                       Energy Systems          0% ->    0%
+   MS07    Programmable Matter                    Materials Science       0% ->    0%
+   QP07    Quantum Entanglement Mastery           Quantum Physics        33% ->   33%
+-- v3.125 visible -> the rule at parity, FTL-related x1.4 (VFP14)
+== non-FTL, Space era: share of all games holding each by the end of the record (the launch with TOVICTORY=1, else the race's finish), VIS -> VFP14 (largest falls, then largest rises)
+   MI12    Asteroid Prospecting                   Mining                 36% ->    4%
+   RC08    Gravitational Coupling Experiment      Relativity & Cosmolo   96% ->   66%
+   CP16    Planetary Data Networks                Computing              83% ->   54%
+   MA23    Post-Quantum Cryptography              Mathematics            33% ->    5%
+   SE13    Planetary Defense                      Space Engineering      90% ->   61%
+   MA20    Computational Proof                    Mathematics            32% ->    4%
+   MA15    Optimisation Theory                    Mathematics            79% ->   51%
+   MA17    Lifecycle Engineering                  Mathematics            32% ->    5%
+   MA16    Operations Research                    Mathematics            31% ->    5%
+   MA22    Auction Theory                         Mathematics            30% ->    4%
+   MS10    Structural Nanomaterials               Materials Science      75% ->   50%
+   MA18    Logistics Optimisation                 Mathematics            30% ->    5%
+   ...
+   NP17    Particle-Beam Artillery                Nuclear Physics         1% ->    0%
+   GN11    Organic Neural Architecture            Genetics                1% ->    0%
+   QM-E25  Counter-Cycle Reversal                 Quintessic Physics      2% ->    1%
+   CP12    Sentient AI                            Computing               0% ->    0%
+   MS07    Programmable Matter                    Materials Science       0% ->    0%
+   TH22    Geoengineering Programme               Thermodynamics          0% ->    0%
+   ES21    Global Supergrid                       Energy Systems          0% ->    0%
+   QP07    Quantum Entanglement Mastery           Quantum Physics        33% ->   33%
+
+== 5. Spreads in full (ftl_sync.py)
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), VIS 310 (+5))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    VIS    field   311 | Warp   -6 (64%)  Wormh   +9 (34%)  Hyper   +0 (52%)  Tachy   -8 (71%)  Tunne  +11 (30%) | max  11, rms  7.8
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    VIS    field   310 | Warp   -8 (65%)  Wormh   +6 (39%)  Hyper   +0 (53%)  Tachy   -8 (71%)  Plenu  +12 (23%) | max  12, rms  8.0
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    VIS    field   306 | Warp   -6 (68%)  Wormh   -2 (53%)  Hyper   +4 (45%)  Tachy   -4 (67%)  Plenu  +16 (17%) | max  16, rms  8.3
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), VIS 312 (+7))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    VIS    field   316 | Warp   -4 (63%)  Wormh  +15 (32%)  Hyper   +4 (48%)  Tachy   -8 (72%)  Tunne   +9 (35%) | max  15, rms  9.0
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    VIS    field   310 | Warp   -2 (62%)  Wormh   +0 (49%)  Hyper   +3 (48%)  Tachy   -7 (74%)  Plenu  +22 (18%) | max  22, rms 10.5
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    VIS    field   311 | Warp   -2 (61%)  Wormh   -6 (58%)  Hyper   +2 (49%)  Tachy   -6 (69%)  Plenu  +26 (13%) | max  26, rms 12.3
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), VIS 386 (+6))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    VIS    field   390 | Warp   -8 (64%)  Wormh   +8 (36%)  Hyper   +2 (45%)  Tachy  -11 (74%)  Tunne  +12 (31%) | max  12, rms  9.0
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    VIS    field   385 | Warp   -6 (66%)  Wormh   +3 (44%)  Hyper   +2 (46%)  Tachy  -10 (75%)  Plenu  +20 (18%) | max  20, rms 10.2
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    VIS    field   384 | Warp   -4 (62%)  Wormh   -5 (53%)  Hyper   +6 (45%)  Tachy   -8 (74%)  Plenu  +26 (15%) | max  26, rms 12.6
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  VIS    largest 17.8, rms  9.7; win shares 13%-75%; unfinished 0 of 2700 games
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), VIS 310 (+5), VFO 297 (-8))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    VIS    field   311 | Warp   -6 (64%)  Wormh   +9 (34%)  Hyper   +0 (52%)  Tachy   -8 (71%)  Tunne  +11 (30%) | max  11, rms  7.8
+    VFO    field   297 | Warp   -1 (63%)  Wormh   -1 (55%)  Hyper   -1 (63%)  Tachy   +2 (37%)  Tunne   +2 (31%) | max   2, rms  1.5
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    VIS    field   310 | Warp   -8 (65%)  Wormh   +6 (39%)  Hyper   +0 (53%)  Tachy   -8 (71%)  Plenu  +12 (23%) | max  12, rms  8.0
+    VFO    field   297 | Warp   -4 (79%)  Wormh   +0 (54%)  Hyper   +0 (53%)  Tachy   +2 (41%)  Plenu   +5 (24%) | max   5, rms  3.0
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    VIS    field   306 | Warp   -6 (68%)  Wormh   -2 (53%)  Hyper   +4 (45%)  Tachy   -4 (67%)  Plenu  +16 (17%) | max  16, rms  8.3
+    VFO    field   297 | Warp   -4 (79%)  Wormh   -1 (62%)  Hyper   +0 (51%)  Tachy   +1 (40%)  Plenu   +6 (18%) | max   6, rms  3.3
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), VIS 312 (+7), VFO 299 (-6))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    VIS    field   316 | Warp   -4 (63%)  Wormh  +15 (32%)  Hyper   +4 (48%)  Tachy   -8 (72%)  Tunne   +9 (35%) | max  15, rms  9.0
+    VFO    field   299 | Warp   +0 (49%)  Wormh   +1 (51%)  Hyper   -2 (63%)  Tachy   -0 (53%)  Tunne   +4 (34%) | max   4, rms  1.9
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    VIS    field   310 | Warp   -2 (62%)  Wormh   +0 (49%)  Hyper   +3 (48%)  Tachy   -7 (74%)  Plenu  +22 (18%) | max  22, rms 10.5
+    VFO    field   299 | Warp   -0 (58%)  Wormh   -2 (63%)  Hyper   -2 (57%)  Tachy   +0 (51%)  Plenu   +7 (22%) | max   7, rms  3.3
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    VIS    field   311 | Warp   -2 (61%)  Wormh   -6 (58%)  Hyper   +2 (49%)  Tachy   -6 (69%)  Plenu  +26 (13%) | max  26, rms 12.3
+    VFO    field   298 | Warp   +0 (55%)  Wormh   -2 (70%)  Hyper   +1 (51%)  Tachy   +0 (59%)  Plenu   +8 (16%) | max   8, rms  3.5
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), VIS 386 (+6), VFO 373 (-7))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    VIS    field   390 | Warp   -8 (64%)  Wormh   +8 (36%)  Hyper   +2 (45%)  Tachy  -11 (74%)  Tunne  +12 (31%) | max  12, rms  9.0
+    VFO    field   374 | Warp   +0 (50%)  Wormh   -2 (53%)  Hyper   -4 (60%)  Tachy   -0 (51%)  Tunne   +5 (37%) | max   5, rms  2.8
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    VIS    field   385 | Warp   -6 (66%)  Wormh   +3 (44%)  Hyper   +2 (46%)  Tachy  -10 (75%)  Plenu  +20 (18%) | max  20, rms 10.2
+    VFO    field   373 | Warp   -3 (65%)  Wormh   -3 (64%)  Hyper   -0 (53%)  Tachy   +0 (48%)  Plenu   +9 (21%) | max   9, rms  4.5
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    VIS    field   384 | Warp   -4 (62%)  Wormh   -5 (53%)  Hyper   +6 (45%)  Tachy   -8 (74%)  Plenu  +26 (15%) | max  26, rms 12.6
+    VFO    field   371 | Warp   -1 (59%)  Wormh   -3 (74%)  Hyper   +3 (43%)  Tachy   +0 (53%)  Plenu  +10 (21%) | max  10, rms  5.1
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  VIS    largest 17.8, rms  9.7; win shares 13%-75%; unfinished 0 of 2700 games
+  VFO    largest  6.2, rms  3.2; win shares 16%-79%; unfinished 0 of 2700 games
+
+=== expert (all 15 conditions against base Civ V's 305: VIS 310 (+5), VFO 297 (-8), VFS15@1.5 303 (-2), VFP2 309 (+4))
+  familiar
+    VIS    field   311 | Warp   -6 (64%)  Wormh   +9 (34%)  Hyper   +0 (52%)  Tachy   -8 (71%)  Tunne  +11 (30%) | max  11, rms  7.8
+    VFO    field   297 | Warp   -1 (63%)  Wormh   -1 (55%)  Hyper   -1 (63%)  Tachy   +2 (37%)  Tunne   +2 (31%) | max   2, rms  1.5
+    VFS15@1.5 field   304 | Warp   -2 (65%)  Wormh   -1 (59%)  Hyper   -2 (65%)  Tachy   +4 (31%)  Tunne   +4 (30%) | max   4, rms  2.9
+    VFP2   field   308 | Warp   -2 (60%)  Wormh   +1 (47%)  Hyper   -5 (70%)  Tachy   +2 (42%)  Tunne   +4 (31%) | max   5, rms  3.2
+  Process
+    VIS    field   310 | Warp   -8 (65%)  Wormh   +6 (39%)  Hyper   +0 (53%)  Tachy   -8 (71%)  Plenu  +12 (23%) | max  12, rms  8.0
+    VFO    field   297 | Warp   -4 (79%)  Wormh   +0 (54%)  Hyper   +0 (53%)  Tachy   +2 (41%)  Plenu   +5 (24%) | max   5, rms  3.0
+    VFS15@1.5 field   303 | Warp   -4 (76%)  Wormh   +0 (57%)  Hyper   +0 (57%)  Tachy   +4 (38%)  Plenu  +10 (21%) | max  10, rms  4.9
+    VFP2   field   310 | Warp   -4 (70%)  Wormh   +0 (47%)  Hyper   -4 (66%)  Tachy   +4 (38%)  Plenu   +5 (30%) | max   5, rms  3.6
+  Substance
+    VIS    field   306 | Warp   -6 (68%)  Wormh   -2 (53%)  Hyper   +4 (45%)  Tachy   -4 (67%)  Plenu  +16 (17%) | max  16, rms  8.3
+    VFO    field   297 | Warp   -4 (79%)  Wormh   -1 (62%)  Hyper   +0 (51%)  Tachy   +1 (40%)  Plenu   +6 (18%) | max   6, rms  3.3
+    VFS15@1.5 field   303 | Warp   -4 (77%)  Wormh   -1 (61%)  Hyper   -1 (56%)  Tachy   +3 (39%)  Plenu  +12 (17%) | max  12, rms  6.1
+    VFP2   field   309 | Warp   -5 (69%)  Wormh   +0 (47%)  Hyper   -2 (63%)  Tachy   +2 (37%)  Plenu   +2 (34%) | max   5, rms  3.0
+
+=== novice (all 15 conditions against base Civ V's 305: VIS 312 (+7), VFO 299 (-6), VFS15@1.5 307 (+2), VFP2 315 (+10))
+  familiar
+    VIS    field   316 | Warp   -4 (63%)  Wormh  +15 (32%)  Hyper   +4 (48%)  Tachy   -8 (72%)  Tunne   +9 (35%) | max  15, rms  9.0
+    VFO    field   299 | Warp   +0 (49%)  Wormh   +1 (51%)  Hyper   -2 (63%)  Tachy   -0 (53%)  Tunne   +4 (34%) | max   4, rms  1.9
+    VFS15@1.5 field   307 | Warp   +1 (45%)  Wormh   -2 (56%)  Hyper   -4 (69%)  Tachy   +1 (49%)  Tunne   +6 (32%) | max   6, rms  3.4
+    VFP2   field   320 | Warp   +0 (50%)  Wormh   +3 (43%)  Hyper   -4 (58%)  Tachy   -2 (54%)  Tunne   +2 (45%) | max   4, rms  2.8
+  Process
+    VIS    field   310 | Warp   -2 (62%)  Wormh   +0 (49%)  Hyper   +3 (48%)  Tachy   -7 (74%)  Plenu  +22 (18%) | max  22, rms 10.5
+    VFO    field   299 | Warp   -0 (58%)  Wormh   -2 (63%)  Hyper   -2 (57%)  Tachy   +0 (51%)  Plenu   +7 (22%) | max   7, rms  3.3
+    VFS15@1.5 field   307 | Warp   +0 (57%)  Wormh   +0 (52%)  Hyper   -3 (66%)  Tachy   -2 (54%)  Plenu   +6 (22%) | max   6, rms  3.1
+    VFP2   field   315 | Warp   -0 (50%)  Wormh   +1 (47%)  Hyper   -4 (70%)  Tachy   +0 (50%)  Plenu   +4 (33%) | max   4, rms  2.6
+  Substance
+    VIS    field   311 | Warp   -2 (61%)  Wormh   -6 (58%)  Hyper   +2 (49%)  Tachy   -6 (69%)  Plenu  +26 (13%) | max  26, rms 12.3
+    VFO    field   298 | Warp   +0 (55%)  Wormh   -2 (70%)  Hyper   +1 (51%)  Tachy   +0 (59%)  Plenu   +8 (16%) | max   8, rms  3.5
+    VFS15@1.5 field   306 | Warp   -2 (56%)  Wormh   -2 (65%)  Hyper   -2 (60%)  Tachy   -1 (53%)  Plenu   +9 (16%) | max   9, rms  4.3
+    VFP2   field   314 | Warp   +0 (52%)  Wormh   +1 (53%)  Hyper   -3 (65%)  Tachy   -1 (52%)  Plenu   +6 (27%) | max   6, rms  3.3
+
+=== average (all 15 conditions against base Civ V's 380: VIS 386 (+6), VFO 373 (-7), VFS15@1.5 383 (+3), VFP2 393 (+13))
+  familiar
+    VIS    field   390 | Warp   -8 (64%)  Wormh   +8 (36%)  Hyper   +2 (45%)  Tachy  -11 (74%)  Tunne  +12 (31%) | max  12, rms  9.0
+    VFO    field   374 | Warp   +0 (50%)  Wormh   -2 (53%)  Hyper   -4 (60%)  Tachy   -0 (51%)  Tunne   +5 (37%) | max   5, rms  2.8
+    VFS15@1.5 field   385 | Warp   -2 (57%)  Wormh   -2 (50%)  Hyper   -3 (56%)  Tachy   +1 (50%)  Tunne   +6 (37%) | max   6, rms  3.5
+    VFP2   field   399 | Warp   -4 (52%)  Wormh   +2 (46%)  Hyper   -2 (56%)  Tachy   -2 (54%)  Tunne   +2 (42%) | max   4, rms  2.5
+  Process
+    VIS    field   385 | Warp   -6 (66%)  Wormh   +3 (44%)  Hyper   +2 (46%)  Tachy  -10 (75%)  Plenu  +20 (18%) | max  20, rms 10.2
+    VFO    field   373 | Warp   -3 (65%)  Wormh   -3 (64%)  Hyper   -0 (53%)  Tachy   +0 (48%)  Plenu   +9 (21%) | max   9, rms  4.5
+    VFS15@1.5 field   383 | Warp   -1 (60%)  Wormh   -1 (58%)  Hyper   -4 (63%)  Tachy   +0 (50%)  Plenu   +8 (19%) | max   8, rms  4.0
+    VFP2   field   393 | Warp   -1 (54%)  Wormh   +0 (47%)  Hyper   -6 (70%)  Tachy   +1 (50%)  Plenu   +4 (30%) | max   6, rms  3.3
+  Substance
+    VIS    field   384 | Warp   -4 (62%)  Wormh   -5 (53%)  Hyper   +6 (45%)  Tachy   -8 (74%)  Plenu  +26 (15%) | max  26, rms 12.6
+    VFO    field   371 | Warp   -1 (59%)  Wormh   -3 (74%)  Hyper   +3 (43%)  Tachy   +0 (53%)  Plenu  +10 (21%) | max  10, rms  5.1
+    VFS15@1.5 field   382 | Warp   -3 (63%)  Wormh   -4 (69%)  Hyper   +0 (56%)  Tachy   +2 (44%)  Plenu  +10 (19%) | max  10, rms  5.0
+    VFP2   field   391 | Warp   +1 (56%)  Wormh   -1 (61%)  Hyper   -2 (61%)  Tachy   -1 (50%)  Plenu   +8 (22%) | max   8, rms  3.8
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  VIS    largest 17.8, rms  9.7; win shares 13%-75%; unfinished 0 of 2700 games
+  VFO    largest  6.2, rms  3.2; win shares 16%-79%; unfinished 0 of 2700 games
+  VFS15@1.5 largest  7.9, rms  4.1; win shares 16%-77%; unfinished 0 of 2700 games
+  VFP2   largest  5.3, rms  3.1; win shares 22%-70%; unfinished 0 of 2700 games
+
+=== expert (all 15 conditions against base Civ V's 305: VIS 310 (+5), VFS15@1.5 303 (-2), VFP14 301 (-4))
+  familiar
+    VIS    field   311 | Warp   -6 (64%)  Wormh   +9 (34%)  Hyper   +0 (52%)  Tachy   -8 (71%)  Tunne  +11 (30%) | max  11, rms  7.8
+    VFS15@1.5 field   304 | Warp   -2 (65%)  Wormh   -1 (59%)  Hyper   -2 (65%)  Tachy   +4 (31%)  Tunne   +4 (30%) | max   4, rms  2.9
+    VFP14  field   301 | Warp   -3 (64%)  Wormh   -2 (57%)  Hyper   -3 (60%)  Tachy   +1 (39%)  Tunne   +3 (31%) | max   3, rms  2.5
+  Process
+    VIS    field   310 | Warp   -8 (65%)  Wormh   +6 (39%)  Hyper   +0 (53%)  Tachy   -8 (71%)  Plenu  +12 (23%) | max  12, rms  8.0
+    VFS15@1.5 field   303 | Warp   -4 (76%)  Wormh   +0 (57%)  Hyper   +0 (57%)  Tachy   +4 (38%)  Plenu  +10 (21%) | max  10, rms  4.9
+    VFP14  field   302 | Warp   -4 (71%)  Wormh   -0 (56%)  Hyper   -0 (52%)  Tachy   +2 (40%)  Plenu   +4 (31%) | max   4, rms  2.5
+  Substance
+    VIS    field   306 | Warp   -6 (68%)  Wormh   -2 (53%)  Hyper   +4 (45%)  Tachy   -4 (67%)  Plenu  +16 (17%) | max  16, rms  8.3
+    VFS15@1.5 field   303 | Warp   -4 (77%)  Wormh   -1 (61%)  Hyper   -1 (56%)  Tachy   +3 (39%)  Plenu  +12 (17%) | max  12, rms  6.1
+    VFP14  field   303 | Warp   -4 (73%)  Wormh   +2 (44%)  Hyper   -2 (59%)  Tachy   +0 (47%)  Plenu   +6 (27%) | max   6, rms  3.6
+
+=== novice (all 15 conditions against base Civ V's 305: VIS 312 (+7), VFS15@1.5 307 (+2), VFP14 305 (+0))
+  familiar
+    VIS    field   316 | Warp   -4 (63%)  Wormh  +15 (32%)  Hyper   +4 (48%)  Tachy   -8 (72%)  Tunne   +9 (35%) | max  15, rms  9.0
+    VFS15@1.5 field   307 | Warp   +1 (45%)  Wormh   -2 (56%)  Hyper   -4 (69%)  Tachy   +1 (49%)  Tunne   +6 (32%) | max   6, rms  3.4
+    VFP14  field   308 | Warp   +3 (44%)  Wormh   +4 (43%)  Hyper   -6 (64%)  Tachy   -2 (57%)  Tunne   +4 (42%) | max   6, rms  4.2
+  Process
+    VIS    field   310 | Warp   -2 (62%)  Wormh   +0 (49%)  Hyper   +3 (48%)  Tachy   -7 (74%)  Plenu  +22 (18%) | max  22, rms 10.5
+    VFS15@1.5 field   307 | Warp   +0 (57%)  Wormh   +0 (52%)  Hyper   -3 (66%)  Tachy   -2 (54%)  Plenu   +6 (22%) | max   6, rms  3.1
+    VFP14  field   306 | Warp   -2 (58%)  Wormh   +0 (48%)  Hyper   -2 (56%)  Tachy   -0 (51%)  Plenu   +2 (38%) | max   2, rms  1.7
+  Substance
+    VIS    field   311 | Warp   -2 (61%)  Wormh   -6 (58%)  Hyper   +2 (49%)  Tachy   -6 (69%)  Plenu  +26 (13%) | max  26, rms 12.3
+    VFS15@1.5 field   306 | Warp   -2 (56%)  Wormh   -2 (65%)  Hyper   -2 (60%)  Tachy   -1 (53%)  Plenu   +9 (16%) | max   9, rms  4.3
+    VFP14  field   304 | Warp   -1 (63%)  Wormh   -1 (60%)  Hyper   +0 (53%)  Tachy   +2 (44%)  Plenu   +4 (30%) | max   4, rms  2.1
+
+=== average (all 15 conditions against base Civ V's 380: VIS 386 (+6), VFS15@1.5 383 (+3), VFP14 380 (+0))
+  familiar
+    VIS    field   390 | Warp   -8 (64%)  Wormh   +8 (36%)  Hyper   +2 (45%)  Tachy  -11 (74%)  Tunne  +12 (31%) | max  12, rms  9.0
+    VFS15@1.5 field   385 | Warp   -2 (57%)  Wormh   -2 (50%)  Hyper   -3 (56%)  Tachy   +1 (50%)  Tunne   +6 (37%) | max   6, rms  3.5
+    VFP14  field   383 | Warp   -4 (57%)  Wormh   +4 (43%)  Hyper   -6 (59%)  Tachy   +0 (52%)  Tunne   +4 (39%) | max   6, rms  4.2
+  Process
+    VIS    field   385 | Warp   -6 (66%)  Wormh   +3 (44%)  Hyper   +2 (46%)  Tachy  -10 (75%)  Plenu  +20 (18%) | max  20, rms 10.2
+    VFS15@1.5 field   383 | Warp   -1 (60%)  Wormh   -1 (58%)  Hyper   -4 (63%)  Tachy   +0 (50%)  Plenu   +8 (19%) | max   8, rms  4.0
+    VFP14  field   381 | Warp   -3 (59%)  Wormh   +2 (47%)  Hyper   -1 (55%)  Tachy   -1 (56%)  Plenu   +4 (33%) | max   4, rms  2.5
+  Substance
+    VIS    field   384 | Warp   -4 (62%)  Wormh   -5 (53%)  Hyper   +6 (45%)  Tachy   -8 (74%)  Plenu  +26 (15%) | max  26, rms 12.6
+    VFS15@1.5 field   382 | Warp   -3 (63%)  Wormh   -4 (69%)  Hyper   +0 (56%)  Tachy   +2 (44%)  Plenu  +10 (19%) | max  10, rms  5.0
+    VFP14  field   378 | Warp   -1 (66%)  Wormh   +0 (55%)  Hyper   +3 (41%)  Tachy   +0 (55%)  Plenu   +6 (34%) | max   6, rms  3.0
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  VIS    largest 17.8, rms  9.7; win shares 13%-75%; unfinished 0 of 2700 games
+  VFS15@1.5 largest  7.9, rms  4.1; win shares 16%-77%; unfinished 0 of 2700 games
+  VFP14  largest  4.7, rms  2.9; win shares 27%-73%; unfinished 0 of 2700 games
+
+== 6. The novice's races with visible players (ftl_balance.py cmpVIS N), and the novice's chains
+
+=== novice
+== familiar (field median 316)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            312       -4    257     288   296    296   63%/  7%/ 30%   MS08 (68%, 299), ES18 (32%, 285)           bubble (100%)
+  Wormhole        331      +15    256     289   317    317  100%/  0%/  0%   MS17 (100%, 317)                           throat (92%)
+  Hyperspace      320       +4    255     290   304    304   95%/  3%/  2%   MA19 (100%, 304)                           leak (73%)
+  Tunnelling      325       +9    256     280   311    311  100%/  0%/  0%   CP21 (98%, 312), QP14 (2%, 301)            coherence (100%)
+  Tachyonic       308       -8    255     286   290    292   72%/ 27%/  2%   NP15 (85%, 290), SE02 (15%, 292)           tachDE (43%)
+== Process (field median 310)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            308       -2    256     287   292    292   65%/  3%/ 32%   ES18 (55%, 288), MS08 (45%, 293)           bubble (93%)
+  Wormhole        310       +0    251     280   294    294  100%/  0%/  0%   MS17 (100%, 294)                           throat (78%)
+  Hyperspace      313       +3    252     284   296    297   92%/  5%/  3%   MA19 (100%, 296)                           leak (43%)
+  Tachyonic       303       -7    256     281   287    287  100%/  0%/  0%   TH20 (63%, 289), SE02 (37%, 284)           superlum (60%)
+  Plenum          332      +22    254     286   318    318  100%/  0%/  0%   AE20 (100%, 318)                           coupling (98%)
+== Substance (field median 311)
+  method      victory vs field theory certain built finish  binds (build/cert/both)   last build need (share, median turn)        last own condition
+  Warp            309       -2    258     290   292    293   53%/ 18%/ 28%   MS08 (72%, 296), ES18 (28%, 284)           bubble (90%)
+  Wormhole        305       -6    253     276   289    289  100%/  0%/  0%   MS17 (100%, 289)                           throat (80%)
+  Hyperspace      313       +2    253     286   296    297   85%/ 13%/  2%   MA19 (100%, 296)                           dark (53%)
+  Tachyonic       305       -6    256     282   289    289   93%/  7%/  0%   TH20 (70%, 291), SE02 (30%, 285)           superlum (55%)
+  Plenum          337      +26    254     286   323    323  100%/  0%/  0%   AE20 (100%, 323)                           coupling (98%)
+  familiar  Wormhole   RC01 203 (49) | QP08 256 (10) | QP11 276 (13) | MS08 295 (20) | RC04 264 (19) | QP12 259 (15) | MA13 194 (38) | MS17 317 (14)
+  familiar  Tunnelling QP02 241 (31) | CP10 293 (18) | MS02 245 (4) | GN05 269 (24) | QP14 294 (13) | CP21 311 (16) | CP16 278 (28) | QP07 254 (6)
+  Process   Wormhole   RC01 215 (54) | QM-E27 251 (22) | QM-E06 264 (10) | MS08 282 (15) | RC04 258 (44) | QM-E13 248 (39) | MA13 199 (38) | MS17 294 (15)
+  Process   Plenum     QM-E27 254 (22) | MS02 249 (38) | QM-E19 274 (12) | QM-E23 299 (18) | AE20 318 (12) | AE14 269 (15) | RK07 281 (22)
+  Substance Wormhole   RC01 211 (50) | QM-E27 253 (20) | QM-E06 264 (11) | MS08 276 (14) | RC04 260 (45) | QM-E13 250 (37) | MA13 195 (38) | MS17 289 (13)
+  Substance Plenum     QM-E27 254 (24) | MS02 253 (42) | QM-E19 272 (11) | QM-E23 306 (18) | AE20 323 (13) | AE14 286 (23) | RK07 283 (20)
+
+== 7. Settings: labels _cmp<label><X|N|A>_<method> (not kept), each with rivals from make_pool.sh <world> <label> under the same
+   switches: VIS = VISIBLE=1; VFO = VISIBLE=1 FTLOCC=1; VFS15 = ... SPACEPRICE=1.5; VFP14 = ... FTLPRICE=1.4; VFP2 = ... FTLPRICE=2;
+   all run with TOVICTORY=1 SAVE_T=1 through compare_settings.sh (PYTHONHASHSEED=0).

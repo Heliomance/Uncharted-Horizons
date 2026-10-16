@@ -14,10 +14,12 @@ Usage: python3 ftl_share.py <label>[@dir][%turn] ...   e.g.  python3 ftl_share.p
        (labels as compare_settings.sh writes them: results/w7f_<world>_cmp<label><X|N|A>_<method>.json). %turn counts what is
        held by that turn instead of the race's finish (for the expert; the novice's and average player's cuts follow with
        %turn,turn,turn), to compare two settings at the same moment of the game.
-       python3 ftl_share.py --rows <label> <label> [X|N|A]: each breakthrough's share of games holding it at the race's finish
+       python3 ftl_share.py --space <label> ...: the Space era only, FTL-related against non-FTL breakthroughs by kind of field and
+       by phase (before the unified theory, during the race, during the prototype and the Drive).
+       python3 ftl_share.py --rows <label> <label> [X|N|A]: each breakthrough's share of games holding it by the end of the record
        under both settings, the largest differences first, FTL-related and non-FTL Space-era rows separately.
 """
-import sys, os, json, statistics as st
+import sys, os, json, statistics as st, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import ftl_balance as B, gen_data as G
 
@@ -88,14 +90,60 @@ def rows(a, b, code):
     for title, sel in (('FTL-related', lambda k: k in allf), ('non-FTL, Space era', lambda k: k not in allf and G.ROWS.get(k, {}).get('era') == 'Space'),
                        ('non-FTL, earlier eras', lambda k: k not in allf and G.ROWS.get(k, {}).get('era') not in (None, 'Space'))):
         ks = sorted((k for k in keys if sel(k)), key=lambda k: out[b].get(k, 0) - out[a].get(k, 0))
-        print(f'\n== {title}: share of all games holding each at the race\'s finish, {a.partition("@")[0]} -> {b.partition("@")[0]} (largest falls, then largest rises)')
+        print(f'\n== {title}: share of all games holding each by the end of the record (the launch with TOVICTORY=1, else the race\'s finish), {a.partition("@")[0]} -> {b.partition("@")[0]} (largest falls, then largest rises)')
         for k in ks[:12] + ['...'] + ks[-8:]:
             if k == '...': print('   ...'); continue
             print(f"   {k:7} {NAMES.get(k, k)[:38]:38} {G.ROWS[k]['focus'][:20]:20} {out[a].get(k, 0):5.0%} -> {out[b].get(k, 0):5.0%}")
 
 
+SIGNATURE = {'Computing', 'Energy Systems', 'Materials Science', 'Mathematics', 'Nuclear Physics', 'Thermodynamics', 'Aeronautics'}
+EVIDENCE = {'Quantum Physics', 'Quintessic Physics', 'Relativity & Cosmology'}
+SHIP = {'Rocketry', 'Space Engineering'}
+try:   # the Space-era rows that exist in each world (the web mockups' bundle)
+    _wids = {w: set(x['ids']) for w, x in json.load(open(os.path.join(HERE, '..', '..', 'mockups', 'sim_web', 'bundle.json')))['worlds'].items()}
+except (OSError, ValueError, KeyError): _wids = {}
+
+
+def space(labels):
+    """the Space era on the path to victory: FTL-related against non-FTL breakthroughs, by kind of field and by phase"""
+    print('Space-era breakthroughs held at the launch (games played on with TOVICTORY=1; otherwise at the race\'s finish), mean a game.')
+    print('FTL own / other: the working method\'s needs and tests / the other hypotheses\'. Non-FTL by field: the FTL methods\' signature')
+    print('fields (their W18 pools), the evidence fields (the tests\' physics), the ship fields (Rocketry, Space Engineering), and elsewhere.')
+    print('Phases: before the unified theory | theory to the race\'s finish | the prototype and the Drive (finish to launch).\n')
+    for w, ids in _wids.items():
+        sp = [k for k in ids if G.ROWS.get(k, {}).get('era') == 'Space']; f = ftl_rows(B.WORLDS[w])
+        print(f'  ({w}: {len(sp)} Space-era breakthroughs exist, {sum(k in f for k in sp)} of them FTL-related)')
+    for code, name in PLAYERS:
+        print(f'\n=== {name}')
+        print(f"  {'setting':10} {'turn':>4} | {'FTL':>4} ({'own':>4} {'oth':>4}) | {'non-FTL':>7} ({'sign':>4} {'evid':>4} {'ship':>4} {'else':>4}) | FTL share | phases FTL:non-FTL  before | race | after")
+        for label in labels:
+            lab, _, d = label.partition('@'); d = d or os.path.join(HERE, 'results')
+            acc = collections.defaultdict(list)
+            for w, ont in B.WORLDS.items():
+                allf = ftl_rows(ont)
+                for m in B.BUILD[ont]:
+                    own = ftl_rows(ont, m)
+                    for g in json.load(open(os.path.join(d, f'w7f_{w}_cmp{lab}{code}_{m}.json'))):
+                        t = g.get('t') or {}; cert = g['cert'][0] if isinstance(g['cert'], list) else g['cert']
+                        if not (cert and g.get('built')): continue
+                        fin = max(cert, g['built']); end = g.get('vt') or fin; th = t.get(B.CLOSE[ont], fin)
+                        ks = [k for k in t if t[k] <= end and G.ROWS.get(k, {}).get('era') == 'Space']
+                        fo = lambda k: G.ROWS[k]['focus']
+                        acc['turn'].append(end)
+                        acc['own'].append(sum(k in own for k in ks)); acc['oth'].append(sum(k in allf and k not in own for k in ks))
+                        nf = [k for k in ks if k not in allf]
+                        acc['sign'].append(sum(fo(k) in SIGNATURE for k in nf)); acc['evid'].append(sum(fo(k) in EVIDENCE for k in nf))
+                        acc['ship'].append(sum(fo(k) in SHIP for k in nf)); acc['else'].append(sum(fo(k) not in SIGNATURE | EVIDENCE | SHIP for k in nf))
+                        for ph, lo, hi in (('before', -1, th - 1), ('race', th - 1, fin), ('after', fin, end)):
+                            acc[ph + 'F'].append(sum(k in allf and lo < t[k] <= hi for k in ks)); acc[ph + 'N'].append(sum(k not in allf and lo < t[k] <= hi for k in ks))
+            mn = {k: st.mean(v) for k, v in acc.items()}; ftl = mn['own'] + mn['oth']; non = mn['sign'] + mn['evid'] + mn['ship'] + mn['else']
+            print(f"  {lab:10} {st.median(acc['turn']):4.0f} | {ftl:4.1f} ({mn['own']:4.1f} {mn['oth']:4.1f}) | {non:7.1f} ({mn['sign']:4.1f} {mn['evid']:4.1f} {mn['ship']:4.1f} {mn['else']:4.1f}) |"
+                  f" {ftl / (ftl + non):8.0%}  | {mn['beforeF']:4.1f}:{mn['beforeN']:<4.1f} | {mn['raceF']:4.1f}:{mn['raceN']:<4.1f} | {mn['afterF']:3.1f}:{mn['afterN']:<4.1f}")
+
+
 def main():
     if sys.argv[1] == '--rows': return rows(sys.argv[2], sys.argv[3], (sys.argv[4:] or ['X'])[0])
+    if sys.argv[1] == '--space': return space(sys.argv[2:])
     labels = sys.argv[1:]
     print('Breakthroughs held at the race\'s finish, mean a game (all 15 conditions, 900 games a player and setting).')
     print('FTL own = the working method\'s needs and tests; FTL other = the other hypotheses\'; non-FTL split Space / earlier eras.\n')

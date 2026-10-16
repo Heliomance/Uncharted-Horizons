@@ -40,7 +40,7 @@ def smart_targets(reqs, have):
         if k in memo: return memo[k]                                     # (only rows that passed the checks below are ever memoised)
         if k in have: return frozenset()
         if k not in _rows: return None
-        if k in lost and k not in gl and k not in dif and k not in dun: return None   # an idea that isn't coming
+        if k in lost and k not in gl and k not in dif and k not in dun and not HF.VISIBLE: return None   # an idea that isn't coming (VISIBLE: the player cannot know)
         if k in S_.get('locked', ()) and k != S_.get('end_k'): return None   # an alternative locked out by its primary (Competing Solutions)
         memo[k] = frozenset([k]); req = {k}
         for grp in _rows[k]['pre']:
@@ -182,6 +182,10 @@ FTL_ROWS = ({o for gs in BUILD.values() for g in gs for o in g} | {h for cs in C
             | {u for cs in COND.values() for c in cs for u in INSTR.get(c, [])} | {CLOSE})   # every breakthrough the FTL screen names in this world
 HF.FTL_OCC = os.environ.get('FTLOCC') == '1'   # FTL-related ideas occur as soon as their prerequisites are met and their focus is funded (harness_ftl_e.FTL_OCC)
 HF.FTL_ROWS = frozenset(FTL_ROWS); HF.FTL_OCC_FROM = os.environ.get('FTLOCCFROM') or None   # FTLOCCFROM=RC01: only once the FTL screen is open
+if os.environ.get('FTLPRICE'):   # FTLPRICE=x: every FTL-related breakthrough's price multiplier times x (a lever that leaves non-FTL content's prices alone)
+    for k in FTL_ROWS:
+        if k in _rows: HF.COSTMULT[k] = HF.COSTMULT.get(k, 1.0) * float(os.environ['FTLPRICE']); COST[k] = _cost(k)
+HF.VISIBLE = os.environ.get('VISIBLE') == '1'   # the players decide what to fund only on what the screens show (harness_ftl_e.VISIBLE)
 TOVICTORY = os.environ.get('TOVICTORY') == '1'   # with RUNON=1: play each game on to its launch turn (victory.py) instead of stopping at the race's finish
 if TOVICTORY: import victory as V
 SEED0 = int(os.environ.get('SEED0', '17000'))
@@ -215,7 +219,8 @@ def play(s, m, a):
             if NOVEND:                                                   # a revealed step that has held things up for a reasonable time: commission it
                 now = HF.CLOCK['turn']; S_ = HF.STATE
                 blocking = {hint_row(r, have) for r in qreq + nreq} - {None}
-                rev = lambda k: _rows[k]['tier'] == 'CORE' or k in S_.get('occurred', ()) or k in S_.get('glimpsed', ())
+                rev = (lambda k: _rows[k]['tier'] == 'CORE' or k in S_.get('glimpsed', ()) or k in S_.get('diff', {}) or k in S_.get('diff_unc', {})) if HF.VISIBLE else \
+                      (lambda k: _rows[k]['tier'] == 'CORE' or k in S_.get('occurred', ()) or k in S_.get('glimpsed', ()))   # VISIBLE: revealed, not occurred
                 for k in list(BLOCK):
                     if k not in blocking or k in have or not rev(k): del BLOCK[k]
                 if NOVFOCUS:                                             # only the step holding up the field actually funded; count funded turns

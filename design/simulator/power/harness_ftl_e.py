@@ -74,6 +74,11 @@ W16 = True           # W16: a Space-era STANDARD idea the player is pursuing (in
 FTL_OCC = False      # FTLOCC: an FTL-related idea (FTL_ROWS: every breakthrough the FTL screen names) occurs as soon as its prerequisites are
 FTL_ROWS = frozenset()  # met while its focus is the funded focus, in the turn it is funded; a lost one comes back the same way (Tamsin's question,
 FTL_OCC_FROM = None  # 16 Oct 2026). FTL_OCC_FROM: a row that must be held first (e.g. RC01, the FTL screen), or None
+VISIBLE = False      # VISIBLE: the simulated players decide what to fund only on what the screens show (Tamsin, 16 Oct 2026: where a
+                     # breakthrough isn't revealed, a player cannot know whether its idea has occurred). Revealed ideas under study count as
+                     # work; a discoverable idea the player cannot see counts as possibly under study, one it can see is not under study (or
+                     # whose moment it can see has passed) does not; costs are full prices, with no hidden progress. Off: the players see
+                     # every idea's occurrence and progress, as in every measurement before 16 Oct 2026
 PROTO_UNTIL = None   # TOVICTORY (w7f.py): the game plays on past the race's finish to the launch; until this turn the prototype takes the
                      # funded share (no focus is funded, no Endeavour starts) and the spread goes on, as during an Endeavour
 END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
@@ -117,6 +122,18 @@ def _ftl_active(waiting, pool, have):
     fw = {f: w for f, w in waiting.items() if any(k in target for k in pool.get(f, []))}
     if fw: return max(fw, key=fw.get)
     return max(waiting, key=waiting.get) if waiting else None
+
+
+def _ftl_active_visible(vwaiting, cand, have, prev):
+    """VISIBLE: the focus with targets the player can work on (cand: discoverable rows not seen to be idle), most visible work
+    first, then most such targets; else the focus with the most visible work; else the focus funded last turn"""
+    global FUNDED
+    target = TARGET_FN(have) if TARGET_FN else set()
+    FUNDED = target
+    fw = {f: (vwaiting.get(f, 0.0), sum(k in target for k in ks)) for f, ks in cand.items() if any(k in target for k in ks)}
+    if fw: return max(fw, key=fw.get)
+    if vwaiting: return max(vwaiting, key=vwaiting.get)
+    return prev
 
 SPACE_I = EO.index('Space')   # development at which the Space era begins (era i spans development i to i + 1)
 SPACE_FROM = None    # the cumulative Insight at which development enters the Space era: None, the Atomic span's end (143,768; section 2).
@@ -255,8 +272,18 @@ def run(prm, seed, max_turns=450):
             cpool = {f: pool.get(f, []) + [k for k in ready_ftl if FOCUS[k] == f] for f in set(pool) | {FOCUS[k] for k in ready_ftl}}
             waiting_c = {f: sum(TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k])) for k in ks) for f, ks in cpool.items()}
         else: cpool, waiting_c = pool, waiting
+        if VISIBLE:   # what the player can see: revealed ideas (CORE once discoverable, glimpsed, seen in rivals' hands) and their state
+            rev_now = glimpsed | set(diff_since) | set(diff_unc) | obs
+            idle = {k for k in disc if k not in occurred and (ROWS[k]['tier'] == 'CORE' or k in rev_now) and k not in ready_ftl}   # seen not to be under study
+            vwaiting = {}
+            for k in live:
+                if ROWS[k]['tier'] == 'CORE' or k in rev_now: vwaiting[FOCUS[k]] = vwaiting.get(FOCUS[k], 0.0) + TARGET[ROWS[k]['tier']] * (1 + max(0.0, d - ERA_I[k]))
+            cand = {}
+            for k in disc:
+                if k not in idle: cand.setdefault(FOCUS[k], []).append(k)
         STATE['end_k'] = end_k                                             # (a running Endeavour keeps its target open: lock-out suspended)
         if prm.player == 'specialist' and 'Mathematics' in pool: active = 'Mathematics'
+        elif VISIBLE: active = _ftl_active_visible(vwaiting, cand, have, active)
         else: active = _ftl_active(waiting_c, cpool, have)
         def est_price(k): return PRICE[ROWS[k]['era']] * prm.scale * prm.premium ** max(0.0, ERA_I[k] - d)
         def est_rem(k): return max(COSTMULT.get(k, 1.0) - progress.get(k, 0.0), 0.2) * est_price(k)
@@ -293,10 +320,11 @@ def run(prm, seed, max_turns=450):
             capped = EXPCAP is not None and (EXPCAP_ERA is None or d < EXPCAP_ERA)
             ok_p = (lambda k: prm.premium ** max(0.0, ERA_I[k] - d) <= EXPCAP) if capped else (lambda k: True)
             pri = {k for k in pri if ok_p(k)}
-            fc = {f: min(est_rem(k) for k in ks if k in pri) for f, ks in cpool.items() if any(k in pri for k in ks)}
-            if not fc: fc = {f: min(est_rem(k) for k in ks if k in FUNDED and ok_p(k)) for f, ks in cpool.items() if any(k in FUNDED and ok_p(k) for k in ks)}
+            cp, est, wt = (cand, (lambda k: COSTMULT.get(k, 1.0) * est_price(k)), vwaiting) if VISIBLE else (cpool, est_rem, waiting_c)   # VISIBLE: no hidden state
+            fc = {f: min(est(k) for k in ks if k in pri) for f, ks in cp.items() if any(k in pri for k in ks)}
+            if not fc: fc = {f: min(est(k) for k in ks if k in FUNDED and ok_p(k)) for f, ks in cp.items() if any(k in FUNDED and ok_p(k) for k in ks)}
             if fc: active = min(fc, key=fc.get)
-            elif capped and waiting_c: active = max(waiting_c, key=waiting_c.get)   # nothing affordable to target: fund the most fruitful focus, as development catches up
+            elif capped and wt: active = max(wt, key=wt.get)   # nothing affordable to target: fund the most fruitful focus, as development catches up
         sh = 0.8 if 'SO05' in have else 0.5; es = END_SHARE or sh   # es: an Endeavour's share of the turn's Insight
         pausing = turn <= pause_until or (PROTO_UNTIL is not None and turn <= PROTO_UNTIL); started = False   # pausing: an urgent Endeavour's debt is being paid, or the prototype is being built
         if end_k is not None and (end_k in have or (END_RULE != 'request' and end_k not in FUNDED)): END_LOG.append((turn, end_k, 'dropped')); end_k = None; cool_until = turn + END_COOLDOWN; end_urgent = False
