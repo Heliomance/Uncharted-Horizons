@@ -142,6 +142,16 @@ rather than calculating discovery chances from window length, adjust them direct
   from 22-24 a game today (a game 5-7 turns too long) to about 19-20 at 10%, 17-18 at 15%, 16-17 at 20% and 15-16 at 30%. The
   funded-focus rule at parity (visible_players_20261016.txt, VFP14) kept 13.5-15 with a spread of 4.7.
 
+== 6. Adopted at 10% in v3.127 (Tamsin, 16 Oct), with the visible-information players as the benchmark: the new defaults
+   (SPACEOCC=0.1 VISIBLE=1 POOLTAG=127, pools made under them) reproduce S10 game for game (45 of 45 result files identical;
+   label V127). For comparison, the old players (VISIBLE=0, rivals made under it, label S10O) at 10% a turn:
+     S10O (old players)    largest  6.7, rms 4.5; win shares 24%-77%; victory 301 / 304 / 377; unfinished 0 of 2700
+     S10  (visible, v3.127) largest 12.3, rms 6.7; win shares 19%-75%; victory 305 / 308 / 381; unfinished 0 of 2700
+   Plenum's lag is +7 for every old player but +13.5 to +15 for the visible-information ones (the expert included), and
+   Tunnelling's +4 to +6 against +7 to +12: most of what is left is how players who see only the screens find those methods'
+   needs. One candidate, in the simulator rather than the design: the simulated FTL-screen hint names one focus per open
+   question or build need (the cheapest workable step's), where section 4 names every focus in which a step can be worked on.
+
 == 5. Labels: _cmp<label><X|N|A>_<method> and pools _pool<label> (not kept: 106 MB). Each setting is remade, in
    design/simulator/power, by (about 4.5 minutes on four cores; VIS without SPACEOCC):
      for w in familiar Process Substance; do
