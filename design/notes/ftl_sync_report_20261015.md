@@ -101,7 +101,7 @@ Under R the expert's builds are complete between turns 282 and 293 in every worl
 
 Unchanged: the condition-hosting build rows (Macroscopic Quantum Control, Exotic Matter Engineering, Current Rigging) stay at ×1; every method keeps a condition outside its build (W15); the rows the FTL screen lists as each method's build needs stay the same; no CORE row gains a non-CORE prerequisite.
 
-**If adopted**, v3.126 would change: the prerequisite cells of Transformation Media, Current Rigging and Quantum Computing, with their notes; Planetary Data Networks' note; the multipliers on the Storage Rings, the Boundary Ring and Superconducting Energy Storage; §4's build table and its Prices sentence; with recommendation 3, §2's Space price and §4's prototype turns; and the digest's §5, §8, §9 and §10. Then the battery, the wiki check and a full confirmation with rebuilt rivals, as for every version.
+**If adopted**, the next version would change: the prerequisite cells of Transformation Media, Current Rigging and Quantum Computing, with their notes; Planetary Data Networks' note; the multipliers on the Storage Rings, the Boundary Ring and Superconducting Energy Storage; §4's build table and its Prices sentence; with recommendation 3, §2's Space price and §4's prototype turns; and the digest's §5, §8, §9 and §10. Then the battery, the wiki check and a full confirmation with rebuilt rivals, as for every version.
 
 ## What remains
 

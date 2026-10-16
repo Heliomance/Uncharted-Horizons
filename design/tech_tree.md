@@ -1,4 +1,4 @@
-# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.125)
+# UNCHARTED HORIZONS — Complete Tech Tree Design Document (v3.126)
 
 ## 1. System Overview
 
@@ -195,7 +195,7 @@ Every breakthrough, per civilisation, is in one of three states:
 
 1. **Theoretical revelation.** Theory-heavy breakthroughs carry a *Reveals* list: their direct applications. Discovering Atomic Model (NP02) reveals Nuclear Fission and Nuclear Weapons as concepts. Oxygen Theory (CH05) reveals the Steam Engine. Electromagnetism (EL03) reveals the Telegraph and the Generator (with its motor). Before Scientific Method (PH04), theoretical revelation is rare; after PH04, theoretical CORE/STANDARD breakthroughs reveal their applications as the norm. The game's texture therefore shifts across eras from mostly-surprise to mostly-directed — which is what happened in real history. RARE and UNIQUE breakthroughs are almost never revealed by theory: the surprises remain surprises.
 
-2. **Proximity revelation.** Each turn a discoverable idea fails to occur, there is a chance it is glimpsed instead: the *concept* is Revealed without the idea itself — your scholars glimpse what they are circling (10% a turn for STANDARD ideas and 3% for UNCOMMON, both provisional; never RARE or UNIQUE; Section 1.2). This formalises the "promising developments" notification into a state change.
+2. **Proximity revelation.** Each turn a discoverable idea fails to occur, there is a chance it is glimpsed instead: the *concept* is Revealed without the idea itself — your scholars glimpse what they are circling (10% a turn for STANDARD ideas and 3% for UNCOMMON, both provisional; never RARE or UNIQUE; Section 1.2).
 
 3. **Observational revelation.** Seeing another civilisation's breakthrough in effect — their steamships in your harbour, their cannon at your walls — reveals it to you. Not granted; revealed. Knowing a thing is possible is half the problem (the Soviet bomb, Meiji industrialisation). This is the first stage of Knowledge Diffusion.
 
@@ -1510,9 +1510,6 @@ See Section 1.2 for full details. Summary:
 - After the Internet: 5 turns, UNCOMMON included; RARE never diffuse, and what the old roll bonuses become is proposed, not decided (§1.2)
 - UNIQUE breakthroughs are always exempt from diffusion
 
-### The "Almost Discovered" Mechanic
-When a breakthrough under study passes four-fifths of its meter: "*Your scholars report promising developments in [Focus Area]...*" (the focus, never the breakthrough: meters stay hidden).
-
 ### Technology Trading & Espionage
 - **Trading**: Breakthrough can be traded between civs. Recipient gains 75% effectiveness until they accumulate matching Insight through their own research (representing full local understanding).
 - **Espionage**: Stolen breakthroughs operate at 50% effectiveness.
@@ -2087,6 +2084,11 @@ These are produced by Great People, Great Generals, or engine mechanics rather t
 ---
 
 ## Changelog from v2.0 — Game Design Pass
+
+### v3.126 — The "Promising Developments" Notification Removed
+
+- **§6's *Almost Discovered* mechanic is removed** (Tamsin, 16 October), with the line in §1.4 that called proximity revelation its formal version. The notification ("*Your scholars report promising developments in [Focus Area]...*" when a breakthrough under study passed four-fifths of its meter) dates from the first draft (February), when breakthroughs were expected to come much less often. From the Modern era on a civilisation now makes about one discovery a turn (v3.125: 1.16 on a good economy and 0.93 on an average one, counting rivals' knowledge), and each passes four-fifths of its meter a turn or two before it completes, so the notice would fire most turns and say little; and because it could fire for an idea the player had not seen, it would have told them that unrevealed work was under study, which the discovery model keeps hidden. The glimpse (§1.4, proximity revelation) remains the way scholars report what they are circling.
+- **537 breakthroughs, unchanged.** The simulator never modelled the notification, so no measurement changes.
 
 ### v3.125 — Ring Fortress Merged into Reinforced Concrete
 

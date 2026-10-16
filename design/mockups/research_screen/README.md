@@ -59,7 +59,8 @@ them; Dialectical Thinking was removed in v3.114 and is dropped from the snapsho
 was played on v3.114, so the screen shows that version's prerequisites: the sixteen added in v3.115 and the University
 and Scientific Method changes of v3.116 are not in it, and Comparative Anatomy, merged into Anatomy Study in v3.116, still
 appears (owned on turn 120, 89 turns after Herbal Medicine and Writing had opened Medicine). The records of how the screen was made (`requirements.json` R102 and R103, `build_spec.md`, the reviews) predate
-that and still describe them.
+that and still describe them. Likewise `requirements.json` R46 and R62 describe the "promising developments" notification
+(§6's *Almost Discovered* mechanic), removed in v3.126; the screen never showed it.
 
 ## The data
 
