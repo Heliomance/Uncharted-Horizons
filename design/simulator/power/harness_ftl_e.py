@@ -183,6 +183,7 @@ def run(prm, seed, max_turns=450):
         new_rows = []
         disc = [k for k in IDS if k not in have and k in met and FOCUS[k] != blocked and (k not in locked or k == end_k)]   # a locked-out alternative only by Endeavour
         diff_due = []; obs = set()
+        if TRACE is not None: _seen0 = set(diff_since) | set(diff_unc)   # before this turn's diffusion, so the log's seen lists the rows first seen this turn
         if DIFF:                                   # knowledge diffusion (section 1.2): contacted rivals, Printing Press, Internet
             if contact_turn is None and any(ERA_I[k] >= DIFF['contact_era'] for k in have): contact_turn = turn
             if cp04_turn is None and 'CP04' in have: cp04_turn = turn
@@ -202,7 +203,7 @@ def run(prm, seed, max_turns=450):
                         s0 = diff_unc.setdefault(k, turn)
                         if turn - s0 >= DIFF_WAIT_NET: diff_due.append(k)
         for k in disc: opened.setdefault(k, turn)
-        if TRACE is not None: _occ0, _gl0, _fund0, _lost0, _seen0, _lk0 = set(occurred), set(glimpsed), set(FUNDED), set(lost), set(diff_since) | set(diff_unc), set(locked)
+        if TRACE is not None: _occ0, _gl0, _fund0, _lost0, _lk0 = set(occurred), set(glimpsed), set(FUNDED), set(lost), set(locked)
         # the moment: a non-CORE idea occurs to the civilisation with a small chance each turn while it lasts
         funded = active                                                    # the focus funded last turn (None while an Endeavour ran)
         if m != 'T':

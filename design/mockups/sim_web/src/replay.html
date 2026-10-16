@@ -18,7 +18,7 @@
     </div>
   </header>
   <div class="rp-paste" id="rp-paste" hidden>
-    <label for="rp-paste-text" class="rp-paste-row">Paste a simulator log: the JSON file w7f.py writes with TRACE=&lt;file&gt; (one game).</label>
+    <label for="rp-paste-text" class="rp-paste-row">Paste a log: the JSON file w7f.py writes with TRACE=&lt;file&gt; (one game), or the live game’s copied log.</label>
     <textarea id="rp-paste-text" spellcheck="false" placeholder="{&quot;m&quot;: &quot;Warp&quot;, &quot;records&quot;: [...], ...}"></textarea>
     <div class="rp-paste-row"><button type="button" class="rp-btn" id="rp-paste-load">Load the pasted log</button></div>
   </div>
@@ -57,7 +57,7 @@
   <section class="rp-chart-wrap" aria-label="Discoveries each turn">
     <div class="rp-legend">
       <span><i class="rp-sw own"></i>Discovered</span><span><i class="rp-sw dif"></i>From abroad</span>
-      <span><i class="rp-sw mark"></i>Milestones</span><span><i class="rp-sw proj"></i>After the log (projected)</span>
+      <span><i class="rp-sw mark"></i>Milestones</span><span id="rp-legend-proj"><i class="rp-sw proj"></i>After the log (projected)</span>
       <span>Bands: the era entered by count, and development’s era</span>
     </div>
     <div class="rp-chart" id="rp-chart"></div>

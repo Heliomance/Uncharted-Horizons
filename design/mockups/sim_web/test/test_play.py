@@ -13,6 +13,11 @@ Three games, with no console errors throughout:
      fast-forward, commit the true method and win; the victory screen lists the failed prototype.
   3. Phone 400x800, Substance world (elemental), average economy: setup, a few turns by tapping, fast-forward, the FTL
      screen in place of the research screen, commit, victory; no horizontal scroll.
+Also checked: a single Next turn leaves that turn's headline in the notice; a fast-forward gives the player's own funding
+choice back when it stops; the FTL card's prototype quote and the commit dialog's agree; after victory the screen is
+read-only and the summary says "none", not "none yet"; at victory no owned breakthrough's description has a row id, a tier
+word or odds; a typed seed is shown, a random game's seed only once the game is won; on the phone, tapping a breakthrough
+brings its description into view, and a Next turn button stays at hand when the turn bar is scrolled away.
 Victory turns are reported against base Civ V's 305 (good economy) and 380 (average), with the time a turn takes to
 compute and to draw in the browser. Screenshots go to test/shots/play_*.png.
 """
@@ -26,6 +31,8 @@ REPLAY = 'file://' + os.path.join(ROOT, 'dist', 'replay.local.html')
 SHOTS = os.path.join(HERE, 'shots')
 os.makedirs(SHOTS, exist_ok=True)
 ROW_ID = re.compile(r'\b(?:QM-E|NP-F|MD-V|[A-Z]{1,3})\d{2}[A-Z]?(?:-W)?\b')
+TIER_WORD = re.compile(r'\b(?:CORE|STANDARD|UNCOMMON|RARE|UNIQUE)\b')
+ODDS = re.compile(r'~\s?\d+\s?%|\(\d+%\)')
 fails, report = [], []
 
 
@@ -41,6 +48,17 @@ def shot(pg, name, full=False):
 def turn(pg): return pg.evaluate('UHPlay.engine.turn')
 def idle(pg, timeout=120000): pg.wait_for_function('!UHPlay.state.running', timeout=timeout)
 def notice(pg): return pg.inner_text('#pl-notice')
+
+
+def chip_texts(pg):
+    """select every chip on the research screen in turn and return each description (the game must not be running)"""
+    return pg.evaluate("""() => { const out = [], root = document.getElementById('pl-screen');
+      for (const sel of [...root.querySelectorAll('.uh-chip')].map(c => c.dataset.sel)) {
+        const c = root.querySelector('.uh-chip[data-sel="' + CSS.escape(sel) + '"]');
+        if (!c) continue;
+        c.click(); out.push(root.querySelector('.uh-desc').innerText + '\\n' + root.querySelector('.uh-acts').innerText);
+      }
+      return out; }""")
 
 
 def ids_in_player_view(pg):
@@ -89,10 +107,13 @@ def commit(pg, method, label, phone=False):
     btn = pg.locator('[data-commit="%s"]' % method)
     check(btn.count() == 1 and btn.is_enabled(), label + ': the FTL screen offers Commit to a prototype for ' + method)
     btn.scroll_into_view_if_needed()
+    card = btn.inner_text()
     btn.click()
     pg.wait_for_selector('#pl-modal:not([hidden])')
     txt = pg.inner_text('#pl-dialog')
     check('Commit to a ' + method + ' prototype?' in txt, label + ': the commit asks first: ' + txt.split('\n')[0])
+    q1, q2 = re.search(r'about (\d+) turns?', card), re.search(r'about (\d+) turns?', txt)
+    check(q1 and q2 and q1.group(1) == q2.group(1), label + ': the FTL card and the dialog give the same time: %s / %s' % (q1 and q1.group(0), q2 and q2.group(0)))
     check('certain' in txt or 'returns nothing' in txt, label + ': the dialog says whether it is certain, or warns that a failed prototype returns nothing')
     pg.click('#pl-dialog button:has-text("Commit")')
     check(pg.is_hidden('#pl-modal') and pg.evaluate('!!UHPlay.engine.S.proto'), label + ': the prototype is under construction')
@@ -138,20 +159,22 @@ with sync_playwright() as p:
     shot(pg, 'desk_setup')
     setup(pg, 'familiar', '1.0', True, 17012)
     check(pg.evaluate('UHPlay.engine.seed') == 17012 and pg.evaluate('UHPlay.engine.game') == 12, 'the typed seed is the simulator\'s game 12')
+    check('seed 17012' in pg.inner_text('#pl-headline'), 'a typed seed is shown in the headline')
     shot(pg, 'desk_t000')
     # the queue: fund a focus with one idea under study, line up another, and play until the first runs dry
     pg.locator('.uh-focus:has(.uh-focus-name:text-is("Fire")) .uh-radio').click()
     check(pg.evaluate('UHPlay.engine.S.choice') == 'Fire', 'clicking the Fire radio funds Fire')
     pg.select_option('#pl-queue-add', 'Foraging')
     check(pg.locator('.pl-qchip').count() == 1, 'Foraging is next in line')
-    hand_turns, endeavour, dry_seen = 0, None, []
+    hand_turns, endeavour, dry_seen, stale = 0, None, [], []
     while hand_turns < 20:
         t = turn(pg)
-        if t in (4, 9, 15):     # choose another focus with revealed work by its radio
+        if t in (4, 9, 15):     # choose another focus with revealed work by its radio (not one in line: choosing it takes it out)
             radios = pg.locator('.uh-focus:not(.is-funded) .uh-radio:not([disabled])')
+            in_line = pg.evaluate('UHPlay.state.ui.queue')
             for i in range(radios.count()):
                 badge = radios.nth(i).locator('xpath=..').locator('.uh-badge:not(.is-hidden)')
-                if badge.count():
+                if badge.count() and radios.nth(i).get_attribute('data-arg') not in in_line:
                     radios.nth(i).click(); break
         if t == 15:             # and line up the focus with the most revealed work after it
             best = pg.evaluate("""() => [...document.querySelectorAll('.uh-focus:not(.is-funded)')].map(el => [el.querySelector('.uh-focus-name').textContent,
@@ -175,16 +198,18 @@ with sync_playwright() as p:
             shot(pg, 'desk_t011_endeavour')
         pg.click('#pl-next'); idle(pg)
         hand_turns += 1
+        if notice(pg).split('\n')[0] != 'Turn %d' % turn(pg): stale.append(turn(pg))
         if 'Nothing revealed is left under study' in notice(pg).split('\n')[1] and notice(pg).split('\n')[0] == 'Turn %d' % turn(pg):
             dry_seen.append((turn(pg), notice(pg).split('\n')[1], pg.evaluate('UHPlay.engine.S.choice')))
     check(turn(pg) == 20, '20 turns played by hand (turn %d)' % turn(pg))
+    check(not stale, 'after each Next turn the notice gives that turn (%s); last: %s' % (stale or 'every turn', ' '.join(notice(pg).split('\n')[:2])[:120]))
     for d in dry_seen:
         moved = re.search(r'funding moves to (.+?), next in line', d[1])
         check((moved and d[2] and moved.group(1).lower() == d[2].lower()) or ('Automatic' in d[1] and d[2] is None),
               'turn %d: the funded focus ran dry, the notice says so and funding moved as it says (%s): %s' % (d[0], d[2] or 'Automatic', d[1]))
     check(any('next in line' in d[1] for d in dry_seen), 'the line of foci was used when a funded focus ran dry')
     if not dry_seen: check(False, 'the funded focus never ran dry in 20 turns played by hand')
-    ends = pg.evaluate('UHPlay.state.ui.ends')
+    ends = pg.evaluate('UHPlay.engine.S.ends')
     check(any(e[2] == 'start' for e in ends), 'the Endeavour started (%s)' % ends)
     check(not ids_in_player_view(pg), 'no row ids in the player view: %s' % ids_in_player_view(pg)[:5])
     shot(pg, 'desk_t020')
@@ -203,10 +228,17 @@ with sync_playwright() as p:
     have0 = pg.evaluate('UHPlay.engine.S.have.size'); t0 = turn(pg)
     pg.reload(); pg.wait_for_selector('.uh-screen')
     check(turn(pg) == t0 and pg.evaluate('UHPlay.engine.S.have.size') == have0, 'reloading carries on the saved game (turn %d, %d discoveries)' % (turn(pg), have0))
-    # Stop interrupts a run of turns
+    # Stop interrupts a run of turns, and the player's own choice comes back
+    own = pg.evaluate("[...document.querySelectorAll('#pl-focus option')].map(o => o.value).filter(Boolean).slice(-1)[0]")
+    pg.select_option('#pl-focus', own)
     t0 = turn(pg)
     pg.evaluate("() => { UHPlay.advance('ff'); setTimeout(() => document.getElementById('pl-stop').click(), 0); }"); idle(pg)
     check(t0 < turn(pg) < 150 and 'Stopped on turn %d' % turn(pg) in notice(pg), 'Stop interrupts a fast-forward (turn %d to %d)' % (t0, turn(pg)))
+    n_ff, own_label = ' '.join(notice(pg).split('\n')[:2]), pg.evaluate('UHView.focusLabel(%s)' % json.dumps(own))
+    has_work = pg.evaluate("[...document.querySelectorAll('#pl-focus option')].some(o => o.value === %s && / under study/.test(o.textContent))" % json.dumps(own))
+    check((has_work and pg.evaluate('UHPlay.engine.S.choice') == own and 'Funding is back on ' + own_label in n_ff) or
+          (not has_work and ('Your choice before the fast-forward was ' + own_label) in n_ff and pg.evaluate('UHPlay.engine.S.choice') != 'never'),
+          'after the fast-forward the player\'s own choice (%s) comes back, or the dry rule takes over and says so: %s' % (own, n_ff[:200]))
     # the game's log
     pg.click('#pl-logwrap summary'); pg.wait_for_selector('#pl-log li')
     n_log = pg.locator('#pl-log li').count()
@@ -236,6 +268,19 @@ with sync_playwright() as p:
     print('     fast-forward and the endgame took %.1f s' % (time.time() - t_ff))
     # the log, copied (the clipboard is denied here, so through the selectable text) and loaded in the replay viewer
     if not pg.is_hidden('#pl-modal'): pg.click('#pl-dialog button:has-text("Look around")')
+    if v:
+        radios = pg.locator('#pl-screen .uh-radio')
+        check(radios.count() > 0 and all(radios.nth(i).is_disabled() for i in range(radios.count())), 'after victory the focus radios are disabled')
+        texts = chip_texts(pg)
+        bad = [t.split('\n')[0] for t in texts if ROW_ID.search(t) or TIER_WORD.search(t) or ODDS.search(t)]
+        check(len(texts) > 200 and not bad, 'at victory, %d breakthroughs described, none with row ids, tier words or odds%s' % (len(texts), ': ' + ', '.join(bad[:5]) if bad else ''))
+        live_chip = pg.locator('#pl-screen .uh-chip.st-studying, #pl-screen .uh-chip.st-waiting, #pl-screen .uh-chip.st-closed').first
+        if live_chip.count(): live_chip.click()
+        acts = pg.locator('#pl-screen .uh-act[data-act]:not([data-act=ftl])')
+        check(acts.count() > 0 and all(acts.nth(i).is_disabled() for i in range(acts.count())) and 'the game is over' in pg.inner_text('#pl-screen .uh-acts'),
+              'after victory a breakthrough\'s actions (%d) are disabled: "the game is over"' % acts.count())
+        check('none yet' not in pg.inner_text('#pl-summary'), 'the summary of a finished game says "none", not "none yet"')
+        pg.click('.uh-fund')
     pg.click('#pl-copylog')
     pg.wait_for_selector('#pl-modal:not([hidden]) #pl-copy-text')
     log_text = pg.input_value('#pl-copy-text')
@@ -327,6 +372,9 @@ with sync_playwright() as p:
     pg.goto(PAGE); pg.evaluate('localStorage.clear()'); pg.reload(); pg.wait_for_selector('#pl-setup:not([hidden])')
     shot(pg, 'phone_setup')
     setup(pg, 'Substance', '0.8', True)
+    seed3 = pg.evaluate('UHPlay.engine.seed')
+    check(str(seed3) not in pg.inner_text('#pl-headline') + pg.inner_text('#pl-summary') + notice(pg) and 'seed' not in pg.inner_text('#pl-headline'),
+          'a random game\'s seed (%d) is not shown to the player' % seed3)
     hscroll = lambda: pg.evaluate('document.documentElement.scrollWidth - document.documentElement.clientWidth')
     check(hscroll() <= 0, 'no horizontal scroll at 400 px on turn 0 (%d)' % hscroll())
     shot(pg, 'phone_t000')
@@ -338,6 +386,20 @@ with sync_playwright() as p:
     check(turn(pg) == 6, 'six turns by tapping (turn %d)' % turn(pg))
     shot(pg, 'phone_t006')
     shot(pg, 'phone_t006_full', full=True)
+    # tapping a breakthrough brings its description and actions into view
+    pg.evaluate("window.scrollTo(0, 0)")
+    chip = pg.locator('#pl-screen .uh-chip').last
+    chip.scroll_into_view_if_needed(); pg.wait_for_timeout(100)
+    chip.tap(); pg.wait_for_timeout(700)
+    r = pg.evaluate("(() => { const d = document.querySelector('#pl-screen .uh-desc').getBoundingClientRect(), a = document.querySelector('#pl-screen .uh-acts').getBoundingClientRect(); return [d.top, a.bottom, innerHeight]; })()")
+    check(0 <= r[0] and r[1] <= r[2] + 1, 'tapping a breakthrough brings its description and actions into view (%d to %d of %d)' % tuple(r))
+    shot(pg, 'phone_t006_chip')
+    # the Next turn button at hand, once the turn bar is scrolled away
+    check(pg.is_visible('#pl-fab') and 'Turn 6' in pg.inner_text('#pl-fab'), 'with the turn bar scrolled away, a Next turn button is at hand')
+    pg.locator('#pl-fab-next').tap(); idle(pg)
+    check(turn(pg) == 7, 'it plays the turn (turn %d)' % turn(pg))
+    pg.evaluate("window.scrollTo(0, 0)"); pg.wait_for_timeout(200)
+    check(pg.is_hidden('#pl-fab'), 'with the turn bar in view, the button goes')
     c = fast_forward_to_commit(pg, 'game 3')
     check(hscroll() <= 0, 'no horizontal scroll at 400 px late in the game (%d)' % hscroll())
     if c:
@@ -351,6 +413,7 @@ with sync_playwright() as p:
         v = play_to_victory(pg, 'game 3', 380, phone=True)
         if v:
             shot(pg, 'phone_victory')
+            check(('Seed' in pg.inner_text('#pl-dialog')) and str(seed3) in pg.inner_text('#pl-dialog'), 'the victory screen gives the seed (%d)' % seed3)
             check(hscroll() <= 0, 'no horizontal scroll at 400 px with the victory screen (%d)' % hscroll())
             tm = timings(pg)
             report.append('game 3 (Substance, average, diffusion on, seed %d, %s): certain %s, committed %d, victory %d (%+d against 380); a turn %.2f ms to compute, %.1f ms to draw'

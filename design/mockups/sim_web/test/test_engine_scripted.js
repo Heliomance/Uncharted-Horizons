@@ -28,7 +28,10 @@ for (const f of fs.readdirSync(dir).filter((x) => /^(familiar|Process|Substance)
       const foci = pysorted(new Set([...S.have.keys()].map((k) => e.ROWS[k].focus)));
       e.setFocus(T % 4 === 0 || !foci.length ? null : foci[T % foci.length]);
       if (T % 15 === 0 && (S.end_k === null || S.have.has(S.end_k))) {
-        const rev = e.IDS.filter((k) => !S.have.has(k) && e.prereqsMet(k, S.have) && e.isRevealed(k));
+        // py_scripted.py's rule for revealed, written out: a CORE idea that has occurred, glimpsed, or seen abroad (the engine's
+        // isRevealed also counts a CORE row from the turn its prerequisites are discovered, as the research screen shows it)
+        const rev = e.IDS.filter((k) => !S.have.has(k) && e.prereqsMet(k, S.have) &&
+          ((e.tier(k) === 'CORE' && S.occurred.has(k)) || S.glimpsed.has(k) || S.diff_since.has(k) || S.diff_unc.has(k)));
         const unocc = rev.filter((k) => !S.occurred.has(k));
         const pick = unocc.length ? unocc[0] : rev[0];
         if (pick) { const r = e.requestEndeavour(pick); if (!r.ok) throw new Error('request refused: ' + r.reason); }
@@ -44,7 +47,10 @@ for (const f of fs.readdirSync(dir).filter((x) => /^(familiar|Process|Substance)
     for (let i = 0; i < Math.min(rec.records.length, e.traceRecords.length); i++) {
       const a = rec.records[i], b = e.traceRecords[i];
       turns++;
-      for (const fld of ['turn', 'd', 'found', 'diff', 'endv', 'occ', 'glim', 'fund', 'lost', 'seen', 'locked', 'redisc', 'share']) if (!same(a[fld], b[fld])) note(fld, a.turn, a[fld], b[fld]);
+      for (const fld of ['turn', 'd', 'found', 'diff', 'endv', 'occ', 'glim', 'fund', 'lost', 'locked', 'redisc', 'share']) if (!same(a[fld], b[fld])) note(fld, a.turn, a[fld], b[fld]);
+      // seen: the harness measures it after its diffusion step, so Python's is always empty; the engine records what was
+      // first seen abroad that turn (compared exactly whenever Python's is not empty)
+      if (a.seen.length && !same(a.seen, b.seen)) note('seen', a.turn, a.seen, b.seen);
       if (a.inc !== pyRound(b.inc, 3)) note('inc', a.turn, a.inc, b.inc);
       const fl = {}; for (const [k, v] of Object.entries(b.flow)) fl[k] = pyRound(v, 2);
       if (!same(a.flow, fl)) note('flow', a.turn, a.flow, fl);

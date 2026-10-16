@@ -45,6 +45,7 @@
   const econKey = e => (Number(e) || 1).toFixed(1);
   const listText = xs => xs.length <= 1 ? (xs[0] || '') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
   const asSet = x => x instanceof Set ? x : new Set(x || []);
+  const withArticle = name => (/^[AEIOU]/i.test(name) ? 'an ' : 'a ') + name;   // 'an Orbital Quantum Laboratory'
 
   // ------------------------------------------------------------------ world data, cached per bundle
   const CACHE = new WeakMap();
@@ -156,7 +157,7 @@
           const txt = { proposed: 'Proposed: ' + c.method + '.', list_closed: 'The unified theory closes the list of hypotheses.', ruled_out: c.method + ' is ruled out.',
             last_standing: c.method + ' is the only hypothesis left.', result: c.question ? (c.holds ? 'Confirmed: ' : 'Disproved: ') + lowerFirst(c.question) + '.' : null,
             build: c.complete ? 'Every build need of ' + c.method + ' is met: its prototype can be committed.' : null,
-            awaiting: c.instrument ? 'To settle an open question, we’ll need to build a ' + c.instrument + '.' : null }[c.kind];
+            awaiting: c.instrument ? 'To settle an open question, we’ll need to build ' + withArticle(c.instrument) + '.' : null }[c.kind];
           if (txt) out.push({ kind: 'ftl-result', text: txt });
         }
       }
@@ -216,16 +217,17 @@
       if (c.status === 'endeavour' && snap.endeavour) chip.tags.push({ text: 'Endeavour ' + Math.round(100 * (snap.endeavour.progress || 0)) + '%', kind: 'endeavour' });
       if (engine) {
         if (c.hidden) chip.tags.push({ text: 'Hidden', kind: 'hidden' });
+        if (c.status === 'studying' && tier === 'CORE' && !C.occ.has(k)) chip.tags.push({ text: 'Occurs next turn', kind: 'hidden' });
         if (c.status !== 'owned') chip.tags.push({ text: TIER_SHORT[tier] || tier, kind: 'tier' });
         if (prog[k] !== undefined) { chip.meter = prog[k]; chip.tags.push({ text: Math.round(100 * prog[k]) + '%', kind: 'meter' }); }
       }
       rows[k] = chip; list.push(chip);
     }
-    // Competing Solutions: a revealed pair, neither yet developed, carries a Rival tag on both chips
+    // Competing Solutions: a revealed pair, neither yet developed, carries a Competing tag on both chips ('rival' means another civilisation)
     for (const a in W.primaryOf) {
       const p = W.primaryOf[a], ra = rows[a], rp = rows[p];
       if (ra && rp && !ra.hidden && !rp.hidden && ra.status !== 'owned' && ra.status !== 'not_taken' && rp.status !== 'owned') {
-        ra.tags.push({ text: 'Rival', kind: 'rival' }); rp.tags.push({ text: 'Rival', kind: 'rival' });
+        ra.tags.push({ text: 'Competing', kind: 'rival' }); rp.tags.push({ text: 'Competing', kind: 'rival' });
         ra.rival = rp.name; rp.rival = ra.name; ra.rivalRole = 'alt'; rp.rivalRole = 'primary';
       }
     }
@@ -264,9 +266,11 @@
 
     // the header: what is funded, the split and the spread
     const inc = snap.inc || 0, share = snap.share == null ? (have.SO05 ? 0.8 : 0.5) : snap.share;
-    const splitPct = have.SO05 !== undefined ? 80 : 50;
+    // the funded share in force: the turn's own (Specialization of Labor raises it from the turn after its discovery)
+    const splitPct = share > 0 ? Math.round(share * 100) : have.SO05 !== undefined ? 80 : 50;
     let funded;
     if (snap.prototype) funded = { kind: 'prototype', method: snap.prototype.method, name: snap.prototype.method + ' prototype', progress: snap.prototype.progress || 0 };
+    else if (snap.prototypeDone) funded = { kind: 'prototype', method: snap.prototypeDone.method, name: snap.prototypeDone.method + ' prototype', progress: 1, done: true };   // the replay: its result turn
     else if (snap.endeavour) funded = { kind: 'endeavour', id: snap.endeavour.id, name: R[snap.endeavour.id].name, progress: snap.endeavour.progress || 0, done: have[snap.endeavour.id] !== undefined };
     else if (snap.funded) funded = { kind: 'focus', focus: snap.funded, label: focusLabel(snap.funded) };
     else funded = { kind: 'none' };
@@ -281,7 +285,7 @@
 
     const ftlOpen = have[bundle.ftl.OPENS] !== undefined;
     const vm = {
-      turn: T, world: snap.world, engine, header, foci, sections, owned: { count: owned.length, bands }, counts, hiddenCounts, rows, events, ftlOpen,
+      turn: T, world: snap.world, engine, readOnly: !!opts.readOnly, header, foci, sections, owned: { count: owned.length, bands }, counts, hiddenCounts, rows, events, ftlOpen,
       prototype: snap.prototype || null, drive: snap.drive || null, victory: snap.victory || null,
       engineInfo: engine ? { method: info.method || null, truth: info.truth || null, hiddenStudying: hiddenCounts.studying || 0, nRivals: info.nRivals || 0,
         rivalsAhead: info.rivals ? W.ids.filter(k => info.rivals[k] && have[k] === undefined).length : null } : null,
@@ -321,13 +325,13 @@
       } else if (c.status === 'studying') {
         line(fundedHere ? 'Being studied in ' + focusLabel(r.focus) + ', which you fund: it takes Insight every turn.'
           : 'Being studied in ' + focusLabel(r.focus) + ': it takes a share of that focus’s Insight every turn.');
-        if (c.rival) line(c.rivalRole === 'alt' ? 'Rival of ' + c.rival + ': if that comes first, this is never developed.' : 'Rival of ' + c.rival + ': if this comes first, ' + c.rival + ' is never developed.');
+        if (c.rival) line(c.rivalRole === 'alt' ? 'Competes with ' + c.rival + ': if that comes first, this is never developed.' : 'Competes with ' + c.rival + ': if this comes first, ' + c.rival + ' is never developed.');
         if (r.conj) out.quote = r.conj;
         out.actions.push(fundedHere ? { act: null, label: 'Funded', enabled: false } : { act: 'fund', arg: r.focus, label: 'Fund ' + focusLabel(r.focus), enabled: true });
         endeavourAction('Grand Endeavour');
       } else if (c.status === 'waiting') {
         line(src + 'Awaiting the idea: no Insight until the idea occurs.');
-        if (c.rival) line('Rival of ' + c.rival + '.');
+        if (c.rival) line('Competes with ' + c.rival + ': whichever comes first, the other is never developed.');
         if (r.conj) out.quote = r.conj;
         endeavourAction('Begin Grand Endeavour');
       } else if (c.status === 'unreach') {
@@ -372,9 +376,11 @@
       out.title = 'Insight'; out.status = 'insight'; out.meta = fmt(H.insight) + ' a turn, equal to your science';
       const f = H.funded;
       if (f.kind === 'none') line('Nothing is funded: the whole of your Insight spreads to the foci with work under study.');
-      else line(H.splitPct + '% (' + shareText + ') goes to ' + (f.kind === 'focus' ? f.label : f.kind === 'endeavour' ? 'the Grand Endeavour on ' + f.name : 'the ' + f.name) + (H.splitPct === 80 ? ', since Specialization of Labor; before it, 50%.' : '.'));
-      line('The other ' + (100 - H.splitPct) + '% (' + fmt(H.insight * (1 - H.splitPct / 100)) + ') spreads to foci with work under study.');
-      if (H.splitPct === 50) line('Your people cannot yet direct their inquiry more sharply than that.', 'muted');
+      else {
+        line(H.splitPct + '% (' + shareText + ') goes to ' + (f.kind === 'focus' ? f.label : f.kind === 'endeavour' ? 'the Grand Endeavour on ' + f.name : 'the ' + f.name) + (H.splitPct === 80 ? ', since Specialization of Labor; before it, 50%.' : '.'));
+        line('The other ' + (100 - H.splitPct) + '% (' + fmt(H.insight * (1 - H.splitPct / 100)) + ') spreads to foci with work under study.');
+        if (H.splitPct === 50) line('Your people cannot yet direct their inquiry more sharply than that.', 'muted');
+      }
     } else if (sel === 'era') {
       const E = H.era;
       out.title = E.name + ' era'; out.status = 'era'; out.meta = 'entered by count';
@@ -463,7 +469,8 @@
     const S = { lost: C.lost, gl: C.gl, seen: C.seen, locked: C.locked, endK: snap.endeavour ? snap.endeavour.id : null };
     const visible = k => engine || have[k] !== undefined || !!C.classify(k);
     const { known, pending } = knowledge(bundle, W, have, truth, T, instrD);
-    const protoResults = snap.prototypeResults || (snap.ftl && snap.ftl.prototypeResults) || [];
+    const protoResults = (snap.prototypeResults || (snap.ftl && snap.ftl.prototypeResults) || []).filter(r => r.turn <= T);
+    vm.prototypeResults = protoResults;
     const failed = new Set(snap.failedPrototypes || opts.failed || protoResults.filter(r => !r.works).map(r => r.method));
     const methods = Object.keys(F.COND);
     // proposed by its theory row once Relativity has opened the question, or at the latest by the unified theory, which
@@ -523,8 +530,8 @@
       else if (failed.has(o)) proto.state = 'failed';
       else if ((snap.drive && snap.drive.method === o) || (snap.victory && snap.victory.method === o)) proto.state = 'worked';
       else {
-        const qt = prototypeQuote(bundle, snap);
-        Object.assign(proto, qt);
+        const qt = opts.protoQuote ? opts.protoQuote(o) : prototypeQuote(bundle, snap);   // the live game: the engine's own quote, turn by turn
+        if (qt) { proto.cost = qt.cost; proto.turns = qt.turns; }
         const check = opts.canCommit ? opts.canCommit(o) : null;
         if (pt === null) proto.reason = 'not yet proposed';
         else if (standing === 'ruled_out') proto.reason = 'a disproved hypothesis cannot be committed';
@@ -548,7 +555,7 @@
 
     // the running results list
     const res = [];
-    const add = (turn, text, kind) => { if (turn != null && turn <= T) res.push({ turn, text, kind: kind || 'fact' }); };
+    const add = (turn, text, kind, endgame) => { if (turn != null && turn <= T) res.push({ turn, text, kind: kind || 'fact', endgame: !!endgame }); };
     if (open) add(have[FT.OPENS].turn, vm.opensName + ': the light barrier stands, and how to exceed the speed of light is an open question.', 'open');
     const byTurn = {};
     for (const h of vm.hypotheses) if (h.proposed) (byTurn[h.proposedTurn] = byTurn[h.proposedTurn] || []).push(h.method);
@@ -567,14 +574,15 @@
       if (!h.proposed) continue;
       if (h.ruledTurn != null && !failed.has(h.method)) add(h.ruledTurn, h.method + ' is ruled out.', 'ruled');
       if (h.standing === 'confirmed') add(Math.max(...F.COND[h.method].map(c => known[c].turn), h.proposedTurn), h.method + ' is confirmed: all its conditions hold.', 'confirmed');
-      if (h.complete) add(Math.max(h.buildTurn, h.proposedTurn), 'Every build need of ' + h.method + ' is met: its prototype can be committed.', 'build');
+      const buildAt = h.complete ? Math.max(h.buildTurn, h.proposedTurn) : null;
+      if (buildAt != null && (h.ruledTurn == null || buildAt < h.ruledTurn)) add(buildAt, 'Every build need of ' + h.method + ' is met: its prototype can be committed.', 'build');
     }
     if (vm.certain && vm.certain.turn != null && !vm.hypotheses.some(h => h.standing === 'confirmed'))
       add(vm.certain.turn, vm.certain.method + ' is the only hypothesis left.', 'only');
     for (const e of snap.ftlLog || []) add(e.turn, e.text, e.kind || 'prototype');
-    for (const r of protoResults) add(r.turn, r.works ? 'The ' + r.method + ' prototype works.' : 'The ' + r.method + ' prototype failed: ' + r.method + ' is proven invalid.', r.works ? 'confirmed' : 'ruled');
-    if (snap.drive && snap.drive.done) add(snap.drive.done, 'The SS FTL Drive is built.', 'build');
-    if (snap.victory) add(snap.victory.turn, 'The ship launches: victory.', 'confirmed');
+    for (const r of protoResults) add(r.turn, r.works ? 'The ' + r.method + ' prototype works.' : 'The ' + r.method + ' prototype failed: ' + r.method + ' is proven invalid.', r.works ? 'confirmed' : 'ruled', true);
+    if (snap.drive && snap.drive.done) add(snap.drive.done, 'The SS FTL Drive is built.', 'build', true);
+    if (snap.victory) add(snap.victory.turn, 'The ship launches: victory.', 'confirmed', true);
     vm.results = res.map((r, i) => Object.assign(r, { i })).sort((a, b) => a.turn - b.turn || a.i - b.i);
     vm.signature = (closed ? 'C' : '') + '|' + sig.join('|') + '|' + Object.keys(known).sort().join(',') + '|' + Object.keys(pending).sort().join(',');
     if (engine) vm.engineInfo = { method: trueMethod, truth: truth ? Object.keys(F.HOST).map(c => ({ text: F.QUESTION[c], value: !!truth[c] })) : null, alive };
@@ -607,6 +615,7 @@
   function victory(bundle, g) {
     if (!(g.cert && g.built)) return null;
     const V = bundle.victory, E = bundle.economy[econKey(g.econ)], key = econKey(g.econ);
+    if (!E || !V.drive[key]) throw new Error('This game was played on a ×' + g.econ + ' economy; the bundle has only ' + Object.keys(bundle.economy).map(k => '×' + k).join(' and ') + '.');
     const fin = Math.max(g.cert, g.built);
     const price = V.protox * V.p_space * V.scale * V.spaceprice * Math.pow(4, Math.max(0, V.space - E.d[fin]));
     const protoTurns = Math.ceil(price / (0.8 * E.inc[fin + 1]));
@@ -617,7 +626,7 @@
     return { fin, price, protoTurns, proto, driveTurns, exotic, launch, reference: REFERENCE[key], vsReference: launch - REFERENCE[key] };
   }
 
-  const API = { EO, ERA_ABBR, ERA_NEED, REFERENCE, SECTION, STATUS_LABEL, METHOD_LINE, FTL_TEXT, focusLabel, fmt, turns, econKey, listText, world, prereqsMet, eraByCount,
+  const API = { EO, ERA_ABBR, ERA_NEED, REFERENCE, SECTION, STATUS_LABEL, METHOD_LINE, FTL_TEXT, focusLabel, fmt, turns, econKey, listText, withArticle, world, prereqsMet, eraByCount,
     enteredFoci, classifier, needsOf, normalizeEvents, hiddenInfo, researchModel, ftlModel, smartTargets, hintRow, knowledge, prototypeQuote, victory };
   if (typeof module !== 'undefined' && module.exports) module.exports = API;
   G.UHView = API;

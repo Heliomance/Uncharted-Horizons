@@ -60,7 +60,10 @@ for (const m of meta) {
   for (let i = 0; i < Math.min(tr.records.length, e.traceRecords.length); i++) {
     const a = tr.records[i], b = e.traceRecords[i];
     turnsCompared++;
-    for (const f of ['turn', 'd', 'found', 'diff', 'endv', 'occ', 'glim', 'fund', 'lost', 'seen', 'locked', 'redisc', 'share']) if (!same(a[f], b[f])) note(f, a.turn, a[f], b[f]);
+    for (const f of ['turn', 'd', 'found', 'diff', 'endv', 'occ', 'glim', 'fund', 'lost', 'locked', 'redisc', 'share']) if (!same(a[f], b[f])) note(f, a.turn, a[f], b[f]);
+      // seen: the harness measures it after its diffusion step, so Python's is always empty; the engine records what was
+      // first seen abroad that turn (compared exactly whenever Python's is not empty)
+      if (a.seen.length && !same(a.seen, b.seen)) note('seen', a.turn, a.seen, b.seen);
     if (a.inc !== pyRound(b.inc, 3)) note('inc', a.turn, a.inc, b.inc);
     const fl = {}; for (const [f, v] of Object.entries(b.flow)) fl[f] = pyRound(v, 2);
     if (!same(a.flow, fl)) note('flow', a.turn, a.flow, fl);

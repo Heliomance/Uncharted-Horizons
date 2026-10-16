@@ -50,6 +50,60 @@ def plain(s):
     return s
 
 
+ROW_ID = re.compile(r'(?<![\w-])(' + '|'.join(sorted(map(re.escape, R.rows), key=len, reverse=True)) + r')(?![\w-])')
+TIER_WORD = re.compile(r'\b(?:CORE|STANDARD|UNCOMMON|RARE|UNIQUE)\b')
+
+
+def short_name(k):
+    return NAMES.get(k, '').split(' (')[0].strip()
+
+
+def name_of(m):
+    """a row id in a text, as the player reads it: the row's name ('NP15's' -> 'Superconducting Storage Rings'')"""
+    n = short_name(m.group(1))
+    return (n + ("'" if n.endswith('s') else "'s")) if m.group(0).endswith("'s") else n
+
+
+ID_POSS = re.compile(ROW_ID.pattern + r"(?:'s)?")
+
+
+def scrub(s):
+    """a text the player sees, cleared of what the player must never see (SPEC.md): row ids, the odds of world forks and the
+    forks themselves, edit history, tier words in design notes; Unciv's unique syntax read as plain words"""
+    if not s: return s
+    s = re.sub(r'<([^<>]*)>', r'\1', s)                                     # Unciv conditionals: '<when attacking>' -> 'when attacking'
+    s = re.sub(r'\{([^{}]*)\}', r'\1', s)                                   # Unciv parameters: '{Friendly}' -> 'Friendly'
+    s = re.sub(r'(Reveals [^:\[\];.]*?):[^\]]*', r'\1', s)                  # 'Reveals the fork this world takes: X in Y worlds (~55%), ...'
+    s = re.sub(r'\s*\(~?\d+%\)', '', s)                                     # odds
+    s = re.sub(r'\s*—\s*CORE because[^.]*\.', '.', s)                       # 'Public School — CORE because ...'
+    s = re.sub(r'[;,]?\s*moved here from\s+' + ROW_ID.pattern, '', s)         # edit history
+    s = re.sub(r'\s*(?:—\s*)?\bsee\s+' + ROW_ID.pattern, '', s)               # cross-references
+    for k in set(ROW_ID.findall(s)):                                         # 'QP15 Beyond the Standard Model': the id goes, the name stays
+        if short_name(k): s = re.sub(r'(?<![\w-])' + re.escape(k) + r'\s+(?=' + re.escape(short_name(k)) + r')', '', s)
+
+    def paren(m):                                                            # a parenthesis naming rows: a design note, or names with codes
+        inner = m.group(1)
+        if not ROW_ID.search(inner) and not TIER_WORD.search(inner): return m.group(0)
+        if TIER_WORD.search(inner) or re.search(r'\bmove[sd]?\b|\bbelong|\.\s*$', inner): return ''
+        if not re.search(r'[a-z]', ROW_ID.sub('', inner)): return ''           # nothing but codes: '(O13/O14/O15)', '(AE02, AE13, AE12)'
+        inner = re.sub(r',\s*' + ROW_ID.pattern + r'\s*$', '', inner)           # a code annotating the name before it: '(the Harbor, SF08)'
+        inner = re.sub(r'^' + ROW_ID.pattern + r',\s*', '', inner)              # '(EN11, with television)'
+        return ' (' + ID_POSS.sub(name_of, inner).strip() + ')'
+    s = re.sub(r'\s*\(([^()]*)\)', paren, s)
+    s = ID_POSS.sub(name_of, s)                                              # a bare id: the row's name
+    sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z(\[“"])', s)
+    s = ' '.join(x for x in sentences if not TIER_WORD.search(x))          # design notes about tiers ('RARE.', 'reclassified as RARE ...')
+    s = re.sub(r'\s+([,;.])', r'\1', re.sub(r'\s{2,}', ' ', s)).strip()
+    return s
+
+
+def clip(s, n):
+    """at most n characters, cut at the end of a sentence or clause"""
+    if len(s) <= n: return s
+    cut = max(s.rfind('. ', 0, n), s.rfind('; ', 0, n))
+    return (s[:cut + 1] if cut > n // 3 else s[:n].rsplit(' ', 1)[0]) + ' …'
+
+
 def effect_text(k):
     """what the breakthrough does, for the player: the effect cell's sentences that reveal nothing hidden"""
     t = TEXTS.get(k, {})
@@ -58,7 +112,7 @@ def effect_text(k):
     parts = re.split(r'(?<=[.;])\s+(?=[A-Z⟨*(])', cell)
     keep = [re.sub(r'(?:^|;\s*)(?:[Gg]rants|[Rr]ead as) [A-Z_]{4,}(?: and [A-Z_]{4,})?;?\s*', ' ', p) for p in parts if not HIDDEN.search(p)]
     note = plain(R.rows[k][6]) if len(R.rows[k]) > 6 and not HIDDEN.search(R.rows[k][6]) else ''
-    return dict(fx=plain(' '.join(keep))[:480], flav=t.get('flav') or note[:300], conj=t.get('conj', ''))
+    return dict(fx=clip(scrub(plain(' '.join(keep))), 480), flav=scrub(t['flav']) if t.get('flav') else clip(scrub(note), 300), conj=scrub(t.get('conj', '')))
 
 
 # ---- the FTL definitions (w7f.py, with the agreed levers) ---------------------------------------------------------------

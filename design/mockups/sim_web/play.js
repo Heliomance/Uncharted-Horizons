@@ -29,7 +29,9 @@
   const median = xs => { if (!xs.length) return null; const s = xs.slice().sort((a, b) => a - b), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
   const pct = x => Math.round(100 * (x || 0)) + '%';
   const vsText = (delta, ref) => (delta === 0 ? 'level with' : V.turns(Math.abs(delta)) + (delta < 0 ? ' sooner than' : ' later than')) + ' base Civ V’s science victory on the same income (turn ' + ref + ')';
-  const defaultUi = () => ({ queue: [], advisor: false, dry: 'queue', engineView: false, ftlShown: false, ftlUnseen: false, ends: [] });
+  // seedShown: the seed was typed (the designer's option); a random game's seed and game stay out of sight, since the game
+  // fixes the working method, until the launch or in the engine view
+  const defaultUi = () => ({ queue: [], advisor: false, dry: 'queue', engineView: false, ftlShown: false, ftlUnseen: false, seedShown: false });
 
   function start() {
     const $ = id => document.getElementById(id);
@@ -47,6 +49,8 @@
       if (!P.byFocus) { P.byFocus = {}; for (const k of P.e.IDS) (P.byFocus[P.e.ROWS[k].focus] = P.byFocus[P.e.ROWS[k].focus] || []).push(k); }
       return P.byFocus[f] || [];
     }
+    /** the seed, where the player may see it: typed by the designer, in the engine view, or once the game is over */
+    const seedText = sep => (P.ui.seedShown || P.ui.engineView || P.e.over ? sep + 'seed ' + P.e.seed : '');
     /** the revealed ideas under study in focus f, as the research screen counts them (its badge) */
     function badge(f) {
       const e = P.e, S = e.S;
@@ -78,11 +82,12 @@
     $('pl-seed').addEventListener('focus', () => { document.querySelector('input[name="pl-seedmode"][value="typed"]').checked = true; });
     $('pl-start').addEventListener('click', () => {
       let seed;
-      if (radioVal('pl-seedmode') === 'typed') {
+      const typed = radioVal('pl-seedmode') === 'typed';
+      if (typed) {
         seed = Math.floor(Number($('pl-seed').value));
         if (!Number.isFinite(seed) || seed < 0 || seed > 999999999) { showError('A seed is a whole number from 0 to 999,999,999.'); return; }
       } else seed = Engine.SEED0 + Math.floor(Math.random() * 300);
-      newGame({ world: radioVal('pl-world') || 'familiar', econ: radioVal('pl-econ') || '1.0', rivals: $('pl-diff').checked, seed });
+      newGame({ world: radioVal('pl-world') || 'familiar', econ: radioVal('pl-econ') || '1.0', rivals: $('pl-diff').checked, seed, seedShown: typed });
     });
     $('pl-cancel').addEventListener('click', () => { $('pl-setup').hidden = true; layout(); });
     $('pl-new').addEventListener('click', () => {
@@ -114,10 +119,10 @@
       let e;
       try { e = new Engine(bundle, { world: cfg.world, econ: cfg.econ, rivals: cfg.rivals, seed: cfg.seed, player: 'human', trace: true }); }
       catch (err) { showError('The game could not start: ' + err.message); return; }
-      begin(e, null);
+      begin(e, { seedShown: !!cfg.seedShown });
       screen.select('insight');
-      note('A new game: ' + WORLD_NAME[e.world] + ', ' + (e.ECON === 1 ? 'good' : 'average') + ' economy, knowledge diffusion ' + (e.DIFF ? 'on' : 'off') + ', seed ' + e.seed +
-        '. Choose a focus to fund (the radio buttons on the left), then press Next turn.');
+      note('A new game: ' + WORLD_NAME[e.world] + ', ' + (e.ECON === 1 ? 'good' : 'average') + ' economy, knowledge diffusion ' + (e.DIFF ? 'on' : 'off') + (cfg.seedShown ? ', seed ' + e.seed : '') +
+        '. Choose a focus to fund (the radio button by each focus), then press Next turn.');
       render(); save();
     }
     function loadGame(saved, msg) {
@@ -172,7 +177,6 @@
         const r = e.requestEndeavour(id);
         if (!r.ok) note(r.reason, 'warn');
         else {
-          if (r.replaced) P.ui.ends.push([e.turn, r.replaced, 'dropped']);
           note('The Grand Endeavour on ' + name(id) + ' begins next turn: ' + V.fmt(q.cost) + ' Insight, about ' + V.turns(q.turns) + ' of the funded share' + (q.aheadOfTime ? ' (dearer: it is ahead of its time)' : '') + '. It cannot fail.');
           screen.select('row:' + id);
         }
@@ -189,9 +193,8 @@
       const S = e.S, k = S.end_k !== null ? S.end_k : S.endRequest;
       if (!k) return;
       const doIt = () => {
-        const wasRunning = S.end_k !== null;
         const r = e.stopEndeavour();
-        if (r.ok) { if (wasRunning) P.ui.ends.push([e.turn, k, 'dropped']); note('Stopped the Grand Endeavour on ' + name(k) + '. ' + (S.choice ? L(S.choice) + ' is funded next turn.' : 'Automatic funding resumes next turn.')); }
+        if (r.ok) { note('Stopped the Grand Endeavour on ' + name(k) + '. ' + (S.choice ? L(S.choice) + ' is funded next turn.' : 'Automatic funding resumes next turn.')); }
         render(); save();
       };
       if (S.end_k !== null && S.end_prog > 0) dialog('Stop the Grand Endeavour?', '<p>The Endeavour on ' + esc(name(k)) + ' is ' + pct(S.end_prog / S.end_cost) + ' done. Stopping it loses that progress.</p>', [['Stop it', doIt, 'pl-stop'], ['Keep going']]);
@@ -213,7 +216,6 @@
         const r = e.commitPrototype(m);
         if (!r.ok) note(r.reason, 'warn');
         else {
-          if (r.stoppedEndeavour && S.end_k === null) P.ui.ends.push([e.turn, r.stoppedEndeavour, 'dropped']);
           note('Committed to a ' + m + ' prototype: ' + V.fmt(r.cost) + ' Insight, about ' + V.turns(q.turns) + '.' + (sure ? '' : ' A Hail Mary: it may fail.'), sure ? 'good' : 'warn');
         }
         render(); save();
@@ -256,6 +258,15 @@
     $('pl-event').addEventListener('click', () => advance('event'));
     $('pl-ff').addEventListener('click', () => advance('ff'));
     $('pl-stop').addEventListener('click', () => { P.stopReq = true; });
+    // a phone: a Next turn button at hand while the turn bar is scrolled out of view
+    $('pl-fab-next').addEventListener('click', () => advance('next'));
+    let turnbarSeen = true;
+    if (typeof IntersectionObserver !== 'undefined') new IntersectionObserver(es => { turnbarSeen = es[es.length - 1].isIntersecting; fab(); }).observe($('pl-turnbar'));
+    function fab() {
+      const on = !!P.e && !P.e.over && !turnbarSeen && $('pl-setup').hidden && !$('pl-turnbar').hidden && $('pl-modal').hidden;
+      $('pl-fab').hidden = !on;
+      if (P.e) { $('pl-fab-turn').textContent = 'Turn ' + P.e.turn; $('pl-fab-next').disabled = P.running; }
+    }
 
     /** one turn: the Advisor's choice, the engine's step, the queue when the funded focus runs dry, and why to stop */
     function stepOnce(spec, batch) {
@@ -270,12 +281,7 @@
       const evs = e.step();
       P.stats.step.push(performance.now() - t0);
       const T = e.turn;
-      for (const x of evs) {
-        if (x.type === 'endeavour_started') P.ui.ends.push([T, x.id, 'start']);
-        else if (x.type === 'discovered' && x.via === 'endeavour') P.ui.ends.push([T, x.id, 'done']);
-        else if (x.type === 'endeavour_ended') P.ui.ends.push([T, x.id, 'dropped']);
-        else if (x.type === 'ftl' && !P.ui.ftlShown) P.ui.ftlUnseen = true;
-      }
+      for (const x of evs) if (x.type === 'ftl' && !P.ui.ftlShown) P.ui.ftlUnseen = true;
       const norm = V.normalizeEvents(bundle, evs).map(x => Object.assign(x, { turn: T }));
       const stops = [], big = [];
       let dry = null;
@@ -307,15 +313,17 @@
       if (e.over && !e.victory) big.push('The game ends on turn ' + T + ' without a launch.');
       return { stops, big, dry };
     }
-    /** what Automatic funds on turn 1: the engine's rule (the focus with the most work waiting; the first on a tie) */
-    function autoFirst() {
-      const e = P.e, S = e.S, d = e.D[1], waiting = new Map();
+    /** what Automatic funds next turn: the engine's rule (the focus with the most work waiting, the first on a tie) on the
+        ideas under study now; an idea that occurs at the start of the turn can still tip it */
+    function autoNext() {
+      const e = P.e, S = e.S, d = e.D[Math.min(e.turn + 1, e.D.length - 1)], waiting = new Map();
       for (const k of e.IDS) {
-        if (S.have.has(k) || !S.met.has(k) || S.locked.has(k) || !(e.tier(k) === 'CORE' || S.occurred.has(k))) continue;
+        if (S.have.has(k) || (S.locked.has(k) && k !== S.end_k) || !e.prereqsMet(k, S.have) || !(e.tier(k) === 'CORE' || S.occurred.has(k))) continue;
         const f = e.ROWS[k].focus;
-        waiting.set(f, (waiting.get(f) || 0) + e.TARGET[e.tier(k)] * (1 + Math.max(0, d - e.ROWS[k].eraI)));
+        if (!waiting.has(f)) waiting.set(f, []);
+        waiting.get(f).push(e.TARGET[e.tier(k)] * (1 + Math.max(0, d - e.ROWS[k].eraI)));
       }
-      return Engine.maxKey(waiting);
+      return Engine.maxKey(new Map([...waiting].map(([f, xs]) => [f, Engine.pysum(xs)])));
     }
     function certainMethod() {
       const e = P.e, st = e.status(e.S.have, e.turn);
@@ -351,6 +359,7 @@
       }
       const from = e.turn + 1, batch = [];
       let reason = null, n = 0, lastN = 0, lastPaint = performance.now(), lastDry = null;
+      const lend = spec.advisor && !P.ui.advisor, ownChoice = e.S.choice;   // the Advisor chooses for the run, then the player's choice comes back
       P.running = true; P.stopReq = false;
       if (spec.n > 1) controls();
       try {
@@ -372,9 +381,22 @@
         }
       } finally { P.running = false; }
       P.batch = batch;
+      let back = '';
+      if (lend && e.S.choice !== ownChoice && !e.over) {   // the player's own choice again; one that has run dry meanwhile follows the dry rule
+        e.setFocus(ownChoice);
+        if (!ownChoice) back = ' Funding is back on Automatic, your choice before the fast-forward.';
+        else if (badge(ownChoice) || P.ui.dry === 'keep') back = ' Funding is back on ' + L(ownChoice) + ', your choice before the fast-forward' + (badge(ownChoice) ? '.' : ', though nothing revealed is under study there now.');
+        else back = ' Your choice before the fast-forward was ' + L(ownChoice) + '. ' + runDry(ownChoice);
+      }
       const tone = reason && /fail|without a launch/.test(reason) ? 'warn' : reason && /Victory|works|certain|committed/.test(reason) ? 'good' : '';
-      if (reason && reason !== lastDry) note((spec.n > 1 ? 'Stopped: ' : '') + reason, tone);
-      else if (!reason && spec.n > 1) note(P.stopReq ? 'Stopped on turn ' + e.turn + '.' : 'Played turns ' + from + ' to ' + e.turn + '.');
+      if (reason && reason !== lastDry) note((spec.n > 1 ? 'Stopped: ' : '') + reason + back, tone);
+      else if (!reason && spec.n > 1) note((P.stopReq ? 'Stopped on turn ' + e.turn + '.' : 'Played turns ' + from + ' to ' + e.turn + '.') + back);
+      else if (!reason && !lastDry) {                                    // one turn: its headline, so the notice never goes stale
+        const RANK = ['finish', 'endeavour', 'era', 'ftl-result', 'ftl', 'focus', 'discovered', 'revealed', 'rediscovered', 'passed', 'not_taken'];
+        const vis = batch.filter(x => !x.hidden && x.text), r = x => { const i = RANK.indexOf(x.kind); return i < 0 ? RANK.length : i; };
+        const top = vis.slice().sort((a, b) => r(a) - r(b))[0];
+        note(top ? (top.kind === 'ftl' && vis.find(x => x.kind === 'ftl-result') ? vis.find(x => x.kind === 'ftl-result').text : top.text) + (vis.length > 1 ? ' (' + (vis.length - 1) + ' more this turn, in the events list.)' : '') : 'Nothing new this turn.');
+      }
       P.stopReq = false;
       render(); save();
       if (e.victory && !P.victoryShown) { P.victoryShown = true; showVictory(); }
@@ -383,10 +405,16 @@
     // ================================================================== drawing
     function snap() {
       const e = P.e, S = e.S, s = e.snapshot({ ftl: false });
-      if (e.turn === 0) { s.inc = e.INC[1]; s.share = 0.5; }
-      if (!s.prototype && !s.endeavour) {
-        if (S.choice) s.funded = S.choice;
-        else if (e.turn === 0) s.funded = autoFirst();
+      // the funding card is the plan for the coming turn: its Insight, what is funded (Automatic's pick, if nothing is
+      // chosen) and the share it gets (80% once Specialization of Labor is held; nothing funded, the spread takes it all)
+      // (once the game is over there is no coming turn: the card shows the last one, as the engine played it)
+      if (!e.over) {
+        s.inc = e.INC[Math.min(e.turn + 1, e.INC.length - 1)];
+        s.share = S.have.has('SO05') ? 0.8 : 0.5;
+        if (!s.prototype && !s.endeavour) {
+          s.funded = S.choice || autoNext();
+          if (!s.funded && !S.endRequest) s.share = 0;
+        }
       }
       if (!s.endeavour && S.endRequest) { const q = e.endeavourQuote(S.endRequest); s.endeavour = { id: S.endRequest, progress: 0, cost: q ? q.cost : null, pending: true }; }
       s.prototypeResults = S.protoResults.slice();
@@ -420,8 +448,8 @@
       if (!e) return;
       const t0 = performance.now();
       const s = snap(), engine = P.ui.engineView;
-      screen.render(V.researchModel(bundle, s, { engine, quote: id => e.endeavourQuote(id) }));
-      if (!e.S.choice && !e.over) $('pl-screen').querySelectorAll('.uh-radio[disabled]').forEach(r => { r.disabled = false; r.title = 'Automatic chose it last turn: fund it yourself'; });
+      screen.render(V.researchModel(bundle, s, { engine, quote: id => e.endeavourQuote(id), readOnly: e.over }));
+      if (!e.S.choice && !e.over) $('pl-screen').querySelectorAll('.uh-radio[disabled]').forEach(r => { r.disabled = false; r.title = 'Automatic funds it next turn: fund it yourself'; });
       const b = P.batch;
       if (b.length && e.turn > 0 && b[0].turn !== b[b.length - 1].turn) {
         const h = $('pl-screen').querySelector('.uh-events-head');
@@ -434,7 +462,7 @@
       main.classList.toggle('is-busy', P.running);
       $('pl-ftl').hidden = !P.ui.ftlShown;
       if (P.ui.ftlShown) {
-        ftl.render(V.ftlModel(bundle, s, { engine, canCommit: m => { const r = e.prototypeCheck(m); return { ok: !r, reason: r }; } }));
+        ftl.render(V.ftlModel(bundle, s, { engine, canCommit: m => { const r = e.prototypeCheck(m); return { ok: !r, reason: r }; }, protoQuote: m => e.prototypeQuote(m) }));
       }
       controls();
       drawNotices();
@@ -455,7 +483,7 @@
       $('pl-ftldot').hidden = !P.ui.ftlUnseen || P.ui.ftlShown;
       // the funding bar
       const foci = enteredFoci(), auto = !S.choice;
-      const autoNow = S.active && !S.choice && e.turn > 0 ? ' (now ' + L(S.active) + ')' : '';
+      const an = !S.choice && !over && !busyWith() ? autoNext() : null, autoNow = an ? ' (' + L(an) + ' next turn)' : '';
       $('pl-focus').innerHTML = '<option value="">Automatic' + esc(autoNow) + '</option>' + foci.map(f => { const n = badge(f); return '<option value="' + esc(f) + '"' + (S.choice === f ? ' selected' : '') + '>' + esc(L(f)) + (n ? ' · ' + n + ' under study' : '') + '</option>'; }).join('');
       if (auto) $('pl-focus').value = '';
       $('pl-focus').disabled = run || over;
@@ -473,8 +501,9 @@
       else if (S.choice && !P.ui.advisor && !badge(S.choice)) fn = 'Nothing revealed is under study in ' + L(S.choice) + '.';
       if (over) fn = e.victory ? 'Victory: the game is over.' : 'The game is over.';
       $('pl-fundnote').textContent = fn;
+      fab();
       const W = WORLD_NAME[e.world];
-      $('pl-headline').innerHTML = esc(W) + ' · ' + (e.ECON === 1 ? 'good' : 'average') + ' economy · diffusion ' + (e.DIFF ? 'on' : 'off') + ' · seed ' + e.seed +
+      $('pl-headline').innerHTML = esc(W) + ' · ' + (e.ECON === 1 ? 'good' : 'average') + ' economy · diffusion ' + (e.DIFF ? 'on' : 'off') + esc(seedText(' · ')) +
         (e.victory ? ' · <strong>victory on turn ' + e.victory.turn + '</strong> (base Civ V: ' + e.victory.reference + ')' : '');
     }
     function summary(s) {
@@ -483,21 +512,21 @@
         (note ? '<span class="rp-note">' + esc(note) + '</span>' : '') + '</dd></div>';
       const counts = { own: 0, diffusion: 0, endeavour: 0 };
       for (const v of S.have.values()) counts[v.via] = (counts[v.via] || 0) + 1;
-      const begun = P.ui.ends.filter(x => x[2] === 'start').length, done = P.ui.ends.filter(x => x[2] === 'done').length;
-      const ref = Engine.REFERENCE[e.econ];
+      const begun = S.ends.filter(x => x[2] === 'start').length, done = S.ends.filter(x => x[2] === 'done').length;
+      const ref = Engine.REFERENCE[e.econ], yet = e.over ? '' : ' yet';
       const open = S.have.has(e.OPENS), closeT = S.have.has(e.F.CLOSE) ? S.have.get(e.F.CLOSE).turn : null;
       const failed = S.protoResults.filter(r => !r.works);
-      let proto = 'none yet';
+      let proto = 'none' + yet;
       if (S.proto) proto = S.proto.method + ': ' + pct(S.proto.progress / S.proto.cost) + ' built';
       else if (S.protoWorked) proto = S.protoWorked + ' works (turn ' + S.protoResults.find(r => r.works).turn + ')';
       let drive = 'needs a working prototype';
       if (S.drive && S.drive.done !== null) drive = 'built on turn ' + S.drive.done;
       else if (S.drive) drive = V.turns(S.drive.turnsLeft) + ' of building left';
       const ftlText = !open ? 'opens with Relativity' : S.cert !== null ? 'certain on turn ' + S.cert + ': ' + certainMethod() : closeT ? 'the list closed on turn ' + closeT : 'open since turn ' + S.have.get(e.OPENS).turn;
-      let html = '<h2 class="rp-sum-title">' + esc(WORLD_NAME[e.world]) + ' · ' + (e.ECON === 1 ? 'good economy' : 'average economy (four-fifths of the Insight)') + ' · knowledge diffusion ' + (e.DIFF ? 'on' : 'off') + ' · seed ' + e.seed + '</h2><dl class="rp-facts">' +
+      let html = '<h2 class="rp-sum-title">' + esc(WORLD_NAME[e.world]) + ' · ' + (e.ECON === 1 ? 'good economy' : 'average economy (four-fifths of the Insight)') + ' · knowledge diffusion ' + (e.DIFF ? 'on' : 'off') + esc(seedText(' · ')) + '</h2><dl class="rp-facts">' +
         fact('Turn', String(e.turn), s.era + ' era by count · development ' + s.devEra) +
         fact('Discoveries', String(S.have.size), counts.own + ' own · ' + counts.diffusion + ' from abroad · ' + counts.endeavour + ' by Endeavour') +
-        fact('Grand Endeavours', begun ? begun + ' begun' : 'none yet', begun ? done + ' completed' : '') +
+        fact('Grand Endeavours', begun ? begun + ' begun' : 'none' + yet, begun ? done + ' completed' : '') +
         fact('Faster than light', esc(ftlText)) +
         fact('Prototypes', esc(proto), failed.length ? 'failed: ' + failed.map(r => r.method + ' (turn ' + r.turn + ')').join(', ') : 'none failed') +
         fact('SS FTL Drive', esc(drive)) +
@@ -506,7 +535,7 @@
         const st = P.stats, ms = x => x == null ? '–' : x < 10 ? x.toFixed(2) : Math.round(x);
         html += fact('Working method', esc(e.method), 'hidden from the player', false, true) +
           fact('World truth', esc(Object.keys(e.F.HOST).map(c => (e.truth[c] ? '✓ ' : '✗ ') + e.F.QUESTION[c]).join('; ')), '', true, true) +
-          fact('Simulator game', String(e.game), 'rivals from the pool’s games of ' + e.method, false, true) +
+          fact('Simulator game', String(e.game), 'seed ' + e.seed + (P.ui.seedShown ? '' : ', hidden from the player') + '; rivals from the pool’s games of ' + e.method, false, true) +
           fact('Time a turn', ms(median(st.step)) + ' ms', 'drawing the screens: ' + ms(median(st.render)) + ' ms (medians, this session)', false, true);
       }
       html += '</dl>';
@@ -556,7 +585,7 @@
       const e = P.e, v = e.victory, S = e.S;
       const counts = { own: 0, diffusion: 0, endeavour: 0 };
       for (const x of S.have.values()) counts[x.via] = (counts[x.via] || 0) + 1;
-      const begun = P.ui.ends.filter(x => x[2] === 'start').length, done = P.ui.ends.filter(x => x[2] === 'done').length;
+      const begun = S.ends.filter(x => x[2] === 'start').length, done = S.ends.filter(x => x[2] === 'done').length;
       const failed = S.protoResults.filter(r => !r.works);
       const body = '<p class="pl-big">Victory on turn ' + v.turn + '</p><p>' + esc(vsText(v.delta, v.reference).replace(/^./, c => c.toUpperCase())) + '.</p><dl class="pl-facts">' +
         '<dt>The way to outrun light</dt><dd>' + esc(v.method) + '</dd>' +
@@ -566,41 +595,13 @@
         '<dt>Certain</dt><dd>' + (S.cert !== null ? 'turn ' + S.cert : 'never: a Hail Mary that worked') + '</dd>' +
         '<dt>Prototype works</dt><dd>turn ' + S.protoResults.find(r => r.works).turn + '</dd>' +
         '<dt>SS FTL Drive built</dt><dd>turn ' + S.drive.done + ' (' + V.turns(S.drive.total) + ' from Production)</dd>' +
-        '<dt>Seed</dt><dd>' + e.seed + ' · ' + esc(WORLD_NAME[e.world]) + ' · ' + (e.ECON === 1 ? 'good' : 'average') + ' economy</dd></dl>';
+        '<dt>Seed</dt><dd>' + e.seed + ' (the simulator’s game ' + e.game + ') · ' + esc(WORLD_NAME[e.world]) + ' · ' + (e.ECON === 1 ? 'good' : 'average') + ' economy</dd></dl>';
       dialog('The ship launches', body, [['Copy the game’s log', copyLog, 'pl-primary'], ['New game', () => $('pl-new').click()], ['Look around']], 'is-victory');
     }
 
     // ================================================================== the log and the save code, copied
-    function buildLog() {
-      const e = P.e, S = e.S, F = e.F;
-      const records = e.traceRecords.map(r => { const o = Object.assign({}, r); delete o.raw; return o; });
-      const entries = [...S.have.entries()].sort((a, b) => a[1].turn - b[1].turn);
-      const alive = {}, h = new Map();
-      let i = 0;
-      for (let T = 1; T <= S.turn; T++) {
-        while (i < entries.length && entries[i][1].turn <= T) { h.set(entries[i][0], entries[i][1]); i++; }
-        const st = e.status(h, T);
-        alive[T] = { alive: st.alive, known: st.kn, certain: st.certain };
-      }
-      const tAt = k => (S.have.has(k) ? S.have.get(k).turn : Infinity);
-      const bm = F.BUILD[e.method].map(g => Math.min(...g.map(tAt)));
-      const built = bm.length && Math.max(...bm) < Infinity ? Math.max(...bm) : null;
-      let cert = null;
-      if (S.cert !== null) { const hc = new Map(entries.filter(x => x[1].turn <= S.cert)); cert = [S.cert, Object.keys(e.knowledge(hc, S.cert)).length]; }
-      const instr = {};
-      for (const c of Object.keys(F.HOST)) instr[c] = e.INSTR[c] || null;
-      const focus = {};
-      for (const k of e.IDS) focus[k] = e.ROWS[k].focus;
-      const ends = P.ui.ends.slice().sort((a, b) => a[0] - b[0]);
-      const build = {};
-      for (const o of e.METHODS) build[o] = F.BUILD[o];
-      return {
-        m: e.method, truth: e.truth, seed: e.seed, truthseed: 31, records, alive, cert, ends, instr, instr_d: e.INSTR_D, close: F.CLOSE, focus,
-        world: e.world, econ: e.ECON, player: 'human', game: e.game, built, build, cond: F.COND, host: F.HOST, settings: bundle.settings,
-        // beyond w7f.py's format: what only the live game has
-        source: 'live game (sim_web/play.html), ' + bundle.version, diffusion: !!e.DIFF, victory: e.victory, prototypes: S.protoResults, choices: e.actions,
-      };
-    }
+    /** the game's log in the simulator's trace format, which the replay viewer loads (UHEngine.traceLog) */
+    function buildLog() { return P.e.traceLog('live game (sim_web/play.html)'); }
     function copyLog() { if (P.e) copyText(JSON.stringify(buildLog()), 'The game’s log', 'In the replay viewer, choose Paste a log (or save it as a .json file and open it).'); }
     $('pl-copylog').addEventListener('click', copyLog);
     $('pl-copysave').addEventListener('click', () => { if (P.e) copyText(JSON.stringify(saveCode()), 'The save code', 'Paste it under New game, Load a game from a save code, to carry on from this turn.'); });

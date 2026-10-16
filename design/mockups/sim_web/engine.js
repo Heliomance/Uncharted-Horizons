@@ -15,6 +15,22 @@
    Python's on every argument tested), so every hidden meter and every Insight flow equals Python's to the bit, and a
    saved game replays identically in any browser (Math.pow, Math.exp and Math.log differ from glibc and between engines).
 
+   Where it goes beyond the simulator, and so where bit-for-bit fidelity ends:
+   - The prototype (victory.py has none in the turn loop). A failed prototype rules its method out (section 4), so status()
+     drops that method from then on, which changes certainty and rediscovery's goals, and so the rediscovery stream's draws:
+     the game is the simulator's only up to the first failed prototype.
+   - The prototype takes the funded share turn by turn, at each turn's own Insight; victory.py prices its duration at the
+     finish turn's income for every turn (ceil(price / (0.8 x income))). When the income steps up during the prototype the
+     engine finishes it, and launches, a turn earlier than victory.py would for the same finish (3 games in 60 tested).
+   - The FTL screen's hints break ties between equally cheap next steps by the lowest row id. w7f.py's hint_row takes min()
+     over a set, so its choice among equal-cost rows depends on Python's hash seed (PYTHONHASHSEED); every hint is one of
+     Python's cheapest rows, and smart_targets itself matches exactly.
+   - The trace's `seen` lists the rows first seen in rivals' hands that turn. The harness measures it after the diffusion
+     step has added them, so its `seen` is always empty; the bit-for-bit tests skip that field while Python's is empty.
+   - A CORE row counts as revealed (an Endeavour may target it, the FTL screen names it) from the turn its prerequisites
+     are discovered, as the research screen shows it; the harness puts it under study at the start of the next turn,
+     before any Insight is spent, so nothing in the game itself changes.
+
    Data: bundle.json (build_bundle.py). Runs in Node (module.exports) and the browser (window.UHEngine); needs PyRandom
    (pyrandom.js) loaded first in the browser. No DOM, no other dependencies.
 
@@ -151,13 +167,18 @@
       this.END_MULT = human ? P.end_mult : null;            // Grand Endeavours (END=2, END_RULE 'request')
       this.END_FROM = o.endFrom !== undefined ? o.endFrom : null;   // the design: any time (w7f's simulated players: the Space era)
       this.END_UNOCCURRED_ONLY = !!o.endUnoccurredOnly;     // the design allows both since v3.121
-      this.W16 = !!P.w16; this.SPREAD_FIX = true; this.RUN_ON = o.runOn !== undefined ? !!o.runOn : true;
-      this.maxTurns = o.maxTurns || (human ? Math.min(this.INC.length - 2, (B.victory.drive[this.econ].plain.length || 700) - 2) : 450);
+      // what the engine does not model is refused, not silently ignored
+      if (P.w16) throw new Error('This bundle was built with W16 on (the Space era\'s funded-focus rule), which the engine does not model: rebuild it with W16=0, the finalised design.');
+      if (o.runOn === false) throw new Error('The engine plays past the last era (RUN_ON) only: runOn false is not modelled.');
+      this.SPREAD_FIX = true;
+      // the simulator's turn limits: MAXT 450 on the good economy, 600 on the average one (runavg.sh); a human plays to the end of the tables
+      this.maxTurns = o.maxTurns || (human ? Math.min(this.INC.length - 2, (B.victory.drive[this.econ].plain.length || 700) - 2) : this.econ === '1.0' ? 450 : 600);
       this.recordTrace = !!o.trace; this.traceRecords = [];
 
       this.opts = { world: this.world, econ: this.ECON, game, seed: this.seed, method: this.method, truth: this.truth,
         rivals: Array.isArray(o.rivals) ? o.rivals : !!o.rivals, player: this.player, maxTurns: this.maxTurns,
         endFrom: this.END_FROM, endUnoccurredOnly: this.END_UNOCCURRED_ONLY, instrD: this.INSTR_D };
+      this.CORE_IDS = this.IDS.filter((k) => this.ROWS[k].tier === 'CORE');
       this._init();
     }
 
@@ -176,7 +197,7 @@
         // the human's choices and the endgame
         choice: null, endRequest: null, proto: null, protoResults: [], protoFailed: new Set(), protoWorked: null,
         drive: null, victory: null, cert: null, events: [], log: [], eraName: this.EO[0], foci: new Set(),
-        ftlSig: null, maxEraHeld: -1,
+        ftlSig: null, maxEraHeld: -1, ends: [],               // ends: [turn, row, 'start' | 'done' | 'dropped'], as w7f.py's END_LOG
       };
       for (const k of this.IDS) if (this.prereqsMet(k, S.have)) S.met.add(k);
       this.actions = [];
@@ -217,9 +238,10 @@
       }
       return kn;
     }
-    status(have, clock) {
-      const kn = this.knowledge(have, clock), F = this.F, S = this.S;
-      const alive = this.METHODS.filter((o) => !F.COND[o].some((c) => c in kn && !kn[c]) && !S.protoFailed.has(o));
+    /** w7f.status, and a method whose prototype failed is ruled out (failed: the failed methods, by default the game's own) */
+    status(have, clock, failed) {
+      const kn = this.knowledge(have, clock), F = this.F, pf = failed || this.S.protoFailed;
+      const alive = this.METHODS.filter((o) => !F.COND[o].some((c) => c in kn && !kn[c]) && !pf.has(o));
       const m = this.method;
       const certain = have.has(F.CLOSE) && (F.COND[m].every((c) => kn[c]) || (alive.length === 1 && alive[0] === m));
       return { kn, alive, certain };
@@ -273,8 +295,8 @@
       have = have || this.S.have;
       const fr = [...this.smartTargets([alts], have)].filter((k) => this.prereqsMet(k, have));
       if (!fr.length) return null;
-      let best = fr[0];
-      for (const k of fr) if (this.COST[k] < this.COST[best]) best = k;
+      let best = fr[0];                                     // the cheapest; on a tie, the lowest id (Python's min() over a set has no fixed order)
+      for (const k of fr) if (this.COST[k] < this.COST[best] || (this.COST[k] === this.COST[best] && k < best)) best = k;
       return best;
     }
     hintFocus(alts, have) { const k = this.hintRow(alts, have); return k ? this.ROWS[k].focus : null; }
@@ -286,9 +308,12 @@
       if ((f || null) !== this.S.choice) { this.S.choice = f || null; this._act('focus', this.S.choice); }
       return { ok: true };
     }
+    /** revealed to the player: glimpsed, seen in rivals' hands, or a CORE row whose prerequisites are discovered (it is under
+        study from the next turn's start, before any Insight is spent, as the research screen shows it) or whose idea occurred */
     isRevealed(k) {
       const S = this.S;
-      return (this.tier(k) === 'CORE' && S.occurred.has(k)) || S.glimpsed.has(k) || S.diff_since.has(k) || S.diff_unc.has(k);
+      if (S.glimpsed.has(k) || S.diff_since.has(k) || S.diff_unc.has(k)) return true;
+      return this.tier(k) === 'CORE' && (S.occurred.has(k) || (!S.locked.has(k) && this.prereqsMet(k, S.have)));
     }
     endeavourCheck(id) {
       const S = this.S;
@@ -307,7 +332,7 @@
       const why = this.endeavourCheck(id);
       if (why) return { ok: false, reason: why };
       const S = this.S, replaced = S.end_k;
-      if (S.end_k !== null && S.end_k !== id) { S.end_k = null; S.end_prog = 0.0; S.end_cost = 0.0; }
+      if (S.end_k !== null && S.end_k !== id) { S.ends.push([S.turn, S.end_k, 'dropped']); S.end_k = null; S.end_prog = 0.0; S.end_cost = 0.0; }
       if (S.end_k === id) return { ok: true, running: true };
       S.endRequest = id; this._act('end', id);
       return { ok: true, replaced: replaced || null };
@@ -315,6 +340,7 @@
     stopEndeavour() {
       const S = this.S;
       if (S.end_k === null && S.endRequest === null) return { ok: false, reason: 'No Endeavour is under way.' };
+      if (S.end_k !== null) S.ends.push([S.turn, S.end_k, 'dropped']);
       S.end_k = null; S.end_prog = 0.0; S.end_cost = 0.0; S.endRequest = null; this._act('stop', null);
       return { ok: true };
     }
@@ -360,6 +386,7 @@
       if (why) return { ok: false, reason: why };
       const S = this.S;
       const stopped = S.end_k || S.endRequest;
+      if (S.end_k !== null) S.ends.push([S.turn, S.end_k, 'dropped']);
       S.end_k = null; S.end_prog = 0.0; S.end_cost = 0.0; S.endRequest = null;
       S.proto = { method, cost: this.protoCost(), progress: 0.0, committed: S.turn };
       this._act('proto', method);
@@ -384,6 +411,7 @@
       S.new_rows = [];
       const disc = [];
       for (const k of this.IDS) if (!have.has(k) && S.met.has(k) && (!S.locked.has(k) || k === S.end_k)) disc.push(k);
+      const seen0 = new Set([...S.diff_since.keys(), ...S.diff_unc.keys()]);   // before the diffusion step: what is seen abroad this turn is new
       const diff_due = [];
       if (this.DIFF) {                                      // knowledge diffusion (§1.2): contacted rivals, Printing Press, Internet
         if (S.contact_turn === null && S.maxEraHeld >= this.DIFF.contact_era) S.contact_turn = turn;
@@ -411,7 +439,7 @@
       }
       for (const k of disc) if (!S.opened.has(k)) S.opened.set(k, turn);
       const occ0 = this.recordTrace ? new Set(S.occurred) : null, gl0 = new Set(S.glimpsed), lost0 = new Set(S.lost);
-      const seen0 = new Set([...S.diff_since.keys(), ...S.diff_unc.keys()]), lk0 = new Set(S.locked);
+      const lk0 = new Set(S.locked);
       // the moment: a non-CORE idea occurs to the civilisation with a small chance each turn while it lasts
       for (const k of disc) {
         if (S.occurred.has(k)) continue;
@@ -468,19 +496,19 @@
       const sh = have.has('SO05') ? 0.8 : 0.5, es = sh;
       let started = false;
       if (S.end_k !== null && have.has(S.end_k)) {          // study found it first: the Endeavour ends
-        events.push({ type: 'endeavour_ended', id: S.end_k, reason: 'studied' }); S.end_k = null; S.end_prog = 0.0; S.end_cost = 0.0;
+        events.push({ type: 'endeavour_ended', id: S.end_k, reason: 'studied' }); S.ends.push([turn, S.end_k, 'dropped']); S.end_k = null; S.end_prog = 0.0; S.end_cost = 0.0;
       }
       if (this.END_MULT && S.end_k === null && !S.proto && (this.END_FROM === null || S.maxEraHeld >= this.END_FROM)) {
         const req = S.endRequest;
         if (req && !have.has(req) && this.prereqsMet(req, have) && !(this.END_UNOCCURRED_ONLY && S.occurred.has(req))) {
-          S.end_k = req; S.end_cost = this.endPrice(req, d); S.end_prog = 0.0; started = true; S.endRequest = null;
+          S.end_k = req; S.end_cost = this.endPrice(req, d); S.end_prog = 0.0; started = true; S.endRequest = null; S.ends.push([turn, req, 'start']);
           events.push({ type: 'endeavour_started', id: req, cost: S.end_cost });
         } else if (req && have.has(req)) S.endRequest = null;
       }
       const busy = S.end_k !== null || !!S.proto;
       if (S.end_k !== null) {                               // the Endeavour is the focus: it takes the active share; the spread still rolls
         S.end_prog += inc * es + S.bank; S.bank = 0.0; active = null;
-        if (S.end_prog >= S.end_cost) { end_done = S.end_k; S.end_k = null; }
+        if (S.end_prog >= S.end_cost) { end_done = S.end_k; S.ends.push([turn, end_done, 'done']); S.end_k = null; }
       } else if (S.proto) {                                 // the prototype: an Endeavour of its own kind (§4)
         S.proto.progress += inc * es; active = null;
         if (S.proto.progress >= S.proto.cost) proto_done = true;
@@ -552,12 +580,13 @@
         for (const k of live) if (!have.has(k) && need.get(k)) prog[k] = Math.min(progress.get(k) / need.get(k), 1.0);
         this.traceRecords.push({ turn, d, found: found.slice(), diff: found.filter((k) => diff_due.includes(k)), endv: end_done ? [end_done] : [],
           occ: newOcc.map((k) => [k, ROWS[k].tier === 'CORE' ? 'core' : 'chance']), glim: pysorted([...S.glimpsed].filter((k) => !gl0.has(k))),
-          fund: S.fund[0] === 'PROTO' ? ['FOCUS', null] : S.fund, lost: pysorted([...S.lost].filter((k) => !lost0.has(k))),
+          fund: S.fund, lost: pysorted([...S.lost].filter((k) => !lost0.has(k))),
           seen: pysorted([...S.diff_since.keys(), ...S.diff_unc.keys()].filter((k) => !seen0.has(k))), locked: pysorted([...S.locked].filter((k) => !lk0.has(k))),
           redisc: pysorted(redisc), inc, share, flow: Object.fromEntries(flow), prog,
           end: S.end_k !== null ? [S.end_k, S.end_cost ? S.end_prog / S.end_cost : 0.0] : null,
           raw: { progress: Object.fromEntries(live.filter((k) => need.has(k)).map((k) => [k, progress.has(k) ? progress.get(k) : 0.0])),
             need: Object.fromEntries(live.filter((k) => need.has(k)).map((k) => [k, need.get(k)])), end_prog: S.end_prog } });
+        if (S.proto) this.traceRecords[this.traceRecords.length - 1].proto = [S.proto.method, Math.min(S.proto.progress / S.proto.cost, 1.0), S.proto.cost];   // beyond the harness
       }
 
       // ---- the endgame: the prototype's result, the Drive, the launch (victory.py) ----
@@ -623,7 +652,7 @@
     // ---- what the player sees change ---------------------------------------------------------------------------------
     _revealedSet() {
       const out = new Set(), S = this.S;
-      for (const k of S.occurred) if (this.tier(k) === 'CORE') out.add(k);
+      for (const k of this.CORE_IDS) if (S.occurred.has(k) || (!S.have.has(k) && !S.locked.has(k) && this.prereqsMet(k, S.have))) out.add(k);
       for (const k of S.glimpsed) out.add(k);
       for (const k of S.diff_since.keys()) out.add(k);
       for (const k of S.diff_unc.keys()) out.add(k);
@@ -786,6 +815,43 @@
         events: S.events.slice(), ftl: (opts && opts.ftl === false) ? null : this.ftl(opts),
         hidden: { method: this.method, truth: Object.assign({}, this.truth), seed: this.seed, game: this.game, rivalsHold: riv,
           rediscovered: Object.fromEntries(S.rediscovered), lostAt: Object.fromEntries(S.lost_at), certainTurn: S.cert },
+      };
+    }
+
+    // ---- the game's log ------------------------------------------------------------------------------------------------
+    /** the game's log in the simulator's trace format (w7f.py's TRACE output), which the replay viewer reads, with what only
+        the live game has: the choices, the prototypes, the SS FTL Drive and the victory. The engine must be made with
+        trace: true. `alive` is w7f's status turn by turn, with only the prototypes that had failed by then ruled out. */
+    traceLog(source) {
+      const S = this.S, F = this.F, P = this.P;
+      const records = this.traceRecords.map((r) => { const o = Object.assign({}, r); delete o.raw; return o; });
+      const entries = [...S.have.entries()].sort((a, b) => a[1].turn - b[1].turn);
+      const alive = {}, h = new Map();
+      let i = 0;
+      for (let T = 1; T <= S.turn; T++) {
+        while (i < entries.length && entries[i][1].turn <= T) { h.set(entries[i][0], entries[i][1]); i++; }
+        const failed = new Set(S.protoResults.filter((r) => !r.works && r.turn <= T).map((r) => r.method));
+        const st = this.status(h, T, failed);
+        alive[T] = { alive: st.alive, known: st.kn, certain: st.certain };
+      }
+      const tAt = (k) => (S.have.has(k) ? S.have.get(k).turn : Infinity);
+      const bm = F.BUILD[this.method].map((g) => Math.min(...g.map(tAt)));
+      const built = bm.length && Math.max(...bm) < Infinity ? Math.max(...bm) : null;
+      let cert = null;
+      if (S.cert !== null) { const hc = new Map(entries.filter((x) => x[1].turn <= S.cert)); cert = [S.cert, Object.keys(this.knowledge(hc, S.cert)).length]; }
+      const instr = {}, focus = {}, build = {};
+      for (const c of Object.keys(F.HOST)) instr[c] = this.INSTR[c] || null;
+      for (const k of this.IDS) focus[k] = this.ROWS[k].focus;
+      for (const o of this.METHODS) build[o] = F.BUILD[o];
+      return {
+        m: this.method, truth: this.truth, seed: this.seed, truthseed: TRUTHSEED, records, alive, cert, ends: S.ends.map((x) => x.slice()),
+        instr, instr_d: this.INSTR_D, close: F.CLOSE, focus, world: this.world, econ: this.ECON, player: 'human', game: this.game, built, build,
+        cond: F.COND, host: F.HOST,
+        settings: Object.assign({}, this.B.settings, { DIFF: this.DIFF ? '1' : '0', DIFFWAIT: String(P.diff_wait), DIFFWAITNET: String(P.diff_wait_net), DIFFSHARE: String(P.diff_share) }),
+        // beyond w7f.py's format: what only the live game has
+        source: (source || 'live game') + ', ' + this.B.version, diffusion: !!this.DIFF, maxTurns: this.maxTurns,
+        victory: S.victory, prototypes: S.protoResults.map((r) => Object.assign({}, r)), choices: this.actions.map((a) => Object.assign({}, a)),
+        drive: S.drive ? Object.assign({}, S.drive) : null,
       };
     }
 

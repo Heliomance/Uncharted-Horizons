@@ -16,21 +16,33 @@
   const PLAYER = (t) => t.player === 'novice' && Number(t.econ) < 0.95 ? 'average' : (t.player || 'expert');
 
   function reconstruct(bundle, trace) {
-    if (!trace || !Array.isArray(trace.records) || !trace.records.length) throw new Error('This file is not a simulator log: it has no turn records (run w7f.py with TRACE=<file>).');
+    if (!trace || !Array.isArray(trace.records) || !trace.records.length) throw new Error('This file is not a simulator log: it has no turn records (run w7f.py with TRACE=<file>, or copy the live game’s log).');
     if (!bundle.worlds[trace.world]) throw new Error('Unknown world in the log: ' + trace.world + '.');
-    const W = V.world(bundle, trace.world), R = bundle.rows, recs = trace.records, econ = Number(trace.econ) || 1, key = V.econKey(econ);
+    const econ = Number(trace.econ) || 1, key = V.econKey(econ);
+    if (!bundle.economy[key] || !bundle.victory.drive[key])
+      throw new Error('This log was played on a ×' + econ + ' economy; the bundle has only ' + Object.keys(bundle.economy).map(k => '×' + k).join(' and ') + '.');
+    const W = V.world(bundle, trace.world), R = bundle.rows, recs = trace.records, E = bundle.economy[key];
     const byTurn = {};
     for (const r of recs) byTurn[r.turn] = r;
     const first = recs[0].turn, last = recs[recs.length - 1].turn;
     for (const r of recs) for (const k of r.found || []) if (!R[k]) throw new Error('The log names a row the bundle does not know (' + k + '): rebuild the bundle for the tree the log was made on.');
+    // a live game's log (play.html) carries its own endgame: the choices, the prototypes, the Drive and the launch
+    const live = Array.isArray(trace.choices) || trace.player === 'human';
 
-    // the rivals, as w7f.py replays them
+    // the rivals, as w7f.py replays them, when the game had knowledge diffusion (the live game's log says; a simulator log
+    // made by make_traces.sh records DIFF; otherwise any arrival from abroad shows it)
+    const anyDiffusion = recs.some(r => (r.diff || []).length);
+    const st = trace.settings || {};
+    const diffusion = trace.diffusion != null ? !!trace.diffusion : st.DIFF != null ? String(st.DIFF) !== '0' : anyDiffusion;
+    const num = (k, d) => (st[k] != null && isFinite(+st[k]) ? +st[k] : d);
+    const DIFF_WAIT = num('DIFFWAIT', bundle.model.diff_wait), DIFF_WAIT_NET = num('DIFFWAITNET', bundle.model.diff_wait_net), DIFF_SHARE = num('DIFFSHARE', bundle.model.diff_share);
     const pm = W.pool.filter(g => g.m === trace.m), j0 = Math.floor((trace.game || 0) / 5) * 5;
-    const rivals = pm.length ? [0, 1, 2, 3, 4].map(j => pm[(j0 + j) % pm.length]) : [];
+    const rivals = diffusion && pm.length ? [0, 1, 2, 3, 4].map(j => pm[(j0 + j) % pm.length]) : [];
     const idx = {};
     W.ids.forEach((k, i) => { idx[k] = i; });
     const rivalTurn = (j, k) => { const v = rivals[j].t[idx[k]]; return v == null ? null : v / econ; };
-    const anyDiffusion = recs.some(r => (r.diff || []).length);
+    // rows first seen in rivals' hands: the log's own `seen` (the live game's), else rebuilt from the rivals (the harness's
+    // `seen` is always empty: it is measured after its diffusion step has already added them)
     const rebuildSeen = rivals.length > 0 && anyDiffusion && !recs.some(r => (r.seen || []).length);
 
     // walk the log once, keeping the turn at which each thing happened
@@ -53,12 +65,12 @@
             if (tier === 'UNIQUE' || seenT[k] !== undefined) continue;
             let nh = 0;
             for (let j = 0; j < rivals.length; j++) { const v = rivalTurn(j, k); if (v !== null && v <= t) nh++; }
-            if (!nh || nh / rivals.length < 0.5) continue;
+            if (!nh || nh / rivals.length < DIFF_SHARE) continue;
             if ((tier === 'CORE' || tier === 'STANDARD') && have.MC06) seenT[k] = t;
             else if (tier === 'UNCOMMON' && cp04 !== null) seenT[k] = t;
           }
         }
-      }
+      } else if (cp04 === null && have.CP04) cp04 = t;
       for (const o of rec.occ || []) { const k = Array.isArray(o) ? o[0] : o; if (occT[k] === undefined) occT[k] = t; }
       for (const k of rec.glim || []) if (glT[k] === undefined) glT[k] = t;
       for (const k of rec.lost || []) lostT[k] = t;
@@ -75,14 +87,60 @@
       }
       endK = rec.end ? rec.end[0] : null;
     }
-    // how many diffusion arrivals the reconstruction of rivals' holdings explains (each needs its wait after being seen)
+    // how many diffusion arrivals the rows seen abroad explain (each needs its wait after being seen)
     let explained = 0;
     for (const [k, t] of diffArrivals) {
       const s0 = seenT[k];
       if (s0 === undefined) continue;
       const tier = W.tier(k);
-      if (tier === 'UNCOMMON' ? t - s0 >= 5 : (t - s0 >= 10 || (cp04 !== null && t - Math.max(s0, cp04) >= 5))) explained++;
+      if (tier === 'UNCOMMON' ? t - s0 >= DIFF_WAIT_NET : (t - s0 >= DIFF_WAIT || (cp04 !== null && t - Math.max(s0, cp04) >= DIFF_WAIT_NET))) explained++;
     }
+
+    // ---- the endgame of a live game: each prototype from its commitment to its result, the SS FTL Drive, the launch
+    const V0 = bundle.victory;
+    const protoCost = d => V0.protox * V0.p_space * V0.scale * V0.spaceprice * Math.pow(4, Math.max(0, V0.space - d));
+    const runs = [];
+    if (live) {
+      const results = (trace.prototypes || []).slice().sort((a, b) => a.turn - b.turn);
+      (trace.choices || []).filter(a => a.a === 'proto').forEach((c, i) => {
+        const r = results[i] || null, dAt = c.t > 0 ? (byTurn[c.t] ? byTurn[c.t].d : E.d[c.t]) : 0;
+        runs.push({ method: c.v, committed: c.t, from: c.t + 1, to: r ? r.turn : null, works: r ? !!r.works : null, cost: protoCost(dAt) });
+      });
+      // a log without the per-turn prototype record (before 16 October): its progress, as the engine accrues it
+      for (const run of runs) {
+        run.progress = {};
+        let acc = 0;
+        for (let t = run.from; t <= (run.to != null ? run.to : last); t++) {
+          const rec = byTurn[t] || {};
+          acc += (rec.inc != null ? rec.inc : E.inc[t]) * (haveT.SO05 && haveT.SO05.turn < t ? 0.8 : 0.5);
+          run.progress[t] = Math.min(acc / run.cost, 1);
+        }
+      }
+    }
+    const actual = live && trace.victory ? trace.victory : null;
+    let drive = null;
+    if (live) {
+      const worked = runs.find(r => r.works);
+      if (trace.drive) drive = { method: trace.drive.method, start: trace.drive.start, total: trace.drive.total, done: trace.drive.done != null ? trace.drive.done : null };
+      else if (worked && worked.to != null) {
+        const tbl = V0.drive[key][V0.exotic.includes(worked.method) ? 'exotic' : 'plain'], n = tbl[Math.min(worked.to, tbl.length - 1)];
+        drive = { method: worked.method, start: worked.to, total: n, done: worked.to + n <= (actual ? actual.turn : last) ? worked.to + n : null };
+      }
+    }
+    // the prototype the funded share went to this turn; on its result turn it is finished (done), as the engine has it
+    const protoAt = T => {
+      const rec = byTurn[T] || {};
+      let p = null;
+      if (rec.proto) p = { method: rec.proto[0], progress: rec.proto[1], cost: rec.proto[2] };
+      else { const run = runs.find(r => T >= r.from && (r.to == null || T <= r.to)); if (run) p = { method: run.method, progress: run.progress[T] || 0, cost: run.cost }; }
+      if (p && (trace.prototypes || []).some(r => r.turn === T && r.method === p.method)) p.done = true;
+      return p;
+    };
+    const driveAt = T => {
+      if (!drive || T < drive.start) return null;
+      if (drive.done != null && T >= drive.done) return { method: drive.method, turnsLeft: 0, total: drive.total, done: drive.done };
+      return { method: drive.method, turnsLeft: drive.total - (T - drive.start), total: drive.total };
+    };
 
     const states = {}, ftls = {}, evs = {};
     const pick = (m, T) => { const out = []; for (const k in m) if (m[k] <= T) out.push(k); return out; };
@@ -91,19 +149,20 @@
       const rec = byTurn[T] || {};
       const h = {};
       for (const k in haveT) if (haveT[k].turn <= T) h[k] = haveT[k];
-      const fund = rec.fund || ['FOCUS', null];
-      const E = bundle.economy[key];
+      const fund = rec.fund || ['FOCUS', null], pr = live ? protoAt(T) : null;
       const s = {
         turn: T, world: trace.world, ontology: W.ontology, econ, d: rec.d != null ? rec.d : E.d[T], inc: rec.inc != null ? rec.inc : E.inc[T],
         share: rec.share != null ? rec.share : (h.SO05 ? 0.8 : 0.5),
         funded: fund[0] === 'FOCUS' ? fund[1] : null,
         endeavour: fund[0] === 'END' ? { id: fund[1], progress: rec.end ? rec.end[1] : 1 } : null,
-        prototype: null, drive: null, victory: null,
+        prototype: pr && !pr.done ? pr : null, prototypeDone: pr && pr.done ? pr : null, drive: live ? driveAt(T) : null, victory: actual && T >= actual.turn ? actual : null,
+        prototypeResults: live ? (trace.prototypes || []).filter(r => r.turn <= T) : [],
         have: h, occurred: pick(occT, T), glimpsed: pick(glT, T), seen: pick(seenT, T),
         lost: pick(lostT, T).filter(k => !(rediscT[k] <= T)), locked: pick(lockT, T),
         prog: rec.prog || {}, flow: rec.flow || {}, events: [], ftl: null,
         engine: { method: trace.m, truth: trace.truth, nRivals: rivals.length, rivals: rivalCounts(T) },
       };
+      if (pr) s.funded = null;
       s.ftl = { open: h[bundle.ftl.OPENS] !== undefined };
       return (states[T] = s);
     }
@@ -113,7 +172,9 @@
       for (const k of W.ids) { let n = 0; for (let j = 0; j < rivals.length; j++) { const v = rivalTurn(j, k); if (v !== null && v <= T) n++; } if (n) out[k] = n; }
       return out;
     }
+    // a simulator log ends at the race's finish: the prototype, the Drive and the launch are projected as victory.py computes them
     const projection = (() => {
+      if (live) return null;
       const v = V.victory(bundle, { cert: trace.cert && trace.cert[0], built: trace.built, m: trace.m, econ });
       return v ? Object.assign({ method: trace.m }, v) : null;
     })();
@@ -165,12 +226,26 @@
         if (e[2] === 'start') ev.push({ kind: 'endeavour', id: e[1], text: 'Began a Grand Endeavour on ' + name(e[1]) + '.' });
         else if (e[2] === 'dropped') ev.push({ kind: 'endeavour', id: e[1], text: 'Dropped the Grand Endeavour on ' + name(e[1]) + '.' });
       }
+      // the live game's endgame, as the live game announces it
+      const end = [];
+      for (const run of runs) {
+        if (run.from === T) end.push({ type: 'prototype_started', method: run.method });
+        if (run.to === T) {
+          end.push({ type: 'prototype_result', method: run.method, works: run.works });
+          if (run.works && drive && drive.start === T) end.push({ type: 'drive_started', turns: drive.total });
+        }
+      }
+      if (drive && drive.done === T) end.push({ type: 'drive_done', method: drive.method });
+      if (actual && actual.turn === T) end.push(Object.assign({ type: 'victory' }, actual));
       const fn = ftlAt(T, false), fp = T > first ? ftlAt(T - 1, false) : null;
       if (fn.open && (!fp || fp.signature !== fn.signature)) {
         ev.push({ kind: 'ftl', text: 'This bears on the question of how to exceed the speed of light.' });
-        for (const r of fn.results) if (r.turn === T) ev.push({ kind: 'ftl-result', text: r.text });
+        for (const r of fn.results) if (r.turn === T && !r.endgame) ev.push({ kind: 'ftl-result', text: r.text });
       }
-      if (T === last) ev.push({ kind: 'finish', text: 'The log ends: certainty on turn ' + (trace.cert ? trace.cert[0] : '–') + ', the build on turn ' + (trace.built || '–') + '. The prototype and the Drive follow.' });
+      for (const x of V.normalizeEvents(bundle, end)) ev.push(x);
+      if (T === last && !actual) ev.push({ kind: 'finish', text: live
+        ? 'The log ends on turn ' + T + (s.prototype ? ', with the ' + s.prototype.method + ' prototype ' + Math.round(100 * s.prototype.progress) + '% built' : s.drive ? ', with the SS FTL Drive under way' : ', before the launch') + '.'
+        : 'The log ends: certainty on turn ' + (trace.cert ? trace.cert[0] : '–') + ', the build on turn ' + (trace.built || '–') + '. The prototype and the Drive follow.' });
       return (evs[T] = ev);
     }
     function snapshot(T) { return Object.assign({}, state(T), { events: events(T) }); }
@@ -202,16 +277,20 @@
     if (trace.cert) marks.push({ turn: trace.cert[0], label: 'Certain', short: 'Cert.', kind: 'cert' });
     if (trace.built) marks.push({ turn: trace.built, label: 'Build complete', short: 'Built', kind: 'built' });
     for (const e of trace.ends || []) if (e[2] === 'done') marks.push({ turn: e[0], label: 'Endeavour', short: 'End.', kind: 'endeavour' });
+    for (const run of runs) {
+      if (run.to != null) marks.push({ turn: run.to, label: run.works ? 'Prototype works' : run.method + ' prototype failed', short: run.works ? 'Proto.' : 'Failed', kind: run.works ? 'built' : 'endeavour' });
+    }
     if (projection) marks.push({ turn: projection.launch, label: 'Launch', short: 'Launch', kind: 'launch' });
+    if (actual) marks.push({ turn: actual.turn, label: 'Launch', short: 'Launch', kind: 'launch' });
 
     const settingsDiff = [];
-    for (const k in (trace.settings || {})) {
-      const a = trace.settings[k], b = (bundle.settings || {})[k];
+    for (const k in st) {
+      const a = st[k], b = (bundle.settings || {})[k];
       if (a != null && b != null && String(a) !== String(b)) settingsDiff.push(k + ' ' + a + ' (the bundle has ' + b + ')');
     }
     return {
-      trace, bundle, world: W, first, last, turns: last - first + 1, player: PLAYER(trace), econ, econKey: key, rivals: rivals.length,
-      seenRebuilt: rebuildSeen, seenCheck: { arrivals: diffArrivals.length, explained }, counts, marks, series, projection, settingsDiff,
+      trace, bundle, world: W, first, last, turns: last - first + 1, player: PLAYER(trace), econ, econKey: key, rivals: rivals.length, diffusion, live,
+      seenRebuilt: rebuildSeen, seenCheck: { arrivals: diffArrivals.length, explained }, counts, marks, series, projection, actual, runs, drive, settingsDiff,
       certTurn: trace.cert ? trace.cert[0] : null, built: trace.built || null, closeTurn: haveT[F.CLOSE] ? haveT[F.CLOSE].turn : null,
       state, snapshot, events, ftlAt, nextEvent, prevEvent, haveAll: haveT,
     };
@@ -264,6 +343,8 @@
       screen.select('insight');
       const sl = $('rp-slider');
       sl.min = g.first; sl.max = g.last; sl.value = g.first;
+      const lp = document.getElementById('rp-legend-proj');
+      if (lp) lp.hidden = !g.projection;
       drawChart();
       show(g.first);
       return true;
@@ -435,12 +516,18 @@
 
     // ---- the summary
     function summary() {
-      const g = S.game, t = g.trace, P = g.projection, T = S.T;
-      const showMethod = S.engine || (g.certTurn && T >= g.certTurn);
+      const g = S.game, t = g.trace, P = g.projection, A = g.actual, T = S.T;
+      const showMethod = S.engine || (g.certTurn && T >= g.certTurn) || (A && T >= A.turn);
       const worldName = { familiar: 'Familiar (atomic) world', Process: 'Process (elemental) world', Substance: 'Substance (elemental) world' }[t.world] || t.world;
       const econ = g.econ >= 0.95 ? 'good economy' : 'average economy (×' + g.econ + ')';
       const fact = (k, v, note, wide) => '<div class="rp-fact' + (wide ? ' is-wide' : '') + '"><dt>' + esc(k) + '</dt><dd>' + v + (note ? '<span class="rp-note">' + esc(note) + '</span>' : '') + '</dd></div>';
-      const vs = P ? (P.vsReference === 0 ? 'level with' : V.turns(Math.abs(P.vsReference)) + (P.vsReference < 0 ? ' sooner than' : ' later than')) + ' base Civ V’s ' + P.reference : '';
+      const vsText = (d, ref) => (d === 0 ? 'level with' : V.turns(Math.abs(d)) + (d < 0 ? ' sooner than' : ' later than')) + ' base Civ V’s ' + ref;
+      const vs = P ? vsText(P.vsReference, P.reference) : A ? vsText(A.delta, A.reference) : '';
+      // a live game's own endgame: the prototypes it committed, the Drive, the launch
+      const worked = g.runs.find(r => r.works), failed = g.runs.filter(r => r.works === false);
+      const victoryNote = A ? (worked ? 'prototype committed on turn ' + worked.committed + ', works on turn ' + worked.to + ', ' : '') + (g.drive ? 'SS FTL Drive ' + V.turns(g.drive.total) + ', ' : '') + '1 to launch: ' + vs
+        : P ? 'projected as victory.py computes it: prototype ' + V.turns(P.protoTurns) + ', SS FTL Drive ' + V.turns(P.driveTurns) + ', 1 to launch: ' + vs
+        : g.live ? 'the log ends on turn ' + g.last + ' before the launch' : 'the race never finished';
       let html = '<h2 class="rp-sum-title">' + esc(worldName) + ' · ' + esc(g.player) + ' player · ' + esc(econ) + '</h2><dl class="rp-facts">' +
         fact('Working method', showMethod ? esc(t.m) : '<span class="rp-dim">hidden until certainty' + (g.certTurn ? ' (turn ' + g.certTurn + ')' : '') + '</span>') +
         fact('Turns logged', g.first + '–' + g.last) +
@@ -449,16 +536,21 @@
         fact('Certainty', g.certTurn ? 'turn ' + g.certTurn : 'not reached') +
         fact('Build complete', g.built ? 'turn ' + g.built : 'not reached') +
         fact('Race finished', g.certTurn && g.built ? 'turn ' + Math.max(g.certTurn, g.built) : 'unfinished') +
-        fact('Victory', P ? '<strong>turn ' + P.launch + '</strong>' : 'none', P ? 'prototype ' + V.turns(P.protoTurns) + ', SS FTL Drive ' + V.turns(P.driveTurns) + ', 1 to launch: ' + vs : 'the race never finished', true) +
+        (g.live ? fact('Prototypes', g.runs.length ? esc(g.runs.map(r => r.method + (r.works === true ? ' works' : r.works === false ? ' failed' : ' under way') + (r.to != null ? ' (turn ' + r.to + ')' : '')).join(', ')) : 'none committed',
+          failed.length ? failed.length + ' failed: a failed prototype returns nothing' : '') : '') +
+        fact('Victory', A ? '<strong>turn ' + A.turn + '</strong>' : P ? '<strong>turn ' + P.launch + '</strong>' : 'none', victoryNote, true) +
         '</dl>';
       const notes = [];
-      if (g.seenRebuilt) notes.push('Rows seen in rivals’ hands are rebuilt from the bundle’s rival pool (the log does not record them): ' + g.seenCheck.explained + ' of ' + g.seenCheck.arrivals + ' arrivals from abroad explained.');
+      if (g.seenRebuilt) notes.push((g.seenCheck.explained < g.seenCheck.arrivals ? 'Warning: only ' + g.seenCheck.explained + ' of ' + g.seenCheck.arrivals + ' arrivals from abroad are explained by the rows seen in rivals’ hands, which are rebuilt from the bundle’s rival pool (the log does not record them): the log was probably made with other rivals or diffusion settings, so rows seen abroad may show on the wrong turns.'
+        : 'Rows seen in rivals’ hands are rebuilt from the bundle’s rival pool (the log does not record them): ' + g.seenCheck.explained + ' of ' + g.seenCheck.arrivals + ' arrivals from abroad explained.'));
+      if (!g.diffusion) notes.push('Played without knowledge diffusion: no rivals.');
       if (g.settingsDiff.length) notes.push('Made under different settings from the bundle: ' + g.settingsDiff.join('; ') + '.');
       if (!t.records[0].prog) notes.push('This log predates the fuller trace: meters, flows and lost ideas are missing.');
       if (notes.length) html += '<p class="rp-notes">' + notes.map(esc).join(' ') + '</p>';
       $('rp-summary').innerHTML = html;
       $('rp-headline').innerHTML = esc(g.player.charAt(0).toUpperCase() + g.player.slice(1)) + ' player · ' + esc(worldName.replace(' world', '')) + ' · ' + esc(econ) +
-        (P ? ' · victory <strong>turn ' + P.launch + '</strong> (base Civ V: ' + P.reference + ')' : ' · the race did not finish');
+        (A ? ' · victory <strong>turn ' + A.turn + '</strong> (base Civ V: ' + A.reference + ')' : P ? ' · victory <strong>turn ' + P.launch + '</strong>, projected (base Civ V: ' + P.reference + ')' :
+          g.live ? ' · no launch by turn ' + g.last : ' · the race did not finish');
     }
 
     load(samples[0].trace, sampleLabel(samples[0].trace));

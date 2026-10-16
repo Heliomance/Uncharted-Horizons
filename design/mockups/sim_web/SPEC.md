@@ -74,8 +74,22 @@ Read both files; port line by line. Requirements:
   reference on the same income: 305 (good economy) or 380 (average).
 - **API** (suggested): `new UHEngine(bundle, {world, econ, seed, method?, truth?, rivals: true|false|[...], player, game?})`;
   `setFocus(f)`, `requestEndeavour(id)`, `stopEndeavour()`, `commitPrototype(method)`; `step()` → this turn's events;
-  `snapshot()`; `ftl()`; `endeavourQuote(id)` {cost, turns}; `victory`; `serialize()` / `UHEngine.restore(bundle, saved)`
-  (seed + options + the list of choices, replayed). Events: discovered (own / diffusion / Endeavour), revealed (glimpse,
+  `snapshot()`; `ftl()`; `endeavourQuote(id)` {cost, turns}; `prototypeQuote(method)`; `victory`; `serialize()` /
+  `UHEngine.restore(bundle, saved)` (seed + options + the list of choices, replayed); `status(have, clock, failed?)` (w7f's,
+  with the failed prototypes ruled out: by default the game's own); `traceLog(source)`: the game's log (below).
+  The engine refuses what it does not model (a bundle built with W16 on; `runOn: false`). The generalist's default turn limit
+  is the simulator's: 450 on the good economy, 600 on the average one.
+- **Beyond the simulator** (say so wherever fidelity is claimed): a failed prototype rules its method out, so a game is the
+  simulator's only up to its first failed prototype; the prototype takes each turn's own Insight where `victory.py` prices it
+  at the finish turn's income (the live game can launch a turn earlier for the same finish); the FTL hints break equal-cost
+  ties by the lowest row id (w7f's `hint_row` takes `min()` over a set, so its choice depends on Python's hash seed).
+- **The game's log** (`traceLog`, the live game's *Copy log*): w7f.py's TRACE format, with each record's `fund`
+  `['PROTO', method]` while a prototype takes the funded share, `proto` [method, fraction, cost] on those turns, and `seen` the
+  rows first seen in rivals' hands that turn (the harness's own `seen` is always empty: it is measured after its diffusion
+  step); `alive` w7f's status turn by turn with only the prototypes failed by then ruled out; `ends` the Endeavour log
+  [turn, row, start | done | dropped]; `settings` with DIFF, DIFFWAIT, DIFFWAITNET and DIFFSHARE; and the live game's own:
+  `source`, `diffusion`, `maxTurns`, `victory`, `prototypes` [{method, turn, works}], `choices` [{t, a, v}], `drive`
+  {method, start, total, done}. The replay viewer shows a live log's own endgame and projects only a simulator log's. Events: discovered (own / diffusion / Endeavour), revealed (glimpse,
   seen in rivals' hands, CORE), moment passed (revealed rows only in the player's log), path not taken, rediscovered,
   focus entered, era entered (by count, §2), FTL changes ("This bears on the question of how to exceed the speed of
   light."), instrument complete, prototype result, Drive done, victory.
@@ -87,23 +101,32 @@ The state after a turn, from which `view.js` builds the screen:
 ```
 { turn, world, ontology, econ, d, inc, share, funded, endeavour: {id, progress, cost?} | null,
   prototype: {method, progress, cost} | null, drive: {method, turnsLeft} | null, victory: {turn} | null,
+  prototypeResults: [{method, turn, works}], prototypeDone: {method} | null (the replay: a prototype finished this turn),
   have: {id: {turn, via: 'own'|'diffusion'|'endeavour'}}, occurred: [...], glimpsed: [...], seen: [...],
   lost: [...], locked: [...], prog: {id: fraction}, flow: {focus: insight}, events: [...], ftl: {...} | null }
 ```
 
 `seen`: rows first seen held by contacted rivals (the harness's `diff_since` and `diff_unc` keys); they are Revealed.
+`share` is the funded share in force: the turn's own in the replay; in the live game, the coming turn's (its funding card is
+the plan for the next turn: Automatic's pick when nothing is chosen, and no share at all when nothing would be funded).
 
 ## The player's visibility rules (`view.js`), as the earlier mockup applied them (`../research_screen/make_state.py`)
 
-- **Owned**: discovered. **Revealed**: a CORE row whose idea has occurred (its prerequisites are met), a glimpsed idea, or
-  a row seen in rivals' hands. Occurring is hidden (§1.2): a non-CORE idea under study but not revealed is not shown.
+- **Owned**: discovered. **Revealed**: a CORE row whose prerequisites are discovered (and that is not locked out), a glimpsed
+  idea, or a row seen in rivals' hands. Occurring is hidden (§1.2): a non-CORE idea under study but not revealed is not shown.
+  A CORE row shows as under study from the turn its prerequisites are discovered, as Unciv shows a newly available tech: the
+  harness puts it under study at the start of the next turn, before any Insight is spent, so the turn being planned is the
+  first it takes Insight. The engine counts it as revealed from then too (an Endeavour may target it; the FTL screen names
+  it), and the engine view marks it "Occurs next turn".
 - Statuses: owned; `studying` (revealed, occurred); `waiting` (revealed, not occurred, not lost: "Awaiting the idea");
   `closed` (revealed, lost: "Its moment passed — only an Endeavour is certain"); `not_taken` (a revealed alternative
   locked out by its primary: "Path not taken"); `unreach` (revealed, prerequisites not all discovered); `endeavour`.
 - Never shown to the player: odds, tiers on revealed rows (Rare and Unique appear on owned rows only), meters, window
   lengths, per-focus spread figures (only the funded share and the total spread), unknown breakthroughs, World Truths, FTL
-  answers before they are known. Row ids are never shown. Only foci the civilisation has entered are listed (a focus is
-  entered when any of its rows is discoverable or owned).
+  answers before they are known. Row ids are never shown, in effect texts either (`build_bundle.py` cleans them, with the
+  odds and forks of World Truths, edit history and tier notes). Only foci the civilisation has entered are listed (a focus is
+  entered when any of its rows is discoverable or owned). A random live game's seed and game number are not shown until the
+  launch (the game fixes the working method); a typed seed is the designer's option and is shown.
 - Owned rows show their effects (`fx`, `flav`); revealed rows show their conjecture (`conj`) if any, otherwise what they
   need and where.
 - The era shown is the era entered by count (§2: 5 Ancient, 3 Classical, 3 Medieval, 5 Early Modern, 7 Modern, 6 Atomic,

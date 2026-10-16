@@ -26,20 +26,21 @@
     container.appendChild(root);
     let last = null;
 
-    function question(q, live) {
+    // an open item's hint: where progress is possible now (omitted when it is the card's common hint, said once above)
+    const hintText = (hint, common) => hint ? (hint.label === common ? '' : 'Progress is possible now in ' + hint.label + '.') : 'No step towards it can be worked on now.';
+    function question(q, live, common) {
       const m = MARK[q.state] || MARK.open;
       let sub = '';
       if (q.state === 'holds' || q.state === 'fails') sub = (q.state === 'holds' ? 'Confirmed' : 'Disproved') + ' on turn ' + q.turn + (q.instrument ? ', by the ' + q.instrument : '') + '.';
-      else if (q.state === 'awaiting') sub = 'To settle this unanswered question, we’ll need to build ' + (q.instrument ? 'a ' + q.instrument : 'its instrument') + ': ' + V.turns(q.turnsLeft) + ' left.';
+      else if (q.state === 'awaiting') sub = 'To settle this unanswered question, we’ll need to build ' + (q.instrument ? V.withArticle(q.instrument) : 'its instrument') + ': ' + V.turns(q.turnsLeft) + ' left.';
       else if (q.state === 'silent') sub = 'No answer has come.';
-      else if (live && q.hint) sub = 'Progress is possible now in ' + q.hint.label + '.';
-      else if (live) sub = 'No step towards it can be worked on now.';
+      else if (live) sub = hintText(q.hint, common);
       const tested = q.hosts.length ? '<span class="ftl-host">Tested by ' + esc(q.hosts.map(h => h.name).join(' or ')) + (q.merged ? ', which the build needs' : '') + '</span>' : (q.merged ? '<span class="ftl-host">Tested by building it</span>' : '');
       const eng = q.truth != null ? '<span class="ftl-eng">engine: ' + (q.truth ? 'holds' : 'does not hold') + '</span>' : '';
       return '<li class="ftl-q ' + m[1] + '"><span class="ftl-mark" aria-label="' + m[2] + '">' + m[0] + '</span><span class="ftl-qbody"><span class="ftl-qtext">' + esc(q.text) + '</span>' +
         (sub ? '<span class="ftl-sub">' + esc(sub) + '</span>' : '') + tested + eng + '</span></li>';
     }
-    function need(b, live) {
+    function need(b, live, common) {
       let name;
       if (b.met) name = b.power ? b.label + ' (' + b.metName + ')' : b.metName;
       else if (b.power) name = b.label;
@@ -47,7 +48,7 @@
         const named = b.options.filter(Boolean).map(o => o.name);
         name = named.length ? named.join(' or ') : 'A breakthrough not yet revealed';
       }
-      const sub = !b.met && live ? (b.hint ? 'Progress is possible now in ' + b.hint.label + '.' : 'No step towards it can be worked on now.') : '';
+      const sub = !b.met && live ? hintText(b.hint, common) : '';
       return '<li class="ftl-q ' + (b.met ? 'is-ok' : 'is-open') + '"><span class="ftl-mark" aria-label="' + (b.met ? 'Met' : 'Not yet met') + '">' + (b.met ? '✓' : '✗') + '</span><span class="ftl-qbody"><span class="ftl-qtext">' +
         esc(name) + '</span>' + (sub ? '<span class="ftl-sub">' + esc(sub) + '</span>' : '') + '</span></li>';
     }
@@ -69,12 +70,20 @@
         return '<article class="ftl-hyp st-ruled_out' + (h.isTrue ? ' is-true' : '') + '"><header class="ftl-hyp-head"><h3>' + esc(h.title) + '</h3><span class="ftl-standing">Ruled out' +
           (h.ruledTurn ? ' · turn ' + h.ruledTurn : '') + '</span></header><p class="ftl-tagline">' + esc(h.tagline) + '</p><ul class="ftl-list">' + why + '</ul></article>';
       }
-      const qs = h.questions.map(q => question(q, live)).join('');
-      const bs = h.build.map(b => need(b, live)).join('');
+      // the hints of the open items: when two or more agree, the field is named once for the card
+      const hints = live ? h.questions.filter(q => q.state === 'open').map(q => q.hint).concat(h.build.filter(b => !b.met).map(b => b.hint)) : [];
+      const tally = {};
+      for (const x of hints) if (x) tally[x.label] = (tally[x.label] || 0) + 1;
+      const top = Object.keys(tally).sort((a, b) => tally[b] - tally[a])[0];
+      const common = top && tally[top] >= 2 ? top : null;
+      const next = common ? '<p class="ftl-next">Progress on ' + (tally[common] === hints.length ? 'every open item' : 'most open items') + ' is possible now in ' + esc(common) +
+        (tally[common] === hints.length ? '.' : '; the others are marked.') + '</p>' : '';
+      const qs = h.questions.map(q => question(q, live, common)).join('');
+      const bs = h.build.map(b => need(b, live, common)).join('');
       const st = h.proposed ? STANDING[h.standing] + (h.standing === 'ruled_out' && h.ruledTurn ? ' · turn ' + h.ruledTurn : '') : 'Not yet proposed';
       return '<article class="ftl-hyp st-' + h.standing + (h.proposed ? '' : ' is-unproposed') + (h.isTrue ? ' is-true' : '') + '">' +
         '<header class="ftl-hyp-head"><h3>' + esc(h.title) + '</h3><span class="ftl-standing">' + esc(st) + '</span>' + (h.isTrue ? '<span class="uh-tag tag-hidden">Works (engine)</span>' : '') + '</header>' +
-        '<p class="ftl-tagline">' + esc(h.tagline) + (h.proposed ? ' · proposed on turn ' + h.proposedTurn : '') + '</p>' +
+        '<p class="ftl-tagline">' + esc(h.tagline) + (h.proposed ? ' · proposed on turn ' + h.proposedTurn : '') + '</p>' + next +
         '<div class="ftl-cols"><div><h4>Questions</h4><ul class="ftl-list">' + qs + '</ul></div>' +
         '<div><h4>Build needs <span class="ftl-count">' + h.buildMet + ' of ' + h.buildTotal + '</span></h4><ul class="ftl-list">' + bs + '</ul></div></div>' +
         (h.proposed ? proto(h) : '') + '</article>';
@@ -83,8 +92,12 @@
       const P = vm.projection;
       const row = (label, val, cls) => '<div class="ftl-slot ' + (cls || '') + '"><span class="ftl-slot-label">' + esc(label) + '</span><span class="ftl-slot-val">' + esc(val) + '</span></div>';
       let html = '';
-      if (vm.prototype) html += row('Prototype', vm.prototype.method + ': ' + Math.round(100 * (vm.prototype.progress || 0)) + '% built', 'is-on');
+      const res = vm.prototypeResults || [], worked = res.find(r => r.works), failed = res.filter(r => !r.works);
+      const failedText = failed.length ? 'failed: ' + failed.map(r => r.method + ' (turn ' + r.turn + ')').join(', ') : '';
+      if (vm.prototype) html += row('Prototype', vm.prototype.method + ': ' + Math.round(100 * (vm.prototype.progress || 0)) + '% built' + (failedText ? '; ' + failedText : ''), 'is-on');
+      else if (worked) html += row('Prototype', worked.method + ' works (turn ' + worked.turn + ')' + (failedText ? '; ' + failedText : ''), 'is-on');
       else if (P) html += row('Prototype', P.method + ': committed on turn ' + P.fin + ', works on turn ' + P.proto + ' (' + V.turns(P.protoTurns) + ')', 'is-proj');
+      else if (failed.length) html += row('Prototype', failedText + '; none under way');
       else html += row('Prototype', 'none committed');
       if (vm.drive && vm.drive.done) html += row('SS FTL Drive', vm.drive.method + ': built on turn ' + vm.drive.done, 'is-on');
       else if (vm.drive) html += row('SS FTL Drive', vm.drive.method + ': ' + V.turns(vm.drive.turnsLeft) + ' of building left' + (vm.drive.total ? ' (of ' + vm.drive.total + ')' : ''), 'is-on');

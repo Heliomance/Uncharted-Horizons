@@ -5,7 +5,11 @@
 #   average_Substance_Wormhole.json the average player (runavg.sh's settings: the novice on the 0.8 economy), Substance, Wormhole
 # Each is w7f.py's TRACE output for the first game of its method (N=1: the draw that falls to that method), played through
 # scratch_run.sh on the finalised design (defaults.py). The results file each run writes is deleted afterwards.
-# Usage: bash design/mockups/sim_web/make_traces.sh        (about a minute)
+# PYTHONHASHSEED is fixed (1, the value the samples were made under): the novice's and the average player's choices break
+# equal-cost ties in Python's set order (w7f.py's hint_row and the novice's Endeavour candidates), which changes with the
+# hash seed, so without it the same run can give a different game. Each log records it, and the diffusion switch, in its
+# settings (the replay viewer reads DIFF to know whether the game had rivals).
+# Usage: bash design/mockups/sim_web/make_traces.sh        (a few seconds)
 #        GAME=<n> picks the n-th game of each method instead of the first (n from 0).
 set -e
 HERE=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -13,15 +17,18 @@ POWER=$(cd "$HERE/../../simulator/power" && pwd)
 OUT="$HERE/traces"
 mkdir -p "$OUT"
 N=$(( ${GAME:-0} + 1 ))
+export PYTHONHASHSEED=${PYTHONHASHSEED:-1}
 
 trace() {   # trace <out name> <world> <method> <label> VAR=value ...
   local name=$1 world=$2 method=$3 label=$4; shift 4
   env "$@" METHODS="$method" TRACE="$OUT/$name.json" WORKERS=1 \
     bash "$POWER/scratch_run.sh" bash -c "cd '$POWER' && python3 w7f.py $world $N $label" 2>&1 | grep -v "scratch redesign" || true
   rm -f "$POWER/results/w7f_${world}${label}.json"
-  python3 - "$OUT/$name.json" <<'EOF'
-import json, sys
+  python3 - "$OUT/$name.json" "$@" <<'EOF'
+import json, os, sys
 p = sys.argv[1]; t = json.load(open(p))
+run = dict(a.split('=', 1) for a in sys.argv[2:])
+t.setdefault('settings', {}).update(DIFF=run.get('DIFF', '0'), PYTHONHASHSEED=os.environ['PYTHONHASHSEED'])
 json.dump(t, open(p, 'w'), separators=(',', ':'))
 r = t['records']
 print(f"{p}: {t['world']} {t['m']} {t['player']} econ {t['econ']}: {len(r)} turns, {sum(len(x['found']) for x in r)} discovered, "

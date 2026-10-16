@@ -9,6 +9,7 @@
      onOpenFtl(),              // the Faster than light button (shown once Relativity is discovered)
    });
    screen.render(vm);          // draw (or redraw) a view model; selection, filter and collapsed sections persist
+                               // (vm.readOnly: every action shown but disabled, as for a game that is over)
    screen.select(sel);         // select something from outside
    screen.destroy();
 */
@@ -98,14 +99,15 @@
       else if (f.kind === 'endeavour' || f.kind === 'prototype') {
         const pct = Math.round(100 * (f.progress || 0));
         slot = '<span class="uh-fund-slot is-endeavour"><span class="uh-fund-line">' + GLYPH.endeavour + '<span class="uh-fund-name">' + esc(f.name) + '</span><span class="uh-fund-right">' + H.sharePct + '%</span></span>' +
-          '<span class="uh-fund-line"><span>' + (f.kind === 'prototype' ? 'Prototype' : f.done ? 'Completed' : 'Endeavour') + '</span><span class="uh-meter"><span style="width:' + Math.min(100, pct) + '%"></span></span><span>' + pct + '%</span></span></span>';
-      } else slot = '<span class="uh-fund-slot is-none">' + radio(false) + '<span class="uh-fund-name">Nothing funded</span><span class="uh-fund-right">' + H.splitPct + '%</span></span>';
+          '<span class="uh-fund-line"><span>' + (f.kind === 'prototype' ? (f.done ? 'Built' : 'Prototype') : f.done ? 'Completed' : 'Endeavour') + '</span><span class="uh-meter"><span style="width:' + Math.min(100, pct) + '%"></span></span><span>' + pct + '%</span></span></span>';
+      } else slot = '<span class="uh-fund-slot is-none">' + radio(false) + '<span class="uh-fund-name">Nothing funded</span><span class="uh-fund-right">' + H.sharePct + '%</span></span>';
       return '<button type="button" class="uh-fund' + (st.sel === 'insight' ? ' is-sel' : '') + '" data-sel="insight" aria-label="Funding: ' + esc(f.kind === 'focus' ? f.label : f.name || 'nothing') + '">' +
         '<span class="uh-fund-ins">' + GLYPH.insight + '<span>' + ins + ' Insight a turn</span></span>' + slot +
         '<span class="uh-fund-spread"><span>Spread to other foci</span><span>' + (100 - H.sharePct) + '% · ' + V.fmt(H.spreadInsight) + '</span></span></button>';
     }
+    const readOnly = vm => !!opts.readOnly || !!(vm && vm.readOnly);
     function fociList(vm) {
-      const ro = !!opts.readOnly;
+      const ro = readOnly(vm);
       return vm.foci.map(f => {
         const sel = st.sel === 'focus:' + f.name;
         return '<div class="uh-focus' + (f.funded ? ' is-funded' : '') + (sel ? ' is-sel' : '') + '" role="listitem">' +
@@ -139,11 +141,12 @@
       let d = vm.detailOf(st.sel);
       if (!d) { st.sel = 'insight'; d = vm.detailOf('insight'); }
       const g = d.status === 'owned' ? GLYPH.owned : GLYPH[d.status] || GLYPH.insight;
-      const ro = !!opts.readOnly;
+      const ro = readOnly(vm);
       const acts = d.actions.map(a => {
         const enabled = a.enabled && !ro && a.act;
         return '<button type="button" class="uh-act' + (a.act ? '' : ' is-state') + '"' + (a.act ? ' data-act="' + a.act + '" data-arg="' + esc(a.arg || '') + '"' : '') + (enabled ? '' : ' disabled') +
-          (ro && a.act ? ' title="The replay is read-only"' : '') + '><span class="uh-act-l1">' + esc(a.label) + '</span>' + (a.sub ? '<span class="uh-act-l2">' + esc(a.sub) + '</span>' : '') + '</button>';
+          (ro && a.act ? ' title="' + (opts.readOnly ? 'The replay is read-only' : 'The game is over') + '"' : '') + '><span class="uh-act-l1">' + esc(a.label) + '</span>' +
+          (a.sub && !(ro && !opts.readOnly && a.act) ? '<span class="uh-act-l2">' + esc(a.sub) + '</span>' : ro && !opts.readOnly && a.act ? '<span class="uh-act-l2">the game is over</span>' : '') + '</button>';
       }).join('');
       const lines = d.lines.map(l => '<div class="uh-line' + (l.tone ? ' tone-' + l.tone : '') + '">' + esc(l.text) + '</div>').join('');
       const eng = d.engine.length ? '<div class="uh-engine-lines">' + d.engine.map(t => '<div>' + GLYPH.hidden + esc(t) + '</div>').join('') + '</div>' : '';
@@ -175,17 +178,29 @@
       root.className = 'uh-screen' + (opts.readOnly ? ' is-readonly' : '') + (vm.engine ? ' is-engine' : '');
       root.innerHTML =
         '<div class="uh-left">' + fundCard(vm) + '<div class="uh-foci uh-scroll" data-k="foci" role="list" aria-label="Foci">' + fociList(vm) + '</div>' +
-        '<div class="uh-hint">' + radio(false) + '<span>' + (opts.readOnly ? 'the simulated player’s choices' : 'funds a focus') + '</span></div></div>' +
+        '<div class="uh-hint">' + radio(false) + '<span>' + (opts.readOnly ? 'the simulated player’s choices' : vm.readOnly ? 'the game is over' : 'funds a focus') + '</span></div></div>' +
         '<div class="uh-divider" aria-hidden="true"></div>' +
         '<div class="uh-right"><div class="uh-top">' + topBar(vm) + '</div><div class="uh-board uh-scroll" data-k="board">' + board(vm) + '</div></div>' +
         '<div class="uh-bar">' + bar(vm) + '</div>';
       root.querySelectorAll('.uh-scroll').forEach(el => { if (keep[el.dataset.k] != null) el.scrollTop = keep[el.dataset.k]; });
       if (focusKey) { const el = root.querySelector(focusKey); if (el) el.focus({ preventScroll: true }); }
     }
-    function select(sel) {
+    function select(sel, byUser) {
       st.sel = sel || 'insight';
       if (opts.onSelect) opts.onSelect(st.sel);
       render();
+      // on a phone the description and its actions sit below the board: bring them into view when the player picks something
+      if (byUser && st.sel.startsWith('row:') && G.matchMedia && G.matchMedia('(max-width: 760px)').matches) {
+        const acts = root.querySelector('.uh-acts'), desc = root.querySelector('.uh-desc');
+        const target = acts && acts.getBoundingClientRect().bottom > G.innerHeight ? acts : null;
+        if (target) {
+          const reduce = G.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          // the actions' bottom at the window's bottom, unless the description's top would then be off the top
+          const r = target.getBoundingClientRect(), dr = desc ? desc.getBoundingClientRect() : r;
+          const dy = Math.min(r.bottom - G.innerHeight + 12, dr.top - 8);
+          if (dy > 0) G.scrollBy({ top: dy, behavior: reduce ? 'auto' : 'smooth' });
+        }
+      }
     }
     function onClick(e) {
       const t = e.target.closest('button');
@@ -195,13 +210,13 @@
       if (t.dataset.act) {
         const act = t.dataset.act, arg = t.dataset.arg;
         if (act === 'ftl') { if (opts.onOpenFtl) opts.onOpenFtl(); return; }
-        if (opts.readOnly) return;
+        if (readOnly(st.vm)) return;
         if (act === 'fund' && opts.onFund) opts.onFund(arg);
         else if (act === 'endeavour' && opts.onEndeavour) opts.onEndeavour(arg);
         else if (act === 'stop' && opts.onStopEndeavour) opts.onStopEndeavour();
         return;
       }
-      if (t.dataset.sel) select(t.dataset.sel);
+      if (t.dataset.sel) select(t.dataset.sel, true);
     }
     root.addEventListener('click', onClick);
     return { render, select, get selected() { return st.sel; }, destroy() { root.removeEventListener('click', onClick); root.remove(); }, root };
