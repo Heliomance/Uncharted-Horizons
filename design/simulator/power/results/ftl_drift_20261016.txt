@@ -1,0 +1,542 @@
+Why the FTL methods drifted apart after round two (16 Oct 2026, on v3.125). Tamsin: "the FTL methods previously were in
+line with each other with the current shapes. Why have our changes affected some more than others?"
+
+The shapes are unchanged since round two (the build-route rows of v3.112 and v3.125 differ only in RC02 -> RC01, Quantum
+Field Theory's prerequisites, and Optimisation Theory's added Programmable Computer). What changed is the cost of a step
+taken in sequence. Every Space-era build row is STANDARD: its idea has to occur before it can be studied, and the wait
+starts when its prerequisites are met. In a serial chain the waits add up; a row that opens long before it is needed
+occurs during the slack and costs nothing. Wormhole, Plenum and Tunnelling end in three Space-era steps one after another,
+Warp in two (with an early-opening alternative), Hyperspace in one after an early row, Tachyonic in none.
+
+At round two the simulator's W16 made a Space-era STANDARD idea the player was pursuing occur at once (stronger than the
+rule the document wrote: a funded focus keeps its window open, FUNDEDWIN=1, which measures as no rule at all), so a step
+cost only its study, 1-12 turns. Three other things also hid the depth: development reached the Space era only around
+turn 285, after the races, so every Space-era row waited for the ahead-of-time premium anyway; the players Endeavoured
+fresh chain steps; and the rivals diffusion replayed came from an old, fast pool that completed 47-75% of the weaker
+players' Hyperspace, Plenum and Tunnelling builds. v3.120 dropped W16 (its cost was shown pooled only: 8 turns for the
+expert; per method it was Warp +3.5, Wormhole +11, Hyperspace +7.5, Tachyonic +7, Tunnelling +10, familiar expert). v3.122
+doubled the Space-era idea window (WINTURNS: 28 turns for a STANDARD idea instead of 14, so 6.6% a turn instead of 12.7%;
+mean wait 9.5 against 4.4 turns if it occurs within the window, about 13 against 7 counting loss and rediscovery), put
+development in the Space era from about turn 264, rebuilt the rivals under each version's rules, and capped the expert's
+premium (the theory from about 230-244 to 250).
+
+== 1. The spread at every saved checkpoint (mean over 9 player-world pairs of the largest method-to-field deviation;
+   race finish / victory). Computed independently by two scripts (ftl_drift.py and the check's own), which agree to 0.1.
+   Round two (XF2/NF2/AV2)                 2.6 / 2.1   (no correlation with today's pattern: -0.11)
+   Final confirmation (XF3/NF3/AV3)        3.3 / 3.1   (correlation with today's pattern +0.57: the W18 pools seeded the tilt)
+   cmpEndFix (spread fault fixed)          4.8 / 4.7   (the average player's Process Hyperspace outlier; 3.0 without it)
+   cmpTierAtt0                             3.5 / 3.4
+   cmpB0 (v3.114) / cmpA16 (v3.115)        3.6 / 4.4
+   cmpP120 (v3.120: W16 dropped)           4.8 / 4.6   (correlation +0.67)
+   cmpV122                                13.2 / 13.2  (correlation +0.85)
+   cmpPB (v3.122 timing, every price x1)  12.3
+   cmpV123 / V124 / V125                  11.7 / 11.0 / 10.1 (victory 9.7)
+   Mean finish deviation, all players     Warp   Wormhole Hyperspace Tachyonic Tunnelling Plenum
+     Round two                            +0.6   -0.4     -1.1       +0.4      +0.5       +0.7
+     Final confirmation                   -0.9   +1.0     -0.8       -2.5      +3.0       +1.4
+     v3.120                               -3.1   +1.0     +0.4       -2.3      +5.0       +4.4
+     v3.125                               -5.7   +7.4     +2.4       -6.2      +4.7       +9.2
+
+== 2. The ladder: v3.125 with one change since round two put back at a time (all 15 conditions, three players, 60 games
+   a cell; victory against base Civ V's 305 / 305 / 380). Labels _cmp<label><X|N|A>_<method>; the files are not kept.
+   Setting (switches)                                         Largest  RMS   Victory          Unfinished
+   v3.125                                                       9.7    6.1   304 / 307 / 381  0
+   W16 as simulated (W16=1), v3.125's rivals (DW16)             3.6    2.3   295 / 299 / 373  0
+   W16 as simulated, rivals made under it (DW16p; make_pool W16) 2.9   1.8   295 / 299 / 372  0
+   W16 as written (FUNDEDWIN=1) (DFW)                           9.7    6.2   304 / 307 / 380  0
+   Space-era window back to 28 turns, own rivals (DWIN;
+     WINTURNS=...,Space:28; make_pool WIN28)                    6.7    4.1   301 / 302 / 376  0
+   The old era timing, own rivals (DTIME; DEVENDS= WINTURNS=
+     ERAPRICE=, i.e. the era model for every era; make_pool OLDT) 6.6  4.2   307 / 308 / 384  0
+   The old rival pool (DPOOL; POOLTAG= )                        8.0    5.1   306 / 310 / 385  0
+   Endeavours on ideas under study (DEU; ENDUNOCC=0)           10.9    6.9   304 / 311 / 387  0
+   Space price x0.8, own rivals (DSP08; make_pool SP08)         9.7    6.1   300 / 303 / 374  0
+   The old expert (DEXPX; runcell.sh ... ENDRULE=active EXPCAP=), expert only: largest 10.7 -> 7.7 (W16: 2.5)
+   Reading: W16 alone puts the methods back in line; the Space-era window is about a third of the drift and the era
+   timing's effect is its window; the expert's cap and the rebuilt rivals are smaller parts; prices and Endeavours none.
+   W16 also shortens the science victory by 6-10 turns, outside the 5-turn limit, so it is a mechanism, not a fix as it
+   stands. The old balanced state was not at parity either by today's costing: XF3/NF3/AV3 give 300 / 311 / 386.
+
+== 3. The expert's chain steps with and without W16: median discovery turn of each build row and, in brackets, median
+   turns from its prerequisites met to its discovery (ftl_balance.py --chains).
+-- v3.125
+  familiar  Wormhole   RC01 176 (28) | QP08 251 (38) | QP11 266 (12) | MS08 280 (14) | RC04 234 (22) | QP12 252 (39) | MA13 173 (27) | MS17 297 (16)
+  familiar  Hyperspace QP08 250 (38) | MA13 173 (27) | ES06 238 (17) | ES07 284 (19) | ES08 283 (35) | MA19 288 (17) | MA15 271 (32)
+  familiar  Tunnelling QP02 207 (14) | CP10 282 (17) | MS02 227 (19) | GN05 297 (41) | QP14 269 (11) | CP21 292 (10) | CP16 265 (11) | QP07 251 (22)
+  familiar  Tachyonic  QP06 233 (20) | QP08 250 (37) | SE02 266 (15) | ES06 240 (19) | ES07 282 (10) | ES08 276 (44) | NP15 276 (36) | EL11 222 (32)
+  Process   Warp       RC01 175 (28) | QM-E27 250 (35) | QM-E06 266 (14) | MS08 280 (12) | ES07 272 (28) | ES15 244 (36) | QM-E05 252 (42) | ES18 273 (48) | EL11 224 (32)
+  Process   Wormhole   RC01 176 (29) | QM-E27 251 (35) | QM-E06 264 (14) | MS08 279 (10) | RC04 234 (25) | QM-E13 252 (44) | MA13 175 (29) | MS17 300 (21)
+  Process   Hyperspace QM-E27 251 (35) | MA13 176 (30) | ES07 275 (34) | ES15 254 (44) | QM-E05 252 (42) | MA19 289 (13) | MA15 273 (31)
+  Process   Tachyonic  QM-E17 243 (27) | QM-E27 251 (36) | ES07 268 (26) | ES15 246 (38) | QM-E05 254 (43) | SE02 272 (14) | TH20 281 (26) | EL11 225 (34)
+  Process   Plenum     QM-E27 252 (36) | MS02 227 (17) | QM-E19 268 (16) | QM-E23 286 (16) | AE20 298 (10) | AE14 262 (19) | RK07 260 (19)
+  Substance Warp       RC01 174 (26) | QM-E27 252 (35) | QM-E06 268 (16) | MS08 281 (11) | ES07 272 (30) | ES15 258 (50) | QM-E05 252 (42) | ES18 273 (49) | EL11 224 (34)
+  Substance Wormhole   RC01 175 (29) | QM-E27 251 (35) | QM-E06 266 (16) | MS08 282 (13) | RC04 237 (26) | QM-E13 252 (44) | MA13 175 (28) | MS17 300 (16)
+  Substance Hyperspace QM-E27 250 (34) | MA13 176 (30) | ES07 270 (32) | ES15 259 (49) | QM-E05 252 (44) | MA19 292 (16) | MA15 274 (33)
+  Substance Tachyonic  QM-E17 245 (28) | QM-E27 251 (34) | ES07 270 (30) | ES15 246 (37) | QM-E05 252 (43) | SE02 273 (16) | TH20 282 (28) | EL11 226 (35)
+  Substance Plenum     QM-E27 251 (35) | MS02 228 (20) | QM-E19 268 (15) | QM-E23 290 (19) | AE20 298 (8) | AE14 263 (22) | RK07 258 (20)
+
+-- v3.125 with W16 as simulated, rivals made under it (DW16p)
+
+  familiar  Warp       RC01 177 (30) | QP08 251 (38) | QP11 259 (7) | MS08 267 (8) | ES06 239 (18) | ES07 268 (15) | ES08 272 (48) | ES18 270 (48) | EL11 224 (32)
+  familiar  Wormhole   RC01 176 (28) | QP08 251 (38) | QP11 259 (7) | MS08 266 (7) | RC04 235 (22) | QP12 250 (38) | MA13 173 (27) | MS17 270 (4)
+  familiar  Hyperspace QP08 251 (38) | MA13 173 (27) | ES06 239 (18) | ES07 256 (26) | MA19 271 (2) | MA15 269 (31)
+  familiar  Tunnelling QP02 207 (14) | CP10 271 (5) | MS02 227 (19) | QP14 265 (6) | CP21 274 (3) | CP16 265 (11) | QP07 252 (23)
+  familiar  Tachyonic  QP06 236 (22) | QP08 251 (38) | SE02 266 (12) | ES06 240 (18) | ES07 256 (22) | NP15 274 (35) | EL11 222 (32)
+  Process   Warp       RC01 175 (28) | QM-E27 251 (34) | QM-E06 266 (15) | MS08 271 (4) | ES07 273 (30) | ES15 242 (33) | QM-E05 250 (41) | ES18 274 (49) | EL11 225 (34)
+  Process   Wormhole   RC01 176 (29) | QM-E27 251 (34) | QM-E06 267 (16) | MS08 271 (4) | RC04 236 (26) | QM-E13 250 (40) | MA13 175 (29) | MS17 277 (6)
+  Process   Hyperspace QM-E27 251 (34) | MA13 176 (30) | ES07 277 (39) | ES15 241 (32) | QM-E05 250 (40) | MA19 277 (2) | MA15 274 (31)
+  Process   Tachyonic  QM-E17 245 (28) | QM-E27 251 (35) | ES07 266 (30) | ES15 242 (34) | QM-E05 250 (39) | SE02 272 (14) | TH20 280 (28) | EL11 224 (34)
+  Process   Plenum     QM-E27 252 (34) | MS02 228 (19) | QM-E19 268 (13) | QM-E23 275 (7) | AE20 279 (3) | AE14 261 (18) | RK07 257 (14)
+  Substance Warp       RC01 174 (26) | QM-E27 252 (34) | QM-E06 268 (15) | MS08 273 (6) | ES07 274 (34) | ES15 266 (56) | QM-E05 251 (41) | ES18 276 (51) | EL11 226 (35)
+  Substance Wormhole   RC01 175 (29) | QM-E27 252 (34) | QM-E06 268 (16) | MS08 272 (5) | RC04 236 (27) | QM-E13 250 (42) | MA13 175 (28) | MS17 278 (5)
+  Substance Hyperspace QM-E27 252 (35) | MA13 176 (30) | ES07 258 (23) | ES15 244 (34) | QM-E05 251 (41) | MA19 276 (2) | MA15 274 (32)
+  Substance Tachyonic  QM-E17 248 (28) | QM-E27 252 (33) | ES07 268 (19) | ES15 242 (32) | QM-E05 250 (39) | SE02 272 (12) | TH20 279 (29) | EL11 227 (36)
+  Substance Plenum     QM-E27 252 (34) | MS02 229 (21) | QM-E19 266 (13) | QM-E23 276 (8) | AE20 278 (3) | AE14 261 (17) | RK07 257 (13)
+
+== 4. The ladder's spreads in full (ftl_sync.py)
+-- sync_DW16.txt
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), DW16 295 (-10))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    DW16   field   291 | Warp   -2 (67%)  Wormh   -1 (62%)  Hyper   +0 (55%)  Tachy   +4 (32%)  Tunne   +3 (35%) | max   4, rms  2.4
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    DW16   field   296 | Warp   -3 (70%)  Wormh   +0 (51%)  Hyper   +0 (54%)  Tachy   +1 (36%)  Plenu   +1 (38%) | max   3, rms  1.5
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    DW16   field   296 | Warp   -1 (64%)  Wormh   +0 (53%)  Hyper   -0 (58%)  Tachy   +1 (37%)  Plenu   +2 (39%) | max   2, rms  0.9
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), DW16 299 (-6))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    DW16   field   297 | Warp   -2 (67%)  Wormh   -2 (64%)  Hyper   +1 (42%)  Tachy   +0 (52%)  Tunne   +4 (24%) | max   4, rms  2.2
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    DW16   field   300 | Warp   -3 (69%)  Wormh   +1 (47%)  Hyper   +2 (45%)  Tachy   -1 (58%)  Plenu   +3 (30%) | max   3, rms  2.1
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    DW16   field   300 | Warp   -2 (61%)  Wormh   +1 (50%)  Hyper   +1 (47%)  Tachy   -2 (63%)  Plenu   +4 (30%) | max   4, rms  2.3
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), DW16 373 (-7))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    DW16   field   370 | Warp   -3 (65%)  Wormh   -4 (69%)  Hyper   +1 (40%)  Tachy   +0 (54%)  Tunne   +5 (22%) | max   5, rms  3.3
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    DW16   field   374 | Warp   -4 (72%)  Wormh   +1 (44%)  Hyper   +1 (45%)  Tachy   -2 (57%)  Plenu   +4 (31%) | max   4, rms  2.6
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    DW16   field   375 | Warp   -2 (62%)  Wormh   +2 (44%)  Hyper   +0 (47%)  Tachy   -4 (64%)  Plenu   +4 (33%) | max   4, rms  2.9
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  DW16   largest  3.6, rms  2.3; win shares 22%-72%; unfinished 0 of 2700 games
+-- sync_DW16p.txt
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), DW16 295 (-10), DW16p 295 (-10))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    DW16   field   291 | Warp   -2 (67%)  Wormh   -1 (62%)  Hyper   +0 (55%)  Tachy   +4 (32%)  Tunne   +3 (35%) | max   4, rms  2.4
+    DW16p  field   292 | Warp   -2 (63%)  Wormh   -3 (65%)  Hyper   -1 (53%)  Tachy   +2 (37%)  Tunne   +2 (31%) | max   3, rms  2.2
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    DW16   field   296 | Warp   -3 (70%)  Wormh   +0 (51%)  Hyper   +0 (54%)  Tachy   +1 (36%)  Plenu   +1 (38%) | max   3, rms  1.5
+    DW16p  field   296 | Warp   -2 (71%)  Wormh   +0 (50%)  Hyper   +0 (51%)  Tachy   +2 (36%)  Plenu   +0 (42%) | max   2, rms  1.4
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    DW16   field   296 | Warp   -1 (64%)  Wormh   +0 (53%)  Hyper   -0 (58%)  Tachy   +1 (37%)  Plenu   +2 (39%) | max   2, rms  0.9
+    DW16p  field   296 | Warp   -1 (61%)  Wormh   +0 (53%)  Hyper   -0 (57%)  Tachy   +2 (34%)  Plenu   +1 (45%) | max   2, rms  1.1
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), DW16 299 (-6), DW16p 299 (-6))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    DW16   field   297 | Warp   -2 (67%)  Wormh   -2 (64%)  Hyper   +1 (42%)  Tachy   +0 (52%)  Tunne   +4 (24%) | max   4, rms  2.2
+    DW16p  field   297 | Warp   -1 (62%)  Wormh   -2 (72%)  Hyper   +0 (42%)  Tachy   +0 (51%)  Tunne   +3 (23%) | max   3, rms  1.7
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    DW16   field   300 | Warp   -3 (69%)  Wormh   +1 (47%)  Hyper   +2 (45%)  Tachy   -1 (58%)  Plenu   +3 (30%) | max   3, rms  2.1
+    DW16p  field   300 | Warp   -3 (66%)  Wormh   +0 (49%)  Hyper   +0 (44%)  Tachy   -2 (60%)  Plenu   +1 (30%) | max   3, rms  1.7
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    DW16   field   300 | Warp   -2 (61%)  Wormh   +1 (50%)  Hyper   +1 (47%)  Tachy   -2 (63%)  Plenu   +4 (30%) | max   4, rms  2.3
+    DW16p  field   300 | Warp   -2 (66%)  Wormh   +2 (40%)  Hyper   +0 (52%)  Tachy   -2 (65%)  Plenu   +2 (27%) | max   2, rms  1.8
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), DW16 373 (-7), DW16p 372 (-8))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    DW16   field   370 | Warp   -3 (65%)  Wormh   -4 (69%)  Hyper   +1 (40%)  Tachy   +0 (54%)  Tunne   +5 (22%) | max   5, rms  3.3
+    DW16p  field   370 | Warp   -2 (63%)  Wormh   -4 (73%)  Hyper   +1 (38%)  Tachy   -1 (54%)  Tunne   +3 (23%) | max   4, rms  2.5
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    DW16   field   374 | Warp   -4 (72%)  Wormh   +1 (44%)  Hyper   +1 (45%)  Tachy   -2 (57%)  Plenu   +4 (31%) | max   4, rms  2.6
+    DW16p  field   373 | Warp   -3 (67%)  Wormh   +0 (53%)  Hyper   -1 (43%)  Tachy   -2 (58%)  Plenu   +1 (29%) | max   3, rms  1.7
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    DW16   field   375 | Warp   -2 (62%)  Wormh   +2 (44%)  Hyper   +0 (47%)  Tachy   -4 (64%)  Plenu   +4 (33%) | max   4, rms  2.9
+    DW16p  field   374 | Warp   -2 (68%)  Wormh   +2 (40%)  Hyper   +0 (48%)  Tachy   -3 (64%)  Plenu   +2 (30%) | max   3, rms  2.0
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  DW16   largest  3.6, rms  2.3; win shares 22%-72%; unfinished 0 of 2700 games
+  DW16p  largest  2.9, rms  1.8; win shares 23%-73%; unfinished 0 of 2700 games
+-- sync_DFW.txt
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), DFW 304 (-1), DW16p 295 (-10))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    DFW    field   301 | Warp   -5 (75%)  Wormh  +12 (26%)  Hyper   +3 (45%)  Tachy   -5 (73%)  Tunne   +6 (31%) | max  12, rms  6.8
+    DW16p  field   292 | Warp   -2 (63%)  Wormh   -3 (65%)  Hyper   -1 (53%)  Tachy   +2 (37%)  Tunne   +2 (31%) | max   3, rms  2.2
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    DFW    field   305 | Warp   -6 (76%)  Wormh   +6 (31%)  Hyper   +1 (51%)  Tachy   -4 (67%)  Plenu  +12 (25%) | max  12, rms  6.7
+    DW16p  field   296 | Warp   -2 (71%)  Wormh   +0 (50%)  Hyper   +0 (51%)  Tachy   +2 (36%)  Plenu   +0 (42%) | max   2, rms  1.4
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    DFW    field   307 | Warp   -6 (69%)  Wormh  +11 (33%)  Hyper   +2 (48%)  Tachy   -6 (71%)  Plenu   +9 (29%) | max  11, rms  7.4
+    DW16p  field   296 | Warp   -1 (61%)  Wormh   +0 (53%)  Hyper   -0 (57%)  Tachy   +2 (34%)  Plenu   +1 (45%) | max   2, rms  1.1
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), DFW 307 (+2), DW16p 299 (-6))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    DFW    field   304 | Warp   -5 (72%)  Wormh   +9 (30%)  Hyper   +6 (36%)  Tachy   -5 (69%)  Tunne   +2 (43%) | max   9, rms  5.8
+    DW16p  field   297 | Warp   -1 (62%)  Wormh   -2 (72%)  Hyper   +0 (42%)  Tachy   +0 (51%)  Tunne   +3 (23%) | max   3, rms  1.7
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    DFW    field   306 | Warp   -5 (77%)  Wormh  +10 (32%)  Hyper   +2 (50%)  Tachy   -2 (65%)  Plenu  +16 (26%) | max  16, rms  8.5
+    DW16p  field   300 | Warp   -3 (66%)  Wormh   +0 (49%)  Hyper   +0 (44%)  Tachy   -2 (60%)  Plenu   +1 (30%) | max   3, rms  1.7
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    DFW    field   310 | Warp   -0 (60%)  Wormh   +3 (40%)  Hyper   +2 (44%)  Tachy   -6 (73%)  Plenu   +6 (33%) | max   6, rms  4.3
+    DW16p  field   300 | Warp   -2 (66%)  Wormh   +2 (40%)  Hyper   +0 (52%)  Tachy   -2 (65%)  Plenu   +2 (27%) | max   2, rms  1.8
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), DFW 380 (+0), DW16p 372 (-8))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    DFW    field   377 | Warp   -6 (65%)  Wormh   +5 (40%)  Hyper   +4 (41%)  Tachy   -5 (66%)  Tunne   +4 (38%) | max   6, rms  4.7
+    DW16p  field   370 | Warp   -2 (63%)  Wormh   -4 (73%)  Hyper   +1 (38%)  Tachy   -1 (54%)  Tunne   +3 (23%) | max   4, rms  2.5
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    DFW    field   381 | Warp   -8 (79%)  Wormh   +8 (36%)  Hyper   +3 (48%)  Tachy   -4 (63%)  Plenu  +10 (24%) | max  10, rms  7.0
+    DW16p  field   373 | Warp   -3 (67%)  Wormh   +0 (53%)  Hyper   -1 (43%)  Tachy   -2 (58%)  Plenu   +1 (29%) | max   3, rms  1.7
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    DFW    field   384 | Warp   -1 (58%)  Wormh   +4 (43%)  Hyper   +1 (46%)  Tachy   -6 (69%)  Plenu   +6 (33%) | max   6, rms  4.2
+    DW16p  field   374 | Warp   -2 (68%)  Wormh   +2 (40%)  Hyper   +0 (48%)  Tachy   -3 (64%)  Plenu   +2 (30%) | max   3, rms  2.0
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  DFW    largest  9.7, rms  6.2; win shares 24%-79%; unfinished 0 of 2700 games
+  DW16p  largest  2.9, rms  1.8; win shares 23%-73%; unfinished 0 of 2700 games
+-- sync_DWIN.txt
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), DWIN 301 (-4), DW16p 295 (-10))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    DWIN   field   297 | Warp   -5 (78%)  Wormh   +2 (45%)  Hyper   +3 (41%)  Tachy   -2 (64%)  Tunne   +7 (22%) | max   7, rms  4.3
+    DW16p  field   292 | Warp   -2 (63%)  Wormh   -3 (65%)  Hyper   -1 (53%)  Tachy   +2 (37%)  Tunne   +2 (31%) | max   3, rms  2.2
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    DWIN   field   301 | Warp   -4 (72%)  Wormh   +4 (35%)  Hyper   +0 (53%)  Tachy   -3 (69%)  Plenu   +7 (22%) | max   7, rms  4.3
+    DW16p  field   296 | Warp   -2 (71%)  Wormh   +0 (50%)  Hyper   +0 (51%)  Tachy   +2 (36%)  Plenu   +0 (42%) | max   2, rms  1.4
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    DWIN   field   301 | Warp   -3 (72%)  Wormh   +6 (31%)  Hyper   +0 (53%)  Tachy   -3 (67%)  Plenu   +7 (27%) | max   7, rms  4.4
+    DW16p  field   296 | Warp   -1 (61%)  Wormh   +0 (53%)  Hyper   -0 (57%)  Tachy   +2 (34%)  Plenu   +1 (45%) | max   2, rms  1.1
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), DWIN 302 (-3), DW16p 299 (-6))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    DWIN   field   301 | Warp   -4 (67%)  Wormh   +2 (43%)  Hyper   +0 (50%)  Tachy   -3 (61%)  Tunne   +6 (29%) | max   6, rms  3.7
+    DW16p  field   297 | Warp   -1 (62%)  Wormh   -2 (72%)  Hyper   +0 (42%)  Tachy   +0 (51%)  Tunne   +3 (23%) | max   3, rms  1.7
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    DWIN   field   303 | Warp   -2 (62%)  Wormh   +4 (40%)  Hyper   -1 (59%)  Tachy   -3 (70%)  Plenu   +9 (19%) | max   9, rms  4.7
+    DW16p  field   300 | Warp   -3 (66%)  Wormh   +0 (49%)  Hyper   +0 (44%)  Tachy   -2 (60%)  Plenu   +1 (30%) | max   3, rms  1.7
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    DWIN   field   304 | Warp   -2 (59%)  Wormh   +1 (45%)  Hyper   +2 (45%)  Tachy   -5 (74%)  Plenu   +6 (26%) | max   6, rms  3.9
+    DW16p  field   300 | Warp   -2 (66%)  Wormh   +2 (40%)  Hyper   +0 (52%)  Tachy   -2 (65%)  Plenu   +2 (27%) | max   2, rms  1.8
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), DWIN 376 (-4), DW16p 372 (-8))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    DWIN   field   374 | Warp   -2 (63%)  Wormh   +1 (48%)  Hyper   +1 (44%)  Tachy   -4 (65%)  Tunne   +4 (31%) | max   4, rms  2.8
+    DW16p  field   370 | Warp   -2 (63%)  Wormh   -4 (73%)  Hyper   +1 (38%)  Tachy   -1 (54%)  Tunne   +3 (23%) | max   4, rms  2.5
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    DWIN   field   377 | Warp   -2 (63%)  Wormh   +5 (39%)  Hyper   -1 (56%)  Tachy   -5 (70%)  Plenu   +7 (21%) | max   7, rms  4.6
+    DW16p  field   373 | Warp   -3 (67%)  Wormh   +0 (53%)  Hyper   -1 (43%)  Tachy   -2 (58%)  Plenu   +1 (29%) | max   3, rms  1.7
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    DWIN   field   379 | Warp   +0 (52%)  Wormh   +0 (47%)  Hyper   +0 (47%)  Tachy   -7 (78%)  Plenu   +6 (26%) | max   7, rms  4.3
+    DW16p  field   374 | Warp   -2 (68%)  Wormh   +2 (40%)  Hyper   +0 (48%)  Tachy   -3 (64%)  Plenu   +2 (30%) | max   3, rms  2.0
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  DWIN   largest  6.7, rms  4.1; win shares 19%-78%; unfinished 0 of 2700 games
+  DW16p  largest  2.9, rms  1.8; win shares 23%-73%; unfinished 0 of 2700 games
+-- sync_DPOOL_DEU.txt
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), DPOOL 306 (+1), DEU 304 (-1))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    DPOOL  field   305 | Warp   -8 (74%)  Wormh   +7 (30%)  Hyper   +2 (51%)  Tachy   -6 (68%)  Tunne   +9 (27%) | max   9, rms  6.8
+    DEU    field   301 | Warp   -5 (74%)  Wormh  +12 (28%)  Hyper   +2 (48%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.0
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    DPOOL  field   305 | Warp   -6 (73%)  Wormh   +8 (28%)  Hyper   -1 (52%)  Tachy   -3 (63%)  Plenu   +6 (33%) | max   8, rms  5.3
+    DEU    field   303 | Warp   -4 (79%)  Wormh  +14 (26%)  Hyper   +2 (52%)  Tachy   -2 (63%)  Plenu  +12 (29%) | max  14, rms  8.2
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    DPOOL  field   307 | Warp   -6 (78%)  Wormh  +14 (22%)  Hyper   +0 (52%)  Tachy   -4 (65%)  Plenu   +5 (33%) | max  14, rms  7.6
+    DEU    field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (48%)  Tachy   -6 (70%)  Plenu   +7 (31%) | max   8, rms  6.5
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), DPOOL 310 (+5), DEU 311 (+6))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    DPOOL  field   310 | Warp   -4 (64%)  Wormh   +2 (38%)  Hyper   +1 (48%)  Tachy   -6 (65%)  Tunne   +3 (35%) | max   6, rms  3.6
+    DEU    field   308 | Warp   -2 (68%)  Wormh  +10 (32%)  Hyper   +5 (42%)  Tachy   -3 (68%)  Tunne   +0 (41%) | max  10, rms  5.1
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    DPOOL  field   309 | Warp   -4 (67%)  Wormh   +6 (32%)  Hyper   +1 (43%)  Tachy   -6 (69%)  Plenu   +4 (39%) | max   6, rms  4.7
+    DEU    field   310 | Warp   -8 (84%)  Wormh  +12 (23%)  Hyper   +0 (51%)  Tachy   -3 (67%)  Plenu  +10 (26%) | max  12, rms  8.1
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    DPOOL  field   311 | Warp   -7 (76%)  Wormh   +5 (32%)  Hyper   +1 (48%)  Tachy   -3 (58%)  Plenu   +2 (36%) | max   7, rms  4.2
+    DEU    field   313 | Warp   +0 (65%)  Wormh   +6 (40%)  Hyper   +9 (39%)  Tachy   -6 (73%)  Plenu   +3 (32%) | max   9, rms  5.8
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), DPOOL 385 (+5), DEU 387 (+7))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    DPOOL  field   384 | Warp   -5 (63%)  Wormh   +5 (34%)  Hyper   +1 (49%)  Tachy   -7 (68%)  Tunne   +5 (36%) | max   7, rms  5.0
+    DEU    field   384 | Warp   -2 (69%)  Wormh   +6 (40%)  Hyper   +8 (30%)  Tachy   -6 (74%)  Tunne   +2 (36%) | max   8, rms  5.6
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    DPOOL  field   385 | Warp   -6 (73%)  Wormh   +5 (34%)  Hyper   +1 (44%)  Tachy   -2 (60%)  Plenu   +3 (39%) | max   6, rms  3.8
+    DEU    field   385 | Warp  -11 (83%)  Wormh   +8 (28%)  Hyper   +2 (48%)  Tachy   -5 (71%)  Plenu  +12 (20%) | max  12, rms  8.5
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    DPOOL  field   385 | Warp   -8 (78%)  Wormh   +4 (39%)  Hyper   +3 (43%)  Tachy   -2 (52%)  Plenu   +2 (38%) | max   8, rms  4.5
+    DEU    field   390 | Warp   -2 (65%)  Wormh   +8 (38%)  Hyper  +12 (34%)  Tachy   -6 (79%)  Plenu   +4 (34%) | max  12, rms  7.6
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  DPOOL  largest  8.0, rms  5.1; win shares 22%-78%; unfinished 0 of 2700 games
+  DEU    largest 10.9, rms  6.9; win shares 20%-84%; unfinished 0 of 2700 games
+-- sync_DTIME_DSP08.txt
+
+=== expert (all 15 conditions against base Civ V's 305: V125 304 (-1), DTIME 307 (+2), DSP08@0.8 300 (-5))
+  familiar
+    V125   field   301 | Warp   -5 (74%)  Wormh  +12 (29%)  Hyper   +3 (46%)  Tachy   -5 (72%)  Tunne   +7 (29%) | max  12, rms  7.1
+    DTIME  field   304 | Warp   -5 (78%)  Wormh   +4 (34%)  Hyper   +5 (36%)  Tachy   -4 (72%)  Tunne   +5 (29%) | max   5, rms  4.6
+    DSP08@0.8 field   298 | Warp   -2 (65%)  Wormh  +10 (30%)  Hyper   +2 (49%)  Tachy   -8 (77%)  Tunne  +10 (30%) | max  10, rms  7.8
+  Process
+    V125   field   304 | Warp   -5 (78%)  Wormh  +12 (27%)  Hyper   +2 (50%)  Tachy   -3 (66%)  Plenu  +10 (29%) | max  12, rms  7.5
+    DTIME  field   307 | Warp   -4 (73%)  Wormh   +8 (29%)  Hyper   +2 (50%)  Tachy   -2 (66%)  Plenu   +6 (31%) | max   8, rms  5.0
+    DSP08@0.8 field   299 | Warp   -2 (64%)  Wormh   +6 (40%)  Hyper   -2 (58%)  Tachy   -2 (65%)  Plenu  +14 (23%) | max  14, rms  7.1
+  Substance
+    V125   field   307 | Warp   -7 (68%)  Wormh   +8 (33%)  Hyper   +2 (46%)  Tachy   -7 (72%)  Plenu   +7 (31%) | max   8, rms  6.7
+    DTIME  field   310 | Warp   -4 (68%)  Wormh   +4 (36%)  Hyper   +2 (47%)  Tachy   -5 (74%)  Plenu   +7 (25%) | max   7, rms  4.7
+    DSP08@0.8 field   300 | Warp   -3 (67%)  Wormh  +14 (29%)  Hyper   -2 (52%)  Tachy   -4 (73%)  Plenu  +12 (29%) | max  14, rms  8.7
+
+=== novice (all 15 conditions against base Civ V's 305: V125 307 (+2), DTIME 308 (+4), DSP08@0.8 303 (-2))
+  familiar
+    V125   field   304 | Warp   -4 (71%)  Wormh  +10 (28%)  Hyper   +4 (44%)  Tachy   -5 (68%)  Tunne   +4 (39%) | max  10, rms  6.1
+    DTIME  field   307 | Warp   -4 (65%)  Wormh   +0 (46%)  Hyper   +1 (42%)  Tachy   -5 (62%)  Tunne   +2 (35%) | max   5, rms  3.0
+    DSP08@0.8 field   302 | Warp   -5 (63%)  Wormh   +6 (35%)  Hyper   +2 (46%)  Tachy   -6 (70%)  Tunne   +6 (35%) | max   6, rms  5.4
+  Process
+    V125   field   306 | Warp   -6 (79%)  Wormh   +7 (33%)  Hyper   +4 (47%)  Tachy   -3 (64%)  Plenu  +13 (28%) | max  13, rms  7.4
+    DTIME  field   309 | Warp   -0 (59%)  Wormh   +3 (40%)  Hyper   +2 (51%)  Tachy   -4 (72%)  Plenu   +8 (28%) | max   8, rms  4.0
+    DSP08@0.8 field   303 | Warp   -4 (67%)  Wormh   +2 (44%)  Hyper   -2 (49%)  Tachy   -2 (59%)  Plenu   +7 (31%) | max   7, rms  4.1
+  Substance
+    V125   field   310 | Warp   -2 (62%)  Wormh   +2 (42%)  Hyper   +1 (45%)  Tachy   -6 (70%)  Plenu   +6 (32%) | max   6, rms  4.1
+    DTIME  field   311 | Warp   -2 (60%)  Wormh   +0 (50%)  Hyper   +1 (46%)  Tachy   -4 (74%)  Plenu   +7 (21%) | max   7, rms  3.7
+    DSP08@0.8 field   302 | Warp   -4 (70%)  Wormh   +6 (41%)  Hyper   +8 (38%)  Tachy   -5 (70%)  Plenu   +9 (31%) | max   9, rms  6.8
+
+=== average (all 15 conditions against base Civ V's 380: V125 381 (+1), DTIME 384 (+4), DSP08@0.8 374 (-6))
+  familiar
+    V125   field   378 | Warp   -4 (66%)  Wormh   +6 (39%)  Hyper   +4 (40%)  Tachy   -6 (69%)  Tunne   +4 (36%) | max   6, rms  5.0
+    DTIME  field   380 | Warp   -6 (74%)  Wormh   +0 (48%)  Hyper   +4 (37%)  Tachy   -2 (59%)  Tunne   +6 (32%) | max   6, rms  4.3
+    DSP08@0.8 field   372 | Warp   -2 (57%)  Wormh   +5 (39%)  Hyper   +1 (48%)  Tachy   -8 (74%)  Tunne   +7 (33%) | max   8, rms  5.4
+  Process
+    V125   field   382 | Warp   -8 (80%)  Wormh   +6 (36%)  Hyper   +3 (45%)  Tachy   -4 (65%)  Plenu  +12 (25%) | max  12, rms  7.2
+    DTIME  field   386 | Warp   -2 (55%)  Wormh   -2 (57%)  Hyper   +1 (42%)  Tachy   -5 (70%)  Plenu   +6 (25%) | max   6, rms  3.8
+    DSP08@0.8 field   375 | Warp   -5 (68%)  Wormh   -2 (50%)  Hyper   +1 (45%)  Tachy   +0 (54%)  Plenu   +8 (33%) | max   8, rms  4.1
+  Substance
+    V125   field   383 | Warp   -1 (58%)  Wormh   +2 (45%)  Hyper   +2 (47%)  Tachy   -6 (69%)  Plenu   +7 (31%) | max   7, rms  4.2
+    DTIME  field   386 | Warp   -2 (54%)  Wormh   -2 (56%)  Hyper   +4 (40%)  Tachy   -6 (76%)  Plenu   +7 (25%) | max   7, rms  4.7
+    DSP08@0.8 field   375 | Warp   -3 (68%)  Wormh   +2 (42%)  Hyper   +4 (42%)  Tachy   -4 (66%)  Plenu  +10 (31%) | max  10, rms  5.5
+
+=== summary: mean over worlds and players of the largest deviation (rms)
+  V125   largest  9.7, rms  6.1; win shares 25%-80%; unfinished 0 of 2700 games
+  DTIME  largest  6.6, rms  4.2; win shares 21%-78%; unfinished 0 of 2700 games
+  DSP08@0.8 largest  9.7, rms  6.1; win shares 23%-77%; unfinished 0 of 2700 games
+-- sync_DEXPX.txt
+expert V125   largest 10.7 rms 7.1, all-15 median 304 | fami 301: Warp -5 Worm +12 Hype +3 Tach -5 Tunn +7 | Proc 304: Warp -5 Worm +12 Hype +2 Tach -3 Plen +10 | Subs 307: Warp -7 Worm +8 Hype +2 Tach -7 Plen +7
+expert DEXP   largest 7.7 rms 5.3, all-15 median 306 | fami 303: Warp -4 Worm +6 Hype +0 Tach -4 Tunn +3 | Proc 306: Warp -8 Worm +6 Hype +0 Tach -5 Plen +11 | Subs 309: Warp -5 Worm +4 Hype +4 Tach -6 Plen +4
+expert DW16p  largest 2.5 rms 1.6, all-15 median 295 | fami 292: Warp -2 Worm -3 Hype -1 Tach +2 Tunn +2 | Proc 296: Warp -2 Worm +0 Hype +0 Tach +2 Plen +0 | Subs 296: Warp -1 Worm +0 Hype -0 Tach +2 Plen +1
+
+== 5. Every checkpoint in detail (python3 ftl_drift.py --compact)
+
+--- P (pre-round-one design, LEVERS=abcrw, old expert (no EXPFIX) / novice without Endeavours)
+  expert  mean max fin  2.7 vic  2.7 | fam Wa-2/-2 Wo-2/-2 Hy+2/+2 Ta+1/+1 Tu+0/+0 (max 2/2, rms 1.5/1.5) | Pro Wa+2/+2 Wo-1/-1 Hy+0/+0 Ta-3/-3 Pl+0/+0 (max 3/3, rms 1.6/1.6) | Sub Wa+1/+1 Wo+0/+0 Hy+1/+1 Ta-3/-3 Pl+0/+0 (max 3/3, rms 1.5/1.5)
+  novice  mean max fin  5.7 vic  4.3 | fam Wa+2/+2 Wo-4/-4 Hy+0/+0 Ta+2/+2 Tu+0/+0 (max 4/4, rms 2.2/2.2, unf 17) | Pro Wa+5/+5 Wo-7/-5 Hy-2/-2 Ta+0/+0 Pl+4/+4 (max 7/5, rms 4.3/3.7, unf 3) | Sub Wa+2/+2 Wo-6/-4 Hy+0/+0 Ta-1/-1 Pl+4/+4 (max 6/4, rms 3.3/2.7, unf 14)
+
+--- R0 ("current" before round one: LEVERS=abcrw, expert EXPFIX=1 ENDFROM=theory; novice with Endeavours (NF))
+  expert  mean max fin  2.7 vic  2.0 | fam Wa-1/-1 Wo-4/-2 Hy-2/-2 Ta+1/+1 Tu+2/+2 (max 4/2, rms 2.3/1.6) | Pro Wa+2/+2 Wo-1/-1 Hy+0/+0 Ta-1/-1 Pl+2/+2 (max 2/2, rms 1.3/1.3) | Sub Wa+2/+2 Wo-2/-2 Hy+2/+2 Ta-1/-1 Pl+2/+2 (max 2/2, rms 1.6/1.6, unf 1)
+  novice  mean max fin  5.3 vic  5.3 | fam Wa+4/+4 Wo-7/-7 Hy+0/+0 Ta+0/+0 Tu+1/+1 (max 7/7, rms 3.6/3.6) | Pro Wa+6/+6 Wo-5/-5 Hy-1/-1 Ta-3/-3 Pl+5/+5 (max 6/6, rms 4.4/4.4, unf 1) | Sub Wa+2/+2 Wo-3/-3 Hy+2/+2 Ta-2/-2 Pl+2/+2 (max 3/3, rms 2.2/2.2, unf 2)
+  average mean max fin  5.8 vic  6.0 | fam Wa+5/+4 Wo-8/-9 Hy+0/+0 Ta+1/+1 Tu-1/-1 (max 8/9, rms 4.3/4.4, unf 5) | Pro Wa+6/+5 Wo-4/-6 Hy-2/-2 Ta-3/-3 Pl+6/+5 (max 6/6, rms 4.6/4.3, unf 1) | Sub Wa+1/+1 Wo-4/-4 Hy+0/+1 Ta-4/-2 Pl+2/+2 (max 4/4, rms 2.4/2.2, unf 2)
+
+--- R1 (round one: package (abcrwgxpny) in 9 cells, R0 elsewhere)
+  expert  mean max fin  4.2 vic  2.8 | fam Wa-6/-3 Wo+0/+0 Hy+0/+0 Ta+1/+0 Tu+4/+4 (max 6/4, rms 3.4/2.1) | Pro Wa-3/-1 Wo+0/+0 Hy+2/+2 Ta+0/+0 Pl+0/+0 (max 3/2, rms 1.5/0.8) | Sub Wa-3/-1 Wo+0/+0 Hy+4/+4 Ta+1/+1 Pl+1/+1 (max 4/4, rms 2.2/1.8, unf 1)
+  novice  mean max fin  3.5 vic  3.5 | fam Wa-1/-1 Wo-3/-3 Hy+3/+3 Ta+0/+0 Tu+4/+4 (max 4/4, rms 2.6/2.6) | Pro Wa+0/+0 Wo-2/-2 Hy+0/+0 Ta-2/-2 Pl+2/+2 (max 2/2, rms 1.7/1.7, unf 1) | Sub Wa-4/-4 Wo-1/-1 Hy+3/+3 Ta-1/-1 Pl+1/+1 (max 4/4, rms 2.4/2.4, unf 2)
+  average mean max fin  3.0 vic  3.0 | fam Wa-3/-3 Wo-2/-2 Hy+1/+2 Ta+0/+1 Tu+0/+1 (max 3/3, rms 1.7/1.9, unf 4) | Pro Wa-2/-2 Wo+4/+3 Hy-1/-1 Ta-2/-2 Pl+3/+2 (max 4/3, rms 2.5/2.2, unf 1) | Sub Wa-2/-3 Wo+2/+1 Hy+2/+2 Ta-2/-2 Pl+2/+1 (max 2/3, rms 1.9/1.9, unf 2)
+
+--- R2 (ROUND TWO: LEVERS=abcrwgpnyhuk WROWX=4, Space x1, no W18 pools (q))
+  expert  mean max fin  2.5 vic  1.7 | fam Wa-2/-1 Wo+1/+0 Hy-4/-2 Ta+1/+0 Tu+1/+0 (max 4/2, rms 2.1/1.0, unf 1) | Pro Wa-1/+0 Wo+0/+0 Hy+0/+0 Ta+2/+2 Pl+0/+0 (max 2/2, rms 1.0/0.9) | Sub Wa-1/-1 Wo+0/+0 Hy-2/-1 Ta+0/+0 Pl+1/+1 (max 2/1, rms 0.9/0.8)
+  novice  mean max fin  2.3 vic  2.3 | fam Wa+2/+2 Wo-3/-3 Hy+2/+2 Ta+1/+1 Tu+0/+0 (max 3/3, rms 1.7/1.7, unf 1) | Pro Wa+3/+3 Wo-2/-2 Hy-2/-2 Ta+1/+1 Pl+2/+2 (max 3/3, rms 2.2/2.2, unf 1) | Sub Wa+0/+0 Wo+0/+0 Hy+1/+1 Ta-1/-1 Pl+0/+0 (max 1/1, rms 0.7/0.7, unf 1)
+  average mean max fin  2.8 vic  2.2 | fam Wa+2/+1 Wo+0/-1 Hy+0/+0 Ta+1/+1 Tu+0/+0 (max 2/1, rms 1.0/0.8, unf 4) | Pro Wa+1/+1 Wo+1/+1 Hy-4/-4 Ta-2/-0 Pl+0/+0 (max 4/4, rms 2.2/1.7) | Sub Wa+2/+1 Wo-1/-2 Hy-0/-0 Ta+0/+0 Pl+0/-0 (max 2/2, rms 1.0/1.0, unf 3)
+
+--- R2t (round two again, 20 games a method, SAVE_T (TPX/TPN/TPA))
+  expert  mean max fin  3.5 vic  2.2 | fam Wa-3/-2 Wo+0/+0 Hy-6/-3 Ta+2/+1 Tu+2/+0 (max 6/3, rms 3.4/1.7) | Pro Wa-2/-1 Wo+2/+2 Hy+0/+0 Ta+2/+2 Pl+1/+1 (max 2/2, rms 1.4/1.1) | Sub Wa-1/-0 Wo+1/+1 Hy+0/+0 Ta-1/-1 Pl+2/+2 (max 2/2, rms 1.2/1.1)
+  novice  mean max fin  3.0 vic  3.0 | fam Wa+0/+0 Wo-2/-2 Hy+2/+2 Ta+1/+1 Tu+0/+0 (max 2/2, rms 1.4/1.4, unf 1) | Pro Wa+4/+4 Wo-4/-4 Hy-1/-1 Ta+0/+0 Pl+1/+1 (max 4/4, rms 2.6/2.6) | Sub Wa+0/+0 Wo+2/+2 Hy+1/+1 Ta+0/+0 Pl+0/+0 (max 2/2, rms 1.0/1.0, unf 1)
+  average mean max fin  2.3 vic  2.5 | fam Wa+0/-1 Wo+1/+0 Hy-2/-2 Ta+1/+1 Tu+0/+0 (max 2/2, rms 1.1/1.1, unf 2) | Pro Wa+3/+2 Wo+1/+0 Hy-4/-3 Ta-1/-0 Pl+1/+0 (max 4/3, rms 2.2/1.8) | Sub Wa+0/-0 Wo-2/-2 Hy+0/+0 Ta+0/+0 Pl+2/+0 (max 2/2, rms 1.0/1.2, unf 2)
+
+--- R2q (round two + W18 signature pools (q), Space x1, 20 a method, SAVE_T (TPXq/TPNq/TPAq))
+  expert  mean max fin  5.5 vic  4.3 | fam Wa-4/-2 Wo+4/+4 Hy-4/-2 Ta+0/+0 Tu+4/+4 (max 4/4, rms 3.7/2.9) | Pro Wa-6/-4 Wo+3/+3 Hy-1/-1 Ta+1/+1 Pl+0/+0 (max 6/4, rms 3.1/2.3) | Sub Wa-6/-5 Wo+4/+4 Hy+0/+0 Ta+0/+0 Pl+1/+1 (max 6/5, rms 3.1/2.8)
+  novice  mean max fin  3.3 vic  3.3 | fam Wa-4/-4 Wo-0/-0 Hy+0/+0 Ta-2/-2 Tu+1/+1 (max 4/4, rms 2.1/2.1, unf 2) | Pro Wa-1/-1 Wo+1/+1 Hy-2/-2 Ta-3/-3 Pl+2/+2 (max 3/3, rms 2.1/2.1) | Sub Wa-1/-1 Wo+2/+2 Hy+0/+0 Ta-3/-3 Pl+2/+2 (max 3/3, rms 2.0/2.0, unf 1)
+  average mean max fin  3.5 vic  2.8 | fam Wa+2/+1 Wo+0/-1 Hy-1/-1 Ta-2/-2 Tu+0/+0 (max 2/2, rms 1.4/1.2, unf 1) | Pro Wa-1/-1 Wo+0/+0 Hy-5/-4 Ta-3/-2 Pl+0/+0 (max 5/4, rms 2.7/2.1, unf 1) | Sub Wa-1/-1 Wo+2/+2 Hy+1/+2 Ta-4/-2 Pl+2/+2 (max 4/2, rms 2.1/2.0)
+
+--- TF (abcrwgpnyhukq + Space x0.8, 20 a method (TFX/TFN/TFA))
+  expert  mean max fin  5.3 vic  3.3 | fam Wa-4/-2 Wo+2/+2 Hy-6/-2 Ta+0/+0 Tu+4/+3 (max 6/3, rms 3.7/2.1, unf 1) | Pro Wa-6/-4 Wo+2/+2 Hy+1/+1 Ta+0/+0 Pl+2/+2 (max 6/4, rms 2.7/2.0) | Sub Wa-5/-4 Wo+1/+1 Hy-2/-2 Ta+0/+0 Pl+4/+4 (max 5/4, rms 2.9/2.4)
+  novice  mean max fin  3.0 vic  3.0 | fam Wa-0/-0 Wo+0/+0 Hy+0/+0 Ta-2/-2 Tu+1/+1 (max 2/2, rms 1.0/1.0, unf 2) | Pro Wa+1/+1 Wo+0/+0 Hy-2/-2 Ta-4/-4 Pl+2/+2 (max 4/4, rms 2.4/2.4) | Sub Wa-2/-2 Wo+0/+0 Hy+0/+0 Ta-3/-3 Pl+2/+2 (max 3/3, rms 1.9/1.9)
+  average mean max fin  4.5 vic  4.3 | fam Wa+2/+1 Wo+1/+0 Hy+0/+0 Ta-6/-6 Tu+1/+1 (max 6/6, rms 2.9/2.8, unf 2) | Pro Wa+2/+2 Wo+0/+0 Hy-4/-4 Ta-4/-4 Pl+2/+2 (max 4/4, rms 3.1/2.7) | Sub Wa-2/-2 Wo+1/+1 Hy+2/+3 Ta-3/-2 Pl+3/+3 (max 3/3, rms 2.4/2.4, unf 1)
+
+--- TB (abcrwgpnyhukq + Space x0.8, 20 a method, SAVE_T (TBX/TBN/TBA))
+  expert  mean max fin  5.3 vic  3.5 | fam Wa-4/-2 Wo+2/+2 Hy-6/-2 Ta+0/+0 Tu+4/+3 (max 6/3, rms 3.7/2.1, unf 1) | Pro Wa-6/-4 Wo+2/+2 Hy+1/+1 Ta+0/+0 Pl+2/+2 (max 6/4, rms 2.7/2.0) | Sub Wa-5/-4 Wo+0/+0 Hy-2/-2 Ta-0/-0 Pl+3/+3 (max 5/4, rms 2.7/2.4)
+  novice  mean max fin  3.8 vic  3.8 | fam Wa-3/-3 Wo+0/+0 Hy+0/+0 Ta-4/-4 Tu+1/+1 (max 4/4, rms 2.1/2.1, unf 2) | Pro Wa-1/-1 Wo-1/-1 Hy-2/-2 Ta-5/-5 Pl+3/+3 (max 5/5, rms 2.8/2.8) | Sub Wa+0/+0 Wo+0/+0 Hy-0/-0 Ta-3/-3 Pl+2/+2 (max 3/3, rms 1.6/1.6)
+  average mean max fin  4.7 vic  4.8 | fam Wa+3/+2 Wo+0/-0 Hy+0/+0 Ta-8/-8 Tu+1/+1 (max 8/8, rms 3.6/3.5, unf 2) | Pro Wa+0/-0 Wo-1/-2 Hy-2/-2 Ta-4/-4 Pl+4/+2 (max 4/4, rms 2.5/2.4) | Sub Wa-3/-3 Wo+0/+0 Hy+2/+4 Ta-3/-2 Pl+0/+0 (max 3/4, rms 2.2/2.2)
+
+--- TVC (abcrwgpnyhukqvV + Space x0.8, expert only, 20 a method, SAVE_T (TVCX))
+  expert  mean max fin  3.0 vic  2.7 | fam Wa-3/-2 Wo+0/+0 Hy-2/-2 Ta+0/+0 Tu+4/+3 (max 4/3, rms 2.5/1.7, unf 1) | Pro Wa-1/-1 Wo+1/+1 Hy-0/-0 Ta+0/+0 Pl+1/+1 (max 1/1, rms 0.8/0.8) | Sub Wa-2/-2 Wo+4/+4 Hy+1/+1 Ta-2/-1 Pl+4/+4 (max 4/4, rms 2.7/2.5)
+
+--- R3 (FINAL CONFIRMATION ("2,700 games"): abcrwgpnyhukqvV WROWX=4 Space x0.8 (XF3/NF3/AV3))
+  expert  mean max fin  2.7 vic  2.3 | fam Wa-4/-3 Wo+1/+0 Hy-2/-1 Ta-1/-1 Tu+4/+3 (max 4/3, rms 2.8/2.0, unf 2) | Pro Wa-1/-1 Wo+2/+2 Hy-1/-1 Ta-1/-1 Pl+2/+2 (max 2/2, rms 1.5/1.5) | Sub Wa-2/-2 Wo+2/+2 Hy-2/-2 Ta-2/-2 Pl+2/+2 (max 2/2, rms 1.9/1.9)
+  novice  mean max fin  3.3 vic  3.3 | fam Wa-1/-1 Wo-1/-1 Hy+2/+2 Ta-0/-0 Tu+3/+3 (max 3/3, rms 1.7/1.7, unf 6) | Pro Wa+1/+1 Wo+0/+0 Hy-4/-4 Ta-3/-3 Pl+3/+3 (max 4/4, rms 2.6/2.6, unf 1) | Sub Wa-1/-1 Wo+1/+1 Hy+0/+0 Ta-3/-3 Pl+1/+1 (max 3/3, rms 1.5/1.5, unf 2)
+  average mean max fin  4.0 vic  3.7 | fam Wa-2/-3 Wo+1/+0 Hy+1/+1 Ta-4/-4 Tu+2/+2 (max 4/4, rms 2.3/2.4, unf 3) | Pro Wa+1/+1 Wo+1/+1 Hy-4/-3 Ta-5/-4 Pl+0/+0 (max 5/4, rms 2.9/2.3, unf 1) | Sub Wa+1/+0 Wo+2/+1 Hy+2/+2 Ta-3/-3 Pl+0/-1 (max 3/3, rms 1.9/1.7, unf 1)
+
+--- EndFix (v3.112+ tree, defaults abcrwgpnyhukqvVm (CP10 2x), glimpse by tier, Endeavour split fixed)
+  expert  mean max fin  3.0 vic  3.0 | fam Wa-1/-1 Wo+0/+0 Hy-2/-2 Ta+2/+2 Tu+1/+1 (max 2/2, rms 1.4/1.4) | Pro Wa-2/-2 Wo+3/+3 Hy-1/-1 Ta+1/+1 Pl-2/-2 (max 3/3, rms 1.9/1.9) | Sub Wa-4/-4 Wo+3/+3 Hy-3/-3 Ta+2/+2 Pl-1/-1 (max 4/4, rms 2.8/2.8, unf 2)
+  novice  mean max fin  3.0 vic  3.0 | fam Wa+0/+0 Wo-2/-2 Hy+0/+0 Ta-3/-3 Tu+1/+1 (max 3/3, rms 1.8/1.8, unf 2) | Pro Wa-1/-1 Wo-1/-1 Hy+3/+3 Ta-0/-0 Pl+2/+2 (max 3/3, rms 1.7/1.7) | Sub Wa-3/-3 Wo+2/+2 Hy+0/+0 Ta-1/-1 Pl+2/+2 (max 3/3, rms 1.9/1.9, unf 1)
+  average mean max fin  8.5 vic  8.0 | fam Wa+0/-0 Wo-3/-4 Hy+0/+0 Ta-2/-2 Tu+2/+2 (max 3/4, rms 1.8/2.1, unf 5) | Pro Wa-1/-1 Wo+0/+0 Hy+19/+17 Ta-1/+0 Pl+2/+2 (max 19/17, rms 8.6/7.7, unf 1) | Sub Wa-2/-3 Wo+2/+2 Hy+3/+3 Ta-1/-1 Pl+4/+2 (max 4/3, rms 2.5/2.3)
+
+--- TierAtt0 (+ every tier studied alike once occurred (TIERATT=0, became default))
+  expert  mean max fin  4.2 vic  4.2 | fam Wa+0/+0 Wo+0/+0 Hy-4/-4 Ta+3/+3 Tu+2/+2 (max 4/4, rms 2.4/2.4) | Pro Wa-2/-2 Wo+4/+4 Hy-2/-2 Ta+3/+3 Pl-1/-1 (max 4/4, rms 2.6/2.6) | Sub Wa-4/-4 Wo+3/+3 Hy-3/-3 Ta+2/+2 Pl+0/+0 (max 4/4, rms 2.9/2.9)
+  novice  mean max fin  3.3 vic  3.3 | fam Wa+1/+1 Wo-1/-1 Hy+0/+0 Ta-2/-2 Tu+3/+3 (max 3/3, rms 1.7/1.7, unf 4) | Pro Wa-1/-1 Wo-1/-1 Hy+4/+4 Ta-1/-1 Pl+2/+2 (max 4/4, rms 2.0/2.0, unf 2) | Sub Wa-2/-2 Wo+1/+1 Hy+1/+1 Ta+0/+0 Pl+4/+4 (max 4/4, rms 1.9/1.9, unf 1)
+  average mean max fin  3.0 vic  2.8 | fam Wa+1/+0 Wo-3/-4 Hy-0/+0 Ta-2/-2 Tu+2/+2 (max 3/4, rms 1.8/1.9) | Pro Wa-1/-1 Wo+0/+0 Hy+0/+1 Ta-2/-1 Pl+2/+2 (max 2/2, rms 1.3/1.2) | Sub Wa-2/-3 Wo+0/-1 Hy+3/+3 Ta+0/+0 Pl+4/+3 (max 4/3, rms 2.4/2.4)
+
+--- B0 (v3.114 tree (Experiment/Synthesis/Dialectical removed), seeds 17000)
+  expert  mean max fin  2.7 vic  2.3 | fam Wa-1/-1 Wo+0/+0 Hy-1/+0 Ta+2/+1 Tu+2/+1 (max 2/1, rms 1.3/0.8, unf 1) | Pro Wa-3/-3 Wo+2/+2 Hy-2/-2 Ta+3/+3 Pl-1/-1 (max 3/3, rms 2.2/2.2) | Sub Wa-3/-3 Wo+2/+2 Hy-3/-3 Ta+2/+2 Pl+1/+1 (max 3/3, rms 2.3/2.3, unf 1)
+  novice  mean max fin  4.3 vic  4.3 | fam Wa-4/-4 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+4/+4 (max 4/4, rms 3.0/3.0, unf 1) | Pro Wa-2/-2 Wo-0/-0 Hy+5/+5 Ta-3/-3 Pl+4/+4 (max 5/5, rms 3.2/3.2) | Sub Wa-1/-1 Wo+2/+2 Hy+4/+4 Ta-2/-2 Pl+4/+4 (max 4/4, rms 2.7/2.7, unf 2)
+  average mean max fin  3.8 vic  4.2 | fam Wa-1/-2 Wo-3/-4 Hy+2/+2 Ta-3/-3 Tu+3/+3 (max 3/4, rms 2.5/2.9, unf 5) | Pro Wa+0/-0 Wo-1/-2 Hy-4/-4 Ta-3/-3 Pl+3/+2 (max 4/4, rms 2.7/2.6, unf 2) | Sub Wa-1/-2 Wo+1/+0 Hy+4/+4 Ta-1/-1 Pl+4/+3 (max 4/4, rms 2.8/2.6, unf 1)
+
+--- EF (v3.114 + EARLYFIX=1 (variant))
+  expert  mean max fin  3.0 vic  2.7 | fam Wa-3/-1 Wo+0/+0 Hy-3/+0 Ta+2/+2 Tu+0/+1 (max 3/2, rms 2.1/1.1, unf 3) | Pro Wa-3/-2 Wo+2/+2 Hy-1/-1 Ta+3/+3 Pl+0/+0 (max 3/3, rms 2.3/2.0, unf 1) | Sub Wa-3/-2 Wo+3/+3 Hy+0/+0 Ta+2/+2 Pl+0/+0 (max 3/3, rms 2.1/1.8)
+  novice  mean max fin  4.2 vic  4.2 | fam Wa-3/-3 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+3/+3 (max 3/3, rms 2.5/2.5, unf 5) | Pro Wa-2/-2 Wo-1/-1 Hy+2/+2 Ta-5/-5 Pl+3/+3 (max 5/5, rms 3.0/3.0, unf 2) | Sub Wa-1/-1 Wo+0/+0 Hy+4/+4 Ta-1/-1 Pl+4/+4 (max 4/4, rms 2.8/2.8)
+  average mean max fin  3.8 vic  4.2 | fam Wa-3/-4 Wo-4/-5 Hy+2/+2 Ta-3/-3 Tu+4/+4 (max 4/5, rms 3.2/3.7, unf 2) | Pro Wa-2/-2 Wo-2/-2 Hy+1/+2 Ta-3/-2 Pl+2/+2 (max 3/2, rms 1.9/1.8) | Sub Wa+0/+0 Wo+0/+0 Hy+4/+6 Ta-2/-1 Pl+4/+4 (max 4/6, rms 2.7/2.9, unf 1)
+
+--- B0s2 (v3.114, second seed set (SEED0=27000))
+  expert  mean max fin  3.3 vic  3.0 | fam Wa-3/-1 Wo+0/+0 Hy-2/+0 Ta+4/+3 Tu+2/+1 (max 4/3, rms 2.6/1.5, unf 1) | Pro Wa-3/-3 Wo+0/+0 Hy-1/-1 Ta+0/+0 Pl+0/+0 (max 3/3, rms 1.4/1.4) | Sub Wa-3/-3 Wo+2/+2 Hy-2/-2 Ta+1/+1 Pl+0/+0 (max 3/3, rms 1.8/1.8, unf 1)
+  novice  mean max fin  4.7 vic  4.7 | fam Wa-4/-4 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+5/+5 (max 5/5, rms 3.3/3.3, unf 1) | Pro Wa-2/-2 Wo+0/+0 Hy+0/+0 Ta-4/-4 Pl+4/+4 (max 4/4, rms 2.5/2.5) | Sub Wa-1/-1 Wo+1/+1 Hy+3/+3 Ta-3/-3 Pl+5/+5 (max 5/5, rms 3.0/3.0, unf 3)
+  average mean max fin  5.8 vic  6.5 | fam Wa-2/-3 Wo-3/-4 Hy+2/+2 Ta-3/-3 Tu+4/+4 (max 4/4, rms 2.8/3.2, unf 5) | Pro Wa+0/+0 Wo-2/-2 Hy+8/+9 Ta-3/-2 Pl+2/+2 (max 8/9, rms 4.0/4.3, unf 1) | Sub Wa-1/-2 Wo+0/-0 Hy+6/+6 Ta-2/-2 Pl+6/+5 (max 6/6, rms 3.8/3.8, unf 4)
+
+--- A16 (v3.115 tree (16 early-row prerequisites))
+  expert  mean max fin  3.8 vic  3.2 | fam Wa-2/-1 Wo+0/-1 Hy-2/-1 Ta+3/+2 Tu+0/+1 (max 3/2, rms 1.7/1.3) | Pro Wa-4/-3 Wo+0/+0 Hy+0/+0 Ta+1/+1 Pl+0/+0 (max 4/3, rms 1.9/1.4, unf 1) | Sub Wa-3/-2 Wo+4/+4 Hy-1/-1 Ta+2/+2 Pl-1/-1 (max 4/4, rms 2.7/2.5)
+  novice  mean max fin  4.7 vic  4.7 | fam Wa-2/-2 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+4/+4 (max 4/4, rms 2.5/2.5, unf 3) | Pro Wa+0/+0 Wo-1/-1 Hy-3/-3 Ta-3/-3 Pl+1/+1 (max 3/3, rms 2.0/2.0) | Sub Wa+0/+0 Wo+1/+1 Hy+4/+4 Ta-2/-2 Pl+7/+7 (max 7/7, rms 3.6/3.6, unf 3)
+  average mean max fin  4.7 vic  4.7 | fam Wa-2/-4 Wo-3/-4 Hy+2/+2 Ta-2/-2 Tu+3/+3 (max 3/4, rms 2.5/3.0, unf 7) | Pro Wa+2/+1 Wo-1/-2 Hy+6/+6 Ta-2/-2 Pl+4/+4 (max 6/6, rms 3.6/3.4, unf 2) | Sub Wa-1/-2 Wo+0/-1 Hy+3/+3 Ta-1/-1 Pl+5/+4 (max 5/4, rms 2.7/2.5, unf 3)
+
+--- A16s2 (v3.115, second seed set)
+  expert  mean max fin  4.5 vic  3.3 | fam Wa-2/-2 Wo-1/+0 Hy-2/-1 Ta+4/+2 Tu+3/+2 (max 4/2, rms 2.7/1.5, unf 1) | Pro Wa-5/-4 Wo+0/+0 Hy+0/+0 Ta+1/+1 Pl+0/+0 (max 5/4, rms 2.3/1.8, unf 1) | Sub Wa-4/-4 Wo+4/+4 Hy-1/-1 Ta+2/+2 Pl+2/+2 (max 4/4, rms 3.0/2.7)
+  novice  mean max fin  4.0 vic  4.0 | fam Wa-2/-2 Wo-3/-3 Hy+1/+1 Ta-4/-4 Tu+2/+2 (max 4/4, rms 2.5/2.5, unf 2) | Pro Wa+0/+0 Wo-2/-2 Hy+2/+2 Ta-5/-5 Pl+3/+3 (max 5/5, rms 2.9/2.9, unf 1) | Sub Wa-1/-1 Wo+0/+0 Hy+2/+2 Ta-3/-3 Pl+3/+3 (max 3/3, rms 2.2/2.2, unf 3)
+  average mean max fin  6.0 vic  6.3 | fam Wa-6/-7 Wo-4/-4 Hy+4/+4 Ta-3/-3 Tu+3/+3 (max 6/7, rms 4.2/4.6, unf 3) | Pro Wa-2/-3 Wo-1/-2 Hy+6/+6 Ta-4/-4 Pl+4/+2 (max 6/6, rms 3.9/3.9) | Sub Wa-0/-2 Wo+1/+0 Hy+6/+6 Ta-2/-2 Pl+5/+4 (max 6/6, rms 3.5/3.2, unf 1)
+
+--- U1 (v3.115 + UNIV=1 (variant))
+  expert  mean max fin  3.8 vic  2.7 | fam Wa-2/-1 Wo+0/+0 Hy-2/-1 Ta+4/+2 Tu+2/+1 (max 4/2, rms 2.4/1.2, unf 2) | Pro Wa-4/-3 Wo+1/+1 Hy+0/+0 Ta+2/+2 Pl-1/-1 (max 4/3, rms 2.0/1.6) | Sub Wa-4/-2 Wo+3/+3 Hy-0/-0 Ta+2/+2 Pl+1/+1 (max 4/3, rms 2.3/2.0, unf 1)
+  novice  mean max fin  3.5 vic  3.5 | fam Wa-3/-3 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+3/+3 (max 3/3, rms 2.4/2.4, unf 1) | Pro Wa+0/+0 Wo+0/+0 Hy-3/-3 Ta-2/-2 Pl+3/+3 (max 3/3, rms 2.1/2.1, unf 1) | Sub Wa+0/+0 Wo+2/+2 Hy+4/+4 Ta-2/-2 Pl+4/+4 (max 4/4, rms 3.0/3.0, unf 1)
+  average mean max fin  3.7 vic  3.8 | fam Wa-4/-4 Wo-4/-4 Hy+1/+2 Ta-4/-4 Tu+2/+3 (max 4/4, rms 3.3/3.6, unf 2) | Pro Wa-1/-1 Wo-0/-0 Hy+3/+4 Ta-4/-3 Pl+3/+3 (max 4/4, rms 2.7/2.7, unf 1) | Sub Wa-1/-2 Wo+0/-1 Hy+3/+3 Ta-1/-1 Pl+1/+0 (max 3/3, rms 1.5/1.7, unf 1)
+
+--- P120 (v3.120: safety net (REDISCOVER=0.1 ENDUNOCC=1 W16=0))
+  expert  mean max fin  4.7 vic  4.3 | fam Wa-5/-4 Wo-2/-2 Hy-2/-2 Ta+3/+3 Tu+4/+4 (max 5/4, rms 3.4/3.1) | Pro Wa-2/-2 Wo+0/+0 Hy-2/-2 Ta-2/-2 Pl+4/+4 (max 4/4, rms 2.5/2.5) | Sub Wa-2/-2 Wo+1/+1 Hy+0/+0 Ta-1/-1 Pl+4/+4 (max 4/4, rms 2.4/2.4)
+  novice  mean max fin  4.5 vic  4.5 | fam Wa-4/-4 Wo+1/+1 Hy+2/+2 Ta-5/-5 Tu+5/+5 (max 5/5, rms 3.7/3.7) | Pro Wa-1/-1 Wo+2/+2 Hy-0/-0 Ta-2/-2 Pl+5/+5 (max 5/5, rms 2.7/2.7) | Sub Wa-3/-3 Wo+2/+2 Hy+3/+3 Ta-2/-2 Pl+4/+4 (max 4/4, rms 2.8/2.8)
+  average mean max fin  5.3 vic  5.0 | fam Wa-4/-5 Wo+1/+0 Hy+3/+3 Ta-5/-5 Tu+6/+6 (max 6/6, rms 4.2/4.4) | Pro Wa-2/-3 Wo+2/+2 Hy-1/-1 Ta-4/-4 Pl+5/+4 (max 5/4, rms 3.1/2.8) | Sub Wa-5/-5 Wo+1/+1 Hy+1/+2 Ta-2/-1 Pl+4/+4 (max 5/5, rms 3.1/3.1)
+
+--- incN (v3.121 expert, SAVE_T ("defaults reproduce P120 exactly"))
+  expert  mean max fin  4.7 vic  4.3 | fam Wa-5/-4 Wo-2/-2 Hy-2/-2 Ta+3/+3 Tu+4/+4 (max 5/4, rms 3.4/3.1) | Pro Wa-2/-2 Wo+0/+0 Hy-2/-2 Ta-2/-2 Pl+4/+4 (max 4/4, rms 2.5/2.5) | Sub Wa-2/-2 Wo+1/+1 Hy+0/+0 Ta-1/-1 Pl+4/+4 (max 4/4, rms 2.4/2.4)
+
+--- xtx0 (v3.122 defaults (base Civ V era timing, Mod/Atom x1.25, Space x2), OLD expert, SAVE_T)
+  expert  mean max fin 10.5 vic 10.5 | fam Wa-8/-6 Wo+4/+4 Hy+2/+2 Ta-0/-0 Tu+10/+10 (max 10/10, rms 6.1/5.7) | Pro Wa-8/-8 Wo+6/+6 Hy+2/+2 Ta-9/-9 Pl+10/+10 (max 10/10, rms 7.4/7.4) | Sub Wa-10/-8 Wo+12/+12 Hy+2/+2 Ta-7/-7 Pl+8/+8 (max 12/12, rms 8.4/7.9)
+
+--- V122 (v3.122: base Civ V era timing (DEVENDS late), Mod/Atom x1.25, Space x2, pool122, expert EXPCAP=2 ENDRULE=last)
+  expert  mean max fin 13.5 vic 13.5 | fam Wa-11/-9 Wo+5/+5 Hy+4/+4 Ta-7/-5 Tu+14/+14 (max 14/14, rms 9.1/8.4) | Pro Wa-10/-8 Wo+10/+10 Hy+5/+5 Ta-8/-6 Pl+16/+16 (max 16/16, rms 10.3/9.7) | Sub Wa-10/-8 Wo+8/+8 Hy+5/+5 Ta-9/-7 Pl+10/+10 (max 10/10, rms 8.6/7.8)
+  novice  mean max fin 12.7 vic 12.7 | fam Wa-6/-6 Wo+12/+12 Hy+10/+10 Ta-10/-8 Tu+10/+10 (max 12/12, rms 9.8/9.5) | Pro Wa-4/-4 Wo+16/+16 Hy+2/+2 Ta-12/-10 Pl+10/+10 (max 16/16, rms 10.4/9.9) | Sub Wa-10/-9 Wo+10/+10 Hy+2/+2 Ta-7/-7 Pl+7/+7 (max 10/10, rms 7.8/7.7)
+  average mean max fin 13.3 vic 13.3 | fam Wa-3/-3 Wo+9/+9 Hy+4/+4 Ta-13/-10 Tu+14/+14 (max 14/14, rms 9.8/9.1) | Pro Wa-2/-2 Wo+9/+9 Hy+2/+2 Ta-11/-11 Pl+11/+11 (max 11/11, rms 8.2/8.2) | Sub Wa-12/-12 Wo+14/+14 Hy+2/+2 Ta-11/-11 Pl+7/+7 (max 14/14, rms 10.3/10.3)
+
+--- xty2 (v3.122 adopted expert (EXPCAP=2 ENDRULE=last), SAVE_T)
+  expert  mean max fin 13.5 vic 13.5 | fam Wa-11/-9 Wo+5/+5 Hy+4/+4 Ta-7/-5 Tu+14/+14 (max 14/14, rms 9.1/8.4) | Pro Wa-10/-8 Wo+10/+10 Hy+5/+5 Ta-8/-6 Pl+16/+16 (max 16/16, rms 10.3/9.7) | Sub Wa-10/-8 Wo+8/+8 Hy+5/+5 Ta-9/-7 Pl+10/+10 (max 10/10, rms 8.6/7.8)
+
+--- pbXold (PB settings, OLD expert (ENDRULE=active, no cap))
+  expert  mean max fin 10.8 vic 10.8 | fam Wa-6/-4 Wo+0/+0 Hy-2/-2 Ta-2/-2 Tu+8/+8 (max 8/8, rms 4.5/4.3) | Pro Wa-8/-7 Wo+6/+6 Hy+2/+2 Ta-4/-4 Pl+10/+10 (max 10/10, rms 6.4/6.3) | Sub Wa-4/-4 Wo+4/+4 Hy+4/+4 Ta-6/-5 Pl+15/+15 (max 15/15, rms 7.8/7.6)
+
+--- pbXlast (PB settings, expert ENDRULE=last without the cap)
+  expert  mean max fin 10.7 vic 10.7 | fam Wa-2/-2 Wo+8/+8 Hy-2/-2 Ta-4/-4 Tu+10/+10 (max 10/10, rms 5.9/5.9) | Pro Wa-7/-6 Wo+3/+3 Hy+0/+0 Ta-5/-4 Pl+10/+10 (max 10/10, rms 6.0/5.7) | Sub Wa-5/-4 Wo+2/+2 Hy+3/+3 Ta-7/-6 Pl+12/+12 (max 12/12, rms 6.9/6.6)
+
+--- PB (v3.122 timing, Mod/Atom/Space x1, rivals pb)
+  expert  mean max fin 13.2 vic 13.2 | fam Wa-8/-6 Wo+8/+8 Hy+0/+0 Ta-9/-7 Tu+11/+11 (max 11/11, rms 7.9/7.2) | Pro Wa-6/-6 Wo+12/+12 Hy+4/+4 Ta-8/-6 Pl+14/+14 (max 14/14, rms 9.2/9.0) | Sub Wa-6/-5 Wo+10/+10 Hy+2/+2 Ta-8/-7 Pl+15/+15 (max 15/15, rms 9.2/9.0)
+  novice  mean max fin 10.8 vic 10.5 | fam Wa-3/-3 Wo+3/+3 Hy+3/+3 Ta-11/-10 Tu+9/+9 (max 11/10, rms 6.8/6.4) | Pro Wa-6/-6 Wo+9/+9 Hy+6/+6 Ta-8/-8 Pl+6/+6 (max 9/9, rms 7.1/7.0) | Sub Wa-4/-4 Wo+10/+10 Hy+1/+1 Ta-7/-7 Pl+12/+12 (max 12/12, rms 8.0/8.0)
+  average mean max fin 12.8 vic 12.8 | fam Wa-1/-1 Wo+2/+2 Hy+1/+2 Ta-9/-6 Tu+14/+14 (max 14/14, rms 7.4/7.2) | Pro Wa-5/-6 Wo+12/+12 Hy+4/+4 Ta-9/-7 Pl+8/+8 (max 12/12, rms 8.4/7.6) | Sub Wa-8/-7 Wo+6/+6 Hy+1/+2 Ta-7/-6 Pl+12/+12 (max 12/12, rms 7.9/7.6)
+
+--- PD (v3.122 timing, Mod/Atom x1.1, Space x1, rivals pd (variant))
+  expert  mean max fin 12.8 vic 12.5 | fam Wa-6/-5 Wo+4/+4 Hy+0/+0 Ta-8/-7 Tu+6/+6 (max 8/7, rms 5.5/5.0) | Pro Wa-6/-6 Wo+11/+11 Hy+2/+2 Ta-8/-8 Pl+14/+14 (max 14/14, rms 9.4/9.2) | Sub Wa-8/-7 Wo+11/+11 Hy+0/+0 Ta-6/-6 Pl+16/+16 (max 16/16, rms 9.8/9.6)
+  novice  mean max fin  9.2 vic  9.0 | fam Wa-4/-4 Wo+6/+6 Hy+3/+3 Ta-6/-6 Tu+2/+2 (max 6/6, rms 4.3/4.3) | Pro Wa-8/-8 Wo+3/+3 Hy+5/+5 Ta-9/-9 Pl+12/+12 (max 12/12, rms 8.1/7.9) | Sub Wa-2/-2 Wo+0/+0 Hy+3/+3 Ta-8/-8 Pl+9/+9 (max 9/9, rms 5.6/5.6)
+  average mean max fin 12.5 vic 12.3 | fam Wa-2/-3 Wo+4/+3 Hy+6/+6 Ta-10/-10 Tu+4/+5 (max 10/10, rms 5.9/5.9) | Pro Wa-7/-7 Wo+8/+8 Hy+4/+4 Ta-7/-6 Pl+16/+16 (max 16/16, rms 9.2/9.1) | Sub Wa-3/-3 Wo+5/+5 Hy+4/+5 Ta-10/-9 Pl+12/+12 (max 12/12, rms 7.7/7.5)
+
+--- V123 (v3.123: Ancient x1.5 + Primitive span, Space x1, pool123)
+  expert  mean max fin 11.7 vic 11.7 | fam Wa-4/-2 Wo+8/+8 Hy-1/-0 Ta-6/-4 Tu+11/+11 (max 11/11, rms 6.9/6.4) | Pro Wa-6/-6 Wo+8/+8 Hy+4/+4 Ta-9/-8 Pl+11/+11 (max 11/11, rms 8.0/7.8) | Sub Wa-5/-5 Wo+3/+3 Hy-1/-1 Ta-8/-7 Pl+13/+13 (max 13/13, rms 7.3/7.1)
+  novice  mean max fin 10.5 vic 10.2 | fam Wa-1/-1 Wo+8/+8 Hy+2/+2 Ta-10/-9 Tu+6/+6 (max 10/9, rms 6.3/5.9) | Pro Wa-4/-4 Wo+6/+6 Hy+8/+8 Ta-9/-9 Pl+8/+8 (max 9/9, rms 7.0/7.0) | Sub Wa-2/-2 Wo+2/+2 Hy+3/+3 Ta-7/-6 Pl+12/+12 (max 12/12, rms 6.7/6.5)
+  average mean max fin 13.0 vic 12.2 | fam Wa-2/-2 Wo+6/+6 Hy+2/+3 Ta-11/-8 Tu+10/+10 (max 11/10, rms 7.2/6.6) | Pro Wa-2/-2 Wo+8/+8 Hy+3/+4 Ta-10/-7 Pl+10/+10 (max 10/10, rms 7.2/6.6) | Sub Wa-2/-3 Wo+3/+2 Hy-0/-0 Ta-8/-6 Pl+18/+17 (max 18/17, rms 9.0/8.2)
+
+--- V124 (v3.124: merges/cuts/demotions, COMPETE=1, Space x1.05, pool124)
+  expert  mean max fin 10.2 vic  9.5 | fam Wa-3/-2 Wo+6/+6 Hy+0/+0 Ta-11/-7 Tu+10/+10 (max 11/10, rms 7.2/6.1) | Pro Wa-4/-4 Wo+7/+7 Hy+2/+2 Ta-8/-7 Pl+12/+12 (max 12/12, rms 7.4/7.2) | Sub Wa-8/-7 Wo+6/+6 Hy+4/+4 Ta-5/-4 Pl+8/+8 (max 8/8, rms 6.3/5.9)
+  novice  mean max fin  9.7 vic  9.7 | fam Wa-6/-6 Wo+4/+4 Hy+4/+4 Ta-6/-6 Tu+9/+9 (max 9/9, rms 6.2/6.0) | Pro Wa-6/-6 Wo+3/+3 Hy+7/+7 Ta-8/-8 Pl+8/+8 (max 8/8, rms 6.8/6.8) | Sub Wa-3/-3 Wo+7/+7 Hy+4/+4 Ta-6/-5 Pl+12/+12 (max 12/12, rms 7.0/6.8)
+  average mean max fin 13.2 vic 13.2 | fam Wa-2/-2 Wo+0/+0 Hy+4/+4 Ta-6/-4 Tu+14/+15 (max 14/15, rms 7.0/7.3) | Pro Wa-3/-4 Wo+3/+2 Hy+7/+7 Ta-8/-7 Pl+10/+9 (max 10/9, rms 6.8/6.3) | Sub Wa-7/-7 Wo+1/+1 Hy+4/+6 Ta-9/-7 Pl+16/+16 (max 16/16, rms 8.8/8.6)
+
+--- V125 (v3.125: Ring Fortress merged, pool125)
+  expert  mean max fin 10.7 vic 10.7 | fam Wa-8/-5 Wo+12/+12 Hy+3/+3 Ta-8/-5 Tu+7/+7 (max 12/12, rms 8.2/7.1) | Pro Wa-6/-5 Wo+12/+12 Hy+2/+2 Ta-4/-3 Pl+10/+10 (max 12/12, rms 7.7/7.5) | Sub Wa-8/-7 Wo+8/+8 Hy+2/+2 Ta-8/-7 Pl+7/+7 (max 8/8, rms 7.1/6.7)
+  novice  mean max fin 10.0 vic 10.0 | fam Wa-6/-4 Wo+10/+10 Hy+4/+4 Ta-6/-5 Tu+4/+4 (max 10/10, rms 6.5/6.1) | Pro Wa-7/-6 Wo+7/+7 Hy+4/+4 Ta-3/-3 Pl+13/+13 (max 13/13, rms 7.6/7.4) | Sub Wa-2/-2 Wo+2/+2 Hy+1/+1 Ta-6/-6 Pl+6/+6 (max 6/6, rms 4.1/4.1)
+  average mean max fin  9.5 vic  8.3 | fam Wa-5/-4 Wo+6/+6 Hy+3/+4 Ta-9/-6 Tu+3/+4 (max 9/6, rms 5.8/5.0) | Pro Wa-8/-8 Wo+7/+6 Hy+3/+3 Ta-4/-4 Pl+12/+12 (max 12/12, rms 7.7/7.2) | Sub Wa-1/-1 Wo+2/+2 Hy+0/+2 Ta-6/-6 Pl+7/+7 (max 7/7, rms 4.4/4.2)
+
+--- V116 (v3.116 (familiar only))
+  expert  mean max fin  3.5 vic  2.0 | fam Wa-2/-1 Wo+1/+0 Hy-1/+0 Ta+4/+2 Tu+1/+1 (max 4/2, rms 2.0/1.1)
+  novice  mean max fin  5.0 vic  5.0 | fam Wa-2/-2 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+5/+5 (max 5/5, rms 2.9/2.9, unf 1)
+  average mean max fin  4.0 vic  5.0 | fam Wa-2/-4 Wo-4/-5 Hy+2/+2 Ta-2/-2 Tu+3/+3 (max 4/5, rms 2.8/3.3, unf 2)
+
+--- V117 (v3.117 (familiar only))
+  expert  mean max fin  4.0 vic  2.0 | fam Wa-3/-2 Wo+0/+0 Hy-1/+0 Ta+4/+2 Tu+0/+1 (max 4/2, rms 2.3/1.3)
+  novice  mean max fin  4.0 vic  4.0 | fam Wa-4/-4 Wo-2/-2 Hy+2/+2 Ta-2/-2 Tu+4/+4 (max 4/4, rms 3.0/3.0, unf 2)
+  average mean max fin  4.0 vic  5.0 | fam Wa-4/-5 Wo-4/-4 Hy+2/+2 Ta-4/-4 Tu+3/+3 (max 4/5, rms 3.4/3.9, unf 3)
+
+--- V118 (v3.118 (familiar only))
+  expert  mean max fin  3.0 vic  2.0 | fam Wa-2/-1 Wo-0/-1 Hy-1/+0 Ta+3/+2 Tu+0/+1 (max 3/2, rms 1.7/1.2)
+  novice  mean max fin  3.0 vic  3.0 | fam Wa-3/-3 Wo-2/-2 Hy+2/+2 Ta-3/-3 Tu+3/+3 (max 3/3, rms 2.6/2.6, unf 2)
+  average mean max fin  4.0 vic  5.0 | fam Wa-4/-5 Wo-4/-5 Hy+4/+4 Ta-2/-2 Tu+3/+3 (max 4/5, rms 3.4/3.9, unf 5)
+
+--- PKG119 (v3.119 + safety net incl. W16 (familiar only))
+  expert  mean max fin  5.0 vic  4.0 | fam Wa-0/-1 Wo-5/-4 Hy-2/-1 Ta+4/+2 Tu+2/+1 (max 5/4, rms 3.1/2.1)
+  novice  mean max fin  4.0 vic  4.0 | fam Wa-4/-4 Wo-3/-3 Hy+1/+1 Ta-3/-3 Tu+4/+4 (max 4/4, rms 3.1/3.1)
+  average mean max fin  6.0 vic  7.0 | fam Wa-2/-2 Wo-2/-2 Hy+2/+3 Ta-3/-2 Tu+6/+7 (max 6/7, rms 3.4/3.7)
+
+--- PKGNOW119 (v3.119 + safety net, W16=0 (familiar only))
+  expert  mean max fin  5.0 vic  4.0 | fam Wa-5/-4 Wo-2/-2 Hy-2/-2 Ta+3/+3 Tu+4/+4 (max 5/4, rms 3.4/3.1)
+  novice  mean max fin  5.0 vic  5.0 | fam Wa-4/-4 Wo+1/+1 Hy+2/+2 Ta-5/-5 Tu+5/+5 (max 5/5, rms 3.7/3.7)
+  average mean max fin  6.0 vic  6.0 | fam Wa-4/-5 Wo+1/+0 Hy+3/+3 Ta-5/-5 Tu+6/+6 (max 6/6, rms 4.2/4.4)
