@@ -1,0 +1,4 @@
+# Regenerated: test screenshots (every Playwright run rewrites them) and the local-testing wrappers (assemble.py)
+test/shots/
+dist/*.local.html
+__pycache__/

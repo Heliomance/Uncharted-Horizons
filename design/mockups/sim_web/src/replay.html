@@ -1,0 +1,75 @@
+<title>Research Replay</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/*__CSS__*/
+</style>
+<div class="rp-page" id="uh-app">
+  <header class="rp-top">
+    <div class="rp-brand">
+      <h1>Research Replay</h1>
+      <span class="rp-headline" id="rp-headline">Uncharted Horizons: a simulated game, turn by turn</span>
+    </div>
+    <div class="rp-load">
+      <label class="rp-lbl" for="rp-sample">Log</label>
+      <select class="rp-select" id="rp-sample" aria-label="Choose a sample log"></select>
+      <label class="rp-btn" for="rp-file" tabindex="0">Open a log file</label>
+      <input class="rp-file-input" type="file" id="rp-file" accept=".json,application/json">
+      <button type="button" class="rp-btn" id="rp-paste-toggle" aria-expanded="false" aria-controls="rp-paste">Paste a log</button>
+    </div>
+  </header>
+  <div class="rp-paste" id="rp-paste" hidden>
+    <label for="rp-paste-text" class="rp-paste-row">Paste a simulator log: the JSON file w7f.py writes with TRACE=&lt;file&gt; (one game).</label>
+    <textarea id="rp-paste-text" spellcheck="false" placeholder="{&quot;m&quot;: &quot;Warp&quot;, &quot;records&quot;: [...], ...}"></textarea>
+    <div class="rp-paste-row"><button type="button" class="rp-btn" id="rp-paste-load">Load the pasted log</button></div>
+  </div>
+  <div class="rp-error" id="rp-error" role="alert" hidden></div>
+
+  <section class="rp-transport" aria-label="Replay controls">
+    <div class="rp-group">
+      <button type="button" class="rp-btn is-icon" id="rp-start" aria-label="First turn"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M11.5 2.5L5 7l6.5 4.5z" fill="currentColor"/></svg></button>
+      <button type="button" class="rp-btn is-icon" id="rp-back" aria-label="Previous turn"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2.5L4 7l5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="rp-btn rp-play" id="rp-play" aria-pressed="false"><svg class="rp-ico-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 2l8 5-8 5z" fill="currentColor"/></svg><svg class="rp-ico-pause" viewBox="0 0 14 14" aria-hidden="true" hidden><path d="M3.5 2.5h2.5v9H3.5zM8 2.5h2.5v9H8z" fill="currentColor"/></svg><span class="rp-play-label">Play</span></button>
+      <button type="button" class="rp-btn is-icon" id="rp-fwd" aria-label="Next turn"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2.5L10 7l-5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="rp-btn is-icon" id="rp-end" aria-label="Last turn"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M11 2.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M2.5 2.5L9 7l-6.5 4.5z" fill="currentColor"/></svg></button>
+    </div>
+    <div class="rp-group rp-jumps">
+      <button type="button" class="rp-btn" id="rp-prev" aria-label="Previous event"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M8 2.5L3.5 7 8 11.5M12 2.5L7.5 7l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="rp-btn-label">Event</span></button>
+      <button type="button" class="rp-btn" id="rp-next" aria-label="Next event: an era, a focus, the FTL screen or an Endeavour"><span class="rp-btn-label">Next event</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M6 2.5L10.5 7 6 11.5M2 2.5L6.5 7 2 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <input class="rp-slider" type="range" id="rp-slider" min="1" max="2" value="1" step="1" aria-label="Turn">
+    <div class="rp-group"><span class="rp-turn" id="rp-turn">Turn 1</span><span class="rp-of" id="rp-of">of 1</span></div>
+    <div class="rp-group">
+      <label class="rp-lbl rp-dim" for="rp-speed">Speed</label>
+      <select class="rp-select rp-speed" id="rp-speed">
+        <option value="1">1 turn a second</option>
+        <option value="2">2 a second</option>
+        <option value="4" selected>4 a second</option>
+        <option value="10">10 a second</option>
+        <option value="25">25 a second</option>
+      </select>
+    </div>
+    <div class="rp-view" role="group" aria-label="What to show">
+      <button type="button" data-view="player" aria-pressed="true">Player view</button>
+      <button type="button" data-view="engine" aria-pressed="false">Engine view</button>
+    </div>
+  </section>
+
+  <section class="rp-chart-wrap" aria-label="Discoveries each turn">
+    <div class="rp-legend">
+      <span><i class="rp-sw own"></i>Discovered</span><span><i class="rp-sw dif"></i>From abroad</span>
+      <span><i class="rp-sw mark"></i>Milestones</span><span><i class="rp-sw proj"></i>After the log (projected)</span>
+      <span>Bands: the era entered by count, and development’s era</span>
+    </div>
+    <div class="rp-chart" id="rp-chart"></div>
+    <div class="rp-tip" id="rp-tip" hidden></div>
+  </section>
+
+  <main class="rp-main">
+    <div class="rp-screen-wrap" id="rp-screen" aria-label="The research screen"></div>
+    <aside class="rp-ftl-wrap" id="rp-ftl" aria-label="The Faster than light screen"></aside>
+  </main>
+
+  <section class="rp-summary" id="rp-summary" aria-label="The game"></section>
+</div>
+<!--__DATA__-->
+<!--__SCRIPTS__-->

@@ -1,0 +1,203 @@
+<title>Research Game</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/*__CSS__*/
+
+/* ====================================================================== the live game (play.js) */
+.pl-page { gap: 6px; }
+.rp-btn:disabled { opacity: 0.45; cursor: default; }
+.rp-btn.pl-primary { background: var(--uh-study); color: var(--uh-study-ink); }
+.rp-btn.pl-primary:not(:disabled):hover { background: var(--uh-hover); color: var(--uh-hover-ink); }
+.rp-btn.pl-stop { background: var(--uh-no); color: var(--uh-no-ink); }
+.pl-dim { color: var(--uh-muted); }
+.pl-short { display: none; }
+.pl-hidden-ink { color: var(--uh-hidden); }
+
+.pl-setup { background: var(--uh-panel); border-radius: 12px; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+.pl-setup h2 { margin: 0; font-size: 18px; font-weight: normal; }
+.pl-setup p { margin: 0; line-height: 1.45; }
+.pl-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 14px; }
+.pl-field { border: 1px solid var(--uh-accent); border-radius: 10px; padding: 6px 10px 10px; margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.pl-field legend { color: var(--uh-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; padding: 0 4px; }
+.pl-field.is-wide { grid-column: 1 / -1; }
+.pl-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.pl-opt { display: flex; gap: 8px; align-items: flex-start; flex: 1 1 200px; min-width: 0; padding: 6px 8px; border-radius: 8px; background: var(--uh-bg); border: 1.5px solid var(--uh-accent); cursor: pointer; }
+.pl-opt:has(input:checked) { border-color: var(--uh-fg); background: var(--uh-accent); }
+.pl-opt input { margin: 2px 0 0; accent-color: var(--uh-study); flex: none; }
+.pl-field > .pl-opt { flex: none; }
+.pl-opt-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.pl-opt-sub { color: var(--uh-muted); font-size: 12.5px; line-height: 16px; }
+.pl-opt:has(input:checked) .pl-opt-sub { color: var(--uh-fg); }
+.pl-seed-input { width: 9em; height: 28px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--uh-accent); background: var(--uh-bg); color: var(--uh-fg); font: inherit; padding: 0 8px; }
+.pl-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pl-paste summary { cursor: pointer; color: var(--uh-muted); }
+.pl-paste textarea, .pl-dialog textarea { width: 100%; box-sizing: border-box; min-height: 90px; background: var(--uh-bg); color: var(--uh-fg); border: 1px solid var(--uh-accent); border-radius: 8px;
+  font: 12px/1.4 var(--uh-font); padding: 6px; resize: vertical; margin: 6px 0; }
+
+.pl-turnbar, .pl-fundbar { gap: 6px 10px; }
+.pl-turnbar .rp-turn { min-width: 0; margin-right: 4px; }
+.pl-advance { flex-wrap: wrap; gap: 4px; }
+.pl-spacer { flex: 1 1 0; min-width: 0; }
+.pl-ftltab { position: relative; }
+.pl-ftltab[aria-pressed="true"] { box-shadow: inset 0 0 0 1.5px var(--uh-fg); }
+.pl-dot { width: 8px; height: 8px; border-radius: 4px; background: var(--uh-ok); display: inline-block; box-shadow: 0 0 0 1.5px var(--uh-bg); }
+.pl-fundbar .rp-select { height: 30px; max-width: 330px; }
+.pl-fundbar #pl-dry { max-width: none; }
+.pl-fundbar label.rp-lbl, .pl-fundbar .rp-lbl { color: var(--uh-muted); font-size: 13px; }
+.pl-check { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; cursor: pointer; }
+.pl-check input { accent-color: var(--uh-study); width: 16px; height: 16px; margin: 0; }
+.pl-queue { display: inline-flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.pl-qchip { display: inline-flex; align-items: center; gap: 4px; height: 26px; box-sizing: border-box; border-radius: 13px; padding: 0 4px 0 10px; background: var(--uh-panel-2); border: 1px dashed var(--uh-muted); white-space: nowrap; font-size: 13px; }
+.pl-qchip button { width: 20px; height: 20px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; color: var(--uh-muted); }
+.pl-qchip button:hover { background: var(--uh-hover); color: var(--uh-hover-ink); }
+.pl-fundnote { color: var(--uh-muted); font-size: 13px; min-width: 0; }
+
+.pl-notice { min-height: 20px; display: flex; flex-direction: column; gap: 2px; padding: 0 4px; font-size: 13.5px; line-height: 18px; }
+.pl-notice > div { display: flex; gap: 8px; align-items: baseline; }
+.pl-notice .pl-nt { color: var(--uh-muted); font-variant-numeric: tabular-nums; flex: none; }
+.pl-notice .is-warn { color: #FFD27A; }
+.pl-notice .is-good { color: var(--uh-ok); }
+
+.pl-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; align-items: start; }
+.pl-main.has-ftl { grid-template-columns: minmax(0, 1fr) 420px; }
+.pl-screen-wrap, .pl-ftl-wrap { min-width: 0; }
+.pl-main.is-busy .uh-screen, .pl-main.is-busy .uh-ftl { pointer-events: none; }
+
+.pl-log { background: var(--uh-panel); border-radius: 12px; padding: 8px 14px; }
+.pl-log summary { cursor: pointer; }
+.pl-log ol { list-style: none; margin: 8px 0 0; padding: 0; max-height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; font-size: 13px; }
+.pl-log li { display: flex; gap: 8px; line-height: 17px; }
+.pl-log li.is-hidden { color: var(--uh-hidden); }
+.pl-log .pl-lt { flex: none; width: 34px; text-align: right; color: var(--uh-muted); font-variant-numeric: tabular-nums; }
+
+.pl-modal { position: fixed; inset: 0; background: rgba(0, 0, 20, 0.72); display: flex; align-items: center; justify-content: center; z-index: 20;
+  padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); box-sizing: border-box; }
+.pl-dialog { background: var(--uh-panel); border: 1.5px solid var(--uh-accent); border-radius: 12px; padding: 14px 16px; max-width: 560px; width: 100%; max-height: 100%; overflow-y: auto; box-sizing: border-box; }
+.pl-dialog h2 { margin: 0 0 8px; font-size: 19px; font-weight: normal; }
+.pl-dialog p { margin: 0 0 8px; line-height: 1.45; }
+.pl-dialog .pl-warn { border-left: 3px solid var(--uh-no); padding-left: 10px; }
+.pl-dialog .pl-row { margin-top: 12px; }
+.pl-dialog.is-victory { border: 2px solid var(--uh-owned); }
+.pl-big { font-size: 26px; line-height: 1.2; margin: 0 0 4px; }
+.pl-facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 14px; margin: 10px 0 0; }
+.pl-facts dt { color: var(--uh-muted); }
+.pl-facts dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 1180px) {
+  .pl-main.has-ftl { grid-template-columns: minmax(0, 1fr); }
+  .pl-main.has-ftl .pl-screen-wrap { display: none; }
+}
+@media (max-width: 760px) {
+  .pl-long { display: none; }
+  .pl-short { display: inline; }
+  .pl-turnbar .rp-btn { padding: 0 10px; }
+  .ftl-head .uh-act { flex: none; }
+  .rp-top { gap: 4px 16px; }
+  .pl-fundbar .rp-select { max-width: 100%; flex: 1 1 160px; }
+  .pl-spacer { display: none; }
+  .pl-facts { grid-template-columns: minmax(0, 1fr); gap: 0 0; }
+  .pl-facts dd { margin-bottom: 6px; }
+}
+</style>
+<div class="rp-page pl-page" id="uh-app">
+  <header class="rp-top">
+    <div class="rp-brand">
+      <h1>Research Game</h1>
+      <span class="rp-headline" id="pl-headline">Uncharted Horizons: play the research race to a launch</span>
+    </div>
+    <div class="rp-load">
+      <button type="button" class="rp-btn" id="pl-new">New game</button>
+      <button type="button" class="rp-btn" id="pl-copylog" disabled><span class="pl-long">Copy the game’s log</span><span class="pl-short">Copy log</span></button>
+      <button type="button" class="rp-btn" id="pl-copysave" disabled><span class="pl-long">Copy a save code</span><span class="pl-short">Save code</span></button>
+    </div>
+  </header>
+  <div class="rp-error" id="pl-error" role="alert" hidden></div>
+
+  <section class="pl-setup" id="pl-setup" aria-labelledby="pl-setup-h" hidden>
+    <h2 id="pl-setup-h">A new game</h2>
+    <div class="pl-fields">
+      <fieldset class="pl-field is-wide">
+        <legend>World</legend>
+        <div class="pl-opts" id="pl-worlds"></div>
+      </fieldset>
+      <fieldset class="pl-field">
+        <legend>Economy</legend>
+        <div class="pl-opts">
+          <label class="pl-opt"><input type="radio" name="pl-econ" value="1.0" checked><span class="pl-opt-text"><span>Good</span><span class="pl-opt-sub">Base Civ V’s science victory on this income: turn 305</span></span></label>
+          <label class="pl-opt"><input type="radio" name="pl-econ" value="0.8"><span class="pl-opt-text"><span>Average</span><span class="pl-opt-sub">Four-fifths of the Insight: base Civ V wins on turn 380</span></span></label>
+        </div>
+      </fieldset>
+      <fieldset class="pl-field">
+        <legend>Rivals</legend>
+        <label class="pl-opt"><input type="checkbox" id="pl-diff" checked><span class="pl-opt-text"><span>Knowledge diffusion</span><span class="pl-opt-sub">Five rival civilisations; once you meet them, what most of them know reaches you</span></span></label>
+      </fieldset>
+      <fieldset class="pl-field">
+        <legend>Seed</legend>
+        <div class="pl-opts">
+          <label class="pl-opt"><input type="radio" name="pl-seedmode" value="random" checked><span class="pl-opt-text"><span>Random</span><span class="pl-opt-sub">One of the simulator’s own 300 games</span></span></label>
+          <label class="pl-opt"><input type="radio" name="pl-seedmode" value="typed"><span class="pl-opt-text"><span>This seed</span><span><input class="pl-seed-input" id="pl-seed" type="number" inputmode="numeric" min="0" max="999999999" step="1" value="17000" aria-label="Seed"></span></span></label>
+        </div>
+      </fieldset>
+    </div>
+    <p class="pl-dim">The one way of outrunning light that works in this world, and the world’s other truths, are drawn from the seed and stay hidden: you find them out on the Faster than light screen. Seeds 17000 to 17299 are the simulator’s games 0 to 299.</p>
+    <div class="pl-row">
+      <button type="button" class="rp-btn pl-primary" id="pl-start">Start the game</button>
+      <button type="button" class="rp-btn" id="pl-cancel" hidden>Back to the game</button>
+    </div>
+    <details class="pl-paste">
+      <summary>Load a game from a save code</summary>
+      <textarea id="pl-save-text" spellcheck="false" aria-label="A save code" placeholder="{&quot;format&quot;: &quot;uh-play-1&quot;, ...}"></textarea>
+      <button type="button" class="rp-btn" id="pl-load-save">Load the game</button>
+    </details>
+  </section>
+
+  <section class="rp-transport pl-turnbar" id="pl-turnbar" aria-label="Turns" hidden>
+    <span class="rp-turn" id="pl-turn">Turn 0</span>
+    <div class="rp-group pl-advance">
+      <button type="button" class="rp-btn pl-primary" id="pl-next">Next turn</button>
+      <button type="button" class="rp-btn" id="pl-5">5 turns</button>
+      <button type="button" class="rp-btn" id="pl-10">10 turns</button>
+      <button type="button" class="rp-btn" id="pl-event" title="Play on until a revealed breakthrough is discovered, something is revealed, an era begins, the Faster than light screen changes or the funded focus runs dry"><span class="pl-long">To the next event</span><span class="pl-short">Next event</span></button>
+      <button type="button" class="rp-btn" id="pl-ff" title="The Advisor chooses the focus each turn until a milestone of the race: the question of outrunning light opens, the list closes, certainty, a prototype can be committed, a prototype’s result, victory"><span class="pl-long">Fast-forward with the Advisor</span><span class="pl-short">Fast-forward</span></button>
+      <button type="button" class="rp-btn pl-stop" id="pl-stop" hidden>Stop</button>
+    </div>
+    <span class="pl-spacer"></span>
+    <button type="button" class="rp-btn pl-ftltab" id="pl-ftltab" aria-pressed="false" hidden>Faster than light <i class="pl-dot" id="pl-ftldot" hidden title="Changed since you last looked"></i></button>
+    <div class="rp-view" role="group" aria-label="What to show">
+      <button type="button" data-view="player" aria-pressed="true">Player view</button>
+      <button type="button" data-view="engine" aria-pressed="false" title="Hidden information, for the designer">Engine view</button>
+    </div>
+  </section>
+  <section class="rp-transport pl-fundbar" id="pl-fundbar" aria-label="What the funded share goes to" hidden>
+    <label class="rp-lbl" for="pl-focus">Fund</label>
+    <select class="rp-select" id="pl-focus"></select>
+    <label class="pl-check" title="The field with the most work waiting, as the simulator’s generalist chooses; once the Faster than light screen opens, the field its hints point to"><input type="checkbox" id="pl-advisor">Advisor chooses</label>
+    <span class="rp-lbl" id="pl-then-lbl">Next in line</span>
+    <span class="pl-queue" id="pl-queue"></span>
+    <select class="rp-select" id="pl-queue-add" aria-label="Add a focus to fund next, when the funded focus runs dry"></select>
+    <label class="rp-lbl" for="pl-dry">When the funded focus runs dry</label>
+    <select class="rp-select" id="pl-dry">
+      <option value="queue">next in line, then Automatic</option>
+      <option value="keep">keep funding it</option>
+    </select>
+    <span class="pl-fundnote" id="pl-fundnote"></span>
+  </section>
+  <div class="pl-notice" id="pl-notice" role="status" aria-live="polite"></div>
+
+  <main class="pl-main" id="pl-main" hidden>
+    <div class="pl-screen-wrap" id="pl-screen" aria-label="The research screen"></div>
+    <aside class="pl-ftl-wrap" id="pl-ftl" aria-label="The Faster than light screen" hidden></aside>
+  </main>
+
+  <section class="rp-summary" id="pl-summary" aria-label="The game" hidden></section>
+  <details class="pl-log" id="pl-logwrap" hidden>
+    <summary>The game’s log, newest first</summary>
+    <ol id="pl-log"></ol>
+  </details>
+
+  <div class="pl-modal" id="pl-modal" hidden>
+    <div class="pl-dialog" id="pl-dialog" role="dialog" aria-modal="true" aria-labelledby="pl-dialog-h"></div>
+  </div>
+</div>
+<!--__DATA__-->
+<!--__SCRIPTS__-->

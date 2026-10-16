@@ -12,6 +12,7 @@ Everything about the fork's research system that isn't game code: the design doc
 | `simulator/` | The research and FTL-endgame simulator, its measurement scripts and every saved result. |
 | `wiki/` | The generator that builds the GitHub wiki from `tech_tree.md` (see below). |
 | `mockups/research_screen/` | The research-screen mockup (a Design canvas): its source, data, requirements and review. See its README. |
+| `mockups/sim_web/` | Two browser prototypes built on the simulator: a replay viewer that plays a simulated game's turn-by-turn log (`w7f.py` with `TRACE=<file>`) as the research and FTL screens saw it, and a live game, the simulator's engine ported to JavaScript (bit for bit with Python) to play a game to victory by hand. See its README and `SPEC.md`. |
 
 ## Checking an edit
 
