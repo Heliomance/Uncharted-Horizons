@@ -48,6 +48,10 @@ class P:
         self.rediscover = 0.0        # >0: a lost idea of a tier in rediscover_tiers gets a new chance each turn, `rediscover` for every undiscovered
                                      # breakthrough ready but for it (all its other prerequisites discovered): rediscovery on demand (14 Oct 2026)
         self.rediscover_tiers = ('STANDARD',)
+        self.space_open = False      # True: a Space-era idea's window never closes, so it is never lost (the Space era as the endgame:
+                                     # Tamsin, 16 Oct 2026)
+        self.space_chance = {}       # {tier: chance a turn} for Space-era ideas when space_open, set directly instead of from the
+                                     # window's length; a tier left out keeps its window-derived chance
         self.tier_attention = True   # True: tier odds also weight attention once an idea has occurred (within its focus, and its focus's pull
                                      # on the spread and spill-over). False: once occurred, every tier is studied alike (Tamsin, 14 Oct 2026)
         self.__dict__.update(kw)
@@ -238,15 +242,18 @@ def run(prm, seed, max_turns=450):
                 behind = d - (ERA_I[k] + 1)
                 if prm.compress and behind > 0: W = W / (1 + prm.compress * behind)
                 W = max(W, 1.0)
-                t0 = opened[k]                                                       # when the window's clock started
-                if prm.era_hold and t in prm.era_hold_tiers:                         # era hold: no window closes before its row's era has begun
-                    if ERA_I[k] >= len(era_start): t0 = turn                         # the era has not begun: the clock has not run out
-                    elif prm.era_hold == 'clock': t0 = max(t0, era_start[ERA_I[k]])
-                if prm.funded_windows and t == 'STANDARD' and turn - t0 > W and FOCUS[k] == funded: held.add(k)   # (accounting only)
-                if turn - t0 > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
-                    lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue   # the moment has passed: the idea is lost
-                if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue
-                if rng.random() < 1 - (1 - min(TARGET[t], 0.999)) ** (1 / W): occurred.add(k); occ_turn[k] = turn
+                endgame = prm.space_open and ROWS[k]['era'] == 'Space'               # the endgame: a Space-era window never closes
+                if not endgame:
+                    t0 = opened[k]                                                   # when the window's clock started
+                    if prm.era_hold and t in prm.era_hold_tiers:                     # era hold: no window closes before its row's era has begun
+                        if ERA_I[k] >= len(era_start): t0 = turn                     # the era has not begun: the clock has not run out
+                        elif prm.era_hold == 'clock': t0 = max(t0, era_start[ERA_I[k]])
+                    if prm.funded_windows and t == 'STANDARD' and turn - t0 > W and FOCUS[k] == funded: held.add(k)   # (accounting only)
+                    if turn - t0 > W and not (prm.funded_windows and t == 'STANDARD' and FOCUS[k] == funded):
+                        lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue   # the moment has passed: the idea is lost
+                    if t != 'STANDARD' and d > ERA_I[k] + 1 + prm.grace: lost.add(k); lost_at.setdefault(k, (turn, round(W, 1), k in FUNDED)); continue
+                chance = prm.space_chance[t] if endgame and t in prm.space_chance else 1 - (1 - min(TARGET[t], 0.999)) ** (1 / W)
+                if rng.random() < chance: occurred.add(k); occ_turn[k] = turn
                 else:                                                                # proximity revelation: glimpsed, not found
                     g = GLIMPSE.get(t, 0.0) if isinstance(GLIMPSE, dict) else GLIMPSE   # a chance for every tier, or one per tier
                     if g and k not in glimpsed and grng.random() < g: glimpsed.add(k)

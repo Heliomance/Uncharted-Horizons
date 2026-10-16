@@ -195,6 +195,9 @@ if os.environ.get('SCALE'): CFG['scale'] = float(os.environ['SCALE'])   # its pr
 if os.environ.get('ERAHOLD'): CFG['era_hold'] = os.environ['ERAHOLD']   # start|clock: no window closes before its row's era has begun
 if os.environ.get('ERAHOLDTIERS'): CFG['era_hold_tiers'] = tuple(os.environ['ERAHOLDTIERS'].split(','))
 if os.environ.get('FUNDEDWIN') == '1': CFG['funded_windows'] = True   # a STANDARD window stays open while its focus is funded
+if os.environ.get('SPACEOPEN') == '1' or os.environ.get('SPACEOCC'): CFG['space_open'] = True   # Space-era windows never close (harness_ftl_e.P.space_open)
+if os.environ.get('SPACEOCC'):   # SPACEOCC=p (a Space-era STANDARD idea's chance a turn) or SPACEOCC=tier:p,...; implies SPACEOPEN=1
+    CFG['space_chance'] = {(i.split(':')[0] if ':' in i else 'STANDARD'): float(i.split(':')[-1]) for i in os.environ['SPACEOCC'].split(',')}
 if os.environ.get('REDISCOVER'): CFG['rediscover'] = float(os.environ['REDISCOVER'])   # rediscovery on demand (harness_ftl_e.P.rediscover)
 if os.environ.get('TIERATT'): CFG['tier_attention'] = os.environ['TIERATT'] == '1'   # tier odds weighting attention once an idea has occurred
 DRAWS = []   # each game's method and truth, drawn in order before any game is played, so that games can run in any order
