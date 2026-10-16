@@ -5,6 +5,8 @@ Two prototypes for Tamsin, built on the simulator and the design document as it 
 - **The replay viewer** (`dist/replay.html`) plays a simulated game's turn-by-turn log and shows, turn by turn, what the research screen and the FTL screen looked like to that player.
 - **The live game** (`dist/play.html`) is the simulator's engine ported to JavaScript, to play a game by hand from turn 0 to the ship's launch. Each turn you choose what to fund (a focus, a Grand Endeavour, or the FTL prototype) and advance the turn. Knowledge diffusion from five rivals, glimpses, ideas whose moment passes, rediscovery on demand, Competing Solutions' lock-outs, the FTL hypotheses and their tests, instruments, the prototype, the SS FTL Drive and victory against base Civ V's 305 / 380 all work as in the simulator.
 
+Published (private to Tamsin until she shares them): the replay viewer at https://claude.ai/artifact/R6P4DFa7tfXCMD5FQK79Pa and the live game at https://claude.ai/artifact/1v58XZaSDvaArRnkrcAZSY. To update one, rebuild `dist/` and republish to the same link.
+
 Her brief: "don't worry too much about design so long as it's playable, this is just a prototype, but I want to be able to play through the tech tree all the way to victory." Both pages use the research-screen mockup's Unciv look (`../research_screen/`).
 
 ## Using them
