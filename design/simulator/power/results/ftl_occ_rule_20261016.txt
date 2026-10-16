@@ -29,8 +29,8 @@ The rule as simulated (w7f.py FTLOCC=1; harness_ftl_e.FTL_OCC):
    The rule (FO)                                   2.6    1.6   22-70%      296 / 297 / 369   outside the 5-turn limit
    The rule, Space price x1.5 (FOS15; own rivals)  3.7    2.0   25-70%      302 / 303 / 378   at parity
    The rule, Space price x1.9 (FOS19; own rivals)  5.4    3.0   26-74%      309 / 310 / 387   the average player outside
-   The slowest method left is Tunnelling (+2 to +4): its Planetary Data Networks (CP16) is not named on the FTL screen, so
-   the rule does not reach it (19 turns from available to discovered, against 2-6 for every named step).
+   The slowest method left is Tunnelling (+2 to +4): its Planetary Data Networks (CP16) is no FTL requirement itself, only a
+   prerequisite of one, so the rule does not reach it (19 turns from available to discovered, against 2-6 for every named step).
 
 == 2. What is discovered on the path to victory, mean a game (ftl_share.py; played on to the launch with TOVICTORY=1)
    The whole path, to the launch:            FTL     non-FTL (Space-era / earlier)   FTL share   Space era: FTL share

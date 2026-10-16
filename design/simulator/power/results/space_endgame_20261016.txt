@@ -134,8 +134,8 @@ rather than calculating discovery chances from window length, adjust them direct
   today) without any price change.
 - What the chance cannot fix: from 15% up, the method furthest from its field is Plenum or Tunnelling, slow, in every player and
   world. At 20-30%, Wormhole, Hyperspace and Tachyonic are within about 2 turns of their field, Warp 3-4 quick, Tunnelling 6-8 slow
-  and Plenum 9-10 slow. Their routes run through rows the FTL screen does not name (Aerospace Industry and Reusable Launch Vehicle
-  for Plenum, Planetary Data Networks for Tunnelling), which the expert finds 17-30 turns after their prerequisites are met, and
+  and Plenum 9-10 slow. Their routes run through rows that are no FTL requirement themselves but prerequisites of one (Aerospace
+  Industry and Reusable Launch Vehicle for Plenum's Current Sail, Planetary Data Networks for Tunnelling's Quantum Computing), which the expert finds 17-30 turns after their prerequisites are met, and
   through study along dearer rows (Current Sail x2.5, Quantum Computing x2). That is a matter of guidance or of those rows, not of
   occurrence.
 - The cost is the Space era's other content, because the race is shorter: non-FTL Space-era breakthroughs held at the launch fall

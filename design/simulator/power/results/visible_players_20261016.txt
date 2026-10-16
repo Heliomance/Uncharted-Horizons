@@ -41,7 +41,7 @@ techs."
    The rule, FTL-related breakthroughs x1.4 (VFP14)     4.7    2.9   27-73%      301 / 305 / 380   at parity
    The rule, FTL-related breakthroughs x2 (VFP2)        5.3    3.1   22-70%      309 / 315 / 393   too long for the weaker players
    Plenum stays slowest (+2 to +10) and Tunnelling next: Aerospace Industry, Reusable Launch Vehicle and Planetary Data Networks
-   are on their routes but not named on the FTL screen, so the rule does not reach them.
+   are on their routes but are no FTL requirement themselves (only prerequisites of one), so the rule does not reach them.
 
 == 3. The Space era on the path to victory (ftl_share.py --space; mean a game, played on to the launch)
 Space-era breakthroughs held at the launch (games played on with TOVICTORY=1; otherwise at the race's finish), mean a game.

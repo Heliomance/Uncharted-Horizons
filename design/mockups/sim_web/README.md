@@ -7,6 +7,8 @@ Two prototypes for Tamsin, built on the simulator and the design document as it 
 
 Published (private to Tamsin until she shares them): the replay viewer at https://claude.ai/artifact/R6P4DFa7tfXCMD5FQK79Pa and the live game at https://claude.ai/artifact/1v58XZaSDvaArRnkrcAZSY. To update one, rebuild `dist/` and republish to the same link.
 
+**They follow the simulator as it stood at v3.126.** v3.127's Space era as the endgame (no Space-era window closes; 10% a turn) and its visible-information benchmark players are not in them yet: see *Bring the browser mockups to v3.127* in `design/notes/deferred_tasks.md`.
+
 Her brief: "don't worry too much about design so long as it's playable, this is just a prototype, but I want to be able to play through the tech tree all the way to victory." Both pages use the research-screen mockup's Unciv look (`../research_screen/`).
 
 ## Using them
