@@ -83,6 +83,9 @@ VISIBLE = False      # VISIBLE: the simulated players decide what to fund only o
                      # work; a discoverable idea the player cannot see counts as possibly under study, one it can see is not under study (or
                      # whose moment it can see has passed) does not; costs are full prices, with no hidden progress. Off: the players see
                      # every idea's occurrence and progress, as in every measurement before 16 Oct 2026
+VIS_SEEN_FIRST = False   # with VISIBLE and the 'cheapest' rule: fund first the targets the player can see being studied (CORE rows once
+                         # discoverable, revealed ideas under study), and the field of a target it cannot see only when none of those is
+                         # workable (VISPREF=1, 17 Oct 2026); False: the cheapest target, seen or not, whose idea may not have occurred
 PROTO_UNTIL = None   # TOVICTORY (w7f.py): the game plays on past the race's finish to the launch; until this turn the prototype takes the
                      # funded share (no focus is funded, no Endeavour starts) and the spread goes on, as during an Endeavour
 END_UNOCCURRED_ONLY = False   # True: a Grand Endeavour may target only an idea that has not occurred (a revealed goal nobody knows how to reach yet),
@@ -328,8 +331,13 @@ def run(prm, seed, max_turns=450):
             ok_p = (lambda k: prm.premium ** max(0.0, ERA_I[k] - d) <= EXPCAP) if capped else (lambda k: True)
             pri = {k for k in pri if ok_p(k)}
             cp, est, wt = (cand, (lambda k: COSTMULT.get(k, 1.0) * est_price(k)), vwaiting) if VISIBLE else (cpool, est_rem, waiting_c)   # VISIBLE: no hidden state
-            fc = {f: min(est(k) for k in ks if k in pri) for f, ks in cp.items() if any(k in pri for k in ks)}
-            if not fc: fc = {f: min(est(k) for k in ks if k in FUNDED and ok_p(k)) for f, ks in cp.items() if any(k in FUNDED and ok_p(k) for k in ks)}
+            if VISIBLE and VIS_SEEN_FIRST:   # what the player can see being studied first, the tests before the rest
+                seen = lambda k: ROWS[k]['tier'] == 'CORE' or k in rev_now   # (cand holds no seen idea that is idle)
+                layers = [lambda k: k in pri and seen(k), lambda k: k in pri, lambda k: k in FUNDED and ok_p(k) and seen(k), lambda k: k in FUNDED and ok_p(k)]
+            else: layers = [lambda k: k in pri, lambda k: k in FUNDED and ok_p(k)]
+            for want in layers:
+                fc = {f: min(est(k) for k in ks if want(k)) for f, ks in cp.items() if any(want(k) for k in ks)}
+                if fc: break
             if fc: active = min(fc, key=fc.get)
             elif capped and wt: active = max(wt, key=wt.get)   # nothing affordable to target: fund the most fruitful focus, as development catches up
         sh = 0.8 if 'SO05' in have else 0.5; es = END_SHARE or sh   # es: an Endeavour's share of the turn's Insight

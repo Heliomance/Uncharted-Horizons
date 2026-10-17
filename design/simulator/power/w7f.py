@@ -75,6 +75,31 @@ def hint_row(alts, have):
 def hint_focus(alts, have):
     """the field an FTL-screen hint points to for a requirement"""
     k = hint_row(alts, have); return HF.FOCUS[k] if k else None
+HINTALL = os.environ.get('HINTALL') == '1'   # the FTL-screen hint as section 4 words it: every focus in which a step can be worked on now, on every route (17 Oct 2026); off: one focus a requirement, the cheapest workable step's
+HINTTIE = os.environ.get('HINTTIE', 'name')  # the novice's choice between fields hinted equally often: name (the alphabetically last, the rule until 17 Oct 2026) | stick (last turn's field if it is among them, else one at random)
+def hint_rows(alts, have):
+    """section 4's hint for one requirement: on every route to every row that would meet it, the first missing step whose own
+    prerequisites are met. A route through a row absent from this world, or locked out by Competing Solutions, is no route"""
+    S_ = HF.STATE; locked = S_.get('locked', ()); end_k = S_.get('end_k'); memo = {}; out = set(); seen = set()
+    def viable(k):
+        if k in have: return True
+        if k not in _rows or (k in locked and k != end_k): return False
+        if k not in memo:
+            memo[k] = False   # (a cycle is no route)
+            memo[k] = all(any(all(viable(p) for p in opt) for opt in grp) for grp in _rows[k]['pre'])
+        return memo[k]
+    def walk(k):
+        if k in seen or k in have: return
+        seen.add(k)
+        if HF.prereqs_met(k, have): out.add(k); return
+        for grp in _rows[k]['pre']:
+            if any(all(p in have for p in opt) for opt in grp): continue
+            for opt in grp:
+                if all(viable(p) for p in opt):
+                    for p in opt: walk(p)
+    for k in alts:
+        if viable(k): walk(k)
+    return out
 EXPFIX = os.environ.get('EXPFIX') == '1'
 NOVFOCUS = os.environ.get('NOVFOCUS') == '1'   # novice: Endeavour only the step holding up the field it is funding
 NOVEND = int(os.environ['NOVEND']) if os.environ.get('NOVEND') else None   # novice: turns a revealed step may hold things up before an Endeavour
@@ -96,10 +121,14 @@ def spec_target(have, state):
         if pref: F = state['srng'].choice(pref); state['since'] = now; state.setdefault('seq', []).append((now, F))
     state['focus'] = F
     return set(undisc(F)) if F else set()
-def hint_pick(reqs, have):
+def hint_pick(reqs, have, prev=None, rng=None):
     """the novice's choice: the hinted field serving the most requirements (no idea of cost)"""
-    cnt = collections.Counter(f for f in (hint_focus(r, have) for r in reqs) if f)
-    return max(cnt, key=lambda f: (cnt[f], f)) if cnt else None
+    if HINTALL: cnt = collections.Counter(f for r in reqs for f in {HF.FOCUS[k] for k in hint_rows(r, have)})
+    else: cnt = collections.Counter(f for f in (hint_focus(r, have) for r in reqs) if f)
+    if not cnt: return None
+    if HINTTIE == 'name': return max(cnt, key=lambda f: (cnt[f], f))
+    top = max(cnt.values()); best = sorted(f for f in cnt if cnt[f] == top)
+    return prev if prev in best else rng.choice(best)
 import prices; prices.apply(HF, _rows)   # the agreed design's prices: Space-era price and row multipliers (prices.py)
 COST = {k: _cost(k) for k in _rows}      # each row's price, fixed for the run (smart_targets sums these millions of times)
 if world is None:
@@ -186,6 +215,7 @@ if os.environ.get('FTLPRICE'):   # FTLPRICE=x: every FTL-related breakthrough's 
     for k in FTL_ROWS:
         if k in _rows: HF.COSTMULT[k] = HF.COSTMULT.get(k, 1.0) * float(os.environ['FTLPRICE']); COST[k] = _cost(k)
 HF.VISIBLE = os.environ.get('VISIBLE') == '1'   # the players decide what to fund only on what the screens show (harness_ftl_e.VISIBLE)
+HF.VIS_SEEN_FIRST = os.environ.get('VISPREF') == '1'   # ...funding first what they can see being studied (harness_ftl_e.VIS_SEEN_FIRST)
 TOVICTORY = os.environ.get('TOVICTORY') == '1'   # with RUNON=1: play each game on to its launch turn (victory.py) instead of stopping at the race's finish
 if TOVICTORY: import victory as V
 SEED0 = int(os.environ.get('SEED0', '17000'))
@@ -205,6 +235,7 @@ for s in range(N * len(COND)):
     m = list(COND)[s % len(COND)]; a = rng.choice(TRUTHS[m])
     if METHODS and m not in METHODS: continue          # skip after the draw, so every game keeps its truth and seed
     DRAWS.append((s, m, a))
+if os.environ.get('GAMES'): DRAWS = [g for g in DRAWS if g[0] in {int(x) for x in os.environ['GAMES'].split(',')}]   # GAMES=s,...: play only these games, each with its own truth, seed and rivals (to trace one)
 def play(s, m, a):
     """one game: its record for the results file"""
     state = {'cert': None, 'srng': random.Random(SEED0 + s + 7919)}
@@ -218,10 +249,11 @@ def play(s, m, a):
             if CLOSE not in have: return set()                           # before the unified theory there is nothing on the screen to follow
             if state['cert'] is not None: qreq, nreq = [], [g for g in BUILD[m] if not any(x in have for x in g)]
             else: qreq, nreq = [HOST[c] for c in {c for o in alive for c in COND[o] if c not in kn}], [g for o in alive for g in BUILD[o] if not any(x in have for x in g)]
-            pick = hint_pick(qreq, have) or hint_pick(nreq, have)        # questions first; hedge only as the screen invites
+            pick = hint_pick(qreq, have, state.get('pick'), state['srng']) or hint_pick(nreq, have, state.get('pick'), state['srng'])   # questions first; hedge only as the screen invites
+            state['pick'] = pick
             if NOVEND:                                                   # a revealed step that has held things up for a reasonable time: commission it
                 now = HF.CLOCK['turn']; S_ = HF.STATE
-                blocking = {hint_row(r, have) for r in qreq + nreq} - {None}
+                blocking = set().union(*(hint_rows(r, have) for r in qreq + nreq)) if HINTALL else {hint_row(r, have) for r in qreq + nreq} - {None}
                 rev = (lambda k: _rows[k]['tier'] == 'CORE' or k in S_.get('glimpsed', ()) or k in S_.get('diff', {}) or k in S_.get('diff_unc', {})) if HF.VISIBLE else \
                       (lambda k: _rows[k]['tier'] == 'CORE' or k in S_.get('occurred', ()) or k in S_.get('glimpsed', ()))   # VISIBLE: revealed, not occurred
                 for k in list(BLOCK):
