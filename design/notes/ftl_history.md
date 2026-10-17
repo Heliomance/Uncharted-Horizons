@@ -102,6 +102,7 @@ Times are UTC. Spreads are those computed on 16 October (see above).
 | 16 Oct | analyses | Found: the weaker players' Endeavour rule never ran, and why the methods drifted. Measured: the funded-focus rule, and players who see only the screens. | Tamsin's questions | visible players: 310 / 312 / 386, spread 17.8; with the rule and the FTL rows ×1.4: 301 / 305 / 380 and 4.7; not adopted |
 | 16 Oct, evening | the endgame test | Space-era windows never close, and a Space-era idea's chance a turn is set directly (6.6% to 100% tested). | Tamsin: treat the Space era "as the endgame" | at 10–20% a turn, with visible players: 305 / 308 / 381 to 301 / 303 / 377, spread 12.3–9.3 |
 | 16 Oct, late | v3.127 | The endgame rule at 10% a turn written in; the visible-information players become the benchmark. | Tamsin: "I think I like 10% per turn chance with the never closing space window; let's put that in for now" | 305 / 308 / 381; spread 12.3; Plenum (+14) and Tunnelling (+9) still slow |
+| 17 Oct | analyses | Plenum and Tunnelling: the hint as §4 words it; the expert and rivals funding visible work first; the sync report's prerequisite changes; levers to pay turns back. | Tamsin: "then work out how to fix plenum and tunneling" | not adopted yet; best package 305 / 306 / 380, spread 4.5 |
 
 ## What the costs have been
 
@@ -548,13 +549,31 @@ At 18:29 the Drive was built from Production too. Tamsin, 18:22: "we've not been
   - The spread falls to about 9 and then stops falling: from 15% up, Plenum and Tunnelling are the methods furthest from the field in every player and world. Their routes run through rows that are no FTL requirement themselves but prerequisites of one, and through dearer rows studied one after another, which a faster chance can't reach.
   - Warp stays 3–4 turns quick. Wormhole, Hyperspace and Tachyonic come within about 2 turns of the field.
 
+### 17 October: Plenum and Tunnelling
+
+- **The question.** Tamsin, 16 October: "let's put that in for now and then work out how to fix plenum and tunneling." At v3.127 Plenum finished 13–15 turns behind its world's field and Tunnelling 7–12.5. The old players (who saw every idea's occurrence) had 7 and 4.5–6 on the same design. So most of the lag came with the switch to players who see only the screens (`results/plenum_tunnelling_20261017.txt`).
+- **The FTL-screen hint was not the cause.** The simulated hint had named one focus per question or build need, where §4 names every focus in which a step can be worked on. Its ties went alphabetically, so Aeronautics and Computing lost every one. Neither fix moved Plenum, and a stickier choice made the average player's Tunnelling worse.
+- **The players' funding rule was the main cause.** The expert and the rivals' detective fund the field of the cheapest step they still want. With visible information that step is often an idea they can't see, and it may not have occurred. Funding doesn't make an idea occur, so the field is funded for nothing that's wanted while visible work waits elsewhere. Example: the expert reached Plenum's Rocketry 19 turns later than the old players did. The rivals, made by the same detective, passed on Plenum's Rocketry and Materials rows in 20–38% of the weaker players' games, against 77–87% before, and Quantum Computing in none, against 28–45%.
+  - **Funding visible work first** (`VISPREF=1`): CORE rows and revealed ideas under study before ideas the player can't see. It uses no hidden information. The expert's Plenum goes from +15 to +7.5, the old players' figure, and the expert is 3 turns quicker overall. Spread 8.9; 302 / 303 / 376.
+- **What remains is structural.** Plenum and Tunnelling each have three Space-era ideas that must occur in sequence, at 10% a turn each, and the Current Sail waits on two more.
+  - **The sync report's two prerequisite changes** (P2): Current Rigging after the Celestial Current Survey and Aerospace Industry, not the Current Sail; Quantum Computing without Planetary Data Networks.
+    - With v3.127's players: spread 7.4 at 303 / 306 / 380. Wormhole becomes as slow as Plenum; Transformation Media's change cures that (6.7 at 303 / 306 / 379).
+    - With visible work first: spread 4.3, every method within about 4.5 turns of its field, but 4–5 turns short (300 / 301 / 375).
+- **Paying turns back.** The race is set by when the unified theory arrives, turn 250–253 under every price. The expert reaches for the theory once development brings its premium within ×2, and development counts Insight, not discoveries. So the Space price (×1.15), the Atomic price (×1.1) and an 8% chance a turn each buy only 1–2 turns, and widen the spread. The prototype's price comes after the race and lengthens every method alike: at 10× the Space price instead of 5×, the package is at 305 / 306 / 380, spread 4.5.
+- **The Space era's other content.** About 14 non-FTL Space-era breakthroughs at the launch under that package, against 19–20 at v3.127 and 14.6–16.5 for the old players. The v3.127 figure was inflated by fields funded for ideas that hadn't occurred.
+
 ## Where it stands
 
 **Settled in v3.127:** the Space era as the endgame, at 10% a turn, and the benchmark players who decide on what the screens show (305 / 308 / 381, spread 12.3).
 
 **Decisions for Tamsin:**
 
-1. **How to fix Plenum (+14) and Tunnelling (+9)**, the next step (Tamsin, 16 October: "then work out how to fix plenum and tunneling"). Both build through rows that are no FTL requirement themselves, only prerequisites of one (Current Sail needs Aerospace Industry and Reusable Launch Vehicle; Quantum Computing needs Planetary Data Networks), along dearer Space-era rows studied one after another. Candidates: the sync report's prerequisite changes for Current Rigging and Quantum Computing, and the prices of Current Sail (×2.5) and Quantum Computing (×2).
+1. **How to fix Plenum (+14) and Tunnelling (+9)** (measured 17 October, above):
+   - **The benchmark players.** Should the expert and the rivals fund visible work first (`VISPREF=1`)? It's a modelling question, not a design one.
+   - **The design.** The sync report's prerequisite changes for Current Rigging and Quantum Computing, and perhaps Transformation Media's.
+   - **Parity**, if the players change: the prototype at 10× the Space price.
+   - With all three: 305 / 306 / 380, spread 4.5.
+   - With the prerequisite changes alone, and today's players: 303 / 306 / 380, spread 7.4 (6.7 with Transformation Media).
 2. **The other ways to level the methods**, measured before v3.127 (each would now need re-measuring on top of it):
    - **Treat the depth.** The sync report's three prerequisite changes, three dearer rows and Space ×1.1, measured so far only with the old players.
    - **Remove the waits in sequence.**

@@ -1,0 +1,188 @@
+Plenum and Tunnelling at v3.127 (17 Oct 2026). Tamsin, 16 Oct: "I think I like 10% per turn chance with the never closing
+space window; let's put that in for now and then work out how to fix plenum and tunneling."
+
+At v3.127 (label V127: players who see only the screens, Space-era ideas at 10% a turn, rivals made under the same rules)
+Plenum finishes 13-15 turns behind its world's field and Tunnelling 7-12.5. The old players (S10O: they saw every idea's
+occurrence and progress) had 7 and 4.5-6 on the same design.
+
+Every setting below: all 15 victory conditions, three players, 60 games a cell, 2,700 games; rivals made under the same
+switches (make_pool.sh); TOVICTORY=1 SAVE_T=1 PYTHONHASHSEED=0. Spread as in space_endgame_20261016.txt: the mean over worlds
+and players of the largest method-to-field deviation, at victory. Each method's figure is its mean deviation from its world's
+field (Plenum over the two elemental worlds, Tunnelling in the familiar one). No game in any setting failed to finish.
+
+== 1. The FTL-screen hint (the novice and the average player follow it; the expert works from the tree it knows)
+   H1 = HINTALL=1: the hint names every focus section 4 names (on every route, every missing step whose own prerequisites are
+        met), not only the cheapest workable step's.
+   T1 = HINTTIE=stick: between equally hinted fields the novice keeps last turn's field (else picks at random), instead of the
+        alphabetically last one, which made Aeronautics and Computing lose every tie.
+   HT = both. The expert's games are identical to V127's in all three (the hint never reaches it), and the rivals' too.
+
+   label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
+   V127     novice     308 +3    11.3 |    -4.2    +2.8    +2.3    -5.3    +7.5   +13.2
+   V127     average    381 +1    13.0 |    -3.5    +2.7    +1.5    -5.3   +12.5   +13.2
+   H1       novice     308 +3    12.5 |    -4.0    +3.0    +1.8    -5.2    +8.5   +14.5
+   H1       average    381 +1    12.8 |    -3.8    +1.8    +2.5    -4.8   +11.5   +13.5
+   T1       novice     308 +3    11.3 |    -4.8    +3.2    +3.0    -5.5    +7.0   +13.0
+   T1       average    381 +1    15.5 |    -4.0    +1.8    +1.7    -3.2   +17.0   +14.8
+   HT       novice     308 +3    10.8 |    -4.7    +2.8    +3.2    -5.7    +7.0   +12.2
+   HT       average    381 +1    15.5 |    -5.7    +1.2    +1.8    -3.8   +18.0   +14.2
+   (overall spread: V127 12.3, H1 12.7, T1 13.2, HT 13.0)
+   Reading: the hint is not the cause. Neither change moves Plenum, and the stickier choice makes the average player's
+   Tunnelling worse.
+
+== 2. Why seeing only the screens slows Plenum and Tunnelling
+ (a) The expert's (and the rivals') funding rule. Both use the cheapest-first rule: fund the field holding the cheapest step
+     still wanted. With visible information the candidates include every discoverable idea the player cannot see, which may
+     not have occurred, so the player funds a field whose wanted idea has not arrived (funding does not make an idea occur)
+     while steps it can see waiting elsewhere get only the spread. Long chains that start with ordinary rows suffer most.
+     Plenum's Rocketry and Materials Science steps, median discovery turn for the expert (Process world):
+       row                          V127   S10O (old)   VP (section 3)
+       Rocketry (RK03, CORE)         250      231          238
+       Composites (MS01, CORE)       254      243          245
+       Satellite Technology (RK05)   258      250          243
+       Reusable Launch Vehicle       273      259          268
+       Current Sail                  289      285          285
+       Current Rigging               300      293          292
+     In one traced game (Process, Plenum; GAMES=279) the visible expert discovered Rocketry 29 turns after it became
+     available, without funding Rocketry once in that time; the old expert took 16, funding it for the last two.
+ (b) Rivals. The rivals are made by the same cheapest-first detective, so under visible information they too are slower to
+     these rows, and pass fewer on by diffusion. Share of games in which a row came from rivals:
+       Plenum (Process)       Rocketry   Composites  Reusable LV  Aerospace Ind.
+         novice   V127          20%         38%         32%          67%
+                  S10O          85%         78%         78%          87%
+         average  V127          30%         37%         30%          80%
+                  S10O          87%         78%         77%          87%
+       Tunnelling (familiar)  Quantum Computing   Quantum Communication   Entanglement Mastery
+         novice   V127           0%                  7%                      0%
+                  S10O          45%                 40%                     42%
+         average  V127           0%                  5%                      0%
+                  S10O          28%                 45%                     43%
+ (c) The structure. Space-era non-CORE rows that must occur one after another on each method's best route (each waits 10 turns
+     on average at 10% a turn, then is studied). After the unified theory: Plenum three (Celestial Current Survey > Current
+     Sail x2.5 > Current Rigging), and the Current Sail also needs two more such ideas (Reusable Launch Vehicle, Aerospace
+     Industry), which wait on the Rocketry and Composites rows in (a); Wormhole three (Exotic Matter Synthesis or
+     Exotic Matter > Exotic Matter Engineering > Transformation Media x4); Warp two. Not waiting on the theory: Tunnelling
+     three (Planetary Data Networks > Quantum Computing x2 > Macroscopic Quantum Control). Hyperspace and elemental Tachyonic
+     two, atomic Tachyonic one.
+
+== 3. Visible work first (VP): VISPREF=1 for the expert and the rivals' detective, rivals made under it
+   The cheapest-first players fund first the wanted steps they can see being studied (CORE rows once discoverable, revealed
+   ideas under study), and the field of an idea they cannot see only when none of those can be worked on. Same information as
+   V127; nothing hidden is used.
+   label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
+   V127     expert     305 +0    12.7 |    -5.0    +5.0    +0.7    -3.7    +7.0   +15.0
+   V127     novice     308 +3    11.3 |    -4.2    +2.8    +2.3    -5.3    +7.5   +13.2
+   V127     average    381 +1    13.0 |    -3.5    +2.7    +1.5    -5.3   +12.5   +13.2
+   S10O     expert     301 -4     7.0 |    -5.5    +3.5    +3.0    -3.5    +6.0    +7.0
+   S10O     novice     304 -1     6.5 |    -2.5    +2.2    +2.2    -5.5    +4.5    +7.0
+   S10O     average    377 -3     6.7 |    -2.5    +2.0    +3.3    -4.7    +5.0    +7.0
+   VP       expert     302 -3     7.3 |    -4.5    +4.0    +1.2    -3.2    +7.0    +7.5
+   VP       novice     303 -2     9.8 |    -2.3    +2.2    +0.8    -2.8   +10.0    +9.8
+   VP       average    376 -4     9.5 |    -3.0    -0.2    +3.0    -3.3    +7.5   +10.5
+   (overall spread: V127 12.3, S10O 6.7, VP 8.9)
+   Reading: the rule gives the expert back the old players' pace on visible information alone (Plenum +7.5, against +15 and the
+   old +7), and makes it 3 turns quicker overall. The weaker players gain through their rivals. The science victory shortens
+   by 3-5 turns: still within the limit, but the average player is 4 short.
+
+== 4. The sync report's prerequisite changes (ftl_sync_report_20261015.md), with either player model
+   P2 = Current Rigging needs the Celestial Current Survey and Aerospace Industry instead of the Current Sail (the sail and the
+        rigging become parallel parts of one craft); Quantum Computing no longer needs Planetary Data Networks.
+   P3 = P2, and Transformation Media needs Exotic Matter Synthesis or Exotic Matter (validated) with Casimir Effect
+        Amplification or the Aetheric Vacuum, instead of Exotic Matter Engineering.
+   P2V, P3V = the same with visible work first (VISPREF=1).
+   label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
+   P2       expert     303 -2     6.3 |    -4.7    +6.0    +2.2    -2.2    +5.0    +5.5
+   P2       novice     306 +1     8.5 |    -3.7    +6.2    +3.8    -3.7    +4.0    +6.5
+   P2       average    380 +0     7.3 |    -2.7    +4.2    +3.0    -4.2    +1.5    +7.8
+   P3       expert     303 -2     6.3 |    -3.3    +0.8    +2.7    -1.8    +8.0    +5.5
+   P3       novice     306 +1     7.3 |    -3.5    +0.3    +3.2    -4.0    +7.0    +7.5
+   P3       average    379 -1     6.5 |    -1.0    -2.2    +3.0    -2.7    +1.5    +7.8
+   P2V      expert     300 -5     4.7 |    -2.8    +4.3    +2.0    -2.7    +3.0    +3.5
+   P2V      novice     301 -4     3.8 |    -0.2    +1.3    +3.2    -3.2    +0.5    +4.5
+   P2V      average    375 -5     4.3 |    -1.0    +1.0    +2.3    -4.0    +2.0    +4.0
+   P3V      expert     299 -6     3.8 |    -2.0    -0.8    +2.3    -2.3    +3.0    +4.2
+   P3V      novice     301 -4     4.5 |    +1.2    -4.2    +2.8    -3.2    +1.5    +5.2
+   P3V      average    374 -6     5.5 |    +1.0    -3.2    +2.8    -3.0    +4.0    +6.2
+   (overall spread: P2 7.4, P3 6.7, P2V 4.3, P3V 4.6; win shares P2 25-78%, P3 24-68%, P2V 31-75%, P3V 27-70%)
+   Reading: with today's players P2 halves the lag (Plenum +5.5 to +8, Tunnelling +1.5 to +5) at parity, and Wormhole becomes
+   as slow as Plenum (+4 to +6), which P3's Transformation Media change cures. With visible work first, P2 alone brings every
+   method within about 4.5 turns of its field (spread 4.3, near the noise), but the science victory is 4-5 turns short, and
+   P3 overshoots (Wormhole quick for the weaker players; 6 turns short).
+
+== 5. Paying the turns back with visible work first (P2V is 5 / 4 / 5 turns short)
+   P2VS15 = P2V with the Space era x1.15 instead of x1.05.
+   label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
+   P2VS15   expert     301 -4     6.5 |    -3.0    +6.5    +2.2    -3.2    +2.5    +5.0
+   P2VS15   novice     302 -3     7.0 |    -1.3    +4.5    +1.5    -3.2    +1.0    +7.0
+   P2VS15   average    376 -4     5.5 |    -0.7    +1.5    +3.8    -2.5    +0.0    +7.0
+   (overall spread 6.3)
+   Reading: the Space price is now a weak lever. Ten per cent dearer buys one turn, because at 10% a turn most of the Space era
+   is the wait for ideas to occur rather than their study; and the dearer rows widen the spread again.
+   P2VA10 = P2V with the Atomic era x1.1; P2VO08 = P2V with a Space-era STANDARD idea's chance a turn at 8% instead of 10%.
+   label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
+   P2VA10   expert     301 -4     5.0 |    -2.7    +4.5    +1.5    -1.0    +0.0    +4.2
+   P2VA10   novice     303 -2     5.0 |    -1.3    +1.0    +2.3    -2.5    -4.0    +5.5
+   P2VA10   average    375 -5     5.8 |    -1.7    +2.5    +2.3    -1.2    -2.0    +5.0
+   P2VO08   expert     301 -4     6.3 |    -2.7    +6.3    +1.8    -3.2    +2.0    +4.0
+   P2VO08   novice     303 -2     6.0 |    -0.8    +2.8    +4.2    -3.7    +1.5    +4.2
+   P2VO08   average    376 -4     4.5 |    -1.8    +2.0    +4.0    -3.0    +1.5    +5.8
+   (overall spread: P2VA10 5.3, P2VO08 5.6)
+   Reading: these levers are weak too. The race is set by when the unified theory arrives (turn 250-253 in every world: the
+   expert reaches for it once development brings its premium within x2, and development counts Insight, not discoveries,
+   so prices do not move it) and by the build chain after it; the victory follows 15-18 turns after the build.
+   P2VX10 = P2V with the prototype at 10x the Space era's price instead of 5x (PROTOX=10), played on to the launch with P2V's
+   rivals. The prototype comes after the race, so it lengthens every method's victory alike and leaves the race untouched:
+   label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
+   P2VX10   expert     305 +0     4.3 |    -3.3    +4.0    +1.5    -3.0    +3.0    +3.0
+   P2VX10   novice     306 +1     3.8 |    -0.2    +1.3    +3.2    -2.8    +0.5    +4.5
+   P2VX10   average    380 +0     5.3 |    -1.7    +0.3    +2.0    -4.7    +2.0    +3.5
+   (overall spread 4.5, win shares 31-75%; recomputing P2V's victories at PROTOX 8, 9 and 10 gives 303 / 304 / 378,
+   304 / 305 / 379 and 305 / 306 / 380.) The prototype would take about 10 turns on a good economy and 12 on an average one,
+   instead of 5 and 6, and a failed Hail Mary would cost twice as much.
+
+== 6. The Space era's other content (non-FTL Space-era breakthroughs held at the launch, mean a game; ftl_share.py --space)
+   setting   expert  novice  average
+   V127       19.8    20.3    19.1
+   S10O       14.6    16.5    15.7
+   VP         15.2    16.1    15.1
+   P2         17.8    18.9    17.8
+   P3         16.5    17.4    16.3
+   P2V        13.2    14.1    13.7
+   P3V        12.3    13.4    12.6
+   P2VS15     12.5    13.6    12.7
+   P2VX10     13.7    14.6    14.1
+   Reading: today's 19-20 is partly the visible players' waste. While they fund a field for an idea that has not occurred, the
+   field's other ideas are studied instead. Funding visible work first returns it to the old players' 15-16, and P2's quicker
+   race takes 1-2 more off.
+
+== 7. Reading
+- The FTL-screen hint is not the cause: following section 4's wording exactly, or a fairer choice between hinted fields,
+  changes nothing.
+- Most of what seeing only the screens cost Plenum and Tunnelling came from the cheapest-first rule the expert and the
+  rivals use. It funds fields for ideas that may not have occurred, leaving visible work waiting, and the rivals then pass
+  fewer of these rows on. Funding visible work first (VISPREF) uses no hidden information and gives the expert back the old
+  players' pace (Plenum +7.5, not +15), 3 turns quicker overall. That is a question of how the benchmark players are
+  modelled, not of the design, and it is Tamsin's to decide.
+- What remains is structural: Plenum and Tunnelling each have three Space-era ideas that must occur in sequence, and the
+  Current Sail waits on two more. The sync report's two prerequisite changes (P2) take one step out of each, and work with
+  either player model: with today's players at parity (303 / 306 / 380, spread 7.4; with Transformation Media too, 6.7),
+  and with visible work first to a spread of 4.3, every method within about 4.5 turns of its field.
+- Parity with visible work first needs the turns paid back. The Space price, the Atomic price and the Space era's chance a
+  turn each buy only 1-2 turns, and all three widen the spread (to 5.3-6.3). The prototype's price buys them cleanly: at 10x the Space
+  price the package (P2VX10) is at 305 / 306 / 380 with a spread of 4.5.
+- The Space era's other content: 13.7-14.6 non-FTL Space-era breakthroughs at the launch under P2VX10, against 19-20 at
+  v3.127. Most of the difference comes from funding visible work first, as the old players' 14.6-16.5 shows; the v3.127
+  figure was inflated by fields funded for ideas that had not occurred.
+
+== 8. Labels: _cmp<label><X|N|A>_<method> and pools _pool<label> (not kept). Each setting is remade, in design/simulator/power,
+   with the settings exported (a SETCELL value's spaces and | do not survive compare_settings.sh's command line):
+     export VISPREF=1 'SETCELL=AE20|4|QM-E19 + AE14;CP10|4|((QP07 + CP01) or GN10) — **cost ×2**'   # P2V
+     for w in familiar Process Substance; do
+       bash make_pool.sh $w P2V
+       PYTHONHASHSEED=0 bash compare_settings.sh $w P2V TOVICTORY=1 SAVE_T=1 POOLTAG=P2V
+     done
+   P3's SETCELL adds ';MS17|4|(QP11 Exotic Matter Synthesis, validated, or QM-E06 Exotic Matter, validated) + (QP12 or QM-E13)
+   — **cost ×4**'. P2VS15, P2VA10 and P2VO08 add SPACEPRICE=1.15, ATOMICPRICE=1.1 or SPACEOCC=0.08 (rivals made under each);
+   P2VX10 adds PROTOX=10 and reuses P2V's rivals. H1, T1 and HT need no rivals of their own (POOLTAG=127). Tables:
+   ftl_sync.py <label>... (label@1.15 for P2VS15's Space price; PROTOX=10 in the environment for P2VX10's victories),
+   ftl_share.py --space, ftl_balance.py [--chains].
