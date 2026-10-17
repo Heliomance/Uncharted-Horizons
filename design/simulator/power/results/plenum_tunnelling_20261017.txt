@@ -15,7 +15,7 @@ field (Plenum over the two elemental worlds, Tunnelling in the familiar one). No
         met), not only the cheapest workable step's.
    T1 = HINTTIE=stick: between equally hinted fields the novice keeps last turn's field (else picks at random), instead of the
         alphabetically last one, which made Aeronautics and Computing lose every tie.
-   HT = both. The expert's games are identical to V127's in all three (the hint never reaches it), and the rivals' too.
+   HT = both. Rivals as V127's. The expert's games are identical to V127's in all three (the hint never reaches it).
 
    label    player    victory  spread |    Warp  Wormho  Hypers  Tachyo  Tunnel  Plenum
    V127     novice     308 +3    11.3 |    -4.2    +2.8    +2.3    -5.3    +7.5   +13.2
@@ -34,8 +34,9 @@ field (Plenum over the two elemental worlds, Tunnelling in the familiar one). No
  (a) The expert's (and the rivals') funding rule. Both use the cheapest-first rule: fund the field holding the cheapest step
      still wanted. With visible information the candidates include every discoverable idea the player cannot see, which may
      not have occurred, so the player funds a field whose wanted idea has not arrived (funding does not make an idea occur)
-     while steps it can see waiting elsewhere get only the spread. Long chains that start with ordinary rows suffer most.
-     Plenum's Rocketry and Materials Science steps, median discovery turn for the expert (Process world):
+     while steps it can see waiting elsewhere get only the spread. Plenum suffers most: its Current Sail waits on Rocketry
+     and Composites steps that the expert can see but leaves unfunded.
+     Plenum's steps, median discovery turn for the expert (Process world):
        row                          V127   S10O (old)   VP (section 3)
        Rocketry (RK03, CORE)         250      231          238
        Composites (MS01, CORE)       254      243          245
@@ -168,8 +169,8 @@ field (Plenum over the two elemental worlds, Tunnelling in the familiar one). No
   either player model: with today's players at parity (303 / 306 / 380, spread 7.4; with Transformation Media too, 6.7),
   and with visible work first to a spread of 4.3, every method within about 4.5 turns of its field.
 - Parity with visible work first needs the turns paid back. The Space price, the Atomic price and the Space era's chance a
-  turn each buy only 1-2 turns, and all three widen the spread (to 5.3-6.3). The prototype's price buys them cleanly: at 10x the Space
-  price the package (P2VX10) is at 305 / 306 / 380 with a spread of 4.5.
+  turn each buy only 1-2 turns, and all three widen the spread (to 5.3-6.3). The prototype's price buys them cleanly: at
+  10x the Space price the package (P2VX10) is at 305 / 306 / 380 with a spread of 4.5.
 - The Space era's other content: 13.7-14.6 non-FTL Space-era breakthroughs at the launch under P2VX10, against 19-20 at
   v3.127. Most of the difference comes from funding visible work first, as the old players' 14.6-16.5 shows; the v3.127
   figure was inflated by fields funded for ideas that had not occurred.
