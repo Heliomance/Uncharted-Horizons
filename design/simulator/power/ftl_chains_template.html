@@ -1,0 +1,178 @@
+<title>Space-Era FTL Chains</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Condensed:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one reading column; each method a section whose diagrams sit at true scale in their own horizontal scrollers,
+   today's tree above the proposed one so the eye drops straight from one to the other. */
+:root {
+  --paper: #f3f5f8;  --panel: #ffffff;  --ink: #17202b;  --ink-2: #4a5465;  --ink-3: #858e9e;  --rule: #dbe0e8;
+  --edge: #6a7384;                       /* prerequisite arrows */
+  --idea: #e2e8fb;  --idea-line: #4659b0; /* an idea that must occur */
+  --wait: #b25400;  --on-wait: #ffffff;   /* ideas in a row */
+  --drop: #bf3426;  --new: #157f53;       /* what the proposal removes and adds */
+  --theory: #4659b0;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --cond: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1219;  --panel: #151a23;  --ink: #e6e9ef;  --ink-2: #b0b7c4;  --ink-3: #7d8697;  --rule: #262e3c;
+    --edge: #8d96a7;  --idea: #222b4d;  --idea-line: #93a4f1;  --wait: #ffad5a;  --on-wait: #1b1206;
+    --drop: #ff7a6a;  --new: #4cd291;  --theory: #93a4f1;  color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1219;  --panel: #151a23;  --ink: #e6e9ef;  --ink-2: #b0b7c4;  --ink-3: #7d8697;  --rule: #262e3c;
+  --edge: #8d96a7;  --idea: #222b4d;  --idea-line: #93a4f1;  --wait: #ffad5a;  --on-wait: #1b1206;
+  --drop: #ff7a6a;  --new: #4cd291;  --theory: #93a4f1;  color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font: 15px/1.55 var(--sans); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 36px 64px; }
+h1, h2, h3, h4 { font-family: var(--cond); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: -0.005em; }
+h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.12; max-width: 22ch; }
+h2 { font-size: 25px; line-height: 1.2; }
+h3 { font-size: 20px; }
+h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+p { margin: 0; }
+code { font: 500 0.86em var(--mono); overflow-wrap: anywhere; }
+a { color: var(--idea-line); }
+a:focus-visible { outline: 2px solid var(--idea-line); outline-offset: 2px; border-radius: 2px; }
+.eyebrow { font: 600 12px var(--cond); text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.top { display: grid; gap: 12px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+.lede { max-width: 68ch; font-size: 16px; color: var(--ink-2); }
+
+/* key */
+.key { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 10px 28px; padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.key > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; align-items: center; font-size: 13.5px; color: var(--ink-2); }
+.key svg { display: block; }
+
+/* overview */
+.overview { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 36px; padding-block: 28px; border-bottom: 1px solid var(--rule); }
+@media (max-width: 860px) { .overview { grid-template-columns: minmax(0, 1fr); } }
+.overview h2 { font-size: 19px; margin-bottom: 12px; }
+.tablewrap { overflow-x: auto; }
+table.sum { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+.sum th, .sum td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.sum thead th { font: 600 12.5px/1.3 var(--cond); color: var(--ink-2); text-transform: none; }
+.th-sub { font-weight: 400; color: var(--ink-3); }
+.sum tbody th { font-weight: 600; }
+.sum tbody th a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.sum tbody th a:hover { border-bottom-color: var(--ink); }
+.sum td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+.arr { color: var(--ink-3); }
+b.to { color: var(--new); }
+.changes { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.changes li { display: grid; gap: 4px; }
+.changes .who { font: 600 11px var(--cond); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin-left: 6px; }
+.changes .was, .changes .will { font-size: 13.5px; color: var(--ink-2); padding-left: 12px; border-left: 3px solid var(--rule); }
+.changes .will { border-left-color: var(--new); color: var(--ink); }
+.changes .was span, .changes .will span { font: 600 11px var(--cond); text-transform: uppercase; letter-spacing: .08em; margin-right: 6px; color: var(--ink-3); }
+.changes .will span { color: var(--new); }
+.small { font-size: 13px; color: var(--ink-3); margin-top: 12px; max-width: 75ch; }
+
+/* worlds and methods */
+.world { display: grid; gap: 28px; padding-top: 44px; }
+.world > .sub { color: var(--ink-2); margin-top: -20px; }
+.method { display: grid; gap: 12px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.mhead { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.runs { font: 500 13px var(--mono); color: var(--ink-2); }
+.runs b { font-weight: 600; color: var(--wait); font-size: 15px; }
+.runs b.to { color: var(--new); }
+.lead { max-width: 78ch; color: var(--ink-2); }
+.same-h { padding-top: 18px; }
+figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+figcaption.ver { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+.vtag { font: 600 11px var(--cond); text-transform: uppercase; letter-spacing: .08em; padding: 2px 7px; border-radius: 4px; border: 1px solid var(--ink-2); color: var(--ink); }
+.vtag.prop { border-color: var(--new); color: var(--new); }
+.scroll { overflow-x: auto; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 6px; }
+.meta { font-size: 13.5px; color: var(--ink-2); max-width: 90ch; }
+.meta .k { font: 600 11px var(--cond); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin-right: 8px; }
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--rule); display: grid; gap: 8px; font-size: 13px; color: var(--ink-3); max-width: 90ch; }
+
+/* the diagrams */
+.flow { display: block; max-width: none; font-family: var(--cond); }
+.flow .box { stroke-width: 1.25; }
+.flow .idea .box { fill: var(--idea); stroke: var(--idea-line); }
+.flow .core .box { fill: var(--panel); stroke: var(--ink); }
+.flow .req .box { stroke-width: 2.4; }
+.flow .gone .box { stroke: var(--drop); stroke-dasharray: 5 4; }
+.flow .nm { font-size: 12px; font-weight: 600; fill: var(--ink); }
+.flow .fd { font-size: 10.5px; fill: var(--ink-2); }
+.flow .e { fill: none; stroke: var(--edge); stroke-width: 1.4; }
+.flow .e-drop { fill: none; stroke: var(--drop); stroke-width: 1.9; stroke-dasharray: 6 4; }
+.flow .e-new { fill: none; stroke: var(--new); stroke-width: 2.3; }
+.flow .mk path { fill: var(--edge); }
+.flow .mk-drop path { fill: var(--drop); }
+.flow .mk-new path { fill: var(--new); }
+.flow .or { fill: var(--panel); stroke: var(--edge); stroke-width: 1.2; }
+.flow .or-t { font: 500 8.5px var(--mono); text-anchor: middle; fill: var(--ink-2); }
+.flow .either { fill: none; stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.flow .either-t { font-size: 11px; font-style: italic; fill: var(--ink-2); }
+.flow .price { fill: var(--panel); stroke: var(--ink-2); stroke-width: 1; }
+.flow .price-t { font: 600 9.5px var(--mono); text-anchor: middle; fill: var(--ink); }
+.flow .run { fill: var(--panel); stroke: var(--wait); stroke-width: 1.6; }
+.flow .run.max { fill: var(--wait); }
+.flow .run-t { font: 600 10px var(--mono); text-anchor: middle; fill: var(--wait); }
+.flow .run-t.max { fill: var(--on-wait); }
+.flow .pill { stroke-width: 1; }
+.flow .p-build { fill: var(--ink); stroke: var(--ink); }
+.flow .p-test { fill: var(--panel); stroke: var(--ink); }
+.flow .p-theory { fill: var(--theory); stroke: var(--theory); }
+.flow .pill-t { font-size: 8.5px; font-weight: 600; letter-spacing: .07em; text-anchor: middle; }
+.flow .t-build, .flow .t-theory { fill: var(--panel); }
+.flow .t-test { fill: var(--ink); }
+.flow .tagbg { fill: var(--panel); }
+.flow .tag { font-size: 10px; font-weight: 600; text-anchor: middle; }
+.flow .e-drop-t { fill: var(--drop); }
+.flow .e-new-t { fill: var(--new); }
+@media (prefers-reduced-motion: no-preference) { .sum tbody th a { transition: border-color .15s; } }
+</style>
+
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">Uncharted Horizons · FTL endgame · {{VERSION}}</p>
+  <h1>The Space-era chains behind each FTL method</h1>
+  <p class="lede">Every Space-era breakthrough a method’s race needs, flowing from its prerequisites into its build needs, the tests of its three conditions and the unified theory. Earlier-era prerequisites are left out. Each method is drawn as the tree stands today and, where it changes, with the three proposed prerequisite changes.</p>
+</header>
+
+<section class="key" aria-label="How to read the diagrams">
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><g class="node idea"><rect class="box" x="12" y="10" width="80" height="26" rx="6"/></g><circle class="run" cx="12" cy="12" r="9"/><text class="run-t" x="12" y="15.6">2</text></svg>
+    <span>An idea: it must occur, at 10% a turn in the Space era, before it can be studied. The badge counts the ideas that must occur one after another up to this one, on its quickest route.</span></div>
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><g class="node core"><rect class="box" x="12" y="10" width="80" height="26" rx="6"/></g></svg>
+    <span>CORE: studied as soon as its prerequisites are met, with nothing to wait for.</span></div>
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><circle class="run max" cx="14" cy="20" r="9"/><text class="run-t max" x="14" y="23.6">3</text><rect class="price" x="40" y="13" width="40" height="14" rx="7"/><text class="price-t" x="60" y="23.3">×2.5</text></svg>
+    <span>The longest run in each figure is filled. The chip gives a price multiplier.</span></div>
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><rect class="pill p-build" x="2" y="4" width="42" height="14" rx="3"/><text class="pill-t t-build" x="23" y="14.2">BUILD</text><rect class="pill p-test" x="50" y="4" width="38" height="14" rx="3"/><text class="pill-t t-test" x="69" y="14.2">TEST</text><rect class="pill p-theory" x="2" y="23" width="52" height="14" rx="3"/><text class="pill-t t-theory" x="28" y="33.2">THEORY</text></svg>
+    <span>What the race needs it for. A heavy outline marks every breakthrough the race needs itself; the rest are prerequisites.</span></div>
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><defs><marker id="a-key" class="mk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z"/></marker></defs><path class="e" d="M4,8 C30,8 40,20 58,20"/><path class="e" d="M4,32 C30,32 40,20 58,20"/><path class="e" d="M73,20 L91,20" marker-end="url(#a-key)"/><circle class="or" cx="65.5" cy="20" r="7.5"/><text class="or-t" x="65.5" y="23">or</text></svg>
+    <span>Arrows run from a prerequisite to what it unlocks. Where they meet at “or”, either prerequisite will do.</span></div>
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><rect class="either" x="4" y="4" width="48" height="32" rx="8"/><text class="either-t" x="57" y="24">either</text></svg>
+    <span>Either breakthrough answers the test.</span></div>
+  <div><svg class="flow" width="96" height="40" viewBox="0 0 96 40" aria-hidden="true"><defs><marker id="d-key" class="mk mk-drop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z"/></marker><marker id="n-key" class="mk mk-new" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z"/></marker></defs><path class="e-drop" d="M4,11 L90,11" marker-end="url(#d-key)"/><path class="e-new" d="M4,30 L90,30" marker-end="url(#n-key)"/></svg>
+    <span>Red dashed: a prerequisite the proposal removes (a dashed red box leaves the route). Green: one it adds.</span></div>
+</section>
+
+<section class="overview">
+  <div>
+    <h2>Ideas that must occur in a row</h2>
+    <div class="tablewrap">{{TABLE}}</div>
+    {{LAGNOTE}}
+  </div>
+  <div>
+    <h2>The proposed changes</h2>
+    <ul class="changes">{{CHANGES}}</ul>
+    <p class="small">The first two are the sync report’s; Transformation Media’s helps only with today’s players. None is in the design document yet.</p>
+  </div>
+</section>
+
+{{SECTIONS}}
+
+<footer>
+  <p>Drawn are the build needs the FTL screen lists, the tests of the method’s own three conditions and the unified theory: what a player needs to be certain of the method and to build its prototype. Where a test needs an instrument, its own breakthrough unlocks it, so instruments add nothing here.</p>
+  <p>Where Biological Depth makes the biological route real, Bio-Quantum Coherence also tests coherence for Tunnelling; the simulator leaves that route out, and so does this page. Where a row has a name for each elemental world, the first is shown; hovering a breakthrough gives its full name, field, tier and role.</p>
+  <p>From <code>design/tech_tree.md</code> ({{VERSION}}) as the simulator reads it, with the proposal patched into a private copy; drawn by <code>design/simulator/power/ftl_chains.py</code>.</p>
+</footer>
+</div>
